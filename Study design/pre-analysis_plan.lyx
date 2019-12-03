@@ -149,6 +149,17 @@ key "crespi2016improved"
 
 , we evaluate the impact of X interventions on demand and supply of improved
  seed in Uganda.
+ In one experiment, we will assess the impact of reducing information asymmetry
+ through crowd-sourced user ratings of seed suppliers, using a yelp style
+ information clearinghouse 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hasanain2019no"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Section
@@ -328,15 +339,121 @@ unit of analysis, population, and inclusion/exclusion criteria
 \end_layout
 
 \begin_layout Section
-method (observational, experimental, quasi-experimental)
+experimental design and power calculations
 \end_layout
 
 \begin_layout Standard
-We will use an experimental design that allows for differentiation for 
+We will use an experimental design that allows for differentiation between
+ supply side effects and demand side effects of each intervention.
+ Furthermore, we will assess the importance of spillovers using a randomized
+ saturation designs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baird2018optimal"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We start with a census of all seed shops and agro input dealers in our study
+ population.
+ For each sees shop, a catchment area is defined
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We still need to figure out how to handle overlapping catchment areas
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The design is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Experimental-design"
+
+\end_inset
+
+.
+ In each catchment area of a shop, farmers are sampled.
+ A random subset of these farmers are enrolled in the project, while others
+ function as controls.
+ Simply comparing average outcomes of treatment and control farmers will
+ provide an estimate of the demand side effect of the intervention.
+ However, we will vary treatment intensity per catchment area to assess
+ spillover effects.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design_layout.pdf
+	scale 50
+	BoundingBox 2cm 10cm 25cm 25cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental design
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Experimental-design"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The design also enables us to assess the impact of the intervention on seed
+ suppliers.
+ This can be done by comparing outcomes of shops that operate in a catchment
+ area where the intervention was done to outcomes of shops in areas where
+ the intervention was not implemented.
+ In fact, instead of just comparing outcomes of shops surrounded by both
+ treatment and control households to shops surrounded by only control households
+, we can also look at treatment intensity effects on shops by conditioning
+ on the proportion of treated farmers in the catchment area of a shop.
 \end_layout
 
 \begin_layout Section
-experimental intervention or explanatory variable, and 
+experimental intervention 
 \end_layout
 
 \begin_layout Section
