@@ -125,6 +125,15 @@ Demand and supply factors constraining the emergence and sustainability
  of an efficient seed system: A pre-analysis plan
 \end_layout
 
+\begin_layout Standard
+or
+\end_layout
+
+\begin_layout Standard
+Leveraging social networks to reduce information asymmetries: The case of
+ seed in Uganda
+\end_layout
+
 \begin_layout Abstract
 This document formalizes and declares the design and analysis plan for the
  study.
@@ -160,6 +169,33 @@ key "hasanain2019no"
 
 .
  
+\end_layout
+
+\begin_layout Standard
+In a first intervention, we set up a crowd-sourced information clearing
+ mechanism to collect and disseminate information related to seed quality
+ (and service delivery more general) with the aim of reducing information
+ asymmetry and subsequent averse selection.
+ In Pakistan, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+
+\end_inset
+
+ show that such a system has been found to significantly increase the success
+ rate of artificial insemination (AI).
+ Interestingly, the increased effectiveness of AI is due to veterinaries
+ exerting greater effort as they become aware that they are being rated,
+ rather than customers switching to the highest rated, more successful veterinar
+ies.
+\end_layout
+
+\begin_layout Standard
+In a second intervention, we want to encourage seed providers to enter into
+ a more durable relationship with farmers, with after sales services such
+ as timely advise on fertilizer application and other crop management practices
+ that are needed to optimize returns to improve seed.
 \end_layout
 
 \begin_layout Section
@@ -463,12 +499,11 @@ outcomes of interest
 \begin_layout Standard
 For continuous variables, 5 percent trimmed values will be use (2.5 percent
  trimming at each side of the distribution).
- Logarithms will be used if the ratio of skewness to its standard error
- exceeds 1.96.
- Trimming and log transformations will always be done on end results.
+ Inverse hyperbolic sine transforms will be used if skewness exceeds 1.96.
+ Trimming will always be done on end results.
  For instance, if the outcome is yield at the plot level, then production
- will first be divided by plot area, after which yield is trimmed and logarithms
- taken.
+ will first be divided by plot area, after which inverse hyperbolic sine
+ is taken and the end result is trimmed.
  Outcomes for which 95 percent of observations have the same value within
  the relevant sample will be omitted from the analysis and will not be included
  in any indicators or hypothesis tests.
