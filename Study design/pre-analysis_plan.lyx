@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -60,6 +62,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -68,7 +71,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -139,7 +145,7 @@ This document formalizes and declares the design and analysis plan for the
  study.
  It includes the full list of hypotheses that we intend to test, how we
  will measure variables relevant to those hypotheses.
- 
+ HELLO
 \end_layout
 
 \begin_layout Section
@@ -153,6 +159,7 @@ In Uganda, various demand and supply factors constrain the emergence and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "crespi2016improved"
+literal "true"
 
 \end_inset
 
@@ -164,6 +171,7 @@ key "crespi2016improved"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hasanain2019no"
+literal "true"
 
 \end_inset
 
@@ -180,6 +188,7 @@ In a first intervention, we set up a crowd-sourced information clearing
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
+literal "true"
 
 \end_inset
 
@@ -213,6 +222,7 @@ There seems to be a renewed interest in agricultural technology adoption.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "jack2011constraints,de2017field,de2016agricultural,doi:10.1146/annurev-resource-100517-023202"
+literal "true"
 
 \end_inset
 
@@ -244,6 +254,7 @@ cash/credit.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "doi:10.1146/annurev-resource-100517-023202"
+literal "true"
 
 \end_inset
 
@@ -285,6 +296,7 @@ Another hot topic, also from a policy perspective, may be related to enforcement
 \begin_inset CommandInset citation
 LatexCommand citep
 key "barriga2018supply"
+literal "true"
 
 \end_inset
 
@@ -304,6 +316,7 @@ There are also indications that part of the problem is related to misperceptions
 \begin_inset CommandInset citation
 LatexCommand citep
 key "article"
+literal "true"
 
 \end_inset
 
@@ -386,6 +399,7 @@ We will use an experimental design that allows for differentiation between
 \begin_inset CommandInset citation
 LatexCommand citep
 key "baird2018optimal"
+literal "true"
 
 \end_inset
 
@@ -433,7 +447,7 @@ reference "fig:Experimental-design"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -542,6 +556,7 @@ profit.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/ajae/aay050"
+literal "true"
 
 \end_inset
 
@@ -608,6 +623,7 @@ To correct for multiple hypotheses, we will follow two approaches.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
+literal "true"
 
 \end_inset
 
@@ -620,6 +636,7 @@ key "anderson2008multiple"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "caughey2017nonparametric"
+literal "true"
 
 \end_inset
 
