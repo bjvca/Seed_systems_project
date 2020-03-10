@@ -1,10 +1,15 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -21,8 +26,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -62,7 +65,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -71,10 +73,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -195,7 +194,6 @@ In Uganda, various demand and supply factors constrain the emergence and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "crespi2016improved"
-literal "true"
 
 \end_inset
 
@@ -207,7 +205,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hasanain2019no"
-literal "true"
 
 \end_inset
 
@@ -224,7 +221,6 @@ In a first intervention, we set up a crowd-sourced information clearing
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
-literal "true"
 
 \end_inset
 
@@ -255,7 +251,6 @@ Poverty is predominantly a rural problem.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "castaneda2018new"
-literal "false"
 
 \end_inset
 
@@ -273,7 +268,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bachewe2018agricultural"
-literal "false"
 
 \end_inset
 
@@ -283,7 +277,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ligon2018estimating"
-literal "false"
 
 \end_inset
 
@@ -303,7 +296,6 @@ y adoption for economic development and agricultural transformation
 \begin_inset CommandInset citation
 LatexCommand citep
 key "griliches1957hybrid,foster1995learning"
-literal "false"
 
 \end_inset
 
@@ -312,7 +304,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gollin2005technology"
-literal "false"
 
 \end_inset
 
@@ -323,7 +314,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "magruder2018assessment"
-literal "false"
 
 \end_inset
 
@@ -355,7 +345,6 @@ n of the relationships between the constraint-relaxing intervention and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
-literal "false"
 
 \end_inset
 
@@ -363,7 +352,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
-literal "false"
 
 \end_inset
 
@@ -371,7 +359,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
-literal "false"
 
 \end_inset
 
@@ -379,7 +366,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
-literal "false"
 
 \end_inset
 
@@ -387,7 +373,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
-literal "false"
 
 \end_inset
 
@@ -397,7 +382,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
-literal "false"
 
 \end_inset
 
@@ -405,7 +389,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
-literal "false"
 
 \end_inset
 
@@ -413,7 +396,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
-literal "false"
 
 \end_inset
 
@@ -421,16 +403,14 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fabregas2019realizing,van2018information"
-literal "false"
 
 \end_inset
 
-and several other innovative approaches.
+ and several other innovative approaches.
  Various review articles summarize the (often ongoing) research 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "jack2011constraints,de2017field,de2016agricultural,doi:10.1146/annurev-resource-100517-023202"
-literal "true"
 
 \end_inset
 
@@ -455,7 +435,6 @@ We propose a study that addresses a recently identified constraint to adoption:
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs,bold2017lemon,barriga2018supply"
-literal "false"
 
 \end_inset
 
@@ -509,7 +488,6 @@ We will use an experimental design that allows for differentiation between
 \begin_inset CommandInset citation
 LatexCommand citep
 key "baird2018optimal"
-literal "true"
 
 \end_inset
 
@@ -666,7 +644,6 @@ profit.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/ajae/aay050"
-literal "true"
 
 \end_inset
 
@@ -733,7 +710,6 @@ To correct for multiple hypotheses, we will follow two approaches.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
-literal "true"
 
 \end_inset
 
@@ -746,7 +722,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "caughey2017nonparametric"
-literal "true"
 
 \end_inset
 
