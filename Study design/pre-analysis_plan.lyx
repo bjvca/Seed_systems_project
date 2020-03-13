@@ -188,61 +188,6 @@ s more salient to farmers will be tested.
 Overview of the study design
 \end_layout
 
-\begin_layout Standard
-In Uganda, various demand and supply factors constrain the emergence and
- sustainability of an efficient seed system and value chain.
- We use a full factorial cluster randomized control trial 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "crespi2016improved"
-literal "true"
-
-\end_inset
-
-, we evaluate the impact of X interventions on demand and supply of improved
- seed in Uganda.
- In one experiment, we will assess the impact of reducing information asymmetry
- through crowd-sourced user ratings of seed suppliers, using a yelp style
- information clearinghouse 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "hasanain2019no"
-literal "true"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-In a first intervention, we set up a crowd-sourced information clearing
- mechanism to collect and disseminate information related to seed quality
- (and service delivery more general) with the aim of reducing information
- asymmetry and subsequent averse selection.
- In Pakistan, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "hasanain2019no"
-literal "true"
-
-\end_inset
-
- show that such a system has been found to significantly increase the success
- rate of artificial insemination (AI).
- Interestingly, the increased effectiveness of AI is due to veterinaries
- exerting greater effort as they become aware that they are being rated,
- rather than customers switching to the highest rated, more successful veterinar
-ies.
-\end_layout
-
-\begin_layout Standard
-In a second intervention, we want to encourage seed providers to enter into
- a more durable relationship with farmers, with after sales services such
- as timely advise on fertilizer application and other crop management practices
- that are needed to optimize returns to improve seed.
-\end_layout
-
 \begin_layout Section
 Background
 \end_layout
@@ -448,10 +393,12 @@ We propose a study that addresses a recently identified constraint to adoption:
  seed.
  Maize is an important crop in Uganda, both for home consumption and as
  a source of income.
- However, recent studies argue that smallholder adoption of improved inputs
- in Uganda, and of improved maize seed in particular, is limited by farmers’
- beliefs that the inputs are of poor quality - counterfeited, adulterated,
- or otherwise non-performant 
+ However, various factors constrain the emergence and sustainability of
+ an efficient Ugandan seed system.
+ Recent studies argue that smallholder adoption of improved inputs in Uganda,
+ and of improved maize seed in particular, is limited by farmers’ beliefs
+ that the inputs are of poor quality - counterfeited, adulterated, or otherwise
+ non-performant 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs,bold2017lemon,barriga2018supply"
@@ -897,17 +844,19 @@ literal "false"
  system.
  In our study, we will test an alternative decentralized system that is
  based on crowdsourced information and works through reputational mechanisms
- and peer pressure, much like yelp.com or tripadvisor.com - what we refer
- to as an information clearinghouse.
+ and peer pressure, much like yelp.com or tripadvisor.com.
 \end_layout
 
 \begin_layout Standard
-For our information clearinghouse treatment, we will ask a sample of farmers
- to rate input dealers in their vicinity on a series of attributes (product
- quality, price, after sales service, and so forth).
+This so called information clearinghouse works through crowd-sourced user
+ ratings of input dealers and aims to reduce information asymmetry and subsequen
+t averse selection.
+ For this second treatment, we will ask a sample of farmers to rate input
+ dealers in their vicinity on a series of attributes related to seed quality
+ (and service delivery more general) (collection of information).
  We will then disclose this information to the farmers by providing them
  with an input dealer’s average rating before the start of the next planting
- season.
+ season (dissemination of information).
  We will exploit ICT to implement this clearinghouse.
  However, the precise implementation (e.g., dissemination of information by
  text messages to farmers/by notice boards) will be decided upon after thorough
@@ -990,7 +939,7 @@ literal "false"
  provide the only study that introduces an information clearinghouse analogous
  to ours.
  They find that farmers who use a clearinghouse for veterinarian ratings
- enjoy 25 percent higher insemination success.
+ in Pakistan enjoy 25 percent a higher success rate of artificial insemination.
  It is interesting to note that this impact seems mostly due to increased
  veterinarian effort and not due to farmers switching from veterinaries
  that receive poor ratings to veterinaries that receive good ratings.
@@ -999,13 +948,14 @@ literal "false"
 \begin_layout Standard
 With regard to this information clearing house intervention, we anticipate
  different mechanisms to be at work.
- To begin with, we hypothesize farmers to switch from input dealers with
- low rankings to input dealers with high rankings, which increases the quality
- of the seed the farmers purchase, their perception of this quality and
- their chosen input dealer and therefore, their seed adoption.
- Furthermore, the clearing house could raise the input dealers' effort (less
- adulteration, more commitment related to handling and storage) and therefore,
- seed quality, seed quality and input dealer perceptions and seed adoption.
+ To begin with, we hypothesize farmers to switch from low rated input dealers
+ to highest rated input dealers, which increases the quality of the seed
+ the farmers purchase, their perception of this quality and their chosen
+ input dealer and therefore, their seed adoption.
+ Furthermore, the clearing house could raise the input dealers' effort as
+ he/she becomes aware of being rated (less adulteration, more commitment
+ related to handling and storage) and therefore, seed quality, seed quality
+ and input dealer perceptions and seed adoption.
  To explore this causal chain and disentangle these two potential mechanisms,
  we specify these key outcomes of interest and how to measure them specifically:
 \end_layout
@@ -1179,7 +1129,9 @@ Thus, our third intervention differs from a pure information treatment and
  We will do so by introducing after-sales services provided by the input
  dealer.
  It will involve a series of text messages, phone calls, and visits from
- the input dealer to the farmer.
+ the input dealer to the farmer and could include timely advise on fertilizer
+ application and other crop management practices that are needed to optimize
+ returns to improve seed.
  
 \begin_inset Note Note
 status open
@@ -1324,8 +1276,18 @@ Randomized controlled trials
 
 \begin_layout Standard
 To test the three hypotheses, we will implement three interventions and
- measure their effects by means of randomized controlled trials (RCT) using
- a cross-randomization design.
+ measure their effects by means of full factorial cluster randomized controlled
+ trials (RCT) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "crespi2016improved"
+literal "true"
+
+\end_inset
+
+.
+ We will use a cross-randomization design to evaluate the impact of three
+ interventions on demand and supply of improved seed in Uganda.
  All interventions will be implemented at the level of the input dealer
  catchment area.
  That is, in the catchment area of a random subset of input dealers, we
@@ -1380,7 +1342,9 @@ from x (describe origin of data)
 status open
 
 \begin_layout Plain Layout
-?
+? A series of power calculations will be performed to decide upon the final
+ sample size.
+ 
 \end_layout
 
 \end_inset
@@ -1424,7 +1388,9 @@ farmers per input dealer catchment area.
 status open
 
 \begin_layout Plain Layout
-?
+? A series of power calculations will be performed to decide upon the final
+ sample size.
+ 
 \end_layout
 
 \end_inset
@@ -1494,9 +1460,86 @@ and what variables will be included in tests of survey attrition.
 
 \end_layout
 
+\begin_layout Section
+Methodology
+\end_layout
+
 \begin_layout Standard
-what the key sources of data will be for the study, including which surveys
- are planned, and what types of administrative data are planned.
+Due to the randomized assignment to treatment and control groups, simply
+ comparing outcome variable means of treatment and control farmers and input
+ dealers provides unbiased estimates of the effect of the interventions
+ on the outcomes of interest.
+ To increase power, we condition the estimates on baseline values of the
+ outcome variables.
+ We estimate the following specification with ordinary least-squares (OLS)
+ to get the average treatment effects (ATE) of our interventions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\epsilon_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where Y_1ij is the outcome variable for farmer/input dealer i in cluster
+ j at end line, Y_0ij is the corresponding outcome at baseline, T_j is a
+ dummy for the treatment status of catchment area j, X_ij is a vector of
+ all the interactions between the different orthogonal treatments in the
+ factorial design, and ε_ij is a farmer/input dealer-specific error term.
+ The coefficient β is our estimated ATE.
+\end_layout
+
+\begin_layout Standard
+Throughout the study, we will rely on the difference-in-means as our test
+ statistic.
+ The clustered design forces us to use correct standard error estimates
+ for observational dependence within clusters.
+ We will use randomization inference for consistently estimating standard
+ errors in our finite sample.
+ In general, we will use two-tailed tests and traditional confidence thresholds
+ of 10, 5 and 1 percent.
+ Because we will test for treatment effects on a range of outcomes measures,
+ we will account for multiple hypothesis testing by means of two approaches.
+ Firstly, we follow a method proposed by Anderson (2008) and aggregate multiple
+ outcome measures within each domain in summary indices.
+ Each index is computed as a weighted mean of the standardized values of
+ the outcome variables.
+ The weights of this efficient generalized least squares estimator are calculate
+d to maximize the amount of information captured in the index by giving
+ less weight to outcomes that are highly correlated with each other.
+ Secondly, we run an omnibus test to assess the joint probability of observing
+ the theoretically predicted pattern of results under the sharp null of
+ no effects (Caughey, Dafoe, & Seawright, 2017).
+\end_layout
+
+\begin_layout Standard
+Risks and contingency plans
+\end_layout
+
+\begin_layout Standard
+Secondly, attrition is a risk inherent to RCTs.
+ For our study, we do not expect much attrition because the surveys will
+ be conducted over a reasonably short time period.
+ That is why we expect most baseline respondents to also be available for
+ the end line survey.
+ However, we will take measures to trace missing respondents to further
+ reduce attrition.
+ We will record names, phone numbers, addresses and GPS information of farmers
+ and input dealers in the first round.
+ If we find that attrition is more than 10 percent, we will test whether
+ attrition is correlated with the treatments, and estimate Horowitz and
+ Manski (2000) or Lee (2009) bounds, if necessary.
+\end_layout
+
+\begin_layout Standard
+Fourthly, we still consider how to deal with overlapping catchment areas
+ of treatment and control dealers.
+ A randomized saturation design is one possible approach to optimally design
+ experiments when there is interference between units (Baird, Bohren, McIntosh,
+ & Özler, 2018).
+ 
 \end_layout
 
 \begin_layout Section
