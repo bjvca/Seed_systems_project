@@ -1,10 +1,15 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -21,8 +26,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -62,7 +65,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -71,10 +73,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -200,7 +199,6 @@ Poverty is predominantly a rural problem.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "castaneda2018new"
-literal "true"
 
 \end_inset
 
@@ -218,7 +216,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bachewe2018agricultural"
-literal "true"
 
 \end_inset
 
@@ -228,7 +225,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ligon2018estimating"
-literal "true"
 
 \end_inset
 
@@ -248,7 +244,6 @@ y adoption for economic development and agricultural transformation
 \begin_inset CommandInset citation
 LatexCommand citep
 key "griliches1957hybrid,foster1995learning"
-literal "true"
 
 \end_inset
 
@@ -257,7 +252,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gollin2005technology"
-literal "true"
 
 \end_inset
 
@@ -268,7 +262,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "magruder2018assessment"
-literal "true"
 
 \end_inset
 
@@ -300,7 +293,6 @@ n of the relationships between the constraint-relaxing intervention and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
-literal "true"
 
 \end_inset
 
@@ -308,7 +300,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
-literal "true"
 
 \end_inset
 
@@ -316,7 +307,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
-literal "true"
 
 \end_inset
 
@@ -324,7 +314,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
-literal "true"
 
 \end_inset
 
@@ -332,7 +321,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
-literal "true"
 
 \end_inset
 
@@ -342,7 +330,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
-literal "true"
 
 \end_inset
 
@@ -350,7 +337,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
-literal "true"
 
 \end_inset
 
@@ -358,7 +344,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
-literal "true"
 
 \end_inset
 
@@ -366,7 +351,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fabregas2019realizing,van2018information"
-literal "true"
 
 \end_inset
 
@@ -375,7 +359,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "jack2011constraints,de2017field,de2016agricultural,doi:10.1146/annurev-resource-100517-023202"
-literal "true"
 
 \end_inset
 
@@ -402,7 +385,6 @@ We propose a study that addresses a recently identified constraint to adoption:
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs,bold2017lemon,barriga2018supply"
-literal "true"
 
 \end_inset
 
@@ -448,7 +430,6 @@ This first hypothesis refers to informational inefficiency.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "beegle2019accelerating"
-literal "false"
 
 \end_inset
 
@@ -457,7 +438,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "duflo2011poor"
-literal "false"
 
 \end_inset
 
@@ -476,7 +456,6 @@ Also in the context of smallholder agriculture, informational inefficiencies
 \begin_inset CommandInset citation
 LatexCommand citet
 key "islam2014can"
-literal "false"
 
 \end_inset
 
@@ -485,7 +464,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "glennerster2015measuring"
-literal "false"
 
 \end_inset
 
@@ -494,7 +472,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "duflo2011nudging"
-literal "false"
 
 \end_inset
 
@@ -506,7 +483,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "van2018information"
-literal "false"
 
 \end_inset
 
@@ -524,7 +500,6 @@ Our first intervention is designed to provide information about correct
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs"
-literal "false"
 
 \end_inset
 
@@ -532,7 +507,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon"
-literal "false"
 
 \end_inset
 
@@ -540,7 +514,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "govender2008effect"
-literal "false"
 
 \end_inset
 
@@ -549,7 +522,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "shah2002storage"
-literal "false"
 
 \end_inset
 
@@ -558,7 +530,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barriga2018supply"
-literal "false"
 
 \end_inset
 
@@ -584,7 +555,6 @@ A small piece of information can be very effective but not every information
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fabregas2019realizing"
-literal "false"
 
 \end_inset
 
@@ -593,7 +563,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "vandevelde2018spoiler"
-literal "false"
 
 \end_inset
 
@@ -606,7 +575,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "benyishay2019social"
-literal "false"
 
 \end_inset
 
@@ -616,7 +584,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bertrand2010s"
-literal "false"
 
 \end_inset
 
@@ -818,7 +785,6 @@ This second hypothesis deals with the information asymmetry between seed
 \begin_inset CommandInset citation
 LatexCommand citeauthor
 key "akerlof1978market"
-literal "false"
 
 \end_inset
 
@@ -826,7 +792,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citeyearpar
 key "akerlof1978market"
-literal "false"
 
 \end_inset
 
@@ -886,7 +851,6 @@ While the previous intervention relies on training of input dealers to target
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bold2017lemon"
-literal "false"
 
 \end_inset
 
@@ -895,7 +859,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ashour2016beliefs"
-literal "false"
 
 \end_inset
 
@@ -913,7 +876,6 @@ Measuring the impact of an information clearinghouse fills an important
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fafchamps2012impact,mitra2013asymmetric,jensen2007digital"
-literal "false"
 
 \end_inset
 
@@ -932,7 +894,6 @@ e good until it has actually been purchased and used.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
-literal "false"
 
 \end_inset
 
@@ -1033,7 +994,6 @@ While seeds of improved maize varieties often provide higher yields than
 \begin_inset CommandInset citation
 LatexCommand citet
 key "michelson2018misperceived"
-literal "false"
 
 \end_inset
 
@@ -1048,7 +1008,6 @@ Learning is crucial in this agricultural context because production functions
 \begin_inset CommandInset citation
 LatexCommand citep
 key "foster1995learning"
-literal "false"
 
 \end_inset
 
@@ -1056,7 +1015,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "banerjee1992simple"
-literal "false"
 
 \end_inset
 
@@ -1068,7 +1026,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "camerer1999experience"
-literal "false"
 
 \end_inset
 
@@ -1077,7 +1034,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barham2015risk"
-literal "false"
 
 \end_inset
 
@@ -1087,7 +1043,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gars2019can"
-literal "false"
 
 \end_inset
 
@@ -1112,7 +1067,6 @@ t of interest.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "allen2011interaction,hanna2014learning"
-literal "false"
 
 \end_inset
 
@@ -1162,7 +1116,6 @@ Our intervention is built on the growing evidence that encouraging agents
 \begin_inset CommandInset citation
 LatexCommand citep
 key "allen2011interaction,beaman2014minding"
-literal "false"
 
 \end_inset
 
@@ -1171,7 +1124,6 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hanna2014learning"
-literal "false"
 
 \end_inset
 
@@ -1281,7 +1233,6 @@ To test the three hypotheses, we will implement three interventions and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "crespi2016improved"
-literal "true"
 
 \end_inset
 
@@ -1476,19 +1427,56 @@ Due to the randomized assignment to treatment and control groups, simply
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\epsilon_{ij}$
+\begin_inset Formula 
+\begin{equation}
+Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}
+\end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where Y_1ij is the outcome variable for farmer/input dealer i in cluster
- j at end line, Y_0ij is the corresponding outcome at baseline, T_j is a
- dummy for the treatment status of catchment area j, X_ij is a vector of
- all the interactions between the different orthogonal treatments in the
- factorial design, and ε_ij is a farmer/input dealer-specific error term.
- The coefficient β is our estimated ATE.
+where 
+\begin_inset Formula $Y_{1ij}$
+\end_inset
+
+ is the outcome variable for farmer/input dealer 
+\emph on
+i
+\emph default
+ in cluster 
+\emph on
+j
+\emph default
+ at end line, 
+\begin_inset Formula $Y_{0ij}$
+\end_inset
+
+ is the corresponding outcome at baseline, 
+\begin_inset Formula $T_{j}$
+\end_inset
+
+ is a dummy for the treatment status of catchment area 
+\emph on
+j
+\emph default
+, 
+\begin_inset Formula $X_{ij}$
+\end_inset
+
+ is a vector of all the interactions between the different orthogonal treatments
+ in the factorial design, and 
+\begin_inset Formula $ε_{ij}$
+\end_inset
+
+ is a farmer/input dealer-specific error term.
+ The coefficient 
+\begin_inset Formula $β$
+\end_inset
+
+ is our estimated ATE.
 \end_layout
 
 \begin_layout Standard
@@ -1558,7 +1546,6 @@ We will use an experimental design that allows for differentiation between
 \begin_inset CommandInset citation
 LatexCommand citep
 key "baird2018optimal"
-literal "true"
 
 \end_inset
 
@@ -1715,7 +1702,6 @@ profit.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/ajae/aay050"
-literal "true"
 
 \end_inset
 
@@ -1782,7 +1768,6 @@ To correct for multiple hypotheses, we will follow two approaches.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
-literal "true"
 
 \end_inset
 
@@ -1795,7 +1780,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "caughey2017nonparametric"
-literal "true"
 
 \end_inset
 
