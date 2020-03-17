@@ -1,15 +1,10 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
-\begin_preamble
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
-\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -26,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -65,6 +62,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -73,7 +71,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -199,6 +200,7 @@ Poverty is predominantly a rural problem.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "castaneda2018new"
+literal "true"
 
 \end_inset
 
@@ -216,6 +218,7 @@ key "castaneda2018new"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bachewe2018agricultural"
+literal "true"
 
 \end_inset
 
@@ -225,6 +228,7 @@ key "bachewe2018agricultural"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ligon2018estimating"
+literal "true"
 
 \end_inset
 
@@ -244,6 +248,7 @@ y adoption for economic development and agricultural transformation
 \begin_inset CommandInset citation
 LatexCommand citep
 key "griliches1957hybrid,foster1995learning"
+literal "true"
 
 \end_inset
 
@@ -252,6 +257,7 @@ key "griliches1957hybrid,foster1995learning"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gollin2005technology"
+literal "true"
 
 \end_inset
 
@@ -262,6 +268,7 @@ key "gollin2005technology"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "magruder2018assessment"
+literal "true"
 
 \end_inset
 
@@ -293,6 +300,7 @@ n of the relationships between the constraint-relaxing intervention and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
+literal "true"
 
 \end_inset
 
@@ -300,6 +308,7 @@ key "ashraf2009finding"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
+literal "true"
 
 \end_inset
 
@@ -307,6 +316,7 @@ key "duflo2011nudging"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
+literal "true"
 
 \end_inset
 
@@ -314,6 +324,7 @@ key "suri2011selection"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
+literal "true"
 
 \end_inset
 
@@ -321,6 +332,7 @@ key "karlan2014agricultural"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
+literal "true"
 
 \end_inset
 
@@ -330,6 +342,7 @@ key "hanna2014learning"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
+literal "true"
 
 \end_inset
 
@@ -337,6 +350,7 @@ key "duflo2011nudging"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
+literal "true"
 
 \end_inset
 
@@ -344,6 +358,7 @@ key "karlan2014agricultural"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
+literal "true"
 
 \end_inset
 
@@ -351,6 +366,7 @@ key "hanna2014learning"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fabregas2019realizing,van2018information"
+literal "true"
 
 \end_inset
 
@@ -359,6 +375,7 @@ key "fabregas2019realizing,van2018information"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "jack2011constraints,de2017field,de2016agricultural,doi:10.1146/annurev-resource-100517-023202"
+literal "true"
 
 \end_inset
 
@@ -385,6 +402,7 @@ We propose a study that addresses a recently identified constraint to adoption:
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs,bold2017lemon,barriga2018supply"
+literal "true"
 
 \end_inset
 
@@ -430,6 +448,7 @@ This first hypothesis refers to informational inefficiency.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "beegle2019accelerating"
+literal "true"
 
 \end_inset
 
@@ -438,6 +457,7 @@ key "beegle2019accelerating"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "duflo2011poor"
+literal "true"
 
 \end_inset
 
@@ -456,6 +476,7 @@ Also in the context of smallholder agriculture, informational inefficiencies
 \begin_inset CommandInset citation
 LatexCommand citet
 key "islam2014can"
+literal "true"
 
 \end_inset
 
@@ -464,6 +485,7 @@ key "islam2014can"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "glennerster2015measuring"
+literal "true"
 
 \end_inset
 
@@ -472,6 +494,7 @@ key "glennerster2015measuring"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "duflo2011nudging"
+literal "true"
 
 \end_inset
 
@@ -483,6 +506,7 @@ key "duflo2011nudging"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "van2018information"
+literal "true"
 
 \end_inset
 
@@ -500,6 +524,7 @@ Our first intervention is designed to provide information about correct
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashour2016beliefs"
+literal "true"
 
 \end_inset
 
@@ -507,6 +532,7 @@ key "ashour2016beliefs"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon"
+literal "true"
 
 \end_inset
 
@@ -514,6 +540,7 @@ key "bold2017lemon"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "govender2008effect"
+literal "true"
 
 \end_inset
 
@@ -522,6 +549,7 @@ key "govender2008effect"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "shah2002storage"
+literal "true"
 
 \end_inset
 
@@ -530,6 +558,7 @@ key "shah2002storage"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barriga2018supply"
+literal "true"
 
 \end_inset
 
@@ -555,6 +584,7 @@ A small piece of information can be very effective but not every information
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fabregas2019realizing"
+literal "true"
 
 \end_inset
 
@@ -563,6 +593,7 @@ key "fabregas2019realizing"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "vandevelde2018spoiler"
+literal "true"
 
 \end_inset
 
@@ -575,6 +606,7 @@ key "vandevelde2018spoiler"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "benyishay2019social"
+literal "true"
 
 \end_inset
 
@@ -584,6 +616,7 @@ key "benyishay2019social"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bertrand2010s"
+literal "true"
 
 \end_inset
 
@@ -742,7 +775,10 @@ confidence in the input dealer, as measured by question x on the farmer
 
 \end_deeper
 \begin_layout Itemize
-farmers' seed adoption:
+farmers' seed adoption (use rates of improved seed depends on the definition
+ and how it is measured.
+ For instance, in the DLEC study, we find that about 34 percent of households
+ use improved seed on at least one plot):
 \end_layout
 
 \begin_deeper
@@ -785,6 +821,7 @@ This second hypothesis deals with the information asymmetry between seed
 \begin_inset CommandInset citation
 LatexCommand citeauthor
 key "akerlof1978market"
+literal "true"
 
 \end_inset
 
@@ -792,6 +829,7 @@ key "akerlof1978market"
 \begin_inset CommandInset citation
 LatexCommand citeyearpar
 key "akerlof1978market"
+literal "true"
 
 \end_inset
 
@@ -851,6 +889,7 @@ While the previous intervention relies on training of input dealers to target
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bold2017lemon"
+literal "true"
 
 \end_inset
 
@@ -859,6 +898,7 @@ key "bold2017lemon"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ashour2016beliefs"
+literal "true"
 
 \end_inset
 
@@ -876,6 +916,7 @@ Measuring the impact of an information clearinghouse fills an important
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fafchamps2012impact,mitra2013asymmetric,jensen2007digital"
+literal "true"
 
 \end_inset
 
@@ -894,6 +935,7 @@ e good until it has actually been purchased and used.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
+literal "true"
 
 \end_inset
 
@@ -994,6 +1036,7 @@ While seeds of improved maize varieties often provide higher yields than
 \begin_inset CommandInset citation
 LatexCommand citet
 key "michelson2018misperceived"
+literal "true"
 
 \end_inset
 
@@ -1008,6 +1051,7 @@ Learning is crucial in this agricultural context because production functions
 \begin_inset CommandInset citation
 LatexCommand citep
 key "foster1995learning"
+literal "true"
 
 \end_inset
 
@@ -1015,6 +1059,7 @@ key "foster1995learning"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "banerjee1992simple"
+literal "true"
 
 \end_inset
 
@@ -1026,6 +1071,7 @@ key "banerjee1992simple"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "camerer1999experience"
+literal "true"
 
 \end_inset
 
@@ -1034,6 +1080,7 @@ key "camerer1999experience"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barham2015risk"
+literal "true"
 
 \end_inset
 
@@ -1043,6 +1090,7 @@ key "barham2015risk"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gars2019can"
+literal "true"
 
 \end_inset
 
@@ -1067,6 +1115,7 @@ t of interest.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "allen2011interaction,hanna2014learning"
+literal "true"
 
 \end_inset
 
@@ -1116,6 +1165,7 @@ Our intervention is built on the growing evidence that encouraging agents
 \begin_inset CommandInset citation
 LatexCommand citep
 key "allen2011interaction,beaman2014minding"
+literal "true"
 
 \end_inset
 
@@ -1124,6 +1174,7 @@ key "allen2011interaction,beaman2014minding"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hanna2014learning"
+literal "true"
 
 \end_inset
 
@@ -1195,6 +1246,21 @@ revenue, as measured by question x on the baseline/end line questionnaire
  season
 \end_layout
 
+\begin_layout Itemize
+profit (research has shown that a focus on yield gains may, in some contexts,
+ be misguided 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/ajae/aay050"
+literal "true"
+
+\end_inset
+
+), as measured by question x on the baseline/end line questionnaire which
+ asks how much profit from maize the farmer had in this agricultural season
+ OR revenue minus costs
+\end_layout
+
 \end_deeper
 \begin_layout Itemize
 seed quality perception (see above)
@@ -1223,7 +1289,101 @@ s that accompany each of these tests
 \end_layout
 
 \begin_layout Section
-Randomized controlled trials
+Variables
+\end_layout
+
+\begin_layout Standard
+This section specifies how variables will be constructed.
+\end_layout
+
+\begin_layout Standard
+For continuous variables, 5 percent trimmed values will be use (2.5 percent
+ trimming at each side of the distribution).
+ Inverse hyperbolic sine transforms will be used if skewness exceeds 1.96.
+ Trimming will always be done on end results.
+ For instance, if the outcome is yield at the plot level, then production
+ will first be divided by plot area, after which inverse hyperbolic sine
+ is taken and the end result is trimmed.
+ Outcomes for which 95 percent of observations have the same value within
+ the relevant sample will be omitted from the analysis and will not be included
+ in any indicators or hypothesis tests.
+\end_layout
+
+\begin_layout Standard
+For some outcomes, details at plot level will be needed (for instance, for
+ the use of improved seed).
+ However, farmers often have more than one plot.
+ As outcomes on different plots within the same household are likely to
+ be strongly correlated and the interventions are assigned at a higher level,
+ it may not be cost effective to survey all plots.
+ An unbiased estimate of the outcome at the household level can be obtained
+ by randomly selecting one plot.
+ To do so, we ask enumerators to first list all plots, with names to which
+ farmers refer to the plots (eg.
+ home plot, irrigated plot, plot near the sugar cane factory,...).
+ The ODK program then randomly selects one plot for which detailed questions
+ are asked.
+ We have piloted this method and it seems to work very well.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Will we use logs or levels of particular variables?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When we field our surveys, some respondents will not answer one or more
+ questions that measure an outcome.
+ We will handle missing variables from survey questions by checking whether
+ item non-response is correlated with treatment status, and if it is, construct
+ bounds for our treatment estimates that are robust to this.
+ To be more precise, we will assess the relationship between missing outcomes
+ and treatment assignment using a hypothesis test and report these results.
+ If p<.05 for the assessment of the relationship between treatment and missing
+ outcomes, we will report an extreme value bounds analysis in which we set
+ all of the missing outcomes for treatment to the (block) maximum and all
+ missing outcomes for control to the (block) minimum.
+ If p≥0.5 for the assessment of the relationship between treatment and missing
+ outcomes, we will impute the missing outcomes using the mean of the assignment-
+by-block subcategory.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Furthermore, outcomes which have item non-response rates above a certain
+ threshold will be omitted?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+What procedures will we use to deal with outliers?
+\end_layout
+
+\end_inset
+
+ This will be top-coded at x (99th percentile of baseline response) to reduce
+ influence of outliers.
+\end_layout
+
+\begin_layout Section
+Randomized controlled trials/ experimental design
 \end_layout
 
 \begin_layout Standard
@@ -1233,6 +1393,7 @@ To test the three hypotheses, we will implement three interventions and
 \begin_inset CommandInset citation
 LatexCommand citep
 key "crespi2016improved"
+literal "true"
 
 \end_inset
 
@@ -1275,7 +1436,7 @@ all input dealers, not a random sample, right?
 
  input dealers in Busoga.
  Therefore, we will start by doing a census of input dealers in the Busoga
- region in Uganda, an area known for its maize production.
+ region in Uganda (our study population), an area known for its maize production.
  One source of data for the study will therefore be these administrative
  data on input dealers 
 \begin_inset Note Note
@@ -1283,6 +1444,17 @@ status open
 
 \begin_layout Plain Layout
 from x (describe origin of data)
+\end_layout
+
+\end_inset
+
+.
+ For each input dealer, a catchment area is defined
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We still need to figure out how to handle overlapping catchment areas
 \end_layout
 
 \end_inset
@@ -1347,7 +1519,14 @@ status open
 \end_inset
 
 .
- 
+ The design is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Experimental-design"
+
+\end_inset
+
+.
 \begin_inset Note Note
 status open
 
@@ -1412,6 +1591,38 @@ and what variables will be included in tests of survey attrition.
 \end_layout
 
 \begin_layout Section
+Survey attrition
+\end_layout
+
+\begin_layout Standard
+We will use the following procedures to address survey attrition.
+ Secondly, attrition is a risk inherent to RCTs.
+ For our study, we do not expect much attrition because the surveys will
+ be conducted over a reasonably short time period.
+ That is why we expect most baseline respondents to also be available for
+ the end line survey.
+ However, we will take measures to trace missing respondents to further
+ reduce attrition.
+ We will record names, phone numbers, addresses and GPS information of farmers
+ and input dealers in the first round.
+ If we find that attrition is more than 10 percent, we will test whether
+ attrition is correlated with the treatments, and estimate Horowitz and
+ Manski (2000) or Lee (2009) bounds, if necessary.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+What checks will be done for attrition? And what adjustments will be made
+ if these checks show that there is selective attrition?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Methodology
 \end_layout
 
@@ -1422,8 +1633,9 @@ Due to the randomized assignment to treatment and control groups, simply
  on the outcomes of interest.
  To increase power, we condition the estimates on baseline values of the
  outcome variables.
- We estimate the following specification with ordinary least-squares (OLS)
- to get the average treatment effects (ATE) of our interventions:
+ We estimate the following treatment effect equation with ordinary least-squares
+ (OLS) to get the average treatment effects (ATE) of our interventions:
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1477,57 +1689,101 @@ j
 \end_inset
 
  is our estimated ATE.
+ No controls will be included in the regression.
 \end_layout
 
 \begin_layout Standard
-Throughout the study, we will rely on the difference-in-means as our test
- statistic.
+Throughout the study, we will rely on randomization inference, with the
+ difference-in-means as our test statistic.
  The clustered design forces us to use correct standard error estimates
  for observational dependence within clusters.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+How will standard errors be calculated?
+\end_layout
+
+\end_inset
+
  We will use randomization inference for consistently estimating standard
  errors in our finite sample.
  In general, we will use two-tailed tests and traditional confidence thresholds
  of 10, 5 and 1 percent.
  Because we will test for treatment effects on a range of outcomes measures,
- we will account for multiple hypothesis testing by means of two approaches.
- Firstly, we follow a method proposed by Anderson (2008) and aggregate multiple
- outcome measures within each domain in summary indices.
+ we will deal with multiple outcomes and multiple hypotheses testing by
+ means of two approaches.
+\end_layout
+
+\begin_layout Standard
+Firstly, we follow a method proposed by Anderson (2008) and aggregate different
+ outcome measures within each domain into single summary indeces.
  Each index is computed as a weighted mean of the standardized values of
  the outcome variables.
  The weights of this efficient generalized least squares estimator are calculate
 d to maximize the amount of information captured in the index by giving
  less weight to outcomes that are highly correlated with each other.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+We need to specify precisely which variables will get included in this aggregate.
+\end_layout
+
+\end_inset
+
  Secondly, we run an omnibus test to assess the joint probability of observing
  the theoretically predicted pattern of results under the sharp null of
  no effects (Caughey, Dafoe, & Seawright, 2017).
 \end_layout
 
 \begin_layout Standard
-Risks and contingency plans
-\end_layout
-
-\begin_layout Standard
-Secondly, attrition is a risk inherent to RCTs.
- For our study, we do not expect much attrition because the surveys will
- be conducted over a reasonably short time period.
- That is why we expect most baseline respondents to also be available for
- the end line survey.
- However, we will take measures to trace missing respondents to further
- reduce attrition.
- We will record names, phone numbers, addresses and GPS information of farmers
- and input dealers in the first round.
- If we find that attrition is more than 10 percent, we will test whether
- attrition is correlated with the treatments, and estimate Horowitz and
- Manski (2000) or Lee (2009) bounds, if necessary.
-\end_layout
-
-\begin_layout Standard
-Fourthly, we still consider how to deal with overlapping catchment areas
- of treatment and control dealers.
+We still consider how to deal with overlapping catchment areas of treatment
+ and control dealers.
  A randomized saturation design is one possible approach to optimally design
  experiments when there is interference between units (Baird, Bohren, McIntosh,
  & Özler, 2018).
- 
+ That is how we will assess the importance of spillovers.
+ We will vary treatment intensity per catchment area to assess spillover
+ effects.
+ In fact, instead of just comparing outcomes of shops surrounded by both
+ treatment and control households to shops surrounded by only control households
+, we can also look at treatment intensity effects on shops by conditioning
+ on the proportion of treated farmers in the catchment area of a shop.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+How will we deal with outcomes with limited variation?
+\end_layout
+
+\end_inset
+
+ “In order to limit noise caused by variables with minimal variation, questions
+ for which 95 percent of observations have the same value within the relevant
+ sample will be omitted from the analysis and will not be included in any
+ indicators or hypothesis tests.
+ In the event that omission decisions result in the exclusion of all constituent
+ variables for an indicator, the indicator will be not be calculated.”
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Are we going to test a model to explain our findings? Then we should set
+ it out in advance.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1535,58 +1791,11 @@ unit of analysis, population, and inclusion/exclusion criteria
 \end_layout
 
 \begin_layout Section
-experimental design and power calculations
+power calculations
 \end_layout
 
 \begin_layout Standard
-We will use an experimental design that allows for differentiation between
- supply side effects and demand side effects of each intervention.
- Furthermore, we will assess the importance of spillovers using a randomized
- saturation designs 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "baird2018optimal"
 
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-We start with a census of all seed shops and agro input dealers in our study
- population.
- For each sees shop, a catchment area is defined
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-We still need to figure out how to handle overlapping catchment areas
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-The design is illustrated in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Experimental-design"
-
-\end_inset
-
-.
- In each catchment area of a shop, farmers are sampled.
- A random subset of these farmers are enrolled in the project, while others
- function as controls.
- Simply comparing average outcomes of treatment and control farmers will
- provide an estimate of the demand side effect of the intervention.
- However, we will vary treatment intensity per catchment area to assess
- spillover effects.
- 
 \end_layout
 
 \begin_layout Standard
@@ -1634,179 +1843,6 @@ name "fig:Experimental-design"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The design also enables us to assess the impact of the intervention on seed
- suppliers.
- This can be done by comparing outcomes of shops that operate in a catchment
- area where the intervention was done to outcomes of shops in areas where
- the intervention was not implemented.
- In fact, instead of just comparing outcomes of shops surrounded by both
- treatment and control households to shops surrounded by only control households
-, we can also look at treatment intensity effects on shops by conditioning
- on the proportion of treated farmers in the catchment area of a shop.
-\end_layout
-
-\begin_layout Section
-experimental intervention 
-\end_layout
-
-\begin_layout Section
-outcomes of interest
-\end_layout
-
-\begin_layout Standard
-For continuous variables, 5 percent trimmed values will be use (2.5 percent
- trimming at each side of the distribution).
- Inverse hyperbolic sine transforms will be used if skewness exceeds 1.96.
- Trimming will always be done on end results.
- For instance, if the outcome is yield at the plot level, then production
- will first be divided by plot area, after which inverse hyperbolic sine
- is taken and the end result is trimmed.
- Outcomes for which 95 percent of observations have the same value within
- the relevant sample will be omitted from the analysis and will not be included
- in any indicators or hypothesis tests.
-\end_layout
-
-\begin_layout Standard
-For some outcomes, details at plot level will be needed (for instance, for
- the use of improved seed).
- However, farmers often have more than one plot.
- As outcomes on different plots within the same household are likely to
- be strongly correlated and the interventions are assigned at a higher level,
- it may not be cost effective to survey all plots.
- An unbiased estimate of the outcome at the household level can be obtained
- by randomly selecting one plot.
- To do so, we ask enumerators to first list all plots, with names to which
- farmers refer to the plots (eg.
- home plot, irrigated plot, plot near the sugar cane factory,...).
- The ODK program then randomly selects one plot for which detailed questions
- are asked.
- We have piloted this method and it seems to work very well.
- 
-\end_layout
-
-\begin_layout Subsection
-Primary outcomes at the farmer level:
-\end_layout
-
-\begin_layout Standard
-yield
-\end_layout
-
-\begin_layout Standard
-profit.
- Research has shown that a focus on yield gains may, in some contexts, be
- misguided 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1093/ajae/aay050"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Adoption of improved seed.
- Use rates of improved seed depends on the definition and how it is measured.
- For instance, in the DLEC study, we find that about 34 percent of households
- uses improved seed on at least one plot
-\end_layout
-
-\begin_layout Standard
-Recycling of seed: we expect that the intervention will reduce the number
- of times seed is recycled.
- 
-\end_layout
-
-\begin_layout Standard
-F1 hybrid seed
-\end_layout
-
-\begin_layout Standard
-OPVs recycled less than 5 times
-\end_layout
-
-\begin_layout Subsection
-Outcomes at the seed provider level:
-\end_layout
-
-\begin_layout Itemize
-stocking or maize seed.
- One policy consequence of the uncertainty related to willful adulteration
- of seed or merely 
-\end_layout
-
-\begin_layout Itemize
-services offered by the seed provider (eg.
- uber drivers give coffee to get good reviews) – does seed provider offer
- credit? Money back guarantee
-\end_layout
-
-\begin_layout Itemize
-did he send seed back to seed company in the last year?
-\end_layout
-
-\begin_layout Section
-Inference Criteria
-\end_layout
-
-\begin_layout Standard
-Throughout the study, we will rely on randomization inference, with the
- difference-in-means as our test statistic.
- In general, two-tail tests will be used, and we use traditional confidence
- thresholds of 10, 5 and 1 percent.
- 
-\end_layout
-
-\begin_layout Standard
-To correct for multiple hypotheses, we will follow two approaches.
- First, we follow the method proposed by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-
-\end_inset
-
-, that uses inverse covariance weighting to produce an index that appropriate
- rewards new information from a family of measures.
- Second, we run an omnibus test to assess the joint probability of observing
- the theoretically predicted pattern of results under the sharp null of
- no effects.
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "caughey2017nonparametric"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Section
-Dealing with Missing Outcomes from Survey Questions
-\end_layout
-
-\begin_layout Standard
-Some respondents will not answer one or more questions that measure an outcome.
- When respondents do not answer one or more questions that measure an outcome
- as we field our survey, our procedure is as follows:
-\end_layout
-
-\begin_layout Standard
-We will assess the relationship between missing outcomes and treatment assignmen
-t using a hypothesis test and report these results.
- If p<.05 for the assessment of the relationship between treatment and missing
- outcomes, we will report an extreme value bounds analysis in which we set
- all of the missing outcomes for treatment to the (block) maximum and all
- missing outcomes for control to the (block) minimum.
- If p≥0.5 for the assessment of the relationship between treatment and missing
- outcomes, we will impute the missing outcomes using the mean of the assignment-
-by-block subcategory.
 \end_layout
 
 \begin_layout Standard
