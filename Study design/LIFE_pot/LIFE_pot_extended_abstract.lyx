@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -50,6 +52,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -58,7 +61,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -72,7 +78,11 @@
 \begin_body
 
 \begin_layout Title
-Externalities and public goods in local seed systems: A Lab-in-the-field
+
+\emph on
+E
+\emph default
+xternalities and public goods in local seed systems: A lab-in-the field
  experiment among potato farmers in Uganda
 \end_layout
 
@@ -81,62 +91,54 @@ Caroline Miehe
 \end_layout
 
 \begin_layout Standard
-Many farmers depend on informal seed systems.
- In these systems, farmers obtain propagation material from previous harvest,
- and these seeds are then traded on the informal market.
- Sometimes, some selection is taking place.
- The importance of seed systems varies according to crops and farmers often
- use both informal and formal channels.
- While many farmers will use maize seed obtained from seed dealers, the
- (perceived) gains from using formal seed for lower value food security
- crops such as cassava or sweet potato may be too low.
+Many farmers depend on informal seed systems which means that they obtain
+ propagation material from their previous harvest, and trade these seeds
+ on the informal market.
+ The importance of informal seed markets varies across crops and farmers
+ often use both informal and formal channels.
+ While many farmers use maize seed obtained from seed dealers, the (perceived)
+ gains from using formal seed for lower value food security crops such as
+ cassava or sweet potato may be too low.
  For other crops such as beans, the private sector may lack interest and
- public institutions may not be up to the task to fill the void.
- 
+ public institutions may not be up to fill the void.
 \end_layout
 
 \begin_layout Standard
-Informal seed systems are generally affected by externalities.
- Farmers who want to produce clean seed are affected by what farmers in
- neighboring fields grow.
- These externatities may be in the form of cross-pollination.
- For potato, bacterial wilt is an important disease that affects the informal
- potato seed markets.
- Potato wilt bacterium is a soil-borne organism primarily inhabiting the
+Informal seed systems are generally impacted by externalities.
+ Farmers who want to produce clean seeds are affected by farmers of neighboring
+ fields, for example due to cross-pollination.
+ The informal potato seed market is particularly hindered by bacterial wilt.
+ The potato wilt bacterium is a soil-borne organism primarily inhabiting
  roots.
- It is spread by irrigation water, flood waters and contaminated soil.
- The wilt bacterium is able to survive for periods up to 2-3 years in bare
- fallow soils.
- Hence for the case of potato, the externality is due to run-off of irrigation
- water from contaminated soils that are located above the field that is
- used to produce potato seed.
+ Importantly, it is spread by irrigation water, flood waters and contaminated
+ soil.
+ The wilt bacterium is able to survive for up to 2-3 years in bare fallow
+ soils.
+ Hence, an externality for the production of potato seeds arises from irrigation
+ water flowing from contaminated soils to fields used for production which
+ are located below the contaminated ones.
 \end_layout
 
 \begin_layout Standard
-Informal seed systems in semi self-subsistant communities differ from the
- standard textbook externalities examples (and Coase theorem type solutions)
- in the fact that consumers of seed also have a stake in the production
- of clean seed.
- For instance, if farmers on plots that are located at higher locations
- in the village are not careful and contaminate lower laying fields of potato
- seed producers, this will increase the price of potato seed for them in
- the future.
- 
+Informal seed systems in semi self-subsistent communities differ from standard
+ textbook externality examples (and Coase theorem type solutions) because
+ consumers of seed also have a stake in the production of clean seed.
+ For instance, if farmers on plots located at higher altitudes in the village
+ are not careful and contaminate lower located plots of potato seed producers,
+ then the price of potato seed which these farmers have to pay in the future
+ increases.
 \end_layout
 
 \begin_layout Standard
-As such, local seed systems provide and interesting case to model theoretically
- and test using lab-in-the-field experiments.
- The combine location dependent externalities similar to irrigation dilemmas.
- There are a wide range of shocks or treatment that can be introduced into
+As such, local seed systems provide an interesting case to model theoretically
+ and test using lab-in-the field experiments.
+ They present location dependent externalities similar to irrigation dilemmas.
+ There is a wide range of shocks or treatments that can be introduced into
  the game.
- One of the most obvious shocks would be an outbreak of bacterial wilt.
- Another shock may be to introduce tenure insecurity by randomly re-allocating
- farmers to plots between rounds of the game.
-\end_layout
-
-\begin_layout Standard
-Alternatively, treatments can be investigated using parallel experiments,
+ One of the most obvious ones would be an outbreak of bacterial wilt.
+ Another shock may be the introduction of tenure insecurity by randomly
+ re-allocating farmers to plots between rounds of the game.
+ Alternatively, treatments can be investigated using parallel experiments,
  where one group of villagers plays the game in one condition (low bacterial
  wilt infestation) and another group plays the game in the other condition
  (high bacterial wilt infestation).
