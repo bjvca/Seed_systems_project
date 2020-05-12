@@ -9,6 +9,8 @@ if (Sys.info()['sysname'] =="Windows") {
 } else {
   path <- "/home/bjvca/Dropbox (IFPRI)/Seed_systems_project"
 }
+### this is executed in the /report subdirectory, need to ..
+path <- strsplit(getwd(), "/Study design")[[1]]
 
 stack_dealers <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
 stack_farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
@@ -62,5 +64,6 @@ for (j in 1:length(possible.ns)){
   
   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
 }
-plot(possible.ns, powers, ylim=c(0,1))
+plot(possible.ns, powers, ylim=c(0,1), type = "l")
+abline(h = .8, col = "red")
 cbind(possible.ns, powers)
