@@ -29,8 +29,15 @@ stack_farmers$hh.maize.plot_select_area <- as.numeric(as.character(stack_farmers
 #make yield variable
 stack_farmers$yield_kg <- stack_farmers$hh.maize.maizen.q64*stack_farmers$hh.maize.maizen.q65 #64. bags of maize harvested * 65. kgs in one bag
 stack_farmers$yield_kg_per_acre <- stack_farmers$yield_kg/stack_farmers$hh.maize.plot_select_area #area of maize field in acres (particular plot)
-stack_farmers$yield_kg_per_acre_ln <- log(stack_farmers$yield_kg_per_acre)
 #percentage allocated to maize q46b excluded because 454 NA's
+
+#trimming: function for trimming a variable in a dataset - replaces with NA
+trim <- function(var, dataset, trim_perc=.05) {
+  dataset[var][dataset[var] < quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)), na.rm=T)[1] | dataset[var] > quantile(dataset[var], c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2] ] <- NA
+  return(dataset)
+}
+
+stack_farmers <- trim("yield_kg_per_acre", stack_farmers)
 
 #standard deviations and means
 sd(stack_farmers$yield_kg_per_acre, na.rm=TRUE)
@@ -62,6 +69,8 @@ stack_dealers$hh.maize.seed.3..q22 <- as.numeric(as.character(stack_dealers$hh.m
 #make quantity sold variable
 stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22+stack_dealers$hh.maize.seed.2..q22+stack_dealers$hh.maize.seed.3..q22
 
+stack_dealers <- trim("quantitysold", stack_dealers)
+
 #standard deviations and means
 sd(stack_dealers$quantitysold, na.rm=TRUE)
 mean(stack_dealers$quantitysold, na.rm=TRUE)
@@ -86,155 +95,155 @@ stack_farmers$seedquality_binary <- (stack_farmers$hh.maize.agro1.q108j > 4) #me
 sd(stack_farmers$seedquality_binary, na.rm=TRUE)
 mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 
-##################################################
-possible.ns <- seq(from=2000, to=3000, by=100)     # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 500                                      # Number of simulations to conduct for each N
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){
-    Y0 <-  rnorm(n=N, mean=926.9231, sd=733.1028)              # control potential outcome
-    tau <- Y0*0.1                                # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                 # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
-
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-######################################################
-
-possible.ns <- seq(from=500, to=2500, by=100)     # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 500                                      # Number of simulations to conduct for each N
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_farmers$seedquality_binary, size = N, replace = TRUE)             # control potential outcome
-    tau <- 0.08759494                         # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                 # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
-
-#####################################################
-#######Power analysis for covariate control##########
-#####################################################
-
-possible.ns <- seq(from=1000, to=5000, by=500)     # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 500                                      # Number of simulations to conduct for each N
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
-
-    #create baseline data
-    quantitysold_baseline <- as.numeric(Y0 +  rnorm(length(Y0), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
-
-    tau <- 146.6206                                   # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                 # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
-   #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
-
-#correlation?
-stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
-cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
-
-####binary
-#change prob until cor is what we want
-#stack_farmers$seedquality_binary_baseline <- as.numeric(stack_farmers$seedquality_binary +  rbinom(n=length(stack_farmers$seedquality_binary), size=1, prob=0.2) >= 1)
-#cor(stack_farmers$seedquality_binary,stack_farmers$seedquality_binary_baseline,  use = "complete.obs")
-
-possible.ns <- seq(from=1000, to=4000, by=200)     # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 500                                      # Number of simulations to conduct for each N
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_farmers$seedquality_binary, size = N, replace = TRUE)             # control potential outcome
-
-    #create baseline data
-    seedquality_binary_baseline <- as.numeric(Y0 +  rbinom(n=length(Y0), size=1, prob=0.75) >= 1)
-
-    tau <- 0.08759494                                   # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                 # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim + seedquality_binary_baseline)                   # Do analysis (Simple regression)
-    #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1), type = "l")
-abline(h = .8, col = "red")
-
-cbind(possible.ns, powers)
-
+# ##################################################
+# possible.ns <- seq(from=500, to=1000, by=50)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){
+#     Y0 <-  rnorm(n=N, mean=864.5455, sd=560.8273)              # control potential outcome
+#     tau <- 112.1655                                # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                 # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
+# ######################################################
+# ########Power analysis for the standard design########
+# #######Y0 not normal distribution but real data#######
+# ######################################################
+# 
+# possible.ns <- seq(from=5000, to=10000, by=500)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+#     tau <- 112.1655                          # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                 # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
+# #####################################################
+# #######Power analysis for covariate control##########
+# #####################################################
+# 
+# possible.ns <- seq(from=1000, to=5000, by=500)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+# 
+#     #create baseline data
+#     quantitysold_baseline <- as.numeric(Y0 +  rnorm(length(Y0), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
+# 
+#     tau <- 146.6206                                   # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                 # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
+#    #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
+# #correlation?
+# stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
+# cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
+# 
+# ####binary
+# #change prob until cor is what we want
+# #stack_farmers$seedquality_binary_baseline <- as.numeric(stack_farmers$seedquality_binary +  rbinom(n=length(stack_farmers$seedquality_binary), size=1, prob=0.2) >= 1)
+# #cor(stack_farmers$seedquality_binary,stack_farmers$seedquality_binary_baseline,  use = "complete.obs")
+# 
+# possible.ns <- seq(from=1000, to=4000, by=200)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     Y0 <- sample(stack_farmers$seedquality_binary, size = N, replace = TRUE)             # control potential outcome
+# 
+#     #create baseline data
+#     seedquality_binary_baseline <- as.numeric(Y0 +  rbinom(n=length(Y0), size=1, prob=0.75) >= 1)
+# 
+#     tau <- 0.08759494                                   # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                 # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim + seedquality_binary_baseline)                   # Do analysis (Simple regression)
+#     #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1), type = "l")
+# abline(h = .8, col = "red")
+# 
+# cbind(possible.ns, powers)
+# 
 ######################################################
 ########Power analysis for multiple treatments########
 #############real data but no covartiates#############
 ######################################################
 
-possible.ns <- seq(from=1000, to=10000, by=500)     # The sample sizes we'll be considering
+possible.ns <- seq(from=10000, to=20000, by=1000)     # The sample sizes we'll be considering
 power.atleastone <- rep(NA, length(possible.ns))
 power.bothtreatments <- rep(NA, length(possible.ns))
 alpha <- 0.1  #(one-tailed test at .05 level)
@@ -250,13 +259,13 @@ for (j in 1:length(possible.ns)){
   c.T1vsC <- rep(NA, sims)
   c.T2vsC <- rep(NA, sims)
   c.T3vsC <- rep(NA, sims)
-  
+
   #### Inner loop to conduct experiments "sims" times over for each N ####
   for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_dealers$reputation, size = N, replace = TRUE)             # control potential outcome
-    tau_1 <- 0.08759494                         # Hypothesize treatment effect
-    tau_2 <- 0.08759494
-    tau_3 <- 0.08759494
+    Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+    tau_1 <- 112.1655                         # Hypothesize treatment effect
+    tau_2 <- 112.1655
+    tau_3 <- 112.1655
     Y1 <- Y0 + tau_1
     Y2 <- Y0 + tau_2
     Y3 <- Y0 + tau_3
@@ -266,7 +275,7 @@ for (j in 1:length(possible.ns)){
     fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
     fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
     fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
-    
+
     ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
     c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
     c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
