@@ -3,7 +3,7 @@ rm(list=ls())
 #install.packages("fabricatr")
 #install.packages("data.table")
 #install.packages("mvnfast")
-library(randomizr)    # randomizr package for complete random assignment
+library(randomizr)    #randomizr package for complete random assignment
 library(fabricatr)
 library(data.table)
 library(mvnfast)
@@ -103,6 +103,27 @@ stack_farmers$seedquality_binary <- (stack_farmers$hh.maize.agro1.q108j > 4) #me
 sd(stack_farmers$seedquality_binary, na.rm=TRUE)
 mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 
+###changing the level of randomization
+stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
+stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
+stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
+
+stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
+stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
+stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
+
+stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
+stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
+stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
+
+stack_farmers$id_inputdealer <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
+sum(is.na(stack_farmers$id_inputdealer))
+
+Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+
+#Z <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+table(Z.sim, complete.cases(stack_farmers$id_inputdealer))
+
 # ##################################################
 # possible.ns <- seq(from=3500, to=5000, by=100)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
@@ -132,42 +153,10 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # plot(possible.ns, powers, ylim=c(0,1))
 # cbind(possible.ns, powers)
 # 
-# ######################################################
-# ########Power analysis for the standard design########
-# #######Y0 not normal distribution but real data#######
-# ######################################################
-# 
-# possible.ns <- seq(from=500, to=1500, by=100)     # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 500                                      # Number of simulations to conduct for each N
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
-#     tau <- 60.54422                          # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                 # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
-# 
-#####################################################
-#######Power analysis for covariate control##########
-#####################################################
+######################################################
+########Power analysis for the standard design########
+#######Y0 not normal distribution but real data#######
+######################################################
 
 possible.ns <- seq(from=500, to=1500, by=100)     # The sample sizes we'll be considering
 powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
@@ -183,16 +172,13 @@ for (j in 1:length(possible.ns)){
   #### Inner loop to conduct experiments "sims" times over for each N ####
   for (i in 1:sims){             # control potential outcome
     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
-
-    #create baseline data
-    quantitysold_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
-
-    tau <- 60.54422                                    # Hypothesize treatment effect
+    tau <- 60.54422                          # Hypothesize treatment effect
     Y1 <- Y0 + tau                                 # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+    #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
+    #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+    #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
-   #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
+    fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
   }
@@ -202,10 +188,47 @@ for (j in 1:length(possible.ns)){
 plot(possible.ns, powers, ylim=c(0,1))
 cbind(possible.ns, powers)
 
-#correlation?
-stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
-cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
-
+# #####################################################
+# #######Power analysis for covariate control##########
+# #####################################################
+# 
+# possible.ns <- seq(from=500, to=1500, by=100)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+# 
+#     #create baseline data
+#     quantitysold_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
+# 
+#     tau <- 60.54422                                    # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                 # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
+#    #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
+# #correlation?
+# stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
+# cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
+# 
 ####binary
 # 
 # possible.ns <- seq(from=500, to=2500, by=100)     # The sample sizes we'll be considering
