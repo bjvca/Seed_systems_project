@@ -8,10 +8,6 @@ library(fabricatr)
 library(data.table)
 library(mvnfast)
 
-######################################################
-########Power analysis for the standard design########
-######################################################
-
 if (Sys.info()['sysname'] =="Windows") {
   path <- "C:/users/u0127963/Desktop/PhD/Seed_systems_project"
 } else {
@@ -22,38 +18,6 @@ path <- strsplit(getwd(), "/Study design")[[1]]
 
 stack_dealers <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
 stack_farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
-
-###changing the level of randomization
-stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
-stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
-stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
-
-stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
-stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
-stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
-
-stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
-stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
-stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
-
-stack_farmers$id_inputdealer <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
-sum(is.na(stack_farmers$id_inputdealer))
-
-#stack_farmers[complete.cases(stack_farmers[ , 794:794]),]
-
-#Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-
-#Z <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-#table(Z.sim, complete.cases(stack_farmers$id_inputdealer))
-#table(Z.sim, stack_farmers$id_inputdealer[complete.cases(stack_farmers$id_inputdealer)])
-#table(Z.sim, stack_farmers$id_inputdealer[!is.na(stack_farmers$id_inputdealer)])
-
-#stack_farmers$yield_kg_per_acre <- stack_farmers$yield_kg_per_acre[!is.na(stack_farmers$id_inputdealer)]
-#stack_farmers[complete.cases(stack_farmers[ , 792]),]
-#na.omit(stack_farmers$id_inputdealer)
-#stack_farmers$id_inputdealer[complete.cases(stack_farmers$id_inputdealer), ]
-
-stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
 
 ###YIELD###
 #transform
@@ -135,6 +99,10 @@ stack_farmers$seedquality_binary <- (stack_farmers$hh.maize.agro1.q108j > 4) #me
 sd(stack_farmers$seedquality_binary, na.rm=TRUE)
 mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 
+# ######################################################
+# ########Power analysis for the standard design########
+# ######################################################
+# 
 # ##################################################
 # possible.ns <- seq(from=3500, to=5000, by=100)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
@@ -164,44 +132,39 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # plot(possible.ns, powers, ylim=c(0,1))
 # cbind(possible.ns, powers)
 # 
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-######################################################
-
-possible.ns <- seq(from=500, to=2000, by=100)     # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 500                                      # Number of simulations to conduct for each N
-stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    sample_dta <- stack_farmers[c("id_inputdealer","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
-	names(sample_dta) <- c("cluster_ID","Y0")   
-	 tau <- 36.38                          # Hypothesize treatment effect
-    sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
-    #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
-    #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-    sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
-   sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
-
+# ######################################################
+# ########Power analysis for the standard design########
+# #######Y0 not normal distribution but real data#######
+# ######################################################
+# 
+# possible.ns <- seq(from=4000, to=5000, by=100)     # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 500                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){                                                   # control potential outcome
+#     Y0 <- sample(stack_farmers$yield_kg_per_acre, size = N, replace = TRUE)
+#     tau <- 36.38                                                       # Hypothesize treatment effect
+#     Y1 <- Y0 + tau                                                     # treatment potential outcome
+#     Z.sim <- rbinom(n=N, size=1, prob=.5)
+#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
 # #####################################################
 # #######Power analysis for covariate control##########
 # #####################################################
@@ -336,3 +299,64 @@ cbind(possible.ns, powers)
 # cbind(possible.ns, power.atleastone)
 # cbind(possible.ns, power.bothtreatments)
 # #cbind(possible.ns, power.fullranking)
+#
+###################################################
+########changing the level of randomization########
+###################################################
+
+stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
+stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
+stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
+
+stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
+stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
+stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
+
+stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
+stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
+stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
+
+stack_farmers$id_inputdealer <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
+sum(is.na(stack_farmers$id_inputdealer))
+
+stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
+
+######################################################
+########Power analysis for the standard design########
+#######Y0 not normal distribution but real data#######
+#################cluster randomization################
+######################################################
+
+possible.ns <- seq(from=2500, to=4000, by=100)     # The sample sizes we'll be considering
+powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+alpha <- 0.05                                    # Standard significance level
+sims <- 500                                      # Number of simulations to conduct for each N
+stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
+
+#### Outer loop to vary the number of subjects ####
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]                              # Pick the jth value for N
+  
+  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+  
+  #### Inner loop to conduct experiments "sims" times over for each N ####
+  for (i in 1:sims){             # control potential outcome
+    sample_dta <- stack_farmers[c("id_inputdealer","seedquality_binary")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+    names(sample_dta) <- c("cluster_ID","Y0")   
+    tau <- 0.0887512                          # Hypothesize treatment effect
+    sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
+    #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
+    #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+    #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+    sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
+    sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
+    fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
+    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+  }
+  
+  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+}
+plot(possible.ns, powers, ylim=c(0,1))
+cbind(possible.ns, powers)
+
