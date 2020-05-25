@@ -169,10 +169,11 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 #######Y0 not normal distribution but real data#######
 ######################################################
 
-possible.ns <- seq(from=500, to=1500, by=100)     # The sample sizes we'll be considering
+possible.ns <- seq(from=500, to=2000, by=100)     # The sample sizes we'll be considering
 powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 alpha <- 0.05                                    # Standard significance level
 sims <- 500                                      # Number of simulations to conduct for each N
+stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
 
 #### Outer loop to vary the number of subjects ####
 for (j in 1:length(possible.ns)){
@@ -182,15 +183,16 @@ for (j in 1:length(possible.ns)){
 
   #### Inner loop to conduct experiments "sims" times over for each N ####
   for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_farmers$yield_kg_per_acre, size = N, replace = TRUE)             # control potential outcome
-    tau <- 36.38                          # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                 # treatment potential outcome
+    sample_dta <- stack_farmers[c("id_inputdealer","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+	names(sample_dta) <- c("cluster_ID","Y0")   
+	 tau <- 36.38                          # Hypothesize treatment effect
+    sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
     #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-    Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
+    sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
+   sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
+    fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
   }
