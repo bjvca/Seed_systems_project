@@ -315,6 +315,9 @@ stack_farmers$id_inputdealer <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.
 sum(is.na(stack_farmers$id_inputdealer))
 
 stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
+stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 
 ######################################################
 ########Power analysis for the standard design########
@@ -322,11 +325,10 @@ stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
 #################cluster randomization################
 ######################################################
 
-possible.ns <- seq(from=2500, to=4000, by=100)     # The sample sizes we'll be considering
+possible.ns <- seq(from=1000, to=2000, by=100)     # The sample sizes we'll be considering
 powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 alpha <- 0.05                                    # Standard significance level
 sims <- 500                                      # Number of simulations to conduct for each N
-stack_farmers <- subset(stack_farmers, !is.na(id_inputdealer))
 
 #### Outer loop to vary the number of subjects ####
 for (j in 1:length(possible.ns)){
@@ -336,9 +338,9 @@ for (j in 1:length(possible.ns)){
   
   #### Inner loop to conduct experiments "sims" times over for each N ####
   for (i in 1:sims){             # control potential outcome
-    sample_dta <- stack_farmers[c("id_inputdealer","seedquality_binary")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+    sample_dta <- stack_farmers[c("id_inputdealer","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
     names(sample_dta) <- c("cluster_ID","Y0")   
-    tau <- 0.0887512                          # Hypothesize treatment effect
+    tau <- 81.04422                           # Hypothesize treatment effect
     sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
@@ -355,3 +357,4 @@ for (j in 1:length(possible.ns)){
 plot(possible.ns, powers, ylim=c(0,1))
 cbind(possible.ns, powers)
 
+###graphs
