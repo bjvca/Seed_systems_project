@@ -8,11 +8,6 @@ library(fabricatr)
 library(data.table)
 library(mvnfast)
 
-if (Sys.info()['sysname'] =="Windows") {
-  path <- "C:/users/u0127963/Desktop/PhD/Seed_systems_project"
-} else {
-  path <- "/home/bjvca/Dropbox (IFPRI)/Seed_systems_project"
-}
 ### this is executed in the /report subdirectory, need to ..
 path <- strsplit(getwd(), "/Study design")[[1]]
 
