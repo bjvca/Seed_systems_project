@@ -472,31 +472,92 @@ stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
 
 #6th attempt:
 
-stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+#stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 
 #1: take a sample of size 100, with replacement, from stack_dealers
-sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),]
+#sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),]
 
 #2: loop over different dealers in sample_dealers & sample from stack_farmers
 
-clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
-for (i in sample_dealers$id.agro) {
-  temp <- stack_farmers[stack_farmers$id.agro == i,]
-  temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
-  clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+# clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
+# for (i in sample_dealers$id.agro) {
+#   temp <- stack_farmers[stack_farmers$id.agro == i,]
+#   temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+#   clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+# }
+# 
+# clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
+
+#number of obs. changes because different dealers and sampled
+#why does clusters1 have e.g. 460 obs and not 100*5=500?
+#because AS017, 19, 27, 51, 52, 58, 62, 76 aren't assigned to any farmer: 8*5=40
+
+# #alternative
+# 
+# #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+# #stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# #stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
+# 
+# stack_both <- merge(stack_farmers,stack_dealers[sample(nrow(stack_dealers), size = 100000, replace = TRUE),],by="id.agro")
+# 
+# #same as:
+# #stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
+# #stack_both <- stack_both[sample(nrow(stack_both), size = 100000, replace = TRUE),]
+# 
+# clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
+# 
+# #only e.g. 250 obs. because many input dealer not in stack_both sample (here: 28 not in sample) even if size = 100 000 (with size = large number: 350 obs because 78*5-8*5)
+
+######################################################
+########Power analysis for the standard design########
+#######Y0 not normal distribution but real data#######
+#################cluster randomization################
+######################################################
+
+#interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+
+possible.ns <- seq(from=50, to=150, by=10)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 100
+stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
+
+#1st loop#
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]
+  significant.experiments <- rep(NA, sims)
+  
+  #2nd loop#
+  for (i in 1:sims){
+    #second attempt to randomize treatment:
+    stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
+    sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+    clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
+    
+    #3rd loop
+    for (i in sample_dealers$id.agro) {
+      temp <- stack_farmers[stack_farmers$id.agro == i,]
+      temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+      clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+    }
+    
+    clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
+    
+    clusters1$Y0 <- clusters1$yield_kg_per_acre
+    tau <- 81.04422
+    clusters1$Y1 <- clusters1$Y0 + tau
+    #first attempt to randomize treatment: clusters1$Z.sim <- cluster_ra(clusters = clusters1$id.agro)
+    clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
+    fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
+    p.value <- summary(fit.sim)$coefficients[2,4]
+    significant.experiments[i] <- (p.value <= alpha)
+  }
+  
+  powers[j] <- mean(significant.experiments)
 }
-
-clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
-
-#alternative
-
-#stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-#stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-#stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-stack_both <- merge(stack_farmers,stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),],by="id.agro")
-
-clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
-
-table(clusters2$id.agro)
-table(stack_dealers$id.agro)
+plot(possible.ns, powers, ylim=c(0,1))
+cbind(possible.ns, powers)
 
