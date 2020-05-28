@@ -481,12 +481,12 @@ sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace 
 
 clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
 for (i in sample_dealers$id.agro) { 
-  temp <- stack_farmers[stack_farmers$id.agro == sample_dealers$id.agro,]
-  temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
-  clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+   temp <- stack_farmers[stack_farmers$id.agro == sample_dealers$id.agro,]
+   temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+   clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
 }
 
-clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row after being
+clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
 
 #alternative
 
@@ -500,7 +500,3 @@ clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), functi
 table(clusters2$id.agro)
 table(stack_dealers$id.agro)
 
-
-#it samples 10 ramdom rows from stack_farmers, after splitting stack_farmers by id.agro and collects everything using rbind.
-#But the problem is that you start from the farmer data set, which makes it hard to vary sample size at the input dealer level...
-#Bjorn
