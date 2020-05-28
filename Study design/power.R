@@ -5,8 +5,8 @@ rm(list=ls())
 #install.packages("mvnfast")
 #install.packages("plyr")
 #install.packages("sampling")
-install.packages("devtools")
-install.packages("usethis")
+#install.packages("devtools")
+#install.packages("usethis")
 
 library(randomizr)    #randomizr package for complete random assignment
 library(fabricatr)
@@ -326,21 +326,21 @@ stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
 stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
 
 stack_farmers$id.agro <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
+
 sum(is.na(stack_farmers$id.agro))
 
 stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
-
-stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-sum(is.na(stack_farmers$yield_kg_per_acre))
-stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 
 # ######################################################
 # ########Power analysis for the standard design########
 # #######Y0 not normal distribution but real data#######
 # #################cluster randomization################
 # ######################################################
+# 
+# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# sum(is.na(stack_farmers$yield_kg_per_acre))
+# #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+# #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 # 
 # #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
 # 
@@ -375,120 +375,132 @@ stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 # }
 # plot(possible.ns, powers, ylim=c(0,1))
 # cbind(possible.ns, powers)
+
+
+
+
+
+#how many farmers per input dealer?
+
+# stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 # 
-###how many farmers per input dealer?
-stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-
-stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-
-stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
-
-###
-stratified <- function(df, group, size, select = NULL, 
-                       replace = FALSE, bothSets = FALSE) {
-  if (is.null(select)) {
-    df <- df
-  } else {
-    if (is.null(names(select))) stop("'select' must be a named list")
-    if (!all(names(select) %in% names(df)))
-      stop("Please verify your 'select' argument")
-    temp <- sapply(names(select),
-                   function(x) df[[x]] %in% select[[x]])
-    df <- df[rowSums(temp) == length(select), ]
-  }
-  df.interaction <- interaction(df[group], drop = TRUE)
-  df.table <- table(df.interaction)
-  df.split <- split(df, df.interaction)
-  if (length(size) > 1) {
-    if (length(size) != length(df.split))
-      stop("Number of groups is ", length(df.split),
-           " but number of sizes supplied is ", length(size))
-    if (is.null(names(size))) {
-      n <- setNames(size, names(df.split))
-      message(sQuote("size"), " vector entered as:\n\nsize = structure(c(",
-              paste(n, collapse = ", "), "),\n.Names = c(",
-              paste(shQuote(names(n)), collapse = ", "), ")) \n\n")
-    } else {
-      ifelse(all(names(size) %in% names(df.split)),
-             n <- size[names(df.split)],
-             stop("Named vector supplied with names ",
-                  paste(names(size), collapse = ", "),
-                  "\n but the names for the group levels are ",
-                  paste(names(df.split), collapse = ", ")))
-    }
-  } else if (size < 1) {
-    n <- round(df.table * size, digits = 0)
-  } else if (size >= 1) {
-    if (all(df.table >= size) || isTRUE(replace)) {
-      n <- setNames(rep(size, length.out = length(df.split)),
-                    names(df.split))
-    } else {
-      message(
-        "Some groups\n---",
-        paste(names(df.table[df.table < size]), collapse = ", "),
-        "---\ncontain fewer observations",
-        " than desired number of samples.\n",
-        "All observations have been returned from those groups.")
-      n <- c(sapply(df.table[df.table >= size], function(x) x = size),
-             df.table[df.table < size])
-    }
-  }
-  temp <- lapply(
-    names(df.split),
-    function(x) df.split[[x]][sample(df.table[x],
-                                     n[x], replace = replace), ])
-  set1 <- do.call("rbind", temp)
-  
-  if (isTRUE(bothSets)) {
-    set2 <- df[!rownames(df) %in% rownames(set1), ]
-    list(SET1 = set1, SET2 = set2)
-  } else {
-    set1
-  }
-}
-###
-
-stratified(stack_both, "id.agro", 1, replace = TRUE)
-
-#ddply(stack_both,.(id.agro),function(x) x[sample(nrow(x),1),])
-
-#do.call(rbind, 
-#        lapply(split(stack_both, stack_both$id.agro), 
-#               function(x) x[sample(nrow(x), 1), ]))
+# stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
 # 
+# stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
+
+#1st attempt:
+# stratified <- function(df, group, size, select = NULL,
+#                        replace = FALSE, bothSets = FALSE) {
+#   if (is.null(select)) {
+#     df <- df
+#   } else {
+#     if (is.null(names(select))) stop("'select' must be a named list")
+#     if (!all(names(select) %in% names(df)))
+#       stop("Please verify your 'select' argument")
+#     temp <- sapply(names(select),
+#                    function(x) df[[x]] %in% select[[x]])
+#     df <- df[rowSums(temp) == length(select), ]
+#   }
+#   df.interaction <- interaction(df[group], drop = TRUE)
+#   df.table <- table(df.interaction)
+#   df.split <- split(df, df.interaction)
+#   if (length(size) > 1) {
+#     if (length(size) != length(df.split))
+#       stop("Number of groups is ", length(df.split),
+#            " but number of sizes supplied is ", length(size))
+#     if (is.null(names(size))) {
+#       n <- setNames(size, names(df.split))
+#       message(sQuote("size"), " vector entered as:\n\nsize = structure(c(",
+#               paste(n, collapse = ", "), "),\n.Names = c(",
+#               paste(shQuote(names(n)), collapse = ", "), ")) \n\n")
+#     } else {
+#       ifelse(all(names(size) %in% names(df.split)),
+#              n <- size[names(df.split)],
+#              stop("Named vector supplied with names ",
+#                   paste(names(size), collapse = ", "),
+#                   "\n but the names for the group levels are ",
+#                   paste(names(df.split), collapse = ", ")))
+#     }
+#   } else if (size < 1) {
+#     n <- round(df.table * size, digits = 0)
+#   } else if (size >= 1) {
+#     if (all(df.table >= size) || isTRUE(replace)) {
+#       n <- setNames(rep(size, length.out = length(df.split)),
+#                     names(df.split))
+#     } else {
+#       message(
+#         "Some groups\n---",
+#         paste(names(df.table[df.table < size]), collapse = ", "),
+#         "---\ncontain fewer observations",
+#         " than desired number of samples.\n",
+#         "All observations have been returned from those groups.")
+#       n <- c(sapply(df.table[df.table >= size], function(x) x = size),
+#              df.table[df.table < size])
+#     }
+#   }
+#   temp <- lapply(
+#     names(df.split),
+#     function(x) df.split[[x]][sample(df.table[x],
+#                                      n[x], replace = replace), ])
+#   set1 <- do.call("rbind", temp)
+# 
+#   if (isTRUE(bothSets)) {
+#     set2 <- df[!rownames(df) %in% rownames(set1), ]
+#     list(SET1 = set1, SET2 = set2)
+#   } else {
+#     set1
+#   }
+# }
+# 
+# stratified(stack_both, "id.agro", 1, replace = TRUE)
+
+#2nd attempt:
+# ddply(stack_both,.(id.agro),function(x) x[sample(nrow(x),1),])
+
+#3rd attempt:
+# do.call(rbind, 
+#         lapply(split(stack_both, stack_both$id.agro), 
+#                function(x) x[sample(nrow(x), 1), ]))
+
+#4th attempt:
 # x <- strata(stack_both, "id.agro", size = c(1, 1, 1), method = "srswor")
 # getdata(stack_both, x)
 
-new_stack_both <- stack_both[, .SD[sample(x = .N, size = 1)], by="id.agro"]
+#5th attempt:
+# new_stack_both <- stack_both[, .SD[sample(x = .N, size = 1)], by="id.agro"]
 
-possible.farmersperdealer <- seq(from=1, to=50, by=1)
-powers <- rep(NA, length(possible.ns))
-alpha <- 0.05
-sims <- 500
+#6th attempt:
 
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.farmersperdealer[j]
-  significant.experiments <- rep(NA, sims)
-  
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){
-    Y0 <- sample(stack_farmers$yield_kg_per_acre, size = N, replace = TRUE)
-    tau <- 36.38                                                       # Hypothesize treatment effect
-    Y1 <- Y0 + tau                                                     # treatment potential outcome
-    Z.sim <- rbinom(n=N, size=1, prob=.5)
-    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
 
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+
+#1: take a sample of size 100, with replacement, from stack_dealers
+sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),]
+
+#2: loop over different dealers in sample_dealers & sample from stack_farmers
+
+clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
+for (i in sample_dealers$id.agro) { 
+  temp <- stack_farmers[stack_farmers$id.agro == sample_dealers$id.agro,]
+  temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+  clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
 }
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
+
+clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row after being
+
+#alternative
+
+#stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+#stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+#stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
+stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
+
+clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
+
+table(clusters2$id.agro)
+table(stack_dealers$id.agro)
 
 
-
-
+#it samples 10 ramdom rows from stack_farmers, after splitting stack_farmers by id.agro and collects everything using rbind.
+#But the problem is that you start from the farmer data set, which makes it hard to vary sample size at the input dealer level...
+#Bjorn
