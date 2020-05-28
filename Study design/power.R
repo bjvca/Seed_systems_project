@@ -516,12 +516,17 @@ stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
 
 #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
 
-possible.ns <- seq(from=50, to=150, by=10)
+
+
+possible.ns <- seq(from=20, to=70, by=5)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
 sims <- 100
 stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+### makes sure to delete from dealers those that do not have households atteched to them
+
+stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro)))
 #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
 #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 
@@ -529,22 +534,31 @@ stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 for (j in 1:length(possible.ns)){
   N <- possible.ns[j]
   significant.experiments <- rep(NA, sims)
-  
+#print something to make sure we are still making progress
+  print(possible.ns[j])
   #2nd loop#
   for (i in 1:sims){
     #second attempt to randomize treatment:
-    stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-    sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-    clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
     
+    sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+#do random assignment after you take sample at dealer level
+sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5)
+
+
+    clusters1 <- cbind(stack_farmers[1,],sample_dealers$assignment[1]) #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom -  make also space for assignemnt
+ names(clusters1)[names(clusters1) == 'sample_dealers$assignment[1]'] <- 'sample_dealers$assignment[k]'    
+
     #3rd loop
-    for (i in sample_dealers$id.agro) {
-      temp <- stack_farmers[stack_farmers$id.agro == i,]
-      temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+    for (k in 1:length(sample_dealers$id.agro)) {
+	id <- sample_dealers$id.agro[k]
+      temp <- stack_farmers[stack_farmers$id.agro == id,]
+      temp <- temp[sample(nrow(temp), size=25, replace = TRUE),]
+	temp <- cbind(temp,sample_dealers$assignment[k])  ## here we get the treatment in again
       clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
     }
     
     clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
+names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment' 
     
     clusters1$Y0 <- clusters1$yield_kg_per_acre
     tau <- 81.04422
