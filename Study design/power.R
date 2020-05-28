@@ -472,7 +472,7 @@ stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
 
 #6th attempt:
 
-
+stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 
 #1: take a sample of size 100, with replacement, from stack_dealers
 sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),]
@@ -480,10 +480,10 @@ sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace 
 #2: loop over different dealers in sample_dealers & sample from stack_farmers
 
 clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
-for (i in sample_dealers$id.agro) { 
-   temp <- stack_farmers[stack_farmers$id.agro == sample_dealers$id.agro,]
-   temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
-   clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+for (i in sample_dealers$id.agro) {
+  temp <- stack_farmers[stack_farmers$id.agro == i,]
+  temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+  clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
 }
 
 clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
@@ -493,7 +493,7 @@ clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
 #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 #stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 #stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
+stack_both <- merge(stack_farmers,stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),],by="id.agro")
 
 clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
 
