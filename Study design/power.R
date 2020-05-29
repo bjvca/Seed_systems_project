@@ -309,79 +309,79 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # cbind(possible.ns, power.bothtreatments)
 # #cbind(possible.ns, power.fullranking)
 #
-###################################################
-########changing the level of randomization########
-###################################################
-
-stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
-stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
-stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
-
-stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
-stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
-stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
-
-stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
-stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
-stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
-
-stack_farmers$id.agro <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
-
-sum(is.na(stack_farmers$id.agro))
-
-stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
-
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-#################cluster randomization################
-######################################################
-
-#interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
-
-stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
-
-stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-
-#stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-stack_farmers <- subset(stack_farmers, !is.na(agro_catchID))
-
-#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
-
-possible.ns <- seq(from=100, to=2000, by=100) # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 100                                      # Number of simulations to conduct for each N
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  significant.experiments <- rep(NA, 100)         # Empty object to count significant experiments
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
-    sample_dta <- stack_farmers[c("agro_catchID","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
-    names(sample_dta) <- c("cluster_ID","Y0")
-    tau <- 81.04422                           # Hypothesize treatment effect
-    sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
-    #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
-    #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-    #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-    sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
-    sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
-    fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
-    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-  }
-
-  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-}
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
-
+# ###################################################
+# ########changing the level of randomization########
+# ###################################################
+# 
+# stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
+# stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
+# stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
+# 
+# stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
+# stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
+# stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
+# 
+# stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
+# stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
+# stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
+# 
+# stack_farmers$id.agro <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
+# 
+# sum(is.na(stack_farmers$id.agro))
+# 
+# stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
+# 
+# ######################################################
+# ########Power analysis for the standard design########
+# #######Y0 not normal distribution but real data#######
+# #################cluster randomization################
+# ######################################################
+# 
+# #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+# 
+# stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
+# 
+# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# 
+# #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+# stack_farmers <- subset(stack_farmers, !is.na(agro_catchID))
+# 
+# #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+# #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
+# 
+# possible.ns <- seq(from=100, to=2000, by=100) # The sample sizes we'll be considering
+# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+# alpha <- 0.05                                    # Standard significance level
+# sims <- 100                                      # Number of simulations to conduct for each N
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   significant.experiments <- rep(NA, 100)         # Empty object to count significant experiments
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+#     sample_dta <- stack_farmers[c("agro_catchID","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+#     names(sample_dta) <- c("cluster_ID","Y0")
+#     tau <- 81.04422                           # Hypothesize treatment effect
+#     sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
+#     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
+#     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+#     #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+#     sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
+#     sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
+#     fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
+#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+# }
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
+# 
 #how many farmers per input dealer?
 
 # stack_farmers <- subset(stack_farmers, !is.na(id.agro))
@@ -487,7 +487,7 @@ cbind(possible.ns, powers)
 #   temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
 #   clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
 # }
-# 
+#
 # clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
 
 #number of obs. changes because different dealers and sampled
@@ -495,84 +495,78 @@ cbind(possible.ns, powers)
 #because AS017, 19, 27, 51, 52, 58, 62, 76 aren't assigned to any farmer: 8*5=40
 
 # #alternative
-# 
+#
 # #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 # #stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 # #stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-# 
+#
 # stack_both <- merge(stack_farmers,stack_dealers[sample(nrow(stack_dealers), size = 100000, replace = TRUE),],by="id.agro")
-# 
+#
 # #same as:
 # #stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
 # #stack_both <- stack_both[sample(nrow(stack_both), size = 100000, replace = TRUE),]
-# 
+#
 # clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
-# 
+#
 # #only e.g. 250 obs. because many input dealer not in stack_both sample (here: 28 not in sample) even if size = 100 000 (with size = large number: 350 obs because 78*5-8*5)
 
-# ######################################################
-# ########Power analysis for the standard design########
-# #######Y0 not normal distribution but real data#######
-# #################cluster randomization################
-# ######################################################
-# 
-# #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
-# 
-# 
-# 
-# possible.ns <- seq(from=20, to=70, by=5)
-# powers <- rep(NA, length(possible.ns))
-# alpha <- 0.05
-# sims <- 100
-# stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# ### makes sure to delete from dealers those that do not have households atteched to them
-# 
-# stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro)))
-# #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-# #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
-# 
-# #1st loop#
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]
-#   significant.experiments <- rep(NA, sims)
-# #print something to make sure we are still making progress
-#   print(possible.ns[j])
-#   #2nd loop#
-#   for (i in 1:sims){
-#     #second attempt to randomize treatment:
-#     
-#     sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-# #do random assignment after you take sample at dealer level
-# sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5)
-# 
-# 
-#     clusters1 <- cbind(stack_farmers[1,],sample_dealers$assignment[1]) #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom -  make also space for assignemnt
-#  names(clusters1)[names(clusters1) == 'sample_dealers$assignment[1]'] <- 'sample_dealers$assignment[k]'    
-# 
-#     #3rd loop
-#     for (k in 1:length(sample_dealers$id.agro)) {
-# 	id <- sample_dealers$id.agro[k]
-#       temp <- stack_farmers[stack_farmers$id.agro == id,]
-#       temp <- temp[sample(nrow(temp), size=25, replace = TRUE),]
-# 	temp <- cbind(temp,sample_dealers$assignment[k])  ## here we get the treatment in again
-#       clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-#     }
-#     
-#     clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
-# names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment' 
-#     
-#     clusters1$Y0 <- clusters1$yield_kg_per_acre
-#     tau <- 81.04422
-#     clusters1$Y1 <- clusters1$Y0 + tau
-#     #first attempt to randomize treatment: clusters1$Z.sim <- cluster_ra(clusters = clusters1$id.agro)
-#     clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
-#     fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
-#     p.value <- summary(fit.sim)$coefficients[2,4]
-#     significant.experiments[i] <- (p.value <= alpha)
-#   }
-#   
-#   powers[j] <- mean(significant.experiments)
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
+######################################################
+########Power analysis for the standard design########
+#######Y0 not normal distribution but real data#######
+#################cluster randomization################
+######################################################
+
+#interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+
+stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
+stack_farmers$id.agro <- stack_farmers$agro_catchID #clusters by means of GPS
+
+possible.ns <- seq(from=100, to=200, by=5)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 100
+stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
+stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro))) #deletes dealers that are not attached to any households
+
+#1st loop
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]
+  significant.experiments <- rep(NA, sims)
+  print(possible.ns[j]) #print something to show that we are still making progress
+  
+  #2nd loop
+  for (i in 1:sims){
+    sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+    sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
+    clusters1 <- cbind(stack_farmers[1,],sample_dealers$assignment[1]) #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom -  make also space for assignemnt
+    names(clusters1)[names(clusters1) == 'sample_dealers$assignment[1]'] <- 'sample_dealers$assignment[k]'
+
+    #3rd loop
+    for (k in 1:length(sample_dealers$id.agro)) {
+      id <- sample_dealers$id.agro[k]
+      temp <- stack_farmers[stack_farmers$id.agro == id,]
+      temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
+      temp <- cbind(temp,sample_dealers$assignment[k])  #here we get the treatment in again
+      clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+    }
+
+    clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
+    names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
+
+    clusters1$Y0 <- clusters1$yield_kg_per_acre
+    tau <- 81.04422
+    clusters1$Y1 <- clusters1$Y0 + tau
+    clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
+    fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
+    p.value <- summary(fit.sim)$coefficients[2,4]
+    significant.experiments[i] <- (p.value <= alpha)
+  }
+
+  powers[j] <- mean(significant.experiments)
+}
+
+plot(possible.ns, powers, ylim=c(0,1))
+cbind(possible.ns, powers)
