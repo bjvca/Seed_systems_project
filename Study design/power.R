@@ -16,6 +16,7 @@ library(plyr)
 library(sampling)
 library(usethis)
 library(devtools)
+library(doParallel)
 
 ### this is executed in the /report subdirectory, need to ..
 path <- strsplit(getwd(), "/Study design")[[1]]
@@ -530,30 +531,31 @@ stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
 #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro))) #deletes dealers that are not attached to any households
-
+cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+registerDoParallel(cl)
 #1st loop
 for (j in 1:length(possible.ns)){
   N <- possible.ns[j]
-  significant.experiments <- rep(NA, sims)
   print(possible.ns[j]) #print something to show that we are still making progress
   
   #2nd loop
-  for (i in 1:sims){
+#  for (i in 1:sims){
+significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
     sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
     sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
-    clusters1 <- cbind(stack_farmers[1,],sample_dealers$assignment[1]) #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom -  make also space for assignemnt
-    names(clusters1)[names(clusters1) == 'sample_dealers$assignment[1]'] <- 'sample_dealers$assignment[k]'
+
 
     #3rd loop
-    for (k in 1:length(sample_dealers$id.agro)) {
+clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
+#   for (k in 1:length(sample_dealers$id.agro)) {
       id <- sample_dealers$id.agro[k]
       temp <- stack_farmers[stack_farmers$id.agro == id,]
-      temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
-      temp <- cbind(temp,sample_dealers$assignment[k])  #here we get the treatment in again
-      clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+      temp <- temp[sample(nrow(temp), size=10, replace = TRUE),]
+      clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
+    #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
     }
 
-    clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
+
     names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
 
     clusters1$Y0 <- clusters1$yield_kg_per_acre
@@ -562,7 +564,7 @@ for (j in 1:length(possible.ns)){
     clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
     fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
     p.value <- summary(fit.sim)$coefficients[2,4]
-    significant.experiments[i] <- (p.value <= alpha)
+    significant.experiments <- (p.value <= alpha)
   }
 
   powers[j] <- mean(significant.experiments)
