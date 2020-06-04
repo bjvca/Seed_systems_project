@@ -24,6 +24,15 @@ path <- strsplit(getwd(), "/Study design")[[1]]
 stack_dealers <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
 stack_farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
 
+ratings <- merge(merge(aggregate(as.numeric(as.character(stack_farmers$hh.maize.agro1.q108l)),list(stack_farmers$id.agro1), FUN=mean, na.rm=T), aggregate(as.numeric(as.character(stack_farmers$hh.maize.agro2.q109l)),list(stack_farmers$id.agro2), FUN=mean, na.rm=T), by = "Group.1", all=T)
+,
+ aggregate(as.numeric(as.character(stack_farmers$hh.maize.agro3.q111l)),list(stack_farmers$id.agro3), FUN=mean, na.rm=T), by = "Group.1", all=T)
+ratings <- subset(ratings,Group.1!="n/a")
+
+ratings$reputation_av_farmers <- rowMeans(ratings[,2:4], na.rm=T)
+stack_dealers <- merge(stack_dealers, ratings[,c(1,5)],by.x="id.agro" ,by.y="Group.1",all.x=T)
+
+
 ###YIELD###
 #transform
 stack_farmers$hh.maize.maizen.q64[stack_farmers$hh.maize.maizen.q64==999] <- NA
