@@ -90,7 +90,7 @@ stack_dealers$quantitysold <- rowSums(cbind(stack_dealers$hh.maize.seed.1..q22,s
 #stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22+stack_dealers$hh.maize.seed.2..q22 #not good because 46 of 78 NA's (48 after trimming)
 #stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22 #only 12 NA's, 15 after trimming
 
-stack_dealers <- trim("quantitysold", stack_dealers, trim_perc=.05)
+stack_dealers <- trim("quantitysold", stack_dealers, trim_perc=.25)
 
 #standard deviations and means
 sd(stack_dealers$quantitysold, na.rm=TRUE)
@@ -134,8 +134,8 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){
-#     Y0 <-  rnorm(n=N, mean=3.680319, sd=0.6145871)              # control potential outcome
-#     tau <- 0.3072936                                # Hypothesize treatment effect
+#     Y0 <-  rnorm(n=N, mean=283.5, sd=381.4131)              # control potential outcome
+#     tau <- 190.7065                                # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
@@ -149,40 +149,40 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # plot(possible.ns, powers, ylim=c(0,1))
 # cbind(possible.ns, powers)
 # 
-# ######################################################
-# ########Power analysis for the standard design########
-# #######Y0 not normal distribution but real data#######
-# ######################################################
-# 
-# possible.ns <- seq(from=50, to=200, by=10)     # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 500                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){                                                   # control potential outcome
-#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)
-#     tau <- 0.3072936                                                       # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                                     # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
-# 
+######################################################
+########Power analysis for the standard design########
+#######Y0 not normal distribution but real data#######
+######################################################
+
+possible.ns <- seq(from=50, to=200, by=10)     # The sample sizes we'll be considering
+powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+alpha <- 0.05                                    # Standard significance level
+sims <- 500                                      # Number of simulations to conduct for each N
+stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
+
+#### Outer loop to vary the number of subjects ####
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]                              # Pick the jth value for N
+
+  significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+
+  #### Inner loop to conduct experiments "sims" times over for each N ####
+  for (i in 1:sims){                                                   # control potential outcome
+    Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)
+    tau <- 113.9142                                                      # Hypothesize treatment effect
+    Y1 <- Y0 + tau                                                     # treatment potential outcome
+    Z.sim <- rbinom(n=N, size=1, prob=.5)
+    Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
+    fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
+    p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+    significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+  }
+
+  powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+}
+plot(possible.ns, powers, ylim=c(0,1))
+cbind(possible.ns, powers)
+
 # #####################################################
 # #######Power analysis for covariate control##########
 # #####################################################
@@ -263,64 +263,64 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 # cbind(possible.ns, powers)
 # 
-######################################################
-########Power analysis for multiple treatments########
-#############real data but no covartiates#############
-######################################################
-
-possible.ns <- seq(from=300, to=500, by=10)     # The sample sizes we'll be considering
-power.atleastone <- rep(NA, length(possible.ns))
-power.bothtreatments <- rep(NA, length(possible.ns))
-alpha <- 0.1  #(one-tailed test at .05 level)
-sims <- 100                                      # Number of simulations to conduct for each N
-stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
-
-#### Outer loop to vary the number of subjects ####
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]                              # Pick the jth value for N
-
-  p.T1vsC <- rep(NA, sims)
-  p.T2vsC <- rep(NA, sims)
-  p.T3vsC <- rep(NA, sims)
-  c.T1vsC <- rep(NA, sims)
-  c.T2vsC <- rep(NA, sims)
-  c.T3vsC <- rep(NA, sims)
-
-  #### Inner loop to conduct experiments "sims" times over for each N ####
-  for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
-    tau_1 <- 0.3072936                         # Hypothesize treatment effect
-    tau_2 <- 0.3072936
-    tau_3 <- 0.3072936
-    Y1 <- Y0 + tau_1
-    Y2 <- Y0 + tau_2
-    Y3 <- Y0 + tau_3
-    Z.sim <- complete_ra(N=N, num_arms=4)
-    Y.sim <- Y0*(Z.sim=="T4") + Y1*(Z.sim=="T1") + Y2*(Z.sim=="T2") + Y3*(Z.sim=="T3")
-    frame.sim <- data.frame(Y.sim, Z.sim)
-    fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
-    fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
-    fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
-
-    ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
-    c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
-    c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
-    c.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,1]
-    p.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,4]
-    p.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,4]
-    p.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,4]
-  }
-  power.atleastone[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & (p.T1vsC < alpha/2 | p.T2vsC < alpha/2 | p.T3vsC < alpha/2))
-  power.bothtreatments[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & p.T1vsC < alpha/2 & p.T2vsC < alpha/2 & p.T3vsC < alpha/2)
-  print(j)
-}
-
-#plot(possible.ns, power.atleastone, ylim=c(0,1))
-
-cbind(possible.ns, power.atleastone)
-cbind(possible.ns, power.bothtreatments)
-#cbind(possible.ns, power.fullranking)
-
+# ######################################################
+# ########Power analysis for multiple treatments########
+# #############real data but no covartiates#############
+# ######################################################
+# 
+# possible.ns <- seq(from=300, to=500, by=10)     # The sample sizes we'll be considering
+# power.atleastone <- rep(NA, length(possible.ns))
+# power.bothtreatments <- rep(NA, length(possible.ns))
+# alpha <- 0.1  #(one-tailed test at .05 level)
+# sims <- 100                                      # Number of simulations to conduct for each N
+# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
+# 
+# #### Outer loop to vary the number of subjects ####
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]                              # Pick the jth value for N
+# 
+#   p.T1vsC <- rep(NA, sims)
+#   p.T2vsC <- rep(NA, sims)
+#   p.T3vsC <- rep(NA, sims)
+#   c.T1vsC <- rep(NA, sims)
+#   c.T2vsC <- rep(NA, sims)
+#   c.T3vsC <- rep(NA, sims)
+# 
+#   #### Inner loop to conduct experiments "sims" times over for each N ####
+#   for (i in 1:sims){             # control potential outcome
+#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
+#     tau_1 <- 0.3072936                         # Hypothesize treatment effect
+#     tau_2 <- 0.3072936
+#     tau_3 <- 0.3072936
+#     Y1 <- Y0 + tau_1
+#     Y2 <- Y0 + tau_2
+#     Y3 <- Y0 + tau_3
+#     Z.sim <- complete_ra(N=N, num_arms=4)
+#     Y.sim <- Y0*(Z.sim=="T4") + Y1*(Z.sim=="T1") + Y2*(Z.sim=="T2") + Y3*(Z.sim=="T3")
+#     frame.sim <- data.frame(Y.sim, Z.sim)
+#     fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
+#     fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
+#     fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
+# 
+#     ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
+#     c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
+#     c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
+#     c.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,1]
+#     p.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,4]
+#     p.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,4]
+#     p.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,4]
+#   }
+#   power.atleastone[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & (p.T1vsC < alpha/2 | p.T2vsC < alpha/2 | p.T3vsC < alpha/2))
+#   power.bothtreatments[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & p.T1vsC < alpha/2 & p.T2vsC < alpha/2 & p.T3vsC < alpha/2)
+#   print(j)
+# }
+# 
+# #plot(possible.ns, power.atleastone, ylim=c(0,1))
+# 
+# cbind(possible.ns, power.atleastone)
+# cbind(possible.ns, power.bothtreatments)
+# #cbind(possible.ns, power.fullranking)
+# 
 # ###################################################
 # ########changing the level of randomization########
 # ###################################################
