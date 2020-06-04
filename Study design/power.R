@@ -32,6 +32,9 @@ ratings <- subset(ratings,Group.1!="n/a")
 ratings$reputation_av_farmers <- rowMeans(ratings[,2:4], na.rm=T)
 stack_dealers <- merge(stack_dealers, ratings[,c(1,5)],by.x="id.agro" ,by.y="Group.1",all.x=T)
 
+#standard deviations and means
+sd(ratings$reputation_av_farmers, na.rm=TRUE)
+mean(ratings$reputation_av_farmers, na.rm=TRUE)
 
 ###YIELD###
 #transform
@@ -131,8 +134,8 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){
-#     Y0 <-  rnorm(n=N, mean=297.4107, sd=306.526)              # control potential outcome
-#     tau <- 153.263                                # Hypothesize treatment effect
+#     Y0 <-  rnorm(n=N, mean=3.680319, sd=0.6145871)              # control potential outcome
+#     tau <- 0.3072936                                # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
@@ -155,7 +158,7 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
+# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -165,8 +168,8 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){                                                   # control potential outcome
-#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)
-#     tau <- 153.263                                                       # Hypothesize treatment effect
+#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)
+#     tau <- 0.3072936                                                       # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                                     # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
@@ -188,7 +191,7 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
+# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -198,16 +201,16 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
 # 
 #     #create baseline data
-#     quantitysold_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
+#     reputation_av_farmers_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
 # 
-#     tau <- 153.263                                    # Hypothesize treatment effect
+#     tau <- 0.3072936                                    # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
+#     fit.sim <- lm(Y.sim ~ Z.sim + reputation_av_farmers_baseline)                   # Do analysis (Simple regression)
 #    #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
 #     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
 #     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
@@ -265,12 +268,12 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 #############real data but no covartiates#############
 ######################################################
 
-possible.ns <- seq(from=200, to=500, by=10)     # The sample sizes we'll be considering
+possible.ns <- seq(from=300, to=500, by=10)     # The sample sizes we'll be considering
 power.atleastone <- rep(NA, length(possible.ns))
 power.bothtreatments <- rep(NA, length(possible.ns))
 alpha <- 0.1  #(one-tailed test at .05 level)
 sims <- 100                                      # Number of simulations to conduct for each N
-stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
+stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
 
 #### Outer loop to vary the number of subjects ####
 for (j in 1:length(possible.ns)){
@@ -285,10 +288,10 @@ for (j in 1:length(possible.ns)){
 
   #### Inner loop to conduct experiments "sims" times over for each N ####
   for (i in 1:sims){             # control potential outcome
-    Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
-    tau_1 <- 153.263                         # Hypothesize treatment effect
-    tau_2 <- 153.263
-    tau_3 <- 153.263
+    Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
+    tau_1 <- 0.3072936                         # Hypothesize treatment effect
+    tau_2 <- 0.3072936
+    tau_3 <- 0.3072936
     Y1 <- Y0 + tau_1
     Y2 <- Y0 + tau_2
     Y3 <- Y0 + tau_3
