@@ -51,7 +51,7 @@ stack_farmers$yield_kg_per_acre <- stack_farmers$yield_kg/stack_farmers$hh.maize
 #percentage allocated to maize q46b excluded because 454 NA's
 
 #trimming: function for trimming a variable in a dataset - replaces with NA
-trim <- function(var, dataset, trim_perc=.22) {
+trim <- function(var, dataset, trim_perc=.05) {
   dataset[var][dataset[var] < quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)), na.rm=T)[1] | dataset[var] > quantile(dataset[var], c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2] ] <- NA
   return(dataset)
 }
@@ -85,12 +85,12 @@ stack_dealers$hh.maize.seed.1..q22 <- as.numeric(as.character(stack_dealers$hh.m
 stack_dealers$hh.maize.seed.2..q22 <- as.numeric(as.character(stack_dealers$hh.maize.seed.2..q22))
 stack_dealers$hh.maize.seed.3..q22 <- as.numeric(as.character(stack_dealers$hh.maize.seed.3..q22))
 
-#make quantity sold variable
-#stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22+stack_dealers$hh.maize.seed.2..q22+stack_dealers$hh.maize.seed.3..q22 #not good because 65 of 78 NA's (67 after trimming)
+#make quantity sold variable - this is kg sold of top 3 hybrids (assuming missing means no hybrids are sold)
+stack_dealers$quantitysold <- rowSums(cbind(stack_dealers$hh.maize.seed.1..q22,stack_dealers$hh.maize.seed.2..q22,stack_dealers$hh.maize.seed.3..q22), na.rm=T) #not good because 65 of 78 NA's (67 after trimming)
 #stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22+stack_dealers$hh.maize.seed.2..q22 #not good because 46 of 78 NA's (48 after trimming)
-stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22 #only 12 NA's, 15 after trimming
+#stack_dealers$quantitysold <- stack_dealers$hh.maize.seed.1..q22 #only 12 NA's, 15 after trimming
 
-stack_dealers <- trim("quantitysold", stack_dealers)
+stack_dealers <- trim("quantitysold", stack_dealers, trim_perc=.05)
 
 #standard deviations and means
 sd(stack_dealers$quantitysold, na.rm=TRUE)
