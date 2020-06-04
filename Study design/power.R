@@ -39,7 +39,7 @@ stack_farmers$yield_kg_per_acre <- stack_farmers$yield_kg/stack_farmers$hh.maize
 #percentage allocated to maize q46b excluded because 454 NA's
 
 #trimming: function for trimming a variable in a dataset - replaces with NA
-trim <- function(var, dataset, trim_perc=.05) {
+trim <- function(var, dataset, trim_perc=.22) {
   dataset[var][dataset[var] < quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)), na.rm=T)[1] | dataset[var] > quantile(dataset[var], c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2] ] <- NA
   return(dataset)
 }
@@ -109,11 +109,10 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # ######################################################
 # 
 # ##################################################
-# possible.ns <- seq(from=3500, to=5000, by=100)     # The sample sizes we'll be considering
+# possible.ns <- seq(from=50, to=200, by=10)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# !!! stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -123,8 +122,8 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){
-#     Y0 <-  rnorm(n=N, mean=265.4762, sd=302.7211)              # control potential outcome
-#     tau <- Y0*0.1                                # Hypothesize treatment effect
+#     Y0 <-  rnorm(n=N, mean=297.4107, sd=306.526)              # control potential outcome
+#     tau <- 153.263                                # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
@@ -143,11 +142,11 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # #######Y0 not normal distribution but real data#######
 # ######################################################
 # 
-# possible.ns <- seq(from=4000, to=5000, by=100)     # The sample sizes we'll be considering
+# possible.ns <- seq(from=50, to=200, by=10)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# !!! stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -157,8 +156,8 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){                                                   # control potential outcome
-#     Y0 <- sample(stack_farmers$yield_kg_per_acre, size = N, replace = TRUE)
-#     tau <- 36.38                                                       # Hypothesize treatment effect
+#     Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)
+#     tau <- 153.263                                                       # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                                     # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
@@ -176,11 +175,11 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # #######Power analysis for covariate control##########
 # #####################################################
 # 
-# possible.ns <- seq(from=500, to=1500, by=100)     # The sample sizes we'll be considering
+# possible.ns <- seq(from=50, to=200, by=10)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# !!! stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -195,7 +194,7 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 #     #create baseline data
 #     quantitysold_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
 # 
-#     tau <- 60.54422                                    # Hypothesize treatment effect
+#     tau <- 153.263                                    # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
@@ -214,13 +213,13 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
 # cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
 # 
-####binary
+# ###binary
 # 
-# possible.ns <- seq(from=500, to=2500, by=100)     # The sample sizes we'll be considering
+# possible.ns <- seq(from=1500, to=2500, by=100)     # The sample sizes we'll be considering
 # powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
 # alpha <- 0.05                                    # Standard significance level
 # sims <- 500                                      # Number of simulations to conduct for each N
-# !!! stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# stack_dealers <- subset(stack_dealers, !is.na(reputation))
 # 
 # #### Outer loop to vary the number of subjects ####
 # for (j in 1:length(possible.ns)){
@@ -230,16 +229,16 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 #   #### Inner loop to conduct experiments "sims" times over for each N ####
 #   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_farmers$seedquality_binary, size = N, replace = TRUE)             # control potential outcome
+#     Y0 <- sample(stack_dealers$reputation, size = N, replace = TRUE)             # control potential outcome
 # 
 #     #create baseline data
-#     seedquality_binary_baseline <- correlate(given = Y0, rho = 0.7, draw_binary, prob = mean(Y0, na.rm=TRUE))
-#     
-#     tau <- 0.08759494                                    # Hypothesize treatment effect
+#     reputation_baseline <- correlate(given = Y0, rho = 0.7, draw_binary, prob = mean(Y0, na.rm=TRUE))
+# 
+#     tau <- 0.05512821                                    # Hypothesize treatment effect
 #     Y1 <- Y0 + tau                                 # treatment potential outcome
 #     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
 #     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim + seedquality_binary_baseline)                   # Do analysis (Simple regression)
+#     fit.sim <- lm(Y.sim ~ Z.sim + reputation_baseline)                   # Do analysis (Simple regression)
 #     #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
 #     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
 #     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
@@ -252,64 +251,64 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # 
 # cbind(possible.ns, powers)
 # 
-# ######################################################
-# ########Power analysis for multiple treatments########
-# #############real data but no covartiates#############
-# ######################################################
-# 
-# possible.ns <- seq(from=5000, to=15000, by=1000)     # The sample sizes we'll be considering
-# power.atleastone <- rep(NA, length(possible.ns))
-# power.bothtreatments <- rep(NA, length(possible.ns))
-# alpha <- 0.1  #(one-tailed test at .05 level)
-# sims <- 100                                      # Number of simulations to conduct for each N
-# !!! stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   p.T1vsC <- rep(NA, sims)
-#   p.T2vsC <- rep(NA, sims)
-#   p.T3vsC <- rep(NA, sims)
-#   c.T1vsC <- rep(NA, sims)
-#   c.T2vsC <- rep(NA, sims)
-#   c.T3vsC <- rep(NA, sims)
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_farmers$seedquality_binary, size = N, replace = TRUE)             # control potential outcome
-#     tau_1 <- 0.08759494                         # Hypothesize treatment effect
-#     tau_2 <- 0.08759494
-#     tau_3 <- 0.08759494
-#     Y1 <- Y0 + tau_1
-#     Y2 <- Y0 + tau_2
-#     Y3 <- Y0 + tau_3
-#     Z.sim <- complete_ra(N=N, num_arms=4)
-#     Y.sim <- Y0*(Z.sim=="T4") + Y1*(Z.sim=="T1") + Y2*(Z.sim=="T2") + Y3*(Z.sim=="T3")
-#     frame.sim <- data.frame(Y.sim, Z.sim)
-#     fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
-#     fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
-#     fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
-# 
-#     ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
-#     c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
-#     c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
-#     c.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,1]
-#     p.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,4]
-#     p.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,4]
-#     p.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,4]
-#   }
-#   power.atleastone[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & (p.T1vsC < alpha/2 | p.T2vsC < alpha/2 | p.T3vsC < alpha/2))
-#   power.bothtreatments[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & p.T1vsC < alpha/2 & p.T2vsC < alpha/2 & p.T3vsC < alpha/2)
-#   print(j)
-# }
-# 
-# #plot(possible.ns, power.atleastone, ylim=c(0,1))
-# 
-# cbind(possible.ns, power.atleastone)
-# cbind(possible.ns, power.bothtreatments)
-# #cbind(possible.ns, power.fullranking)
-#
+######################################################
+########Power analysis for multiple treatments########
+#############real data but no covartiates#############
+######################################################
+
+possible.ns <- seq(from=200, to=500, by=10)     # The sample sizes we'll be considering
+power.atleastone <- rep(NA, length(possible.ns))
+power.bothtreatments <- rep(NA, length(possible.ns))
+alpha <- 0.1  #(one-tailed test at .05 level)
+sims <- 100                                      # Number of simulations to conduct for each N
+stack_dealers <- subset(stack_dealers, !is.na(quantitysold))
+
+#### Outer loop to vary the number of subjects ####
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]                              # Pick the jth value for N
+
+  p.T1vsC <- rep(NA, sims)
+  p.T2vsC <- rep(NA, sims)
+  p.T3vsC <- rep(NA, sims)
+  c.T1vsC <- rep(NA, sims)
+  c.T2vsC <- rep(NA, sims)
+  c.T3vsC <- rep(NA, sims)
+
+  #### Inner loop to conduct experiments "sims" times over for each N ####
+  for (i in 1:sims){             # control potential outcome
+    Y0 <- sample(stack_dealers$quantitysold, size = N, replace = TRUE)             # control potential outcome
+    tau_1 <- 153.263                         # Hypothesize treatment effect
+    tau_2 <- 153.263
+    tau_3 <- 153.263
+    Y1 <- Y0 + tau_1
+    Y2 <- Y0 + tau_2
+    Y3 <- Y0 + tau_3
+    Z.sim <- complete_ra(N=N, num_arms=4)
+    Y.sim <- Y0*(Z.sim=="T4") + Y1*(Z.sim=="T1") + Y2*(Z.sim=="T2") + Y3*(Z.sim=="T3")
+    frame.sim <- data.frame(Y.sim, Z.sim)
+    fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
+    fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
+    fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
+
+    ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
+    c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
+    c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
+    c.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,1]
+    p.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,4]
+    p.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,4]
+    p.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,4]
+  }
+  power.atleastone[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & (p.T1vsC < alpha/2 | p.T2vsC < alpha/2 | p.T3vsC < alpha/2))
+  power.bothtreatments[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & p.T1vsC < alpha/2 & p.T2vsC < alpha/2 & p.T3vsC < alpha/2)
+  print(j)
+}
+
+#plot(possible.ns, power.atleastone, ylim=c(0,1))
+
+cbind(possible.ns, power.atleastone)
+cbind(possible.ns, power.bothtreatments)
+#cbind(possible.ns, power.fullranking)
+
 # ###################################################
 # ########changing the level of randomization########
 # ###################################################
@@ -511,64 +510,64 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 #
 # #only e.g. 250 obs. because many input dealer not in stack_both sample (here: 28 not in sample) even if size = 100 000 (with size = large number: 350 obs because 78*5-8*5)
 
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-#################cluster randomization################
-######################################################
-
-#interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
-
-stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
-stack_farmers$id.agro <- stack_farmers$agro_catchID #clusters by means of GPS
-
-possible.ns <- seq(from=100, to=200, by=5)
-powers <- rep(NA, length(possible.ns))
-alpha <- 0.05
-sims <- 100
-stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
-stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro))) #deletes dealers that are not attached to any households
-cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-registerDoParallel(cl)
-#1st loop
-for (j in 1:length(possible.ns)){
-  N <- possible.ns[j]
-  print(possible.ns[j]) #print something to show that we are still making progress
-  
-  #2nd loop
-#  for (i in 1:sims){
-significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-    sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-    sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
-
-
-    #3rd loop
-clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
-#   for (k in 1:length(sample_dealers$id.agro)) {
-      id <- sample_dealers$id.agro[k]
-      temp <- stack_farmers[stack_farmers$id.agro == id,]
-      temp <- temp[sample(nrow(temp), size=10, replace = TRUE),]
-      clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
-    #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-    }
-
-
-    names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
-
-    clusters1$Y0 <- clusters1$yield_kg_per_acre
-    tau <- 81.04422
-    clusters1$Y1 <- clusters1$Y0 + tau
-    clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
-    fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
-    p.value <- summary(fit.sim)$coefficients[2,4]
-    significant.experiments <- (p.value <= alpha)
-  }
-
-  powers[j] <- mean(significant.experiments)
-}
-
-plot(possible.ns, powers, ylim=c(0,1))
-cbind(possible.ns, powers)
+# ######################################################
+# ########Power analysis for the standard design########
+# #######Y0 not normal distribution but real data#######
+# #################cluster randomization################
+# ######################################################
+# 
+# #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+# 
+# stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
+# stack_farmers$id.agro <- stack_farmers$agro_catchID #clusters by means of GPS
+# 
+# possible.ns <- seq(from=100, to=200, by=5)
+# powers <- rep(NA, length(possible.ns))
+# alpha <- 0.05
+# sims <- 100
+# stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
+# #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
+# #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
+# stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers$id.agro))) #deletes dealers that are not attached to any households
+# cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+# registerDoParallel(cl)
+# #1st loop
+# for (j in 1:length(possible.ns)){
+#   N <- possible.ns[j]
+#   print(possible.ns[j]) #print something to show that we are still making progress
+#   
+#   #2nd loop
+# #  for (i in 1:sims){
+# significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+#     sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+#     sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
+# 
+# 
+#     #3rd loop
+# clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
+# #   for (k in 1:length(sample_dealers$id.agro)) {
+#       id <- sample_dealers$id.agro[k]
+#       temp <- stack_farmers[stack_farmers$id.agro == id,]
+#       temp <- temp[sample(nrow(temp), size=10, replace = TRUE),]
+#       clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
+#     #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+#     }
+# 
+# 
+#     names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
+# 
+#     clusters1$Y0 <- clusters1$yield_kg_per_acre
+#     tau <- 81.04422
+#     clusters1$Y1 <- clusters1$Y0 + tau
+#     clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
+#     fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
+#     p.value <- summary(fit.sim)$coefficients[2,4]
+#     significant.experiments <- (p.value <= alpha)
+#   }
+# 
+#   powers[j] <- mean(significant.experiments)
+# }
+# 
+# plot(possible.ns, powers, ylim=c(0,1))
+# cbind(possible.ns, powers)
