@@ -569,7 +569,7 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 # clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
 #
 # #only e.g. 250 obs. because many input dealer not in stack_both sample (here: 28 not in sample) even if size = 100 000 (with size = large number: 350 obs because 78*5-8*5)
-# 
+
 ######################################################
 ########Power analysis for the standard design########
 #######Y0 not normal distribution but real data#######
@@ -587,9 +587,10 @@ powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
 sims <- 100
 stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+
+#yield_kg_per_acre
+
 stack_farmers_yield_kg_per_acre <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-#stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-#stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
 stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_yield_kg_per_acre$id.agro))) #deletes dealers that are not attached to any households
 cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
 registerDoParallel(cl)
@@ -615,7 +616,7 @@ for (j in 1:length(possible.ns)){
       id <- sample_dealers$id.agro[k]
       temp <- stack_farmers_yield_kg_per_acre[stack_farmers_yield_kg_per_acre$id.agro == id,]
       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
-      
+
       clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
       #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
     }
@@ -633,7 +634,7 @@ for (j in 1:length(possible.ns)){
 
   powers[f] <- mean(significant.experiments)
   }
-  
+
 }
 
 
@@ -643,6 +644,126 @@ write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")),
 
 df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=F)
+dev.off()
+
+#inputuse_binary
+
+stack_farmers_inputuse_binary <- subset(stack_farmers, !is.na(inputuse_binary))
+stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_inputuse_binary$id.agro))) #deletes dealers that are not attached to any households
+cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+registerDoParallel(cl)
+#1st loop
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]
+  print(possible.ns[j]) #print something to show that we are still making progress
+
+  #2nd loop
+  for (f in 1:length(possible.fs)){
+    F <- possible.fs[f]
+    print(possible.fs[f]) #print something to show that we are still making progress
+
+    #3rd loop
+    #  for (i in 1:sims){
+    significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+      sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+      sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
+
+      #4th loop
+      clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
+        #   for (k in 1:length(sample_dealers$id.agro)) {
+        id <- sample_dealers$id.agro[k]
+        temp <- stack_farmers_inputuse_binary[stack_farmers_inputuse_binary$id.agro == id,]
+        temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+
+        clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
+        #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+      }
+
+      names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
+
+      clusters1$Y0 <- clusters1$inputuse_binary
+      tau <- 0.065
+      clusters1$Y1 <- clusters1$Y0 + tau
+      clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
+      fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
+      p.value <- summary(fit.sim)$coefficients[2,4]
+      significant.experiments <- (p.value <= alpha)
+    }
+
+    powers[f] <- mean(significant.experiments)
+  }
+
+}
+
+
+cbind(possible.fs, powers)
+df <- cbind(possible.fs, powers)
+write.csv(df,(paste(path,"Study design/power_inputuse_binary.csv", sep ="/")), row.names = FALSE)
+
+df <- read.csv(paste(path,"Study design/power_inputuse_binary.csv", sep ="/"))
+png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=F)
+dev.off()
+
+#seedquality_binary
+
+stack_farmers_seedquality_binary <- subset(stack_farmers, !is.na(seedquality_binary))
+stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_seedquality_binary$id.agro))) #deletes dealers that are not attached to any households
+cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+registerDoParallel(cl)
+#1st loop
+for (j in 1:length(possible.ns)){
+  N <- possible.ns[j]
+  print(possible.ns[j]) #print something to show that we are still making progress
+
+  #2nd loop
+  for (f in 1:length(possible.fs)){
+    F <- possible.fs[f]
+    print(possible.fs[f]) #print something to show that we are still making progress
+
+    #3rd loop
+    #  for (i in 1:sims){
+    significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+      sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
+      sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
+
+      #4th loop
+      clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
+        #   for (k in 1:length(sample_dealers$id.agro)) {
+        id <- sample_dealers$id.agro[k]
+        temp <- stack_farmers_seedquality_binary[stack_farmers_seedquality_binary$id.agro == id,]
+        temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+
+        clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
+        #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
+      }
+
+      names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
+
+      clusters1$Y0 <- clusters1$seedquality_binary
+      tau <- 0.0887512
+      clusters1$Y1 <- clusters1$Y0 + tau
+      clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
+      fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
+      p.value <- summary(fit.sim)$coefficients[2,4]
+      significant.experiments <- (p.value <= alpha)
+    }
+
+    powers[f] <- mean(significant.experiments)
+  }
+
+}
+
+
+cbind(possible.fs, powers)
+df <- cbind(possible.fs, powers)
+write.csv(df,(paste(path,"Study design/power_seedquality_binary.csv", sep ="/")), row.names = FALSE)
+
+df <- read.csv(paste(path,"Study design/power_seedquality_binary.csv", sep ="/"))
+png((paste(path,"Study design/power_seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
 ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=F)
 dev.off()
