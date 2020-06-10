@@ -581,11 +581,11 @@ mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
 stack_farmers$id.agro <- stack_farmers$agro_catchID #clusters by means of GPS
 
-possible.ns <- 280
+possible.ns <- 265
 possible.fs <- seq(from=1, to=25, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
-sims <- 100
+sims <- 500
 stack_farmers <- subset(stack_farmers, !is.na(id.agro))
 
 #yield_kg_per_acre
