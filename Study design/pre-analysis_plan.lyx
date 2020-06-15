@@ -1776,44 +1776,33 @@ We use simulations to analyze power, meaning that we simulate to conduct
  significant results.
  This is a flexible way to analyze power because even small changes to our
  experimental design can be included in our simulations.
- We make use of data from a different study, namely ….
- These data contain answers of farmers and input dealers in …, a Ugandan
- district similar to the districts we are going to investigate, and the
- study covers many of our outcome variables.
- Simulating with real data has the advantage that we do not only know the
- real means and standard deviations of our variables of interest but also
- have the real distribution of those variables at hand, which allows us
- to analyze power precisely.
+ We use data from a different study, namely …, which contain answers of
+ farmers and input dealers in …, a Ugandan district similar to the districts
+ we are going to investigate, and many of our outcome variables.
+ Simulations with real data have the advantage that we do not only know
+ the real means and standard deviations of the variables of interest but
+ also have the real distributions of those variables at hand, which allows
+ us to analyze power precisely.
 \end_layout
 
 \begin_layout Standard
 We will investigate both, outcomes at the input dealer level and outcomes
  at the farmer level.
- We first analyze power at the input dealer level because interviewing a
- sufficient number of dealers is more challenging than surveying a sufficient
- number of farmers, as there are much fewer of the former.
- At the input dealer level, we consider two outcome variables, the quantity
- of sold seed and the reputation of the input dealer.
-\end_layout
-
-\begin_layout Standard
-The quantity of seed that the input dealer sold is a continuous variable
+ We analyze power at the input dealer level first and consider two outcome
+ variables, the quantity of sold seed and the reputation of the input dealer.
+ The quantity of seed that the input dealer sold is a continuous variable
  and trimmed at 5 percent to decrease variability, i.e.
  the standard deviation compared to the expected treatment effect size,
  and therefore increase power.
  The mean quantity is 325 kilogram and the standard deviation is 454 kilogram.
  Our simulation design randomly assigns input dealers to either treatment
  or control with a probability of 0.5.
- We also have to make assumptions about the size of the treatment effect.
+ We also need to make assumptions about the size of the treatment effect.
  To our knowledge, there are no studies with interventions at the input
- dealer level, so that we cannot consult the literature to assume a realistic
- treatment effect.
- That is why we work with Cohen's d which is defined as the difference between
- two means divided by the standard deviation.
- A small effect size corresponds to a Cohen’s d of 0.20, a medium effect
- size corresponds to a Cohen’s d of 0.50.
- We expect a treatment effect size between small and medium, so we will
- assume an effect of 0.35 times the standard deviation, here 159 kilogram.
+ dealer level, so that we cannot rely on the literature when assuming a
+ realistic treatment effect.
+ That is why we expect a treatment effect size between small and medium,
+ an effect of 0.35 times the standard deviation, here 159 kilogram.
  We then vary the total number of input dealers to see how power varies
  with sample size.
  The graph below shows that under these assumptions, if the number of input
@@ -1847,10 +1836,6 @@ Power analysis simulations for quantity sold
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1869,6 +1854,7 @@ For the reputation outcome variable, farmers score the reputation of their
  the described assumptions.
  From these calculations we conclude that we need at least 265 input dealers
  in our sample to detect a small to medium sized effect.
+ To account for 10 percent attrition, we will therefore survey 292 dealers.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1896,10 +1882,6 @@ Power analysis simulations for reputation
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1918,13 +1900,40 @@ Then we determine how many farmers we need to have statistically significant
  That is why we assume an effect size of 10.5 percent on maize yields, hence
  57 kilogram.
  Given the distribution of the yield variable and the assumption about the
- effect, we conclude that we need at least 10 farmers per input dealer,
- i.e.
- 2800 farmers in our sample.
- 
+ effect, we conclude that we need at least 15 farmers per input dealer.
+ This is illustrated by the graph below.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename power_yield_kg_per_acre.png
+	lyxscale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for yield
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Another outcome variable of interest is input use, i.e.
  the adoption of improved maize seed, a binary variable.
  In our data, 63 percent of farmers adopt improved seed and the standard
@@ -1932,9 +1941,7 @@ Another outcome variable of interest is input use, i.e.
  Van Campenhout, Spielman, and Lecoutere (2020) find an effect of 0.065 percentag
 e points of videos to deliver information on fertilizer use.
  If we assume an effect size of 0.065 percentage points, we need at least
- 12 farmers per input dealer, i.e.
- 3360 farmers in total in our sample.
- This is illustrated by the graph below.
+ 11 farmers per input dealer in our sample.
 \end_layout
 
 \begin_layout Standard
@@ -1978,29 +1985,50 @@ The last outcome we consider in our power analysis is the quality of seed
  Because there are no studies that measure the effect of a similar interventions
  on seed quality, we expect a small effect in terms of Cohen’s d, namely
  0.2 times the standard deviation, thus 0.088 percentage points.
- Given this assumption, we need at least 4 farmers per input dealer, i.e.
- 1120 farmers in total.
+ Given this assumption, we need at least 5 farmers per input dealer.
 \end_layout
 
 \begin_layout Standard
-We conclude that we need at least 12 farmers per input dealer to detect
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename power_seedquality_binary.png
+	lyxscale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for seed quality
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We conclude that we need at least 15 farmers per input dealer to detect
  effect sizes similar to the ones Van Campenhout, Spielman, and Lecoutere
  (2020) found.
- However, relying on published effect sizes is somewhat risky.
- Due to publication bias, it is likely that similar studies that did not
- find any effect or a very small effect were not published.
- We want to ensure that we find even a very small effect of our interventions,
- and therefore decide to work with a 25 farmers per input dealer, resulting
- in a sample size of 7000.
- Interviewing more farmers is less expensive and less logistically demanding
- than surveying more input dealers, so that we rely on the result of our
- power analysis and include 280 input dealers, but increase the number of
- farmers to 7000.
- 
-\end_layout
-
-\begin_layout Standard
-
+ To account for 10 percent attrition, we aim to survey 17 farmers per dealer.
+ In summary, we plan to include 292 input dealers and 17 farmers per dealer
+ in our study, which results 4964 (292 times 17) farmers we intend to interview
+ and 3975 farmers (265 times 15) after attrition.
 \end_layout
 
 \begin_layout Standard
