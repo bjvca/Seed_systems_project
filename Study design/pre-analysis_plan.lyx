@@ -585,44 +585,39 @@ literal "true"
  been experimented with, but the cost of implementation has proven challenging,
  and they depend on the reliability of the underlying seed certification
  system.
- In our study, we will test an alternative decentralized system that is
- based on crowd-sourced information and works through reputational mechanisms
- and peer pressure, much like yelp.com or tripadvisor.com.
+ In our study, we will test an alternative, decentralized information clearing
+ house that is based on crowd-sourced information and works through reputational
+ mechanisms and peer pressure, much like yelp.com or tripadvisor.com.
 \end_layout
 
 \begin_layout Standard
-This so called information clearinghouse works through crowd-sourced user
- ratings of input dealers and aims to reduce information asymmetry and subsequen
-t averse selection.
- For this second treatment, we will ask a sample of farmers to rate input
- dealers in their vicinity on a series of attributes related to seed quality
- (and service delivery more general) (collection of information).
- We will then disclose this information to the farmers by providing them
- with an input dealer’s average rating before the start of the next planting
- season (dissemination of information).
- We will exploit ICT to implement this clearinghouse.
- However, the precise implementation (e.g., dissemination of information by
- text messages to farmers/by notice boards) will be decided upon after thorough
- investigation of the context (e.g., do enough farmers have mobile phones).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Should we do this thorough investigation before submitting the pre-analysis
- plan?
-\end_layout
+For this second treatment, we will determine catchment areas for input dealers
+ and ask a sample of farmers in that area to rate input dealers on a series
+ of attributes related to seed quality (and service delivery more general).
+ This information will be used to calculate a score for each input dealer.
+ Some dealers in the sample will then be given these scores, as well as
+ an indication on how they are scored relative to the overall average 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bjorkman2009power"
+literal "false"
 
 \end_inset
 
-
+.
+ Furthermore, this information will also be provided to the farmers in a
+ sub-sample of catchment areas.
+ This will be implemented as a factorial design, such that we can disentangle
+ the effect of the input provider getting the information, the farmers getting
+ the information, and the interaction (both input dealer and farmer get
+ the interaction).
 \end_layout
 
 \begin_layout Standard
-While the previous intervention relies on training of input dealers to target
- the unintentional distribution of poor-quality seed, the clearinghouse
- uses information to target dealers who are intentionally adulterating seed
- and exclude them from the market.
+While the previous intervention aims to reduce unintentional seed quality
+ deterioration that is caused by lack of knowledge, the clearinghouse may
+ also reduce instances where quality is reduce intentionally to increase
+ profit.
  Some studies suggest that adulteration is pervasive in the Ugandan input
  market.
  
@@ -636,14 +631,24 @@ literal "true"
  find that hybrid maize seed contains less than 50% authentic seed, while
  
 \begin_inset CommandInset citation
-LatexCommand citet
-key "ashour2016beliefs"
+LatexCommand citep
+key "doi:10.1080/00220388.2018.1464143"
 literal "true"
 
 \end_inset
 
  find that nearly one in three bottles of herbicide contains less than 75%
  of the labeled concentration of the active ingredient.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Q: can we compare 1 and 2 to get an idea of the importance of adulteration?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
