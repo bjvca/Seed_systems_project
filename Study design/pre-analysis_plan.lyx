@@ -8,8 +8,8 @@
 \use_default_options true
 \maintain_unincluded_children false
 \language english
-\language_package default
-\inputencoding auto
+\language_package auto
+\inputencoding utf8
 \fontencoding global
 \font_roman "default" "default"
 \font_sans "default" "default"
@@ -129,30 +129,6 @@ footnotemark[1]}
 
 Demand and supply factors constraining the emergence and sustainability
  of an efficient seed system: A pre-analysis plan
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or
-\end_layout
-
-\begin_layout Plain Layout
-Leveraging social networks to reduce information asymmetries: The case of
- seed in Uganda
-\end_layout
-
-\begin_layout Plain Layout
-or
-\end_layout
-
-\begin_layout Plain Layout
-Input quality and agricultural technology adoption: experimental evidence
- from Uganda
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Abstract
@@ -161,10 +137,11 @@ Despite its potential to accelerate poverty reduction by increasing smallholder
  countries remains low.
  We research how quality (perceptions) of an agricultural technology – improved
  maize seed – constrain its adoption.
- This document outlines the study's pre-analysis plan.
- It includes three hypotheses that will be tested in a series of randomized
- controlled trials among smallholder farmers in Uganda and how we intend
- to measure relevant outcome variables.
+ This document outlines the pre-analysis plan for the entire research program.
+ It comprises three hypotheses that will be tested in a series of randomized
+ controlled trials among smallholder farmers in Uganda, how we intend to
+ measure relevant outcome variables, and what inference criteria will be
+ used to assess impact.
  In a first hypothesis, quality concerns are caused by information inefficiencie
 s at the level of the seed provider; simply providing information on proper
  storage and handling of maize seed to input dealers is expected to increase
@@ -185,26 +162,13 @@ s more salient to farmers will be tested.
 \end_layout
 
 \begin_layout Section
-Overview of the study design 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Background
 \end_layout
 
 \begin_layout Standard
-Most of the poor are semi-subsistence smallholder farmers, which makes agricultu
-re a key driver of poverty reduction and pro-poor economic growth 
+As most of the world's poor are semi-subsistence smallholder farmers, agricultur
+e remains a key driver of poverty reduction and pro-poor economic growth
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "castaneda2018new"
@@ -294,14 +258,6 @@ The work of applied microeconomists like Abhijit Banerjee, Esther Duflo
  and UC Berkeley's Center for Effective Global Action (CEGA) has funded
  a series of field experiments to illuminate what helps and hinders technology
  adoption among smallholder farmers.
- Such field experiments attempt to relax a particular constraint to technology
- adoption among randomly assigned “treated” farmers and compare outcomes
- like adoption, yield or income to similarly randomly assigned “control”
- farmers.
- This approach eliminates potential selection bias and ensures that there
- are no confounding variables at play, resulting in a clean causal interpretatio
-n of the relationships between the constraint-relaxing intervention and
- these outcomes.
  This research has resulted in a new set of answers to the question of why
  some farmers do and others do not adopt technologies.
  Key constraints include poor access to information 
@@ -373,12 +329,12 @@ literal "true"
 , the use of information and communication technology (ICT) 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "fabregas2019realizing,van2018information"
+key "fabregas2019realizing,doi:10.1002/ajae.12089"
 literal "true"
 
 \end_inset
 
- and several other innovative approaches.
+.
  Various review articles summarize the (often ongoing) research 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -391,13 +347,11 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-We propose a study that addresses a recently identified constraint to adoption:
- the quality of agricultural inputs available on the market.
+This study addresses a recently identified constraint to adoption: the quality
+ of agricultural inputs available on the market.
  We specifically explore the (perceived) quality of improved maize seed
  as a constraint to its adoption among a sample of smallholder maize farmers
  in Uganda.
- Improved maize seeds are hybrid and open pollinated varieties of maize
- seeds.
  Maize is an important crop in Uganda, both for home consumption and as
  a source of income.
  However, various factors constrain the emergence and sustainability of
@@ -408,7 +362,7 @@ We propose a study that addresses a recently identified constraint to adoption:
  non-performant 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "ashour2016beliefs,bold2017lemon,barriga2018supply"
+key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
 literal "true"
 
 \end_inset
@@ -426,21 +380,21 @@ Hypotheses
 \end_layout
 
 \begin_layout Standard
-We target both input dealers and farmers with our interventions, because
- poor perceptions of seed quality may arise at different stages in the seed
- supply chain.
+Poor (perceptions of) seed quality may arise at different stages in the
+ seed supply chain.
  Poor seed quality may occur as a result of input dealer practices, for
  example poor handling and storage practices, or deceptive marketing practices.
  Or the problem may emerge as a result of smallholder farmer capabilities
  and perceptions, for example an inability to distinguish good from bad
  products, or a lack of confidence in the input dealer or his/her products.
- This points to an opportunity to explore several alternative hypotheses
- and impact pathways.
- We will devise interventions at different stages in the seed supply chain
- to assess the relative importance of each potential cause for low demand
- for improved seed.
- The three main confirmatory hypotheses we aim to test will be elaborated
- hereinafter and tested throughout the causal chain.
+ We test interventions at different stages in the seed supply chain to assess
+ the relative importance of each potential cause for low demand for improved
+ seed.
+ The first intervention targets the input dealer, the second targets both
+ the input dealer and the farmer, while last targets the farmer.
+ Regardless of who is targeted by the intervention, we will assess impact
+ by looking at outcomes at both input dealer and farmer level.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -468,14 +422,11 @@ literal "true"
 
 \end_inset
 
- which summarizes two decades of research on the multifaceted and complex
- lives of the poor concludes that they often lack information (p.
+, which summarizes two decades of research on the multifaceted and complex
+ lives of the poor, concludes that they often lack information (p.
  268) and name many studies that find that a simple piece of information
  can be very effective.
-\end_layout
-
-\begin_layout Standard
-Also in the context of smallholder agriculture, informational inefficiencies
+ Also in the context of smallholder agriculture, informational inefficiencies
  have been found to be important.
  Most studies emphasize knowledge gaps at the farmer level, and the consequences
  on outcomes like technology adoption and production.
@@ -512,25 +463,35 @@ literal "true"
  recommended agronomic practices 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "van2018information"
+key "doi:10.1002/ajae.12089"
 literal "true"
 
 \end_inset
 
 .
+ While the need for policies and interventions that strengthen input marketing
+ capacity and infrastructure has been acknowledged decades ago 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "TRIPP2001147"
+literal "false"
+
+\end_inset
+
+, we find few examples training initiatives that target input dealers.
+ 
 \end_layout
 
 \begin_layout Standard
 Our first intervention is designed to provide information about correct
- handling and storage of improved maize seed by means of a training for
- input dealers.
+ handling and storage of improved maize seed.
  Poor handling and storage may lead to poor seed quality, in turn reducing
  the profitability of seeds and leading to lower adoption by farmers.
- There is ample evidence of this quality-reducing problem in Uganda: improper
- storage and handling 
+ There is ample evidence of input quality reduction at this level in Uganda:
+ improper storage and handling 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "ashour2016beliefs"
+key "doi:10.1080/00220388.2018.1464143"
 literal "true"
 
 \end_inset
@@ -561,10 +522,10 @@ literal "true"
 \end_inset
 
 .
- In the most comprehensive study to date, 
+ In the most comprehensive study on seed to date, 
 \begin_inset CommandInset citation
-LatexCommand citet
-key "barriga2018supply"
+LatexCommand citep
+key "BARRIGA2020104928"
 literal "true"
 
 \end_inset
@@ -572,67 +533,7 @@ literal "true"
  test seed along the maize supply chain in Uganda and find evidence of poor
  handling and storage, suggesting that these quality-reducing practices
  are quite common.
- Yet interventions to address this problem are few.
- Our approach is novel because it targets input dealers instead of farmers.
- Training input dealers on quality-related issues stands to reason, as they
- are further upstream along the supply chain, such that quality-related
- issues will affect all actors downstream the value chain.
-\end_layout
-
-\begin_layout Standard
-A small piece of information can be very effective but not every information
- campaign is equally impactful.
- Research has shown that small changes in the design attributes of information
- treatments can have substantial effects.
- Design features that have been studied in this context include the technology
- used, the source and the content of the information.
- For instance, the use of short engaging videos has been found effective
- in transmitting messages 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "fabregas2019realizing"
-literal "true"
-
-\end_inset
-
-.
- Also 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "vandevelde2018spoiler"
-literal "true"
-
-\end_inset
-
- run a field experiment in which they show potato farmers a short video
- on proper seed storage and handling, and find evidence of significant increases
- in potato yields as a result of this information provision.
- In some cases, an expert may be regarded as a credible source, while in
- other cases, a person one can relate to may be viewed as more trustworthy
  
-\begin_inset CommandInset citation
-LatexCommand citep
-key "benyishay2019social"
-literal "true"
-
-\end_inset
-
-.
- The level of specificity may also affect the response.
- Simpler information is easier to process and may increase adoption 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bertrand2010s"
-literal "true"
-
-\end_inset
-
-.
- We will therefore carefully design our information intervention (technology,
- source, specificity).
- The content will be determined together with experts from the ministry
- of agriculture, from the seed sector and from input dealer associations
- in Uganda.
 \end_layout
 
 \begin_layout Standard
@@ -2772,6 +2673,13 @@ Are we going to test a model to explain our findings? Then we should set
 
 \begin_layout Section
 unit of analysis, population, and inclusion/exclusion criteria
+\end_layout
+
+\begin_layout Standard
+The primary unit of analysis are catchment areas of clusters of input dealers.
+ We start from lists of registered input dealers provided by district officials.
+ From these lists, we sample input dealers and randomly allocate them to
+ one of the 16 treatment cells of the factorial design 
 \end_layout
 
 \begin_layout Section
