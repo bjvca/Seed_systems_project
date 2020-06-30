@@ -1407,8 +1407,8 @@ Experimental design
 
 \begin_layout Standard
 To test the three hypotheses, we will implement three interventions and
- measure their effects by means of fractional factorial cluster randomized
- controlled trials (RCT) 
+ measure their effects by means of factorial cluster randomized controlled
+ trials (RCT) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "crespi2016improved"
@@ -1417,31 +1417,35 @@ literal "true"
 \end_inset
 
 .
- We will use a cross-randomization design to evaluate the impact of three
- interventions on demand and supply of improved seed in Uganda.
  All interventions will be implemented at the level of the input dealer
  catchment area.
- That is, in the catchment area of a random subset of input dealers, we
- will intervene - train input dealers, set up information clearinghouses
- and after sales services, the other areas will function as controls.
+ A total of four interventions will be cross-randomized into a 
+\begin_inset Formula $2^{4}$
+\end_inset
+
+ factorial design.
  
 \end_layout
 
 \begin_layout Standard
-A total of four interventions will be cross-randomized into a factorial
- design.
- The information clearing house will be composed of two factors with two
+The information clearing house will be composed of two factors with two
  levels each.
  A first factor concerns rater feedback at the level of the input dealers:
- in a subset of catchment areas, ratings are revealed to input dealers and
- in a subset this is not.
+ in a subset of catchment areas, farmer ratings of input dealers are revealed
+ to input dealers (and in a subset, ratings are not revealed to the input
+ dealer).
  The second factor concerns rater feedback at the level of the farmers:
- in a subset of catchment areas, ratings are revealed to farmers and in
- a subset it is not.
+ in a subset of catchment areas, ratings are revealed to farmers (and in
+ a subset of catchment ares, ratings are not revealed to farmers).
  This is done in a crossed designs such that there are also subgroups where
- both input dealers and farmers get rater feedback and where none get feedback.
- As we want to be powered to identify the interaction, we propose the sample
- size in Figure 
+ both input dealers and farmers get rater feedback, as well as catchment
+ areas where no feedback at all was given.
+ 
+\end_layout
+
+\begin_layout Standard
+As we want to be powered to identify the interaction between these two factors,
+ we propose the sample size in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Design"
@@ -1452,6 +1456,39 @@ noprefix "false"
 \end_inset
 
 .
+ Power simulations in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Power-Analysis-Simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show that we need about 140 catchment areas got get acceptable power to
+ detect a reasonable effect.
+ As such, we make sure that we include sufficient catchment areas in each
+ treatment interactions cell.
+ 
+\end_layout
+
+\begin_layout Standard
+Factorial designs allow recycling of treated units in the orthogonal factor
+ to be used as controls.
+ As such, to estimate main effects – the impact of giving ratings to dealers,
+ the impact of giving ratings to farmers – less catchment areas are needed.
+ For example, to estimate the impact of giving ratings to dealers, we can
+ compare 212 catchment areas where ratings were given to dealers (of which
+ in 140 catchment areas farmers were also given the ratings) to 212 catchment
+ areas where ratings were not given to dealers (of which in 72 catchment
+ areas farmers were also given these ratings).
+ Similarly, to estimate the impact of revealing dealer ratings to farmers,
+ we can compare 212 catchment areas where ratings were revealed to farmers
+ (of which in 140 catchment areas these ratings were also revealed to input
+ dealers themselves) to 212 catchment areas where dealer ratings were not
+ provided to farmers (of which in 72 these ratings were also revealed to
+ input dealers themselves).
 \begin_inset Float figure
 wide false
 sideways false
@@ -1497,12 +1534,14 @@ name "fig:Design"
 \end_layout
 
 \begin_layout Standard
-Treatments related to the first hypothesis will be added as a third factor
- to the 2x2 design to form a 
+Treatments related to the first hypothesis – training agro-input dealers
+ on seed storage and handling – will be added as a third factor to the 2x2
+ design to form a 
 \begin_inset Formula $2^{3}$
 \end_inset
 
  design.
+ Here, we are only interested in the main effects.
  In each treatment cell in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1516,10 +1555,10 @@ noprefix "false"
 , all input dealers in half of the catchment areas will be allocated to
  the input dealer training, while the others will not receive the training,
  thus adding a third dimension to the design.
- This is illustrated in Figure 
+ This is illustrated in the extensive form of the experiment in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:2x2x2design"
+reference "fig:Extensive-form"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1527,74 +1566,45 @@ noprefix "false"
 \end_inset
 
 .
- 
+ As we only need about 280 catchment areas, we only treat 36 catchment areas
+ of the 140 catchment areas that are allocated to the interaction of the
+ two previous factors (and so 140-36 = 104 catchment areas end up as controls).
+ For similar reasons, we only treat 36 catchment areas from the areas where
+ neither farmer nor input dealer received rater feedback.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figure/design_3.PNG
-	lyxscale 50
-	scale 70
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Formula $2^{3}$
-\end_inset
-
- design
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:2x2x2design"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Similarly, the treatments to test the third hypothesis will be added as
- a fourth factor to get a 
+Finally, the treatments to test the third hypothesis will be added as a
+ fourth factor to get a 
 \begin_inset Formula $2^{4}$
 \end_inset
 
  design.
- The extensive form of the design with associated number of input dealers
- in each treatment cell is illustrated in Figure .
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Extensive-form"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that this results in 18 catchment areas in each treatment cell.
+ For similar reasons as above, we only need to treat 18 catchment areas
+ from the 104 catchment areas that are allocated to the interaction of the
+ two previous factors and was not allocated to the input dealer training
+ (and so 104-18 = 86 catchment areas end up as controls).
+ For similar reasons, we only treat 18 catchment areas from the areas where
+ neither farmer nor input dealer received rater feedback and no input dealer
+ received training.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1611,6 +1621,13 @@ status open
 
 \begin_layout Plain Layout
 Extensive form
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Extensive-form"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1625,70 +1642,6 @@ Extensive form
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-such that we can identify the effect of each intervention separately as
- well as interaction effects between the three treatments.
- Input dealers will therefore be randomized over 8 treatment cells (ranging
- from catchment areas with after-sales services, input dealer training and
- a clearinghouse, to catchment areas without any treatment).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-How do we select the districts? we need one where maize is widely grown
- by small farmers
-\end_layout
-
-\end_inset
-
-, in the maize growing area(s) of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-.
- The randomization for the input dealer training (intervention 1) will be
- done at the input dealer level, the randomization for the information clearingh
-ouse (intervention 2) will be done at the level of the input dealer area
- (divide all districts by x 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-this is far from ideal because clustering input dealers in area groups decreases
- power but I really think that it would be unethical to distribute the score
- of one dealer to all farmers in the village and not distributes it's neighbours
- score to the same farmers ...
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and the randomization for the after-sales service (intervention 3) will
- again be done at the input dealer level.
 \end_layout
 
 \begin_layout Section
@@ -2915,6 +2868,13 @@ The primary unit of analysis are catchment areas of clusters of input dealers.
 
 \begin_layout Section
 Power Analysis Simulations
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Power-Analysis-Simulations"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
