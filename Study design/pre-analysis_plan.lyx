@@ -1399,6 +1399,25 @@ e, (seed quality), farmers' seed quality perception, farmers' input dealer
  perception, farmers' seed adoption, input dealers' volume/value/price of
  seed sales, number/share of farmers switching input dealers, input dealer's
  effort, farmer skill/knowledge, maize yield/revenue.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Census: Once we’ve decided on a final sample size (number of catchment areas
+ and number of farmers per catchment area), we will do an input dealer census
+ in approximately 8 or 9 districts in Eastern Uganda.
+ Then we’ll have a list.
+ For the census we will need an application because we want to record: •
+ GPS coordinates • all names of the dealer a farmer might have in mind (name
+ of shop, name of owner, name of employee, name of son/grandfather, name
+ of street/neighborhood) • contact information • “Where do your customers
+ come from?” (catchment area) • (picture of the shop)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1637,6 +1656,66 @@ name "fig:Extensive-form"
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Level of randomization: We decided to randomize at the level of the catchment
+ area, not at the level of the dealer, for two main reasons: 1) It’s more
+ ethical/fair.
+ If we’d randomize at dealer level, one dealer might get scored and get
+ a good score and his/her neighbor dealer might not get scored.
+ As a result, many farmers might choose the dealer with the good score and
+ against the dealer without any score.
+ This would result in a considerable competitive disadvantage for the dealer
+ that didn’t get the chance to get scored due to randomization.
+ Randomization at the catchment area level ensures that we don’t do any
+ harm of this kind.
+ 2) We can measure an effect on farmer outcomes.
+ If we’d randomize at dealer level, one dealer might get scored and his/her
+ neighbor dealer might not get scored.
+ It will be difficult/unfeasible to know which farmers belong to the scored
+ dealer and which farmers belong to the unscored dealer.
+ We avoid this problem by randomizing at the catchment area level because
+ then all dealers within an area get scored/ not scored and all farmers
+ within an area are potential customers of only dealers who get scored/
+ not scored.
+ We can therefore safely conclude which farmers are in the control group
+ and which farmers are in the treatment group.
+\end_layout
+
+\begin_layout Plain Layout
+No splitting of the clearinghouse treatment: We decided to not split the
+ clearinghouse treatment into different sub-treatment groups (1.
+ Farmers and dealers receive scores, 2.
+ Only farmers receive scores, 3.
+ Only dealers receive scores, 4.
+ Neither farmers nor dealers receive scores) because this decision reduces
+ our required sample size significantly.
+ We only look at “full treatment” (farmers and dealers receive scores) vs.
+ “full control” (no one receives the scores).
+ It is difficult to include 279 catchment areas and unfeasible to include
+ 424 catchment areas in our sample.
+\end_layout
+
+\begin_layout Plain Layout
+Census: Once we’ve decided on a final sample size (number of catchment areas
+ and number of farmers per catchment area), we will do an input dealer census
+ in approximately 8 or 9 districts in Eastern Uganda.
+ Then we’ll have a list.
+ For the census we will need an application because we want to record: •
+ GPS coordinates • all names of the dealer a farmer might have in mind (name
+ of shop, name of owner, name of employee, name of son/grandfather, name
+ of street/neighborhood) • contact information • “Where do your customers
+ come from?” (catchment area) • (picture of the shop)
 \end_layout
 
 \end_inset
@@ -2122,6 +2201,29 @@ ber
 
 \begin_layout Subsubsection*
 I2: Information clearinghouse
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No splitting of the clearinghouse treatment: We decided to not split the
+ clearinghouse treatment into different sub-treatment groups (1.
+ Farmers and dealers receive scores, 2.
+ Only farmers receive scores, 3.
+ Only dealers receive scores, 4.
+ Neither farmers nor dealers receive scores) because this decision reduces
+ our required sample size significantly.
+ We only look at “full treatment” (farmers and dealers receive scores) vs.
+ “full control” (no one receives the scores).
+ It is difficult to include 279 catchment areas and unfeasible to include
+ 424 catchment areas in our sample.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3160,6 +3262,43 @@ We conclude that we need at least 15 farmers per input dealer to detect
  In summary, we plan to include 279 input dealers and 17 farmers per dealer
  in our study, which results 4743 (279 times 17) farmers we intend to interview
  and 3975 farmers (265 times 15) after attrition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Updated power calculations: These two decisions have the following implications
+ for power: You might think that this means that we need x input dealers
+ in 279 catchment areas in our sample.
+ You might think that this means that we need 279 input dealers in y catchment
+ areas in our sample.
+ In fact, we need a sample size between x input dealers in 279 catchment
+ areas (upper bound - if the correlation between dealers in one catchment
+ area is 1) and 279 dealers in y catchment areas (lower bound if the correlation
+ between dealers in one catchment area is 0).
+ The final sample size depends on this correlation between 0 and 1.
+ Caroline will use Optimal Design to get an approximate sample size.
+ Bjorn will use R code to get the final sample size upon his return.
+\end_layout
+
+\begin_layout Plain Layout
+We will calculate how many catchment areas and farmers per catchment area
+ we need, while holding the number of dealers per catchment area constant
+ (as the mean number of dealers per catchment area we find in the stack
+ survey data) and assuming a particular within catchment area (within cluster)
+ correlation.
+ The is no need to calculate a final sample size before Bjorn’s return because
+ we are still concerned about data collection in Uganda as long as we can
+ hardly assess the Corona related risks.
+ We do not want to carry the virus from village to village while doing a
+ census.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
