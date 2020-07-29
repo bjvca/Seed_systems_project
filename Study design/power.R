@@ -477,10 +477,10 @@ nr_shops <- rep(NA, sims)
 
 ##### x farmers per input dealer
 ###yield
-
+ set.seed(12345)
 N <- 112
 possible.fs <- seq(from=5, to=20, by=1)
-powers <- rep(NA, length(possible.ns))
+powers <- rep(NA, length(possible.fs))
 alpha <- 0.05
 sims <- 200
 
@@ -538,10 +538,10 @@ dev.off()
 
 ##### x farmers per input dealer
 ###input use
-
+ set.seed(12345)
 N <- 112
-possible.fs <- seq(from=5, to=20, by=1)
-powers <- rep(NA, length(possible.ns))
+possible.fs <- seq(from=1, to=10, by=1)
+powers <- rep(NA, length(possible.fs))
 alpha <- 0.05
 sims <- 200
 
@@ -574,7 +574,7 @@ for (f in 1:length(possible.fs)){
        clusters1 <- return(temp)  #here we get the treatment in again
         }
      clusters1$Y0 <- clusters1$inputuse_binary
-     tau <- 56.91028
+     tau <- 0.065
      clusters1$Y1 <- clusters1$Y0 + tau
      clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
      fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
@@ -596,10 +596,10 @@ png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px"
 ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
 dev.off()
 
-
+ set.seed(12345)
 possible.ns <- 112
-possible.fs <- seq(from=5, to=20, by=1)
-powers <- rep(NA, length(possible.ns))
+possible.fs <- seq(from=1, to=10, by=1)
+powers <- rep(NA, length(possible.fs))
 alpha <- 0.05
 sims <- 200
 
@@ -632,7 +632,7 @@ for (f in 1:length(possible.fs)){
        clusters1 <- return(temp)  #here we get the treatment in again
         }
      clusters1$Y0 <- clusters1$seedquality_binary
-     tau <- 56.91028
+     tau <- 0.0887512
      clusters1$Y1 <- clusters1$Y0 + tau
      clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
      fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
