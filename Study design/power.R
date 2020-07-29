@@ -179,6 +179,19 @@ stack_dealers <- merge(stack_dealers, ratings[,c(1,5)],by.x="id.agro" ,by.y="Gro
 sd(ratings$reputation_av_farmers, na.rm=TRUE)
 mean(ratings$reputation_av_farmers, na.rm=TRUE)
 
+###INPUT USE###
+#transform
+stack_farmers$hh.maize.maizen.q48[stack_farmers$hh.maize.maizen.q48==98] <- NA
+stack_farmers$hh.maize.maizen.q48[stack_farmers$hh.maize.maizen.q48=="l"] <- NA #made "other" NA
+
+#make input use variable
+stack_farmers$inputuse_binary <- (stack_farmers$hh.maize.maizen.q48 == "a") | (stack_farmers$hh.maize.maizen.q48 == "b")| (stack_farmers$hh.maize.maizen.q48 == "c")| (stack_farmers$hh.maize.maizen.q48 == "d")| (stack_farmers$hh.maize.maizen.q48 == "e")| (stack_farmers$hh.maize.maizen.q48 == "f")| (stack_farmers$hh.maize.maizen.q48 == "g")| (stack_farmers$hh.maize.maizen.q48 == "h")| (stack_farmers$hh.maize.maizen.q48 == "i")| (stack_farmers$hh.maize.maizen.q48 == "j")
+
+#standard deviations and means
+sd(stack_farmers$inputuse_binary, na.rm=TRUE)
+mean(stack_farmers$inputuse_binary, na.rm=TRUE)
+
+
 #merge in catchment ID
 stack_dealers <- merge(stack_dealers,shops[c("shopID","catchmentID")], by.x="id.agro",by.y="shopID")
  
