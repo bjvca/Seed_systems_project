@@ -532,7 +532,8 @@ write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")),
 #df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(.1, .975) + annotate(geom="text", x=4, y=0.775, label="target power value of 0.8", color="red")
+
 dev.off()
 
 ##### x farmers per input dealer
