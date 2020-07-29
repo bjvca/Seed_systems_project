@@ -478,7 +478,7 @@ nr_shops <- rep(NA, sims)
 ##### x farmers per input dealer
 ###yield
 
-possible.ns <- 112
+N <- 112
 possible.fs <- seq(from=5, to=20, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
@@ -539,7 +539,7 @@ dev.off()
 ##### x farmers per input dealer
 ###input use
 
-possible.ns <- 112
+N <- 112
 possible.fs <- seq(from=5, to=20, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
