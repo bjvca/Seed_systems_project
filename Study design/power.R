@@ -110,8 +110,7 @@ write.csv(shops, file = paste(path,"stack surveys/data/work/shops.csv", sep ="/"
  #####################################################
  
  set.seed(12345)
-library(pracma)
-library(randomizr)  
+path <- strsplit(getwd(), "/Study design")[[1]]
 library(doParallel)
 library(ggplot2)
 
@@ -296,178 +295,178 @@ nr_shops <- rep(NA, sims)
      #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
 
 
-possible.ns <- 112
-possible.fs <- seq(from=20, to=40, by=1)
-powers <- rep(NA, length(possible.ns))
-alpha <- 0.05
-sims <- 200
+#possible.ns <- 112
+#possible.fs <- seq(from=20, to=40, by=1)
+#powers <- rep(NA, length(possible.ns))
+#alpha <- 0.05
+#sims <- 200
 
- #yield_kg_per_acre
- 
-
- cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
- registerDoParallel(cl)
- #1st loop
- 
-
-for (f in 1:length(possible.fs)){
-     F <- possible.fs[f]
-     print(possible.fs[f]) #print something to show that we are still making progress
- 
-     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
-     sample_dta$Z.sim <- 0
-     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
-     sample_dta$new_catch <- rownames(sample_dta) 
-     names(sample_dta) <- c("catchID","Z.sim","new_catch")
-     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
-     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
- 
-       #4th loop
-       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
-        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
-       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
- 
-       clusters1 <- return(temp)  #here we get the treatment in again
-        }
-     clusters1$Y0 <- clusters1$yield_kg_per_acre
-     tau <- 56.91028
-     clusters1$Y1 <- clusters1$Y0 + tau
-     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
-     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
-     p.value <- summary(fit.sim)$coefficients[2,4]
-     significant.experiments <- (p.value <= alpha)
-   }
- 
-   powers[f] <- mean(significant.experiments)
- 
- }
- 
-
-df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
-# 
-#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
-png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
-#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0.75, .825) + annotate(geom="text", x=22, y=0.798, label="target power value of 0.8", color="red")
-
-dev.off()
-
-
-### now for input use
-possible.ns <- 112
-possible.fs <- seq(from=20, to=40, by=1)
-powers <- rep(NA, length(possible.ns))
-alpha <- 0.05
-sims <- 200
-
-cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-registerDoParallel(cl)
- 
-
-for (f in 1:length(possible.fs)){
-     F <- possible.fs[f]
-     print(possible.fs[f]) #print something to show that we are still making progress
- 
-     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
-     sample_dta$Z.sim <- 0
-     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
-     sample_dta$new_catch <- rownames(sample_dta) 
-     names(sample_dta) <- c("catchID","Z.sim","new_catch")
-     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
-     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
- 
-       #4th loop
-       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
-        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
-       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
- 
-       clusters1 <- return(temp)  #here we get the treatment in again
-        }
-     clusters1$Y0 <- clusters1$inputuse_binary
-     tau <-  0.065
-     clusters1$Y1 <- clusters1$Y0 + tau
-     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
-     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
-     p.value <- summary(fit.sim)$coefficients[2,4]
-     significant.experiments <- (p.value <= alpha)
-   }
- 
-   powers[f] <- mean(significant.experiments)
- 
- }
+# #yield_kg_per_acre
 # 
 
-df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
-# 
-#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
-png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
-#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
-dev.off()
-
-### now for input use
-possible.ns <- 112
-possible.fs <- seq(from=20, to=40, by=1)
-powers <- rep(NA, length(possible.ns))
-alpha <- 0.05
-sims <- 200
-
-cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-registerDoParallel(cl)
- 
-
-for (f in 1:length(possible.fs)){
-     F <- possible.fs[f]
-     print(possible.fs[f]) #print something to show that we are still making progress
- 
-     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
-     sample_dta$Z.sim <- 0
-     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
-     sample_dta$new_catch <- rownames(sample_dta) 
-     names(sample_dta) <- c("catchID","Z.sim","new_catch")
-     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
-     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
- 
-       #4th loop
-       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
-        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
-       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
- 
-       clusters1 <- return(temp)  #here we get the treatment in again
-        }
-     clusters1$Y0 <- clusters1$seedquality_binary
-     tau <-  0.065
-     clusters1$Y1 <- clusters1$Y0 + tau
-     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
-     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
-     p.value <- summary(fit.sim)$coefficients[2,4]
-     significant.experiments <- (p.value <= alpha)
-   }
- 
-   powers[f] <- mean(significant.experiments)
- 
- }
+# cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+# registerDoParallel(cl)
+# #1st loop
 # 
 
-df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+#for (f in 1:length(possible.fs)){
+#     F <- possible.fs[f]
+#     print(possible.fs[f]) #print something to show that we are still making progress
 # 
-#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
-png((paste(path,"Study design/seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
-#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
-dev.off()
+#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+#     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+#     sample_dta$Z.sim <- 0
+#     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+#     sample_dta$new_catch <- rownames(sample_dta) 
+#     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+#     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+#     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+# 
+#       #4th loop
+#       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+#        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+#       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+# 
+#       clusters1 <- return(temp)  #here we get the treatment in again
+#        }
+#     clusters1$Y0 <- clusters1$yield_kg_per_acre
+#     tau <- 56.91028
+#     clusters1$Y1 <- clusters1$Y0 + tau
+#     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+#     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+#     p.value <- summary(fit.sim)$coefficients[2,4]
+#     significant.experiments <- (p.value <= alpha)
+#   }
+# 
+#   powers[f] <- mean(significant.experiments)
+# 
+# }
+# 
+
+#df <- data.frame(cbind(possible.fs, powers))
+## write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+## 
+##df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+#png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+##ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+#ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0.75, .825) + annotate(geom="text", x=22, y=0.798, label="target power value of 0.8", color="red")
+
+#dev.off()
+
+
+#### now for input use
+#possible.ns <- 112
+#possible.fs <- seq(from=20, to=40, by=1)
+#powers <- rep(NA, length(possible.ns))
+#alpha <- 0.05
+#sims <- 200
+
+#cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+#registerDoParallel(cl)
+# 
+
+#for (f in 1:length(possible.fs)){
+#     F <- possible.fs[f]
+#     print(possible.fs[f]) #print something to show that we are still making progress
+# 
+#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+#     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+#     sample_dta$Z.sim <- 0
+#     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+#     sample_dta$new_catch <- rownames(sample_dta) 
+#     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+#     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+#     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+# 
+#       #4th loop
+#       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+#        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+#       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+# 
+#       clusters1 <- return(temp)  #here we get the treatment in again
+#        }
+#     clusters1$Y0 <- clusters1$inputuse_binary
+#     tau <-  0.065
+#     clusters1$Y1 <- clusters1$Y0 + tau
+#     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+#     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+#     p.value <- summary(fit.sim)$coefficients[2,4]
+#     significant.experiments <- (p.value <= alpha)
+#   }
+# 
+#   powers[f] <- mean(significant.experiments)
+# 
+# }
+## 
+
+#df <- data.frame(cbind(possible.fs, powers))
+## write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+## 
+##df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+#png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+##ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+#ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
+#dev.off()
+
+#### now for input use
+#possible.ns <- 112
+#possible.fs <- seq(from=20, to=40, by=1)
+#powers <- rep(NA, length(possible.ns))
+#alpha <- 0.05
+#sims <- 200
+
+#cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+#registerDoParallel(cl)
+# 
+
+#for (f in 1:length(possible.fs)){
+#     F <- possible.fs[f]
+#     print(possible.fs[f]) #print something to show that we are still making progress
+# 
+#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+#     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+#     sample_dta$Z.sim <- 0
+#     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+#     sample_dta$new_catch <- rownames(sample_dta) 
+#     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+#     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+#     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+# 
+#       #4th loop
+#       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+#        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+#       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+# 
+#       clusters1 <- return(temp)  #here we get the treatment in again
+#        }
+#     clusters1$Y0 <- clusters1$seedquality_binary
+#     tau <-  0.065
+#     clusters1$Y1 <- clusters1$Y0 + tau
+#     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+#     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+#     p.value <- summary(fit.sim)$coefficients[2,4]
+#     significant.experiments <- (p.value <= alpha)
+#   }
+# 
+#   powers[f] <- mean(significant.experiments)
+# 
+# }
+## 
+
+#df <- data.frame(cbind(possible.fs, powers))
+## write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+## 
+##df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+#png((paste(path,"Study design/seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+##ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+#ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
+#dev.off()
 
 ##### x farmers per input dealer
 ###yield
 
 possible.ns <- 112
-possible.fs <- seq(from=10, to=20, by=1)
+possible.fs <- seq(from=5, to=20, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
 sims <- 200
@@ -515,7 +514,7 @@ for (f in 1:length(possible.fs)){
  
 
 df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
 # 
 #df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
@@ -527,7 +526,7 @@ dev.off()
 ###input use
 
 possible.ns <- 112
-possible.fs <- seq(from=10, to=20, by=1)
+possible.fs <- seq(from=5, to=20, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
 sims <- 200
@@ -575,7 +574,7 @@ for (f in 1:length(possible.fs)){
  
 
 df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+write.csv(df,(paste(path,"Study design/power_inputuse_binary.csv", sep ="/")), row.names = FALSE)
 # 
 #df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
@@ -585,7 +584,7 @@ dev.off()
 
 
 possible.ns <- 112
-possible.fs <- seq(from=10, to=20, by=1)
+possible.fs <- seq(from=5, to=20, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
 sims <- 200
@@ -633,7 +632,7 @@ for (f in 1:length(possible.fs)){
  
 
 df <- data.frame(cbind(possible.fs, powers))
-# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+write.csv(df,(paste(path,"Study design/power_seedquality_binary.csv", sep ="/")), row.names = FALSE)
 # 
 #df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
