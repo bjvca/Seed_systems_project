@@ -1,31 +1,124 @@
-rm(list=ls())
-#install.packages("randomizr")
-#install.packages("fabricatr")
-#install.packages("data.table")
-#install.packages("mvnfast")
-#install.packages("plyr")
-#install.packages("sampling")
-#install.packages("devtools")
-#install.packages("usethis")
+set.seed(12345)
+library(pracma)
+library(randomizr)  
 
-library(randomizr)    #randomizr package for complete random assignment
-library(fabricatr)
-library(data.table)
-library(mvnfast)
-library(plyr)
-library(sampling)
-library(usethis)
-library(devtools)
-library(doParallel)
-library(ggplot2)
+#trimming: function for trimming a variable in a dataset - replaces with NA
+trim <- function(var, dataset, trim_perc=.05) {
+  dataset[var][dataset[var] < quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)), na.rm=T)[1] | dataset[var] > quantile(dataset[var], c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2] ] <- NA
+  return(dataset)
+}
+
 
 ### this is executed in the /report subdirectory, need to ..
 path <- strsplit(getwd(), "/Study design")[[1]]
 
+shops <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
+farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
+ 
+#merge each shop to all farmers 
+
+
+ ### make in long format
+connector <- reshape(farmers[c("id.agro1","id.agro2", "id.agro3","ID")], varying = c("id.agro1","id.agro2", "id.agro3"), direction="long", idvar="ID")
+#connector <- subset(connector, time == "agro1")
+connector <- connector[c("ID","id")]
+names(connector) <- c("farmID", "shopID")
+connector <- subset(connector, shopID != "n/a")
+connector <- subset(connector, shopID != "")
+### merge in GPS coordinates from the farmers
+
+
+connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/farmers_gps.csv")[c("ID","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="farmID", by.y="ID")
+names(connector) <- c("farmID","shopID","farmer_lat","farmer_long")
+connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="shopID", by.y="id.agro")
+names(connector) <- c("farmID","shopID","farmer_lat","farmer_long","shop_lat","shop_long")
+
+connector$farmer_lat <- as.numeric(as.character(connector$farmer_lat))
+connector$farmer_long <- as.numeric(as.character(connector$farmer_long))
+connector$shop_lat <- as.numeric(as.character(connector$shop_lat))
+connector$shop_long <- as.numeric(as.character(connector$shop_long))
+
+connector <- subset(connector, !is.na(farmer_lat))
+
+###now get distance between shops and farmers
+connector$dist <- NA
+for (i in 1:nrow(connector)) {
+connector$dist[i] <- haversine(c(connector$farmer_lat[i] ,connector$farmer_long[i]),c(connector$shop_lat[i],connector$shop_long[1]))*1000
+}
+
+summary(aggregate(connector$dist, by=list(connector$farmID), mean)[,2])
+### median distance of catchment area is 16km
+summary(aggregate(connector$dist, by=list(connector$farmID), min)[,2])
+### even if we define catchement by minimum distance we still get median of >12 km
+
+shops <- read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")]
+names(shops) <- c("shopID","shop_lat","shop_long")
+
+### we found that a few locations are taken at the hotel where enumerators stay - remove these
+shops$shop_lat[shops$shop_lat  > 0.604217379 &
+shops$shop_lat  < 0.613710477 &
+shops$shop_long > 33.47659906 &
+shops$shop_long < 33.4922358] <- NA
+
+shops$shop_long[is.na(shops$shop_lat) &
+shops$shop_long > 33.47659906 &
+shops$shop_long < 33.4922358]   <- NA
+
+shops <- subset(shops, !is.na(shop_long)) 
+shops$shopID <- factor(shops$shopID)
+
+#So how many catchment areas can we define when shops need to be at least 16 km apart?
+shops$catchmentID <- NA
+counter <- 1
+
+for (shop_1 in names(table(shops$shopID))) {
+shops$catchmentID[shops$shopID == shop_1] <- counter
+for (shop_2 in names(table(shops$shopID))) {
+### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
+if ( haversine(c(shops$shop_lat[shops$shopID == shop_1] ,shops$shop_long[shops$shopID == shop_1]),c(shops$shop_lat[shops$shopID == shop_2],shops$shop_long[shops$shopID == shop_2])) < 5) {
+if (is.na(shops$catchmentID[shops$shopID == shop_2])) {
+ shops$catchmentID[shops$shopID == shop_2] <- counter
+} else {
+ shops$catchmentID[shops$shopID == shop_1]  <- shops$catchmentID[shops$shopID == shop_2] 
+}
+
+}
+}
+counter <- counter + 1
+}
+dim(table(shops$catchmentID))
+library(leaflet)
+
+pal <- colorFactor(
+  palette = 'Dark2',
+  domain = shops$catchmentID
+)
+
+
+m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~shop_long, lat=~shop_lat,radius= 8, color=~pal(catchmentID), popup = ~as.character(catchmentID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+
+
+shops <- shops[c("shopID","catchmentID")]
+write.csv(shops, file = paste(path,"stack surveys/data/work/shops.csv", sep ="/") )
+
+#Now run power analysis agains -  copied from power.R
+
+####################################################
+ #######Power analysis for the standard design########
+ ######Y0 not normal distribution but real data#######
+ ################cluster randomization################
+ #####################################################
+ 
+ set.seed(12345)
+library(pracma)
+library(randomizr)  
+library(doParallel)
+library(ggplot2)
+
+
 stack_dealers <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
 stack_farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
-
-###YIELD###
+shops <- read.csv(file = paste(path,"stack surveys/data/work/shops.csv", sep ="/") )
 #transform
 stack_farmers$hh.maize.maizen.q64[stack_farmers$hh.maize.maizen.q64==999] <- NA
 stack_farmers$hh.maize.maizen.q65[stack_farmers$hh.maize.maizen.q65==999] <- NA
@@ -50,19 +143,7 @@ stack_farmers <- trim("yield_kg_per_acre", stack_farmers)
 #standard deviations and means
 sd(stack_farmers$yield_kg_per_acre, na.rm=TRUE)
 mean(stack_farmers$yield_kg_per_acre, na.rm=TRUE)
-
-###INPUT USE###
-#transform
-stack_farmers$hh.maize.maizen.q48[stack_farmers$hh.maize.maizen.q48==98] <- NA
-stack_farmers$hh.maize.maizen.q48[stack_farmers$hh.maize.maizen.q48=="l"] <- NA #made "other" NA
-
-#make input use variable
-stack_farmers$inputuse_binary <- (stack_farmers$hh.maize.maizen.q48 == "a") | (stack_farmers$hh.maize.maizen.q48 == "b")| (stack_farmers$hh.maize.maizen.q48 == "c")| (stack_farmers$hh.maize.maizen.q48 == "d")| (stack_farmers$hh.maize.maizen.q48 == "e")| (stack_farmers$hh.maize.maizen.q48 == "f")| (stack_farmers$hh.maize.maizen.q48 == "g")| (stack_farmers$hh.maize.maizen.q48 == "h")| (stack_farmers$hh.maize.maizen.q48 == "i")| (stack_farmers$hh.maize.maizen.q48 == "j")
-
-#standard deviations and means
-sd(stack_farmers$inputuse_binary, na.rm=TRUE)
-mean(stack_farmers$inputuse_binary, na.rm=TRUE)
-
+### prepare variables that will be used to assess power
 ###QUANTITY SOLD###
 #transform
 stack_dealers$hh.maize.seed.1..q22[stack_dealers$hh.maize.seed.1..q22==999] <- NA
@@ -99,671 +180,463 @@ stack_dealers <- merge(stack_dealers, ratings[,c(1,5)],by.x="id.agro" ,by.y="Gro
 sd(ratings$reputation_av_farmers, na.rm=TRUE)
 mean(ratings$reputation_av_farmers, na.rm=TRUE)
 
-###SEED QUALITY###
-#transform
-stack_farmers$hh.maize.agro1.q108j[stack_farmers$hh.maize.agro1.q108j=="n/a"] <- NA
-stack_farmers$hh.maize.agro1.q108j <- as.numeric(as.character(stack_farmers$hh.maize.agro1.q108j))
-
-#make seed quality variable
-stack_farmers$seedquality_binary <- (stack_farmers$hh.maize.agro1.q108j > 4) #median is 4
-
-#standard deviations and means
-sd(stack_farmers$seedquality_binary, na.rm=TRUE)
-mean(stack_farmers$seedquality_binary, na.rm=TRUE)
-
-# ######################################################
-# ########Power analysis for the standard design########
-# ######################################################
-# 
-# ##################################################
-# possible.ns <- seq(from=200, to=350, by=10)     # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 500                                      # Number of simulations to conduct for each N
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){
-#     Y0 <-  rnorm(n=N, mean=3.680319, sd=0.6145871)              # control potential outcome
-#     tau <- 0.2151055                                # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                 # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim)                   # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
-# 
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-######################################################
-
-###quantitysold
-
-# possible.ns <- seq(from=20, to=300, by=5)      # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 5000                                      # Number of simulations to conduct for each N
-# stack_dealers_quantitysold <- subset(stack_dealers, !is.na(quantitysold))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){                                                   # control potential outcome
-#     Y0 <- sample(stack_dealers_quantitysold$quantitysold, size = N, replace = TRUE)
-#     tau <- 158.8215                                                      # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                                     # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# 
-# cbind(possible.ns, powers)
-# df <- cbind(possible.ns, powers)
-# write.csv(df,(paste(path,"Study design/power_quantitysold.csv", sep ="/")), row.names = FALSE)
-
-library(ggplot2)
-df <- read.csv(paste(path,"Study design/power_quantitysold.csv", sep ="/"))
-png((paste(path,"Study design/power_quantitysold.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
-#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of input dealers") + xlim(0, 300)+ ylim(0, 1) + annotate(geom="text", x=75, y=0.775, label="target power value of 0.8", color="red")
+#merge in catchment ID
+stack_dealers <- merge(stack_dealers,shops[c("shopID","catchmentID")], by.x="id.agro",by.y="shopID")
+ 
+ #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+ 
+ 
+ possible.ns <- seq(from=75, to=125, by=5) # The sample sizes we'll be considering
+ powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+ alpha <- 0.05                                    # Standard significance level
+ sims <- 500                                      # Number of simulations to conduct for each N
+ 
+ #### Outer loop to vary the number of subjects ####
+ for (j in 1:length(possible.ns)){
+   N <- possible.ns[j]                              # Pick the jth value for N
+ 
+   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+ 
+   #### Inner loop to conduct experiments "sims" times over for each N ####
+   for (i in 1:sims){             # control potential outcome
+     #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+     sample_dta <- data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta <- sample_dta[c("new_catch","quantitysold","Z.sim")]          # control potential outcome - is now a data frame with 2 vars
+     names(sample_dta) <- c("cluster_ID","Y0","Z.sim")
+     tau <- 158.8215                           # Hypothesize treatment effect .35 cohen d
+     #tau <- 136.131      # Hypothesize treatment effect .3 cohen d
+     #tau <-  90.75516
+     
+     sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
+     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
+     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+     #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+     sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
+     fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
+     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+   }
+ 
+   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+ }
+ df <- data.frame(cbind(possible.ns, powers))
+ png((paste(path,"Study design/power_quantitysold.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+ ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=80, y=0.79, label="target power value of 0.8", color="red")
+ dev.off()
+ #### do this also for scores:
+  #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
+ 
+ 
+ possible.ns <- seq(from=75, to=125, by=5) # The sample sizes we'll be considering
+ powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
+ alpha <- 0.05                                    # Standard significance level
+ sims <- 500                                      # Number of simulations to conduct for each N
+ stack_dealers_reputation_av_farmers <- subset(stack_dealers, !is.na(reputation_av_farmers))
+ 
+ #### Outer loop to vary the number of subjects ####
+ for (j in 1:length(possible.ns)){
+   N <- possible.ns[j]                              # Pick the jth value for N
+ 
+   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
+ 
+   #### Inner loop to conduct experiments "sims" times over for each N ####
+   for (i in 1:sims){             # control potential outcome
+     #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+     sample_dta <- data.frame(sample(names(table(stack_dealers_reputation_av_farmers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta <- merge(sample_dta, stack_dealers_reputation_av_farmers, by.x="catchID",by.y="catchmentID")
+     sample_dta <- sample_dta[c("new_catch","reputation_av_farmers","Z.sim")]          # control potential outcome - is now a data frame with 2 vars
+     names(sample_dta) <- c("cluster_ID","Y0","Z.sim")
+	tau <-  0.2151055 
+     sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
+     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
+     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
+     #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
+     sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
+     fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
+     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
+     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
+   }
+ 
+   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
+ }
+ df <- data.frame(cbind(possible.ns, powers))
+ png((paste(path,"Study design/power_reputation_av_farmers.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+ ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=80, y=0.79, label="target power value of 0.8", color="red")
 dev.off()
+ 
+ 
+ ### to caluclate average number of input dealers that correspond to a given N 
+ N <- 112
+nr_shops <- rep(NA, sims)
+    for (i in 1:sims){             # control potential outcome
+     #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
+     sample_dta <- data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     nr_shops[i] <- dim(sample_dta)[1]
+     }
+  summary(nr_shops)   
+     #mean is 318
+     
+     
+     #Now that we have numner of catchment areas and input dearlers, turn to farmers
+     
+     #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
 
 
-###reputation_av_farmers
-
-possible.ns <- seq(from=20, to=300, by=5)      # The sample sizes we'll be considering
-powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-alpha <- 0.05                                    # Standard significance level
-sims <- 5000                                      # Number of simulations to conduct for each N
-stack_dealers_reputation_av_farmers <- subset(stack_dealers, !is.na(reputation_av_farmers))
-
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){                                                   # control potential outcome
-#     Y0 <- sample(stack_dealers_reputation_av_farmers$reputation_av_farmers, size = N, replace = TRUE)
-#     tau <- 0.2151055                                                      # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                                     # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)                                   # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim)                     # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# 
-# cbind(possible.ns, powers)
-# df <- cbind(possible.ns, powers)
-# write.csv(df,(paste(path,"Study design/power_reputation_av_farmers.csv", sep ="/")), row.names = FALSE)
-
-library(ggplot2)
-df <- read.csv(paste(path,"Study design/power_reputation_av_farmers.csv", sep ="/"))
-png((paste(path,"Study design/power_reputation_av_farmers.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
-#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of input dealers") + xlim(0, 300)+ ylim(0, 1) + annotate(geom="text", x=75, y=0.775, label="target power value of 0.8", color="red")
-dev.off()
-# 
-# #####################################################
-# #######Power analysis for covariate control##########
-# #####################################################
-# 
-# possible.ns <- seq(from=150, to=300, by=10)     # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 500                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
-# 
-#     #create baseline data
-#     quantitysold_baseline <- correlate(given = Y0, rho = 0.7, draw_count, mean = mean(Y0, na.rm=TRUE))
-# 
-#     tau <- 0.2151055                                # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                 # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim + quantitysold_baseline)                   # Do analysis (Simple regression)
-#    #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
-# 
-# #correlation?
-# stack_dealers$quantitysold_baseline <- as.numeric(stack_dealers$quantitysold +  rnorm(length(stack_dealers$quantitysold), mean = 0, sd = sd(stack_dealers$quantitysold, na.rm=T)))
-# cor(stack_dealers$quantitysold,stack_dealers$quantitysold_baseline,  method = "pearson", use = "complete.obs")
-# 
-# ###binary
-# 
-# possible.ns <- seq(from=1500, to=2500, by=100)     # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 500                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(reputation))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, sims)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_dealers$reputation, size = N, replace = TRUE)             # control potential outcome
-# 
-#     #create baseline data
-#     reputation_baseline <- correlate(given = Y0, rho = 0.7, draw_binary, prob = mean(Y0, na.rm=TRUE))
-# 
-#     tau <- 0.05512821                                    # Hypothesize treatment effect
-#     Y1 <- Y0 + tau                                 # treatment potential outcome
-#     Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-#     Y.sim <- Y1*Z.sim + Y0*(1-Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim + reputation_baseline)                   # Do analysis (Simple regression)
-#     #fit.sim <- lm(Y.sim ~ information +base_out, data=baseline_sim) # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1), type = "l")
-# abline(h = .8, col = "red")
-# 
-# cbind(possible.ns, powers)
-# 
-# ######################################################
-# ########Power analysis for multiple treatments########
-# #############real data but no covartiates#############
-# ######################################################
-# 
-# possible.ns <- seq(from=600, to=900, by=10)     # The sample sizes we'll be considering
-# power.atleastone <- rep(NA, length(possible.ns))
-# power.bothtreatments <- rep(NA, length(possible.ns))
-# alpha <- 0.1  #(one-tailed test at .05 level)
-# sims <- 100                                      # Number of simulations to conduct for each N
-# stack_dealers <- subset(stack_dealers, !is.na(reputation_av_farmers))
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   p.T1vsC <- rep(NA, sims)
-#   p.T2vsC <- rep(NA, sims)
-#   p.T3vsC <- rep(NA, sims)
-#   c.T1vsC <- rep(NA, sims)
-#   c.T2vsC <- rep(NA, sims)
-#   c.T3vsC <- rep(NA, sims)
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     Y0 <- sample(stack_dealers$reputation_av_farmers, size = N, replace = TRUE)             # control potential outcome
-#     tau_1 <- 0.2151055                         # Hypothesize treatment effect
-#     tau_2 <- 0.2151055
-#     tau_3 <- 0.2151055
-#     Y1 <- Y0 + tau_1
-#     Y2 <- Y0 + tau_2
-#     Y3 <- Y0 + tau_3
-#     Z.sim <- complete_ra(N=N, num_arms=4)
-#     Y.sim <- Y0*(Z.sim=="T4") + Y1*(Z.sim=="T1") + Y2*(Z.sim=="T2") + Y3*(Z.sim=="T3")
-#     frame.sim <- data.frame(Y.sim, Z.sim)
-#     fit.T1vsC.sim <- lm(Y.sim ~ Z.sim=="T1", data=subset(frame.sim, Z.sim=="T1" | Z.sim=="T4"))
-#     fit.T2vsC.sim <- lm(Y.sim ~ Z.sim=="T2", data=subset(frame.sim, Z.sim=="T2" | Z.sim=="T4"))
-#     fit.T3vsC.sim <- lm(Y.sim ~ Z.sim=="T3", data=subset(frame.sim, Z.sim=="T3" | Z.sim=="T4"))
-# 
-#     ### Need to capture coefficients and pvalues (one-tailed tests, so signs are important)
-#     c.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,1]
-#     c.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,1]
-#     c.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,1]
-#     p.T1vsC[i] <- summary(fit.T1vsC.sim)$coefficients[2,4]
-#     p.T2vsC[i] <- summary(fit.T2vsC.sim)$coefficients[2,4]
-#     p.T3vsC[i] <- summary(fit.T3vsC.sim)$coefficients[2,4]
-#   }
-#   power.atleastone[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & (p.T1vsC < alpha/2 | p.T2vsC < alpha/2 | p.T3vsC < alpha/2))
-#   power.bothtreatments[j] <- mean(c.T1vsC>0 & c.T2vsC>0 & c.T3vsC>0 & p.T1vsC < alpha/2 & p.T2vsC < alpha/2 & p.T3vsC < alpha/2)
-#   print(j)
-# }
-# 
-# #plot(possible.ns, power.atleastone, ylim=c(0,1))
-# 
-# cbind(possible.ns, power.atleastone)
-# cbind(possible.ns, power.bothtreatments)
-# #cbind(possible.ns, power.fullranking)
-# 
-# ###################################################
-# ########changing the level of randomization########
-# ###################################################
-# 
-# stack_farmers$id.agro1[stack_farmers$id.agro1==""] <- NA
-# stack_farmers$id.agro1[stack_farmers$id.agro1=="n/a"] <- NA
-# stack_farmers$id.agro1 <- as.character(stack_farmers$id.agro1)
-# 
-# stack_farmers$id.agro2[stack_farmers$id.agro2==""] <- NA
-# stack_farmers$id.agro2[stack_farmers$id.agro2=="n/a"] <- NA
-# stack_farmers$id.agro2 <- as.character(stack_farmers$id.agro2)
-# 
-# stack_farmers$id.agro3[stack_farmers$id.agro3==""] <- NA
-# stack_farmers$id.agro3[stack_farmers$id.agro3=="n/a"] <- NA
-# stack_farmers$id.agro3 <- as.character(stack_farmers$id.agro3)
-# 
-# stack_farmers$id.agro <- ifelse(is.na(stack_farmers$id.agro1), ifelse(is.na(stack_farmers$id.agro2), ifelse(is.na(stack_farmers$id.agro3), NA, stack_farmers$id.agro3), stack_farmers$id.agro2), stack_farmers$id.agro1)
-# 
-# sum(is.na(stack_farmers$id.agro))
-# 
-# stack_farmers$id.agro[stack_farmers$id.agro=="A005"] <- "AS005"
-# 
-# ######################################################
-# ########Power analysis for the standard design########
-# #######Y0 not normal distribution but real data#######
-# #################cluster randomization################
-# ######################################################
-# 
-# #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
-# 
-# stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
-# 
-# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# 
-# #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-# stack_farmers <- subset(stack_farmers, !is.na(agro_catchID))
-# 
-# #stack_farmers <- subset(stack_farmers, !is.na(inputuse_binary))
-# #stack_farmers <- subset(stack_farmers, !is.na(seedquality_binary))
-# 
-# possible.ns <- seq(from=100, to=2000, by=100) # The sample sizes we'll be considering
-# powers <- rep(NA, length(possible.ns))           # Empty object to collect simulation estimates
-# alpha <- 0.05                                    # Standard significance level
-# sims <- 100                                      # Number of simulations to conduct for each N
-# 
-# #### Outer loop to vary the number of subjects ####
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]                              # Pick the jth value for N
-# 
-#   significant.experiments <- rep(NA, 100)         # Empty object to count significant experiments
-# 
-#   #### Inner loop to conduct experiments "sims" times over for each N ####
-#   for (i in 1:sims){             # control potential outcome
-#     #sample_dta <- stack_farmers[c("id.agro","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
-#     sample_dta <- stack_farmers[c("agro_catchID","yield_kg_per_acre")][sample(nrow(stack_farmers), size = N, replace = TRUE),]             # control potential outcome - is now a data frame with 2 vars
-#     names(sample_dta) <- c("cluster_ID","Y0")
-#     tau <- 81.04422                           # Hypothesize treatment effect
-#     sample_dta$Y1 <- sample_dta$Y0 + tau                                 # treatment potential outcome
-#     #randomize(stack_farmers, group = c("1", "0"), block = stack_farmers$id_inputdealer)
-#     #Z.sim <- rbinom(n=N, size=1, prob=.5)          # Do a random assignment
-#     #Z.sim <- cluster_ra(clusters = stack_farmers$id_inputdealer)
-#     sample_dta$Z.sim <- cluster_ra(clusters = sample_dta$cluster_ID)
-#     sample_dta$Y.sim <- sample_dta$Y1*sample_dta$Z.sim + sample_dta$Y0*(1-sample_dta$Z.sim)               # Reveal outcomes according to assignment
-#     fit.sim <- lm(Y.sim ~ Z.sim, data= sample_dta)                   # Do analysis (Simple regression)
-#     p.value <- summary(fit.sim)$coefficients[2,4]  # Extract p-values
-#     significant.experiments[i] <- (p.value <= alpha) # Determine significance according to p <= 0.05
-#   }
-# 
-#   powers[j] <- mean(significant.experiments)       # store average success rate (power) for each N
-# }
-# plot(possible.ns, powers, ylim=c(0,1))
-# cbind(possible.ns, powers)
-# 
-#how many farmers per input dealer?
-
-# stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-# stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# 
-# stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-# 
-# stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
-
-#1st attempt:
-# stratified <- function(df, group, size, select = NULL,
-#                        replace = FALSE, bothSets = FALSE) {
-#   if (is.null(select)) {
-#     df <- df
-#   } else {
-#     if (is.null(names(select))) stop("'select' must be a named list")
-#     if (!all(names(select) %in% names(df)))
-#       stop("Please verify your 'select' argument")
-#     temp <- sapply(names(select),
-#                    function(x) df[[x]] %in% select[[x]])
-#     df <- df[rowSums(temp) == length(select), ]
-#   }
-#   df.interaction <- interaction(df[group], drop = TRUE)
-#   df.table <- table(df.interaction)
-#   df.split <- split(df, df.interaction)
-#   if (length(size) > 1) {
-#     if (length(size) != length(df.split))
-#       stop("Number of groups is ", length(df.split),
-#            " but number of sizes supplied is ", length(size))
-#     if (is.null(names(size))) {
-#       n <- setNames(size, names(df.split))
-#       message(sQuote("size"), " vector entered as:\n\nsize = structure(c(",
-#               paste(n, collapse = ", "), "),\n.Names = c(",
-#               paste(shQuote(names(n)), collapse = ", "), ")) \n\n")
-#     } else {
-#       ifelse(all(names(size) %in% names(df.split)),
-#              n <- size[names(df.split)],
-#              stop("Named vector supplied with names ",
-#                   paste(names(size), collapse = ", "),
-#                   "\n but the names for the group levels are ",
-#                   paste(names(df.split), collapse = ", ")))
-#     }
-#   } else if (size < 1) {
-#     n <- round(df.table * size, digits = 0)
-#   } else if (size >= 1) {
-#     if (all(df.table >= size) || isTRUE(replace)) {
-#       n <- setNames(rep(size, length.out = length(df.split)),
-#                     names(df.split))
-#     } else {
-#       message(
-#         "Some groups\n---",
-#         paste(names(df.table[df.table < size]), collapse = ", "),
-#         "---\ncontain fewer observations",
-#         " than desired number of samples.\n",
-#         "All observations have been returned from those groups.")
-#       n <- c(sapply(df.table[df.table >= size], function(x) x = size),
-#              df.table[df.table < size])
-#     }
-#   }
-#   temp <- lapply(
-#     names(df.split),
-#     function(x) df.split[[x]][sample(df.table[x],
-#                                      n[x], replace = replace), ])
-#   set1 <- do.call("rbind", temp)
-# 
-#   if (isTRUE(bothSets)) {
-#     set2 <- df[!rownames(df) %in% rownames(set1), ]
-#     list(SET1 = set1, SET2 = set2)
-#   } else {
-#     set1
-#   }
-# }
-# 
-# stratified(stack_both, "id.agro", 1, replace = TRUE)
-
-#2nd attempt:
-# ddply(stack_both,.(id.agro),function(x) x[sample(nrow(x),1),])
-
-#3rd attempt:
-# do.call(rbind, 
-#         lapply(split(stack_both, stack_both$id.agro), 
-#                function(x) x[sample(nrow(x), 1), ]))
-
-#4th attempt:
-# x <- strata(stack_both, "id.agro", size = c(1, 1, 1), method = "srswor")
-# getdata(stack_both, x)
-
-#5th attempt:
-# new_stack_both <- stack_both[, .SD[sample(x = .N, size = 1)], by="id.agro"]
-
-#6th attempt:
-
-#stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-
-#1: take a sample of size 100, with replacement, from stack_dealers
-#sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = 100, replace = TRUE),]
-
-#2: loop over different dealers in sample_dealers & sample from stack_farmers
-
-# clusters1 <- stack_farmers[1,] #start with something to past to to use rbind (here: first row of stack_farmers), then past samples at the bottom
-# for (i in sample_dealers$id.agro) {
-#   temp <- stack_farmers[stack_farmers$id.agro == i,]
-#   temp <- temp[sample(nrow(temp), size=5, replace = TRUE),]
-#   clusters1 <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-# }
-#
-# clusters1 <- clusters1[2:dim(clusters1)[1],] #remove that first row
-
-#number of obs. changes because different dealers and sampled
-#why does clusters1 have e.g. 460 obs and not 100*5=500?
-#because AS017, 19, 27, 51, 52, 58, 62, 76 aren't assigned to any farmer: 8*5=40
-
-# #alternative
-#
-# #stack_farmers <- subset(stack_farmers, !is.na(id.agro))
-# #stack_farmers <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# #stack_dealers$assignment <- rbinom(n=78, size=1, prob=.5)
-#
-# stack_both <- merge(stack_farmers,stack_dealers[sample(nrow(stack_dealers), size = 100000, replace = TRUE),],by="id.agro")
-#
-# #same as:
-# #stack_both <- merge(stack_farmers,stack_dealers,by="id.agro")
-# #stack_both <- stack_both[sample(nrow(stack_both), size = 100000, replace = TRUE),]
-#
-# clusters2 <- do.call(rbind, lapply(split(stack_both, stack_both$id.agro), function(x) x[sample(nrow(x), 5, replace = TRUE), ]))
-#
-# #only e.g. 250 obs. because many input dealer not in stack_both sample (here: 28 not in sample) even if size = 100 000 (with size = large number: 350 obs because 78*5-8*5)
-
-######################################################
-########Power analysis for the standard design########
-#######Y0 not normal distribution but real data#######
-#################cluster randomization################
-######################################################
-
-#interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
-
-stack_farmers$agro_catchID <- as.character(stack_farmers$agro_catchID)
-stack_farmers$id.agro <- stack_farmers$agro_catchID #clusters by means of GPS
-
-possible.ns <- 265
-possible.fs <- seq(from=1, to=25, by=1)
+possible.ns <- 112
+possible.fs <- seq(from=20, to=40, by=1)
 powers <- rep(NA, length(possible.ns))
 alpha <- 0.05
-sims <- 500
-stack_farmers <- subset(stack_farmers, !is.na(id.agro))
+sims <- 200
 
-# #yield_kg_per_acre
-# 
-# stack_farmers_yield_kg_per_acre <- subset(stack_farmers, !is.na(yield_kg_per_acre))
-# stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_yield_kg_per_acre$id.agro))) #deletes dealers that are not attached to any households
-# cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-# registerDoParallel(cl)
-# #1st loop
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]
-#   print(possible.ns[j]) #print something to show that we are still making progress
-# 
-#   #2nd loop
-#   for (f in 1:length(possible.fs)){
-#     F <- possible.fs[f]
-#     print(possible.fs[f]) #print something to show that we are still making progress
-# 
-#     #3rd loop
-#     #  for (i in 1:sims){
-#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-#     sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-#     sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
-# 
-#       #4th loop
-#       clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
-#       #   for (k in 1:length(sample_dealers$id.agro)) {
-#       id <- sample_dealers$id.agro[k]
-#       temp <- stack_farmers_yield_kg_per_acre[stack_farmers_yield_kg_per_acre$id.agro == id,]
-#       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
-# 
-#       clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
-#       #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-#     }
-# 
-#     names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
-# 
-#     clusters1$Y0 <- clusters1$yield_kg_per_acre
-#     tau <- 56.91028
-#     clusters1$Y1 <- clusters1$Y0 + tau
-#     clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
-#     fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
-#     p.value <- summary(fit.sim)$coefficients[2,4]
-#     significant.experiments <- (p.value <= alpha)
-#   }
-# 
-#   powers[f] <- mean(significant.experiments)
-#   }
-# 
-# }
-# 
-# 
-# cbind(possible.fs, powers)
-# df <- cbind(possible.fs, powers)
+ #yield_kg_per_acre
+ 
+
+ cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+ registerDoParallel(cl)
+ #1st loop
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$yield_kg_per_acre
+     tau <- 56.91028
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+ 
+
+df <- data.frame(cbind(possible.fs, powers))
 # write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
 # 
-df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0.75, .825) + annotate(geom="text", x=22, y=0.798, label="target power value of 0.8", color="red")
+
+dev.off()
+
+
+### now for input use
+possible.ns <- 112
+possible.fs <- seq(from=20, to=40, by=1)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 200
+
+cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+registerDoParallel(cl)
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$inputuse_binary
+     tau <-  0.065
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+# 
+
+df <- data.frame(cbind(possible.fs, powers))
+# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+# 
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
+dev.off()
+
+### now for input use
+possible.ns <- 112
+possible.fs <- seq(from=20, to=40, by=1)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 200
+
+cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+registerDoParallel(cl)
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta$new_catch),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$catchID == sample_dta$catchID[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$seedquality_binary
+     tau <-  0.065
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+# 
+
+df <- data.frame(cbind(possible.fs, powers))
+# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+# 
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
+png((paste(path,"Study design/seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
+#ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per catchment area") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
+dev.off()
+
+##### x farmers per input dealer
+###yield
+
+possible.ns <- 112
+possible.fs <- seq(from=10, to=20, by=1)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 200
+
+ #yield_kg_per_acre
+ 
+
+ cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+ registerDoParallel(cl)
+ #1st loop
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta_dealer$id.agro),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$id.agro == sample_dta_dealer$id.agro[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$yield_kg_per_acre
+     tau <- 56.91028
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+ 
+
+df <- data.frame(cbind(possible.fs, powers))
+# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+# 
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
 ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
 dev.off()
+
+##### x farmers per input dealer
+###input use
+
+possible.ns <- 112
+possible.fs <- seq(from=10, to=20, by=1)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 200
+
+ #yield_kg_per_acre
+ 
+
+ cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+ registerDoParallel(cl)
+ #1st loop
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta_dealer$id.agro),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$id.agro == sample_dta_dealer$id.agro[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$inputuse_binary
+     tau <- 56.91028
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+ 
+
+df <- data.frame(cbind(possible.fs, powers))
+# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
 # 
-# #inputuse_binary
-# 
-# stack_farmers_inputuse_binary <- subset(stack_farmers, !is.na(inputuse_binary))
-# stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_inputuse_binary$id.agro))) #deletes dealers that are not attached to any households
-# cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-# registerDoParallel(cl)
-# #1st loop
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]
-#   print(possible.ns[j]) #print something to show that we are still making progress
-# 
-#   #2nd loop
-#   for (f in 1:length(possible.fs)){
-#     F <- possible.fs[f]
-#     print(possible.fs[f]) #print something to show that we are still making progress
-# 
-#     #3rd loop
-#     #  for (i in 1:sims){
-#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-#       sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-#       sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
-# 
-#       #4th loop
-#       clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
-#         #   for (k in 1:length(sample_dealers$id.agro)) {
-#         id <- sample_dealers$id.agro[k]
-#         temp <- stack_farmers_inputuse_binary[stack_farmers_inputuse_binary$id.agro == id,]
-#         temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
-# 
-#         clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
-#         #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-#       }
-# 
-#       names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
-# 
-#       clusters1$Y0 <- clusters1$inputuse_binary
-#       tau <- 0.065
-#       clusters1$Y1 <- clusters1$Y0 + tau
-#       clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
-#       fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
-#       p.value <- summary(fit.sim)$coefficients[2,4]
-#       significant.experiments <- (p.value <= alpha)
-#     }
-# 
-#     powers[f] <- mean(significant.experiments)
-#   }
-# 
-# }
-# 
-# 
-# cbind(possible.fs, powers)
-# df <- cbind(possible.fs, powers)
-# write.csv(df,(paste(path,"Study design/power_inputuse_binary.csv", sep ="/")), row.names = FALSE)
-# 
-df <- read.csv(paste(path,"Study design/power_inputuse_binary.csv", sep ="/"))
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=16, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
 dev.off()
 
-#seedquality_binary
 
-stack_farmers_seedquality_binary <- subset(stack_farmers, !is.na(seedquality_binary))
-stack_dealers <- subset(stack_dealers, id.agro %in% names(table(stack_farmers_seedquality_binary$id.agro))) #deletes dealers that are not attached to any households
-cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
-registerDoParallel(cl)
-# #1st loop
-# for (j in 1:length(possible.ns)){
-#   N <- possible.ns[j]
-#   print(possible.ns[j]) #print something to show that we are still making progress
-# 
-#   #2nd loop
-#   for (f in 1:length(possible.fs)){
-#     F <- possible.fs[f]
-#     print(possible.fs[f]) #print something to show that we are still making progress
-# 
-#     #3rd loop
-#     #  for (i in 1:sims){
-#     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
-#       sample_dealers <- stack_dealers[sample(nrow(stack_dealers), size = N, replace = TRUE),]
-#       sample_dealers$assignment <- rbinom(n=nrow(sample_dealers) , size=1, prob=.5) #do random assignment after you take sample at dealer level
-# 
-#       #4th loop
-#       clusters1 <- foreach(k = 1:length(sample_dealers$id.agro),.combine=rbind) %dopar% {
-#         #   for (k in 1:length(sample_dealers$id.agro)) {
-#         id <- sample_dealers$id.agro[k]
-#         temp <- stack_farmers_seedquality_binary[stack_farmers_seedquality_binary$id.agro == id,]
-#         temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
-# 
-#         clusters1 <- return(cbind(temp,sample_dealers$assignment[k]))  #here we get the treatment in again
-#         #   <- rbind(clusters1,temp) #need to stack them on top of each other using rbind (rowbind)
-#       }
-# 
-#       names(clusters1)[names(clusters1) == 'sample_dealers$assignment[k]'] <- 'assignment'
-# 
-#       clusters1$Y0 <- clusters1$seedquality_binary
-#       tau <- 0.0887512
-#       clusters1$Y1 <- clusters1$Y0 + tau
-#       clusters1$Y.sim <- clusters1$Y1*clusters1$assignment + clusters1$Y0*(1-clusters1$assignment)
-#       fit.sim <- lm(Y.sim ~ clusters1$assignment, data=clusters1)
-#       p.value <- summary(fit.sim)$coefficients[2,4]
-#       significant.experiments <- (p.value <= alpha)
-#     }
-# 
-#     powers[f] <- mean(significant.experiments)
-#   }
-# 
-# }
-# 
-# 
-# cbind(possible.fs, powers)
-# df <- cbind(possible.fs, powers)
-# write.csv(df,(paste(path,"Study design/power_seedquality_binary.csv", sep ="/")), row.names = FALSE)
+possible.ns <- 112
+possible.fs <- seq(from=10, to=20, by=1)
+powers <- rep(NA, length(possible.ns))
+alpha <- 0.05
+sims <- 200
 
-df <- read.csv(paste(path,"Study design/power_seedquality_binary.csv", sep ="/"))
+ #yield_kg_per_acre
+ 
+
+ cl <- makeCluster(detectCores(all.tests = FALSE, logical = TRUE))
+ registerDoParallel(cl)
+ #1st loop
+ 
+
+for (f in 1:length(possible.fs)){
+     F <- possible.fs[f]
+     print(possible.fs[f]) #print something to show that we are still making progress
+ 
+     significant.experiments <- foreach(i = 1:sims,.combine=rbind,.packages=c("doParallel")) %dopar% {
+     sample_dta <-  data.frame(sample(names(table(stack_dealers$catchmentID)), size=N, replace =T))
+     sample_dta$Z.sim <- 0
+     sample_dta$Z.sim[1:round(length(sample_dta$Z.sim)/2)] <- 1 
+     sample_dta$new_catch <- rownames(sample_dta) 
+     names(sample_dta) <- c("catchID","Z.sim","new_catch")
+     sample_dta_dealer <- merge(sample_dta, stack_dealers, by.x="catchID",by.y="catchmentID")
+     sample_dta_farmers <- merge(sample_dta_dealer, stack_farmers, by.x="id.agro",by.y="id.agro1")
+ 
+       #4th loop
+       clusters1 <- foreach(k = 1:length(sample_dta_dealer$id.agro),.combine=rbind) %dopar% {
+        temp <- sample_dta_farmers[sample_dta_farmers$id.agro == sample_dta_dealer$id.agro[k],]
+       temp <- temp[sample(nrow(temp), size=F, replace = TRUE),]
+ 
+       clusters1 <- return(temp)  #here we get the treatment in again
+        }
+     clusters1$Y0 <- clusters1$seedquality_binary
+     tau <- 56.91028
+     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
+     fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
+     p.value <- summary(fit.sim)$coefficients[2,4]
+     significant.experiments <- (p.value <= alpha)
+   }
+ 
+   powers[f] <- mean(significant.experiments)
+ 
+ }
+ 
+
+df <- data.frame(cbind(possible.fs, powers))
+# write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")), row.names = FALSE)
+# 
+#df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=10, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0, 1) + annotate(geom="text", x=5, y=0.775, label="target power value of 0.8", color="red")
 dev.off()
-

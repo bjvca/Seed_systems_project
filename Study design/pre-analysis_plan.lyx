@@ -3589,9 +3589,7 @@ name "sec:Power-Analysis-Simulations"
 \end_layout
 
 \begin_layout Standard
-We use simulations to analyze power, meaning that we simulate to conduct
- our experiments many times to determine how often we obtain statistically
- significant results.
+We use simulations to determine sample size.
  This is a flexible way to analyze power because even small changes to our
  experimental design can be included in our simulations.
  We use data from a different study, namely …, which contain answers of
@@ -3623,16 +3621,16 @@ We will investigate both, outcomes at the input dealer level and outcomes
  an effect of 0.35 times the standard deviation, here 159 kilogram.
  We then vary the total number of input dealers to see how power varies
  with sample size.
- The graph below shows that under these assumptions, if the number of input
- dealers is larger than 255, our experiments will return statistically significa
-nt results 80 percent of the time, meaning that 80 percent of p-values will
- be below 0.05.
+ The graph below shows that under these assumptions, if the number of catchment
+ areas is larger than 93, we hit the 80 percent power threshold.
+ This corresponds to about 263 shops.
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename power_quantitysold.png
 	lyxscale 10
@@ -3667,18 +3665,17 @@ For the reputation outcome variable, farmers score the reputation of their
  The mean reputation is 3.68 and the standard deviation is 0.61.
  We again assume a treatment effect size between small and medium, i.e.
  0.35 times the standard deviation, here 0.21.
- If the number of input dealers is larger than 265, our experiments will
+ If the number of catchment areas is larger than 112, our experiments will
  return statistically significant results 80 percent of the time, given
  the described assumptions.
- From these calculations we conclude that we need at least 265 input dealers
- in our sample to detect a small to medium sized effect.
- To account for 5 percent attrition, we will therefore survey 279 dealers.
+ This corresponds to about 318 input dealers in total.
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename power_reputation_av_farmers.png
 	lyxscale 10
@@ -3706,9 +3703,18 @@ Power analysis simulations for reputation
 \end_layout
 
 \begin_layout Standard
-Then we determine how many farmers we need to have statistically significant
- results 80 percent of the time.
- We consider three variables: yield, input use and seed quality.
+The next step is to determine how many farmers we need in each catchment
+ area to have statistically significant results 80 percent of the time.
+ To make sure we have sufficient farmers to score each input dealer, we
+ will allocate a fixed number of farmers to each input dealer.
+ This will mean that we have differing numbers of farmers in the different
+ treatment groups, as the randomization happened at the catchment area.
+ While this may reduce power somewhat, this does not bias impact estimates.
+ 
+\end_layout
+
+\begin_layout Standard
+We consider three variables: yield, input use and seed quality.
  Maize yield per acre is a continuous variable with a mean of 541 kilogram
  and a standard deviation of 412 kilogram.
  Van Campenhout, Spielman, and Lecoutere (2020) find a treatment effect
