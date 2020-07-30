@@ -190,7 +190,17 @@ stack_farmers$inputuse_binary <- (stack_farmers$hh.maize.maizen.q48 == "a") | (s
 #standard deviations and means
 sd(stack_farmers$inputuse_binary, na.rm=TRUE)
 mean(stack_farmers$inputuse_binary, na.rm=TRUE)
+###SEED QUALITY###
+#transform
+stack_farmers$hh.maize.agro1.q108j[stack_farmers$hh.maize.agro1.q108j=="n/a"] <- NA
+stack_farmers$hh.maize.agro1.q108j <- as.numeric(as.character(stack_farmers$hh.maize.agro1.q108j))
 
+#make seed quality variable
+stack_farmers$seedquality_binary <- (stack_farmers$hh.maize.agro1.q108j > 4) #median is 4
+
+#standard deviations and means
+sd(stack_farmers$seedquality_binary, na.rm=TRUE)
+mean(stack_farmers$seedquality_binary, na.rm=TRUE)
 
 #merge in catchment ID
 stack_dealers <- merge(stack_dealers,shops[c("shopID","catchmentID")], by.x="id.agro",by.y="shopID")
@@ -574,8 +584,8 @@ for (f in 1:length(possible.fs)){
        clusters1 <- return(temp)  #here we get the treatment in again
         }
      clusters1$Y0 <- clusters1$inputuse_binary
-     tau <- 0.065
-     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y1 <- clusters1$Y0
+     clusters1$Y1[!is.na(clusters1$Y0) & clusters1$Y1 == 0] <- rbinom(n=length(clusters1$Y0[!is.na(clusters1$Y0) & clusters1$Y1 == 0] ), size=1, prob=(0.065*length(clusters1$Y0[!is.na(clusters1$Y0)])/length(clusters1$Y0[!is.na(clusters1$Y0) & clusters1$Y1 == 0] )))
      clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
      fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
      p.value <- summary(fit.sim)$coefficients[2,4]
@@ -632,8 +642,8 @@ for (f in 1:length(possible.fs)){
        clusters1 <- return(temp)  #here we get the treatment in again
         }
      clusters1$Y0 <- clusters1$seedquality_binary
-     tau <- 0.0887512
-     clusters1$Y1 <- clusters1$Y0 + tau
+     clusters1$Y1 <- clusters1$Y0 
+     clusters1$Y1[!is.na(clusters1$Y0) & clusters1$Y1 == 0] <- rbinom(n=length(clusters1$Y0[!is.na(clusters1$Y0) & clusters1$Y1 == 0] ), size=1, prob=(0.0887512*length(clusters1$Y0[!is.na(clusters1$Y0)])/length(clusters1$Y0[!is.na(clusters1$Y0) & clusters1$Y1 == 0] )))
      clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
      fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
      p.value <- summary(fit.sim)$coefficients[2,4]
