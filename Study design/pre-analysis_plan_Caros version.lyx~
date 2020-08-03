@@ -8,8 +8,8 @@
 \use_default_options true
 \maintain_unincluded_children false
 \language english
-\language_package auto
-\inputencoding utf8
+\language_package default
+\inputencoding auto
 \fontencoding global
 \font_roman "default" "default"
 \font_sans "default" "default"
@@ -129,6 +129,30 @@ footnotemark[1]}
 
 Demand and supply factors constraining the emergence and sustainability
  of an efficient seed system: A pre-analysis plan
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+or
+\end_layout
+
+\begin_layout Plain Layout
+Leveraging social networks to reduce information asymmetries: The case of
+ seed in Uganda
+\end_layout
+
+\begin_layout Plain Layout
+or
+\end_layout
+
+\begin_layout Plain Layout
+Input quality and agricultural technology adoption: experimental evidence
+ from Uganda
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
@@ -137,11 +161,10 @@ Despite its potential to accelerate poverty reduction by increasing smallholder
  countries remains low.
  We research how quality (perceptions) of an agricultural technology – improved
  maize seed – constrain its adoption.
- This document outlines the pre-analysis plan for the entire research program.
- It comprises three hypotheses that will be tested in a series of randomized
- controlled trials among smallholder farmers in Uganda, how we intend to
- measure relevant outcome variables, and what inference criteria will be
- used to assess impact.
+ This document outlines the study's pre-analysis plan.
+ It includes three hypotheses that will be tested in a series of randomized
+ controlled trials among smallholder farmers in Uganda and how we intend
+ to measure relevant outcome variables.
  In a first hypothesis, quality concerns are caused by information inefficiencie
 s at the level of the seed provider; simply providing information on proper
  storage and handling of maize seed to input dealers is expected to increase
@@ -162,13 +185,26 @@ s more salient to farmers will be tested.
 \end_layout
 
 \begin_layout Section
+Overview of the study design 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Background
 \end_layout
 
 \begin_layout Standard
-As most of the world's poor are semi-subsistence smallholder farmers, agricultur
-e remains a key driver of poverty reduction and pro-poor economic growth
- 
+Most of the poor are semi-subsistence smallholder farmers, which makes agricultu
+re a key driver of poverty reduction and pro-poor economic growth 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "castaneda2018new"
@@ -258,6 +294,14 @@ The work of applied microeconomists like Abhijit Banerjee, Esther Duflo
  and UC Berkeley's Center for Effective Global Action (CEGA) has funded
  a series of field experiments to illuminate what helps and hinders technology
  adoption among smallholder farmers.
+ Such field experiments attempt to relax a particular constraint to technology
+ adoption among randomly assigned “treated” farmers and compare outcomes
+ like adoption, yield or income to similarly randomly assigned “control”
+ farmers.
+ This approach eliminates potential selection bias and ensures that there
+ are no confounding variables at play, resulting in a clean causal interpretatio
+n of the relationships between the constraint-relaxing intervention and
+ these outcomes.
  This research has resulted in a new set of answers to the question of why
  some farmers do and others do not adopt technologies.
  Key constraints include poor access to information 
@@ -329,12 +373,12 @@ literal "true"
 , the use of information and communication technology (ICT) 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "fabregas2019realizing,doi:10.1002/ajae.12089"
+key "fabregas2019realizing,van2018information"
 literal "true"
 
 \end_inset
 
-.
+ and several other innovative approaches.
  Various review articles summarize the (often ongoing) research 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -347,11 +391,13 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-This study addresses a recently identified constraint to adoption: the quality
- of agricultural inputs available on the market.
+We propose a study that addresses a recently identified constraint to adoption:
+ the quality of agricultural inputs available on the market.
  We specifically explore the (perceived) quality of improved maize seed
  as a constraint to its adoption among a sample of smallholder maize farmers
  in Uganda.
+ Improved maize seeds are hybrid and open pollinated varieties of maize
+ seeds.
  Maize is an important crop in Uganda, both for home consumption and as
  a source of income.
  However, various factors constrain the emergence and sustainability of
@@ -362,7 +408,7 @@ This study addresses a recently identified constraint to adoption: the quality
  non-performant 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
+key "ashour2016beliefs,bold2017lemon,barriga2018supply"
 literal "true"
 
 \end_inset
@@ -380,21 +426,21 @@ Hypotheses
 \end_layout
 
 \begin_layout Standard
-Poor (perceptions of) seed quality may arise at different stages in the
- seed supply chain.
+We target both input dealers and farmers with our interventions, because
+ poor perceptions of seed quality may arise at different stages in the seed
+ supply chain.
  Poor seed quality may occur as a result of input dealer practices, for
  example poor handling and storage practices, or deceptive marketing practices.
  Or the problem may emerge as a result of smallholder farmer capabilities
  and perceptions, for example an inability to distinguish good from bad
  products, or a lack of confidence in the input dealer or his/her products.
- We test interventions at different stages in the seed supply chain to assess
- the relative importance of each potential cause for low demand for improved
- seed.
- The first intervention targets the input dealer, the second targets both
- the input dealer and the farmer, while last targets the farmer.
- Regardless of who is targeted by the intervention, we will assess impact
- by looking at outcomes at both input dealer and farmer level.
- 
+ This points to an opportunity to explore several alternative hypotheses
+ and impact pathways.
+ We will devise interventions at different stages in the seed supply chain
+ to assess the relative importance of each potential cause for low demand
+ for improved seed.
+ The three main confirmatory hypotheses we aim to test will be elaborated
+ hereinafter and tested throughout the causal chain.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -422,11 +468,14 @@ literal "true"
 
 \end_inset
 
-, which summarizes two decades of research on the multifaceted and complex
- lives of the poor, concludes that they often lack information (p.
+ which summarizes two decades of research on the multifaceted and complex
+ lives of the poor concludes that they often lack information (p.
  268) and name many studies that find that a simple piece of information
  can be very effective.
- Also in the context of smallholder agriculture, informational inefficiencies
+\end_layout
+
+\begin_layout Standard
+Also in the context of smallholder agriculture, informational inefficiencies
  have been found to be important.
  Most studies emphasize knowledge gaps at the farmer level, and the consequences
  on outcomes like technology adoption and production.
@@ -463,35 +512,25 @@ literal "true"
  recommended agronomic practices 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "doi:10.1002/ajae.12089"
+key "van2018information"
 literal "true"
 
 \end_inset
 
 .
- While the need for policies and interventions that strengthen input marketing
- capacity and infrastructure has been acknowledged decades ago 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "TRIPP2001147"
-literal "false"
-
-\end_inset
-
-, we find few examples training initiatives that target input dealers.
- 
 \end_layout
 
 \begin_layout Standard
 Our first intervention is designed to provide information about correct
- handling and storage of improved maize seed.
+ handling and storage of improved maize seed by means of a training for
+ input dealers.
  Poor handling and storage may lead to poor seed quality, in turn reducing
  the profitability of seeds and leading to lower adoption by farmers.
- There is ample evidence of input quality reduction at this level in Uganda:
- improper storage and handling 
+ There is ample evidence of this quality-reducing problem in Uganda: improper
+ storage and handling 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "doi:10.1080/00220388.2018.1464143"
+key "ashour2016beliefs"
 literal "true"
 
 \end_inset
@@ -522,10 +561,10 @@ literal "true"
 \end_inset
 
 .
- In the most comprehensive study on seed to date, 
+ In the most comprehensive study to date, 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "BARRIGA2020104928"
+LatexCommand citet
+key "barriga2018supply"
 literal "true"
 
 \end_inset
@@ -533,7 +572,67 @@ literal "true"
  test seed along the maize supply chain in Uganda and find evidence of poor
  handling and storage, suggesting that these quality-reducing practices
  are quite common.
+ Yet interventions to address this problem are few.
+ Our approach is novel because it targets input dealers instead of farmers.
+ Training input dealers on quality-related issues stands to reason, as they
+ are further upstream along the supply chain, such that quality-related
+ issues will affect all actors downstream the value chain.
+\end_layout
+
+\begin_layout Standard
+A small piece of information can be very effective but not every information
+ campaign is equally impactful.
+ Research has shown that small changes in the design attributes of information
+ treatments can have substantial effects.
+ Design features that have been studied in this context include the technology
+ used, the source and the content of the information.
+ For instance, the use of short engaging videos has been found effective
+ in transmitting messages 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fabregas2019realizing"
+literal "true"
+
+\end_inset
+
+.
+ Also 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "vandevelde2018spoiler"
+literal "true"
+
+\end_inset
+
+ run a field experiment in which they show potato farmers a short video
+ on proper seed storage and handling, and find evidence of significant increases
+ in potato yields as a result of this information provision.
+ In some cases, an expert may be regarded as a credible source, while in
+ other cases, a person one can relate to may be viewed as more trustworthy
  
+\begin_inset CommandInset citation
+LatexCommand citep
+key "benyishay2019social"
+literal "true"
+
+\end_inset
+
+.
+ The level of specificity may also affect the response.
+ Simpler information is easier to process and may increase adoption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bertrand2010s"
+literal "true"
+
+\end_inset
+
+.
+ We will therefore carefully design our information intervention (technology,
+ source, specificity).
+ The content will be determined together with experts from the ministry
+ of agriculture, from the seed sector and from input dealer associations
+ in Uganda.
 \end_layout
 
 \begin_layout Standard
@@ -585,39 +684,44 @@ literal "true"
  been experimented with, but the cost of implementation has proven challenging,
  and they depend on the reliability of the underlying seed certification
  system.
- In our study, we will test an alternative, decentralized information clearing
- house that is based on crowd-sourced information and works through reputational
- mechanisms and peer pressure, much like yelp.com or tripadvisor.com.
+ In our study, we will test an alternative decentralized system that is
+ based on crowd-sourced information and works through reputational mechanisms
+ and peer pressure, much like yelp.com or tripadvisor.com.
 \end_layout
 
 \begin_layout Standard
-For this second treatment, we will determine catchment areas for input dealers
- and ask a sample of farmers in that area to rate input dealers on a series
- of attributes related to seed quality (and service delivery more general).
- This information will be used to calculate a score for each input dealer.
- Some dealers in the sample will then be given these scores, as well as
- an indication on how they are scored relative to the overall average 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bjorkman2009power"
-literal "false"
+This so called information clearinghouse works through crowd-sourced user
+ ratings of input dealers and aims to reduce information asymmetry and subsequen
+t averse selection.
+ For this second treatment, we will ask a sample of farmers to rate input
+ dealers in their vicinity on a series of attributes related to seed quality
+ (and service delivery more general) (collection of information).
+ We will then disclose this information to the farmers by providing them
+ with an input dealer’s average rating before the start of the next planting
+ season (dissemination of information).
+ We will exploit ICT to implement this clearinghouse.
+ However, the precise implementation (e.g., dissemination of information by
+ text messages to farmers/by notice boards) will be decided upon after thorough
+ investigation of the context (e.g., do enough farmers have mobile phones).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Should we do this thorough investigation before submitting the pre-analysis
+ plan?
+\end_layout
 
 \end_inset
 
-.
- Furthermore, this information will also be provided to the farmers in a
- sub-sample of catchment areas.
- This will be implemented as a factorial design, such that we can disentangle
- the effect of the input provider getting the information, the farmers getting
- the information, and the interaction (both input dealer and farmer get
- the interaction).
+
 \end_layout
 
 \begin_layout Standard
-While the previous intervention aims to reduce unintentional seed quality
- deterioration that is caused by lack of knowledge, the clearinghouse may
- also reduce instances where quality is reduce intentionally to increase
- profit.
+While the previous intervention relies on training of input dealers to target
+ the unintentional distribution of poor-quality seed, the clearinghouse
+ uses information to target dealers who are intentionally adulterating seed
+ and exclude them from the market.
  Some studies suggest that adulteration is pervasive in the Ugandan input
  market.
  
@@ -631,8 +735,8 @@ literal "true"
  find that hybrid maize seed contains less than 50% authentic seed, while
  
 \begin_inset CommandInset citation
-LatexCommand citep
-key "doi:10.1080/00220388.2018.1464143"
+LatexCommand citet
+key "ashour2016beliefs"
 literal "true"
 
 \end_inset
@@ -658,33 +762,14 @@ literal "true"
 .
  However, a clearinghouse that provides agricultural price information differs
  substantially from a clearinghouse that shares crowdsourced opinions on
- service quality–including products sold–with both input dealers and farmers.
- At a more aggregate level, crowd-sourcing has been used to improve public
- service delivery.
- For example, in Tanzania, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "cilliers2020can"
-literal "false"
-
-\end_inset
-
- show that a low-stakes accountability program that published both nationwide
- and within-district school rankings improved learning outcomes for schools
- in the bottom two deciles of their districts.
- 
-\end_layout
-
-\begin_layout Standard
-It should be noted that a clearing house that relies on crowd-sourced ratings
- may be particularly effective to increase seed quality in the market.
- While prices or the quality of public services can generally be observed
- reasonably easy, this is much harder for the case of seed.
- At the time of purchase, visual seed inspection is limited to seed purity
- and the presence of mold.
- Seed performance can only be assessed after planting.
- Some seed may also be more susceptible to pests and diseases, so the overall
- quality of seed can only be judged after harvest.
+ seed quality with both input dealers and farmers.
+ The key difference is that we will address a non-price dimension of the
+ product, quality, which cannot be assessed in a credence good or post-experienc
+e good until it has actually been purchased and used.
+ Due to our intervention, farmers could not only switch from lowly rated
+ to highly rated input dealers, part of the effect is also expected to come
+ from the input dealers, who may try to increase ratings by not selling
+ counterfeit inputs.
  To our knowledge, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -705,18 +790,23 @@ literal "true"
 \begin_layout Standard
 With regard to this information clearing house intervention, we anticipate
  different mechanisms to be at work.
- First, farmers that do not buy improved seed may start buying when they
- see that the quality of the input dealer in their vicinity is better than
- expected (eg.
- above average).
- Furthermore, farmers may switch from low rated input dealers to highest
- rated input dealers.
- Furthermore, the clearing house could raise the input dealer's effort as
- he/she wants to improve his/her ratings.
+ To begin with, we hypothesize farmers to switch from low rated input dealers
+ to highest rated input dealers, which increases the quality of the seed
+ the farmers purchase, their perception of this quality and their chosen
+ input dealer and therefore, their seed adoption.
+ Furthermore, the clearing house could raise the input dealers' effort as
+ he/she becomes aware of being rated (less adulteration, more commitment
+ related to handling and storage) and therefore, seed quality, seed quality
+ and input dealer perceptions and seed adoption.
 \end_layout
 
 \begin_layout Standard
-An information clearinghouse presents a novel solution to the problem of
+Note that measuring outcomes is a part of the information clearing house.
+ Data on seed quality perception and input dealer perception constitute
+ the farmer ratings of input dealers and their seeds in the farmers' vicinity.
+ We then only need to disclose this information to the farmers by providing
+ them with an input dealer’s average rating.
+ An information clearinghouse presents a novel solution to the problem of
  asymmetric information in the market for agricultural inputs.
  The clearinghouse may be preferable to regulating quality directly because
  it relies on a potentially lower cost, self-sustaining, and scalable technology
@@ -734,14 +824,13 @@ H3: Seed is of good quality but farmers are unable to adequately learn about
 While seeds of improved maize varieties often provide higher yields than
  farmer-saved seeds or seeds exchanged between farmers, they also require
  more inputs such as water, inorganic fertilizer and pesticides, and tend
- to demand more intensive management.
- Farmers may not be aware of these requirements.
- Even more, they may think that improved seed is a guarantee for higher
- yield and reduce management and use of other imputs.
+ to demand greater management.
+ Farmers may not be aware of these requirements, or even believe that they
+ have purchased “miracle” seed, that requires fewer inputs and less management.
  This may lead to disappointing yields, and farmers may erroneously attribute
  these low returns to the poor quality of inputs, which may reduce subsequent
  technology adoption.
- The problem may thus be rooted in negative experiences which conflate low
+ So the problem could be rooted in negative experiences which conflate low
  product quality with incorrect management practices.
  This can be characterized as a learning failure.
  For example, 
@@ -758,9 +847,8 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-In the context of new agricultural technology, production functions are
- not known.
- Farmers learn from own experience 
+Learning is crucial in this agricultural context because production functions
+ are not known but learned from one’s own experience 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "foster1995learning"
@@ -771,7 +859,7 @@ literal "true"
  as well as from observing the experience of others 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.1257/aer.100.1.35"
+key "banerjee1992simple"
 literal "true"
 
 \end_inset
@@ -780,20 +868,19 @@ literal "true"
  Learning involves an iterative process of forming and updating beliefs
  about yield or profit distributions.
  Many researchers have addressed how individuals process information and
- update beliefs when making repeated decisions 
+ update beliefs when making repeated decisions (e.g., 
 \begin_inset CommandInset citation
-LatexCommand citep
-before "e.g."
+LatexCommand citet
 key "camerer1999experience"
 literal "true"
 
 \end_inset
 
-.
+).
  
 \begin_inset CommandInset citation
 LatexCommand citet
-key "doi:10.1111/agec.12123"
+key "barham2015risk"
 literal "true"
 
 \end_inset
@@ -849,16 +936,31 @@ Thus, our third intervention differs from a pure information treatment and
  the input dealer to the farmer and could include timely advise on fertilizer
  application and other crop management practices that are needed to optimize
  returns to improve seed.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+very vague.
+\end_layout
+
+\end_inset
+
  This after-sales service does not only provide information about correct
  use and management, but also ensures that the farmer perceives this information
  as important by highlighting the relationship between the use of quality
  seed, correct management practices and yield.
  This way farmers can learn about the yield or profit distribution if they
  correctly handle seed.
- After-sales services are a simple way to promote more informed decision-making.
+ After-sales services are a simple and salient way to promote more informed
+ decision-making.
  Distributing information in ways that increase the salience of the information
- convey a stronger message about the benefits of the technology.
- Our intervention is built on the growing evidence that encouraging agents
+ convey a stronger and more memorable message about the benefits of the
+ technology.
+\end_layout
+
+\begin_layout Standard
+Our intervention is built on the growing evidence that encouraging agents
  to pay more attention to available data can profitably affect behavior
  in diverse contexts 
 \begin_inset CommandInset citation
@@ -893,6 +995,20 @@ The after-sales service intervention might increase seed adoption through
  From our results we will infer whether suboptimal behavior and learning
  failures by farmers are a reason for low adoption of improved maize seed.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+missing: subgroup or heterogeneity analysis that is to be done and the hypothese
+s that accompany each of these tests
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1399,25 +1515,6 @@ e, (seed quality), farmers' seed quality perception, farmers' input dealer
  perception, farmers' seed adoption, input dealers' volume/value/price of
  seed sales, number/share of farmers switching input dealers, input dealer's
  effort, farmer skill/knowledge, maize yield/revenue.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Census: Once we’ve decided on a final sample size (number of catchment areas
- and number of farmers per catchment area), we will do an input dealer census
- in approximately 8 or 9 districts in Eastern Uganda.
- Then we’ll have a list.
- For the census we will need an application because we want to record: •
- GPS coordinates • all names of the dealer a farmer might have in mind (name
- of shop, name of owner, name of employee, name of son/grandfather, name
- of street/neighborhood) • contact information • “Where do your customers
- come from?” (catchment area) • (picture of the shop)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1426,7 +1523,7 @@ Experimental design
 
 \begin_layout Standard
 To test the three hypotheses, we will implement three interventions and
- measure their effects by means of factorial cluster randomized controlled
+ measure their effects by means of full factorial cluster randomized controlled
  trials (RCT) 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1436,286 +1533,69 @@ literal "true"
 \end_inset
 
 .
+ We will use a cross-randomization design to evaluate the impact of three
+ interventions on demand and supply of improved seed in Uganda.
  All interventions will be implemented at the level of the input dealer
  catchment area.
- A total of four interventions will be cross-randomized into a 
-\begin_inset Formula $2^{4}$
-\end_inset
-
- factorial design.
- 
+ That is, in the catchment area of a random subset of input dealers, we
+ will intervene - train input dealers, set up information clearinghouses
+ and after sales services, the other areas will function as controls.
+ To assess the impact of the treatments, we will compare outcomes in treated
+ catchment areas to outcomes in control catchment areas.
+ The three interventions will be cross-randomized into a factorial design,
+ such that we can identify the effect of each intervention separately as
+ well as interaction effects between the three treatments.
+ Input dealers will therefore be randomized over 8 treatment cells (ranging
+ from catchment areas with after-sales services, input dealer training and
+ a clearinghouse, to catchment areas without any treatment).
 \end_layout
 
 \begin_layout Standard
-The information clearing house will be composed of two factors with two
- levels each.
- A first factor concerns rater feedback at the level of the input dealers:
- in a subset of catchment areas, farmer ratings of input dealers are revealed
- to input dealers (and in a subset, ratings are not revealed to the input
- dealer).
- The second factor concerns rater feedback at the level of the farmers:
- in a subset of catchment areas, ratings are revealed to farmers (and in
- a subset of catchment ares, ratings are not revealed to farmers).
- This is done in a crossed designs such that there are also subgroups where
- both input dealers and farmers get rater feedback, as well as catchment
- areas where no feedback at all was given.
- 
-\end_layout
-
-\begin_layout Standard
-As we want to be powered to identify the interaction between these two factors,
- we propose the sample size in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Design"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Power simulations in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Power-Analysis-Simulations"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- show that we need about 140 catchment areas got get acceptable power to
- detect a reasonable effect.
- As such, we make sure that we include sufficient catchment areas in each
- treatment interactions cell.
- 
-\end_layout
-
-\begin_layout Standard
-Factorial designs allow recycling of treated units in the orthogonal factor
- to be used as controls.
- As such, to estimate main effects – the impact of giving ratings to dealers,
- the impact of giving ratings to farmers – less catchment areas are needed.
- For example, to estimate the impact of giving ratings to dealers, we can
- compare 212 catchment areas where ratings were given to dealers (of which
- in 140 catchment areas farmers were also given the ratings) to 212 catchment
- areas where ratings were not given to dealers (of which in 72 catchment
- areas farmers were also given these ratings).
- Similarly, to estimate the impact of revealing dealer ratings to farmers,
- we can compare 212 catchment areas where ratings were revealed to farmers
- (of which in 140 catchment areas these ratings were also revealed to input
- dealers themselves) to 212 catchment areas where dealer ratings were not
- provided to farmers (of which in 72 these ratings were also revealed to
- input dealers themselves).
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figure/design.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Design
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Design"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Treatments related to the first hypothesis – training agro-input dealers
- on seed storage and handling – will be added as a third factor to the 2x2
- design to form a 
-\begin_inset Formula $2^{3}$
-\end_inset
-
- design.
- Here, we are only interested in the main effects.
- In each treatment cell in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Design"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, all input dealers in half of the catchment areas will be allocated to
- the input dealer training, while the others will not receive the training,
- thus adding a third dimension to the design.
- This is illustrated in the extensive form of the experiment in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Extensive-form"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- As we only need about 280 catchment areas, we only treat 36 catchment areas
- of the 140 catchment areas that are allocated to the interaction of the
- two previous factors (and so 140-36 = 104 catchment areas end up as controls).
- For similar reasons, we only treat 36 catchment areas from the areas where
- neither farmer nor input dealer received rater feedback.
-\end_layout
-
-\begin_layout Standard
-Finally, the treatments to test the third hypothesis will be added as a
- fourth factor to get a 
-\begin_inset Formula $2^{4}$
-\end_inset
-
- design.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Extensive-form"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that this results in 18 catchment areas in each treatment cell.
- For similar reasons as above, we only need to treat 18 catchment areas
- from the 104 catchment areas that are allocated to the interaction of the
- two previous factors and was not allocated to the input dealer training
- (and so 104-18 = 86 catchment areas end up as controls).
- For similar reasons, we only treat 18 catchment areas from the areas where
- neither farmer nor input dealer received rater feedback and no input dealer
- received training.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename figure/extensive_form.pdf
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Extensive form
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Extensive-form"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+Our experiments will be conducted in 6 districts (Uganda is divided into
+ 134 districts and the capital city Kampala) 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Level of randomization: We decided to randomize at the level of the catchment
- area, not at the level of the dealer, for two main reasons: 1) It’s more
- ethical/fair.
- If we’d randomize at dealer level, one dealer might get scored and get
- a good score and his/her neighbor dealer might not get scored.
- As a result, many farmers might choose the dealer with the good score and
- against the dealer without any score.
- This would result in a considerable competitive disadvantage for the dealer
- that didn’t get the chance to get scored due to randomization.
- Randomization at the catchment area level ensures that we don’t do any
- harm of this kind.
- 2) We can measure an effect on farmer outcomes.
- If we’d randomize at dealer level, one dealer might get scored and his/her
- neighbor dealer might not get scored.
- It will be difficult/unfeasible to know which farmers belong to the scored
- dealer and which farmers belong to the unscored dealer.
- We avoid this problem by randomizing at the catchment area level because
- then all dealers within an area get scored/ not scored and all farmers
- within an area are potential customers of only dealers who get scored/
- not scored.
- We can therefore safely conclude which farmers are in the control group
- and which farmers are in the treatment group.
+How do we select the districts? we need one where maize is widely grown
+ by small farmers
 \end_layout
 
-\begin_layout Plain Layout
-No splitting of the clearinghouse treatment: We decided to not split the
- clearinghouse treatment into different sub-treatment groups (1.
- Farmers and dealers receive scores, 2.
- Only farmers receive scores, 3.
- Only dealers receive scores, 4.
- Neither farmers nor dealers receive scores) because this decision reduces
- our required sample size significantly.
- We only look at “full treatment” (farmers and dealers receive scores) vs.
- “full control” (no one receives the scores).
- It is difficult to include 279 catchment areas and unfeasible to include
- 424 catchment areas in our sample.
-\end_layout
+\end_inset
+
+, in the maize growing area(s) of 
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
-Census: Once we’ve decided on a final sample size (number of catchment areas
- and number of farmers per catchment area), we will do an input dealer census
- in approximately 8 or 9 districts in Eastern Uganda.
- Then we’ll have a list.
- For the census we will need an application because we want to record: •
- GPS coordinates • all names of the dealer a farmer might have in mind (name
- of shop, name of owner, name of employee, name of son/grandfather, name
- of street/neighborhood) • contact information • “Where do your customers
- come from?” (catchment area) • (picture of the shop)
+?
+\end_layout
+
+\end_inset
+
+.
+ The randomization for the input dealer training (intervention 1) will be
+ done at the input dealer level, the randomization for the information clearingh
+ouse (intervention 2) will be done at the level of the input dealer area
+ (divide all districts by x 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+this is far from ideal because clustering input dealers in area groups decreases
+ power but I really think that it would be unethical to distribute the score
+ of one dealer to all farmers in the village and not distributes it's neighbours
+ score to the same farmers ...
 \end_layout
 
 \end_inset
@@ -1724,34 +1604,8 @@ Census: Once we’ve decided on a final sample size (number of catchment areas
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Design
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+and the randomization for the after-sales service (intervention 3) will
+ again be done at the input dealer level.
 \end_layout
 
 \begin_layout Section
@@ -1814,7 +1668,7 @@ video as training device?
 
 \end_inset
 
-This intervention informs input dealers about correct handling and storage
+This intervention informes input dealers about correct handling and storage
  of improved maize seed.
  
 \begin_inset CommandInset citation
@@ -1826,9 +1680,9 @@ literal "true"
 
  name the repacking and openair storage of bags as a reason for the low
  quality of hybrid seed.
- Storage practices also affect moisture levels that in turn affect the occurrenc
-e of storage fungi, which become active in seeds when moisture is above
- 14 percent and reduce seed quality 
+ Storage practices also affect moisture levels that in turn affect the occurence
+ of storage fungi, which become active in seeds when moisture is above 14
+ percent and reduce seed quality 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "govender2008effect"
@@ -2179,7 +2033,7 @@ or 12 dealers (2 groups/district)
  and can be taken to and eventually hung in their store.
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Facts:
@@ -2232,29 +2086,6 @@ ber
 
 \begin_layout Subsubsection*
 I2: Information clearinghouse
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-No splitting of the clearinghouse treatment: We decided to not split the
- clearinghouse treatment into different sub-treatment groups (1.
- Farmers and dealers receive scores, 2.
- Only farmers receive scores, 3.
- Only dealers receive scores, 4.
- Neither farmers nor dealers receive scores) because this decision reduces
- our required sample size significantly.
- We only look at “full treatment” (farmers and dealers receive scores) vs.
- “full control” (no one receives the scores).
- It is difficult to include 279 catchment areas and unfeasible to include
- 424 catchment areas in our sample.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2764,40 +2595,12 @@ reason why scored again after harvesting: perhaps pests etc.
 \end_layout
 
 \begin_layout Plain Layout
-aaand more scores –> more trustable average
+aaand more scores –> more trustable average 
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
- 
-\end_layout
-
-\begin_layout Subsubsection*
-I3: Farmer after-sales service
-\end_layout
-
-\begin_layout Standard
-Previous research suggests that farmers often expect too much from modern
- inputs.
- It is often believed that improved seed need less additional inputs such
- as irrigation, fertilizer or weeding than traditional seed.
- In reality, it is often the reverse, where improved seed needs to be combined
- with optimal fertilizer input and proper irrigation, otherwise yields may
- actually be lower than landraces.
- 
-\end_layout
-
-\begin_layout Standard
-This intervention nudges farmers to pay more attention the other input dimension
-s and create optimal conditions for the improved input.
- This will again be done through different training and information disseminatio
-n methods, including targeted and time sensitive SMS messages to farmers,
- explanation and hand-outs to farmers by input-dealers, on farm visit by
- extension workers,…
 \end_layout
 
 \begin_layout Section
@@ -3016,22 +2819,8 @@ Are we going to test a model to explain our findings? Then we should set
 unit of analysis, population, and inclusion/exclusion criteria
 \end_layout
 
-\begin_layout Standard
-The primary unit of analysis are catchment areas of clusters of input dealers.
- We start from lists of registered input dealers provided by district officials.
- From these lists, we sample input dealers and randomly allocate them to
- one of the 16 treatment cells of the factorial design 
-\end_layout
-
 \begin_layout Section
 Power Analysis Simulations
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Power-Analysis-Simulations"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3293,43 +3082,6 @@ We conclude that we need at least 15 farmers per input dealer to detect
  In summary, we plan to include 279 input dealers and 17 farmers per dealer
  in our study, which results 4743 (279 times 17) farmers we intend to interview
  and 3975 farmers (265 times 15) after attrition.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Updated power calculations: These two decisions have the following implications
- for power: You might think that this means that we need x input dealers
- in 279 catchment areas in our sample.
- You might think that this means that we need 279 input dealers in y catchment
- areas in our sample.
- In fact, we need a sample size between x input dealers in 279 catchment
- areas (upper bound - if the correlation between dealers in one catchment
- area is 1) and 279 dealers in y catchment areas (lower bound if the correlation
- between dealers in one catchment area is 0).
- The final sample size depends on this correlation between 0 and 1.
- Caroline will use Optimal Design to get an approximate sample size.
- Bjorn will use R code to get the final sample size upon his return.
-\end_layout
-
-\begin_layout Plain Layout
-We will calculate how many catchment areas and farmers per catchment area
- we need, while holding the number of dealers per catchment area constant
- (as the mean number of dealers per catchment area we find in the stack
- survey data) and assuming a particular within catchment area (within cluster)
- correlation.
- The is no need to calculate a final sample size before Bjorn’s return because
- we are still concerned about data collection in Uganda as long as we can
- hardly assess the Corona related risks.
- We do not want to carry the virus from village to village while doing a
- census.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
