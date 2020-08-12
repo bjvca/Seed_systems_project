@@ -774,6 +774,13 @@ literal "true"
 
 \begin_layout Section
 Experimental design
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experimental-design"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1016,55 +1023,118 @@ name "sec:Power-Analysis-Simulations"
 \end_layout
 
 \begin_layout Standard
-We used simulations to determine sample size of the above experimental layout.
- Simulation provides a flexible way to analyze power because even small
- changes to our experimental design can be included in our simulations.
- We use data from a different study
-\begin_inset Note Note
-status open
+We used simulations to determine sample size for the experimental layout
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experimental-design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Simulation, where the experiment is run thousands of times and one simply
+ counts how frequently the treatment comes up significant, provides a flexible
+ and intuitive way to analyze power.
+ Furthermore, instead of relying on a theoretical distribution for the outcome
+ variables takes assumptions and returns an analytic solution, simulations
+ can sample from real data.
+ In our case, we use survey data from 80 input dealers that was collected
+ in three districts in eastern Uganda in July 2019.
+ Furthermore, we surveyed 1,500 farmers in the catchment areas of these
+ 80 input dealers
+\begin_inset Foot
+status collapsed
 
 \begin_layout Plain Layout
-, namely …,
+The data was part of a survey of the maize value chain, and can be found
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://github.com/bjvca/PIMMVC/tree/master/data/public"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
-which contain answers of farmers and input dealers in 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-…,
-\end_layout
-
-\end_inset
-
- a Ugandan district similar to the districts we are going to investigate,
- and many of our outcome variables.
- Simulations with real data have the advantage that we do not only know
- the real means and standard deviations of the variables of interest but
- also have the real distributions of those variables at hand, which allows
- us to analyze power precisely.
+.
+ 
 \end_layout
 
 \begin_layout Standard
-We will investigate both, outcomes at the input dealer level and outcomes
- at the farmer level.
+We will investigate both outcomes at the input dealer level and at the farmer
+ level.
  We analyze power at the input dealer level first and consider two outcome
- variables, the quantity of sold seed and the reputation of the input dealer.
+ variables: (i) the quantity of seed sold, and (ii) the reputation of the
+ input dealer.
  The quantity of seed that the input dealer sold is a continuous variable
- and trimmed at 5 percent to decrease variability, i.e.
- the standard deviation compared to the expected treatment effect size,
- and therefore increase power.
- The mean quantity is 325 kilogram and the standard deviation is 454 kilogram.
- Our simulation design randomly assigns input dealers to either treatment
- or control with a probability of 0.5.
- We also need to make assumptions about the size of the treatment effect.
- To our knowledge, there are no studies with interventions at the input
- dealer level, so that we cannot rely on the literature when assuming a
- realistic treatment effect.
- That is why we expect a treatment effect size between small and medium,
- an effect of 0.35 times the standard deviation, here 159 kilogram.
+ (kilogram) with mean 325 and standard deviation 454.
+ For the reputation outcome variable, farmers score the input dealer on
+ a scale from 1 to 5.
+ A dealer's reputation is then calculated as the average of those scores
+ and treated as a continuous variable.
+ The mean reputation of an input dealer in the sample is 3.68 and the standard
+ deviation is 0.61.
+\end_layout
+
+\begin_layout Standard
+Assignment of the input dealers to catchment areas is done on the basis
+ of the location.
+ Using GPS coordinates of the input dealers, the halversine function is
+ used to construct an adjacency matrix, and input dealers that are less
+ than 5 kilometer apart are grouped into a single catchment area.
+ The 5 kilometer threshold was selected based on visual inspection on the
+ map, the size of the village and reported distance between farmer and input
+ dealers.
+ This procedure resulted into 68 input dealers being distributed over 24
+ catchment areas.
+ A catchment area has thus on average 2.8 input dealer, with a minimum of
+ 1 and a maximum of 6.
+ We also need to assume a treatment effect size for the interventions that
+ will be implemented at the catchment area.
+ As we did not immediately find credible studies that evaluated the impact
+ of catchment area level interventions on quantity sold, we decided to define
+ expected treatment effect size in terms of cohen's d between small and
+ medium.
+ In particular, we assume an effect of 0.35 times the standard deviation.
+ For quantity sold, this means 159 kilogram, while for reputation the minimal
+ detectable effect size becomes 0.21.
+\end_layout
+
+\begin_layout Standard
+To determine sample size (defined in terms of the number of catchment areas
+ for the first two treatments), the algorithm iterates over different candidate
+ sample sizes (eg from 75 catchment areas up to 125 catchment areas with
+ increments of 5 catchment areas).
+ For each candidate sample size, a random sample with replacement is drawn
+ from the survey data.
+ This sample is than used to run a number (eg 1000) of simulations of the
+ experiment.
+ In particular, for each simulation, all input dealers that are in half
+ of the catchment areas are assigned to the treatment condition and the
+ other half to the control condition.
+ To the outcome of interest that are assigned to the treatment condition,
+ the assumed effect is added and the analysis is conducted.
+ In our case, we are interested in the average treatment effect, so we simply
+ regress the outcome on a treatment indicator and record if the coefficient
+ on the treatment indicator is significant at the 5 percent level.
+ Finally, we determine how often, out the total number of simulations, we
+ were able to detect the effect at the 5 percent significance level.
+ This will give us the power associated to that particular candidate sample
+ size.
+ Power can then be plotted against sample size to plot obtain power curves.
+\end_layout
+
+\begin_layout Standard
+then randomly assigns half of the catchment areas to the treatment and half
+ to the control condition.
  We then vary the total number of input dealers to see how power varies
  with sample size.
  The graph below shows that under these assumptions, if the number of catchment
@@ -1080,6 +1150,7 @@ status open
 \begin_inset Graphics
 	filename power_quantitysold.png
 	lyxscale 10
+	scale 70
 
 \end_inset
 
@@ -1104,12 +1175,7 @@ Power analysis simulations for quantity sold
 \end_layout
 
 \begin_layout Standard
-For the reputation outcome variable, farmers score the reputation of their
- input dealer on a scale from 1 to 5.
- A dealers reputation is the average of those scores and treated as a continuous
- variable.
- The mean reputation is 3.68 and the standard deviation is 0.61.
- We again assume a treatment effect size between small and medium, i.e.
+We again assume a treatment effect size between small and medium, i.e.
  0.35 times the standard deviation, here 0.21.
  If the number of catchment areas is larger than 112, our experiments will
  return statistically significant results 80 percent of the time, given
@@ -1125,6 +1191,7 @@ status open
 \begin_inset Graphics
 	filename power_reputation_av_farmers.png
 	lyxscale 10
+	scale 70
 
 \end_inset
 
@@ -1192,6 +1259,7 @@ status open
 \begin_inset Graphics
 	filename power_yield_kg_per_acre.png
 	lyxscale 10
+	scale 70
 
 \end_inset
 
@@ -1241,6 +1309,7 @@ status open
 \begin_inset Graphics
 	filename power_inputuse_binary.png
 	lyxscale 10
+	scale 70
 
 \end_inset
 
@@ -1286,6 +1355,7 @@ status open
 \begin_inset Graphics
 	filename power_seedquality_binary.png
 	lyxscale 10
+	scale 70
 
 \end_inset
 

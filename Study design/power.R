@@ -248,7 +248,7 @@ stack_dealers <- merge(stack_dealers,shops[c("shopID","catchmentID")], by.x="id.
  }
  df <- data.frame(cbind(possible.ns, powers))
  png((paste(path,"Study design/power_quantitysold.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
- ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=80, y=0.79, label="target power value of 0.8", color="red")
+ ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=84, y=0.79, label="target power value of 0.8", color="red")
  dev.off()
  #### do this also for scores:
   #interventions & randomization at the level of the catchment area = level of the input dealer (ID) = level of the cluster
@@ -292,7 +292,7 @@ stack_dealers <- merge(stack_dealers,shops[c("shopID","catchmentID")], by.x="id.
  }
  df <- data.frame(cbind(possible.ns, powers))
  png((paste(path,"Study design/power_reputation_av_farmers.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
- ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=80, y=0.79, label="target power value of 0.8", color="red")
+ ggplot(df, aes(x = possible.ns, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE) + labs(y="power", x = "number of catchment areas") + ylim(0.6, 0.9) + annotate(geom="text", x=84, y=0.79, label="target power value of 0.8", color="red")
 dev.off()
  
  
@@ -542,7 +542,7 @@ write.csv(df,(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/")),
 #df <- read.csv(paste(path,"Study design/power_yield_kg_per_acre.csv", sep ="/"))
 png((paste(path,"Study design/power_yield_kg_per_acre.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(.1, .975) + annotate(geom="text", x=4, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(.1, .975) + annotate(geom="text", x=6, y=0.775, label="target power value of 0.8", color="red")
 
 dev.off()
 
@@ -603,7 +603,7 @@ write.csv(df,(paste(path,"Study design/power_inputuse_binary.csv", sep ="/")), r
 df <- read.csv(paste(path,"Study design/power_inputuse_binary.csv", sep ="/"))
 png((paste(path,"Study design/power_inputuse_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0.25, 1) + annotate(geom="text", x=2, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0.25, 1) + annotate(geom="text", x=2.5, y=0.775, label="target power value of 0.8", color="red")
 
 dev.off()
 
@@ -662,5 +662,5 @@ write.csv(df,(paste(path,"Study design/power_seedquality_binary.csv", sep ="/"))
 #df <- read.csv(paste(path,"Study design/power_seedquality_binary.csv", sep ="/"))
 png((paste(path,"Study design/power_seedquality_binary.png", sep ="/")), units="px", height=3200, width= 3200, res=600)
 #ggplot(df, aes(x = possible.ns, y = powers)) + geom_line() + geom_hline(yintercept = .8, colour =  "red", size=1)
-ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0.25, 1) + annotate(geom="text", x=2, y=0.775, label="target power value of 0.8", color="red")
+ggplot(df, aes(x = possible.fs, y = powers)) + geom_hline(yintercept = .8, colour =  "red", size=1) + geom_smooth(se=FALSE)+ labs(y="power", x = "number of farmers per input dealer") + ylim(0.25, 1) + annotate(geom="text", x=2.5, y=0.775, label="target power value of 0.8", color="red")
 dev.off()
