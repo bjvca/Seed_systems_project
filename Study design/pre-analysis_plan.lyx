@@ -1133,17 +1133,31 @@ To determine sample size (defined in terms of the number of catchment areas
 \end_layout
 
 \begin_layout Standard
-then randomly assigns half of the catchment areas to the treatment and half
- to the control condition.
- We then vary the total number of input dealers to see how power varies
- with sample size.
- The graph below shows that under these assumptions, if the number of catchment
- areas is larger than 93, we hit the 80 percent power threshold.
- This corresponds to about 263 shops.
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-q_sold"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at power levels for different sample sizes (in terms of number of
+ catchment areas included in the study) to detect an increase of 159 kilogram
+ of improved seed sold by the input dealer at the 5 percent significance
+ level.
+ If the number of catchment areas is larger than 93, we hit the 80 percent
+ power threshold.
+ Our data suggests that these 93 catchment areas correspond to about 263
+ input dealers.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1162,6 +1176,13 @@ status open
 
 \begin_layout Plain Layout
 Power analysis simulations for quantity sold
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-q_sold"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1175,12 +1196,25 @@ Power analysis simulations for quantity sold
 \end_layout
 
 \begin_layout Standard
-We again assume a treatment effect size between small and medium, i.e.
- 0.35 times the standard deviation, here 0.21.
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-reputation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show how power increases when more catchment areas are included in
+ the study if we want to detect a 0.21 increase in the reputation of the
+ input dealers.
  If the number of catchment areas is larger than 112, our experiments will
- return statistically significant results 80 percent of the time, given
- the described assumptions.
- This corresponds to about 318 input dealers in total.
+ return statistically significant results 80 percent of the time.
+ This corresponds to about 318 input dealers.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -1203,6 +1237,13 @@ status open
 
 \begin_layout Plain Layout
 Power analysis simulations for reputation
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-reputation"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1216,20 +1257,48 @@ Power analysis simulations for reputation
 \end_layout
 
 \begin_layout Standard
-The next step is to determine how many farmers we need in each catchment
- area to have statistically significant results 80 percent of the time.
+Once we have decided on how many catchment areas (and associated input dealers)
+ are necessary to detect effects at the level of the input dealer, we need
+ to determine how many farmers we need to sample from these catchment areas
+ to identify impact of the interventions on that level.
  To make sure we have sufficient farmers to score each input dealer, we
  will allocate a fixed number of farmers to each input dealer.
- This will mean that we have differing numbers of farmers in the different
- treatment groups, as the randomization happened at the catchment area.
+ This may mean that we have slightly differing numbers of farmers in the
+ different treatment groups, as the randomization happened at the catchment
+ area.
  While this may reduce power somewhat, this does not bias impact estimates.
  
 \end_layout
 
 \begin_layout Standard
-We consider three variables: yield, input use and seed quality.
+We again use simulation to determine the number of farmers per input dealers.
+ As we already determined the minimum number of catchment areas (and correspondi
+ng input dealers), we fix the number of catchment areas at this number (we
+ will take the most conservative estimate, namely 112 catchment areas or
+ 318 input dealers).
+ We then iterate over different candidate sample sizes of farmers per input
+ dealer (ranging from only one farmer per input dealer, which would lead
+ to a total sample size of 318 farmers, to 25 farmers per input dealer,
+ resulting in a sample size of almost 8,000 farmers).
+ The resulting sample in each iterations is used to run a number (eg 1000)
+ of simulations of the experiment.
+ For each simulation, all farmers that are in the catchment area of input
+ dealers that are in half of the catchment areas are assigned to the treatment
+ condition and all other farmers are assigned the control condition.
+ To the farmer level outcome of interest of farmers that are assigned to
+ the treatment condition in this way, the assumed effect is added and the
+ analysis is conducted.
+ We again determine how often, out the total number of simulations, we were
+ able to detect the effect at the 5 percent significance level, which will
+ give us the power associated to that iteration.
+ 
+\end_layout
+
+\begin_layout Standard
+We consider three variables at the level of the farmer: yield, input use
+ and seed quality (based on the score that farmers give to the seed).
  Maize yield per acre is a continuous variable with a mean of 541 kilogram
- and a standard deviation of 412 kilogram.
+ per acre and a standard deviation of 412 kilogram per acre.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1241,11 +1310,19 @@ literal "false"
  find a treatment effect of 10.5 percent when they investigated the effectiveness
  of videos as means of delivering information on input use and improved
  maize management practices to farmers.
- That is why we assume an effect size of 10.5 percent on maize yields, hence
- 57 kilogram.
- Given the distribution of the yield variable and the assumption about the
- effect, we conclude that we need at least 15 farmers per input dealer.
- This is illustrated by the graph below.
+ Using a similar effect size, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-yield"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that we need at least 15 farmers per input dealer, which would result
+ in a total sample size of 4,770 farmers.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1271,6 +1348,13 @@ status open
 
 \begin_layout Plain Layout
 Power analysis simulations for yield
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-yield"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1294,8 +1378,18 @@ literal "false"
 
  find an effect of 0.065 percentage points of videos to deliver information
  on fertilizer use.
- If we assume an effect size of 0.065 percentage points, we need at least
- 4 farmers per input dealer in our sample.
+ If we assume a similar effect size, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-adoption"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ suggests we need at least 4 farmers per input dealer.
+ This would result in a sample 1,272 farmers.
 \end_layout
 
 \begin_layout Standard
@@ -1321,6 +1415,13 @@ status open
 
 \begin_layout Plain Layout
 Power analysis simulations for input use
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-adoption"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1338,10 +1439,20 @@ The last outcome we consider in our power analysis is the quality of seed
  assessed by farmers.
  The initial quality score from 1 to 5 is transformed into a binary variable
  with a mean of 0.26 and a standard deviation of 0.44.
- Because there are no studies that measure the effect of a similar interventions
- on seed quality, we expect a small effect in terms of Cohen’s d, namely
- 0.2 times the standard deviation, thus 0.088 percentage points.
- Given this assumption, we need at least 5 farmers per input dealer.
+ We assume a small effect in terms of Cohen’s d (0.2 times the standard deviation
+ or 0.088 percentage points).
+ Given this assumption, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-quality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows we need at least 5 farmers per input dealer, corresponding to a total
+ sample size of almost 1,600 farmers.
 \end_layout
 
 \begin_layout Standard
@@ -1367,6 +1478,13 @@ status open
 
 \begin_layout Plain Layout
 Power analysis simulations for seed quality
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-quality"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1381,10 +1499,17 @@ Power analysis simulations for seed quality
 
 \begin_layout Standard
 We conclude that we need at least 15 farmers per input dealer to detect
- effect sizes similar to the ones Van Campenhout, Spielman, and Lecoutere
- (2020) found.
+ effect sizes similar to the ones 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1002/ajae.12089"
+literal "false"
+
+\end_inset
+
+ found.
  Ideally, the total number of farmers that need to be included in the study
- is 4,770.
+ is thus 4,770.
  However, finding impact on yields is hard, as this is an outcome that is
  pretty far down the causal impact chain.
  Yields also show high variability.
@@ -1395,43 +1520,6 @@ We conclude that we need at least 15 farmers per input dealer to detect
  Further considering financial constraints and logistics, we decided to
  collect information on 10 farmers per input dealer, leading to a sample
  size of 3,200 households.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Updated power calculations: These two decisions have the following implications
- for power: You might think that this means that we need x input dealers
- in 279 catchment areas in our sample.
- You might think that this means that we need 279 input dealers in y catchment
- areas in our sample.
- In fact, we need a sample size between x input dealers in 279 catchment
- areas (upper bound - if the correlation between dealers in one catchment
- area is 1) and 279 dealers in y catchment areas (lower bound if the correlation
- between dealers in one catchment area is 0).
- The final sample size depends on this correlation between 0 and 1.
- Caroline will use Optimal Design to get an approximate sample size.
- Bjorn will use R code to get the final sample size upon his return.
-\end_layout
-
-\begin_layout Plain Layout
-We will calculate how many catchment areas and farmers per catchment area
- we need, while holding the number of dealers per catchment area constant
- (as the mean number of dealers per catchment area we find in the stack
- survey data) and assuming a particular within catchment area (within cluster)
- correlation.
- The is no need to calculate a final sample size before Bjorn’s return because
- we are still concerned about data collection in Uganda as long as we can
- hardly assess the Corona related risks.
- We do not want to carry the virus from village to village while doing a
- census.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1446,50 +1534,16 @@ name "sec:Interventions"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-concern (adption rates): "22% of cultivating farmers report planting improved
- seeds on at least one of their plots." 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bold2017lemon"
-literal "true"
-
-\end_inset
-
-vs.
- 63% (Stack survey data: What maize variety did you plant first season of
- 2018 on this ${plot_select_name} plot? improved maize seed = Longe 10H,
- 7H, 7R/Kayongo-go, 6H, 5 (nalongo), 4, Bazooka, Panner, Wema, KH series/
- not improved maize seed = Land Races (multi-colored varieties) local seed,
- Others, don’t know) but 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "BARRIGA2020104928"
-literal "true"
-
-\end_inset
-
-: "For seeds, the percentage of land under improved maize varieties in Uganda
- is 54 percent.
- The percentage of households purchasing commercial seeds is at 36.6 percent
- in Uganda."
-\end_layout
-
-\end_inset
-
-
+This section provides a detailed description of the three interventions
+ that will be implemented.
 \end_layout
 
 \begin_layout Subsubsection*
-I1: Input dealer training regarding seed handling and storage
+I1: Input dealer training on seed handling and storage
 \end_layout
 
 \begin_layout Standard
-This intervention informs input dealers about correct handling and storage
- of improved maize seed.
+Poor seed storage may lead to poor seed quality.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1498,11 +1552,11 @@ literal "true"
 
 \end_inset
 
- name the repacking and openair storage of bags as a reason for the low
- quality of hybrid seed.
+ suggest repacking and open air storage of bags is an reason for low quality
+ of hybrid seed.
  Storage practices also affect moisture levels that in turn affect the occurrenc
 e of storage fungi, which become active in seeds when moisture is above
- 14 percent and reduce seed quality 
+ 14 percent 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "govender2008effect"
@@ -1521,6 +1575,7 @@ literal "true"
 
  believe that temperature control after the seed leaves the breeders is
  crucial, too.
+ Inventory carryover and long shelf live further reduce quality.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1528,120 +1583,23 @@ Content
 \end_layout
 
 \begin_layout Standard
-Even though these and other authors stress the importance of correct seed
- handling and storage, they do not provide sufficient information to design
- an input dealer training.
- That is why we will consult experts from the Ugandan ministry of agriculture,
- from the seed sector and from input dealer associations in Uganda prior
- to the experiment to determine the content of the training.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-What about a source like WHO agriculture?
-\end_layout
-
-\end_inset
-
-Other players along the value chain can also help us to identify best practices.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-:
-\end_layout
-
-\begin_layout Enumerate
-National Crop Resources Research Institute (NaCRRI): main supplier of breeder
- seeds to seed companies
-\end_layout
-
-\begin_layout Enumerate
-seed companies: multiply seed (using foundation seed farms/contract growers),
- not licensed as breeders but can hire breeders to supervise & oversee,
- obtain breeder/foundation seed from research station/National Agricultural
- Research Organization/Center for Crop Resource Genetic, can have several
- seed company outlets
-\end_layout
-
-\begin_layout Enumerate
-distribution network (company outlets, wholesalers, retailers): pack and
- sell company-produced/labeled seed to farmers
-\end_layout
-
-\begin_layout Enumerate
-breeder: authorized with variety development, release, variety maintenance,
- producing foundation seeds (usually from National Agricultural Research
- Organization/universities/research institutes)
-\end_layout
-
-\begin_layout Enumerate
-wholesaler: licensed to bulk & sell commercial seed classes from seed growers,
- categorized as seed grower/vendor, consist of seed companies, usually registere
-d under Uganda National Agro-Input Dealers Association
-\end_layout
-
-\begin_layout Enumerate
-retailers: licensed to distribute/sell seeds of different classes, categorized
- as seed merchants, usually agro dealers, consist of seed companies, licensed
- under the Uganda National Agro-Input Dealers Association
-\end_layout
-
-\begin_layout Enumerate
-company retail outlet: seed company shops, categorized as seed vendors/growers,
- authorized to sell seed classes from the branded company/other seed companies
- but without rebranding, company factory gate/company warehouse sells seeds
- at production site
-\end_layout
-
-\begin_layout Enumerate
-foundation seed farms
-\end_layout
-
-\begin_layout Enumerate
-contract growers/seed growers
-\end_layout
-
-\begin_layout Enumerate
-research station/research institutes
-\end_layout
-
-\begin_layout Enumerate
-National Agricultural Research Organization
-\end_layout
-
-\begin_layout Enumerate
-Center for Crop Resource Genetic
-\end_layout
-
-\begin_layout Enumerate
-universities
-\end_layout
-
-\begin_layout Enumerate
-Uganda National Agro-Input Dealers Association
-\end_layout
-
-\begin_layout Enumerate
-seed vendor
-\end_layout
-
-\begin_layout Enumerate
-seed merchants (agro dealers)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We will ensure that the already identified critical issues like repacking,
- openair storage, moisture levels and temperature control will be covered.
- After collecting this information about correct handling and storage of
- improved maize seed, a summary will function as our knowledge base for
- the steps to come.
+To determine the content of the seed storage and handling training packages
+ and make sure it is locally anchored, we will consult experts from the
+ Ugandan ministry of agriculture, from the seed sector and from input dealer
+ associations in Uganda prior to the experiment.
+ In particular, semi structured interviews will be organized with experts
+ of these different institutions (a list can be found in the Appendix).
+ We will ask them about their opinion on the importance of properly handling
+ and storing seed.
+ We then ask them to go into detail on the different dimensions that input
+ dealers need to pay attention to.
+ Interviewers can probe (repackaging, open air storage, moisture levels
+ and temperature control, direct light (UV),...) if the interviewee is hesitant.
+ We will also ask what they think input dealers are doing wrong.
+ We then ask them to rank the different dimensions that they feel input
+ dealers need to pay more attention to.
+ This information will then be process and function as our knowledge base
+ for designing training materials.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1649,39 +1607,12 @@ Training material
 \end_layout
 
 \begin_layout Standard
-With these seed handling and storage best practices as our basis, we will
- develop detailed scripts to standardize our treatment.
- The trainers are expected to follow these manuals.
-\end_layout
-
-\begin_layout Standard
-We will also create a visually appealing poster with pictograms 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or photo's?
-\end_layout
-
-\end_inset
-
- showing the most important best practices with a green check and the opposite
- worst practices with a red cross, leaving no doubt which practice is right
- and which one is wrong.
- If a pictogram/photo is not sufficient to illustrate a particular practice,
- a brief and simple text in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- will be added to guarantee understanding.
- This poster and the presentation will be rather simple.
- 
+Based on the information collected, we will develop detailed training manuals
+ that he trainers are expected to adhere to.
+ We will also create visually appealing posters to mount in the shop, and
+ handouts with pictograms showing the most important best practices that
+ can be given to input dealers.
+ Information will be kept as simple as possible, as 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bertrand2010s"
@@ -1689,57 +1620,11 @@ literal "true"
 
 \end_inset
 
- find a strong positive effect of displaying fewer example loans which indicates
- that presenting recipients with larger menus can trigger choice avoidance
- and/or deliberation so that the information transfer becomes less effective.
- Simpler information is easier to process and may increase adoption.
- The final poster will be shown to an input dealer with average characteristics
- in terms of age, education etc.
- to ask for his/her feedback.
- We will improve the poster according to this feedback.
- The final poster will be printed 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-number of districts
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-times
-\end_layout
-
-\end_inset
-
- in color and sufficiently large size, so that a group of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- input dealers will be able to see the pictograms.
- We will also print 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- versions of a handout, which will be an A4 version of the poster and laminated
- for protection.
+ find a strong positive effect of displaying fewer example loans on outcomes,
+ indicating that presenting recipients with larger menus can trigger choice
+ avoidance and/or deliberation such that the information transfer becomes
+ less effective.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1747,7 +1632,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-video as training device?
+What else can we do?
 \end_layout
 
 \end_inset
@@ -1772,101 +1657,20 @@ s can be risky.
 \end_layout
 
 \begin_layout Standard
-We will coach 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-number of districts
-\end_layout
-
-\end_inset
-
- trainers.
- This coaching will take place in one of the IFPRI office spaces in Kampala,
- the capital and largest city of Uganda, and take one day.
- It will be held in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-, meaning that it will be a requirement for trainers to speak this language
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-in addition to the most common language in the district where they are going
- train
-\end_layout
-
-\end_inset
-
-.
- An expert/a small group of experts who is/are familiar with all best practices
- with respect to improved maize seed handling and storage 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-someone like Wilderforce
-\end_layout
-
-\end_inset
-
-will teach the previously defined content as well as the methods to pass
- on this information.
- This expert/these experts will not only teach the content and methods in
- a unilateral way, the lead input dealers will also practice the training,
- be able to discuss and comment, ask questions and receive feedback from
- their peers.
+We will coach about 10 trainers.
+ This coaching will take place in one of the IFPRI office spaces in Kampala
+ and take one week.
+ It will be held in Lusoga/English.
+ An expert will teach the previously defined content as well as the methods
+ to pass on this information.
+ The lead input dealers will also practice the training, discuss and comment,
+ ask questions and receive feedback from their peers.
  This way we hope to create trainers with competence and a good approach
  to teaching.
- At the end of this train-the-trainer day, we will ask all participants
+ At the end of this train-the-trainer week, we will ask all participants
  for feedback, so that we can further improve the subsequent dealer training.
+ Trainers will also receive a fee.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-We will also test our input dealer training in one of the six districts,
- hold the training exactly as planned to identity challenges that can be
- solved before treating the five remaining districts 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Is this in line with a standardized treatment?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Because we'll coach only 6 trainers, and because they have to successfully
- pass on the information, I think we should coach the trainers, not use
- videos
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1875,154 +1679,35 @@ Training the input dealers
 
 \begin_layout Standard
 The district's input dealer training will take place in a location that
- is easily reachable for every dealer.
- The trainer will get/be driven there by car from Kampala and accomodation
- for him/her will be foreseen.
- Dealers will be invited a month beforehand via telephone
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-.
- To ensure that many input dealers come, they will be reminded via SMS a
- week and a day beforehand, lunch 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-and a monetary compensation for their time
-\end_layout
-
-\end_inset
-
-will be provided.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-also a driver to get them?
-\end_layout
-
-\end_inset
-
-Dealers are provided with this SMS messages in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or the local language of their choice
-\end_layout
-
-\end_inset
-
-.
+ is easily reachable for all sampled dealers within the district.
+ Dealers will be invited a month beforehand via telephone.
+ To ensure that all input dealers come, they will be reminded via SMS a
+ week and a day beforehand, lunch and a monetary compensation for their
+ time will be provided.
+ They will also be compensated for transport and their accommodation will
+ be provided for.
 \end_layout
 
 \begin_layout Standard
-The trainers will present the correct handling and storage practices for
+The trainers will explain the correct handling and storage practices for
  improved maize seed and the main advantages and challenges to a group of
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-approximately 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-number of dealers/2/number of districts
-\end_layout
-
-\end_inset
-
- input dealers
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or x dealers (2 groups/district)
-\end_layout
-
-\end_inset
-
-.
- This unilateral presentation will take one hour.
+ 15 input dealers.
+ This presentation will take half a day.
  The trainers will use the previously mentioned poster that illustrates
  the best practices in a easily understandable and appealing way.
- Afterwards they will supervise the dealers exercising the more challenging
+ Afterwards they will supervise the dealers rehearsing the more challenging
  practices in small groups, ensuring that every dealer practices at least
  once.
  The presentation and exercises are followed by a discussion where questions
  can be asked and concerns can be raised.
  Trainers will react to the comments and requests.
- In the end of the training, all dealers will be asked to answer a couple
+ At the end of the training, all dealers will be asked to answer a couple
  of multiple choice questions.
- They will be informed about this quiz in the beginning of the training,
+ They will be informed about this quiz at the beginning of the training,
  which might motivate them to pay closer attention.
  They will also receive a handout which shows the most important best practices
  and can be taken to and eventually hung in their store.
  
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Facts:
-\end_layout
-
-\begin_layout Plain Layout
-1.
- many hybrid seeds are produced domestically
-\end_layout
-
-\begin_layout Plain Layout
-2.
- local agro-input retail shops typically source from a larger set of wholesalers
-/ retailers, which do not import inputs themselves
-\end_layout
-
-\begin_layout Plain Layout
-3.
- higher transport costs due to longer distances and border-related constraints
-\end_layout
-
-\begin_layout Plain Layout
-4.
- no state participation in import and distribution of hybrid seeds
-\end_layout
-
-\begin_layout Plain Layout
-5.
- in local retail stores, hybrid seeds are usually sold in smaller packages
- which the retailer has repacked from larger bags
-\end_layout
-
-\begin_layout Plain Layout
-6.
- quality deterioration could manifest at different points in the supply
- chain
-\end_layout
-
-\begin_layout Plain Layout
-7.
- 2 agricultural growing seasons in Uganda: beginning February/March (usually
- longer, more reliable rainfall, more maize farmers) and beginning August/Septem
-ber
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2031,20 +1716,10 @@ Timing
 
 \begin_layout Standard
 Prior to the intervention, we will collect baseline data in September 2020.
- The input dealer training will take place in January 2021 so that the dealers
- can use the newly trained handling and storage practices on the seeds that
- are going to be purchased by farmers for the first agricultural season
- that begins in March 2021 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Isn't January a bit too late then?
-\end_layout
-
-\end_inset
-
-.
+ The input dealer training will take place in towards the end of 2020 such
+ that the dealers can use the newly trained handling and storage practices
+ on the seeds that are going to be purchased by farmers for the first agricultur
+al season that begins in March 2021.
  At midline in July 2021, we expect input dealers to be more skilled and
  knowledgeable regarding seed handling and storage.
  Due to the better handling and storage, we expect seed quality to improve
@@ -2056,6 +1731,17 @@ Isn't January a bit too late then?
  We expect the increased adoption to result in even higher maize yields/revenues
 /profits for farmers after the second season.
  Those outcomes will be measured at end line in December 2021.
+ The timeline is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Input-dealer-timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2065,6 +1751,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename timeline_dealertraining.pdf
 	scale 40
@@ -2079,6 +1766,13 @@ status open
 
 \begin_layout Plain Layout
 Input dealer training timeline
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Input-dealer-timeline"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2093,405 +1787,54 @@ Input dealer training timeline
 
 \begin_layout Subsubsection*
 I2: Information clearinghouse
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-decision 03/07: no splitting of the clearinghouse treatment: We decided
- to not split the clearinghouse treatment into different sub-treatment groups
- (1.
- Farmers and dealers receive scores, 2.
- Only farmers receive scores, 3.
- Only dealers receive scores, 4.
- Neither farmers nor dealers receive scores) because this decision reduces
- our required sample size significantly.
- We only look at “full treatment” (farmers and dealers receive scores) vs.
- “full control” (no one receives the scores).
- It is difficult to include 279 catchment areas and unfeasible to include
- (almost) 424 catchment areas in our sample.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
-Pre-treatment: input dealer ratings
+Input dealer ratings
 \end_layout
 
 \begin_layout Standard
 To measure seed quality and dealer effort/service and to subsequently disseminat
-e this information to farmers, we will develop an information clearinghouse.
- Prior to the intervention, we will collect baseline data by employing enumerato
-rs who will use a tablet 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-equipped with 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-software
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- The interview will be held in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or another local languague
-\end_layout
-
-\end_inset
-
-, meaning that it is a requirement for enumerators to speak this language.
- The enumerators will introduce our study.
- Among other questions (farmer information, contact information), they will
- ask for clearinghouse information.
- They will ask farmers 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-all farmers rate a dealer, also the ones not randomly selected to be treated
-\end_layout
-
-\end_inset
-
-at which dealer they buy seed and if they do not buy any seed (because they
- use farmer-saved seed or seed exchanged between farmers or any other seed
- not bought at a dealer), at which input dealer they would buy improved
- maize seed/which input dealer they know.
- The answers to this question will enable us to connect farmers and dealers.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-From the stack survey, it's obvious that there is a way to link farmers
- and dealers, but I don't understand how? We have to make sure that this
- is possible!
-\end_layout
-
-\end_inset
-
- We will also collect GPS data of all farmers and all input dealers, so
- that we can conclude which dealers are in the proximity
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(<
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- kilometers)
-\end_layout
-
-\end_inset
-
- of a particular farmer.
-\end_layout
-
-\begin_layout Standard
-We will let all farmers 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-not only farmers with a dealer (farmers that buy improved seed) which would
- reduce our sample by 37% and make it not representative of the general
- population.
-\end_layout
-
-\end_inset
-
- rate their dealer regarding a list of attributes related to quality and
- price of the seed and the input dealer.
+e this information to farmers, we will set up an information clearinghouse.
+ Prior to the intervention, we will collect baseline data of randomly selected
+ farmers in catchment areas of the input dealers that are enrolled in the
+ study.
+ During this baseline interview, we will ask farmers to rate input dealers
+ in their catchment area on a number of characteristics (see Appendix 2).
+ To make sure we are talking about the same input dealer, we can use detailed
+ location data, names under which they may be known in the community, and
+ also pictures of the shop which were collected during a census (See Section
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-based on the following questions 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-partly from the stack survey, should we add/delete anything?
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Sample-and-data"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-: 
-\end_layout
-
-\begin_layout Plain Layout
-"Please rate your/an input dealer on a scale from one to five 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-better from 1 to 10 (so that we can treat it as a continuous variable)
-\end_layout
-
-\end_inset
-
- on the following attributes:
-\end_layout
-
-\begin_layout Enumerate
-Location – close to clients, in a convenient location? (1 extremely inaccessible
- – 5 very good location and access)
-\end_layout
-
-\begin_layout Enumerate
-!!! Price – competitive pricing, discounts? (1 way too expensive, 5 extremely
- cheap) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-I think the answer options should be the other way around and then recoded
- so that 5 is expensive and 1 is cheap because 5$>1$
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-!!! Quality of seed – good products, no fake seed (1 very poor quality-often
- fake, 5 excellent quality)
-\end_layout
-
-\begin_layout Enumerate
-!!! Stock – availability of seeds at all time (1 always out of stock and
- sells in only large quantities, 5 always has stock and accepts to sell
- in smaller quantities)
-\end_layout
-
-\begin_layout Enumerate
-Reputation – others are recommending him (1.
- they think is a lousy agro-dealer, 5.
- they think it is an excellent agro-dealer)
-\end_layout
-
-\begin_layout Enumerate
-(If there is a problem with the seed, can you carry the seed back and get
- a refund (insurance)?)
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer give you credit, i.e.
- gives you seed (or inputs more in general) that you can pay for later (after
- harvest))
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer train you on how to use improved seed varieties)
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer deliver seeds? If yes, how long does it take?)
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer offer after-sales service?)
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer offer different payment methods?)
-\end_layout
-
-\begin_layout Enumerate
-(Does this agro-input dealer pack seeds well?)
-\end_layout
-
-\begin_layout Enumerate
-(For how long have you been a customer of this input dealer?)
-\end_layout
-
-\begin_layout Enumerate
-(Does the price of this agro-input dealer fluctuate a lot?)
-\end_layout
-
-\end_inset
-
-
+ below).
+ This information will be pre-loaded onto the tablet computers and the relevant
+ input dealers will show up during the interview.
 \end_layout
 
 \begin_layout Standard
-The clearinghouse process is shown in the figure below.
- Given the farmers' responses to these questions, we will compute an input
- dealer's first scores (a general score of the input dealer - a number between
- 1 and 10, the simple 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-weighted?
-\end_layout
-
-\end_inset
-
- mean of the responses of all farmers to all questions, the specific scores
- - numbers between 1 and 10, the simple mean of the responses of all farmers
- to one question).
- We collect this information during the baseline interview because enumerators
- will survey farmers anyway, collecting this information right away is efficient.
- However, the second input dealer scores will be collected later by means
- of a mobile phone call (the mobile phone number will be collected as part
- of the baseline).
- We collect this data via phone because clearinghouse data collection via
- phone is more feasible then via farmer visits if this intervention would
- be scaled up.
- Input dealer score questions asked during a call do not have to be as short
- and as simple as questions in a text message, which is an second advantage.
- Furthermore, if difficulties with understanding the questions should arise,
- enumerators could clarify things much easier face-to-face or by telephone
- than with an SMS clearinghouse.
- Most farmers have a mobile phone 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- but making a phone a condition for participation has implications for generaliz
-ability of our results.
-\end_layout
-
-\begin_layout Standard
-Baseline data (and the first scores) will be collected in September 2020
- and the second scores will be collected in December 2020, after harvest.
- Collecting the scores twice before subsequently disseminating it to farmers
- is favorable because this leads to more observations per input dealer (more
- scores lead to a more trustable average).
- We need to have sufficient data on dealers to have meaningful measures
- of quality and effort/service.
- Furthermore, farmers will be able to assess some attributes best in the
- beginning of the season (e.g.
- price, input dealer services) (it is a first assessment of quality), and
- other attributes best after harvest (e.g.
- seed quality after observing yield), farmers may have updated their beliefs
- after observing e.g.
+Baseline data will be collected in September or October 2020.
+ At this point, farmers may be better able to assess attributes such as
+ price and input dealer services, but they will only able to judge seed
+ quality itself based on germination.
+ Therefore, we collect ratings from farmers a second time in December 2020
+ or January 2021 when harvesting was done.
+ After observing yields, farmers may have updated their beliefs with respect
+ to eg.
  the resistance of the seeds against pests.
- After collecting the input dealer scores twice, the first input dealer
- ratings (again, general rating and specific ratings) are computed as the
- means of both scores.
-\end_layout
-
-\begin_layout Subsubsection*
-Level of randomization
-\end_layout
-
-\begin_layout Standard
-There are three options to randomize this clearinghouse treatment.
- We could randomize at the level of the input dealer, at the level of the
- farmer or at the catchment area level.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Note Note
-status open
-
-\begin_layout Enumerate
-We could randomize at the level of the input dealer.
- (All) farmers receive the scores of some treated dealers and no scores
- of the other untreated dealers.
- However, this could be unfair.
- Many dealers are clustered in towns or trading centers.
- If we randomize at the dealer level, some dealers in one town or trading
- center get treated, others do not.
- We distribute the scores of some dealers, while the other dealers do not
- get scored.
- This could result in a serious competitive disadvantage for the untreated
- dealers.
- If one dealer gets a high score, many farmers might choose this dealer
- while the other dealer who is not treated might be of even better quality
- but did not get the chance to be scored.
- This way of randomization could do harm, because our experiment could have
- a substantial negative effect on the untreated group.
- Next to these ethical concerns, randomization at the input dealer level
- is also not ideal from a scientific point of view.
- If some dealers in a particular area get treated and other do not, we can
- hardly measure the effect of our intervention of farmer outcomes.
- It will be difficult or impossible to distinguish treatment and control
- farmers because a farmer might have access to a treated dealer and an untreated
- dealer, so we cannot measure an impact on e.g.
- seed adoption, yield etc.
-\end_layout
-
-\begin_layout Enumerate
-We could randomize at the level of the farmer.
- Some treated farmers receive the scores of (all) dealers in their neighborhood,
- other control farmers do not.
- This would be fair because all dealers get scored, there will not be any
- competitive disadvantage.
- However, we will be unable to measure outcomes at dealer level.
- Many dealers will have control and treatment farmers in their proximity,
- so we will not be able to measure an impact on e.g.
- seed quantity sold.
- Furthermore, there will be spillovers.
- Treated farmers might tell control farmers about the scores, so that the
- control group gets contaminated.
-\end_layout
-
-\end_inset
-
-We randomize at the catchment area level.
- Dealers and farmers in certain areas get treated while dealers and farmers
- in other areas do not.
- We can measure outcomes at dealer level and at farmer level.
- We would also not create any competitive disadvantage because all dealers
- in one town or trading center get scored or no dealer is.
- This seems to be the best option from the scientific and from the ethical
- point of view.
- However, randomization at the area level has serious implications for power.
- Instead of a large number of input dealers, we need a large number of catchment
- areas in our sample to be powered for this intervention.
- Deciding for this level of randomization comes with logistic challenges
- and a large extra cost.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Despite the logistic challenges and extra costs, we randomize at the level
- of the catchment area because of ethical and scientific considerations.
- We include more districts than initially planned to have a sufficient number
- of catchment areas in our sample.
-\end_layout
-
-\end_inset
-
-
+ This data for the second rating will be collected via mobile phone.
+ This will also increase the number of data points that can be used per
+ input dealer to base his or her score on.
+ Based on the farmers' responses of all farmers in the catchment area, we
+ will compute a score for each dealer, as well as an overall score.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2499,105 +1842,20 @@ Disseminating clearinghouse information
 \end_layout
 
 \begin_layout Standard
-The first distribution of input dealer ratings to farmers will happen in
- February 2020.
- Due to the collected GPS data, we know which input dealers are in the proximity
- of one farmer.
+The first distribution of input dealer ratings to farmers and input dealers
+ will happen in February 2021.
  In the treated catchment areas, farmers will be provided with information
  on all input dealers within that area.
- These farmers will receive a list 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or a mobile phone call?
-\end_layout
-
-\end_inset
-
- with all dealers in their proximity containing their overall and specific
- ratings and the price of the one bag of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-x kilogram
-\end_layout
-
-\end_inset
-
- seed
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Include the farmers distance in kilometers?
-\end_layout
-
-\end_inset
-
-.
+ These farmers will receive a list with all dealers in their proximity containin
+g their overall and specific ratings.
  The overall and specific ratings will be illustrated in a way that is also
  understandable for farmers that are not experienced with interpreting numbers:
  we will use symbols like smileys/emoticons/stars/thumbsup/down signs.
  A score that is better than 75% is colored in green, a score worse than
  25% in red and everything else in yellow to further improve understanding.
- This list will be in Lusoga/English
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or the local language of the district
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Can farmers read?
-\end_layout
-
-\end_inset
-
-, printed in colour in A4 and handed to the farmers in person.
- The paper will also contain a telephone number that be can used in case
- of questions and the names of the researchers and organizations.
- The list will be distributed only to the farmers that participate in the
- study but the information might spread.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-The distribution of the scores could go together with collecting new scores.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Using ICT would be less expensive and more scalable - perhaps an SMS so
- that they can read it later? Or telephone: very good vs.
- very bad or a ranking of dealers?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Additionally, input dealers will receive their own general and specific
- ratings, they will not receive the ratings of their competitors.
+ Input dealers will receive their own general and specific ratings, and
+ the overall average rating.
+ They will not receive the ratings of their competitors.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2605,53 +1863,20 @@ Second rating, second distribution and third rating
 \end_layout
 
 \begin_layout Standard
-The third input dealer scores will be collected via a mobile telephone call
- in April 2021, after maize planting.
+A third round of input dealer scores will be collected via mobile phone
+ in April 2021, immediately after maize for the first season of 2021 was
+ planted.
  In July 2021, enumerators will revisit farmers for the midline survey and
- collect the fourth dealer scores right away.
- The third and fouth scores form the second rating which will be distributed
- in August 2021.
+ collect the fourth dealer scores in person.
+ The third and fourth scores form the second rating which will be distributed
+ in August 2021 to farmers and input dealers.
  Finally, in the second agricultural season of 2021, the fifth dealer scores
  will be collected by phone and the sixth dealer scores as part of the end
  line data collection, in September and in December, respectively.
- The fifth and the sixth scores result in the third rating.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Why do we collect a fifth score if there is no third ratings distribution?
-\end_layout
-
-\end_inset
-
- which is a post-treatment outcome variable.
+ The fifth and the sixth scores result in the third rating, which is a post-trea
+tment outcome variable.
  Knowing that the clearinghouse will remain in place for some time will
  motivate dealers to change their behaviour.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-All farmers rate all dealers at baseline, midline and endline.
- Only in the treated catchment areas, the farmers rate the dealers in between.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2900,296 +2125,6 @@ With these seed handling and storage best practices as our basis, we will
  The trainers are expected to follow these manuals.
 \end_layout
 
-\begin_layout Standard
-We will also create a visually appealing poster with pictograms 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or photo's?
-\end_layout
-
-\end_inset
-
- showing the most important best practices with a green check and the opposite
- worst practices with a red cross, leaving not doubt which practice is right
- and which one is wrong.
- If a pictogram/photo is not sufficient to illustrate a particular practice,
- a brief and simple text in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- will be added to guarantee understanding.
- This poster and the presentation will be rather simple because 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "bertrand2010s"
-literal "true"
-
-\end_inset
-
- find indications that presenting recipients with more complicated information
- can lead to less effective information transfer while simpler information
- is easier to process.
- The final poster will be shown to a farmer with average characteristics
- in terms of age, education etc.
- to ask for his/her feedback.
- We will improve the poster according to this feedback.
- The final poster will be printed 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-number of districts
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-times
-\end_layout
-
-\end_inset
-
- in colour and sufficiently large size, so that a group of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- farmers will be able to see the pictograms.
- We will also print 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- versions of a handout, which will be an A4 version of the poster and laminated
- for protection.
-\end_layout
-
-\begin_layout Subsubsection*
-Training the trainers
-\end_layout
-
-\begin_layout Standard
-Updating handling and storage practices can be bothersome and related investment
-s can be risky.
- That is why we have to safeguard that the treated farmers experience the
- training as a reliable, credible, and trustworthy source of information,
- and understand its relevance.
- The social proximity of the trainer may matter.
- We will therefore train "lead farmers" which are educated and hence regarded
- as experts but also close to the target population, a person farmers can
- relate to.
-\end_layout
-
-\begin_layout Standard
-We will coach 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-number of districts
-\end_layout
-
-\end_inset
-
- trainers.
- This coaching will take place in one of the IFPRI office spaces in Kampala,
- the capital and largest city of Uganda, and take one day.
- It will be held in Lusoga/English
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-, meaning that it will be a requirement for trainers to speak this language
- in addition to the most common language in the district where they are
- going train.
- An expert/a small group of experts who is/are familiar with all best practices
- with respect to improved maize seed handling and storage 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-someone like Wilderforce
-\end_layout
-
-\end_inset
-
-will teach the previously defined content as well as the methods to pass
- on this information.
- This expert/these experts will not only teach the content and methods in
- a unilateral way, the lead farmers will also practice the training, be
- able to discuss and comment, ask questions and receive feedback from their
- peers.
- This way we hope to create trainers with competence and a good approach
- to teaching.
- At the end of this train-the-trainer day, we will ask all participants
- for feedback, so that we can further improve the subsequent farmer training.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-We will also test our farmer training in one of the 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- districts, hold the training exactly as planned to identity challenges
- that can be solved before treating the 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
- remaining districts 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Is this in line with a standardized treatment?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Training the farmers
-\end_layout
-
-\begin_layout Standard
-The district's farmer training will take place in a location that is easily
- reachable for every farmer.
- The trainer will get/be driven there by car from Kampala and accomodation
- for him/her will be foreseen.
- Farmers will be invited a month beforehand via telephone
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-.
- To ensure that many farmers come, they will be reminded via SMS a week
- and a day beforehand, lunch 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-and a monetary compensation for their time
-\end_layout
-
-\end_inset
-
-will be provided.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-also a driver to get them?
-\end_layout
-
-\end_inset
-
-Farmers are provided with these SMS messages in Lusoga/English 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or the local language of their choice
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The trainers will present the correct handling and storage practices for
- improved maize seed and the main advantages and challenges to a group of
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-approximately 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- farmers.
- This unilateral presentation will take one hour.
- The trainers will use the previously mentioned poster that illustrates
- the best practices in a easily understandable and appealing way.
- Afterwards they will supervise the farmers exercising the more challenging
- practices in small groups, ensuring that every farmer practices at least
- once.
- The presentation and exercises are followed by a discussion where questions
- can be asked and concerns can be raised.
- Trainers will react to the comments and requests.
- In the end of the training, all farmers will be asked to answer a couple
- of multiple choice questions.
- They will be informed about this quiz in the beginning of the training,
- which might motivate them to pay closer attention.
- They will also receive a handout which shows the most important best practices
- and can be taken to and eventually hung in their farm.
-\end_layout
-
 \begin_layout Subsubsection*
 Timing
 \end_layout
@@ -3242,66 +2177,6 @@ Farmer training timeline
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Survey attrition
-\end_layout
-
-\begin_layout Standard
-We will use the following procedures to address survey attrition.
- Attrition is a risk inherent to RCTs.
- For our study, we do not expect much attrition because the surveys will
- be conducted over a reasonably short time period.
- That is why we expect most baseline respondents to also be available for
- the end line survey.
- However, we will take measures to trace missing respondents to further
- reduce attrition.
- We will record names, phone numbers, addresses and GPS information of farmers
- and input dealers in the first round.
- If we find that attrition is more than 10 percent, we will test whether
- attrition is correlated with the treatments, and estimate 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "horowitz2000nonparametric"
-literal "false"
-
-\end_inset
-
- or 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "lee2009training"
-literal "false"
-
-\end_inset
-
- bounds, if necessary.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-What checks will be done for attrition? And what adjustments will be made
- if these checks show that there is selective attrition?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-missing: what variables will be included in tests of survey attrition
 \end_layout
 
 \end_inset
@@ -3536,6 +2411,13 @@ The primary unit of analysis are catchment areas of clusters of input dealers.
 
 \begin_layout Section
 Sample and data
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Sample-and-data"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4026,18 +2908,7 @@ Variable construction
 \end_layout
 
 \begin_layout Standard
-Hereinafter we specify how variables will be constructed.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Will we use logs or levels of particular variables?
-\end_layout
-
-\end_inset
-
- For continuous variables, 5 percent trimmed values will be used (2.5 percent
+For continuous variables, 5 percent trimmed values will be used (2.5 percent
  trimming at each side of the distribution).
  Inverse hyperbolic sine transforms will be used if skewness exceeds 1.96.
  Trimming will always be done on end results.
@@ -4109,6 +2980,199 @@ options "IFPRI_Style"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section*
+Appendix: List of actors that will be interviewed to determine seed handling
+ and storage trainings
+\end_layout
+
+\begin_layout Enumerate
+National Crop Resources Research Institute (NaCRRI): Names of persons interviewe
+d _________________________________________________________
+\end_layout
+
+\begin_layout Enumerate
+seed companies: multiply seed (using foundation seed farms/contract growers),
+ not licensed as breeders but can hire breeders to supervise & oversee,
+ obtain breeder/foundation seed from research station/National Agricultural
+ Research Organization/Center for Crop Resource Genetic, can have several
+ seed company outlets
+\end_layout
+
+\begin_layout Enumerate
+distribution network (company outlets, wholesalers, retailers): pack and
+ sell company-produced/labeled seed to farmers
+\end_layout
+
+\begin_layout Enumerate
+breeder: authorized with variety development, release, variety maintenance,
+ producing foundation seeds (usually from National Agricultural Research
+ Organization/universities/research institutes)
+\end_layout
+
+\begin_layout Enumerate
+wholesaler: licensed to bulk & sell commercial seed classes from seed growers,
+ categorized as seed grower/vendor, consist of seed companies, usually registere
+d under Uganda National Agro-Input Dealers Association
+\end_layout
+
+\begin_layout Enumerate
+retailers: licensed to distribute/sell seeds of different classes, categorized
+ as seed merchants, usually agro dealers, consist of seed companies, licensed
+ under the Uganda National Agro-Input Dealers Association
+\end_layout
+
+\begin_layout Enumerate
+company retail outlet: seed company shops, categorized as seed vendors/growers,
+ authorized to sell seed classes from the branded company/other seed companies
+ but without rebranding, company factory gate/company warehouse sells seeds
+ at production site
+\end_layout
+
+\begin_layout Enumerate
+foundation seed farms
+\end_layout
+
+\begin_layout Enumerate
+contract growers/seed growers
+\end_layout
+
+\begin_layout Enumerate
+research station/research institutes
+\end_layout
+
+\begin_layout Enumerate
+National Agricultural Research Organization
+\end_layout
+
+\begin_layout Enumerate
+Center for Crop Resource Genetic
+\end_layout
+
+\begin_layout Enumerate
+universities
+\end_layout
+
+\begin_layout Enumerate
+Uganda National Agro-Input Dealers Association
+\end_layout
+
+\begin_layout Enumerate
+seed vendor
+\end_layout
+
+\begin_layout Enumerate
+seed merchants (agro dealers)
+\end_layout
+
+\begin_layout Section*
+Appendix 2: questions used to rate input dealers
+\end_layout
+
+\begin_layout Standard
+based on the following questions 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+partly from the stack survey, should we add/delete anything?
+\end_layout
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+"Please rate your/an input dealer on a scale from one to five 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+better from 1 to 10 (so that we can treat it as a continuous variable)
+\end_layout
+
+\end_inset
+
+ on the following attributes:
+\end_layout
+
+\begin_layout Enumerate
+Location – close to clients, in a convenient location? (1 extremely inaccessible
+ – 5 very good location and access)
+\end_layout
+
+\begin_layout Enumerate
+!!! Price – competitive pricing, discounts? (1 way too expensive, 5 extremely
+ cheap) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I think the answer options should be the other way around and then recoded
+ so that 5 is expensive and 1 is cheap because 5$>1$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+!!! Quality of seed – good products, no fake seed (1 very poor quality-often
+ fake, 5 excellent quality)
+\end_layout
+
+\begin_layout Enumerate
+!!! Stock – availability of seeds at all time (1 always out of stock and
+ sells in only large quantities, 5 always has stock and accepts to sell
+ in smaller quantities)
+\end_layout
+
+\begin_layout Enumerate
+Reputation – others are recommending him (1.
+ they think is a lousy agro-dealer, 5.
+ they think it is an excellent agro-dealer)
+\end_layout
+
+\begin_layout Enumerate
+(If there is a problem with the seed, can you carry the seed back and get
+ a refund (insurance)?)
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer give you credit, i.e.
+ gives you seed (or inputs more in general) that you can pay for later (after
+ harvest))
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer train you on how to use improved seed varieties)
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer deliver seeds? If yes, how long does it take?)
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer offer after-sales service?)
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer offer different payment methods?)
+\end_layout
+
+\begin_layout Enumerate
+(Does this agro-input dealer pack seeds well?)
+\end_layout
+
+\begin_layout Enumerate
+(For how long have you been a customer of this input dealer?)
+\end_layout
+
+\begin_layout Enumerate
+(Does the price of this agro-input dealer fluctuate a lot?)
 \end_layout
 
 \end_body
