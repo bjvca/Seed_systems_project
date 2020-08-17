@@ -133,30 +133,29 @@ Demand and supply factors constraining the emergence and sustainability
 \end_layout
 
 \begin_layout Abstract
-Agricultural technology adoption remains under-adopted among smallholder
- farmers in Sub-Saharan Africa.
+Agricultural technology remains under-adopted among smallholder farmers
+ in Sub-Saharan Africa.
  We investigate how the quality of an agricultural technology – improved
- maize seed – constrain its adoption.
- The research involves three hypotheses that will be tested in a series
- of randomized controlled trials among smallholder farmers and agro-input
- dealers in Uganda.
+ maize seed – affects its adoption.
+ The research entails three hypotheses that will be tested in a series of
+ randomized controlled trials among agro-input dealers and smallholder farmers
+ in Uganda.
  In a first hypothesis, quality concerns that constrain uptake are caused
- by information inefficiencies at the level of agro-input dealer who lacks
- knowledge about proper storage and handling.
+ by information inefficiencies at the level of the agro-input dealer, who
+ is assumed to lack knowledge about proper storage and handling.
  An intensive training program is expected to increase improved maize seed
- quality and subsequent adoption.
+ quality and subsequent adoption by farmers.
  A second hypothesis conjectures that information asymmetry between seller
  and buyer with respect to the quality of seed – a classic lemons technology
  – leads to under-adoption.
  We implement a crowd-sourced information clearinghouse similar to yelp.com
  to test this hypothesis.
- This hypothesis thus targets the interaction between farmers and input
- dealers.
- In a third hypothesis, farmer behavior is targeted, as sub-optimal adoption
- is assumed to be caused by learning failures.
- Farmers might attribute disappointing outcomes to poor input quality, while
- in reality many input dimensions like the time of planting, weeding and
- fertilizer application co-determine outcomes.
+ This hypothesis targets the interaction between farmers and input dealers.
+ A third hypothesis targets farmers directly, as sub-optimal adoption is
+ assumed to be caused by learning failures: Farmers might attribute disappointin
+g outcomes to poor input quality, while in reality many input dimensions
+ like the time of planting, weeding and fertilizer application co-determine
+ outcomes.
  An ICT-mediated information campaign that stresses the importance of paying
  attention to all input dimensions is implemented to test this hypothesis.
  
@@ -167,65 +166,13 @@ Background
 \end_layout
 
 \begin_layout Standard
-Agriculture remains a key driver of poverty reduction and pro-poor economic
- growth 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "castaneda2018new"
-literal "true"
-
-\end_inset
-
-.
- Agriculture is an important sector in sub-Saharan Africa, employing about
- three quarters of the population, yet contributing only 15% to GDP.
- Increasing smallholder agricultural productivity is therefore likely to
- improve well-being for farmers both directly, through increased returns
- to farming and rural labor, and indirectly, through lower food prices and
- employment generation in non-farm rural enterprises, agro-industry, and
- services.
- Increasing agricultural productivity is necessary to kick-start agricultural
- transformation, allowing excess labor to move to more productive secondary
- and tertiary sectors 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "gollin2002role,bachewe2018agricultural"
-literal "true"
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I think this is too general - would focus this more on a pressing issue,
- such as deforestation and the climate crisis.
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
 One of the most effective ways to increase agricultural productivity is
  through the adoption of improved agricultural technologies and practices.
  These include mechanization, but the Green Revolution has demonstrated
  that large gains can also be expected from improved inputs such as inorganic
  fertilizers and high yielding cultivars.
- Despite decades of research confirming the importance of agricultural technolog
-y adoption for economic development and agricultural transformation 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "griliches1957hybrid,foster1995learning"
-literal "true"
-
-\end_inset
-
-, adoption remains lower than projected, particularly among the poor in
- sub-Saharan Africa 
+ Technology adoption remains lower than projected, particularly among the
+ poor in sub-Saharan Africa 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gollin2005technology"
@@ -249,8 +196,9 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-In line with the general trend in economics, under-adoption of agricultural
- technology has increasingly been studied using field experiments 
+In line with the general trend in economics, the drivers and constraints
+ of agricultural technology have increasingly been studied using field experimen
+ts 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de2016agricultural,de2017field"
@@ -264,9 +212,7 @@ literal "false"
  and UC Berkeley's Center for Effective Global Action (CEGA) has funded
  a series of field experiments to illuminate what helps and hinders technology
  adoption among smallholder farmers.
- This research has resulted in a new set of answers to the question of why
- some farmers do and others do not adopt technologies.
- Key constraints include poor access to information 
+ Key constraints identified include poor access to information 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
@@ -282,7 +228,8 @@ literal "true"
 
 \end_inset
 
-, high transaction costs due to poor infrastructure and uncertainty 
+, heterogeneity in the net benefits to the technology due to high transaction
+ costs 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
@@ -290,7 +237,7 @@ literal "true"
 
 \end_inset
 
-, the lack of access to credit and insurance 
+, the lack of access to insurance 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
@@ -298,7 +245,7 @@ literal "true"
 
 \end_inset
 
- and learning failures 
+, and learning failures 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
@@ -311,40 +258,42 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-This study addresses quality considerations as a particular constraint to
- adoption, a topic that has received considerable attention recently 
+This study addresses quality considerations about the technology as a particular
+ constraint to adoption, a topic that has received considerable attention
+ recently 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bold2017lemon"
+key "bold2017lemon,article"
 literal "false"
 
 \end_inset
 
 .
- We specifically explore the (perceived) quality of improved maize seed
- as a constraint to its adoption among a sample of smallholder maize farmers
+ We specifically explore (perceived) quality of improved maize seed as a
+ constraint to its adoption among a sample of smallholder maize farmers
  in Uganda.
- Maize is an important crop in Uganda, both for home consumption and as
- a source of income.
- However, various factors constrain the emergence and sustainability of
- an efficient Ugandan seed system.
+ Maize is an important crop there, both for home consumption and as a source
+ of income.
+ While improved maize seeds are adopted to some extent, various factors
+ constrain the further development and sustainability of an efficient Ugandan
+ seed system.
  Recent studies argue that smallholder adoption of improved inputs in Uganda,
  and of improved maize seed in particular, is limited by farmers’ beliefs
  that the inputs are of poor quality - counterfeited, adulterated, or otherwise
  non-performant 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928,michelson2018misperceived"
+key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
 literal "false"
 
 \end_inset
 
 ).
- Our study will determine the importance of the perceived quality of improved
- inputs for their adoption, identify the source of these perceptions, and
- test interventions to increase agricultural technology adoption.
- It will bring to light the economic, cognitive and behavioral aspects that
- underlie the perceptions of seed quality.
+ Our study will test interventions aimed at identifying the relative importance
+ of potential sources of these (perceived) quality issues at different levels
+ for agricultural technology adoption.
+ It will bring to light the cognitive, economic and behavioral aspects that
+ underlie under-adoption of these technologies.
 \end_layout
 
 \begin_layout Section
@@ -356,10 +305,10 @@ Seed quality, or the perception thereof, may arise at different stages in
  the seed supply chain.
  Poor seed quality may occur as a result of input dealer practices.
  This may be unintentional, for example poor handling and storage practices,
- intentional, for instance by mixing poor quality seed with good quality
+ or intentional, for instance by mixing poor quality seed with good quality
  seed to cut costs.
- Or the problem may be situated at the level of the smallholder farmer.
- For instance, a farmer may lack of confidence in the input dealer or his/her
+ The problem may also be situated at the level of the smallholder farmer.
+ For instance, a farmer may lack confidence in the input dealer or his/her
  products, and the nature of the input may make it impossible for the farmer
  to assess the quality.
  It may also be that the farmer wrongly attributes poor outcomes caused
@@ -367,10 +316,11 @@ Seed quality, or the perception thereof, may arise at different stages in
  We test interventions at different stages in the seed supply chain to assess
  the relative importance of each potential cause for low demand for improved
  seed.
- The first intervention targets the input dealer, the second targets both
- the input dealer and the farmer, while last targets the farmer.
- Regardless of who is targeted by the intervention, we will assess impact
- by looking at outcomes at both input dealer and farmer level.
+ The first intervention targets the input dealer, the second targets the
+ interaction between the input dealer and the farmer, while last targets
+ the farmer.
+ Regardless of who is targeted by the intervention, we will assess changes
+ in outcomes at both the input dealer level and at the level of the farmer.
  
 \end_layout
 
@@ -424,34 +374,16 @@ literal "false"
 
 \end_inset
 
-, we find few examples of training initiatives that target input dealers.
+, we find few examples of studies that look at knowledge gaps at the input
+ dealer level.
  
 \end_layout
 
 \begin_layout Standard
 The first hypothesis asserts that poor handling and storage at the level
  of the input dealer may lead to poor seed quality, in turn reducing the
- profitability of seeds at the farmer level, resulting in lower adoption.
+ profitability of seeds at the farmer level, resulting in low adoption.
  There is indeed some evidence of input quality reduction at this level.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "bold2017lemon"
-literal "true"
-
-\end_inset
-
- find that hybrid maize seed contains less than 50% authentic seed, while
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "doi:10.1080/00220388.2018.1464143"
-literal "false"
-
-\end_inset
-
- find that nearly one in three bottles of herbicide contains less than 75%
- of the labeled concentration of the active ingredient.
  In a comprehensive study of the seed supply chain in Uganda, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -460,7 +392,13 @@ literal "true"
 
 \end_inset
 
- also suggest issues related to handling and storage.
+ document various issues related to handling and storage that may reduce
+ the quality of the input.
+ For example, farmers often need smaller quantities that what is in the
+ standard bags, and input dealers thus often repackage in smaller bags in
+ sub-optimal environments.
+ Poor rotation of seed stock and storage in open bags in moist conditions
+ or in direct sunlight also reduce seed quality.
  
 \end_layout
 
@@ -510,8 +448,8 @@ literal "true"
 \end_inset
 
 .
- This study shows how the quality of goods in the market can degrade in
- cases where the quality is known by the seller, but not (yet) by the buyer.
+ In such a market, the quality of goods can degrade in cases where the quality
+ is known by the seller, but not (yet) by the buyer.
  This problem can be solved by reducing information asymmetries between
  the two parties.
  While Uganda does regulate seed quality through seed certification processes
@@ -523,8 +461,12 @@ literal "true"
  system.
  In our study, we will test an alternative, decentralized information clearing
  house that is based on crowd-sourced information and works through reputational
- mechanisms and peer pressure, much like yelp.com or tripadvisor.com.
- While the previous intervention aims to reduce unintentional seed quality
+ mechanisms, much like yelp.com or tripadvisor.com.
+ 
+\end_layout
+
+\begin_layout Standard
+While the previous intervention aims to reduce unintentional seed quality
  deterioration that is caused by lack of knowledge, the clearinghouse may
  also reduce instances where quality is reduce intentionally to increase
  profit
@@ -547,6 +489,27 @@ e for a increase in adoption of 15 percentage points, and we find that the
 \end_inset
 
 .
+ In Uganda, there are some indications that adulteration happens at some
+ point in the seed value chain.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "true"
+
+\end_inset
+
+ find that hybrid maize seed contains less than 50% authentic seed, while
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1080/00220388.2018.1464143"
+literal "false"
+
+\end_inset
+
+ find that nearly one in three bottles of herbicide contains less than 75%
+ of the labeled concentration of the active ingredient.
  
 \end_layout
 
@@ -581,8 +544,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-A clearing house that relies on crowd-sourced ratings may be particularly
- effective to increase seed quality in the market.
+A clearing house that relies on crowd-sourced ratings may be more effective
+ to increase seed quality in the market.
  While prices can generally be observed reasonably easy, assessing an experience
  good such as seed is much harder.
  At the time of purchase, visual seed inspection is limited to seed purity
@@ -590,7 +553,8 @@ A clearing house that relies on crowd-sourced ratings may be particularly
  Germination can only be assessed after planting.
  Some seed may also be more susceptible to pests and diseases, so the overall
  quality of seed can only be judged after harvest.
- 
+ Aggregation of the experience of many users may thus be a particular powerful
+ way to reveal the quality of the product.
 \end_layout
 
 \begin_layout Standard
@@ -604,7 +568,7 @@ literal "true"
 
 , who set up a rating system for public veterinary services in Pakistan,
  is probably the closest to ours.
- They find that farmers who use the clearinghouse enjoy 25 percent a higher
+ They find that farmers who use the clearinghouse enjoy a 25 percent higher
  success rate of artificial insemination.
  Their research suggests that this is mostly due to increased veterinarian
  effort, as few farmers seem to be switching from veterinaries that receive
@@ -618,7 +582,7 @@ An information clearing house intervention may work through different impact
  see that the quality of the input dealer in their vicinity is better than
  expected (eg.
  above average).
- Furthermore, farmers may switch from low rated input dealers to highest
+ Furthermore, farmers may switch from low rated input dealers to higher
  rated input dealers.
  Furthermore, the clearing house could raise the input dealer's effort as
  he/she wants to improve his/her ratings.
@@ -637,57 +601,6 @@ A crowd-sourced information clearinghouse can be an important institutional
 \begin_layout Subsubsection*
 H3: Seed is of good quality but farmers are unable to adequately learn about
  this quality.
-\end_layout
-
-\begin_layout Standard
-In addition to information inefficiencies tested in the first hypothesis,
- erroneous perceptions and false beliefs at the farmer level may also affect
- technology uptake.
- For instance, while improved maize seeds may provide higher yields than
- farmer-saved seeds, they often also require more inputs such as water,
- inorganic fertilizer and pesticides, and tend to demand more intensive
- management.
- Farmers may not be aware of these requirements.
- Even more, they may think that improved seed is a guarantee for higher
- yield and reduce management and use of other inputs.
- This may lead to disappointing yields, and farmers may erroneously attribute
- these low returns to poor input quality, which may lead to dis-adoption.
- The problem may thus be rooted in negative experiences which conflate low
- product quality with incorrect management practices and can be characterized
- as a learning failure.
- Consistent with this, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "michelson2018misperceived"
-literal "true"
-
-\end_inset
-
- find that fertilizers in Tanzania meet the requisite quality standards
- even though Tanzanian farmers persistently believe that the fertilizer
- they purchase from the market is adulterated
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Farmers often do not know that inorganic fertilizer needs to be applied
- annually
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I do not have a reference for this, but this was once mentioned at a conference
- by Marcel Fafchamps
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -751,13 +664,56 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-In our context, we hypothesize that there exists a particular learning constrain
-t of interest.
+Erroneous perceptions and false beliefs at the farmer level may complicate
+ learning and affect technology uptake.
+ For instance, high yielding varieties may be less resistant to particular
+ pests and diseases or to droughts than local maize varieties that farmers
+ in a particular area selected themselves over the course of centuries
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Is this documented somewhere? Do we have references? During the maize study,
+ Fiona, one of my RAs at the time, planted the hybrid the we promoted in
+ her garden.
+ She said she got much bigger maize cobs than her neighbour who used landraces,
+ but that here maize suffered from fall army worm invasion while the neighbour
+ had less issues.
+\end_layout
+
+\end_inset
+
+.
+ Therefore, additional inputs such as pesticides, insecticides and irrigation
+ may be needed to bring the seed to its full potential.
+ Worse, farmers they may think that improved seed is a guarantee for higher
+ yield and reduce management and use of other inputs.
+ This may lead to disappointing yields, and farmers may erroneously attribute
+ these low returns to poor input quality, which may lead to dis-adoption.
+ The problem may thus be rooted in negative experiences which conflate low
+ product quality with incorrect management practices and can be characterized
+ as a learning failure.
+ Consistent with this, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "michelson2018misperceived"
+literal "true"
+
+\end_inset
+
+ find that fertilizers in Tanzania meet the requisite quality standards
+ even though Tanzanian farmers persistently believe that the fertilizer
+ they purchase from the market is adulterated.
+\end_layout
+
+\begin_layout Standard
+In the present context, we hypothesize that there exists a particular learning
+ constraint of interest.
  Because farmers must make decisions on a variety of input dimensions that
  interact in the production function - the time of planting, the amount
  and timing of water, the choice of technology, additional inputs such as
- fertilizer - they cannot easily learn about the quality of seed from their
- own or others’ experience.
+ fertilizer or pesticides and insecticides - they cannot easily learn about
+ the quality of seed from their own or others’ experience.
  A key remedy to this learning problem is information, but the availability
  of such information alone does not automatically guarantee learning.
  Limited attention to particular input dimension may necessitate interventions
@@ -792,8 +748,9 @@ To test the three hypotheses, we will implement three interventions that
  To test the first hypothesis, a random sub-sample of input dealers will
  receive training on proper seed handling and storage.
  To test the second hypothesis, a rating system will be set up among a random
- sub-sample of input dealers and farmers in their associated catchment areas
- will be receive feedback on quality of seed sold.
+ sub-sample catchment areas of input dealers catchment areas, and farmer
+ and input dealers will receive feedback on the ratings before the start
+ of the planting season.
  To test the third hypothesis, a video that points out the importance of
  combining improved seed with other inputs and careful crop management will
  be shown to a random subset of farmers.
@@ -812,7 +769,18 @@ noprefix "false"
  (eg.
  investments in seed storage infrastructure, quantity of seed sold,...) as
  well as at the farmer level (eg.
- likelihood that farmer adopted improved seed, maize yields,...).
+ likelihood that farmer adopted improved seed, maize yields,...)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Except for the third intervention where we only look at effects at the level
+ of the farmer
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -837,17 +805,17 @@ The decision to randomize the first two interventions at the level of the
 ng catchment areas.
  Randomization at the level of the input dealer prompted ethical concerns.
  For instance, it may be that one farmer gets assigned to the treatment
- group for the information clearing house and receive a (good) score, while
+ group for the information clearing house and receive a good score, while
  his neighbor gets assigned to the control group of that particular treatment
  (and does not get scored).
  Farmers in the vicinity of the two input dealers farmers may be more inclined
  to switch to the dealer with that received the score, even though the services
  of the input dealer in the control group may be the same.
- While in this case, the rating would lead to a competitive advantage for
+ While, in this case, the rating would lead to a competitive advantage for
  the farmer that got the score, the reverse may be true if the farmer gets
  a poor score.
  Delineating a catchment area based on overlapping areas that are served
- by the input dealers and randomizing at this level eliminates this concern.
+ by the input dealers and randomizing at this level reduces this concern.
  While this is less of a concern for the first treatment, we were still
  worried that providing an intense training treatment to one input dealer
  but not to his or her immediate neighbor may be difficult in practice.
@@ -864,9 +832,9 @@ The second reason why we decided to randomize at the catchment area level
  improved seed among farmers in the vicinity of an input dealer, we need
  to be able to connect each farmer unambiguously to each input dealer.
  We avoid this problem by randomizing at the catchment area level because
- then all dealers within an area receive the training (or not) and all farmers
- within that area are potential customers of only dealers who received the
- training (or not).
+ then all dealers within that catchment area received the training (or not)
+ and all farmers within that area are potential customers of only dealers
+ who received the training (or not).
  A similar argument applies to the second treatment.
 \end_layout
 
@@ -900,7 +868,7 @@ noprefix "false"
  input dealers in the remaining 56 catchment areas function as the control
  for this treatment.
  Data that was collected in three of the study districts indicates that
- this corresponds to about 160 input dealers.
+ this corresponds to about 160 input dealers in each treatment arm.
  Orthogonal to the first factor, the second factor is placed, corresponding
  to the second treatment that is also implemented at the catchment area
  level.
@@ -910,7 +878,7 @@ noprefix "false"
  However, this will be done in such a way that balance with respect to the
  first treatment exists in both treatment and control groups for the second
  treatment.
- This means that the treatment group of the first treatment will consist
+ This means that the treatment group of the second treatment will consist
  of 28 catchment areas that received the first treatment an 28 catchment
  areas that function as the control for the first treatment.
  Similarly, for the control catchment areas for the second treatment, half
@@ -976,41 +944,6 @@ name "fig:Design"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-No splitting of the clearinghouse treatment: We decided to not split the
- clearinghouse treatment into different sub-treatment groups (1.
- Farmers and dealers receive scores, 2.
- Only farmers receive scores, 3.
- Only dealers receive scores, 4.
- Neither farmers nor dealers receive scores) because this decision reduces
- our required sample size significantly.
- We only look at “full treatment” (farmers and dealers receive scores) vs.
- “full control” (no one receives the scores).
- It is difficult to include 279 catchment areas and unfeasible to include
- 424 catchment areas in our sample.
-\end_layout
-
-\begin_layout Plain Layout
-Census: Once we’ve decided on a final sample size (number of catchment areas
- and number of farmers per catchment area), we will do an input dealer census
- in approximately 8 or 9 districts in Eastern Uganda.
- Then we’ll have a list.
- For the census we will need an application because we want to record: •
- GPS coordinates • all names of the dealer a farmer might have in mind (name
- of shop, name of owner, name of employee, name of son/grandfather, name
- of street/neighborhood) • contact information • “Where do your customers
- come from?” (catchment area) • (picture of the shop)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Power Analysis Simulations
 \begin_inset CommandInset label
@@ -1039,9 +972,9 @@ noprefix "false"
  counts how frequently the treatment comes up significant, provides a flexible
  and intuitive way to analyze power.
  Furthermore, instead of relying on a theoretical distribution for the outcome
- variables takes assumptions and returns an analytic solution, simulations
+ variables that takes assumptions and returns an analytic solution, simulations
  can sample from real data.
- In our case, we use survey data from 80 input dealers that was collected
+ In our case, we use survey data from about 80 input dealers that was collected
  in three districts in eastern Uganda in July 2019.
  Furthermore, we surveyed 1,500 farmers in the catchment areas of these
  80 input dealers
@@ -1072,12 +1005,12 @@ literal "false"
 We will investigate both outcomes at the input dealer level and at the farmer
  level.
  We analyze power at the input dealer level first and consider two outcome
- variables: (i) the quantity of seed sold, and (ii) the reputation of the
- input dealer.
+ variables: (i) the quantity of seed sold by the input dealer of the last
+ season, and (ii) the reputation of the input dealer.
  The quantity of seed that the input dealer sold is a continuous variable
  (kilogram) with mean 325 and standard deviation 454.
- For the reputation outcome variable, farmers score the input dealer on
- a scale from 1 to 5.
+ For the reputation outcome variable, farmers score the input dealers in
+ their catchment areas on a scale from 1 to 5.
  A dealer's reputation is then calculated as the average of those scores
  and treated as a continuous variable.
  The mean reputation of an input dealer in the sample is 3.68 and the standard
@@ -1086,24 +1019,28 @@ We will investigate both outcomes at the input dealer level and at the farmer
 
 \begin_layout Standard
 Assignment of the input dealers to catchment areas is done on the basis
- of the location.
+ of geographical location.
  Using GPS coordinates of the input dealers, the halversine function is
  used to construct an adjacency matrix, and input dealers that are less
  than 5 kilometer apart are grouped into a single catchment area.
  The 5 kilometer threshold was selected based on visual inspection on the
- map, the size of the village and reported distance between farmer and input
- dealers.
+ map, the size of an average village and reported distance between farmer
+ and input dealers.
  This procedure resulted into 68 input dealers being distributed over 24
  catchment areas.
  A catchment area has thus on average 2.8 input dealer, with a minimum of
  1 and a maximum of 6.
- We also need to assume a treatment effect size for the interventions that
+ 
+\end_layout
+
+\begin_layout Standard
+We also need to assume a treatment effect size for the interventions that
  will be implemented at the catchment area.
  As we did not immediately find credible studies that evaluated the impact
- of catchment area level interventions on quantity sold, we decided to define
- expected treatment effect size in terms of cohen's d between small and
- medium.
- In particular, we assume an effect of 0.35 times the standard deviation.
+ of catchment area level interventions on quantity sold nor reputation,
+ we decided to define expected treatment effect size in terms of cohen's
+ d, settling for a size that is between small and medium, of 0.35 times the
+ standard deviation.
  For quantity sold, this means 159 kilogram, while for reputation the minimal
  detectable effect size becomes 0.21.
 \end_layout
@@ -1115,7 +1052,7 @@ To determine sample size (defined in terms of the number of catchment areas
  increments of 5 catchment areas).
  For each candidate sample size, a random sample with replacement is drawn
  from the survey data.
- This sample is than used to run a number (eg 1000) of simulations of the
+ This sample is then used to run a number (eg 1000) of simulations of the
  experiment.
  In particular, for each simulation, all input dealers that are in half
  of the catchment areas are assigned to the treatment condition and the
@@ -1129,7 +1066,7 @@ To determine sample size (defined in terms of the number of catchment areas
  were able to detect the effect at the 5 percent significance level.
  This will give us the power associated to that particular candidate sample
  size.
- Power can then be plotted against sample size to plot obtain power curves.
+ Power can then be plotted against sample size to obtain power curves.
 \end_layout
 
 \begin_layout Standard
@@ -1149,8 +1086,7 @@ noprefix "false"
  level.
  If the number of catchment areas is larger than 93, we hit the 80 percent
  power threshold.
- Our data suggests that these 93 catchment areas correspond to about 263
- input dealers.
+ These 93 catchment areas correspond to about 263 input dealers.
 \end_layout
 
 \begin_layout Standard
@@ -1274,12 +1210,12 @@ Once we have decided on how many catchment areas (and associated input dealers)
 We again use simulation to determine the number of farmers per input dealers.
  As we already determined the minimum number of catchment areas (and correspondi
 ng input dealers), we fix the number of catchment areas at this number (we
- will take the most conservative estimate, namely 112 catchment areas or
- 318 input dealers).
+ will take the most conservative estimate obtained above, namely 112 catchment
+ areas or 318 input dealers).
  We then iterate over different candidate sample sizes of farmers per input
  dealer (ranging from only one farmer per input dealer, which would lead
  to a total sample size of 318 farmers, to 25 farmers per input dealer,
- resulting in a sample size of almost 8,000 farmers).
+ which would lead to a sample size of almost 8,000 farmers).
  The resulting sample in each iterations is used to run a number (eg 1000)
  of simulations of the experiment.
  For each simulation, all farmers that are in the catchment area of input
