@@ -129,7 +129,7 @@ thanks{LICOS Centre for Institutions and Economic Performance, KULeuven,
 \end_inset
 
 Demand and supply factors constraining the emergence and sustainability
- of an efficient seed system: A proposal and pre-analysis plan
+ of an efficient seed system: A pre-analysis plan
 \end_layout
 
 \begin_layout Abstract
@@ -159,6 +159,15 @@ g outcomes to poor input quality, while in reality many input dimensions
  An ICT-mediated information campaign that stresses the importance of paying
  attention to all input dimensions is implemented to test this hypothesis.
  
+\end_layout
+
+\begin_layout Abstract
+keywords: seed systems, information clearing house, learning failures, informati
+on, input quality, agricultural technology adoption
+\end_layout
+
+\begin_layout Abstract
+JEL codes: O13; Q12; Q16; D82; D83
 \end_layout
 
 \begin_layout Section
@@ -743,8 +752,11 @@ name "sec:Experimental-design"
 To test the three hypotheses, we will implement three interventions that
  are combined in a field experiment where various treatment and control
  groups are randomly assigned to either a treatment or control condition.
- The randomized control trial (RCT) will take the form of a 2x3 factorial
- design, with each intervention corresponding to one hypothesis.
+ The randomized control trial (RCT) will take the form of a 
+\begin_inset Formula $2^{3}$
+\end_inset
+
+ factorial design, with each intervention corresponding to one hypothesis.
  To test the first hypothesis, a random sub-sample of input dealers will
  receive training on proper seed handling and storage.
  To test the second hypothesis, a rating system will be set up among a random
@@ -2392,65 +2404,273 @@ Baseline variables for balance
 \end_layout
 
 \begin_layout Standard
-To test balance, the following variables will be compared at baseline:
+Standard orthogonality tables will be included in the report.
+ At each outcome level (farmer or input dealer), we pre-register 10 variables.
+ Half of these are characteristics that are less likely to be affected by
+ the intervention, while the other 5 picked from the primary and secondary
+ outcomes listed in the next section.
+ To test balance at the level of the farmer, the following variables will
+ be compared at baseline:
 \end_layout
 
-\begin_layout Itemize
-age of the household head (years)
+\begin_layout Enumerate
+age of the household head - years
 \end_layout
 
-\begin_layout Itemize
-head as finished primary education? (1 is yes)
+\begin_layout Enumerate
+household head has finished primary education? - 1 is yes
 \end_layout
 
-\begin_layout Itemize
-gender of the household head (1 is male)
+\begin_layout Enumerate
+gender of the household head - 1 is male
 \end_layout
 
-\begin_layout Itemize
-household size
+\begin_layout Enumerate
+household size - number of people usually eating together
 \end_layout
 
-\begin_layout Itemize
-has used improved seed on any plot in the last season (1 is yes)
+\begin_layout Enumerate
+distance to closest input dealer - km
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
+has used OPV/hybird maize seed on any plot in the last season -1 is yes
+\end_layout
+
+\begin_layout Enumerate
 has used fertilizer (inorganic or organic) on any plot in the last season
- (1 is yes)
+ - 1 is yes
 \end_layout
 
-\begin_layout Itemize
-has purchased improved seed from input dealer in the last year (1 is yes)
+\begin_layout Enumerate
+has purchased quality maize seed from input dealer in the last year - 1
+ is yes
 \end_layout
 
-\begin_layout Itemize
-maize yields in the last season (total estimated production/estimated area
- allocated to maize production)
+\begin_layout Enumerate
+maize yields in the last season - total estimated production/estimated area
+ allocated to maize production
 \end_layout
 
-\begin_layout Itemize
-distance to closest input dealer
-\end_layout
-
-\begin_layout Itemize
-input dealer rating score
-\end_layout
-
-\begin_layout Subsection
-Outcomes variables
+\begin_layout Enumerate
+average score of ratings of all input dealers in catchment area - overall
 \end_layout
 
 \begin_layout Standard
-To identify the steps along the causal chain, we specify the following key
- outcomes of interest and how we will measure them as specific as possible:
+To test balance at the level of the input dealer, the following variables
+ will be compared at baseline:
+\end_layout
+
+\begin_layout Enumerate
+age of the person interviewed (most knowledgeable person) - years
+\end_layout
+
+\begin_layout Enumerate
+education level of the interviewed (most knowledgeable person) - 1 if finished
+ primary education.
+\end_layout
+
+\begin_layout Enumerate
+gender of the person interviewed (most knowledgeable person) - 1 is male
+\end_layout
+
+\begin_layout Enumerate
+number of years the business has been in operation (today - year the business
+ was founded)
+\end_layout
+
+\begin_layout Enumerate
+distance of agro-input dealer to nearest tarmac road - km
+\end_layout
+
+\begin_layout Enumerate
+On an average day during the week, how many customers come here and buys
+ something related to agriculture (eg seed, fertilizer, farm tools such
+ as hoes,...)? (number of customers)
+\end_layout
+
+\begin_layout Enumerate
+quantity of hybird/OPV maize seed sold during the last season - kg
+\end_layout
+
+\begin_layout Enumerate
+quantity of seed that was lost/wasted during the last season - kg
+\end_layout
+
+\begin_layout Enumerate
+Do you provide farmers credit to your customers, eg.
+ do you give farmers seed (or inputs more in general) that they can pay
+ for later (after harvest)) - no; yes but only to some; yes to anyone that
+ wants
+\end_layout
+
+\begin_layout Enumerate
+input dealer rating score - average of all farmers that scored the particular
+ input dealer - overall + components
+\end_layout
+
+\begin_layout Subsection
+Primary outcome variables
+\end_layout
+
+\begin_layout Standard
+The ultimate objective of the study is to see how the interventions increase
+ technology adoption, and ultimately well-being of all actors involved.
+ At the level of the input dealer, we pre-register 5 primary outcomes, aimed
+ at measuring increased seed sales both at the extensive (total sales) and
+ intensive (sales per customer) margins:
+\end_layout
+
+\begin_layout Enumerate
+profit: a general estimate of profit made by the input dealer in the last
+ season - ugandan shillings
+\end_layout
+
+\begin_layout Enumerate
+quantity OPV/hybrid seed sold derived from questions on the different varieties
+ of maize sold in the last agricultural season - kilograms
+\end_layout
+
+\begin_layout Enumerate
+price of OPV/hybrid seed sold derived from questions on the different varieties
+ of maize sold in the last agricultural season - ugandan shilling
+\end_layout
+
+\begin_layout Enumerate
+seed related revenue: price of OPV/hybrid seed sold time quantity OPV/hybrid
+ seed sold; derived from questions on the different varieties of maize sold
+ in the last agricultural season - ugandan shilling
+\end_layout
+
+\begin_layout Enumerate
+seed related revenue divided by the number of customers - ugandan shilling
+\end_layout
+
+\begin_layout Standard
+At the farmer level, we also pre-register 5 key primary outcomes, again
+ evaluating the interventions at the extensive and intensive margins.
+ Data is collected at the plot level
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We still need to decide on choosing a random plot or surveying all plots.
+\end_layout
+
+\end_inset
+
+.
+ We will also look at production and yield, but we do not pre-register this
+ as a key outcome as we did not power the experiment to pick up the kind
+ of effects that are identified in other studies (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Power-Analysis-Simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+was quality seed bought from an input dealer during the last season? 1 is
+ yes
+\end_layout
+
+\begin_layout Enumerate
+quantity of quality seed bought from an input dealer during the last season?
+\end_layout
+
+\begin_layout Enumerate
+was OPV/hybrid maize seed used on at least one plot during the last season?
+ 1 is yes
+\end_layout
+
+\begin_layout Enumerate
+quantity of OPV/hybrid maize seed used in the last season? - kilograms
+\end_layout
+
+\begin_layout Enumerate
+quantity of OPV/hybrid maize seed used as a share of the size of the plot
+ in the last season? - kilograms/acre
+\end_layout
+
+\begin_layout Subsection
+Secondary outcome variables
+\end_layout
+
+\begin_layout Standard
+To identify the steps along the causal chain, we pre-register a range of
+ secondary outcomes.
+ At the level of the input dealer, we start by investigating changes in
+ skills and knowledge, particularly related to seed handling and storage.
+ This will be done though 10 multiple choice questions (the exact questions
+ will be determined after the input dealer training was developed).
+ 8 questions will be related to skills or practices that were covered in
+ the training.
+ Two control questions – related to skills or practices that were not covered
+ in the training – will also be included.
+ Note that we do not expect answers to these control questions to differ
+ between the treatment groups.
+ If they do differ, this may mean that the interventions crowd in additional
+ learning by the input dealers.
+ Each multiple choice question will have 3 possible answers from which the
+ input dealer (there will also be a don't know option).
+ An example of such a question could be:
+\end_layout
+
+\begin_layout Standard
+Under what lighting conditions does seed need to be stored? a) in complete
+ darkness b) in diffuse light conditions c) in sunlight d) don't know.
+\end_layout
+
+\begin_layout Standard
+Next, we will ask a range of questions related to practices.
+ 
 \end_layout
 
 \begin_layout Itemize
-input dealer skill/knowledge
+What inputs do you deal in? - multiple answers possible: Machinery Equipment
+ (eg hoes,…), Seeds, Chemicals, Fertilizers, Other.
+ 
 \end_layout
 
-\begin_deeper
+\begin_layout Standard
+The interventions may also lead input dealers to voluntarily expose themselves
+ to increased scrutiny to signal to farmers that they deliver quality products.
+ We thus also ask about membership of business associations 
+\end_layout
+
+\begin_layout Itemize
+Is this business registered as a seed dealer with UNADA (Uganda National
+ Agro-input Dealers Association? 
+\end_layout
+
+\begin_layout Itemize
+Does this business have a trading license issued by local government? 
+\end_layout
+
+\begin_layout Itemize
+Is this business a member of any other professional association? 
+\end_layout
+
+\begin_layout Itemize
+How often were you inspected by DAO/MAAIF last year (indicate 0 if no inspection
+ happened).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+skills/knowledge
+\end_layout
+
+\begin_layout Standard
+At the level of the input dealer, we investigate changes in skill/knowledge,
+\end_layout
+
 \begin_layout Itemize
 input dealer skill/knowledge, as measured by a question on the input dealer
  baseline/end line questionnaire which asks whether the input dealer feels
@@ -2459,6 +2679,7 @@ input dealer skill/knowledge, as measured by a question on the input dealer
  Do you feel skilled regarding the handling and storage of seed?
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 input dealer skill/knowledge, as measured by questions on the input dealer
  baseline/end line questionnaire which ask about the input dealers' seed
@@ -2475,7 +2696,7 @@ input dealer skill/knowledge, as measured by questions on the input dealer
 
 \begin_layout Itemize
 input dealer skill/knowledge, as measured by questions on the enumerator
- baseline/end line questionnaire which ask to decribe the input dealers'
+ baseline/end line questionnaire which ask to describe the input dealers'
  seed handling and storage as observed during a visit e.g.
  Is seed stored in the open air?
 \end_layout
@@ -2533,32 +2754,29 @@ satisfaction with the input dealer, as measured by a question on the farmer
 
 \end_deeper
 \begin_layout Itemize
-farmers' seed adoption 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-depends on definition, on how it is measured, for instance, the DLEC study
- finds that about 34 percent of households use improved seed on at least
- one plot
-\end_layout
-
-\end_inset
-
-
+farmers' seed adoption
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-number/share of farmers using improved maize seed, as measured by a question
- on the farmer baseline/end line questionnaire which asks whether the farmer
- currently uses improved maize seed or not
+percentage of farmers reporting to be using quality maize seed on at least
+ one plot during the last maize growing season
 \end_layout
 
 \begin_layout Itemize
-number/share of farmers using farmer-saved maize seed, as measured by a
- question on the farmer baseline/end line questionnaire which asks whether
- the farmer currently uses farmer-saved maize seed or not
+percentage of farmers reporting to be using improved varieties (hybrid or
+ OPV) on at least one plot during the last maize growing season
+\end_layout
+
+\begin_layout Itemize
+percentage of farmers reporting to be using hybrid or OPV maize seed bought
+ at an input dealers shop on at least one plot during the last maize growing
+ season
+\end_layout
+
+\begin_layout Itemize
+percentage of farmers reporting to be using farmer-saved (recycled) maize
+ seed, on at least one plot during the last maize growing season
 \end_layout
 
 \begin_layout Itemize
@@ -2575,12 +2793,6 @@ volume/value/price of seed sales, as measured by a question on the input
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-input dealers' volume/value of seed sales, as measured by a question on
- the input dealer baseline/end line questionnaire which asks how much seed
- they sold in this agricultural season and for which price
-\end_layout
-
 \begin_layout Itemize
 number/share of farmers switching to an input dealer with a higher ranking,
  as measured by a question on the farmer baseline/end line questionnaire
@@ -2716,6 +2928,34 @@ When we field our surveys, some respondents will not answer one or more
  outcomes, we will impute the missing outcomes using the mean of the assignment-
 by-block subcategory.
  
+\end_layout
+
+\begin_layout Section
+Ethical clearance
+\end_layout
+
+\begin_layout Section
+Transparency and replicability
+\end_layout
+
+\begin_layout Standard
+Throughout this project, we will go the extra mile in tying our hands to
+ avoid issues related to specification search, variable selection, etc.
+ Here we outline the various strategies.
+\end_layout
+
+\begin_layout Itemize
+pre-analysis plan
+\end_layout
+
+\begin_layout Itemize
+revision control
+\end_layout
+
+\begin_layout Itemize
+mock report: After baseline data is collected and the randomization on the
+ computer has happened, a pre-registered report will be produced and added
+ to the AEA RCT registry and GitHub.
 \end_layout
 
 \begin_layout Standard
