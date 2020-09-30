@@ -5,7 +5,8 @@ library(leaflet)
 
 path <- getwd()
 
-shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_09_29_02_08_25_325763.csv", sep="/")))
+shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_09_30_04_27_16_594243.csv", sep="/")))
+
 
 
 #create shop_ID
@@ -18,14 +19,18 @@ shops$catchmentID <- NA
 counter <- 1
 
 for (shop_1 in names(table(shops$shop_ID))) {
+
 shops$catchmentID[shops$shop_ID == shop_1] <- counter
+
+
 for (shop_2 in names(table(shops$shop_ID))) {
 ### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
-if ( haversine(c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_1] ,shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_1]),c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_2],shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_2])) < 5) {
-if (is.na(shops$catchmentID[shops$shop_ID == shop_2])) {
+if ( haversine(c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_1] ,shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_1]),c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_2],shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_2])) < 2.5) {
+if (is.na(shops$catchmentID[shops$shop_ID == shop_2])) {  ## if the shop has not been allocated to a catcchment area yet, create a new one
  shops$catchmentID[shops$shop_ID == shop_2] <- counter
-} else {
- shops$catchmentID[shops$shop_ID == shop_1]  <- shops$catchmentID[shops$shop_ID == shop_2] 
+} else {  ## if the shop is already part of a catchment area
+## change ID of all shops in catchement area to a new catchment area
+ shops$catchmentID[shops$catchmentID == shops$catchmentID[shops$shop_ID == shop_1]]  <- shops$catchmentID[shops$shop_ID == shop_2] 
 }
 
 }
@@ -104,7 +109,7 @@ to_drop <- c("subID","district","sub")
  ###write to public directory
  
  path <- strsplit(path, "/raw")[[1]]
- write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"))
+ write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"), row.names=FALSE)
  
  
  
