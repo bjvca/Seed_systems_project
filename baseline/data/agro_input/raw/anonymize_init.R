@@ -1,20 +1,25 @@
 #read in raw data as expored from ONA
+rm(list=ls())
+set.seed(05112020)  #today's date
 
 library(pracma)
+library(sf)
 library(leaflet)
+library(leafpop)
+library(dplyr)
+library(clubSandwich)
 
 path <- getwd()
 
-shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_09_30_04_27_16_594243.csv", sep="/")))
-
-
+### reads in raw data (not public)
+shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_10_02_14_55_02_970765.csv", sep="/")))
 
 #create shop_ID
 
 shops$shop_ID <- paste("AD",rownames(shops), sep="_")
 shops$shop_ID <- factor(shops$shop_ID)
 
-#Categorizing differnt input dealers into catchment areas
+#Categorizing different input dealers into catchment areas
 shops$catchmentID <- NA
 counter <- 1
 
@@ -39,14 +44,47 @@ counter <- counter + 1
 }
 dim(table(shops$catchmentID))
 
+# reorder catchement ID factor
+ 	i_catch <- 1
+	for (catch in names(table(shops$catchmentID))) {
 
+		shops$catchID[shops$catchmentID == catch] <- i_catch
+		i_catch <- i_catch + 1
+	}
+shops$catchmentID <- NULL
+
+### randomization - 4 treatment cells for catchment level interventions
+treats <- data.frame(names(table(shops$catchID)),sample(rep(1:4, length=length(table(shops$catchID)))))
+names(treats) <- c("catchID", "treat")
+shops <- merge(shops,treats, by="catchID")
+
+table(shops$treat)
+
+shops$training <- FALSE
+shops$clearing <- FALSE
+
+shops$training[shops$treat %in% c(1,2)] <- TRUE
+shops$clearing[shops$treat %in% c(2,4)] <- TRUE
+
+
+
+### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
   palette = 'Dark2',
   domain = shops$catchmentID
 )
 
+shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
+shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.jpg"
+shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
 
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchmentID), popup = ~as.character(catchmentID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+
+m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  shops$images, width=275, height =400, group = "X_uuid")
+
+
+#library(htmlwidgets)
+#saveWidget(m, file="map1.html")
+
 
 #prepare data for public release
 ##remove GPS coordinates
@@ -63,7 +101,7 @@ to_drop <- c("maize.owner.agree.gps","maize.owner.agree._gps_longitude","maize.o
 shops <- shops[ , !(names(shops) %in% to_drop)]
 
 #this links to pictures
-to_drop <- c("maize.owner.agree.q13")
+to_drop <- c("maize.owner.agree.q13","images")
 shops <- shops[ , !(names(shops) %in% to_drop)]
 
 ## remove villages where most customers are - this needs to be used for sampling of households
@@ -96,21 +134,7 @@ i_dist <- i_dist + 1
 to_drop <- c("subID","district","sub")
  shops <- shops[ , !(names(shops) %in% to_drop)]
  
- 
- # reorder catchement ID factor
- 	i_catch <- 1
-	for (catch in names(table(shops$catchmentID))) {
-
-		shops$catchID[shops$catchmentID == catch] <- i_catch
-		i_catch <- i_catch + 1
-	}
- shops$catchmentID <- NULL
- 
- ###write to public directory
- 
- path <- strsplit(path, "/raw")[[1]]
- write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"), row.names=FALSE)
- 
- 
- 
+  
+path <- strsplit(path, "/raw")[[1]]
+write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"), row.names=FALSE)
 
