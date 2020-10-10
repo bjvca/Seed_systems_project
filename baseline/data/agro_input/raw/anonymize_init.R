@@ -13,7 +13,56 @@ path <- getwd()
 
 ### reads in raw data (not public)
 shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_10_02_14_55_02_970765.csv", sep="/")))
+moisture1 <- read.csv(paste(path,"Moisture_formX2_2020_10_04_07_57_19_019044.csv", sep="/"))[c("id", "reading", "exp",  "date_pack", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture2 <- read.csv(paste(path,"Moisture_formXX_2020_10_05_08_15_54_391127.csv", sep="/"))[c("id", "reading", "exp", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture2$date_pack <- "n/a" 
+moisture2 <- moisture2[, c("id", "reading", "exp",  "date_pack", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture <- data.frame(rbind(moisture1,moisture2))
 
+
+moisture$age <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
+moisture$age[moisture$date_pack=="n/a"] <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$exp[moisture$date_pack=="n/a"] ,format="%Y-%m-%d"),units="days")+180
+
+### correct spelling of IDs to merge seed testing to shop survey data
+shops$maize.owner.agree.id <- as.character(shops$maize.owner.agree.id)
+moisture$id <- as.character(moisture$id)
+moisture$id[moisture$id == " 22 Waswa"] <- "23 Waswa"
+moisture$id[moisture$id == "15 Zebulon"] <- "15 Zebuloni"
+moisture$id[moisture$id == "20 Nabatu"] <- "20 Nambafu"
+moisture$id[moisture$id == "21Answer"] <- "21 No answer"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "21 Ntuyo  "] <- "21 Ntuyo"
+moisture$id[moisture$id == "22 Mugoda"] <- "22 Mukodha"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Mutesi  "] <- "22 Mutesi"
+moisture$id[moisture$id == "22 Nakayima"] <- "22 Nakaima"
+moisture$id[moisture$id == "22 Namugabwa"] <- "22 Namugabwe"
+moisture$id[moisture$id == "22 Nyemera"] <- "22 Nyamera"
+moisture$id[moisture$id == "23 Bsdajabaka"] <- "23 Basajabaka"
+moisture$id[moisture$id == "23 Dhizala"] <- "23 Dhizaala"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "23 Kisige  "] <- "23 Kisige"
+moisture$id[moisture$id == "23 Nafula"] <- "23 Nanfula"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Kageye  Faishali"] <- "24 Kageye"
+
+
+
+#merge in moisture data
+shops <- merge(shops,moisture, by.x="maize.owner.agree.id",by.y="id", all.y=T)
+
+### these can not be merged:
+#shops$maize.owner.agree.id[is.na(shops[,2])]
+
+ [1] "19 Buyenze"     "21 Kabulandala" "21 Mwelugazu"   "22 Adikini"    
+ [5] "22 Nakasiko"    "22 Wagubi"      "23 Kiraire"     "23 Mukose"     
+ [9] "24 Nandigobo"   "24 Talima"      "25 Kauli"       "25 Nentunze"   
+[13] "25Nandala"      "26 Babirye"     "26 Nakawogo"    "26 Namulondo"  
+[17] "26 Nangobi"     "26 Tefiiro"     "26 Tefilo"      "27 Setimba"    
+[21] "27 Sharifa"     "28 Khauda"      "30 Magada"      "32 Bilibo"     
+[25] "32Pandaya"      "33 Awali"       "34 Awali"       "36 Fazili"     
+[29] "36 Kakayi"      "36 Mulwanyi"    "36 Nakirima"    "38 Waiswa"     
+[33] "39 Siidamwebyo" "40 Atiibwa"     "40 Kisubi"      "40 Naigsga"    
+[37] "42 Nabayo"      "42 Osunyo"      "45 Wampande"    "46 Kirya"      
+[41] "46 Namususwa"   "46 Wanawa"      "46Nabwere"      "48 Kanaabi"    
+[45] "50 Iguube"      "50 Khalende"    "50 Mpanuka"     "50 Nabirye"    
+[49] "54 Alex "       "55 Byekwaso"    "Unknown"        "Unknown "    
 #create shop_ID
 
 shops$shop_ID <- paste("AD",rownames(shops), sep="_")

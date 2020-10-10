@@ -127,7 +127,7 @@ shops[sel] <- lapply(shops[sel], function(x) as.numeric(as.character(x)) )
 shops[sel] <- lapply(shops[sel], function(x) replace(x, x == 999,NA) )
 
 shops$tot_sold <- rowSums(shops[sel], na.rm=T)
-
+shops$tot_sold[shops$tot_sold > 80000] <- NA
 df_averages[1,7] <- mean(shops$tot_sold, na.rm=T)
 df_averages[2,7] <- sd(shops$tot_sold, na.rm=T)
 
