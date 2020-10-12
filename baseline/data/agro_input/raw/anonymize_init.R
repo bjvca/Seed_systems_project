@@ -23,7 +23,7 @@ moisture <- data.frame(rbind(moisture1,moisture2))
 moisture$age <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
 moisture$age[moisture$date_pack=="n/a"] <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$exp[moisture$date_pack=="n/a"] ,format="%Y-%m-%d"),units="days")+180
 
-### correct spelling of IDs to merge seed testing to shop survey data
+### manually correct spelling of IDs to merge seed testing to shop survey data
 shops$maize.owner.agree.id <- as.character(shops$maize.owner.agree.id)
 moisture$id <- as.character(moisture$id)
 moisture$id[moisture$id == " 22 Waswa"] <- "23 Waswa"
@@ -40,29 +40,63 @@ moisture$id[moisture$id == "23 Bsdajabaka"] <- "23 Basajabaka"
 moisture$id[moisture$id == "23 Dhizala"] <- "23 Dhizaala"
 shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "23 Kisige  "] <- "23 Kisige"
 moisture$id[moisture$id == "23 Nafula"] <- "23 Nanfula"
+moisture$id[moisture$id == "25 Kauli"] <- "25 Kawuli "
+moisture$id[moisture$id == "25 Nentunze"] <- "25 Netunze"
+moisture$id[moisture$id == "25Nandala"] <- "25 Nandera"
+moisture$id[moisture$id == "26 Babirye"] <- "26 Barbirye"
+moisture$id[moisture$id == "26 Nakawogo"] <- "26 Nakawago"
+moisture$id[moisture$id == "26 Namulondo"] <- "26 Namulonda"
 shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Kageye  Faishali"] <- "24 Kageye"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Nangobi  "] <- "26 Nangobi" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Tefiiro  "] <- "26 Tefiiro" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Tefiro"] <- "26 Tefilo" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "27 Ssetimba"] <- "27 Setimba" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "28 Kaudha"] <- "28 Khauda"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Biribo"] <- "32 Bilibo" 
+moisture$id[moisture$id == "32Pandaya"] <- "32 Pendaya"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Fazali"] <- "36 Fazili"   
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Kakayi  "] <- "36 Kakayi"    
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Murwanyi"] <- "36 Mulwanyi"  
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Nakirima  "] <- "36 Nakirima"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "38 Waiswa  "] <- "38 Waiswa"
+moisture$id[moisture$id == "39 Siidamwebyo"] <- "39 Sidamwebyo"
+moisture$id[moisture$id == "40 Atiibwa"] <- "40 Atibwa"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "40 Kisuubi  "] <- "40 Kisubi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "40 Naigaga"] <- "40 Naigsga" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "42 Osunye"] <-  "42 Osunyo" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "45 Wampende  "] <-  "45 Wampande"    
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Kirya "] <-  "46 Kirya"   
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Namususwa  "] <-  "46 Namususwa" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Wanama"] <-  "46 Wanawa" 
+moisture$id[moisture$id == "46Nabwere" ] <- "46 Nabwire"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "48 Kanaabi  hardware"] <-  "48 Kanaabi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Iguude"] <-  "50 Iguube" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Kharende  "] <-  "50 Khalende"  
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Mpaunka  "] <-  "50 Mpanuka"   
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "55 Byekwaso  "] <-   "55 Byekwaso" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "21 Mwirugazu  "] <-   "21 Mwelugazu"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "33 Adikini"] <-  "22 Adikini" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Nakasiko"] <-  "22 Nakasiko" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Wagubi  "] <-  "22 Wagubi"  
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Kiraire"] <-  "23 Kiraire"   
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "25 Mukose"] <- "23 Mukose" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Nandigobe"] <- "24 Nandigobo"  
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Talima Irene (Birombo)"] <- "24 Talima" 
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "18 Nabirye"] <- "50 Nabirye" 
 
-
-
+## these have two records in the shops data - these can not be matched... these are probably the two unknowns below
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "19 Masinde"] <- NA
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Muwanguzi"] <- NA
+ 
 #merge in moisture data
-shops <- merge(shops,moisture, by.x="maize.owner.agree.id",by.y="id", all.y=T)
+shops <- merge(shops,moisture, by.x="maize.owner.agree.id",by.y="id", all.x=T)
 
-### these can not be merged:
+### these are records in the testing data that can not be merged:
 #shops$maize.owner.agree.id[is.na(shops[,2])]
-
- [1] "19 Buyenze"     "21 Kabulandala" "21 Mwelugazu"   "22 Adikini"    
- [5] "22 Nakasiko"    "22 Wagubi"      "23 Kiraire"     "23 Mukose"     
- [9] "24 Nandigobo"   "24 Talima"      "25 Kauli"       "25 Nentunze"   
-[13] "25Nandala"      "26 Babirye"     "26 Nakawogo"    "26 Namulondo"  
-[17] "26 Nangobi"     "26 Tefiiro"     "26 Tefilo"      "27 Setimba"    
-[21] "27 Sharifa"     "28 Khauda"      "30 Magada"      "32 Bilibo"     
-[25] "32Pandaya"      "33 Awali"       "34 Awali"       "36 Fazili"     
-[29] "36 Kakayi"      "36 Mulwanyi"    "36 Nakirima"    "38 Waiswa"     
-[33] "39 Siidamwebyo" "40 Atiibwa"     "40 Kisubi"      "40 Naigsga"    
-[37] "42 Nabayo"      "42 Osunyo"      "45 Wampande"    "46 Kirya"      
-[41] "46 Namususwa"   "46 Wanawa"      "46Nabwere"      "48 Kanaabi"    
-[45] "50 Iguube"      "50 Khalende"    "50 Mpanuka"     "50 Nabirye"    
-[49] "54 Alex "       "55 Byekwaso"    "Unknown"        "Unknown "    
+# [1] "19 Buyenze"     "21 Kabulandala" "27 Sharifa"     "30 Magada"     
+# [5] "33 Awali"       "34 Awali"       "42 Nabayo"      "54 Alex "      
+# [9] "Unknown"        "Unknown "
+ 
 #create shop_ID
 
 shops$shop_ID <- paste("AD",rownames(shops), sep="_")
