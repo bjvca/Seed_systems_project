@@ -1616,7 +1616,7 @@ What else can we do?
 \begin_layout Standard
 The training will be implemented by ISSD.
  The training will take place in a location that is easily reachable for
- all sampled dealers within a certain area.
+ all sampled dealers within the catchment area.
  Dealers will be invited a month beforehand via telephone.
  To ensure that all input dealers come, they will be reminded via SMS a
  week and a day beforehand, lunch and a monetary compensation for their
@@ -1627,8 +1627,7 @@ The training will be implemented by ISSD.
 
 \begin_layout Standard
 ISSD trainers will explain the correct handling and storage practices for
- improved maize seed and the main advantages and challenges to a group of
- 15 input dealers.
+ improved maize seed and the main advantages and challenges.
  This presentation will take half a day.
  The trainers will use the previously mentioned poster that illustrates
  the best practices in a easily understandable and appealing way.
@@ -1791,17 +1790,6 @@ g their overall and specific ratings.
  A score that is better than 75% is colored in green, a score worse than
  25% in red and everything else in yellow to further improve understanding.
  Input dealers will receive their own general and specific ratings.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Should we give them a certificate of excellence such as 
-\end_layout
-
-\end_inset
-
-.
  They will not receive the ratings of their competitors.
  
 \begin_inset Note Note
@@ -1825,7 +1813,15 @@ status collapsed
 \end_inset
 
 Upon simple request, input dealers can request a free sticker to display
- the ratings on their store front, similar to trip-advisor .
+ the ratings on their store front, similar to a 
+\begin_inset Quotes eld
+\end_inset
+
+certificate of excellence
+\begin_inset Quotes erd
+\end_inset
+
+ of trip-advisor.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2420,46 +2416,48 @@ Standard orthogonality tables will be included in the report.
 \end_layout
 
 \begin_layout Enumerate
-age of the household head - years
+age of the household head - years (q24)
 \end_layout
 
 \begin_layout Enumerate
-household head has finished primary education? - 1 is yes
+household head has finished primary education? - 1 is yes (q27)
 \end_layout
 
 \begin_layout Enumerate
-gender of the household head - 1 is male
+gender of the household head - 1 is male (q25)
 \end_layout
 
 \begin_layout Enumerate
-household size - number of people usually eating together
+household size - number of people usually eating together (q28)
 \end_layout
 
 \begin_layout Enumerate
-distance to closest input dealer - km
+distance to closest input dealer - km (q17)
 \end_layout
 
 \begin_layout Enumerate
 has used OPV/hybird maize seed on any plot in the last season -1 is yes
+ (q48 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
 has used fertilizer (inorganic or organic) on any plot in the last season
- - 1 is yes
+ - 1 is yes (q58, q59, q60 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
-has purchased quality maize seed from input dealer in the last year - 1
- is yes
+has purchased quality maize seed from input dealer in the last season -
+ 1 is yes (q48, q49 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
 maize yields in the last season - total estimated production/estimated area
- allocated to maize production
+ allocated to maize production (q42, q64, q65 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
 average score of ratings of all input dealers in catchment area - overall
+ (q108h-l aggregated at household level)
 \end_layout
 
 \begin_layout Standard
@@ -2552,17 +2550,7 @@ moisture content of one bag of seed
 \begin_layout Standard
 At the farmer level, we also pre-register 5 key primary outcomes, again
  evaluating the interventions at the extensive and intensive margins.
- Data is collected at the plot level
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-We still need to decide on choosing a random plot or surveying all plots.
-\end_layout
-
-\end_inset
-
-.
+ Data is collected at the plot level.
  We will also look at production and yield, but we do not pre-register this
  as a key outcome as we did not power the experiment to pick up the kind
  of effects that are identified in other studies (see section 
@@ -2579,26 +2567,28 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-was quality seed bought from an input dealer during the last season? 1 is
- yes
+Purchased quality maize seed from input dealer in the last season - 1 is
+ yes (q48, q49 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
-quantity of quality seed bought from an input dealer during the last season?
+quantity of OPV/hybrid maize seed from input dealer in the last season?
+ - kilograms (q48, 49 and q54 aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
-was OPV/hybrid maize seed used on at least one plot during the last season?
- 1 is yes
+quantity of OPV/hybrid maize seed from input dealer used as a share of the
+ size of the plot in the last season? - kilograms/acre (q48, q49,q54 and
+ q41, aggregated at household level)
 \end_layout
 
 \begin_layout Enumerate
-quantity of OPV/hybrid maize seed used in the last season? - kilograms
+farmer was satisfied with the seed that was used in the last season (q52)
 \end_layout
 
 \begin_layout Enumerate
-quantity of OPV/hybrid maize seed used as a share of the size of the plot
- in the last season? - kilograms/acre
+average score of ratings of all input dealers in catchment area - overall
+ (q108h-l aggregated at household level)
 \end_layout
 
 \begin_layout Subsection
@@ -2610,21 +2600,77 @@ To identify the steps along the causal chain, we pre-register a range of
  secondary outcomes.
  At the level of the input dealer, we start by investigating changes in
  skills and knowledge, particularly related to seed handling and storage.
- This will be done though 10 multiple choice questions (the exact questions
- will be determined after the input dealer training was developed).
- 8 questions will be related to skills or practices that were covered in
- the training.
- Two control questions – related to skills or practices that were not covered
- in the training – will also be included.
- Note that we do not expect answers to these control questions to differ
- between the treatment groups.
- If they do differ, this may mean that the interventions crowd in additional
- learning by the input dealers.
+ This will be done though 10 multiple choice questions.
  Each multiple choice question will have 3 possible answers from which the
  input dealer (there will also be a don't know option).
- An example of such a question could be: Under what lighting conditions
- does seed need to be stored? a) in complete darkness b) in diffuse light
- conditions c) in sunlight d) don't know.
+ 
+\end_layout
+
+\begin_layout Standard
+These are the questions:
+\end_layout
+
+\begin_layout Itemize
+How long can seed be carried over before losing viability? (Seed can not
+ be carried over into the next seasons as 6 months is the longest seed can
+ be stored; Seed can be carried over into the next seasons as you can store
+ seed for 12 months; This depends on the seed: hybrids can not be carried
+ over, OPVs can be carried over for 5 seasons.) 
+\end_layout
+
+\begin_layout Itemize
+How should seed best be stored after repackaging? (Airtight in polyethylene
+ bags; In paper bags or perforated polyethylene bags; In a sealed tin/plastic
+ container)
+\end_layout
+
+\begin_layout Itemize
+What is the minimum recommended distance between the floor and where seed
+ is stored? (0 inches, seed should be stored directly on the floor for maximum
+ stability; Minimum 2 inches from the floor; Minimum 6 inches from the floor)
+ 
+\end_layout
+
+\begin_layout Itemize
+How should seed ideally be stored in your store room? (In sealed cardboard
+ boxes; Stacked on pallets; Arranged on shelves with sufficient space between
+ packets) 
+\end_layout
+
+\begin_layout Itemize
+What statement do you agree most with: (You should repackage all your seed
+ to visually verify that you are selling good quality seed; You should repackage
+s all your seed so you can sell more to small farmers; You should avoid
+ repackaging your seed as much as possible.) 
+\end_layout
+
+\begin_layout Itemize
+If a farmer complains about poor soil, which of the following 3 seed varieties
+ do you recommend: (Longe5; Bazooka; Longe 10H) 
+\end_layout
+
+\begin_layout Itemize
+How often can OPVs be recycled without significant yield loss: (Never, You
+ have to buy new seed every season; 4-5 times; 10-12 times) 
+\end_layout
+
+\begin_layout Itemize
+What do you tell clients who inquire about the yield benefits of hybrid
+ seed? (Hybrid seed double maize yields (increasing yield from about 4 to
+ 8 bags per acre); Hybrid seeds triple maize yields (increasing yield from
+ about 4 to 12 bags per acre); Hybrid seeds increase yields tenfold (increasing
+ yield from about 4 to 40 bags per acre)) 
+\end_layout
+
+\begin_layout Itemize
+If a farmer misses the rains or lives in areas that receive little rain,
+ what variety of maize do your recommend: (Longe 10H; Longe 7H; Wema) 
+\end_layout
+
+\begin_layout Itemize
+When a farmer is late for planting in the short season and needs fast maturing
+ variety, which maize do you recommend? (Bazooka; Longe 10; Myezi mitatu
+ (mm3)) 
 \end_layout
 
 \begin_layout Standard
@@ -2706,7 +2752,7 @@ test moisture (see primary outcomes)
 \end_layout
 
 \begin_layout Itemize
-Record expiry date indicated on the bag 
+Record production date indicated on package
 \end_layout
 
 \begin_layout Itemize
@@ -2871,8 +2917,62 @@ Reputation – according to your own opinion, are others recommending you
  others think you are an excellent agro-dealer) 
 \end_layout
 
-\begin_layout Subsubsection
-skills/knowledge
+\begin_layout Standard
+At the level of the farmer, we will also look at knowledge.
+ However, as the intervention aimed at farmers is less about creating new
+ knowledge and more about changing false beliefs, we ask fewer questions,
+ and questions that are more open ended to avoid priming effects.
+\end_layout
+
+\begin_layout Itemize
+Please indicate what applies for weeding including removing striga when
+ you are using hybrid seeds.
+ (You do not need to weed and remove striga because all hybrid seed varieties
+ are treated to resist weed and striga infestation: You do not need to weed
+ and remove striga in the first four weeks because hybrid seed is better
+ at competing for sun, nutrients and water than normal seed; You need to
+ weed and remove striga just as you would with normal seed because any maize
+ seed does not compete well for sunlight, water and nutrients.)
+\end_layout
+
+\begin_layout Itemize
+Please indicate what applies for fertilizer application when you are using
+ hybrid seeds.
+ (You do not need to use inorganic fertilizer because you already bought
+ seed; You can use less fertilizer than you normally would since improved
+ maize seed grows faster; You need to use the amount of fertilizer that
+ you would with normal seed because also improved seed varieties need nutrition.)
+\end_layout
+
+\begin_layout Itemize
+Where to best plant your improved seed? It is best to save your best seed
+ for poor plots, as improved seed needs less nutrients.
+ It is best to use your improved seed for plots that are furthest away from
+ the home, as improved seed need less care than normal seed.
+ The decision on what plot to plant improved seed should not be affected
+ by the seed.
+\end_layout
+
+\begin_layout Itemize
+How to invest your money? It is best to invest all your money in seed, because
+ poor seed quality is the main cause of low yields.
+ It is best to invest all your money in fertilizer, because poor soil is
+ the main cause of low yields.
+ It is best to buy both fertilizer and seed, because good seed without fertilize
+r does not give good results.
+\end_layout
+
+\begin_layout Itemize
+If you want to be a successful farmer, what is the best spacing and number
+ of seeds per hill you should use for your maize? (One foot between plants
+ and 2 and ½ foot between rows.
+ One seed per hill: One foot between plants and 2 and ½ foot between rows.
+ Two seeds per hill; Two foot between plants and 2 and ½ foot between rows.
+ Two seeds per hill.) 
+\end_layout
+
+\begin_layout Standard
+We also look at perceptions
 \end_layout
 
 \begin_layout Itemize
@@ -3090,7 +3190,7 @@ This research received clearance form Makerere's School of Social Sciences
  Research Ethics Committee (MAKSS REC 08.20.436/PR1) as well as from IFPRI
  IRB (DSGD-20-0829).
  The research was also registered at the Ugandan National Commission for
- Science and Technology (UNCST)
+ Science and Technology (UNCST SS603ES)
 \end_layout
 
 \begin_layout Section

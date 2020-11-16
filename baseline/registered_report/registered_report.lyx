@@ -645,7 +645,7 @@ H3: Seed is of good quality but farmers are unable to adequately learn about
 \end_layout
 
 \begin_layout Standard
-In the context of new agricultural technology, production functions are
+In the context of a new agricultural technology, production functions are
  not known.
  Farmers learn from own experience 
 \begin_inset CommandInset citation
@@ -705,35 +705,72 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-Erroneous perceptions and false beliefs at the farmer level may complicate
- learning and affect technology uptake.
- For instance, high yielding varieties may be less resistant to particular
- pests and diseases or to droughts than local maize varieties that farmers
- in a particular area selected themselves over the course of centuries
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Is this documented somewhere? Do we have references? During the maize study,
- Fiona, one of my RAs at the time, planted the hybrid the we promoted in
- her garden.
- She said she got much bigger maize cobs than her neighbour who used landraces,
- but that here maize suffered from fall army worm invasion while the neighbour
- had less issues.
+In this paper, we start from the assumption that yields are lower than expected
+ because farmers do not use sufficient complementary inputs and/or invest
+ less effort in crop management in comparison to local seed.
+ In general, improved seed varieties are bred with particular properties
+ in mind, and a seed that does well on some dimensions may perform worse
+ on others.
+ For instance, Longe 5, an open pollinating improved maize variety that
+ is very popular in Uganda, is drought tolerant and resistant to Maize Streak
+ Virus and Gray Leaf Spot.
+ However, Longe 5 is known to be susceptible to Northern Leaf Blight.
+ Therefore, complementary inputs such as pesticides, insecticides and irrigation
+ may be needed to bring the seed to its full potential.
+ The yields that are indicated on packages also assume proper agronomic
+ practices, such as weeding during the first few weeks when competition
+ for sunlight is highest.
 \end_layout
+
+\begin_layout Standard
+The fact that farmers may actually reduce management and use of other inputs
+ may partly be due to the constrained optimization problem, where farmers
+ have less resources available for other inputs once seed has been bought.
+ They may also have less time because some of the money that was used to
+ buy seed needs to be earned back, competing for labor.
+ However, there are also indications that farmers assume that improved seed
+ needs less other inputs and effort.
+ It is well established that consumers rely primarily on extrinsic attributes
+ like price and brand when a product is difficult to evaluate 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zeithaml1988consumer"
+literal "false"
 
 \end_inset
 
 .
- Therefore, additional inputs such as pesticides, insecticides and irrigation
- may be needed to bring the seed to its full potential.
- Worse, farmers they may think that improved seed is a guarantee for higher
- yield and reduce management and use of other inputs.
- This may lead to disappointing yields, and farmers may erroneously attribute
- these low returns to poor input quality, which may lead to dis-adoption.
- The problem may thus be rooted in negative experiences which conflate low
- product quality with incorrect management practices and can be characterized
- as a learning failure.
+ Farmers may assume that more expensive seeds from a reputable company are
+ better in all dimensions, so they need less complementary inputs and effort.
+\end_layout
+
+\begin_layout Standard
+Finally, we assume that farmers attribute the lower than expected yields
+ mostly to poor seed quality instead of relatively low levels of effort
+ and complementary input use.
+ Potential behavioral mechanisms here may be (1) self-serving bias, or the
+ explanatory pattern that involves external attributions (e.g., improved seed
+ quality) for outcomes that disfavor the self (low yield) but internal attributi
+ons (e.g., one's own ability/ skills, effort) for outcomes that favor the
+ self (high yield) and (2) the peak-end rule, describing a psychological
+ heuristic in which people judge an experience largely based on how they
+ felt at its peak (i.e.
+ its most intense point) and at its end, rather than based on the total
+ sum or average of every moment of the experience.
+ In our case, as yield is observed months later, farmers have to use their
+ memory to recall which inputs they used to get the outcome this outcome.
+ When judging local/ other seed quality, farmers might recall how they felt
+ at its end, at harvest, when the yield was like they expected, but they
+ might not recall every moment of the experience, meaning that they might
+ forget all the effort they invested to get that output.
+ When judging improved seed quality, farmers might mostly recall how they
+ felt at harvest, when they were disappointed by the yield, and forget that
+ they did not invest a lot of effort.
+\end_layout
+
+\begin_layout Standard
+In short, in this third hypothesis, the problem is rooted in negative experience
+s which conflate low product quality with incorrect management practices.
  Consistent with this, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -745,28 +782,6 @@ literal "true"
  find that fertilizers in Tanzania meet the requisite quality standards
  even though Tanzanian farmers persistently believe that the fertilizer
  they purchase from the market is adulterated.
-\end_layout
-
-\begin_layout Standard
-In the present context, we hypothesize that there exists a particular learning
- constraint of interest.
- Because farmers must make decisions on a variety of input dimensions that
- interact in the production function - the time of planting, the amount
- and timing of water, the choice of technology, additional inputs such as
- fertilizer or pesticides and insecticides - they cannot easily learn about
- the quality of seed from their own or others’ experience.
- A key remedy to this learning problem is information, but the availability
- of such information alone does not automatically guarantee learning.
- Limited attention to particular input dimension may necessitate interventions
- that highlight previously unattended-to relationships in the data 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "allen2011interaction,hanna2014learning,beaman2014minding"
-literal "true"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Section
@@ -932,17 +947,17 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-While the third treatment is implemented at the level of the farmer, it
- is also important to preserve balance in the orthogonal factors.
- In other words, we need to make sure that an equal number of farmers that
- are assigned to receive a treatment against learning failures are drawn
- from catchment areas where input dealers received training as from catchment
- areas where the input dealer training did not take place.
+While the third treatment is implemented at the village level, it is also
+ important to preserve balance in the orthogonal factors.
+ In other words, we need to make sure that an approximately equal number
+ of farmers that are assigned to receive a treatment against learning failures
+ are drawn from catchment areas where input dealers received training as
+ from catchment areas where the input dealer training did not take place.
  Similarly, orthogonality should also be maintained for the second treatment.
  Therefore, in each of the four treatment cells formed by interacting the
- first two treatments, 400 farmers (10 farmers per input dealer or about
- 28 farmers per catchment area) will be randomly assigned to the third treatment
- while another 400 farmers will be assigned to the control.
+ first two treatments, half of the villages will be shown the treatment
+ video while the other villages will receive a placebo video.
+ In each village, 10 households will be sampled.
  
 \end_layout
 
@@ -1628,8 +1643,7 @@ literal "true"
  indicating that presenting recipients with larger menus can trigger choice
  avoidance and/or deliberation such that the information transfer becomes
  less effective.
- Input dealers that attended the training will also get an ISSD approved
- certificate.
+ 
 \end_layout
 
 \begin_layout Standard

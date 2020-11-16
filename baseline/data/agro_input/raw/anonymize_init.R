@@ -23,6 +23,13 @@ moisture <- data.frame(rbind(moisture1,moisture2))
 moisture$age <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
 moisture$age[moisture$date_pack=="n/a"] <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$exp[moisture$date_pack=="n/a"] ,format="%Y-%m-%d"),units="days")+180
 
+#this is for a graph I made for a presentation showing how moisture increases with age
+#moisture <- subset(moisture, age > 10)
+#moisture <- subset(moisture, age < 110)
+#ggplot(data=moisture,aes(age, reading)) +
+#  geom_point() +
+#  geom_smooth(method = "lm",se = FALSE ) + geom_hline(yintercept=14, color = "red")
+
 ### manually correct spelling of IDs to merge seed testing to shop survey data
 shops$maize.owner.agree.id <- as.character(shops$maize.owner.agree.id)
 moisture$id <- as.character(moisture$id)
@@ -149,7 +156,12 @@ shops$clearing <- FALSE
 shops$training[shops$treat %in% c(1,2)] <- TRUE
 shops$clearing[shops$treat %in% c(2,4)] <- TRUE
 
+shops$farmer <- NA
 
+shops$farmer[shops$treat == 1] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 1])))
+shops$farmer[shops$treat == 2] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 2])))
+shops$farmer[shops$treat == 3] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 3])))
+shops$farmer[shops$treat == 4] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 4])))
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
@@ -187,6 +199,12 @@ shops <- shops[ , !(names(shops) %in% to_drop)]
 to_drop <- c("maize.owner.agree.q13","images")
 shops <- shops[ , !(names(shops) %in% to_drop)]
 
+
+#### create list of villages to be included
+## step 1: make sure there are no villages that belong to 2 or more catchment areas
+
+write.csv(shops[c("catchID","district","sub","parish","village","shop_ID","maize.owner.agree.catch_area.Village1", "maize.owner.agree.catch_area.Village2" , "maize.owner.agree.catch_area.Village3")], file="villages.csv")
+
 ## remove villages where most customers are - this needs to be used for sampling of households
 to_drop <- c("maize.owner.agree.catch_area.Village1", "maize.owner.agree.catch_area.Village2" , "maize.owner.agree.catch_area.Village3")  
 shops <- shops[ , !(names(shops) %in% to_drop)]
@@ -220,4 +238,9 @@ to_drop <- c("subID","district","sub")
   
 path <- strsplit(path, "/raw")[[1]]
 write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"), row.names=FALSE)
+
+#### sampling for the
+
+
+
 

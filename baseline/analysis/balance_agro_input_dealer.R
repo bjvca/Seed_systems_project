@@ -25,7 +25,7 @@ shops$maize.owner.agree.age[shops$maize.owner.agree.age == 999] <- NA
 df_averages[1,1] <- mean(shops$maize.owner.agree.age, na.rm=T)
 df_averages[2,1] <- sd(shops$maize.owner.agree.age, na.rm=T)
  
-ols <- lm(maize.owner.agree.age~training*clearing, data=shops)
+ols <- lm(maize.owner.agree.age~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 df_ols[1,1,1] <- coef_test(ols, vcov_cluster)[2,1]
@@ -39,7 +39,7 @@ df_ols[3,2,1] <- coef_test(ols, vcov_cluster)[3,5]
 df_averages[1,2] <- mean(shops$maize.owner.agree.gender=="Male", na.rm=T)
 df_averages[2,2] <- sd(shops$maize.owner.agree.gender=="Male", na.rm=T)
 
-ols <- lm((maize.owner.agree.gender=="Male")~training*clearing, data=shops)
+ols <- lm((maize.owner.agree.gender=="Male")~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -57,7 +57,7 @@ shops$prim <- (shops$maize.owner.agree.educ %in% c("c","d","e","f"))
 df_averages[1,3] <- mean(shops$prim, na.rm=T)
 df_averages[2,3] <- sd(shops$prim, na.rm=T)
 
-ols <- lm(prim~training*clearing, data=shops)
+ols <- lm(prim~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -74,7 +74,7 @@ shops$years_shop <- 2020 - as.numeric(as.character(substr(shops$maize.owner.agre
 df_averages[1,4] <- mean(shops$years_shop, na.rm=T)
 df_averages[2,4] <- sd(shops$years_shop, na.rm=T)
 
-ols <- lm(years_shop~training*clearing, data=shops)
+ols <- lm(years_shop~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -92,7 +92,7 @@ shops$maize.owner.agree.q3[shops$maize.owner.agree.q3 < 1] <- 0
 df_averages[1,5] <- mean(shops$maize.owner.agree.q3, na.rm=T)
 df_averages[2,5] <- sd(shops$maize.owner.agree.q3, na.rm=T)
 
-ols <- lm(maize.owner.agree.q3~training*clearing, data=shops)
+ols <- lm(maize.owner.agree.q3~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -109,7 +109,7 @@ shops$maize.owner.agree.q6[shops$maize.owner.agree.q6 == 999] <- NA
 df_averages[1,6] <- mean(shops$maize.owner.agree.q6, na.rm=T)
 df_averages[2,6] <- sd(shops$maize.owner.agree.q6, na.rm=T)
 
-ols <- lm(maize.owner.agree.q6~training*clearing, data=shops)
+ols <- lm(maize.owner.agree.q6~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -131,7 +131,7 @@ shops$tot_sold[shops$tot_sold > 80000] <- NA
 df_averages[1,7] <- mean(shops$tot_sold, na.rm=T)
 df_averages[2,7] <- sd(shops$tot_sold, na.rm=T)
 
-ols <- lm(tot_sold~training*clearing, data=shops)
+ols <- lm(tot_sold~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -153,7 +153,7 @@ shops$tot_lost <- rowSums(shops[sel], na.rm=T)
 df_averages[1,8] <- mean(shops$tot_lost, na.rm=T)
 df_averages[2,8] <- sd(shops$tot_lost, na.rm=T)
 
-ols <- lm(tot_lost~training*clearing, data=shops)
+ols <- lm(tot_lost~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
@@ -172,7 +172,7 @@ df_ols[3,2,8] <- coef_test(ols, vcov_cluster)[3,5]
 df_averages[1,9] <- mean(shops$maize.owner.agree.q10=="Yes", na.rm=T)
 df_averages[2,9] <- sd(shops$maize.owner.agree.q10=="Yes", na.rm=T)
 
-ols <- lm((maize.owner.agree.q10=="Yes")~training*clearing, data=shops)
+ols <- lm((maize.owner.agree.q10=="Yes")~training*clearing*farmer, data=shops)
 vcov_cluster <- vcovCR(ols, cluster =shops$catchID, type = "CR0")
 
 
