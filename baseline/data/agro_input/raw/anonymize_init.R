@@ -142,6 +142,10 @@ dim(table(shops$catchmentID))
 		i_catch <- i_catch + 1
 	}
 shops$catchmentID <- NULL
+#link to pictures 
+shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
+shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.jpg"
+shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
 
 ### randomization - 4 treatment cells for catchment level interventions
 treats <- data.frame(names(table(shops$catchID)),sample(rep(1:4, length=length(table(shops$catchID)))))
@@ -163,15 +167,37 @@ shops$farmer[shops$treat == 2] <- sample(rep(c("TRUE","FALSE"), length.out=lengt
 shops$farmer[shops$treat == 3] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 3])))
 shops$farmer[shops$treat == 4] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 4])))
 
+#### prepare sampling list for farmer questionnaire
+farmers_list <- merge(shops, read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","sampling_village")], by="shop_ID")
+### 10 farmers in each village
+farmers_list <- farmers_list[rep(seq_len(nrow(farmers_list)), each = 10), ]
+#generate farmer ID
+#first reset the rownames
+rownames(farmers_list) <- NULL
+
+farmers_list$farmer_ID <- paste("F",as.numeric(rownames(farmers_list)),sep="_")
+
+farmers_list[c("district","sub","parish","sampling_village", "catchID", "farmer_ID")]
+
+#by catchment area, give me names of all input dealers
+for (i in names(table(shops$catchID))) {
+
+print(i) #catchment ID
+print(length(shops$shop_ID[shops$catchID==i]))  # number of shops in this catchment ID
+
+print(shops$shop_ID[shops$catchID==i])
+print(shops$maize.owner.agree.q13[shops$catchID==i] )
+line <- cbind(i,length(shops$shop_ID[shops$catchID==i]),as.character(shops$shop_ID[shops$catchID==i]),shops$maize.owner.agree.q13[shops$catchID==i])
+write.table(line,file="myfile.txt",append=TRUE)
+}
+
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
   palette = 'Dark2',
-  domain = shops$catchmentID
+  domain = shops$catchID
 )
 
-shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
-shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.jpg"
-shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
+
 
 
 m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  shops$images, width=275, height =400, group = "X_uuid")
@@ -239,7 +265,7 @@ to_drop <- c("subID","district","sub")
 path <- strsplit(path, "/raw")[[1]]
 write.csv(shops,paste(path,"public/baseline_dealer.csv", sep="/"), row.names=FALSE)
 
-#### sampling for the
+
 
 
 
