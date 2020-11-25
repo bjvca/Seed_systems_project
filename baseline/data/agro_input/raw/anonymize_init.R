@@ -180,16 +180,25 @@ farmers_list$farmer_ID <- paste("F",as.numeric(rownames(farmers_list)),sep="_")
 farmers_list[c("district","sub","parish","sampling_village", "catchID", "farmer_ID")]
 
 #by catchment area, give me names of all input dealers
-for (i in names(table(shops$catchID))) {
+store_shops <- array(dim=c(length(table(shops$catchID)),1+18*2))
+for (i in 1:length(table(shops$catchID))) {
+#print(c(i, names(table(shops$catchID))[i])) #catchment ID
+store_shops[i,1] <-i
+#print(length(shops$shop_ID[shops$catchID==i]))  # number of shops in this catchment ID
 
-print(i) #catchment ID
-print(length(shops$shop_ID[shops$catchID==i]))  # number of shops in this catchment ID
-
-print(shops$shop_ID[shops$catchID==i])
-print(shops$maize.owner.agree.q13[shops$catchID==i] )
-line <- cbind(i,length(shops$shop_ID[shops$catchID==i]),as.character(shops$shop_ID[shops$catchID==i]),shops$maize.owner.agree.q13[shops$catchID==i])
-write.table(line,file="myfile.txt",append=TRUE)
+#print(shops$shop_ID[shops$catchID==i])
+#print(shops$maize.owner.agree.q13[shops$catchID==i] )
+for (j in 1:length(shops$shop_ID[shops$catchID==i])) {
+store_shops[i,j+1] <- as.character(shops$shop_ID[shops$catchID==i])[j]
+store_shops[i,j+19] <- as.character(shops$maize.owner.agree.q13[shops$catchID==i])[j]
 }
+#line <- cbind(i,length(shops$shop_ID[shops$catchID==i]),as.character(shops$shop_ID[shops$catchID==i]),shops$maize.owner.agree.q13[shops$catchID==i])
+
+}
+store_shops <- data.frame(store_shops)
+names(store_shops)[1] <- c("catchID")
+test <- merge(farmers_list,store_shops, by="catchID")
+write.csv(test,file="myfile.csv")
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
