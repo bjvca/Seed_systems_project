@@ -180,25 +180,31 @@ farmers_list$farmer_ID <- paste("F",as.numeric(rownames(farmers_list)),sep="_")
 farmers_list[c("district","sub","parish","sampling_village", "catchID", "farmer_ID")]
 
 #by catchment area, give me names of all input dealers
-store_shops <- array(dim=c(length(table(shops$catchID)),1+18*2))
+store_shops <- array(dim=c(length(table(shops$catchID)),2+18*6))
 for (i in 1:length(table(shops$catchID))) {
 #print(c(i, names(table(shops$catchID))[i])) #catchment ID
 store_shops[i,1] <-i
-#print(length(shops$shop_ID[shops$catchID==i]))  # number of shops in this catchment ID
+store_shops[i,2] <- length(shops$shop_ID[shops$catchID==i])  # number of shops in this catchment ID
 
 #print(shops$shop_ID[shops$catchID==i])
 #print(shops$maize.owner.agree.q13[shops$catchID==i] )
 for (j in 1:length(shops$shop_ID[shops$catchID==i])) {
-store_shops[i,j+1] <- as.character(shops$shop_ID[shops$catchID==i])[j]
-store_shops[i,j+19] <- as.character(shops$maize.owner.agree.q13[shops$catchID==i])[j]
+store_shops[i,j+2] <- as.character(shops$shop_ID[shops$catchID==i])[j] ##ID
+store_shops[i,j+2+18] <- as.character(shops$maize.owner.agree.q13[shops$catchID==i])[j] ##image
+store_shops[i,j+2+18*2] <-  as.character(shops$maize.owner.agree.biz_name[shops$catchID==i])[j] #name shop
+store_shops[i,j+2+18*3] <-  as.character(shops$maize.owner.agree.family_name[shops$catchID==i])[j] #name owner
+store_shops[i,j+2+18*4] <-  as.character(shops$maize.owner.agree.market_name[shops$catchID==i])[j] ##location
+store_shops[i,j+2+18*5] <-  as.character(shops$maize.owner.agree.eye[shops$catchID==i])[j] ##description
 }
 #line <- cbind(i,length(shops$shop_ID[shops$catchID==i]),as.character(shops$shop_ID[shops$catchID==i]),shops$maize.owner.agree.q13[shops$catchID==i])
 
 }
 store_shops <- data.frame(store_shops)
-names(store_shops)[1] <- c("catchID")
+names(store_shops) <- c("catchID", "nr_shops_in_catch",paste("ID_shop",seq(1:18), sep="_"), paste("image_shop", seq(1:18),sep="_"), paste("name_shop", seq(1:18),sep="_"), paste("owner_name_shop", seq(1:18),sep="_"), paste("location_shop", seq(1:18),sep="_"), paste("description_shop", seq(1:18),sep="_"))
+
 test <- merge(farmers_list,store_shops, by="catchID")
-write.csv(test,file="myfile.csv")
+test <- test[ c("farmer_ID","district","sub","parish","sampling_village","training","clearing","farmer","catchID", "nr_shops_in_catch",paste("ID_shop",seq(1:18), sep="_"), paste("image_shop", seq(1:18),sep="_"), paste("name_shop", seq(1:18),sep="_"), paste("owner_name_shop", seq(1:18),sep="_"), paste("location_shop", seq(1:18),sep="_"), paste("description_shop", seq(1:18),sep="_"))]
+write.csv(test,file="to_upload.csv")
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
