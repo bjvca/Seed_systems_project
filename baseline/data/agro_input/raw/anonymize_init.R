@@ -1,4 +1,6 @@
 #read in raw data as expored from ONA
+#execute from /NWO seed system devt Uganda proposal development/baseline/data/agro_input/raw/
+
 rm(list=ls())
 set.seed(05112020)  #today's date
 
@@ -144,7 +146,8 @@ dim(table(shops$catchmentID))
 shops$catchmentID <- NULL
 #link to pictures 
 shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
-shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.jpg"
+shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.png"
+shops$maize.owner.agree.q13 <-  gsub("jpg","png",shops$maize.owner.agree.q13) ### jpegs were converted to pngs
 shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
 
 ### randomization - 4 treatment cells for catchment level interventions
@@ -168,7 +171,7 @@ shops$farmer[shops$treat == 3] <- sample(rep(c("TRUE","FALSE"), length.out=lengt
 shops$farmer[shops$treat == 4] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 4])))
 
 #### prepare sampling list for farmer questionnaire
-farmers_list <- merge(shops, read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","sampling_village")], by="shop_ID")
+farmers_list <- merge(shops[ !(names(shops) %in% c("district","sub"))], read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","district","sub","sampling_village")], by="shop_ID")
 ### 10 farmers in each village
 farmers_list <- farmers_list[rep(seq_len(nrow(farmers_list)), each = 10), ]
 #generate farmer ID
