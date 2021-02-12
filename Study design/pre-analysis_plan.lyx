@@ -2116,6 +2116,13 @@ Farmer training timeline
 
 \begin_layout Section
 Methodology
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methodology"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2258,8 +2265,16 @@ Throughout the study, we will use randomization inference for consistently
 Because we will test for treatment effects on a range of outcomes measures,
  we will deal with multiple outcomes and multiple hypotheses testing by
  means of two approaches.
- Firstly, we follow a method proposed by Anderson (2008) and aggregate different
- outcome measures within each domain into single summary indices.
+ Firstly, we follow a method proposed by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ and aggregate different outcome measures within each domain into single
+ summary indices.
  Each index is computed as a weighted mean of the standardized values of
  the outcome variables.
  The weights of this efficient generalized least squares estimator are calculate
@@ -2528,7 +2543,7 @@ Primary outcome variables
 \begin_layout Standard
 The ultimate objective of the study is to see how the interventions increase
  technology adoption and ultimately well-being of the actors involved.
- At the level of the input dealer, we pre-register 5 primary outcomes, aimed
+ At the level of the input dealer, we pre-register 7 primary outcomes, aimed
  at measuring increased seed sales both at the extensive (total sales) and
  intensive (sales per customer) margins:
 \end_layout
@@ -2620,6 +2635,28 @@ share of farmers switching to different dealer (q38c)
 \begin_layout Enumerate
 index of farmers practices: interaction between adoption on that plot (q48)
  and farmers practices on that plot (q56 - q63b)
+\end_layout
+
+\begin_layout Standard
+Indices are constructed following 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ as also indicated in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methodology"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
