@@ -1,0 +1,303 @@
+#read in raw data as expored from ONA
+#execute from /NWO seed system devt Uganda proposal development/baseline/data/agro_input/raw/
+
+rm(list=ls())
+set.seed(05112020)  #today's date
+
+library(pracma)
+library(sf)
+library(leaflet)
+library(leafpop)
+library(dplyr)
+library(clubSandwich)
+
+path <- "C:/Users/u0127963/Dropbox/NWO seed system devt Uganda proposal development/baseline/data/agro_input/raw"
+
+### reads in raw data (not public)
+shops <- rbind(read.csv(paste(path,"Baseline_DealerXX_2020_09_27_03_06_54_713799.csv", sep="/")),read.csv(paste(path,"Baseline_DealerXXXX_2020_10_02_14_55_02_970765.csv", sep="/")))
+moisture1 <- read.csv(paste(path,"Moisture_formX2_2020_10_04_07_57_19_019044.csv", sep="/"))[c("id", "reading", "exp",  "date_pack", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture2 <- read.csv(paste(path,"Moisture_formXX_2020_10_05_08_15_54_391127.csv", sep="/"))[c("id", "reading", "exp", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture2$date_pack <- "n/a"
+moisture2 <- moisture2[, c("id", "reading", "exp",  "date_pack", "origin", "cert", "lot", "verif", "variety", "other_var","company")]
+moisture <- data.frame(rbind(moisture1,moisture2))
+
+
+moisture$age <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
+moisture$age[moisture$date_pack=="n/a"] <- difftime(strptime("01.10.2020", format = "%d.%m.%Y"),strptime(moisture$exp[moisture$date_pack=="n/a"] ,format="%Y-%m-%d"),units="days")+180
+
+#this is for a graph I made for a presentation showing how moisture increases with age
+#moisture <- subset(moisture, age > 10)
+#moisture <- subset(moisture, age < 110)
+#ggplot(data=moisture,aes(age, reading)) +
+#  geom_point() +
+#  geom_smooth(method = "lm",se = FALSE ) + geom_hline(yintercept=14, color = "red")
+
+### manually correct spelling of IDs to merge seed testing to shop survey data
+shops$maize.owner.agree.id <- as.character(shops$maize.owner.agree.id)
+moisture$id <- as.character(moisture$id)
+moisture$id[moisture$id == " 22 Waswa"] <- "23 Waswa"
+moisture$id[moisture$id == "15 Zebulon"] <- "15 Zebuloni"
+moisture$id[moisture$id == "20 Nabatu"] <- "20 Nambafu"
+moisture$id[moisture$id == "21Answer"] <- "21 No answer"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "21 Ntuyo  "] <- "21 Ntuyo"
+moisture$id[moisture$id == "22 Mugoda"] <- "22 Mukodha"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Mutesi  "] <- "22 Mutesi"
+moisture$id[moisture$id == "22 Nakayima"] <- "22 Nakaima"
+moisture$id[moisture$id == "22 Namugabwa"] <- "22 Namugabwe"
+moisture$id[moisture$id == "22 Nyemera"] <- "22 Nyamera"
+moisture$id[moisture$id == "23 Bsdajabaka"] <- "23 Basajabaka"
+moisture$id[moisture$id == "23 Dhizala"] <- "23 Dhizaala"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "23 Kisige  "] <- "23 Kisige"
+moisture$id[moisture$id == "23 Nafula"] <- "23 Nanfula"
+moisture$id[moisture$id == "25 Kauli"] <- "25 Kawuli "
+moisture$id[moisture$id == "25 Nentunze"] <- "25 Netunze"
+moisture$id[moisture$id == "25Nandala"] <- "25 Nandera"
+moisture$id[moisture$id == "26 Babirye"] <- "26 Barbirye"
+moisture$id[moisture$id == "26 Nakawogo"] <- "26 Nakawago"
+moisture$id[moisture$id == "26 Namulondo"] <- "26 Namulonda"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Kageye  Faishali"] <- "24 Kageye"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Nangobi  "] <- "26 Nangobi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Tefiiro  "] <- "26 Tefiiro"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "26 Tefiro"] <- "26 Tefilo"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "27 Ssetimba"] <- "27 Setimba"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "28 Kaudha"] <- "28 Khauda"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Biribo"] <- "32 Bilibo"
+moisture$id[moisture$id == "32Pandaya"] <- "32 Pendaya"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Fazali"] <- "36 Fazili"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Kakayi  "] <- "36 Kakayi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Murwanyi"] <- "36 Mulwanyi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "36 Nakirima  "] <- "36 Nakirima"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "38 Waiswa  "] <- "38 Waiswa"
+moisture$id[moisture$id == "39 Siidamwebyo"] <- "39 Sidamwebyo"
+moisture$id[moisture$id == "40 Atiibwa"] <- "40 Atibwa"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "40 Kisuubi  "] <- "40 Kisubi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "40 Naigaga"] <- "40 Naigsga"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "42 Osunye"] <-  "42 Osunyo"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "45 Wampende  "] <-  "45 Wampande"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Kirya "] <-  "46 Kirya"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Namususwa  "] <-  "46 Namususwa"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "46 Wanama"] <-  "46 Wanawa"
+moisture$id[moisture$id == "46Nabwere" ] <- "46 Nabwire"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "48 Kanaabi  hardware"] <-  "48 Kanaabi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Iguude"] <-  "50 Iguube"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Kharende  "] <-  "50 Khalende"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "50 Mpaunka  "] <-  "50 Mpanuka"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "55 Byekwaso  "] <-   "55 Byekwaso"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "21 Mwirugazu  "] <-   "21 Mwelugazu"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "33 Adikini"] <-  "22 Adikini"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Nakasiko"] <-  "22 Nakasiko"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Wagubi  "] <-  "22 Wagubi"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "32 Kiraire"] <-  "23 Kiraire"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "25 Mukose"] <- "23 Mukose"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Nandigobe"] <- "24 Nandigobo"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "24 Talima Irene (Birombo)"] <- "24 Talima"
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "18 Nabirye"] <- "50 Nabirye"
+
+## these have two records in the shops data - these can not be matched... these are probably the two unknowns below
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "19 Masinde"] <- NA
+shops$maize.owner.agree.id[shops$maize.owner.agree.id ==  "22 Muwanguzi"] <- NA
+
+#merge in moisture data
+shops <- merge(shops,moisture, by.x="maize.owner.agree.id",by.y="id", all.x=T)
+
+### these are records in the testing data that can not be merged:
+#shops$maize.owner.agree.id[is.na(shops[,2])]
+# [1] "19 Buyenze"     "21 Kabulandala" "27 Sharifa"     "30 Magada"
+# [5] "33 Awali"       "34 Awali"       "42 Nabayo"      "54 Alex "
+# [9] "Unknown"        "Unknown "
+
+#create shop_ID
+
+shops$shop_ID <- paste("AD",rownames(shops), sep="_")
+shops$shop_ID <- factor(shops$shop_ID)
+
+#Categorizing different input dealers into catchment areas
+shops$catchmentID <- NA
+counter <- 1
+
+for (shop_1 in names(table(shops$shop_ID))) {
+
+  shops$catchmentID[shops$shop_ID == shop_1] <- counter
+
+
+  for (shop_2 in names(table(shops$shop_ID))) {
+    ### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
+    if ( haversine(c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_1] ,shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_1]),c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_2],shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_2])) < 2.5) {
+      if (is.na(shops$catchmentID[shops$shop_ID == shop_2])) {  ## if the shop has not been allocated to a catcchment area yet, create a new one
+        shops$catchmentID[shops$shop_ID == shop_2] <- counter
+      } else {  ## if the shop is already part of a catchment area
+        ## change ID of all shops in catchement area to a new catchment area
+        shops$catchmentID[shops$catchmentID == shops$catchmentID[shops$shop_ID == shop_1]]  <- shops$catchmentID[shops$shop_ID == shop_2]
+      }
+
+    }
+  }
+  counter <- counter + 1
+}
+dim(table(shops$catchmentID))
+
+# reorder catchement ID factor
+i_catch <- 1
+for (catch in names(table(shops$catchmentID))) {
+
+  shops$catchID[shops$catchmentID == catch] <- i_catch
+  i_catch <- i_catch + 1
+}
+shops$catchmentID <- NULL
+#link to pictures
+shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
+shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.png"
+shops$maize.owner.agree.q13 <-  gsub("jpg","png",shops$maize.owner.agree.q13) ### jpegs were converted to pngs
+shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
+
+### randomization - 4 treatment cells for catchment level interventions
+treats <- data.frame(names(table(shops$catchID)),sample(rep(1:4, length=length(table(shops$catchID)))))
+names(treats) <- c("catchID", "treat")
+shops <- merge(shops,treats, by="catchID")
+
+table(shops$treat)
+
+shops$training <- FALSE
+shops$clearing <- FALSE
+
+shops$training[shops$treat %in% c(1,2)] <- TRUE
+shops$clearing[shops$treat %in% c(2,4)] <- TRUE
+
+shops$farmer <- NA
+
+shops$farmer[shops$treat == 1] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 1])))
+shops$farmer[shops$treat == 2] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 2])))
+shops$farmer[shops$treat == 3] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 3])))
+shops$farmer[shops$treat == 4] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 4])))
+
+#### prepare sampling list for farmer questionnaire
+farmers_list <- merge(shops[ !(names(shops) %in% c("district","sub"))], read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","district","sub","sampling_village")], by="shop_ID")
+### 10 farmers in each village
+farmers_list <- farmers_list[rep(seq_len(nrow(farmers_list)), each = 10), ]
+#generate farmer ID
+#first reset the rownames
+rownames(farmers_list) <- NULL
+
+farmers_list$farmer_ID <- paste("F",as.numeric(rownames(farmers_list)),sep="_")
+
+farmers_list[c("district","sub","parish","sampling_village", "catchID", "farmer_ID")]
+
+#by catchment area, give me names of all input dealers
+store_shops <- array(dim=c(length(table(shops$catchID)),2+18*8))
+for (i in 1:length(table(shops$catchID))) {
+  #print(c(i, names(table(shops$catchID))[i])) #catchment ID
+  store_shops[i,1] <-i
+  store_shops[i,2] <- length(shops$shop_ID[shops$catchID==i])  # number of shops in this catchment ID
+
+  #print(shops$shop_ID[shops$catchID==i])
+  #print(shops$maize.owner.agree.q13[shops$catchID==i] )
+  for (j in 1:length(shops$shop_ID[shops$catchID==i])) {
+    store_shops[i,j+2] <- as.character(shops$shop_ID[shops$catchID==i])[j] ##ID
+    store_shops[i,j+2+18] <- as.character(shops$maize.owner.agree.q13[shops$catchID==i])[j] ##image
+    store_shops[i,j+2+18*2] <-  as.character(shops$maize.owner.agree.biz_name[shops$catchID==i])[j] #name shop
+    store_shops[i,j+2+18*3] <-  as.character(shops$maize.owner.agree.family_name[shops$catchID==i])[j] #name owner
+    store_shops[i,j+2+18*4] <-  as.character(shops$maize.owner.agree.dealer_name[shops$catchID==i])[j] #name interviewee
+    store_shops[i,j+2+18*5] <-  as.character(shops$maize.owner.agree.nickname[shops$catchID==i])[j] #nick name interviewee
+    store_shops[i,j+2+18*6] <-  as.character(shops$maize.owner.agree.market_name[shops$catchID==i])[j] ##location
+    store_shops[i,j+2+18*7] <-  as.character(shops$maize.owner.agree.eye[shops$catchID==i])[j] ##description
+  }
+  #line <- cbind(i,length(shops$shop_ID[shops$catchID==i]),as.character(shops$shop_ID[shops$catchID==i]),shops$maize.owner.agree.q13[shops$catchID==i])
+
+}
+store_shops <- data.frame(store_shops)
+names(store_shops) <- c("catchID", "nr_shops_in_catch",paste("ID_shop",seq(1:18), sep="_"), paste("image_shop", seq(1:18),sep="_"), paste("name_shop", seq(1:18),sep="_"), paste("owner_name_shop", seq(1:18),sep="_"), paste("name_person_interviewed", seq(1:18),sep="_"), paste("nickname_person_interviewed", seq(1:18),sep="_"), paste("location_shop", seq(1:18),sep="_"), paste("description_shop", seq(1:18),sep="_"))
+
+###############
+#MY PART#######
+###############
+
+# #all 130 shops#1 in all 130 CA's
+# shops1 <- data.frame(store_shops$catchID,store_shops$ID_shop_1,store_shops$name_shop_1,
+#                      store_shops$owner_name_shop_1,store_shops$image_shop_1,
+#                      store_shops$name_person_interviewed_1,
+#                      store_shops$nickname_person_interviewed_1,store_shops$location_shop_1,
+#                      store_shops$description_shop_1)
+# 
+# sum(is.na(store_shops$ID_shop_1))
+# #0
+# 
+# names(shops1)[names(shops1) == "store_shops.catchID"] <- "Catch_ID"
+# names(shops1)[names(shops1) == "store_shops.ID_shop_1"] <- "ID_shop"
+# names(shops1)[names(shops1) == "store_shops.name_shop_1"] <- "name_shop"
+# names(shops1)[names(shops1) == "store_shops.owner_name_shop_1"] <- "Owner"
+# names(shops1)[names(shops1) == "store_shops.image_shop_1"] <- "image_shop"
+# names(shops1)[names(shops1) == "store_shops.name_person_interviewed_1"] <- "name_person_interviewed"
+# names(shops1)[names(shops1) == "store_shops.nickname_person_interviewed_1"] <- "nickname_person_interviewed"
+# names(shops1)[names(shops1) == "store_shops.location_shop_1"] <- "location_shop"
+# names(shops1)[names(shops1) == "store_shops.description_shop_1"] <- "description_shop"
+
+# #first loop idea but impossible
+# 
+# for (i in 1:18)
+# {
+# shops[i] <- data.frame(store_shops$catchID,store_shops$ID_shop_[i],store_shops$name_shop_[i],
+#                      store_shops$owner_name_shop_[i],store_shops$image_shop_[i],
+#                      store_shops$name_person_interviewed_[i],
+#                      store_shops$nickname_person_interviewed_[i],store_shops$location_shop_[i],
+#                      store_shops$description_shop_[i])
+# 
+# sum(is.na(store_shops$ID_shop_[i]))
+# #0
+# 
+# names(shops[i])[names(shops[i]) == "store_shops.catchID"] <- "Catch_ID"
+# names(shops[i])[names(shops[i]) == "store_shops.ID_shop_[i]"] <- "ID_shop"
+# names(shops[i])[names(shops[i]) == "store_shops.name_shop_[i]"] <- "name_shop"
+# names(shops[i])[names(shops[i]) == "store_shops.owner_name_shop_[i]"] <- "Owner"
+# names(shops[i])[names(shops[i]) == "store_shops.image_shop_[i]"] <- "image_shop"
+# names(shops[i])[names(shops[i]) == "store_shops.name_person_interviewed_[i]"] <- "name_person_interviewed"
+# names(shops[i])[names(shops[i]) == "store_shops.nickname_person_interviewed_[i]"] <- "nickname_person_interviewed"
+# names(shops[i])[names(shops[i]) == "store_shops.location_shop_[i]"] <- "location_shop"
+# names(shops[i])[names(shops[i]) == "store_shops.description_shop_[i]"] <- "description_shop"
+# }
+
+# loop that worked
+
+for (i in 1:18)
+  {
+  store_shops$ID_shop <- store_shops[, c(3+i-1)] #3 is column number
+  store_shops$name_shop <- store_shops[, c(39+i-1)]
+  store_shops$Owner <- store_shops[, c(57+i-1)]
+  store_shops$image_shop <- store_shops[, c(21+i-1)]
+  store_shops$name_person_interviewed <- store_shops[, c(75+i-1)]
+  store_shops$nickname_person_interviewed <- store_shops[, c(93+i-1)]
+  store_shops$location_shop <- store_shops[, c(111+i-1)]
+  store_shops$description_shop <- store_shops[, c(129+i-1)]
+  
+  shopswithNA <- data.frame(store_shops$catchID,
+                            store_shops$ID_shop,
+                            store_shops$name_shop,
+                            store_shops$Owner,
+                            store_shops$image_shop,
+                            store_shops$name_person_interviewed,
+                            store_shops$nickname_person_interviewed,
+                            store_shops$location_shop,
+                            store_shops$description_shop)
+  
+  names(shopswithNA)[names(shopswithNA) == "store_shops.catchID"] <- "Catch_ID"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.ID_shop"] <- "ID_shop"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.name_shop"] <- "name_shop"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.Owner"] <- "Owner"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.image_shop"] <- "image_shop"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.name_person_interviewed"] <- "name_person_interviewed"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.nickname_person_interviewed"] <- "nickname_person_interviewed"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.location_shop"] <- "location_shop"
+  names(shopswithNA)[names(shopswithNA) == "store_shops.description_shop"] <- "description_shop"
+  
+  shopswithNA$description_shop <- as.character(shopswithNA$description_shop)
+  
+  shops <- shopswithNA[!(is.na(store_shops$ID_shop)),]
+
+  assign(paste0("shops_loop", i), shops)
+}
+
+all_shops_loop <- rbind(shops_loop1, shops_loop2, shops_loop3, shops_loop4, shops_loop5, shops_loop6, shops_loop7, shops_loop8, shops_loop9, shops_loop10, shops_loop11, shops_loop12, shops_loop13, shops_loop14,shops_loop15,shops_loop16,shops_loop17,shops_loop18)
+
+write.csv(all_shops_loop,file = "C:/Users/u0127963/Desktop/for charles2.csv", row.names=FALSE)
+
+#problem: csv includes some weird line breaks (365 obs. in csv, 348 obs. in data frame)
+#excluded them manually but check with Bjorn how to do better
