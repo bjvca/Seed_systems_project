@@ -10,6 +10,7 @@ library(leaflet)
 library(leafpop)
 library(dplyr)
 library(clubSandwich)
+library(stringr)
 
 path <- getwd()
 
@@ -207,9 +208,20 @@ store_shops[i,j+2+18*7] <-  as.character(shops$maize.owner.agree.eye[shops$catch
 store_shops <- data.frame(store_shops)
 names(store_shops) <- c("catchID", "nr_shops_in_catch",paste("ID_shop",seq(1:18), sep="_"), paste("image_shop", seq(1:18),sep="_"), paste("name_shop", seq(1:18),sep="_"), paste("owner_name_shop", seq(1:18),sep="_"), paste("name_person_interviewed", seq(1:18),sep="_"), paste("nickname_person_interviewed", seq(1:18),sep="_"), paste("location_shop", seq(1:18),sep="_"), paste("description_shop", seq(1:18),sep="_"))
 
+## export for charles:
+ODK_imp <- shops[c("catchID", "shop_ID","maize.owner.agree.biz_name", "maize.owner.agree.q13","maize.owner.agree.family_name", "maize.owner.agree.dealer_name","maize.owner.agree.nickname","maize.owner.agree.market_name","maize.owner.agree.eye")]
+## remove all trailing and leading spaces - this gives issues in ODK
+ODK_imp <- data.frame(lapply( ODK_imp, function(x)  trimws(x, which = "both")))
+ODK_imp <- data.frame(lapply( ODK_imp,  function(x) str_replace_all(x, "[\r\n]" , " ")))
+ODK_imp <- data.frame(lapply( ODK_imp,  function(x) str_replace_all(x, "\\s+" , " ")))
+write.csv(ODK_imp,file="ODK_imp.csv",row.names=FALSE)
+
 test <- merge(farmers_list,store_shops, by="catchID")
 test <- test[ c("farmer_ID","district","sub","parish","sampling_village","training","clearing","farmer","catchID", "nr_shops_in_catch",paste("ID_shop",seq(1:18), sep="_"), paste("image_shop", seq(1:18),sep="_"), paste("name_shop", seq(1:18),sep="_"), paste("owner_name_shop", seq(1:18),sep="_"), paste("name_person_interviewed", seq(1:18),sep="_"), paste("nickname_person_interviewed", seq(1:18),sep="_"), paste("location_shop", seq(1:18),sep="_"), paste("description_shop", seq(1:18),sep="_"))]
-write.csv(test,file="to_upload.csv")
+test <- data.frame(lapply( test, function(x)  trimws(x, which = "both")))
+test <- data.frame(lapply( test,  function(x) str_replace_all(x, "[\r\n]" , " ")))
+test <- data.frame(lapply( test,  function(x) str_replace_all(x, "\\s+" , " ")))
+write.csv(test,file="to_upload.csv", row.names=FALSE)
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
