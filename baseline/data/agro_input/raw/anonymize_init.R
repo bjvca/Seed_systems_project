@@ -249,7 +249,16 @@ shops <- shops[ , !(names(shops) %in% to_drop)]
 #### create list of villages to be included
 ## step 1: make sure there are no villages that belong to 2 or more catchment areas
 
+# get proper district and subcounty names from edited villages lists (ex-post)
+
+shops <- merge(shops[ !(names(shops) %in% c("district","sub"))], read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","district","sub","sampling_village")], by="shop_ID")
+
 write.csv(shops[c("catchID","district","sub","parish","village","shop_ID","maize.owner.agree.catch_area.Village1", "maize.owner.agree.catch_area.Village2" , "maize.owner.agree.catch_area.Village3")], file="villages.csv")
+
+## write file for wilberfoce to organize trainings:
+wilber <- subset(shops, training == TRUE)
+write.csv(wilber[c("district","sub","parish","village","maize.owner.agree.dealer_name","maize.owner.agree.surname","maize.owner.agree.nickname","maize.owner.agree.phone1","maize.owner.agree.phone2",	"maize.owner.agree.biz_name","maize.owner.agree.family_name",	"maize.owner.agree.market_name","enumerator","other_district","catchID"
+)], file="wilber.csv")
 
 ## remove villages where most customers are - this needs to be used for sampling of households
 to_drop <- c("maize.owner.agree.catch_area.Village1", "maize.owner.agree.catch_area.Village2" , "maize.owner.agree.catch_area.Village3")  
