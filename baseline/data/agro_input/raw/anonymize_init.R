@@ -11,6 +11,7 @@ library(leafpop)
 library(dplyr)
 library(clubSandwich)
 library(stringr)
+library(reshape2)
 
 path <- getwd()
 
@@ -222,6 +223,20 @@ test <- data.frame(lapply( test, function(x)  trimws(x, which = "both")))
 test <- data.frame(lapply( test,  function(x) str_replace_all(x, "[\r\n]" , " ")))
 test <- data.frame(lapply( test,  function(x) str_replace_all(x, "\\s+" , " ")))
 write.csv(test,file="to_upload.csv", row.names=FALSE)
+
+test2 <- merge(farmers_list,store_shops, by="catchID")
+test2 <- test2[ c("farmer_ID",paste("ID_shop",seq(1:18), sep="_"))]
+test2 <- data.frame(lapply( test2, function(x)  trimws(x, which = "both")))
+test2 <- data.frame(lapply( test2,  function(x) str_replace_all(x, "[\r\n]" , " ")))
+test2 <- data.frame(lapply( test2,  function(x) str_replace_all(x, "\\s+" , " ")))
+#data needs to be in long form
+
+test2 <- melt(test2, id.vars = c("farmer_ID"))
+test2$variable <- NULL
+names(test2) <- c("farmer_ID","shop_ID")
+test2 <- subset(test2, !is.na(shop_ID))
+
+write.csv(test2,file="matcher_file.csv", row.names=FALSE)
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
