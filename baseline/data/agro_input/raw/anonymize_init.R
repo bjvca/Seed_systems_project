@@ -150,7 +150,7 @@ shops$catchmentID <- NULL
 shops$maize.owner.agree.q13 <- sub('.*\\/', '',shops$maize.owner.agree.q13 )
 shops$maize.owner.agree.q13[shops$maize.owner.agree.q13 == 'a'] <- "no_picture.png"
 shops$maize.owner.agree.q13 <-  gsub("jpg","png",shops$maize.owner.agree.q13) ### jpegs were converted to pngs
-shops$images <- paste(paste(path,"pictures", sep="/"),shops$maize.owner.agree.q13, sep="/")
+shops$images <- paste(paste(path,"pictures/converted/resized", sep="/"),shops$maize.owner.agree.q13, sep="/")
 
 ### randomization - 4 treatment cells for catchment level interventions
 treats <- data.frame(names(table(shops$catchID)),sample(rep(1:4, length=length(table(shops$catchID)))))
@@ -235,6 +235,7 @@ test2 <- melt(test2, id.vars = c("farmer_ID"))
 test2$variable <- NULL
 names(test2) <- c("farmer_ID","shop_ID")
 test2 <- subset(test2, !is.na(shop_ID))
+test2$shop_name <- paste("shop",1:nrow(test2), sep = "_")
 
 write.csv(test2,file="matcher_file.csv", row.names=FALSE)
 
@@ -247,11 +248,11 @@ pal <- colorFactor(
 
 
 
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  shops$images, width=275, height =400, group = "X_uuid")
+m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  shops$images, width=137, height =200, group = "X_uuid")
 
 
-#library(htmlwidgets)
-#saveWidget(m, file="map1.html")
+library(htmlwidgets)
+saveWidget(m, file="map_input_dealers.html")
 
 
 #prepare data for public release
