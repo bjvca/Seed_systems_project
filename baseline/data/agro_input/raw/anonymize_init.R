@@ -172,6 +172,10 @@ shops$farmer[shops$treat == 2] <- sample(rep(c("TRUE","FALSE"), length.out=lengt
 shops$farmer[shops$treat == 3] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 3])))
 shops$farmer[shops$treat == 4] <- sample(rep(c("TRUE","FALSE"), length.out=length(shops$farmer[shops$treat == 4])))
 
+### export treatment assignment for merging in later
+
+write.csv(shops[c("catchID", "shop_ID","treat","training", "clearing", "farmer")],file="treats_shop_level.csv", row.names=FALSE)
+
 #### prepare sampling list for farmer questionnaire
 farmers_list <- merge(shops[ !(names(shops) %in% c("district","sub"))], read.csv(paste(path,"villages_edited_final.csv", sep="/"))[c("shop_ID","district","sub","sampling_village")], by="shop_ID")
 ### 10 farmers in each village
@@ -286,8 +290,8 @@ write.csv(shops[c("catchID","district","sub","parish","village","shop_ID","maize
 
 ## write file for wilberfoce to organize trainings:
 wilber <- subset(shops, training == TRUE)
-write.csv(wilber[c("district","sub","parish","village","maize.owner.agree.dealer_name","maize.owner.agree.surname","maize.owner.agree.nickname","maize.owner.agree.phone1","maize.owner.agree.phone2",	"maize.owner.agree.biz_name","maize.owner.agree.family_name",	"maize.owner.agree.market_name","enumerator","other_district","catchID"
-)], file="wilber.csv")
+write.csv(wilber[c("shop_ID","district","sub","parish","village","maize.owner.agree.dealer_name","maize.owner.agree.surname","maize.owner.agree.nickname","maize.owner.agree.phone1","maize.owner.agree.phone2",	"maize.owner.agree.biz_name","maize.owner.agree.family_name",	"maize.owner.agree.market_name","enumerator","other_district","catchID"
+)], file="wilber.csv",row.names=FALSE)
 
 ## remove villages where most customers are - this needs to be used for sampling of households
 to_drop <- c("maize.owner.agree.catch_area.Village1", "maize.owner.agree.catch_area.Village2" , "maize.owner.agree.catch_area.Village3")  
