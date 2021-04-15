@@ -238,6 +238,7 @@ test2 <- subset(test2, !is.na(shop_ID))
 test2$shop_name <- paste("shop",1:nrow(test2), sep = "_")
 
 write.csv(test2,file="matcher_file.csv", row.names=FALSE)
+write.csv(shops,file="shops_map.csv", row.names=FALSE)
 
 ### make a map with catchment ID coloring and pictures (not public)
 pal <- colorFactor(
@@ -248,7 +249,7 @@ pal <- colorFactor(
 
 
 
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  shops$images, width=137, height =200, group = "X_uuid")
+m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  cbind(shops$images,sample(shops$images)), width=137, height =200, group = "X_uuid")
 
 
 library(htmlwidgets)

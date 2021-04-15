@@ -12,7 +12,7 @@ set.seed(10042021)  #today's date
 path <- getwd()
 
 ### reads in raw data (not public)
-farmers <-read.csv(paste(path,"baseline_farmer_2021_04_13_03_36_05_262814.csv", sep="/"))
+farmers <-read.csv(paste(path,"baseline_farmer_2021_04_15_04_19_27_154968.csv", sep="/"))
 
 ## drop location, names and contact details
 to_drop <- c(
@@ -726,7 +726,12 @@ write.csv(all_shops,paste(path,"public/rating_dyads.csv", sep="/"), row.names=FA
 
 
 #number of customer reviews
-cbind(tapply(as.numeric(all_shops$general_rating), all_shops$shop_ID,mean,na.rm=TRUE),tapply(all_shops$bought_at_dealer=="Yes" | all_shops$knows_other_customer=="Yes", all_shops$shop_ID,sum))
+reviews <- data.frame(cbind(tapply(as.numeric(all_shops$general_rating), all_shops$shop_ID,mean,na.rm=TRUE),tapply(all_shops$bought_at_dealer=="Yes" | all_shops$knows_other_customer=="Yes", all_shops$shop_ID,sum)))
+names(reviews) <- c("rating","nr_reviews")
+reviews$shop_ID <- rownames(reviews)
+
+path <- strsplit(path, "/farmer")[[1]]
+write.csv(reviews, paste(path, "agro_input/raw/shiny_app/reviews.csv",sep="/"), row.names=FALSE)
 
 
 
