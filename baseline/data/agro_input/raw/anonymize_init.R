@@ -255,6 +255,8 @@ pal <- colorFactor(
 
 m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(catchID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  %>%  addPopupImages(  cbind(shops$images,sample(shops$images)), width=137, height =200, group = "X_uuid")
 
+###only those that need to be rated
+#m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops[shops$clearing==TRUE,], lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 8, color=~pal(catchID), popup = ~as.character(shop_ID), group = "X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))  
 
 library(htmlwidgets)
 saveWidget(m, file="map_input_dealers.html")

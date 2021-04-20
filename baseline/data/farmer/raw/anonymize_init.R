@@ -12,7 +12,7 @@ set.seed(10042021)  #today's date
 path <- getwd()
 
 ### reads in raw data (not public)
-farmers <-read.csv(paste(path,"baseline_farmer_2021_04_15_04_19_27_154968.csv", sep="/"))
+farmers <-read.csv(paste(path,"baseline_farmer_2021_04_20_02_56_09_006191.csv", sep="/"))
 
 ## drop location, names and contact details
 to_drop <- c(
@@ -734,7 +734,10 @@ path <- strsplit(path, "/farmer")[[1]]
 write.csv(reviews, paste(path, "agro_input/raw/shiny_app/reviews.csv",sep="/"), row.names=FALSE)
 
 
-
+###update map
+### change directory and then
+setwd(paste(path, "agro_input/raw/shiny_app/",sep="/"))
+rsconnect::deployApp(forceUpdate=TRUE)
 
 
 
