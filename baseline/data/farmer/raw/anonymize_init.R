@@ -12,7 +12,7 @@ set.seed(10042021)  #today's date
 path <- getwd()
 
 ### reads in raw data (not public)
-farmers <-read.csv(paste(path,"baseline_farmer_2021_04_20_02_56_09_006191.csv", sep="/"))
+farmers <-read.csv(paste(path,"baseline_farmer_2021_04_25_15_03_43_633118.csv", sep="/"))
 
 ## drop location, names and contact details
 to_drop <- c(
@@ -726,8 +726,15 @@ write.csv(all_shops,paste(path,"public/rating_dyads.csv", sep="/"), row.names=FA
 
 
 #number of customer reviews
-reviews <- data.frame(cbind(tapply(as.numeric(all_shops$general_rating), all_shops$shop_ID,mean,na.rm=TRUE),tapply(all_shops$bought_at_dealer=="Yes" | all_shops$knows_other_customer=="Yes", all_shops$shop_ID,sum)))
-names(reviews) <- c("rating","nr_reviews")
+reviews <- data.frame(cbind(tapply(as.numeric(all_shops$general_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(as.numeric(all_shops$location_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(as.numeric(all_shops$price_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(as.numeric(all_shops$quality_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(as.numeric(all_shops$stock_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(as.numeric(all_shops$reputation_rating), all_shops$shop_ID,mean,na.rm=TRUE),
+tapply(all_shops$bought_at_dealer=="Yes" | all_shops$knows_other_customer=="Yes", all_shops$shop_ID,sum)))
+names(reviews) <- c("general_rating","location_rating","price_rating","quality_rating","stock_rating","reputation_rating","nr_reviews")
+
 reviews$shop_ID <- rownames(reviews)
 
 path <- strsplit(path, "/farmer")[[1]]
