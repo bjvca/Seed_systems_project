@@ -7,12 +7,71 @@ library(reshape2)
 
 set.seed(10042021)  #today's date
 
-
-
 path <- getwd()
 
 ### reads in raw data (not public)
 farmers <-read.csv(paste(path,"baseline_farmer_2021_04_25_15_03_43_633118.csv", sep="/"))
+### fix IDs
+##one duplicate in village but only 9 farmers interviewed
+farmers$farmer_ID[farmers$village == "Musakira" & farmers$farmer_ID == "F_2997" & farmers$X_id == "77127699"] <-  "F_2998"
+farmers$farmer_ID[farmers$village == "Kasaka" & farmers$farmer_ID == "F_2516" & farmers$X_id == "77127934"] <-  "F_2512"
+farmers$farmer_ID[farmers$village == "Kityelera" & farmers$farmer_ID == "F_1457" & farmers$X_id == "77154707"] <-  "F_1458"
+farmers$farmer_ID[farmers$village == "Namusambya" & farmers$farmer_ID == "F_3461" & farmers$X_id == "77158044"] <-  "F_3463"
+farmers$farmer_ID[farmers$village == "Bukaleba" & farmers$farmer_ID == "F_374" & farmers$X_id == "77221052"] <-  "F_375"
+farmers$farmer_ID[farmers$village == "Nakalanga" & farmers$farmer_ID == "F_231" & farmers$X_id == "77260860"] <-  "F_232"
+farmers$farmer_ID[farmers$village == "Naigobya" & farmers$farmer_ID == "F_1131" & farmers$X_id == "77310057"] <-  "F_1139"
+farmers$farmer_ID[farmers$village == "Busanda" & farmers$farmer_ID == "F_1842" & farmers$X_id == "77353708"] <-  "F_1848"
+farmers$farmer_ID[farmers$village == "Nawantale" & farmers$farmer_ID == "F_1481" & farmers$X_id == "77353775"] <-  "F_1488"
+farmers$farmer_ID[farmers$village == "Namatooke" & farmers$farmer_ID == "F_2100" & farmers$X_id == "77386817"] <-  "F_2091"
+farmers$farmer_ID[farmers$village == "Nabuguzi" & farmers$farmer_ID == "F_1645" & farmers$X_id == "77431542"] <-  "F_1641"
+farmers$farmer_ID[farmers$village == "Matyama" & farmers$farmer_ID == "F_2185" & farmers$X_id == "77431611"] <-  "F_2184"
+farmers$farmer_ID[farmers$village == "Namato" & farmers$farmer_ID == "F_1639" & farmers$X_id == "77471346"] <-  "F_1634"
+farmers$farmer_ID[farmers$village == "Busenke" & farmers$farmer_ID == "F_3429" & farmers$X_id == "77471516"] <-  "F_3428"
+farmers$farmer_ID[farmers$village == "Buyunga (Kaliro)" & farmers$farmer_ID == "F_918" & farmers$X_id == "77471605"] <-  "F_919"
+farmers$farmer_ID[farmers$village == "Bumanya" & farmers$farmer_ID == "F_2697" & farmers$X_id == "77520869"] <-  "F_2691"
+farmers$farmer_ID[farmers$village == "Nawandio" & farmers$farmer_ID == "F_2867" & farmers$X_id == "77521107"] <-  "F_2866"
+farmers$farmer_ID[farmers$village == "Kisozi" & farmers$farmer_ID == "F_2245" & farmers$X_id == "77721638"] <-  "F_2242"
+
+##two duplicates in village but only 8 farmers interviewed
+farmers$farmer_ID[farmers$village == "Nasuti" & farmers$farmer_ID == "F_741" & farmers$X_id == "77310028"] <- "F_747"
+farmers$farmer_ID[farmers$village == "Nasuti" & farmers$farmer_ID == "F_742" & farmers$X_id == "77310022"] <- "F_750"
+
+farmers$farmer_ID[farmers$village == "Buwaaya" & farmers$farmer_ID == "F_2222" & farmers$X_id == "77127585"] <- "F_2228"
+farmers$farmer_ID[farmers$village == "Buwaaya" & farmers$farmer_ID == "F_2225" & farmers$X_id == "77127666"] <- "F_2230"
+
+farmers$farmer_ID[farmers$village == "Kigandaalo" & farmers$farmer_ID == "F_1051" & farmers$X_id == "77221038"] <- "F_1056"
+farmers$farmer_ID[farmers$village == "Kigandaalo" & farmers$farmer_ID == "F_1055" & farmers$X_id == "77221059"] <- "F_1060"
+
+##three duplicates in village but only 7 farmers interviewed
+farmers$farmer_ID[farmers$village == "Bukowe" & farmers$farmer_ID == "F_146" & farmers$X_id == "77386572"] <- "F_141"
+farmers$farmer_ID[farmers$village == "Bukowe" & farmers$farmer_ID == "F_147" & farmers$X_id == "77386603"] <- "F_142"
+farmers$farmer_ID[farmers$village == "Bukowe" & farmers$farmer_ID == "F_148" & farmers$X_id == "77386580"] <- "F_144"
+
+##in Mpungwe, 3 IDs are duplicated ( F_2148 F_2149 F_2150 ) but all 10 observations are there
+##in Mpungwe, 3 IDs are duplicated ( F_2148 F_2149 F_2150 ) but all 10 observations are there
+
+#this village was visited twice - I am removing it but maybe it can still be saved?
+farmers <- farmers[!(farmers$village == "Namusambya" & (farmers$X_id %in% c("77386998",
+"77387000",
+"77387002",
+"77387005",
+"77387006",
+"77387009",
+"77387010",
+"77387012",
+"77387014",
+"77387017"))),]
+
+
+
+farmers$farmer_ID[duplicated(farmers$farmer_ID)] ## still 21 duplicates - not sure what to do with them
+#use this to investigate duplicates:
+#farmers[farmers$farmer_ID == "F_2245",c("village")]
+#table(farmers$farmer_ID[farmers$village == "Kisozi"])
+#farmers[farmers$village == "Kisozi" & farmers$farmer_ID == "F_2245",] 
+
+
+
 
 ## drop location, names and contact details
 to_drop <- c(
@@ -719,6 +778,13 @@ paste(paste("Check2.check.maize.clear.shops",i,sep="."),"q75",sep = ".."),
 paste(paste("Check2.check.maize.clear.shops",i,sep="."),"q76",sep = ".."),
 paste(paste("Check2.check.maize.clear.shops",i,sep="."),"pos",sep = ".."))] <- NULL
 }
+
+#################   data cleaning #################################3
+#fix IDs
+
+
+
+
 #write public dataset
 path <- strsplit(path, "/raw")[[1]]
 write.csv(farmers,paste(path,"public/baseline_farmers.csv", sep="/"), row.names=FALSE)
