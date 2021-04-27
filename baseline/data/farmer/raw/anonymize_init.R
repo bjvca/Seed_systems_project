@@ -11,6 +11,9 @@ path <- getwd()
 
 ### reads in raw data (not public)
 farmers <-read.csv(paste(path,"baseline_farmer_2021_04_25_15_03_43_633118.csv", sep="/"))
+
+#charles changed this name?
+farmers$village[farmers$village == "Buwaje"] <- "Buwagi"
 ### fix IDs
 ##one duplicate in village but only 9 farmers interviewed
 farmers$farmer_ID[farmers$village == "Musakira" & farmers$farmer_ID == "F_2997" & farmers$X_id == "77127699"] <-  "F_2998"
@@ -25,7 +28,7 @@ farmers$farmer_ID[farmers$village == "Nawantale" & farmers$farmer_ID == "F_1481"
 farmers$farmer_ID[farmers$village == "Namatooke" & farmers$farmer_ID == "F_2100" & farmers$X_id == "77386817"] <-  "F_2091"
 farmers$farmer_ID[farmers$village == "Nabuguzi" & farmers$farmer_ID == "F_1645" & farmers$X_id == "77431542"] <-  "F_1641"
 farmers$farmer_ID[farmers$village == "Matyama" & farmers$farmer_ID == "F_2185" & farmers$X_id == "77431611"] <-  "F_2184"
-farmers$farmer_ID[farmers$village == "Namato" & farmers$farmer_ID == "F_1639" & farmers$X_id == "77471346"] <-  "F_1634"
+farmers$farmer_ID[farmers$village == "Namato" & farmers$farmer_ID == "F_1639" & farmers$X_id == "77471346"] <-  "F_1633"
 farmers$farmer_ID[farmers$village == "Busenke" & farmers$farmer_ID == "F_3429" & farmers$X_id == "77471516"] <-  "F_3428"
 farmers$farmer_ID[farmers$village == "Buyunga (Kaliro)" & farmers$farmer_ID == "F_918" & farmers$X_id == "77471605"] <-  "F_919"
 farmers$farmer_ID[farmers$village == "Bumanya" & farmers$farmer_ID == "F_2697" & farmers$X_id == "77520869"] <-  "F_2691"
@@ -48,7 +51,40 @@ farmers$farmer_ID[farmers$village == "Bukowe" & farmers$farmer_ID == "F_147" & f
 farmers$farmer_ID[farmers$village == "Bukowe" & farmers$farmer_ID == "F_148" & farmers$X_id == "77386580"] <- "F_144"
 
 ##in Mpungwe, 3 IDs are duplicated ( F_2148 F_2149 F_2150 ) but all 10 observations are there
-##in Mpungwe, 3 IDs are duplicated ( F_2148 F_2149 F_2150 ) but all 10 observations are there
+## the duplicates are actually from Bulondo, where only 7 were recorded
+farmers$farmer_ID[farmers$village == "Mpungwe" & farmers$farmer_ID == "F_2148" & farmers$X_id == "77127824"] <- "F_3231"
+farmers$farmer_ID[farmers$village == "Mpungwe" & farmers$farmer_ID == "F_2149" & farmers$X_id == "77127603"] <- "F_3232"
+farmers$farmer_ID[farmers$village == "Mpungwe" & farmers$farmer_ID == "F_2150" & farmers$X_id == "77127627"] <- "F_3234"
+farmers$village[farmers$farmer_ID %in% c("F_3231","F_3232","F_3234")] <- "Bulondo"
+farmers$sub[farmers$farmer_ID %in% c("F_3231","F_3232","F_3234")] <- "Mpungwe"
+farmers$catchID[farmers$farmer_ID %in% c("F_3231","F_3232","F_3234")] <- 111
+farmers$farmer_ID[farmers$village == "Kyeeya" & farmers$farmer_ID == "F_265" & farmers$X_id == "77145372"] <- "F_2475"
+farmers$village[farmers$farmer_ID  == "F_2475"] <- "Isingo"
+
+farmers$farmer_ID[farmers$village == "Bupala" & farmers$farmer_ID == "F_2316" & farmers$X_id == "77386635"] <- "F_3026"
+farmers$village[farmers$farmer_ID  == "F_3026"] <- "Kalalu (Bugweri)"
+farmers$sub[farmers$farmer_ID  == "F_3026"] <- "Idudi"
+farmers$district[farmers$farmer_ID  == "F_3026"] <- "Bugweri"
+farmers$catchID[farmers$farmer_ID  == "F_3026"] <- 9
+
+farmers$farmer_ID[farmers$village == "Buwunga" & farmers$farmer_ID == "F_1892" & farmers$X_id == "77520637"] <- "F_1334"
+farmers$village[farmers$farmer_ID  == "F_1334"] <- "Nakabale (Kaliro)"
+farmers$sub[farmers$farmer_ID  == "F_1334"] <- "Kaliro Tc"
+farmers$district[farmers$farmer_ID  == "F_1334"] <- "Kaliro"
+farmers$catchID[farmers$farmer_ID  == "F_1334"] <- 61
+
+farmers$farmer_ID[farmers$village == "Mutelele" & farmers$farmer_ID == "F_1965" & farmers$X_id == "77576784"] <- "F_1955"
+farmers$village[farmers$farmer_ID  == "F_1955"] <- "Bululu"
+farmers$sub[farmers$farmer_ID  == "F_1955"] <- "Muterere"
+farmers$district[farmers$farmer_ID  == "F_1955"] <- "Bugiri"
+farmers$catchID[farmers$farmer_ID  == "F_1955"] <- 98
+
+farmers$farmer_ID[farmers$village == "Buyara" & farmers$farmer_ID == "F_1267" & farmers$X_id == "77703794"] <- "F_2587"
+farmers$village[farmers$farmer_ID  == "F_2587"] <- "Buwagi"
+farmers$sub[farmers$farmer_ID  == "F_2587"] <- "Budondo"
+farmers$district[farmers$farmer_ID  == "F_2587"] <- "Jinja"
+farmers$catchID[farmers$farmer_ID  == "F_2587"] <- 1
+
 
 #this village was visited twice - I am removing it but maybe it can still be saved?
 farmers <- farmers[!(farmers$village == "Namusambya" & (farmers$X_id %in% c("77386998",
@@ -62,13 +98,31 @@ farmers <- farmers[!(farmers$village == "Namusambya" & (farmers$X_id %in% c("773
 "77387014",
 "77387017"))),]
 
+farmers <- farmers[!(farmers$village == "Bumoozi" &  farmers$farmer_ID == "F_736" & farmers$X_id == "77352290"),]
+farmers <- farmers[!(farmers$village == "Nawasenga" &  farmers$farmer_ID == "F_639" & farmers$X_id == "77352536"),]
+farmers <- farmers[!(farmers$village == "Nsozi" &  farmers$farmer_ID == "F_1109" & farmers$X_id == "77386760"),]
+farmers <- farmers[!(farmers$village == "Bukola" &  farmers$farmer_ID == "F_1016" & farmers$X_id == "77409670"),]
+farmers <- farmers[!(farmers$village == "Nabinyonyi" &  farmers$farmer_ID == "F_49" & farmers$X_id == "77409793"),]
+farmers <- farmers[!(farmers$village == "Izira" &  farmers$farmer_ID == "F_721" & farmers$X_id == "77520701"),]
+farmers <- farmers[!(farmers$village == "Kigusa" &  farmers$farmer_ID == "F_2641" & farmers$X_id == "77576761"),]
+farmers <- farmers[!(farmers$village == "Mayuge Nilo" &  farmers$farmer_ID == "F_2740" & farmers$X_id == "77576821"),]
+farmers <- farmers[!(farmers$village == "Nkoone" &  farmers$farmer_ID == "F_1475" & farmers$X_id == "77576896"),]
+farmers <- farmers[!(farmers$village == "Kigusa" &  farmers$farmer_ID == "F_2644" & farmers$X_id == "77577060"),]
+farmers <- farmers[!(farmers$village == "Budhaya" &  farmers$farmer_ID == "F_1097" & farmers$X_id == "77577117"),]
+farmers <- farmers[!(farmers$village == "Maweito" &  farmers$farmer_ID == "F_3247" & farmers$X_id == "77706258"),]
+
+
 
 
 farmers$farmer_ID[duplicated(farmers$farmer_ID)] ## still 21 duplicates - not sure what to do with them
+
+test <- farmers[farmers$village == "Buyara",c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
+names(test) <- c("lat","long", "ID")
+m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
 #use this to investigate duplicates:
-#farmers[farmers$farmer_ID == "F_2245",c("village")]
-#table(farmers$farmer_ID[farmers$village == "Kisozi"])
-#farmers[farmers$village == "Kisozi" & farmers$farmer_ID == "F_2245",] 
+#farmers[farmers$farmer_ID == "F_1267",c("village")]
+#table(farmers$farmer_ID[farmers$village == "Buwagi"])
+#farmers[farmers$village == "Buyara" & farmers$farmer_ID == "F_1267",] 
 
 
 
