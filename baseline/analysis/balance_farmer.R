@@ -148,11 +148,12 @@ table(baseline_farmers$Check2.check.maize.q30b)
 
 #Q50. How many bags of maize did you harvest from this **${_select_name}**  in the second season (entoigo) of 2020?(including maize that was consumed)?
 baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 999] <- NA
+baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 250] <- NA
+#250 bags is an outlier
 #hist(baseline_farmers$Check2.check.maize.q50)
 summary(baseline_farmers$Check2.check.maize.q50)
 #plot(density(baseline_farmers$Check2.check.maize.q50, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q50)
-#250 bags is an outlier
 
 #Q51. How many kgs is in one bag?
 baseline_farmers$Check2.check.maize.q51[baseline_farmers$Check2.check.maize.q51 == 999] <- NA
@@ -161,22 +162,26 @@ summary(baseline_farmers$Check2.check.maize.q51)
 #plot(density(baseline_farmers$Check2.check.maize.q51, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q51)
 
-#area if intercropped
-baseline_farmers$area_intercropped <- baseline_farmers$Check2.check.maize.q29*baseline_farmers$Check2.check.maize.q30b/100
-#hist(baseline_farmers$area_intercropped)
-summary(baseline_farmers$area_intercropped)
-#plot(density(baseline_farmers$area_intercropped, na.rm=T))
-table(baseline_farmers$area_intercropped)
+# #TAKING INTERCROPPING INTO ACCOUNT
+# #area if intercropped
+# baseline_farmers$area_intercropped <- baseline_farmers$Check2.check.maize.q29*baseline_farmers$Check2.check.maize.q30b/100
+# #hist(baseline_farmers$area_intercropped)
+# summary(baseline_farmers$area_intercropped)
+# #plot(density(baseline_farmers$area_intercropped, na.rm=T))
+# table(baseline_farmers$area_intercropped)
+# 
+# #area if not intercropped
+# baseline_farmers$area_not_intercropped <- baseline_farmers$Check2.check.maize.q29
+# 
+# #area both
+# baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",baseline_farmers$area_intercropped,baseline_farmers$area_not_intercropped)
+# #hist(baseline_farmers$area)
+# summary(baseline_farmers$area)
+# #plot(density(baseline_farmers$area, na.rm=T))
+# table(baseline_farmers$area)
 
-#area if not intercropped
-baseline_farmers$area_not_intercropped <- baseline_farmers$Check2.check.maize.q29
-
-#area both
-baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",baseline_farmers$area_intercropped,baseline_farmers$area_not_intercropped)
-#hist(baseline_farmers$area)
-summary(baseline_farmers$area)
-#plot(density(baseline_farmers$area, na.rm=T))
-table(baseline_farmers$area)
+#IGNORING INTERCROPPING
+baseline_farmers$area <- baseline_farmers$Check2.check.maize.q29
 
 #production in kg
 baseline_farmers$production_kg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51
@@ -184,15 +189,16 @@ baseline_farmers$production_kg <- baseline_farmers$Check2.check.maize.q50*baseli
 summary(baseline_farmers$production_kg)
 #plot(density(baseline_farmers$production_kg, na.rm=T))
 table(baseline_farmers$production_kg)
-#25000 kg is an outlier
 
 #yield in kg per acre
 baseline_farmers$yield_kgperacre <- baseline_farmers$production_kg/baseline_farmers$area
 #hist(baseline_farmers$yield_kgperacre)
 summary(baseline_farmers$yield_kgperacre)
 #plot(density(baseline_farmers$yield_kgperacre, na.rm=T))
+#outlier
 table(baseline_farmers$yield_kgperacre)
-#7e+05 is an outlier
+baseline_farmers$yield_kgperacre[baseline_farmers$yield_kgperacre == 140000] <- NA
+
 
 df_averages[1,10] <- mean(baseline_farmers$yield_kgperacre, na.rm=T)
 df_averages[2,10] <- sd(baseline_farmers$yield_kgperacre, na.rm=T)
