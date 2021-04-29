@@ -9,7 +9,7 @@ baseline_farmers <- read.csv(paste(path,"data/farmer/public/baseline_farmers.csv
 
 #no treatment indicator for dealer training in baseline_farmers
 #treatments at shop level
-treatments_shop_level <- read.csv(paste(path,"data/agro_input/raw/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
+treatments_shop_level <- read.csv(paste(path,"data/agro_input/public/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
 #treatments at CA level
 trainingtreatment_CA_level <- data.frame(aggregate(treatments_shop_level$training, list(treatments_shop_level$catchID), mean))
 names(trainingtreatment_CA_level) <- c("catchID","training")
