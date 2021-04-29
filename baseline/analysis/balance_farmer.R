@@ -27,9 +27,9 @@ df_ols <- array(NA,dim=c(3,3,10))
 ###FILLING df_averages
 # 1. age of household head - years (q14)
 baseline_farmers$Check2.check.maize.q14[baseline_farmers$Check2.check.maize.q14 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q14)
+#hist(baseline_farmers$Check2.check.maize.q14)
 summary(baseline_farmers$Check2.check.maize.q14)
-plot(density(baseline_farmers$Check2.check.maize.q14, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q14, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q14)
 
 df_averages[1,1] <- mean(baseline_farmers$Check2.check.maize.q14, na.rm=T)
@@ -56,9 +56,9 @@ df_averages[2,3] <- sd(baseline_farmers$Check2.check.maize.q15=="Male", na.rm=T)
 
 # 4. household size - number of people in household (including interviewee)/number of individuals that eats on a regular basis in the house (q18)
 baseline_farmers$Check2.check.maize.q18[baseline_farmers$Check2.check.maize.q18 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q18)
+#hist(baseline_farmers$Check2.check.maize.q18)
 summary(baseline_farmers$Check2.check.maize.q18)
-plot(density(baseline_farmers$Check2.check.maize.q18, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q18, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q18)
 
 df_averages[1,4] <- mean(baseline_farmers$Check2.check.maize.q18, na.rm=T)
@@ -66,9 +66,9 @@ df_averages[2,4] <- sd(baseline_farmers$Check2.check.maize.q18, na.rm=T)
 
 # 5. distance of homestead to nearest agro-input shop selling maize seed - km (q10)
 baseline_farmers$Check2.check.maize.q10[baseline_farmers$Check2.check.maize.q10 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q10)
+#hist(baseline_farmers$Check2.check.maize.q10)
 summary(baseline_farmers$Check2.check.maize.q10)
-plot(density(baseline_farmers$Check2.check.maize.q10, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q10, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q10)
 
 df_averages[1,5] <- mean(baseline_farmers$Check2.check.maize.q10, na.rm=T)
@@ -85,7 +85,7 @@ table(baseline_farmers$ironsheets)
 df_averages[1,6] <- mean(baseline_farmers$ironsheets=="TRUE", na.rm=T)
 df_averages[2,6] <- sd(baseline_farmers$ironsheets=="TRUE", na.rm=T)
 
-# 7. has used any quality maize seed like OPV or hybrid in the last season on any of your plots - 1 is yes (q25a)
+# 7. has used any quality maize seed like OPV or hybrid in the last season on any of your #plots - 1 is yes (q25a)
 baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 999] <- NA
 baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 98] <- NA
 summary(baseline_farmers$Check2.check.maize.q25a)
@@ -103,7 +103,7 @@ table(baseline_farmers$Check2.check.maize.q25h)
 df_averages[1,8] <- mean(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
 df_averages[2,8] <- sd(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
 
-# 9. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your plots - 1 is yes (q25a, q25b aggregated at household level)
+# 9. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your #plots - 1 is yes (q25a, q25b aggregated at household level)
 baseline_farmers$fromagroinputshop <- FALSE
 baseline_farmers$fromagroinputshop <- (baseline_farmers$Check2.check.maize.q25a=="Yes" & baseline_farmers$Check2.check.maize.q25b=="d")
 summary(baseline_farmers$fromagroinputshop)
@@ -112,15 +112,15 @@ table(baseline_farmers$fromagroinputshop)
 df_averages[1,9] <- mean(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
 df_averages[2,9] <- sd(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
 
-# 10. maize yields in the last season on a randomly chosen plot - estimated production/estimated size of the plot (q29, q30a,q30b, q50, q51)
-#Q29. What is the area of this **${plot_select_name}** maize field during the second season of **2020 (entoigo 2020)**? **ACRES** 
+# 10. maize yields in the last season on a randomly chosen #plot - estimated production/estimated size of the #plot (q29, q30a,q30b, q50, q51)
+#Q29. What is the area of this **${#plot_select_name}** maize field during the second season of **2020 (entoigo 2020)**? **ACRES** 
 baseline_farmers$Check2.check.maize.q29[baseline_farmers$Check2.check.maize.q29 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q29)
+#hist(baseline_farmers$Check2.check.maize.q29)
 summary(baseline_farmers$Check2.check.maize.q29)
-plot(density(baseline_farmers$Check2.check.maize.q29, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q29, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q29)
 
-#Q30. Was this **${plot_select_name}** plot intercropped in the second season (entoigo) of 2020?
+#Q30. Was this **${#plot_select_name}** plot intercropped in the second season (entoigo) of 2020?
 baseline_farmers$Check2.check.maize.q30[baseline_farmers$Check2.check.maize.q30 == 999] <- NA
 summary(baseline_farmers$Check2.check.maize.q30)
 table(baseline_farmers$Check2.check.maize.q30)
@@ -129,31 +129,31 @@ table(baseline_farmers$Check2.check.maize.q30)
 baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == 999] <- NA
 baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == "n/a"] <- NA
 baseline_farmers$Check2.check.maize.q30b <- as.numeric(baseline_farmers$Check2.check.maize.q30b)
-hist(baseline_farmers$Check2.check.maize.q30b)
+#hist(baseline_farmers$Check2.check.maize.q30b)
 summary(baseline_farmers$Check2.check.maize.q30b)
-plot(density(baseline_farmers$Check2.check.maize.q30b, na.rm=T))
+#(density(baseline_farmers$Check2.check.maize.q30b, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q30b)
 
-#Q50. How many bags of maize did you harvest from this **${plot_select_name}** plot in the second season (entoigo) of 2020?(including maize that was consumed)?
+#Q50. How many bags of maize did you harvest from this **${_select_name}**  in the second season (entoigo) of 2020?(including maize that was consumed)?
 baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q50)
+#hist(baseline_farmers$Check2.check.maize.q50)
 summary(baseline_farmers$Check2.check.maize.q50)
-plot(density(baseline_farmers$Check2.check.maize.q50, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q50, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q50)
 #250 bags is an outlier
 
 #Q51. How many kgs is in one bag?
 baseline_farmers$Check2.check.maize.q51[baseline_farmers$Check2.check.maize.q51 == 999] <- NA
-hist(baseline_farmers$Check2.check.maize.q51)
+#hist(baseline_farmers$Check2.check.maize.q51)
 summary(baseline_farmers$Check2.check.maize.q51)
-plot(density(baseline_farmers$Check2.check.maize.q51, na.rm=T))
+#plot(density(baseline_farmers$Check2.check.maize.q51, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q51)
 
 #area if intercropped
 baseline_farmers$area_intercropped <- baseline_farmers$Check2.check.maize.q29*baseline_farmers$Check2.check.maize.q30b/100
-hist(baseline_farmers$area_intercropped)
+#hist(baseline_farmers$area_intercropped)
 summary(baseline_farmers$area_intercropped)
-plot(density(baseline_farmers$area_intercropped, na.rm=T))
+#plot(density(baseline_farmers$area_intercropped, na.rm=T))
 table(baseline_farmers$area_intercropped)
 
 #area if not intercropped
@@ -161,24 +161,24 @@ baseline_farmers$area_not_intercropped <- baseline_farmers$Check2.check.maize.q2
 
 #area both
 baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",baseline_farmers$area_intercropped,baseline_farmers$area_not_intercropped)
-hist(baseline_farmers$area)
+#hist(baseline_farmers$area)
 summary(baseline_farmers$area)
-plot(density(baseline_farmers$area, na.rm=T))
+#plot(density(baseline_farmers$area, na.rm=T))
 table(baseline_farmers$area)
 
 #production in kg
 baseline_farmers$production_kg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51
-hist(baseline_farmers$production_kg)
+#hist(baseline_farmers$production_kg)
 summary(baseline_farmers$production_kg)
-plot(density(baseline_farmers$production_kg, na.rm=T))
+#plot(density(baseline_farmers$production_kg, na.rm=T))
 table(baseline_farmers$production_kg)
 #25000 kg is an outlier
 
 #yield in kg per acre
 baseline_farmers$yield_kgperacre <- baseline_farmers$production_kg/baseline_farmers$area
-hist(baseline_farmers$yield_kgperacre)
+#hist(baseline_farmers$yield_kgperacre)
 summary(baseline_farmers$yield_kgperacre)
-plot(density(baseline_farmers$yield_kgperacre, na.rm=T))
+#plot(density(baseline_farmers$yield_kgperacre, na.rm=T))
 table(baseline_farmers$yield_kgperacre)
 #7e+05 is an outlier
 
