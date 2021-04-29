@@ -7,7 +7,6 @@ path <- getwd()
 path <- strsplit(path, "/registered_report")[[1]]
 baseline_farmers <- read.csv(paste(path,"data/farmer/public/baseline_farmers.csv", sep="/"), stringsAsFactors = TRUE)
 
-
 #no treatment indicator for dealer training in baseline_farmers
 #treatments at shop level
 treatments_shop_level <- read.csv(paste(path,"data/agro_input/raw/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
@@ -141,7 +140,7 @@ table(baseline_farmers$Check2.check.maize.q30)
 #Q30b. Estimate percentage allocated to maize on **${plot_select_name}** in the second season (entoigo) of 2020? **[percentage %]**
 baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == 999] <- NA
 baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == "n/a"] <- NA
-baseline_farmers$Check2.check.maize.q30b <- as.numeric(baseline_farmers$Check2.check.maize.q30b)
+baseline_farmers$Check2.check.maize.q30b <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b))
 #hist(baseline_farmers$Check2.check.maize.q30b)
 summary(baseline_farmers$Check2.check.maize.q30b)
 #(density(baseline_farmers$Check2.check.maize.q30b, na.rm=T))
