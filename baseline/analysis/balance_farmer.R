@@ -74,6 +74,21 @@ table(baseline_farmers$Check2.check.maize.q10)
 df_averages[1,5] <- mean(baseline_farmers$Check2.check.maize.q10, na.rm=T)
 df_averages[2,5] <- sd(baseline_farmers$Check2.check.maize.q10, na.rm=T)
 
+# 1. *purchased* quality maize seed like OPV or hybrid in the last season
+# for any plot - 1 is yes (q25a, q25b aggregated at household level)
+# 2. bought quality maize seed like OPV or hybrid from agro-input shop
+# in the last season for any plot - 1 is yes (q25a, q25b aggregated at
+#                                             household level)
+# 3. quantity of quality maize seed (hybrid or OPV) bought from an input
+# dealer in the last season - kg (q25d aggregated at household level)
+# 4. index of seed quality perception: average ratings of maize seed of all
+# input dealers in catchment area (based on q69a-q69f aggregated at
+#                                  household level)
+# 5. index of dealer (effort) perception (based on q68b-q68f, q70-q76)
+# 6. share of farmers switching to different dealer (q67)
+# 7. index of farmers practices: interaction between adoption on that plot
+# (q31, (q32)) and farmers practices on that plot (q40-q49)
+
 # 6. Material of the roof? - b iron sheets (q21)
 baseline_farmers$ironsheets <- FALSE
 baseline_farmers$ironsheets <- (baseline_farmers$Check2.check.maize.q21=="b")
