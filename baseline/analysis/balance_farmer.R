@@ -180,7 +180,9 @@ table(baseline_farmers$Check2.check.maize.q51)
 # #plot(density(baseline_farmers$area, na.rm=T))
 # table(baseline_farmers$area)
 
-#IGNORING INTERCROPPING
+#IGNORING INTERCROPPING BECAUSE WILBER SAYS SO.
+#IF MAIZE IS INTERCROPPED, MAIZE IS OFTEN (ALMOST ALWAYS) THE MAIN CROP.
+#INTERCROPPED OR NOT, THERE'S AN EQUAL NUMBER OF MAIZE CROPS.
 baseline_farmers$area <- baseline_farmers$Check2.check.maize.q29
 
 #production in kg
