@@ -72,22 +72,34 @@ table(baseline_farmers$Check2.check.maize.q10)
 df_averages[1,5] <- mean(baseline_farmers$Check2.check.maize.q10, na.rm=T)
 df_averages[2,5] <- sd(baseline_farmers$Check2.check.maize.q10, na.rm=T)
 
-# 1. *purchased* quality maize seed like OPV or hybrid in the last season
-# for any plot - 1 is yes (q25a, q25b aggregated at household level)
-# 2. bought quality maize seed like OPV or hybrid from agro-input shop
-# in the last season for any plot - 1 is yes (q25a, q25b aggregated at
-#                                             household level)
-# 3. quantity of quality maize seed (hybrid or OPV) bought from an input
-# dealer in the last season - kg (q25d aggregated at household level)
-# 4. index of seed quality perception: average ratings of maize seed of all
-# input dealers in catchment area (based on q69a-q69f aggregated at
-#                                  household level)
-# 5. index of dealer (effort) perception (based on q68b-q68f, q70-q76)
-# 6. share of farmers switching to different dealer (q67)
-# 7. index of farmers practices: interaction between adoption on that plot
-# (q31, (q32)) and farmers practices on that plot (q40-q49)
+# 6. has used any quality maize seed like OPV or hybrid in the last season on any of your #plots - 1 is yes (q25a)
+baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 999] <- NA
+baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 98] <- NA
+summary(baseline_farmers$Check2.check.maize.q25a)
+table(baseline_farmers$Check2.check.maize.q25a)
 
-# 6. quantity of quality maize seed bought from an input dealer in kg
+df_averages[1,6] <- mean(baseline_farmers$Check2.check.maize.q25a=="Yes", na.rm=T)
+df_averages[2,6] <- sd(baseline_farmers$Check2.check.maize.q25a=="Yes", na.rm=T)
+
+# 7. do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? - 1 is yes (q25h)
+baseline_farmers$Check2.check.maize.q25h[baseline_farmers$Check2.check.maize.q25h == 999] <- NA
+baseline_farmers$Check2.check.maize.q25h[baseline_farmers$Check2.check.maize.q25h == 98] <- NA
+summary(baseline_farmers$Check2.check.maize.q25h)
+table(baseline_farmers$Check2.check.maize.q25h)
+
+df_averages[1,7] <- mean(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
+df_averages[2,7] <- sd(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
+
+# 8. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your #plots - 1 is yes (q25a, q25b aggregated at household level)
+baseline_farmers$fromagroinputshop <- FALSE
+baseline_farmers$fromagroinputshop <- (baseline_farmers$Check2.check.maize.q25a=="Yes" & baseline_farmers$Check2.check.maize.q25b=="d")
+summary(baseline_farmers$fromagroinputshop)
+table(baseline_farmers$fromagroinputshop)
+
+df_averages[1,8] <- mean(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
+df_averages[2,8] <- sd(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
+
+# 9. quantity of quality maize seed bought from an input dealer in kg
 table(baseline_farmers$Check2.check.maize.q25d)
 baseline_farmers$Check2.check.maize.q25d[baseline_farmers$Check2.check.maize.q25d == "n/a"] <- NA
 baseline_farmers$Check2.check.maize.q25d[baseline_farmers$Check2.check.maize.q25d == 999] <- NA
@@ -99,35 +111,8 @@ summary(baseline_farmers$Check2.check.maize.q25d)
 #boxplot(baseline_farmers$Check2.check.maize.q25d)
 #plot(density(baseline_farmers$Check2.check.maize.q25d))
 
-df_averages[1,6] <- mean(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
-df_averages[2,6] <- sd(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
-
-# 7. has used any quality maize seed like OPV or hybrid in the last season on any of your #plots - 1 is yes (q25a)
-baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 999] <- NA
-baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 98] <- NA
-summary(baseline_farmers$Check2.check.maize.q25a)
-table(baseline_farmers$Check2.check.maize.q25a)
-
-df_averages[1,7] <- mean(baseline_farmers$Check2.check.maize.q25a=="Yes", na.rm=T)
-df_averages[2,7] <- sd(baseline_farmers$Check2.check.maize.q25a=="Yes", na.rm=T)
-
-# 8. do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? - 1 is yes (q25h)
-baseline_farmers$Check2.check.maize.q25h[baseline_farmers$Check2.check.maize.q25h == 999] <- NA
-baseline_farmers$Check2.check.maize.q25h[baseline_farmers$Check2.check.maize.q25h == 98] <- NA
-summary(baseline_farmers$Check2.check.maize.q25h)
-table(baseline_farmers$Check2.check.maize.q25h)
-
-df_averages[1,8] <- mean(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
-df_averages[2,8] <- sd(baseline_farmers$Check2.check.maize.q25h=="Yes", na.rm=T)
-
-# 9. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your #plots - 1 is yes (q25a, q25b aggregated at household level)
-baseline_farmers$fromagroinputshop <- FALSE
-baseline_farmers$fromagroinputshop <- (baseline_farmers$Check2.check.maize.q25a=="Yes" & baseline_farmers$Check2.check.maize.q25b=="d")
-summary(baseline_farmers$fromagroinputshop)
-table(baseline_farmers$fromagroinputshop)
-
-df_averages[1,9] <- mean(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
-df_averages[2,9] <- sd(baseline_farmers$fromagroinputshop=="TRUE", na.rm=T)
+df_averages[1,9] <- mean(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
+df_averages[2,9] <- sd(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
 
 # 10. maize yields in the last season on a randomly chosen #plot - estimated production/estimated size of the #plot (q29, q30a,q30b, q50, q51)
 #Q29. What is the area of this **${#plot_select_name}** maize field during the second season of **2020 (entoigo 2020)**? **ACRES** 
@@ -317,8 +302,8 @@ df_ols[1,3,5] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,5] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,5] <- coef_test(ols, vcov_cluster)[4,5]
 
-# 6. quantity of quality maize seed bought from an input dealer in kg
-ols <- lm((Check2.check.maize.q25d)~training*Check2.check.maize.clearing*baseline_farmers$Check2.check.maize.video_shown, data=baseline_farmers)
+# 6. has used any quality maize seed like OPV or hybrid in the last season on any of your plots - 1 is yes (q25a)
+ols <- lm(baseline_farmers$Check2.check.maize.q25a=="Yes"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
 vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$catchID, type = "CR0")
 
 df_ols[1,1,6] <- coef_test(ols, vcov_cluster)[2,1]
@@ -333,8 +318,8 @@ df_ols[1,3,6] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,6] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,6] <- coef_test(ols, vcov_cluster)[4,5]
 
-# 7. has used any quality maize seed like OPV or hybrid in the last season on any of your plots - 1 is yes (q25a)
-ols <- lm(baseline_farmers$Check2.check.maize.q25a=="Yes"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
+# 7. do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? - 1 is yes (q25h)
+ols <- lm(baseline_farmers$Check2.check.maize.q25h=="Yes"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
 vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$catchID, type = "CR0")
 
 df_ols[1,1,7] <- coef_test(ols, vcov_cluster)[2,1]
@@ -349,8 +334,8 @@ df_ols[1,3,7] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,7] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,7] <- coef_test(ols, vcov_cluster)[4,5]
 
-# 8. do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? - 1 is yes (q25h)
-ols <- lm(baseline_farmers$Check2.check.maize.q25h=="Yes"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
+# 8. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your plots - 1 is yes (q25a, q25b aggregated at household level)
+ols <- lm(baseline_farmers$fromagroinputshop=="TRUE"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
 vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$catchID, type = "CR0")
 
 df_ols[1,1,8] <- coef_test(ols, vcov_cluster)[2,1]
@@ -365,8 +350,8 @@ df_ols[1,3,8] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,8] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,8] <- coef_test(ols, vcov_cluster)[4,5]
 
-# 9. has bought quality maize seed like OPV or hybrid in the last season from agro-input shop for any of your plots - 1 is yes (q25a, q25b aggregated at household level)
-ols <- lm(baseline_farmers$fromagroinputshop=="TRUE"~training*Check2.check.maize.clearing*Check2.check.maize.video_shown, data=baseline_farmers)
+# 9. quantity of quality maize seed bought from an input dealer in kg
+ols <- lm((Check2.check.maize.q25d)~training*Check2.check.maize.clearing*baseline_farmers$Check2.check.maize.video_shown, data=baseline_farmers)
 vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$catchID, type = "CR0")
 
 df_ols[1,1,9] <- coef_test(ols, vcov_cluster)[2,1]
