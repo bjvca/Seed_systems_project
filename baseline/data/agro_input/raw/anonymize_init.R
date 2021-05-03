@@ -113,15 +113,15 @@ shops <- merge(shops,moisture, by.x="maize.owner.agree.id",by.y="id", all.x=T)
 shops$shop_ID <- paste("AD",rownames(shops), sep="_")
 shops$shop_ID <- factor(shops$shop_ID)
 
+## write raw data to create panel with stack survey data
+write.csv(shops,file="wave2_raw.csv", row.names=FALSE)
+
 #Categorizing different input dealers into catchment areas
 shops$catchmentID <- NA
 counter <- 1
 
 for (shop_1 in names(table(shops$shop_ID))) {
-
 shops$catchmentID[shops$shop_ID == shop_1] <- counter
-
-
 for (shop_2 in names(table(shops$shop_ID))) {
 ### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
 if ( haversine(c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_1] ,shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_1]),c(shops$maize.owner.agree._gps_latitude[shops$shop_ID == shop_2],shops$maize.owner.agree._gps_longitude[shops$shop_ID == shop_2])) < 2.5) {
