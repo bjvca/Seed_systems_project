@@ -3,6 +3,7 @@
 rm(list=ls())
 
 #for Caro
+setwd("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/baseline/registered_report")
 path <- getwd()
 path <- strsplit(path, "/registered_report")[[1]]
 baseline_farmers <- read.csv(paste(path,"data/farmer/public/baseline_farmers.csv", sep="/"), stringsAsFactors = TRUE)
@@ -86,16 +87,20 @@ df_averages[2,5] <- sd(baseline_farmers$Check2.check.maize.q10, na.rm=T)
 # 7. index of farmers practices: interaction between adoption on that plot
 # (q31, (q32)) and farmers practices on that plot (q40-q49)
 
-# 6. Material of the roof? - b iron sheets (q21)
-baseline_farmers$ironsheets <- FALSE
-baseline_farmers$ironsheets <- (baseline_farmers$Check2.check.maize.q21=="b")
+# 6. quantity of quality maize seed bought from an input dealer in kg
+table(baseline_farmers$Check2.check.maize.q25d)
+baseline_farmers$Check2.check.maize.q25d[baseline_farmers$Check2.check.maize.q25d == "n/a"] <- NA
+baseline_farmers$Check2.check.maize.q25d[baseline_farmers$Check2.check.maize.q25d == 999] <- NA
+baseline_farmers$Check2.check.maize.q25d <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q25d))
+baseline_farmers$Check2.check.maize.q25d[is.na(baseline_farmers$Check2.check.maize.q25d)] = 0
 
-baseline_farmers$ironsheets[baseline_farmers$ironsheets == 999] <- NA
-summary(baseline_farmers$ironsheets)
-table(baseline_farmers$ironsheets)
+#hist(baseline_farmers$Check2.check.maize.q25d)
+summary(baseline_farmers$Check2.check.maize.q25d)
+#boxplot(baseline_farmers$Check2.check.maize.q25d)
+#plot(density(baseline_farmers$Check2.check.maize.q25d))
 
-df_averages[1,6] <- mean(baseline_farmers$ironsheets=="TRUE", na.rm=T)
-df_averages[2,6] <- sd(baseline_farmers$ironsheets=="TRUE", na.rm=T)
+df_averages[1,6] <- mean(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
+df_averages[2,6] <- sd(baseline_farmers$Check2.check.maize.q25d, na.rm=T)
 
 # 7. has used any quality maize seed like OPV or hybrid in the last season on any of your #plots - 1 is yes (q25a)
 baseline_farmers$Check2.check.maize.q25a[baseline_farmers$Check2.check.maize.q25a == 999] <- NA
@@ -132,23 +137,9 @@ summary(baseline_farmers$Check2.check.maize.q29)
 #plot(density(baseline_farmers$Check2.check.maize.q29, na.rm=T))
 table(baseline_farmers$Check2.check.maize.q29)
 
-#Q30. Was this **${#plot_select_name}** plot intercropped in the second season (entoigo) of 2020?
-baseline_farmers$Check2.check.maize.q30[baseline_farmers$Check2.check.maize.q30 == 999] <- NA
-summary(baseline_farmers$Check2.check.maize.q30)
-table(baseline_farmers$Check2.check.maize.q30)
-
-#Q30b. Estimate percentage allocated to maize on **${plot_select_name}** in the second season (entoigo) of 2020? **[percentage %]**
-baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == 999] <- NA
-baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == "n/a"] <- NA
-baseline_farmers$Check2.check.maize.q30b <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b))
-#hist(baseline_farmers$Check2.check.maize.q30b)
-summary(baseline_farmers$Check2.check.maize.q30b)
-#(density(baseline_farmers$Check2.check.maize.q30b, na.rm=T))
-table(baseline_farmers$Check2.check.maize.q30b)
-
 #Q50. How many bags of maize did you harvest from this **${_select_name}**  in the second season (entoigo) of 2020?(including maize that was consumed)?
 baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 999] <- NA
-baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 250] <- NA
+#baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50 == 250] <- NA
 #250 bags is an outlier
 #hist(baseline_farmers$Check2.check.maize.q50)
 summary(baseline_farmers$Check2.check.maize.q50)
@@ -163,6 +154,20 @@ summary(baseline_farmers$Check2.check.maize.q51)
 table(baseline_farmers$Check2.check.maize.q51)
 
 # #TAKING INTERCROPPING INTO ACCOUNT
+# #Q30. Was this **${#plot_select_name}** plot intercropped in the second season (entoigo) of 2020?
+# baseline_farmers$Check2.check.maize.q30[baseline_farmers$Check2.check.maize.q30 == 999] <- NA
+# summary(baseline_farmers$Check2.check.maize.q30)
+# table(baseline_farmers$Check2.check.maize.q30)
+# 
+# #Q30b. Estimate percentage allocated to maize on **${plot_select_name}** in the second season (entoigo) of 2020? **[percentage %]**
+# baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == 999] <- NA
+# baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b == "n/a"] <- NA
+# baseline_farmers$Check2.check.maize.q30b <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b))
+# #hist(baseline_farmers$Check2.check.maize.q30b)
+# summary(baseline_farmers$Check2.check.maize.q30b)
+# #(density(baseline_farmers$Check2.check.maize.q30b, na.rm=T))
+# table(baseline_farmers$Check2.check.maize.q30b)
+# 
 # #area if intercropped
 # baseline_farmers$area_intercropped <- baseline_farmers$Check2.check.maize.q29*baseline_farmers$Check2.check.maize.q30b/100
 # #hist(baseline_farmers$area_intercropped)
@@ -179,6 +184,8 @@ table(baseline_farmers$Check2.check.maize.q51)
 # summary(baseline_farmers$area)
 # #plot(density(baseline_farmers$area, na.rm=T))
 # table(baseline_farmers$area)
+# baseline_farmers$yield_kgperacre[baseline_farmers$yield_kgperacre == 140000] <- NA
+# #outlier
 
 #IGNORING INTERCROPPING BECAUSE WILBER SAYS SO.
 #IF MAIZE IS INTERCROPPED, MAIZE IS OFTEN (ALMOST ALWAYS) THE MAIN CROP.
@@ -197,10 +204,7 @@ baseline_farmers$yield_kgperacre <- baseline_farmers$production_kg/baseline_farm
 #hist(baseline_farmers$yield_kgperacre)
 summary(baseline_farmers$yield_kgperacre)
 #plot(density(baseline_farmers$yield_kgperacre, na.rm=T))
-#outlier
 table(baseline_farmers$yield_kgperacre)
-baseline_farmers$yield_kgperacre[baseline_farmers$yield_kgperacre == 140000] <- NA
-
 
 df_averages[1,10] <- mean(baseline_farmers$yield_kgperacre, na.rm=T)
 df_averages[2,10] <- sd(baseline_farmers$yield_kgperacre, na.rm=T)
@@ -313,8 +317,8 @@ df_ols[1,3,5] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,5] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,5] <- coef_test(ols, vcov_cluster)[4,5]
 
-# 6. Material of the roof? - b iron sheets (q21)
-ols <- lm((baseline_farmers$ironsheets=="TRUE")~training*Check2.check.maize.clearing*baseline_farmers$Check2.check.maize.video_shown, data=baseline_farmers)
+# 6. quantity of quality maize seed bought from an input dealer in kg
+ols <- lm((Check2.check.maize.q25d)~training*Check2.check.maize.clearing*baseline_farmers$Check2.check.maize.video_shown, data=baseline_farmers)
 vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$catchID, type = "CR0")
 
 df_ols[1,1,6] <- coef_test(ols, vcov_cluster)[2,1]
