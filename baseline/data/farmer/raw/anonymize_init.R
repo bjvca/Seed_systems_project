@@ -112,9 +112,7 @@ farmers <- farmers[!(farmers$village == "Budhaya" &  farmers$farmer_ID == "F_109
 farmers <- farmers[!(farmers$village == "Maweito" &  farmers$farmer_ID == "F_3247" & farmers$X_id == "77706258"),]
 
 
-
-
-farmers$farmer_ID[duplicated(farmers$farmer_ID)] ## still 21 duplicates - not sure what to do with them
+farmers$farmer_ID[duplicated(farmers$farmer_ID)] 
 
 test <- farmers[farmers$village == "Buyara",c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
 names(test) <- c("lat","long", "ID")
@@ -124,6 +122,16 @@ m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(gro
 #table(farmers$farmer_ID[farmers$village == "Buwagi"])
 #farmers[farmers$village == "Buyara" & farmers$farmer_ID == "F_1267",] 
 
+#merge input dealers to which farmers (villages) are conntected - needed for clustering
+
+
+path2 <- strsplit(path, "/farmer")[[1]][1]
+
+
+
+shops <- read.csv(paste(path2,"agro_input/raw/villages_edited_final.csv", sep="/"))
+
+farmers <- merge(farmers,shops[c("shop_ID", "district","sub","sampling_village")], by.x=c("district","sub","village"), by.y=c("district","sub","sampling_village") )
 
 
 
@@ -833,8 +841,7 @@ paste(paste("Check2.check.maize.clear.shops",i,sep="."),"q76",sep = ".."),
 paste(paste("Check2.check.maize.clear.shops",i,sep="."),"pos",sep = ".."))] <- NULL
 }
 
-#################   data cleaning #################################3
-#fix IDs
+
 
 
 
