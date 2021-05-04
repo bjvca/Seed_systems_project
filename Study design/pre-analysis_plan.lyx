@@ -817,15 +817,15 @@ The decision to randomize the first two interventions at the level of the
 ng catchment areas.
  Randomization at the level of the input dealer prompted ethical concerns.
  For instance, it may be that one farmer gets assigned to the treatment
- group for the information clearing house and receive a good score, while
+ group for the information clearing house and receive a good rating, while
  his/her neighbor gets assigned to the control group of that particular
- treatment (and does not get scored).
+ treatment (and does not get rated).
  Farmers in the vicinity of the two input dealers farmers may be more inclined
- to switch to the dealer with that received the score, even though the services
- of the input dealer in the control group may be the same.
+ to switch to the dealer with that received the rating, even though the
+ services of the input dealer in the control group may be the same.
  While, in this case, the rating would lead to a competitive advantage for
- the farmer that got the score, the reverse may be true if the farmer gets
- a poor score.
+ the farmer that got the rating, the reverse may be true if the farmer gets
+ a poor rating.
  Delineating a catchment area based on overlapping areas that are served
  by the input dealers and randomizing at this level reduces this concern.
  While this is less of a concern for the first treatment, we were still
@@ -1026,9 +1026,9 @@ We will investigate both outcomes at the input dealer level and at the farmer
  season, and (ii) the reputation of the input dealer.
  The quantity of seed that the input dealer sold is a continuous variable
  (kilogram) with mean 325 and standard deviation 454.
- For the reputation outcome variable, farmers score the input dealers in
+ For the reputation outcome variable, farmers rating the input dealers in
  their catchment areas on a scale from 1 to 5.
- A dealer's reputation is then calculated as the average of those scores
+ A dealer's reputation is then calculated as the average of those ratings
  and treated as a continuous variable.
  The mean reputation of an input dealer in the sample is 3.68 and the standard
  deviation is 0.61.
@@ -1214,7 +1214,7 @@ Once we have decided on how many catchment areas (and associated input dealers)
  are necessary to detect effects at the level of the input dealer, we need
  to determine how many farmers we need to sample from these catchment areas
  to identify impact of the interventions on that level.
- To make sure we have sufficient farmers to score each input dealer, we
+ To make sure we have sufficient farmers to rating each input dealer, we
  will allocate a fixed number of farmers to each input dealer.
  This may mean that we have slightly differing numbers of farmers in the
  different treatment groups, as the randomization happened at the catchment
@@ -1249,7 +1249,7 @@ ng input dealers), we fix the number of catchment areas at this number (we
 
 \begin_layout Standard
 We consider three variables at the level of the farmer: yield, input use
- and seed quality (based on the score that farmers give to the seed).
+ and seed quality (based on the rating that farmers give to the seed).
  Maize yield per acre is a continuous variable with a mean of 541 kilogram
  per acre and a standard deviation of 412 kilogram per acre.
  
@@ -1390,7 +1390,7 @@ name "fig:Power-adoption"
 \begin_layout Standard
 The last outcome we consider in our power analysis is the quality of seed
  assessed by farmers.
- The initial quality score from 1 to 5 is transformed into a binary variable
+ The initial quality rating from 1 to 5 is transformed into a binary variable
  with a mean of 0.26 and a standard deviation of 0.44.
  We assume a small effect in terms of Cohen’s d (0.2 times the standard deviation
  or 0.088 percentage points).
@@ -1534,7 +1534,7 @@ literal "true"
 \begin_layout Standard
 During qualitative data collection, we learn that input dealers repackage
  seed to sizes/quantities convenient and affordable to smallholder farmers
- who may not afford buying seed in quantities/sizes packed by seed companies.
+ who may not afford buying seed in sizes/quantities packed by seed companies.
  This is very common with OPVs whose packaging come in sizes of at least
  5kg.
  During repackaging however, input dealers pack seed in bad material which
@@ -1546,7 +1546,7 @@ During qualitative data collection, we learn that input dealers repackage
  short time.
  A lot of information which can help track seed quality is also lost during
  repackaging.
- Such information include seed expiry date, variety name, lot number.
+ Such information include seed expiry date, variety name, and lot number.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1586,9 +1586,8 @@ Training material and trainings
 \begin_layout Standard
 Based on the information collected, we will develop detailed training manuals
  that the trainers are expected to adhere to.
- We will also create visually appealing posters to mount in the shop, and
- handouts with pictograms showing the most important best practices that
- can be given to input dealers.
+ We will also create visually appealing posters showing the most important
+ best practices that will be given to input dealers to mount in their shop.
  Information will be kept as simple as possible, as 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1601,8 +1600,6 @@ literal "true"
  indicating that presenting recipients with larger menus can trigger choice
  avoidance and/or deliberation such that the information transfer becomes
  less effective.
- Input dealers that attended the training will also get an ISSD approved
- certificate.
 \end_layout
 
 \begin_layout Standard
@@ -1619,19 +1616,39 @@ What else can we do?
 \end_layout
 
 \begin_layout Standard
-The training will be implemented by ISSD.
- The training will take place in a location that is easily reachable for
- all sampled dealers within the catchment area.
- Dealers will be invited a month beforehand via telephone.
- To ensure that all input dealers come, they will be reminded via SMS a
- week and a day beforehand, lunch and a monetary compensation for their
- time will be provided.
- They will also be compensated for transport and their accommodation will
- be provided for.
+The training will be implemented by three trainers, one from ISSD, one from
+ UNADA, and one from 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+how to describe Wilberforce?
+\end_layout
+
+\end_inset
+
+.
+ It will take place in a location that is easily reachable for all sampled
+ attendants within the catchment area.
+ For each treated shop, we will invite the shop owner (who is able to invest
+ and e.g.
+ buy manual air conditioning systems which are important for the ventilation
+ of the shop) and the shop attendant (who is in charge of day to day activities
+ like storing the seed correctly).
+ They will be invited one week beforehand via telephone.
+ To ensure that all invited attendants come, they will be compensated for
+ transport (both, owner and attendant will be compensated) and lunch and
+ drinks will be provided.
+ As an additional incentive, we will hand out one free seed moisture meter
+ per shop.
+ Futhermore, the training will take place at a time when dealers are not
+ busy with their daily business because farmers have already bought their
+ inputs for the first agricultural season but did not start buying inputs
+ for the second agricultural season, yet (May 2021).
 \end_layout
 
 \begin_layout Standard
-ISSD trainers will explain the correct handling and storage practices for
+Our trainers will explain the correct handling and storage practices for
  improved maize seed and the main advantages and challenges.
  This presentation will take half a day.
  The trainers will use the previously mentioned poster that illustrates
@@ -1656,26 +1673,29 @@ Timing
 \end_layout
 
 \begin_layout Standard
-Prior to the intervention, we will collect baseline data in September 2020.
- The input dealer training will take place towards the end of 2020 such
- that the dealers can use the newly trained handling and storage practices
- on the seeds that are going to be purchased by farmers for the first agricultur
-al season that begins in March 2021.
- At midline in July 2021, we expect input dealers to be more skilled and
- knowledgeable regarding seed handling and storage.
+Prior to the intervention, we will collect dealer baseline data in September/Oct
+ober 2020 and farmer baseline data in April 2021.
+ The input dealer training will take place in May 2021, late enough so that
+ dealers are not busy with selling for the first agricultural season but
+ early enough so that dealers can use the newly trained handling and storage
+ practices on the seeds they buy in June/July 2021, which are going to be
+ purchased by farmers for the second agricultural season that begins in
+ August 2021.
+ At midline in January 2022, we expect input dealers to be more skilled
+ and knowledgeable regarding seed handling and storage.
  Due to the better handling and storage, we expect seed quality to improve
  and hence, we expect farmers to have higher maize yields/revenues/profits
  and to perceive seed quality as higher and input dealers as better.
- We expect these positive experiences from the first agricultural season
- to lead to higher seed adoption and volume/value of input dealers' seed
- sales in the second agricultural season of 2021.
+ We expect these positive experiences from the second agricultural season
+ 2021 to lead to higher seed adoption and volume/value of input dealers'
+ seed sales in the first agricultural season of 2022.
  We expect the increased adoption to result in even higher maize yields/revenues
-/profits for farmers after the second season.
- Those outcomes will be measured at end line in December 2021.
+/profits for farmers after the first season.
+ Those outcomes will be measured at end line in August 2021.
  The timeline is illustrated in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Input-dealer-timeline"
+reference "fig:timeline"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1694,7 +1714,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename timeline_dealertraining.pdf
+	filename timeline.pdf
 	scale 40
 
 \end_inset
@@ -1706,10 +1726,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Input dealer training timeline
+Timeline
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Input-dealer-timeline"
+name "fig:timeline"
 
 \end_inset
 
@@ -1737,9 +1757,9 @@ Input dealer ratings
 \begin_layout Standard
 To measure seed quality and dealer effort/service and to subsequently disseminat
 e this information to farmers, we will set up an information clearinghouse.
- Prior to the intervention, we will collect baseline data of randomly selected
- farmers in catchment areas of the input dealers that are enrolled in the
- study.
+ Prior to the intervention, we will collect baseline data of farmers in
+ randomly selected catchment areas of the input dealers that are enrolled
+ in the study.
  During this baseline interview, we will ask farmers to rate input dealers
  in their catchment area on a number of characteristics (see Appendix 2).
  To make sure we are talking about the same input dealer, we can use detailed
@@ -1761,21 +1781,13 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Baseline data will be collected in September or October 2020.
- At this point, farmers may be better able to assess attributes such as
- price and input dealer services, but they will only able to judge seed
- quality itself based on germination.
- Therefore, we collect ratings from farmers a second time in December 2020
- or January 2021 when harvesting was done.
- After observing yields, farmers may have updated their beliefs with respect
- to eg.
- the resistance of the seeds against pests.
- This data for the second rating will be collected via mobile phone.
- This will also increase the number of data points that can be used per
- input dealer to base his or her score on.
- Based on the farmers' responses of all farmers in the catchment area, we
- will compute a score for each dealer, as well as an overall score.
- 
+Farmer baseline data including farmers' ratings of dealers will be collected
+ in April 2021.
+ At this point, farmers will be able to assess attributes such as price,
+ input dealer services, seed quality itself based on germination and observing
+ yields, the resistance of the seeds against pests etc.
+ Based on the responses of all farmers in the catchment area, we will compute
+ the ratings for each dealer.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1783,17 +1795,15 @@ Disseminating clearinghouse information
 \end_layout
 
 \begin_layout Standard
-The first distribution of input dealer ratings to farmers and input dealers
- will happen in February 2021.
+The first rating dissemination, i.e.
+ the first distribution of input dealer ratings to farmers and input dealers,
+ will happen in June/July 2021 because farmers buy seed in July/August.
  In the treated catchment areas, farmers will be provided with information
  on all input dealers within that area.
- These farmers will receive a list with all dealers in their proximity containin
-g their overall and specific ratings.
- The overall and specific ratings will be illustrated in a way that is also
- understandable for farmers that are not experienced with interpreting numbers:
- we will use symbols like smileys/emoticons/stars/thumbsup/down signs.
- A score that is better than 75% is colored in green, a score worse than
- 25% in red and everything else in yellow to further improve understanding.
+ These farmers will be presented a list with all dealers in their proximity
+ containing the ranking of these dealers.
+ This way is also understandable for farmers that are not experienced with
+ interpreting numbers.
  Input dealers will receive their own general and specific ratings.
  They will not receive the ratings of their competitors.
  
@@ -1817,8 +1827,8 @@ status collapsed
 
 \end_inset
 
-Upon simple request, input dealers can request a free sticker to display
- the ratings on their store front, similar to a 
+Input dealers will also get a certificate to display the ratings on their
+ store front, similar to a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1830,61 +1840,35 @@ certificate of excellence
 \end_layout
 
 \begin_layout Subsubsection*
-Second rating, second distribution and third rating
+Second rating, second dissemination and third rating
 \end_layout
 
 \begin_layout Standard
-A third round of input dealer scores will be collected via mobile phone
- in April 2021, immediately after maize for the first season of 2021 was
- planted.
- In July 2021, enumerators will revisit farmers for the midline survey and
- collect the fourth dealer scores in person.
- The third and fourth scores form the second rating which will be distributed
- in August 2021 to farmers and input dealers.
- Finally, in the second agricultural season of 2021, the fifth dealer scores
- will be collected by phone and the sixth dealer scores as part of the end
- line data collection, in September and in December, respectively.
- The fifth and the sixth scores result in the third rating, which is a post-trea
-tment outcome variable.
+A second round of input dealer ratings will be collected during midline
+ data collection in January 2022, after farmers harvested in November/December
+ and the second season of 2021 is over.
+ Enumerators will revisit farmers for the midline survey and collect the
+ second dealer ratings in person.
+ The second clearinghouse rating will be disseminated to farmers and input
+ dealers later in January 2022 because farmers buy seed in Feburary/March
+ and plant seed in March/April.
+ Finally, after the first agricultural season of 2022, the third dealer
+ ratings will be collected as part of the end line data collection in August
+ 2022, because farmers harvest maize in June/July.
+ The third rating is a post-treatment outcome variable.
  Knowing that the clearinghouse will remain in place for some time will
  motivate dealers to change their behaviour.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename timeline_clearinghouse.pdf
-	scale 40
+ The timeline is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timeline"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Information clearinghouse timeline
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1996,6 +1980,7 @@ literal "false"
 
  shows that sufficient complementary information needs to be available,
  as otherwise it is impossible to learn about confounding variables.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2016,12 +2001,12 @@ Similar to how the content for the input dealer seed storage and handling
 The aim here is to gather information to help develop a video to be shown
  to farmers that shows what complementary inputs and practices are important
  to create an enabling environment for improved seed to flourish.
- The facilitator should now keep to focus on the use of improved varieties
+ The facilitator should now keep focus on the use of improved varieties
  and try to avoid capturing general practices and inputs, but particularly
  inputs and practices that are important in combination with improved seed.
  In particular, experts are asked to identify what may result in farmers
  getting lower than expected yields from improved seed varieties.
- Problems may often be formulated as an absence of management (eg.
+ Problems may often be formulated as an absence of management (e.g.
  when using improved seed, more weeding needs to be done and farmers do
  not do that).
  The problems also need to be ranked.
@@ -2050,7 +2035,10 @@ literal "false"
 
 .
  A script will be written and a professional video producer will be engaged.
- 
+ A treatment and a control video will be produced, both show best seed managemen
+t practices.
+ The only difference is one piece of information, namely that this seed
+ management is especially important when using improved seed.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2058,65 +2046,39 @@ Timing
 \end_layout
 
 \begin_layout Standard
-Prior to the intervention, we will collect baseline data in September 2020.
- The farmer training will take place in January 2021 so that the farmers
- can use the newly trained handling and storage practices in the first agricultu
-ral season that begins in March 2021
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-It would be much more cost effective if the videos could be shown during
- the surveys, as then we have to visit the 3200 farmers anyway.
- It would be good if we could show the video's twice, also during midline.
-\end_layout
-
-\end_inset
-
-.
- At midline in July 2021, we expect farmers to be better able to judge the
+Prior to the intervention, we will collect dealer and farmer baseline data.
+ Right after the farmer baseline data collection in April 2021, we will
+ show the treatment and control videos because farmers start preparing the
+ second season in June.
+ It is cost effective that the videos are shown right after the surveys,
+ as we have to visit the 3200 farmers in our sample anyway.
+ We will however show the videos to farmers a second time in June/July 2021,
+ so that they are reminded of the best practices and can use the newly learned
+ information in the second agricultural season that begins in August 2021.
+ Mind that farmers plant seed in August/September.
+ At midline in January 2022, we will show the videos to farmers again as
+ a reminder but we already expect farmers to be better able to judge the
  importance of seed quality and of combining inputs and proper management.
  As a result, we expect farmers to have higher maize yields and to perceive
  seed quality as higher and input dealers as better (conditional on input
  dealers providing good quality seed).
- We expect these positive experiences from the first agricultural season
- to lead to higher seed adoption in the second agricultural season of 2021.
+ We expect these positive experiences from the second agricultural season
+ 2021 to lead to higher seed adoption in the first agricultural season of
+ 2022.
  We expect the increased adoption to result in even higher maize yields
- for farmers after the second season.
- Those outcomes will be measured at end line in December 2021.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename timeline_farmertraining.pdf
-	scale 40
+ for farmers after this season.
+ Those outcomes will be measured at end line in August 2022.
+ The timeline is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timeline"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Farmer training timeline
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Section
