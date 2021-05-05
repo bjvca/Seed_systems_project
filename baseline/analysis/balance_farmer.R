@@ -234,6 +234,11 @@ df_ols[2,2,1] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,1] <- coef_test(ols, vcov_cluster)[3,5]
 
 #filling df_ols with video (Estimate, SE, p-val (Satt))
+#randomization at village level
+#ie. randomization at shop level
+
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
+
 df_ols[1,3,1] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,1] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,1] <- coef_test(ols, vcov_cluster)[4,5]
@@ -249,6 +254,9 @@ df_ols[3,1,2] <- coef_test(ols, vcov_cluster)[2,5]
 df_ols[1,2,2] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,2] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,2] <- coef_test(ols, vcov_cluster)[3,5]
+
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
 
 df_ols[1,3,2] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,2] <- coef_test(ols, vcov_cluster)[4,2]
@@ -266,6 +274,9 @@ df_ols[1,2,3] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,3] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,3] <- coef_test(ols, vcov_cluster)[3,5]
 
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
+
 df_ols[1,3,3] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,3] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,3] <- coef_test(ols, vcov_cluster)[4,5]
@@ -281,6 +292,9 @@ df_ols[3,1,4] <- coef_test(ols, vcov_cluster)[2,5]
 df_ols[1,2,4] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,4] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,4] <- coef_test(ols, vcov_cluster)[3,5]
+
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
 
 df_ols[1,3,4] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,4] <- coef_test(ols, vcov_cluster)[4,2]
@@ -298,6 +312,9 @@ df_ols[1,2,5] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,5] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,5] <- coef_test(ols, vcov_cluster)[3,5]
 
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
+
 df_ols[1,3,5] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,5] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,5] <- coef_test(ols, vcov_cluster)[4,5]
@@ -313,6 +330,9 @@ df_ols[3,1,6] <- coef_test(ols, vcov_cluster)[2,5]
 df_ols[1,2,6] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,6] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,6] <- coef_test(ols, vcov_cluster)[3,5]
+
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
 
 df_ols[1,3,6] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,6] <- coef_test(ols, vcov_cluster)[4,2]
@@ -330,6 +350,9 @@ df_ols[1,2,7] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,7] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,7] <- coef_test(ols, vcov_cluster)[3,5]
 
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
+
 df_ols[1,3,7] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,7] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,7] <- coef_test(ols, vcov_cluster)[4,5]
@@ -345,6 +368,9 @@ df_ols[3,1,8] <- coef_test(ols, vcov_cluster)[2,5]
 df_ols[1,2,8] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,8] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,8] <- coef_test(ols, vcov_cluster)[3,5]
+
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
 
 df_ols[1,3,8] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,8] <- coef_test(ols, vcov_cluster)[4,2]
@@ -362,6 +388,9 @@ df_ols[1,2,9] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,9] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,9] <- coef_test(ols, vcov_cluster)[3,5]
 
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
+
 df_ols[1,3,9] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,9] <- coef_test(ols, vcov_cluster)[4,2]
 df_ols[3,3,9] <- coef_test(ols, vcov_cluster)[4,5]
@@ -377,6 +406,9 @@ df_ols[3,1,10] <- coef_test(ols, vcov_cluster)[2,5]
 df_ols[1,2,10] <- coef_test(ols, vcov_cluster)[3,1]
 df_ols[2,2,10] <- coef_test(ols, vcov_cluster)[3,2]
 df_ols[3,2,10] <- coef_test(ols, vcov_cluster)[3,5]
+
+#randomization at village level ie. randomization at shop level
+vcov_cluster <- vcovCR(ols, cluster=baseline_farmers$shop_ID, type = "CR0")
 
 df_ols[1,3,10] <- coef_test(ols, vcov_cluster)[4,1]
 df_ols[2,3,10] <- coef_test(ols, vcov_cluster)[4,2]
