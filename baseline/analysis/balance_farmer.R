@@ -2,8 +2,7 @@
 
 rm(list=ls())
 
-#for Caro
-setwd("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/baseline/registered_report")
+
 path <- getwd()
 path <- strsplit(path, "/registered_report")[[1]]
 baseline_farmers <- read.csv(paste(path,"data/farmer/public/baseline_farmers.csv", sep="/"), stringsAsFactors = TRUE)
