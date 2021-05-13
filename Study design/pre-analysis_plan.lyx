@@ -1743,13 +1743,13 @@ Input dealer ratings
 \end_layout
 
 \begin_layout Standard
-To measure seed quality and dealer effort/service and to subsequently disseminat
-e this information to farmers, we will set up an information clearinghouse.
+To measure an input dealer's seed quality and to subsequently disseminate
+ this information to farmers, we will set up an information clearinghouse.
  Prior to the intervention, we will collect baseline data of farmers in
  randomly selected catchment areas of the input dealers that are enrolled
  in the study.
  During this baseline interview, we will ask farmers to rate input dealers
- in their catchment area on a number of characteristics (see Appendix 2).
+ in their catchment area on a number of characteristics.
  To make sure we are talking about the same input dealer, we can use detailed
  location data, names under which they may be known in the community, and
  also pictures of the shop which were collected during a census (See Section
@@ -1771,9 +1771,9 @@ noprefix "false"
 \begin_layout Standard
 Farmer baseline data including farmers' ratings of dealers will be collected
  in April 2021.
- At this point, farmers will be able to assess attributes such as price,
- input dealer services, seed quality itself based on germination and observing
- yields, the resistance of the seeds against pests etc.
+ At this point, farmers will be able to assess seed quality attributes based
+ on germination and observing yields, the resistance of the seeds against
+ pests etc.
  Based on the responses of all farmers in the catchment area, we will compute
  the ratings for each dealer.
 \end_layout
@@ -1814,20 +1814,37 @@ Ratings do not depend on catchment area or sample averages.
 \end_layout
 
 \begin_layout Standard
-If a dealer in a treated catchment area is not rated (because farmers do
- not know him/her), his/her rating will be the catchment area average, meaning
- that we handle the situation as if data were missing.
- If a dealer is rated by only one farmer, his/her own score will contribute
- to the rating with 33%, 66% will be the catchment area average.
- If a dealer is rated by only two farmers, the two own scores will make
- up 66% of the rating, 33% will be the catchment area average.
+However, what happens if a dealer in a treated catchment area is not rated
+ eg.
+ because farmers do not know him/her? We could take the catchment area average
+ as his/her rating, meaning that we handle the situation as if data were
+ missing.
+ However, filling in ratings based on catchment area means is not as innocent
+ as it seems.
+ It is likely that missingness (or a low number or ratings) is not random:
+ poor quality input dealers have less customers, so their likelihood to
+ get rated is lower.
+ Giving them average catchment area ratings inflates the ratings of these
+ low quality input dealers.
+ Also, in catchment areas with only one or two other input dealers, means
+ are meaningless.
+ That is why we will not give dealers that are not rated or rated by only
+ a few farmers average catchment area ratings.
+ We will simply tell the farmers that we do not have information about this
+ dealer.
+ If a dealer is not rated (only rated by one farmer or two farmers) and
+ he or she is the only one in the catchment area, we will pursue the same
+ strategy.
 \end_layout
 
 \begin_layout Standard
 If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is rated
- by 1 farmer and gets rating 3,6, we treat dealer B as the better dealer
- because he/she did not get the chance to get more ratings and his/her rating
- depends on the CA average anyway (see above).
+ by 1 farmer and gets rating 3,6, we treat dealer B as the better dealer.
+ Even though getting many (few) farmer ratings might be due to good (poor)
+ quality (missingness might not be random, see precious paragraph), there
+ might be other reasons why dealers are rated by many (few) farmers.
+ Also on TripAdvisor, having more reviews than a rival hotel does not guarantee
+ you will rank higher.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1868,6 +1885,8 @@ A second round of input dealer ratings will be collected during midline
  and the second season of 2021 is over.
  Enumerators will revisit farmers for the midline survey and collect the
  second dealer ratings in person.
+ As Tripadvisor also considers recency, we give more weight to recent reviews,
+ we discount earlier ratings.
  The second clearinghouse rating will be disseminated to farmers and input
  dealers later in January 2022 because farmers buy seed in Feburary/March
  and plant seed in March/April.
