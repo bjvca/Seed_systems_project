@@ -1782,7 +1782,9 @@ Farmer baseline data including farmers' ratings of dealers will be collected
 Farmers' answers to the questions 69a-f (Please rate this input dealer’s
  maize seed on general quality, yield as advertised, drought tolerance as
  advertised, pest/disease tolerance as advertised, early maturity as advertised,
- f: germination) constitute the input dealer ratings.
+ f: germination) and question 68d (Please rate this input dealer on the
+ quality of seed - good products, no fake seed) constitute the input dealer
+ ratings.
  These questions are carefully formulated and include "as advertised" because
  not every improved maize seed variety is eg.
  drought tolerant, ie.
@@ -1804,16 +1806,6 @@ Farmers' answers to the questions 69a-f (Please rate this input dealer’s
 \end_layout
 
 \begin_layout Standard
-Ratings do not depend on catchment area or sample averages.
- In an area with poor dealers in which one dealer is a bit better than the
- rest but still poor, we do not want this poor dealer to be rated well (ie.
- expose farmers to poor dealers).
- Similarly in an area with good dealers in which one dealer is a bit worse
- than the rest but still good, we do not want this good dealer to be rated
- poorly (unfair towards this dealer).
-\end_layout
-
-\begin_layout Standard
 However, what happens if a dealer in a treated catchment area is not rated
  eg.
  because farmers do not know him/her? We could take the catchment area average
@@ -1831,7 +1823,7 @@ However, what happens if a dealer in a treated catchment area is not rated
  That is why we will not give dealers that are not rated or rated by only
  a few farmers average catchment area ratings.
  We will simply tell the farmers that we do not have information about this
- dealer.
+ dealer (implicitly informing the farmer that the dealer is there).
  If a dealer is not rated (only rated by one farmer or two farmers) and
  he or she is the only one in the catchment area, we will pursue the same
  strategy.
@@ -1845,6 +1837,37 @@ If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is rated
  might be other reasons why dealers are rated by many (few) farmers.
  Also on TripAdvisor, having more reviews than a rival hotel does not guarantee
  you will rank higher.
+\end_layout
+
+\begin_layout Standard
+However, should ratings be standardized or depend on catchment area or sample
+ averages? The following case shows that they should not depend on catchment
+ area averages: in an area with poor dealers in which one dealer is a bit
+ better than the rest but still poor, we do not want this poor dealer to
+ be rated well (ie.
+ expose farmers to poor dealers).
+ Similarly, in an area with good dealers in which one dealer is a bit worse
+ than the rest but still good, we do not want this good dealer to be rated
+ poorly (which would be unfair towards this dealer).
+ On the other hand, if many dealers receive a good rating, we would throw
+ away valuable data if we would only disseminate good scores without any
+ variation.
+ Therefore, the distribution of ratings should be taken into account (not
+ by standardizing but by using quintiles).
+ Consequenly, less dealers will get rating 4 or 5, more dealers will get
+ rating 3.
+ This will strengthen the effect of the treatment on dealer effort.
+ If dealers get rating 3 instead of 4 or 5, they will be more inclined to
+ improve their scores.
+ Consequently, also the effect on seed quality itself will be larger.
+ However, the clearinghouse should also have a "signaling effect", which
+ might be weaker if more dealers are rating 3 than rating 4 or 5 (dealers
+ seems to be of worse quality to farmers).
+ Therefore, we will choose the names of the quintiles carefully during rating
+ dissemination: if most dealers get a good or very good ranking before taking
+ the distribution into account, we will ensure that even a 3 is still communicat
+ed as "good" to farmers to not weaken the signaling effect and to disseminate
+ ratings as truthfully, purely and as closely to reality as possible.
 \end_layout
 
 \begin_layout Subsubsection*
