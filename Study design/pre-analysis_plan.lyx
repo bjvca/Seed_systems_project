@@ -1868,8 +1868,41 @@ However, should ratings be standardized or depend on catchment area or sample
  the distribution into account, we will ensure that even a 3 is still communicat
 ed as "good" to farmers to not weaken the signaling effect and to disseminate
  ratings as truthfully, purely and as closely to reality as possible.
- We will also check whether there are significant differences between the
- ratings of male and female dealers.
+\end_layout
+
+\begin_layout Standard
+Because around 40% of input dealers are women (?) and women could be rated
+ more negatively, we will also test whether there are significant differences
+ between the ratings of female dealers and the ratings of male dealers.
+ We will control for some potentially confounding variables, like age, education
+ level, distances to the nearest tarmac road and the nearest murram road
+ (as measures of remoteness) and additionally control for many indications
+ of quality (whether the shop is specialized and only sells farm inputs,
+ year of establishment of the shop, whether seed is stored in a dedicated
+ area, whether there is a problem with rats or pests, whether the roof is
+ leak-proof and insulated, whether the walls are insulated, whether the
+ area is ventilated, whether the walls are plastered, material of floor
+ and lighting conditions where seed is stored, surface on which seed is
+ stored, whether maize seed is stored in open bags or containers, whether
+ there is any official certificates displayed in the store, cleanness and
+ professionality of the shop, whether the shop received any complaint from
+ a customer since last season, temperature in the store).
+ If we find significant differences (Pr(>|t|) < 0.1) after controlling for
+ all this, we have no reason to believe that there is any other reason than
+ discrimination for female input dealers to be rated worse.
+ We correct the ratings for discrimination if we find a significant difference
+ that cannot be explained by quality to not do any harm.
+ Therefore, we will adjust the ratings of female dealers accordingly to
+ prevent this kind of discrimination.
+ We will change the ratings of all female dealers by adding the coefficients
+ of the gender dummy to the initial ratings.
+ This means that we will regress all seed quality attributes (general quality,
+ yield, drought tolerance, pest/disease tolerance, early maturity, f: germinatio
+n) on the gender dummy and add the resulting coefficients to these individual
+ ratings.
+ Then we will do the same with the mean (summary) rating.
+ We correct both, the ratings disseminated to farmers and the ratings disseminat
+ed to dealers.
 \end_layout
 
 \begin_layout Subsubsection*
