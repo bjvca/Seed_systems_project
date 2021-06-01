@@ -203,6 +203,46 @@ path <- strsplit(path, "/registered_report")[[1]]
 \end_layout
 
 \begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+This document will evolve into a pre-registered report for the project 
+\begin_inset Quotes eld
+\end_inset
+
+Demand and supply factors constraining the emergence and sustainability
+ of an efficient seed system
+\begin_inset Quotes erd
+\end_inset
+
+.
+ While currently it only shows the balance tables for the baseline data,
+ all tables with results corresponding to the pre-analysis plan and underlying
+ code will be incorporated in the document before endline data is collected.
+ Simulated data, consisting of random samples from the baseline data, will
+ be used to populated the table.
+ Such a comprehensive approach using 
+\begin_inset Quotes eld
+\end_inset
+
+mock reports
+\begin_inset Quotes erd
+\end_inset
+
+ have been suggested as a more affective tool against specification search
+ then solely relying on a pre-analysis plan 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "humphreys2013fishing"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
 Balance tables
 \end_layout
 
@@ -898,11 +938,6 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports sample means (and standard deviations below);
-  **, * and + denote significance at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchemen
-t area).
- 
 \end_layout
 
 \end_inset
@@ -919,7 +954,7 @@ t area).
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
