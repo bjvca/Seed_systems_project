@@ -66,7 +66,7 @@ reviews$score <-  rowMeans(reviews[c("quality_rating","general","yield","drought
 
 
 path <- strsplit(path, "/farmer")[[1]]
-write.csv(reviews, paste(path, "agro_input/raw/shiny_app/reviews_seed.csv",sep="/"), row.names=FALSE)
+
 
 
 #######################################################
@@ -75,7 +75,7 @@ write.csv(reviews, paste(path, "agro_input/raw/shiny_app/reviews_seed.csv",sep="
 
 #merge with dealer baseline data to get gender variable
 baseline_dealer <- read.csv(paste(path,"agro_input/public/baseline_dealer.csv", sep="/"), stringsAsFactors = FALSE)
-baseline_dealer_with_score <- merge(reviews, baseline_dealer, by="shop_ID")
+baseline_dealer_with_score <- merge(reviews, baseline_dealer, by=c("catchID","shop_ID"))
 
 #create gender dummy
 baseline_dealer_with_score$genderdummy <- ifelse(baseline_dealer_with_score$maize.owner.agree.gender == "Male", 1, 0)
@@ -167,7 +167,66 @@ model_corr <- lm(score~genderdummy + maize.owner.agree.age + prim + maize.owner.
 
 baseline_dealer_with_score$score_corrected <- baseline_dealer_with_score$score - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
 
-reviews <- merge(reviews,baseline_dealer_with_score[c("shop_ID","score_corrected")],by="shop_ID")
+
+## do this not only for aggregate score but also for all the components - just copy paste (also redo the averages for graphs)
+
+model_corr <- lm(quality_rating~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$quality_rating_corrected <- baseline_dealer_with_score$quality_rating - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+model_corr <- lm(general~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$general_corrected <- baseline_dealer_with_score$general - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+model_corr <- lm(yield~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$yield_corrected <- baseline_dealer_with_score$yield - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+model_corr <- lm(drought_resistent~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$drought_resistent_corrected <- baseline_dealer_with_score$drought_resistent - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+model_corr <- lm(disease_resistent~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$disease_resistent_corrected <- baseline_dealer_with_score$disease_resistent - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+
+model_corr <- lm(early_maturing~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$early_maturing_corrected <- baseline_dealer_with_score$early_maturing - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+
+
+model_corr <- lm(germination~genderdummy + maize.owner.agree.age + prim + maize.owner.agree.q3 + maize.owner.agree.q4 + maize.owner.agree.q5 + years_shop + maize.owner.agree.temp.q69 + maize.owner.agree.temp.q71 + maize.owner.agree.temp.q72 + maize.owner.agree.temp.q73 + maize.owner.agree.temp.q74 + maize.owner.agree.temp.q75 + maize.owner.agree.temp.q76 + goodfloor + badlighting + badstored + maize.owner.agree.temp.q80 + maize.owner.agree.temp.q81 + maize.owner.agree.temp.q82 + maize.owner.agree.q96 + maize.owner.agree.q70, data = baseline_dealer_with_score)
+
+#we correct the score by substracting the male divident from the score
+
+baseline_dealer_with_score$germination_corrected <- baseline_dealer_with_score$germination - coefficients(model_corr)["genderdummy"]*baseline_dealer_with_score$genderdummy
+
+
+
+reviews <- merge(reviews,baseline_dealer_with_score[c("shop_ID","quality_rating_corrected","general_corrected","yield_corrected","drought_resistent_corrected","disease_resistent_corrected","early_maturing_corrected","germination_corrected","score_corrected")],by="shop_ID")
+#get subgroup means
+sg_means <- aggregate(reviews[c("quality_rating_corrected","general_corrected","yield_corrected","drought_resistent_corrected","disease_resistent_corrected","early_maturing_corrected","germination_corrected") ], list(reviews$catchID), mean, na.rm=T)
+names(sg_means) <- paste(names(sg_means),"av",sep="_")
+names(sg_means)[names(sg_means) == "Group.1_av"] <- "catchID"
+
+reviews <- merge(reviews, sg_means,by.x="catchID",by.y="catchID")
+
 write.csv(reviews, paste(path, "agro_input/public/reviews_seed.csv",sep="/"), row.names=FALSE)
+write.csv(reviews, paste(path, "agro_input/raw/shiny_app_seed/reviews_seed.csv",sep="/"), row.names=FALSE)
+
 
 
