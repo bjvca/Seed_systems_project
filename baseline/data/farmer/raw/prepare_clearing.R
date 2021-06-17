@@ -43,7 +43,7 @@ to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+10] <-  catch_revs$
 #pictures
 to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+28] <-  ODK_imp$maize.owner.agree.q13[ODK_imp$shop_ID ==  catch_revs$shop_ID[catch_revs$shop_rank == i]]
 #name_shop
-to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+48] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  catch_revs$shop_ID[catch_revs$shop_rank == i]]
+to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+46] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  catch_revs$shop_ID[catch_revs$shop_rank == i]]
 #owner_name_shop_1
 to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+64] <-  ODK_imp$maize.owner.agree.family_name[ODK_imp$shop_ID ==  catch_revs$shop_ID[catch_revs$shop_rank == i]]
 #name_person_interviewed

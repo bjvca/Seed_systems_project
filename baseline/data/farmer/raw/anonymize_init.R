@@ -127,7 +127,7 @@ m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(gro
 
 path2 <- strsplit(path, "/farmer")[[1]][1]
 
-
+write.csv(farmers,paste(path,"baseline_farmers_all_raw.csv", sep="/"), row.names=FALSE)
 
 shops <- read.csv(paste(path2,"agro_input/raw/villages_edited_final.csv", sep="/"))
 
