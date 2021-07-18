@@ -17,10 +17,8 @@ reviews <- read.csv( paste(path, "public/reviews_seed.csv",sep="/"), stringsAsFa
 reviews <- data.frame(reviews %>%
     group_by(catchID) %>%
     mutate(shop_rank = order(order(score_corrected,decreasing=TRUE))))
-    
-
-
-
+   
+#### this is the sampling frame that was used to collect baseline data
 to_upload <- read.csv( paste(path, "raw/to_upload.csv",sep="/"), stringsAsFactors = FALSE)
 ODK_imp <- read.csv( paste(path, "raw/ODK_imp.csv",sep="/"), stringsAsFactors = FALSE)
 
@@ -33,6 +31,27 @@ to_upload_clearing <- cbind(to_upload_clearing, scores)
 #for earch farmer
 
 for (farmer in to_upload$farmer_ID) {
+
+##get names form ODK_imp are used as they are manually corrected
+to_upload_clearing$name_shop_1[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_1[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_2[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_2[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_3[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_3[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_4[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_4[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_5[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_5[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_6[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_6[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_7[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_7[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_8[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_8[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_9[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_9[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_10[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_10[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_11[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_11[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_12[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_12[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_13[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_13[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_14[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_14[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_15[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_15[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_16[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_16[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_17[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_17[to_upload_clearing$farmer_ID == farmer]]
+to_upload_clearing$name_shop_18[to_upload_clearing$farmer_ID == farmer] <-  ODK_imp$maize.owner.agree.biz_name[ODK_imp$shop_ID ==  to_upload_clearing$ID_shop_18[to_upload_clearing$farmer_ID == farmer]]
+
 #look upcatchment area
 catch_revs <- reviews[reviews$catchID  == to_upload$catchID[to_upload$farmer_ID == farmer],]
 if (dim(catch_revs)[1] >=1) {
@@ -60,7 +79,7 @@ to_upload_clearing[to_upload_clearing$farmer_ID == farmer, i+154] <-  catch_revs
 }
 }
 
-write.csv(to_upload_clearing,file="to_upload_clearing.csv", row.names=FALSE)
+
 
 test2 <- to_upload_clearing
 test2 <- test2[ c("farmer_ID",paste("ID_shop",seq(1:18), sep="_"))]
@@ -79,9 +98,23 @@ write.csv(test2,file="matcher_file_ranked.csv", row.names=FALSE)
 
 ODK_imp <- merge(ODK_imp,reviews[c("shop_ID","score_corrected")],by.x="shop_ID", by.y="shop_ID", all.x=TRUE)
 names(ODK_imp) <- c("shop_ID","catchID","biz_name","pic","maize.owner.agree.family_name","dealer_name","nickname","market_name","eye","score")
+ODK_imp$scorex <-  NA
+ODK_imp$scorex <- ifelse(ODK_imp$score > 3.468970, "excellent!", ifelse(ODK_imp$score > 3.287588, "very good!", ifelse(ODK_imp$score > 3.116589, "good!", "okay!")))
+ODK_imp$scorex [is.na(ODK_imp$scorex)] <-  "not rated"
 
 write.csv(ODK_imp,file="ODK_imp_rated.csv", row.names=FALSE)
 
 quantile(ODK_imp$score,c(.2,.4,.6,.8), na.rm=T)
 #     20%      40%      60%      80% 
 #3.116589 3.287588 3.468970 3.649582 
+### to_upload_clearing should also have identifying information for the farmers extracted from baseline data collection
+
+path <- strsplit(path, "/agro_input")[[1]]
+
+farmer_raw <- read.csv( paste(path, "farmer/raw/baseline_farmers_all_raw.csv",sep="/"), stringsAsFactors = FALSE)
+
+to_upload_clearing <-merge(to_upload_clearing,farmer_raw[c("farmer_ID","enumerator","Check2.check.maize.q5","Check2.check.maize.phone","Check2.check.maize.phone2","Check2.check.maize._gps_latitude","Check2.check.maize._gps_longitude" )],by="farmer_ID")
+names(to_upload_clearing)[names(to_upload_clearing) %in% c("Check2.check.maize.q5","Check2.check.maize.phone","Check2.check.maize.phone2","Check2.check.maize._gps_latitude","Check2.check.maize._gps_longitude" )] <- c("farmer_name","phone1","phone2","gps_latitude","gps_longitude" )
+
+
+write.csv(to_upload_clearing,file= paste(path,"farmer/raw/to_upload_clearing.csv",sep="/"), row.names=FALSE)
