@@ -1,0 +1,2364 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<standard_beginning, echo=F, warning=F, message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+path <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path,
+\begin_inset Quotes eld
+\end_inset
+
+mock_report.R
+\begin_inset Quotes erd
+\end_inset
+
+,sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Descriptive statistics - Agro-input dealer (baseline)
+\begin_inset CommandInset label
+LatexCommand label
+name "descriptives_dealer1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & min & max & SD & nobs
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent's age in years & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[1,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[1,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[1,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[1,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[1,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent is male & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[2,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[2,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[2,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[2,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[2,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent finished primary education & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[3,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[3,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[3,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[3,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[3,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent finished secondary education & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[4,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[4,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[4,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[4,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[4,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent owns shop & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[5,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[5,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[5,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[5,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[5,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's distance to tarmac road in km & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[6,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[6,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[6,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[6,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[6,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's distance to murram road in km & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[7,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[7,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[7,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[7,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[7,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop only sells farm inputs & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[8,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[8,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[8,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[8,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[8,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Customers per day & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[9,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[9,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[9,3],digits=3),nsmall=0)}  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[9,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[9,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Customers per day 
+\backslash
+textbf{buying maize seed} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[10,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[10,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[10,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[10,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[10,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Years since shop establishment & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[11,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[11,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[11,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[11,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[11,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop also sells machinery & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[12,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[12,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[12,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[12,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[12,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop also sells equipment & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[13,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[13,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[13,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[13,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[13,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop also sells chemicals & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[14,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[14,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[14,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[14,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[14,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop also sells fertilizers & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[15,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[15,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[15,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[15,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[15,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent received training on maize seed handling/storage & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[16,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[16,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[16,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[16,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[16,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent received this training 
+\backslash
+textbf{last year} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[17,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[17,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[17,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[17,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[17,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent received this training last year 
+\backslash
+textbf{by ISSD} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[18,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[18,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[18,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[18,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[18,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of maize varieties in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[19,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[19,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[19,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[19,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[19,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of 
+\backslash
+textbf{hybrid} maize varieties in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[20,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[20,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[20,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[20,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[20,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has Longe 10H in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[21,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[21,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[21,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[21,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[21,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has Longe 7H in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[22,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[22,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[22,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[22,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[22,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of 
+\backslash
+textbf{OPV} maize varieties in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[23,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[23,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[23,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[23,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[23,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has Longe 5 in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[24,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[24,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[24,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[24,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[24,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has Longe 4 in stock & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[25,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[25,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[25,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[25,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[25,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop stores seed away from other products & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[26,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[26,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[26,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[26,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[26,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has problem with pests & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[27,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[27,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[27,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[27,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[27,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has leak-proof roof & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[28,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[28,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[28,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[28,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[28,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has insulated roof & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[29,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[29,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[29,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[29,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[29,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has insulated walls & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[30,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[30,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[30,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[30,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[30,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop is ventilated & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[31,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[31,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[31,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[31,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[31,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has plastered walls & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[32,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[32,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[32,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[32,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[32,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's floor is cement/tiles (not mud) & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[33,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[33,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[33,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[33,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[33,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's light is ambient/dark (not direct sunlight) & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[34,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[34,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[34,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[34,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[34,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop stores seed on wood/pallets/shelves (not directly on floor/cardboard)
+ & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[35,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[35,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[35,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[35,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[35,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop stores maize seed in open containers & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[36,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[36,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[36,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[36,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[36,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop displays official certificate & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[37,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[37,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[37,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[37,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[37,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's cleanness/professionality & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[38,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[38,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[38,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[38,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[38,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Descriptive statistics - Agro-input dealer (baseline)
+\begin_inset CommandInset label
+LatexCommand label
+name "descriptives_dealer2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & min & max & SD & nobs
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop never had expired seed & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[39,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[39,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[39,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[39,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[39,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop had expired seed but always handled it correctly & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[40,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[40,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[40,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[40,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[40,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop always explains to customers how seed should be used & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[41,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[41,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[41,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[41,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[41,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop always recommends complementary inputs to customers & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[42,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[42,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[42,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[42,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[42,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop offers extension/training to everyone & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[43,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[43,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[43,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[43,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[43,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop offers discounts for large quantities & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[44,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[44,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[44,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[44,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[44,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's smallest seed bag is 1 kg (not larger) & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[45,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[45,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[45,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[45,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[45,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop repackages seed if customers want small quantities & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[46,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[46,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[46,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[46,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[46,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop charges more if customers buy only 1 kg & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[47,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[47,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[47,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[47,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[47,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop keeps expiry date when repackaging seed & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[48,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[48,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[48,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[48,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[48,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop provides seed on credit to some & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[49,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[49,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[49,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[49,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[49,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of customers who received credit (if shop provides credit) & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[50,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[50,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[50,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[50,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[50,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of 
+\backslash
+textbf{women} who received credit (if shop provides credit) & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[51,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[51,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[51,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[51,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[51,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop received seed related complaint from customer & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[52,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[52,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[52,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[52,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[52,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop accepts mobile money as payment & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[53,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[53,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[53,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[53,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[53,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop sometimes delivers to customers & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[54,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[54,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[54,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[54,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[54,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer's self-rating: location & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[55,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[55,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[55,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[55,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[55,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer's self-rating: price & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[56,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[56,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[56,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[56,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[56,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer's self-rating: product quality & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[57,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[57,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[57,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[57,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[57,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer's self-rating: stock, convenient quantities & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[58,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[58,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[58,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[58,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[58,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer's self-rating: reputation & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[59,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[59,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[59,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[59,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[59,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop is registered with UNADA & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[60,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[60,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[60,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[60,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[60,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has trading license by local government & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[61,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[61,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[61,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[61,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[61,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop is member of other professional association  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[62,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[62,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[62,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[62,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[62,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of inspections by DAO/MAAIF/UNADA last year & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[63,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[63,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[63,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[63,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[63,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop received warning after inspection & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[64,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[64,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[64,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[64,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[64,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's products were confiscated after inspection & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[65,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[65,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[65,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[65,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[65,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop was closed after inspection & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[66,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[66,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[66,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[66,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[66,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has equipment to monitor seed moisture & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[67,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[67,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[67,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[67,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[67,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop monitors temperature & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[68,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[68,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[68,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[68,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[68,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop temperature where seed is stored in degrees Celsius & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[69,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[69,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[69,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[69,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[69,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Moisture in random seed bag in % & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[70,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[70,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[70,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[70,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[70,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows expiry date & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[71,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[71,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[71,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[71,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[71,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows expiry date but seed is expired & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[72,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[72,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[72,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[72,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[72,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows packaging date & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[73,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[73,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[73,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[73,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[73,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Packaging date is visible but more than 6 months ago & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[74,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[74,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[74,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[74,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[74,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Days since packaging date/expiry date minus 6 months  & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[75,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[75,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[75,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[75,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[75,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag is original and undamaged & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[76,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[76,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[76,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[76,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[76,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows certification sticker & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[77,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[77,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[77,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[77,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[77,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows lot number & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[78,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[78,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[78,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[78,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[78,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows e-verification & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[79,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[79,2],digits=3),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[79,3],digits=3),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[79,4],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_descriptives_dealer[79,5],digits=3),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
