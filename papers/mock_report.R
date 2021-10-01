@@ -759,7 +759,7 @@ df_descriptives_dealer[79,5] <- nrow(baseline_dealers) - sum(is.na(baseline_deal
 #####Descriptive statistics: farmers#####
 #########################################
 
-df_descriptives_farmer <- array(NA,dim=c(79,5))
+df_descriptives_farmer <- array(NA,dim=c(150,5))
 
 baseline_farmers$Check2.check.maize.q8[baseline_farmers$Check2.check.maize.q8==999] <- NA
 
@@ -1124,3 +1124,594 @@ df_descriptives_farmer[34,4] <- sd(baseline_farmers$Check2.check.maize.q27)
 df_descriptives_farmer[34,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q27))
 
 #continue with question q29
+
+baseline_farmers$Check2.check.maize.q29[baseline_farmers$Check2.check.maize.q29==999] <- NA
+
+df_descriptives_farmer[35,1] <- mean(baseline_farmers$Check2.check.maize.q29, na.rm=T)
+df_descriptives_farmer[35,2] <- min(baseline_farmers$Check2.check.maize.q29, na.rm=T)
+df_descriptives_farmer[35,3] <- max(baseline_farmers$Check2.check.maize.q29, na.rm=T)
+df_descriptives_farmer[35,4] <- sd(baseline_farmers$Check2.check.maize.q29, na.rm=T)
+df_descriptives_farmer[35,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q29))
+
+baseline_farmers$Check2.check.maize.q30<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",1,0)
+
+df_descriptives_farmer[36,1] <- mean(baseline_farmers$Check2.check.maize.q30)
+df_descriptives_farmer[36,2] <- min(baseline_farmers$Check2.check.maize.q30)
+df_descriptives_farmer[36,3] <- max(baseline_farmers$Check2.check.maize.q30)
+df_descriptives_farmer[36,4] <- sd(baseline_farmers$Check2.check.maize.q30)
+df_descriptives_farmer[36,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30))
+
+baseline_farmers$Check2.check.maize.q30a.1<-ifelse(baseline_farmers$Check2.check.maize.q30a.1=="True",1,0)
+
+df_descriptives_farmer[37,1] <- mean(baseline_farmers$Check2.check.maize.q30a.1)
+df_descriptives_farmer[37,2] <- min(baseline_farmers$Check2.check.maize.q30a.1)
+df_descriptives_farmer[37,3] <- max(baseline_farmers$Check2.check.maize.q30a.1)
+df_descriptives_farmer[37,4] <- sd(baseline_farmers$Check2.check.maize.q30a.1)
+df_descriptives_farmer[37,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.1))
+
+baseline_farmers$Check2.check.maize.q30a.2<-ifelse(baseline_farmers$Check2.check.maize.q30a.2=="True",1,0)
+
+df_descriptives_farmer[38,1] <- mean(baseline_farmers$Check2.check.maize.q30a.2)
+df_descriptives_farmer[38,2] <- min(baseline_farmers$Check2.check.maize.q30a.2)
+df_descriptives_farmer[38,3] <- max(baseline_farmers$Check2.check.maize.q30a.2)
+df_descriptives_farmer[38,4] <- sd(baseline_farmers$Check2.check.maize.q30a.2)
+df_descriptives_farmer[38,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.2))
+
+baseline_farmers$Check2.check.maize.q30a.3<-ifelse(baseline_farmers$Check2.check.maize.q30a.3=="True",1,0)
+
+df_descriptives_farmer[39,1] <- mean(baseline_farmers$Check2.check.maize.q30a.3)
+df_descriptives_farmer[39,2] <- min(baseline_farmers$Check2.check.maize.q30a.3)
+df_descriptives_farmer[39,3] <- max(baseline_farmers$Check2.check.maize.q30a.3)
+df_descriptives_farmer[39,4] <- sd(baseline_farmers$Check2.check.maize.q30a.3)
+df_descriptives_farmer[39,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.3))
+
+baseline_farmers$Check2.check.maize.q30a.4<-ifelse(baseline_farmers$Check2.check.maize.q30a.4=="True",1,0)
+
+df_descriptives_farmer[40,1] <- mean(baseline_farmers$Check2.check.maize.q30a.4)
+df_descriptives_farmer[40,2] <- min(baseline_farmers$Check2.check.maize.q30a.4)
+df_descriptives_farmer[40,3] <- max(baseline_farmers$Check2.check.maize.q30a.4)
+df_descriptives_farmer[40,4] <- sd(baseline_farmers$Check2.check.maize.q30a.4)
+df_descriptives_farmer[40,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.4))
+
+baseline_farmers$Check2.check.maize.q30a.5<-ifelse(baseline_farmers$Check2.check.maize.q30a.5=="True",1,0)
+
+df_descriptives_farmer[41,1] <- mean(baseline_farmers$Check2.check.maize.q30a.5)
+df_descriptives_farmer[41,2] <- min(baseline_farmers$Check2.check.maize.q30a.5)
+df_descriptives_farmer[41,3] <- max(baseline_farmers$Check2.check.maize.q30a.5)
+df_descriptives_farmer[41,4] <- sd(baseline_farmers$Check2.check.maize.q30a.5)
+df_descriptives_farmer[41,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.5))
+
+baseline_farmers$Check2.check.maize.q30a.6<-ifelse(baseline_farmers$Check2.check.maize.q30a.6=="True",1,0)
+
+df_descriptives_farmer[42,1] <- mean(baseline_farmers$Check2.check.maize.q30a.6)
+df_descriptives_farmer[42,2] <- min(baseline_farmers$Check2.check.maize.q30a.6)
+df_descriptives_farmer[42,3] <- max(baseline_farmers$Check2.check.maize.q30a.6)
+df_descriptives_farmer[42,4] <- sd(baseline_farmers$Check2.check.maize.q30a.6)
+df_descriptives_farmer[42,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q30a.6))
+
+baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q30b[baseline_farmers$Check2.check.maize.q30b==999] <- NA
+
+df_descriptives_farmer[43,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b)), na.rm=T)
+df_descriptives_farmer[43,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b)), na.rm=T)
+df_descriptives_farmer[43,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b)), na.rm=T)
+df_descriptives_farmer[43,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b)), na.rm=T)
+df_descriptives_farmer[43,5] <- nrow(baseline_farmers) - sum(is.na(as.numeric(as.character(baseline_farmers$Check2.check.maize.q30b))))
+
+baseline_farmers$Check2.check.maize.q31[baseline_farmers$Check2.check.maize.q31==98] <- NA
+
+baseline_farmers$hybrid<-((baseline_farmers$Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$Check2.check.maize.q31=="Bazooka")|(baseline_farmers$Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$Check2.check.maize.q31=="Panner")|(baseline_farmers$Check2.check.maize.q31=="Wema")|(baseline_farmers$Check2.check.maize.q31=="KH_series"))
+baseline_farmers$hybrid<-ifelse(baseline_farmers$hybrid=="TRUE",1,0)
+baseline_farmers$hybrid[baseline_farmers$Check2.check.maize.q31=="Other_hybrid"] <- NA
+
+df_descriptives_farmer[44,1] <- mean(baseline_farmers$hybrid, na.rm=T)
+df_descriptives_farmer[44,2] <- min(baseline_farmers$hybrid, na.rm=T)
+df_descriptives_farmer[44,3] <- max(baseline_farmers$hybrid, na.rm=T)
+df_descriptives_farmer[44,4] <- sd(baseline_farmers$hybrid, na.rm=T)
+df_descriptives_farmer[44,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$hybrid))
+
+baseline_farmers$OPV<-(baseline_farmers$Check2.check.maize.q31=="Longe_5")|(baseline_farmers$Check2.check.maize.q31=="Longe_4")
+baseline_farmers$OPV<-ifelse(baseline_farmers$OPV=="TRUE",1,0)
+baseline_farmers$OPV[baseline_farmers$Check2.check.maize.q31=="Other_hybrid"] <- NA
+
+df_descriptives_farmer[45,1] <- mean(baseline_farmers$OPV, na.rm=T)
+df_descriptives_farmer[45,2] <- min(baseline_farmers$OPV, na.rm=T)
+df_descriptives_farmer[45,3] <- max(baseline_farmers$OPV, na.rm=T)
+df_descriptives_farmer[45,4] <- sd(baseline_farmers$OPV, na.rm=T)
+df_descriptives_farmer[45,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$OPV))
+
+baseline_farmers$Land_Races<-(baseline_farmers$Check2.check.maize.q31=="Land_Races")
+baseline_farmers$Land_Races<-ifelse(baseline_farmers$Land_Races=="TRUE",1,0)
+
+df_descriptives_farmer[46,1] <- mean(baseline_farmers$Land_Races, na.rm=T)
+df_descriptives_farmer[46,2] <- min(baseline_farmers$Land_Races, na.rm=T)
+df_descriptives_farmer[46,3] <- max(baseline_farmers$Land_Races, na.rm=T)
+df_descriptives_farmer[46,4] <- sd(baseline_farmers$Land_Races, na.rm=T)
+df_descriptives_farmer[46,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Land_Races))
+
+baseline_farmers$improved<-((baseline_farmers$Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$Check2.check.maize.q31=="Bazooka")|(baseline_farmers$Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$Check2.check.maize.q31=="Panner")|(baseline_farmers$Check2.check.maize.q31=="Wema")|(baseline_farmers$Check2.check.maize.q31=="KH_series"|baseline_farmers$Check2.check.maize.q31=="Longe_5")|(baseline_farmers$Check2.check.maize.q31=="Longe_4")|(baseline_farmers$Check2.check.maize.q31=="Other_hybrid"))
+baseline_farmers$improved<-ifelse(baseline_farmers$improved=="TRUE",1,0)
+
+df_descriptives_farmer[47,1] <- mean(baseline_farmers$improved, na.rm=T)
+df_descriptives_farmer[47,2] <- min(baseline_farmers$improved, na.rm=T)
+df_descriptives_farmer[47,3] <- max(baseline_farmers$improved, na.rm=T)
+df_descriptives_farmer[47,4] <- sd(baseline_farmers$improved, na.rm=T)
+df_descriptives_farmer[47,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$improved))
+
+baseline_farmers$Check2.check.maize.q32[baseline_farmers$Check2.check.maize.q32==96] <- NA
+
+baseline_farmers$farmer_saved_seed<-((baseline_farmers$Check2.check.maize.q32=="a")|(baseline_farmers$Check2.check.maize.q32=="b"))
+baseline_farmers$farmer_saved_seed<-ifelse(baseline_farmers$farmer_saved_seed=="TRUE",1,0)
+
+df_descriptives_farmer[48,1] <- mean(baseline_farmers$farmer_saved_seed, na.rm=T)
+df_descriptives_farmer[48,2] <- min(baseline_farmers$farmer_saved_seed, na.rm=T)
+df_descriptives_farmer[48,3] <- max(baseline_farmers$farmer_saved_seed, na.rm=T)
+df_descriptives_farmer[48,4] <- sd(baseline_farmers$farmer_saved_seed, na.rm=T)
+df_descriptives_farmer[48,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$farmer_saved_seed))
+
+baseline_farmers$Bought_from_agro_input_shop<-ifelse(baseline_farmers$Check2.check.maize.q32=="d",1,0)
+
+df_descriptives_farmer[49,1] <- mean(baseline_farmers$Bought_from_agro_input_shop, na.rm=T)
+df_descriptives_farmer[49,2] <- min(baseline_farmers$Bought_from_agro_input_shop, na.rm=T)
+df_descriptives_farmer[49,3] <- max(baseline_farmers$Bought_from_agro_input_shop, na.rm=T)
+df_descriptives_farmer[49,4] <- sd(baseline_farmers$Bought_from_agro_input_shop, na.rm=T)
+df_descriptives_farmer[49,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Bought_from_agro_input_shop))
+
+baseline_farmers$hybridbutsaved <- NA
+baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$farmer_saved_seed == 1] <- 1
+baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$farmer_saved_seed == 0] <- 0
+baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 0] <- 0
+
+df_descriptives_farmer[50,1] <- mean(baseline_farmers$hybridbutsaved, na.rm=T)
+df_descriptives_farmer[50,2] <- min(baseline_farmers$hybridbutsaved, na.rm=T)
+df_descriptives_farmer[50,3] <- max(baseline_farmers$hybridbutsaved, na.rm=T)
+df_descriptives_farmer[50,4] <- sd(baseline_farmers$hybridbutsaved, na.rm=T)
+df_descriptives_farmer[50,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$hybridbutsaved))
+
+baseline_farmers$Check2.check.maize.q34[baseline_farmers$Check2.check.maize.q34==98] <- NA
+baseline_farmers$Check2.check.maize.q34[baseline_farmers$Check2.check.maize.q34=="n/a"] <- NA
+baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
+
+baseline_farmers$OPVbutfourthormore_timeused <- NA
+baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==1] <- 1
+baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==0] <- 0
+baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==0] <- 0
+baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV == 0] <- 0
+
+df_descriptives_farmer[51,1] <- mean(baseline_farmers$OPVbutfourthormore_timeused, na.rm=T)
+df_descriptives_farmer[51,2] <- min(baseline_farmers$OPVbutfourthormore_timeused, na.rm=T)
+df_descriptives_farmer[51,3] <- max(baseline_farmers$OPVbutfourthormore_timeused, na.rm=T)
+df_descriptives_farmer[51,4] <- sd(baseline_farmers$OPVbutfourthormore_timeused, na.rm=T)
+df_descriptives_farmer[51,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$OPVbutfourthormore_timeused))
+
+baseline_farmers$Check2.check.maize.q35a[baseline_farmers$Check2.check.maize.q35a==98] <- NA
+
+df_descriptives_farmer[52,1] <- mean(baseline_farmers$Check2.check.maize.q35a, na.rm=T)
+df_descriptives_farmer[52,2] <- min(baseline_farmers$Check2.check.maize.q35a, na.rm=T)
+df_descriptives_farmer[52,3] <- max(baseline_farmers$Check2.check.maize.q35a, na.rm=T)
+df_descriptives_farmer[52,4] <- sd(baseline_farmers$Check2.check.maize.q35a, na.rm=T)
+df_descriptives_farmer[52,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35a))
+
+baseline_farmers$Check2.check.maize.q35b[baseline_farmers$Check2.check.maize.q35b==98] <- NA
+
+df_descriptives_farmer[53,1] <- mean(baseline_farmers$Check2.check.maize.q35b, na.rm=T)
+df_descriptives_farmer[53,2] <- min(baseline_farmers$Check2.check.maize.q35b, na.rm=T)
+df_descriptives_farmer[53,3] <- max(baseline_farmers$Check2.check.maize.q35b, na.rm=T)
+df_descriptives_farmer[53,4] <- sd(baseline_farmers$Check2.check.maize.q35b, na.rm=T)
+df_descriptives_farmer[53,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35b))
+
+baseline_farmers$Check2.check.maize.q35c[baseline_farmers$Check2.check.maize.q35c==98] <- NA
+
+df_descriptives_farmer[54,1] <- mean(baseline_farmers$Check2.check.maize.q35c, na.rm=T)
+df_descriptives_farmer[54,2] <- min(baseline_farmers$Check2.check.maize.q35c, na.rm=T)
+df_descriptives_farmer[54,3] <- max(baseline_farmers$Check2.check.maize.q35c, na.rm=T)
+df_descriptives_farmer[54,4] <- sd(baseline_farmers$Check2.check.maize.q35c, na.rm=T)
+df_descriptives_farmer[54,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35c))
+
+baseline_farmers$Check2.check.maize.q35d[baseline_farmers$Check2.check.maize.q35d==98] <- NA
+
+df_descriptives_farmer[55,1] <- mean(baseline_farmers$Check2.check.maize.q35d, na.rm=T)
+df_descriptives_farmer[55,2] <- min(baseline_farmers$Check2.check.maize.q35d, na.rm=T)
+df_descriptives_farmer[55,3] <- max(baseline_farmers$Check2.check.maize.q35d, na.rm=T)
+df_descriptives_farmer[55,4] <- sd(baseline_farmers$Check2.check.maize.q35d, na.rm=T)
+df_descriptives_farmer[55,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35d))
+
+baseline_farmers$Check2.check.maize.q35e[baseline_farmers$Check2.check.maize.q35e==98] <- NA
+
+df_descriptives_farmer[56,1] <- mean(baseline_farmers$Check2.check.maize.q35e, na.rm=T)
+df_descriptives_farmer[56,2] <- min(baseline_farmers$Check2.check.maize.q35e, na.rm=T)
+df_descriptives_farmer[56,3] <- max(baseline_farmers$Check2.check.maize.q35e, na.rm=T)
+df_descriptives_farmer[56,4] <- sd(baseline_farmers$Check2.check.maize.q35e, na.rm=T)
+df_descriptives_farmer[56,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35e))
+
+baseline_farmers$Check2.check.maize.q35f[baseline_farmers$Check2.check.maize.q35f==98] <- NA
+
+df_descriptives_farmer[57,1] <- mean(baseline_farmers$Check2.check.maize.q35f, na.rm=T)
+df_descriptives_farmer[57,2] <- min(baseline_farmers$Check2.check.maize.q35f, na.rm=T)
+df_descriptives_farmer[57,3] <- max(baseline_farmers$Check2.check.maize.q35f, na.rm=T)
+df_descriptives_farmer[57,4] <- sd(baseline_farmers$Check2.check.maize.q35f, na.rm=T)
+df_descriptives_farmer[57,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35f))
+
+baseline_farmers$Check2.check.maize.q35g[baseline_farmers$Check2.check.maize.q35g==98] <- NA
+
+df_descriptives_farmer[58,1] <- mean(baseline_farmers$Check2.check.maize.q35g, na.rm=T)
+df_descriptives_farmer[58,2] <- min(baseline_farmers$Check2.check.maize.q35g, na.rm=T)
+df_descriptives_farmer[58,3] <- max(baseline_farmers$Check2.check.maize.q35g, na.rm=T)
+df_descriptives_farmer[58,4] <- sd(baseline_farmers$Check2.check.maize.q35g, na.rm=T)
+df_descriptives_farmer[58,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35g))
+
+baseline_farmers$Check2.check.maize.q35h[baseline_farmers$Check2.check.maize.q35h==98] <- NA
+
+df_descriptives_farmer[59,1] <- mean(baseline_farmers$Check2.check.maize.q35h, na.rm=T)
+df_descriptives_farmer[59,2] <- min(baseline_farmers$Check2.check.maize.q35h, na.rm=T)
+df_descriptives_farmer[59,3] <- max(baseline_farmers$Check2.check.maize.q35h, na.rm=T)
+df_descriptives_farmer[59,4] <- sd(baseline_farmers$Check2.check.maize.q35h, na.rm=T)
+df_descriptives_farmer[59,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35h))
+
+baseline_farmers$Check2.check.maize.q35i[baseline_farmers$Check2.check.maize.q35i==98] <- NA
+
+df_descriptives_farmer[60,1] <- mean(baseline_farmers$Check2.check.maize.q35i, na.rm=T)
+df_descriptives_farmer[60,2] <- min(baseline_farmers$Check2.check.maize.q35i, na.rm=T)
+df_descriptives_farmer[60,3] <- max(baseline_farmers$Check2.check.maize.q35i, na.rm=T)
+df_descriptives_farmer[60,4] <- sd(baseline_farmers$Check2.check.maize.q35i, na.rm=T)
+df_descriptives_farmer[60,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35i))
+
+baseline_farmers$Check2.check.maize.q35j[baseline_farmers$Check2.check.maize.q35j==98] <- NA
+
+df_descriptives_farmer[61,1] <- mean(baseline_farmers$Check2.check.maize.q35j, na.rm=T)
+df_descriptives_farmer[61,2] <- min(baseline_farmers$Check2.check.maize.q35j, na.rm=T)
+df_descriptives_farmer[61,3] <- max(baseline_farmers$Check2.check.maize.q35j, na.rm=T)
+df_descriptives_farmer[61,4] <- sd(baseline_farmers$Check2.check.maize.q35j, na.rm=T)
+df_descriptives_farmer[61,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q35j))
+
+baseline_farmers$Check2.check.maize.q36<-ifelse(baseline_farmers$Check2.check.maize.q36=="Yes",1,0)
+
+df_descriptives_farmer[62,1] <- mean(baseline_farmers$Check2.check.maize.q36)
+df_descriptives_farmer[62,2] <- min(baseline_farmers$Check2.check.maize.q36)
+df_descriptives_farmer[62,3] <- max(baseline_farmers$Check2.check.maize.q36)
+df_descriptives_farmer[62,4] <- sd(baseline_farmers$Check2.check.maize.q36)
+df_descriptives_farmer[62,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q36))
+
+baseline_farmers$Check2.check.maize.q36b[baseline_farmers$Check2.check.maize.q36b=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q36b<-ifelse(baseline_farmers$Check2.check.maize.q36b=="Yes",1,0)
+
+df_descriptives_farmer[63,1] <- mean(baseline_farmers$Check2.check.maize.q36b, na.rm=T)
+df_descriptives_farmer[63,2] <- min(baseline_farmers$Check2.check.maize.q36b, na.rm=T)
+df_descriptives_farmer[63,3] <- max(baseline_farmers$Check2.check.maize.q36b, na.rm=T)
+df_descriptives_farmer[63,4] <- sd(baseline_farmers$Check2.check.maize.q36b, na.rm=T)
+df_descriptives_farmer[63,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q36b))
+
+baseline_farmers$Check2.check.maize.q37<-ifelse(baseline_farmers$Check2.check.maize.q37=="Yes",1,0)
+
+df_descriptives_farmer[64,1] <- mean(baseline_farmers$Check2.check.maize.q37)
+df_descriptives_farmer[64,2] <- min(baseline_farmers$Check2.check.maize.q37)
+df_descriptives_farmer[64,3] <- max(baseline_farmers$Check2.check.maize.q37)
+df_descriptives_farmer[64,4] <- sd(baseline_farmers$Check2.check.maize.q37)
+df_descriptives_farmer[64,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q37))
+
+baseline_farmers$Check2.check.maize.q38[baseline_farmers$Check2.check.maize.q38==999] <- NA
+
+df_descriptives_farmer[65,1] <- mean(baseline_farmers$Check2.check.maize.q38, na.rm=T)
+df_descriptives_farmer[65,2] <- min(baseline_farmers$Check2.check.maize.q38, na.rm=T)
+df_descriptives_farmer[65,3] <- max(baseline_farmers$Check2.check.maize.q38, na.rm=T)
+df_descriptives_farmer[65,4] <- sd(baseline_farmers$Check2.check.maize.q38, na.rm=T)
+df_descriptives_farmer[65,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q38))
+
+baseline_farmers$Check2.check.maize.q39[baseline_farmers$Check2.check.maize.q39==999] <- NA
+baseline_farmers$Check2.check.maize.q39[baseline_farmers$Check2.check.maize.q39=="n/a"] <- NA
+
+df_descriptives_farmer[66,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q39)), na.rm=T)
+df_descriptives_farmer[66,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q39)), na.rm=T)
+df_descriptives_farmer[66,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q39)), na.rm=T)
+df_descriptives_farmer[66,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q39)), na.rm=T)
+df_descriptives_farmer[66,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q39))
+
+baseline_farmers$Check2.check.maize.q39 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q39))
+baseline_farmers$priceindollar <- baseline_farmers$Check2.check.maize.q39/3561.51
+
+df_descriptives_farmer[100,1] <- mean(as.numeric(as.character(baseline_farmers$priceindollar)), na.rm=T)
+df_descriptives_farmer[100,2] <- min(as.numeric(as.character(baseline_farmers$priceindollar)), na.rm=T)
+df_descriptives_farmer[100,3] <- max(as.numeric(as.character(baseline_farmers$priceindollar)), na.rm=T)
+df_descriptives_farmer[100,4] <- sd(as.numeric(as.character(baseline_farmers$priceindollar)), na.rm=T)
+df_descriptives_farmer[100,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$priceindollar))
+
+baseline_farmers$costforseed <- baseline_farmers$Check2.check.maize.q38*(as.numeric(as.character(baseline_farmers$Check2.check.maize.q39)))
+
+df_descriptives_farmer[67,1] <- mean(baseline_farmers$costforseed, na.rm=T)
+df_descriptives_farmer[67,2] <- min(baseline_farmers$costforseed, na.rm=T)
+df_descriptives_farmer[67,3] <- max(baseline_farmers$costforseed, na.rm=T)
+df_descriptives_farmer[67,4] <- sd(baseline_farmers$costforseed, na.rm=T)
+df_descriptives_farmer[67,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$costforseed))
+
+baseline_farmers$costforseed_dollar <- baseline_farmers$costforseed/3561.51
+
+df_descriptives_farmer[101,1] <- mean(baseline_farmers$costforseed_dollar, na.rm=T)
+df_descriptives_farmer[101,2] <- min(baseline_farmers$costforseed_dollar, na.rm=T)
+df_descriptives_farmer[101,3] <- max(baseline_farmers$costforseed_dollar, na.rm=T)
+df_descriptives_farmer[101,4] <- sd(baseline_farmers$costforseed_dollar, na.rm=T)
+df_descriptives_farmer[101,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$costforseed_dollar))
+
+
+baseline_farmers$correctseedspacing<-ifelse(baseline_farmers$Check2.check.maize.q40=="c",1,0)
+
+df_descriptives_farmer[68,1] <- mean(baseline_farmers$correctseedspacing)
+df_descriptives_farmer[68,2] <- min(baseline_farmers$correctseedspacing)
+df_descriptives_farmer[68,3] <- max(baseline_farmers$correctseedspacing)
+df_descriptives_farmer[68,4] <- sd(baseline_farmers$correctseedspacing)
+df_descriptives_farmer[68,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$correctseedspacing))
+
+baseline_farmers$Check2.check.maize.q41[baseline_farmers$Check2.check.maize.q41==999] <- NA
+baseline_farmers$Check2.check.maize.q41[baseline_farmers$Check2.check.maize.q41=="n/a"] <- NA
+
+df_descriptives_farmer[69,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q41)), na.rm=T)
+df_descriptives_farmer[69,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q41)), na.rm=T)
+df_descriptives_farmer[69,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q41)), na.rm=T)
+df_descriptives_farmer[69,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q41)), na.rm=T)
+df_descriptives_farmer[69,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q41))
+
+baseline_farmers$correctnumberofseeds<-ifelse(baseline_farmers$Check2.check.maize.q41==1,1,0)
+
+df_descriptives_farmer[70,1] <- mean(baseline_farmers$correctnumberofseeds, na.rm=T)
+df_descriptives_farmer[70,2] <- min(baseline_farmers$correctnumberofseeds, na.rm=T)
+df_descriptives_farmer[70,3] <- max(baseline_farmers$correctnumberofseeds, na.rm=T)
+df_descriptives_farmer[70,4] <- sd(baseline_farmers$correctnumberofseeds, na.rm=T)
+df_descriptives_farmer[70,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$correctnumberofseeds))
+
+baseline_farmers$Check2.check.maize.q42[baseline_farmers$Check2.check.maize.q42==98] <- NA
+baseline_farmers$Check2.check.maize.q42<-ifelse(baseline_farmers$Check2.check.maize.q42=="Yes",1,0)
+
+df_descriptives_farmer[71,1] <- mean(baseline_farmers$Check2.check.maize.q42, na.rm=T)
+df_descriptives_farmer[71,2] <- min(baseline_farmers$Check2.check.maize.q42, na.rm=T)
+df_descriptives_farmer[71,3] <- max(baseline_farmers$Check2.check.maize.q42, na.rm=T)
+df_descriptives_farmer[71,4] <- sd(baseline_farmers$Check2.check.maize.q42, na.rm=T)
+df_descriptives_farmer[71,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q42))
+
+baseline_farmers$Check2.check.maize.q43[baseline_farmers$Check2.check.maize.q43==98] <- NA
+baseline_farmers$Check2.check.maize.q43<-ifelse(baseline_farmers$Check2.check.maize.q43=="Yes",1,0)
+
+df_descriptives_farmer[72,1] <- mean(baseline_farmers$Check2.check.maize.q43, na.rm=T)
+df_descriptives_farmer[72,2] <- min(baseline_farmers$Check2.check.maize.q43, na.rm=T)
+df_descriptives_farmer[72,3] <- max(baseline_farmers$Check2.check.maize.q43, na.rm=T)
+df_descriptives_farmer[72,4] <- sd(baseline_farmers$Check2.check.maize.q43, na.rm=T)
+df_descriptives_farmer[72,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q43))
+
+baseline_farmers$Check2.check.maize.q43a[baseline_farmers$Check2.check.maize.q43a==999] <- NA
+baseline_farmers$Check2.check.maize.q43a[baseline_farmers$Check2.check.maize.q43a=="n/a"] <- NA
+
+df_descriptives_farmer[73,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q43a)), na.rm=T)
+df_descriptives_farmer[73,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q43a)), na.rm=T)
+df_descriptives_farmer[73,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q43a)), na.rm=T)
+df_descriptives_farmer[73,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q43a)), na.rm=T)
+df_descriptives_farmer[73,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q43a))
+
+baseline_farmers$Check2.check.maize.q44[baseline_farmers$Check2.check.maize.q44==98] <- NA
+baseline_farmers$Check2.check.maize.q44<-ifelse(baseline_farmers$Check2.check.maize.q44=="Yes",1,0)
+
+df_descriptives_farmer[74,1] <- mean(baseline_farmers$Check2.check.maize.q44, na.rm=T)
+df_descriptives_farmer[74,2] <- min(baseline_farmers$Check2.check.maize.q44, na.rm=T)
+df_descriptives_farmer[74,3] <- max(baseline_farmers$Check2.check.maize.q44, na.rm=T)
+df_descriptives_farmer[74,4] <- sd(baseline_farmers$Check2.check.maize.q44, na.rm=T)
+df_descriptives_farmer[74,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q44))
+
+baseline_farmers$Check2.check.maize.q44a[baseline_farmers$Check2.check.maize.q44a==999] <- NA
+baseline_farmers$Check2.check.maize.q44a[baseline_farmers$Check2.check.maize.q44a=="n/a"] <- NA
+
+df_descriptives_farmer[75,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q44a)), na.rm=T)
+df_descriptives_farmer[75,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q44a)), na.rm=T)
+df_descriptives_farmer[75,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q44a)), na.rm=T)
+df_descriptives_farmer[75,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q44a)), na.rm=T)
+df_descriptives_farmer[75,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q44a))
+
+baseline_farmers$Check2.check.maize.q45[baseline_farmers$Check2.check.maize.q45==999] <- NA
+
+df_descriptives_farmer[76,1] <- mean(baseline_farmers$Check2.check.maize.q45, na.rm=T)
+df_descriptives_farmer[76,2] <- min(baseline_farmers$Check2.check.maize.q45, na.rm=T)
+df_descriptives_farmer[76,3] <- max(baseline_farmers$Check2.check.maize.q45, na.rm=T)
+df_descriptives_farmer[76,4] <- sd(baseline_farmers$Check2.check.maize.q45, na.rm=T)
+df_descriptives_farmer[76,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q45))
+
+baseline_farmers$correctweeding<-((baseline_farmers$Check2.check.maize.q45>=3))
+baseline_farmers$correctweeding<-ifelse(baseline_farmers$correctweeding=="TRUE",1,0)
+
+df_descriptives_farmer[77,1] <- mean(baseline_farmers$correctweeding, na.rm=T)
+df_descriptives_farmer[77,2] <- min(baseline_farmers$correctweeding, na.rm=T)
+df_descriptives_farmer[77,3] <- max(baseline_farmers$correctweeding, na.rm=T)
+df_descriptives_farmer[77,4] <- sd(baseline_farmers$correctweeding, na.rm=T)
+df_descriptives_farmer[77,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$correctweeding))
+
+baseline_farmers$Check2.check.maize.q46[baseline_farmers$Check2.check.maize.q46==999] <- NA
+baseline_farmers$Check2.check.maize.q46[baseline_farmers$Check2.check.maize.q46=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q46 <- (as.numeric(as.character(baseline_farmers$Check2.check.maize.q46)))
+
+df_descriptives_farmer[78,1] <- mean(baseline_farmers$Check2.check.maize.q46, na.rm=T)
+df_descriptives_farmer[78,2] <- min(baseline_farmers$Check2.check.maize.q46, na.rm=T)
+df_descriptives_farmer[78,3] <- max(baseline_farmers$Check2.check.maize.q46, na.rm=T)
+df_descriptives_farmer[78,4] <- sd(baseline_farmers$Check2.check.maize.q46, na.rm=T)
+df_descriptives_farmer[78,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q46))
+
+baseline_farmers$correcttimeweeding <- (baseline_farmers$Check2.check.maize.q46 <= 20 & baseline_farmers$Check2.check.maize.q46 >= 18)
+baseline_farmers$correcttimeweeding<-ifelse(baseline_farmers$correcttimeweeding=="TRUE",1,0)
+
+df_descriptives_farmer[79,1] <- mean(baseline_farmers$correcttimeweeding, na.rm=T)
+df_descriptives_farmer[79,2] <- min(baseline_farmers$correcttimeweeding, na.rm=T)
+df_descriptives_farmer[79,3] <- max(baseline_farmers$correcttimeweeding, na.rm=T)
+df_descriptives_farmer[79,4] <- sd(baseline_farmers$correcttimeweeding, na.rm=T)
+df_descriptives_farmer[79,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$correcttimeweeding))
+
+baseline_farmers$Check2.check.maize.q47[baseline_farmers$Check2.check.maize.q47==98] <- NA
+baseline_farmers$Check2.check.maize.q47<-ifelse(baseline_farmers$Check2.check.maize.q47=="Yes",1,0)
+
+df_descriptives_farmer[80,1] <- mean(baseline_farmers$Check2.check.maize.q47, na.rm=T)
+df_descriptives_farmer[80,2] <- min(baseline_farmers$Check2.check.maize.q47, na.rm=T)
+df_descriptives_farmer[80,3] <- max(baseline_farmers$Check2.check.maize.q47, na.rm=T)
+df_descriptives_farmer[80,4] <- sd(baseline_farmers$Check2.check.maize.q47, na.rm=T)
+df_descriptives_farmer[80,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q47))
+
+baseline_farmers$Check2.check.maize.q48[baseline_farmers$Check2.check.maize.q48==98] <- NA
+baseline_farmers$correctplanting<-ifelse(baseline_farmers$Check2.check.maize.q48==2,1,0)
+
+df_descriptives_farmer[81,1] <- mean(baseline_farmers$correctplanting, na.rm=T)
+df_descriptives_farmer[81,2] <- min(baseline_farmers$correctplanting, na.rm=T)
+df_descriptives_farmer[81,3] <- max(baseline_farmers$correctplanting, na.rm=T)
+df_descriptives_farmer[81,4] <- sd(baseline_farmers$correctplanting, na.rm=T)
+df_descriptives_farmer[81,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$correctplanting))
+
+baseline_farmers$Check2.check.maize.q49[baseline_farmers$Check2.check.maize.q49==98] <- NA
+baseline_farmers$Check2.check.maize.q49<-ifelse(baseline_farmers$Check2.check.maize.q49=="Yes",1,0)
+
+df_descriptives_farmer[82,1] <- mean(baseline_farmers$Check2.check.maize.q49, na.rm=T)
+df_descriptives_farmer[82,2] <- min(baseline_farmers$Check2.check.maize.q49, na.rm=T)
+df_descriptives_farmer[82,3] <- max(baseline_farmers$Check2.check.maize.q49, na.rm=T)
+df_descriptives_farmer[82,4] <- sd(baseline_farmers$Check2.check.maize.q49, na.rm=T)
+df_descriptives_farmer[82,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q49))
+
+baseline_farmers$Check2.check.maize.q50[baseline_farmers$Check2.check.maize.q50==999] <- NA
+
+df_descriptives_farmer[83,1] <- mean(baseline_farmers$Check2.check.maize.q50, na.rm=T)
+df_descriptives_farmer[83,2] <- min(baseline_farmers$Check2.check.maize.q50, na.rm=T)
+df_descriptives_farmer[83,3] <- max(baseline_farmers$Check2.check.maize.q50, na.rm=T)
+df_descriptives_farmer[83,4] <- sd(baseline_farmers$Check2.check.maize.q50, na.rm=T)
+df_descriptives_farmer[83,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q50))
+
+baseline_farmers$Check2.check.maize.q51[baseline_farmers$Check2.check.maize.q51==999] <- NA
+
+df_descriptives_farmer[84,1] <- mean(baseline_farmers$Check2.check.maize.q51, na.rm=T)
+df_descriptives_farmer[84,2] <- min(baseline_farmers$Check2.check.maize.q51, na.rm=T)
+df_descriptives_farmer[84,3] <- max(baseline_farmers$Check2.check.maize.q51, na.rm=T)
+df_descriptives_farmer[84,4] <- sd(baseline_farmers$Check2.check.maize.q51, na.rm=T)
+df_descriptives_farmer[84,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q51))
+
+baseline_farmers$yield_inkg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51
+
+df_descriptives_farmer[85,1] <- mean(baseline_farmers$yield_inkg, na.rm=T)
+df_descriptives_farmer[85,2] <- min(baseline_farmers$yield_inkg, na.rm=T)
+df_descriptives_farmer[85,3] <- max(baseline_farmers$yield_inkg, na.rm=T)
+df_descriptives_farmer[85,4] <- sd(baseline_farmers$yield_inkg, na.rm=T)
+df_descriptives_farmer[85,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$yield_inkg))
+
+baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29
+
+df_descriptives_farmer[86,1] <- mean(baseline_farmers$landproductivity, na.rm=T)
+df_descriptives_farmer[86,2] <- min(baseline_farmers$landproductivity, na.rm=T)
+df_descriptives_farmer[86,3] <- max(baseline_farmers$landproductivity, na.rm=T)
+df_descriptives_farmer[86,4] <- sd(baseline_farmers$landproductivity, na.rm=T)
+df_descriptives_farmer[86,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$landproductivity))
+
+baseline_farmers$Check2.check.maize.q52[baseline_farmers$Check2.check.maize.q52==999] <- NA
+
+df_descriptives_farmer[87,1] <- mean(baseline_farmers$Check2.check.maize.q52, na.rm=T)
+df_descriptives_farmer[87,2] <- min(baseline_farmers$Check2.check.maize.q52, na.rm=T)
+df_descriptives_farmer[87,3] <- max(baseline_farmers$Check2.check.maize.q52, na.rm=T)
+df_descriptives_farmer[87,4] <- sd(baseline_farmers$Check2.check.maize.q52, na.rm=T)
+df_descriptives_farmer[87,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q52))
+
+baseline_farmers$marketvaluedollars <- baseline_farmers$Check2.check.maize.q52/3561.51
+
+df_descriptives_farmer[102,1] <- mean(baseline_farmers$marketvaluedollars, na.rm=T)
+df_descriptives_farmer[102,2] <- min(baseline_farmers$marketvaluedollars, na.rm=T)
+df_descriptives_farmer[102,3] <- max(baseline_farmers$marketvaluedollars, na.rm=T)
+df_descriptives_farmer[102,4] <- sd(baseline_farmers$marketvaluedollars, na.rm=T)
+df_descriptives_farmer[102,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$marketvaluedollars))
+
+
+baseline_farmers$yield_inUGX <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q52
+
+df_descriptives_farmer[88,1] <- mean(baseline_farmers$yield_inUGX, na.rm=T)
+df_descriptives_farmer[88,2] <- min(baseline_farmers$yield_inUGX, na.rm=T)
+df_descriptives_farmer[88,3] <- max(baseline_farmers$yield_inUGX, na.rm=T)
+df_descriptives_farmer[88,4] <- sd(baseline_farmers$yield_inUGX, na.rm=T)
+df_descriptives_farmer[88,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$yield_inUGX))
+
+baseline_farmers$yield_indollar <- baseline_farmers$yield_inUGX/3561.51
+
+df_descriptives_farmer[89,1] <- mean(baseline_farmers$yield_indollar, na.rm=T)
+df_descriptives_farmer[89,2] <- min(baseline_farmers$yield_indollar, na.rm=T)
+df_descriptives_farmer[89,3] <- max(baseline_farmers$yield_indollar, na.rm=T)
+df_descriptives_farmer[89,4] <- sd(baseline_farmers$yield_indollar, na.rm=T)
+df_descriptives_farmer[89,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$yield_indollar))
+
+baseline_farmers$landproductivity_inUGX <- baseline_farmers$yield_inUGX/baseline_farmers$Check2.check.maize.q29
+
+df_descriptives_farmer[90,1] <- mean(baseline_farmers$landproductivity_inUGX, na.rm=T)
+df_descriptives_farmer[90,2] <- min(baseline_farmers$landproductivity_inUGX, na.rm=T)
+df_descriptives_farmer[90,3] <- max(baseline_farmers$landproductivity_inUGX, na.rm=T)
+df_descriptives_farmer[90,4] <- sd(baseline_farmers$landproductivity_inUGX, na.rm=T)
+df_descriptives_farmer[90,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$landproductivity_inUGX))
+
+baseline_farmers$landproductivity_indollar <- baseline_farmers$landproductivity_inUGX/3561.51
+
+df_descriptives_farmer[91,1] <- mean(baseline_farmers$landproductivity_indollar, na.rm=T)
+df_descriptives_farmer[91,2] <- min(baseline_farmers$landproductivity_indollar, na.rm=T)
+df_descriptives_farmer[91,3] <- max(baseline_farmers$landproductivity_indollar, na.rm=T)
+df_descriptives_farmer[91,4] <- sd(baseline_farmers$landproductivity_indollar, na.rm=T)
+df_descriptives_farmer[91,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$landproductivity_indollar))
+
+baseline_farmers$Check2.check.maize.q53<-ifelse(baseline_farmers$Check2.check.maize.q53=="Yes",1,0)
+
+df_descriptives_farmer[92,1] <- mean(baseline_farmers$Check2.check.maize.q53)
+df_descriptives_farmer[92,2] <- min(baseline_farmers$Check2.check.maize.q53)
+df_descriptives_farmer[92,3] <- max(baseline_farmers$Check2.check.maize.q53)
+df_descriptives_farmer[92,4] <- sd(baseline_farmers$Check2.check.maize.q53)
+df_descriptives_farmer[92,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q53))
+
+baseline_farmers$Check2.check.maize.q54[baseline_farmers$Check2.check.maize.q54=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q54[baseline_farmers$Check2.check.maize.q54==999] <- NA
+
+df_descriptives_farmer[93,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q54)), na.rm=T)
+df_descriptives_farmer[93,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q54)), na.rm=T)
+df_descriptives_farmer[93,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q54)), na.rm=T)
+df_descriptives_farmer[93,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q54)), na.rm=T)
+df_descriptives_farmer[93,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q54))
+
+baseline_farmers$Check2.check.maize.q55[baseline_farmers$Check2.check.maize.q55=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q55[baseline_farmers$Check2.check.maize.q55==999] <- NA
+baseline_farmers$Check2.check.maize.q55 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q55))
+
+df_descriptives_farmer[94,1] <- mean(as.numeric(as.character(baseline_farmers$Check2.check.maize.q55)), na.rm=T)
+df_descriptives_farmer[94,2] <- min(as.numeric(as.character(baseline_farmers$Check2.check.maize.q55)), na.rm=T)
+df_descriptives_farmer[94,3] <- max(as.numeric(as.character(baseline_farmers$Check2.check.maize.q55)), na.rm=T)
+df_descriptives_farmer[94,4] <- sd(as.numeric(as.character(baseline_farmers$Check2.check.maize.q55)), na.rm=T)
+df_descriptives_farmer[94,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q55))
+
+baseline_farmers$outputprice_indollar <- baseline_farmers$Check2.check.maize.q55/3561.51
+
+df_descriptives_farmer[95,1] <- mean(as.numeric(as.character(baseline_farmers$outputprice_indollar)), na.rm=T)
+df_descriptives_farmer[95,2] <- min(as.numeric(as.character(baseline_farmers$outputprice_indollar)), na.rm=T)
+df_descriptives_farmer[95,3] <- max(as.numeric(as.character(baseline_farmers$outputprice_indollar)), na.rm=T)
+df_descriptives_farmer[95,4] <- sd(as.numeric(as.character(baseline_farmers$outputprice_indollar)), na.rm=T)
+df_descriptives_farmer[95,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$outputprice_indollar))
+
+baseline_farmers$revenueUGX <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q54))*baseline_farmers$Check2.check.maize.q55
+
+df_descriptives_farmer[96,1] <- mean(baseline_farmers$revenueUGX, na.rm=T)
+df_descriptives_farmer[96,2] <- min(baseline_farmers$revenueUGX, na.rm=T)
+df_descriptives_farmer[96,3] <- max(baseline_farmers$revenueUGX, na.rm=T)
+df_descriptives_farmer[96,4] <- sd(baseline_farmers$revenueUGX, na.rm=T)
+df_descriptives_farmer[96,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$revenueUGX))
+
+baseline_farmers$revenue_dollar <- baseline_farmers$revenueUGX/3561.51
+
+df_descriptives_farmer[97,1] <- mean(baseline_farmers$revenue_dollar, na.rm=T)
+df_descriptives_farmer[97,2] <- min(baseline_farmers$revenue_dollar, na.rm=T)
+df_descriptives_farmer[97,3] <- max(baseline_farmers$revenue_dollar, na.rm=T)
+df_descriptives_farmer[97,4] <- sd(baseline_farmers$revenue_dollar, na.rm=T)
+df_descriptives_farmer[97,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$revenue_dollar))
+
+baseline_farmers$Check2.check.maize.q56[baseline_farmers$Check2.check.maize.q56=="n/a"] <- NA
+baseline_farmers$Check2.check.maize.q56[baseline_farmers$Check2.check.maize.q56==999] <- NA
+baseline_farmers$Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q56))
+
+df_descriptives_farmer[98,1] <- mean(baseline_farmers$Check2.check.maize.q56, na.rm=T)
+df_descriptives_farmer[98,2] <- min(baseline_farmers$Check2.check.maize.q56, na.rm=T)
+df_descriptives_farmer[98,3] <- max(baseline_farmers$Check2.check.maize.q56, na.rm=T)
+df_descriptives_farmer[98,4] <- sd(baseline_farmers$Check2.check.maize.q56, na.rm=T)
+df_descriptives_farmer[98,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q56))
+
+baseline_farmers$Check2.check.maize.q57[baseline_farmers$Check2.check.maize.q57==999] <- NA
+baseline_farmers$Check2.check.maize.q57 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q57))
+
+df_descriptives_farmer[99,1] <- mean(baseline_farmers$Check2.check.maize.q57, na.rm=T)
+df_descriptives_farmer[99,2] <- min(baseline_farmers$Check2.check.maize.q57, na.rm=T)
+df_descriptives_farmer[99,3] <- max(baseline_farmers$Check2.check.maize.q57, na.rm=T)
+df_descriptives_farmer[99,4] <- sd(baseline_farmers$Check2.check.maize.q57, na.rm=T)
+df_descriptives_farmer[99,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers$Check2.check.maize.q57))
