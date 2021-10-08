@@ -27,6 +27,9 @@ baseline_dealers$finished_primary[baseline_dealers$maize.owner.agree.educ=="e"] 
 baseline_dealers$finished_primary[baseline_dealers$maize.owner.agree.educ=="f"] <- 1
 baseline_dealers$finished_primary[baseline_dealers$maize.owner.agree.educ=="g"] <- NA
 
+baseline_dealers$prim <- FALSE
+baseline_dealers$prim <- (baseline_dealers$maize.owner.agree.educ %in% c("c","d","e","f"))
+
 baseline_dealers$finished_secondary[baseline_dealers$maize.owner.agree.educ=="a"] <- 0
 baseline_dealers$finished_secondary[baseline_dealers$maize.owner.agree.educ=="b"] <- 0
 baseline_dealers$finished_secondary[baseline_dealers$maize.owner.agree.educ=="c"] <- 0
@@ -276,8 +279,10 @@ df_descriptives_farmer <- array(NA,dim=c(102,5))
 ###variable transformation###
 
 baseline_farmers[baseline_farmers==999] <- NA
-baseline_farmers[baseline_farmers==96] <- NA
-baseline_farmers[baseline_farmers==98] <- NA
+#baseline_farmers[baseline_farmers==96] <- NA
+baseline_farmers[, 4:94][baseline_farmers[, 4:94] == 96] <- NA
+#baseline_farmers[baseline_farmers==98] <- NA
+baseline_farmers[, 4:94][baseline_farmers[, 4:94] == 98] <- NA
 baseline_farmers[baseline_farmers=="n/a"] <- NA
 
 baseline_farmers$Check2.check.maize.q15<-ifelse(baseline_farmers$Check2.check.maize.q15=="Male",1,0)
@@ -291,6 +296,7 @@ baseline_farmers$finishedprimary[baseline_farmers$Check2.check.maize.q17=="c"] <
 baseline_farmers$finishedprimary[baseline_farmers$Check2.check.maize.q17=="d"] <- 1
 baseline_farmers$finishedprimary[baseline_farmers$Check2.check.maize.q17=="e"] <- 1
 baseline_farmers$finishedprimary[baseline_farmers$Check2.check.maize.q17=="f"] <- 1
+#baseline_farmers$finishedprimary[baseline_farmers$Check2.check.maize.q17=="g"] <- 0
 
 baseline_farmers$finishedsecondary[baseline_farmers$Check2.check.maize.q17=="a"] <- 0
 baseline_farmers$finishedsecondary[baseline_farmers$Check2.check.maize.q17=="b"] <- 0
@@ -325,6 +331,17 @@ baseline_farmers$boughtfromagroinputshop[baseline_farmers$Check2.check.maize.q25
 baseline_farmers$boughtfromagroinputshop[baseline_farmers$Check2.check.maize.q25b=="h"] <- 0
 baseline_farmers$boughtfromagroinputshop[baseline_farmers$Check2.check.maize.q25b=="i"] <- 0
 
+#baseline_farmers$boughtfromagroinputshop2[is.na(baseline_farmers$Check2.check.maize.q25b)] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="a"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="b"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="c"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="d"] <- 1
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="e"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="f"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="h"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25b=="i"] <- 0
+baseline_farmers$boughtfromagroinputshop2[baseline_farmers$Check2.check.maize.q25a==0] <- 0
+
 baseline_farmers$thirdormore_time_used[baseline_farmers$Check2.check.maize.q25c=="a"] <- 0
 baseline_farmers$thirdormore_time_used[baseline_farmers$Check2.check.maize.q25c=="b"] <- 0
 baseline_farmers$thirdormore_time_used[baseline_farmers$Check2.check.maize.q25c=="c"] <- 1
@@ -333,6 +350,8 @@ baseline_farmers$thirdormore_time_used[baseline_farmers$Check2.check.maize.q25c=
 baseline_farmers$thirdormore_time_used[baseline_farmers$Check2.check.maize.q25c=="f"] <- 1
 
 baseline_farmers$Check2.check.maize.q25d <- as.numeric((as.character(baseline_farmers$Check2.check.maize.q25d)))
+baseline_farmers$Check2.check.maize.q25d2 <- baseline_farmers$Check2.check.maize.q25d
+baseline_farmers$Check2.check.maize.q25d2[is.na(baseline_farmers$Check2.check.maize.q25d)] = 0
 
 baseline_farmers$tooexpensive[baseline_farmers$Check2.check.maize.q25f=="1"] <- 0
 baseline_farmers$tooexpensive[baseline_farmers$Check2.check.maize.q25f=="2"] <- 1
@@ -455,6 +474,10 @@ baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==0] <- 0
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV == 0] <- 0
 
+baseline_farmers$adoption_onfield <- baseline_farmers$improved
+baseline_farmers$adoption_onfield[baseline_farmers$hybridbutsaved==1] <- 0
+baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
+
 baseline_farmers$Check2.check.maize.q36<-ifelse(baseline_farmers$Check2.check.maize.q36=="Yes",1,0)
 baseline_farmers$Check2.check.maize.q36b<-ifelse(baseline_farmers$Check2.check.maize.q36b=="Yes",1,0)
 baseline_farmers$Check2.check.maize.q37<-ifelse(baseline_farmers$Check2.check.maize.q37=="Yes",1,0)
@@ -486,12 +509,23 @@ baseline_farmers$correcttimeweeding<-ifelse(baseline_farmers$correcttimeweeding=
 baseline_farmers$Check2.check.maize.q47<-ifelse(baseline_farmers$Check2.check.maize.q47=="Yes",1,0)
 baseline_farmers$correctplanting<-ifelse(baseline_farmers$Check2.check.maize.q48==2,1,0)
 baseline_farmers$Check2.check.maize.q49<-ifelse(baseline_farmers$Check2.check.maize.q49=="Yes",1,0)
-baseline_farmers$yield_inkg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51
-baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29
+
+#area if intercropped
+baseline_farmers$area_intercropped <- baseline_farmers$Check2.check.maize.q29*baseline_farmers$Check2.check.maize.q30b/100
+#area if not intercropped
+baseline_farmers$area_not_intercropped <- baseline_farmers$Check2.check.maize.q29
+#area both
+baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",baseline_farmers$area_intercropped,baseline_farmers$area_not_intercropped)
+#IGNORING INTERCROPPING BECAUSE WILBER SAYS SO.
+#IF MAIZE IS INTERCROPPED, MAIZE IS OFTEN (ALMOST ALWAYS) THE MAIN CROP.
+#INTERCROPPED OR NOT, THERE'S AN EQUAL NUMBER OF MAIZE CROPS.
+baseline_farmers$yield_inkg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51 #production in kg
+baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29 #yield in kg per acre
 baseline_farmers$yield_inUGX <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q52
 baseline_farmers$yield_indollar <- baseline_farmers$yield_inUGX/3561.51
 baseline_farmers$landproductivity_inUGX <- baseline_farmers$yield_inUGX/baseline_farmers$Check2.check.maize.q29
 baseline_farmers$landproductivity_indollar <- baseline_farmers$landproductivity_inUGX/3561.51
+
 baseline_farmers$Check2.check.maize.q53<-ifelse(baseline_farmers$Check2.check.maize.q53=="Yes",1,0)
 baseline_farmers$Check2.check.maize.q54 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q54))
 baseline_farmers$Check2.check.maize.q55 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q55))
@@ -539,3 +573,114 @@ for (i in 1:length(variables_farmer)) {
   df_descriptives_farmer[i,3] <- max(baseline_farmers[variables_farmer[i]], na.rm=T)
   df_descriptives_farmer[i,4] <- sqrt(var(baseline_farmers[variables_farmer[i]], na.rm=T))
   df_descriptives_farmer[i,5] <- nrow(baseline_farmers) - sum(is.na(baseline_farmers[variables_farmer[i]]))}
+
+########################################
+#####TESTS OF RANDOMIZATION BALANCE#####
+########################################
+
+####################################
+#####Balance: agro-input dealer#####
+####################################
+
+#to use vcovCR
+library(clubSandwich)
+
+df_averages <- array(NA,dim=c(2,20))
+df_ols <- array(NA,dim=c(3,3,20))
+
+#Bjorn's variable: amount of sold hybird/OPV maize seed during last season in kg
+sel <- c("maize.owner.agree.long10h.q25", "maize.owner.agree.longe7h.q37", "maize.owner.agree.longe5.q50", "maize.owner.agree.longe4.q62")
+baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) as.numeric(as.character(x)) )
+baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) replace(x, x == 999,NA) )
+baseline_dealers$tot_sold <- rowSums(baseline_dealers[sel], na.rm=T)
+baseline_dealers$tot_sold[baseline_dealers$tot_sold > 80000] <- NA
+
+#Bjorn's variable: amount of lost/wasted seed during last season in kg
+sel <- c("maize.owner.agree.long10h.q27", "maize.owner.agree.longe7h.q39", "maize.owner.agree.longe5.q52", "maize.owner.agree.longe4.q64")
+baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) as.numeric(as.character(x)) )
+baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) replace(x, x == 999,NA) )
+baseline_dealers$tot_lost <- rowSums(baseline_dealers[sel], na.rm=T)
+
+#Bjorn's skill variable
+baseline_dealers$maize.owner.agree.skill.q105_b<-ifelse(baseline_dealers$maize.owner.agree.skill.q105=="b",1,0)
+
+###loop###
+balance_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_primary","maize.owner.agree.q3"
+                    ,"maize.owner.agree.q6","years_shop","maize.owner.agree.q10","maize.owner.agree.nr_var"
+                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72","maize.owner.agree.temp.q81"
+                    ,"alwaysexplains","q93_bin","maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
+                    ,"maize.owner.agree.inspection.q115","reading","lot")
+
+for (i in 1:length(balance_dealer)){
+  df_averages[1,i] <- sum(baseline_dealers[balance_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))
+  df_averages[2,i] <- sqrt(var(baseline_dealers[balance_dealer[i]], na.rm=T))
+  
+  formula1 <- as.formula(paste(balance_dealer[i],paste("training*clearing*farmer"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  
+  df_ols[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]
+
+  df_ols[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+#difference in mean primary education: Bjorn counted g (Other) as 0, I as NA
+#difference in mean tarmac road: Bjorn did baseline_dealers$maize.owner.agree.q3[baseline_dealers$maize.owner.agree.q3 < 1] <- 0
+
+#########################
+#####Balance: farmer#####
+#########################
+
+#no treatment indicator for dealer training in baseline_farmers
+#treatments at shop level
+treatments_shop_level <- read.csv(paste(path,"/baseline/data/agro_input/public/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
+#treatments at CA level
+trainingtreatment_CA_level <- data.frame(aggregate(treatments_shop_level$training, list(treatments_shop_level$catchID), mean))
+names(trainingtreatment_CA_level) <- c("catchID","training")
+baseline_farmers <- merge(baseline_farmers, trainingtreatment_CA_level, by.x="catchID", by.y="catchID")
+
+df_averages_farmer <- array(NA,dim=c(2,20))
+df_ols_farmer <- array(NA,dim=c(3,3,20))
+
+###loop###
+balance_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
+                    ,"Check2.check.maize.q18","Check2.check.maize.q22","Check2.check.maize.q24","Check2.check.maize.q25a"
+                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30"
+                    ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
+                    ,"landproductivity","Check2.check.maize.q53")
+
+for (i in 1:length(balance_farmer)){
+  df_averages_farmer[1,i] <- sum(baseline_farmers[balance_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[balance_farmer[i]])))
+  df_averages_farmer[2,i] <- sqrt(var(baseline_farmers[balance_farmer[i]], na.rm=T))
+  
+  formula2 <- as.formula(paste(balance_farmer[i],paste("training*Check2.check.maize.clearing*Check2.check.maize.video_shown"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  #CR0 is the original form of the sandwich estimator (Liang & Zeger, 1986), which does not make any small-sample correction.
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  
+  #filling df_ols with training (Estimate, SE, p-val (Satt))
+  df_ols_farmer[1,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,1]
+  df_ols_farmer[2,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,2]
+  df_ols_farmer[3,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,5]
+  
+  #filling df_ols with CH (Estimate, SE, p-val (Satt))
+  df_ols_farmer[1,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,1]
+  df_ols_farmer[2,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,2]
+  df_ols_farmer[3,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,5]
+  
+  #filling df_ols with video (Estimate, SE, p-val (Satt))
+  #randomization at village level ie. at shop level
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR0")
+  
+  df_ols_farmer[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
+  df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
+  df_ols_farmer[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
