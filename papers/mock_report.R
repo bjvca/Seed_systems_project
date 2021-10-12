@@ -652,8 +652,8 @@ df_ols_farmer <- array(NA,dim=c(3,3,20))
 
 ###loop###
 balance_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
-                    ,"Check2.check.maize.q18","Check2.check.maize.q22","Check2.check.maize.q24","Check2.check.maize.q25a"
-                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30"
+                    ,"Check2.check.maize.q18","Check2.check.maize.q20","Check2.check.maize.q22","Check2.check.maize.q25a"
+                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30a.1"
                     ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
                     ,"landproductivity","Check2.check.maize.q53")
 
@@ -684,3 +684,84 @@ for (i in 1:length(balance_farmer)){
   df_ols_farmer[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
   df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
   df_ols_farmer[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
+
+###################################
+#####TESTS OF SURVEY ATTRITION#####
+###################################
+
+######################################
+#####Attrition: agro-input dealer#####
+######################################
+
+df_averages_attritionD <- array(NA,dim=c(2,20))
+df_ols_attritionD <- array(NA,dim=c(3,20))
+
+#simulate random attrition
+library(dplyr)
+lostdealers <- sample_n(baseline_dealers,35)
+lostdealers = lostdealers[c("shop_ID")]
+lostdealers$attrition_ind_D <- 1
+baseline_dealers <- merge(baseline_dealers, lostdealers, by.x="shop_ID", by.y="shop_ID", all.x = TRUE)
+baseline_dealers$attrition_ind_D[is.na(baseline_dealers$attrition_ind_D)] <- 0
+
+# baseline_dealers$attrition_ind_D <- 0
+# baseline_dealers$attrition_ind_D[is.na(midline_dealers$q0)] <- 1
+
+###loop###
+attrition_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_primary","maize.owner.agree.q3"
+                    ,"maize.owner.agree.q6","years_shop","maize.owner.agree.q10","maize.owner.agree.nr_var"
+                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72","maize.owner.agree.temp.q81"
+                    ,"alwaysexplains","q93_bin","maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
+                    ,"maize.owner.agree.inspection.q115","reading","lot")
+
+for (i in 1:length(attrition_dealer)){
+  df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
+  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
+  
+  formula1 <- as.formula(paste(attrition_dealer[i],paste("attrition_ind_D"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+
+  #attrition at dealer level, so no clustering needed
+  df_ols_attritionD[1,i] <- summary(ols)$coefficients[2,1]
+  df_ols_attritionD[2,i] <- summary(ols)$coefficients[2,2]
+  df_ols_attritionD[3,i] <- summary(ols)$coefficients[2,4]}
+
+number_lostD <- sum(baseline_dealers$attrition_ind_D==1)
+
+###########################
+#####Attrition: farmer#####
+###########################
+
+df_averages_attritionF <- array(NA,dim=c(2,20))
+df_ols_attritionF <- array(NA,dim=c(3,20))
+
+#simulate random attrition
+lostfarmers <- sample_n(baseline_farmers,350)
+lostfarmers = lostfarmers[c("farmer_ID")]
+lostfarmers$attrition_ind_F <- 1
+baseline_farmers <- merge(baseline_farmers, lostfarmers, by.x="farmer_ID", by.y="farmer_ID", all.x = TRUE)
+baseline_farmers$attrition_ind_F[is.na(baseline_farmers$attrition_ind_F)] <- 0
+
+# baseline_farmers$attrition_ind_F <- 0
+# baseline_farmers$attrition_ind_F[is.na(midline_farmers$q0)] <- 1
+
+###loop###
+attrition_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
+                    ,"Check2.check.maize.q18","Check2.check.maize.q20","Check2.check.maize.q22","Check2.check.maize.q25a"
+                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30a.1"
+                    ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
+                    ,"landproductivity","Check2.check.maize.q53")
+
+for (i in 1:length(attrition_farmer)){
+  df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
+  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
+  
+  formula1 <- as.formula(paste(attrition_farmer[i],paste("attrition_ind_F"),sep="~"))
+  ols <- lm(formula1, data=baseline_farmers)
+  
+  #attrition at dealer level, so no clustering needed
+  df_ols_attritionF[1,i] <- summary(ols)$coefficients[2,1]
+  df_ols_attritionF[2,i] <- summary(ols)$coefficients[2,2]
+  df_ols_attritionF[3,i] <- summary(ols)$coefficients[2,4]}
+
+number_lostF <- sum(baseline_farmers$attrition_ind_F==1)
