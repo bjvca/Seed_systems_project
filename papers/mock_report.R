@@ -772,6 +772,9 @@ for (i in 1:length(balance_farmer)){
   df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
   df_ols_farmer[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
 
+#difference in mean primary education: I first counted g (Other) as 0, now as NA
+#difference in mean bought from dealer: correct if NA=0
+
 ###################################
 #####TESTS OF SURVEY ATTRITION#####
 ###################################
