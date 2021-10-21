@@ -1,10 +1,83 @@
-rm(list = ls())
+rm(list=ls())
 
 path <- getwd()
-path <- strsplit(path, "/papers")[[1]]
+path <- strsplit(path,"/papers")[[1]]
 
-baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv", sep = "/"))
-baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv", sep = "/"))
+baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"))
+baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"))
+
+#merge in more data
+#RATINGS (only CH treatment farmers rated CH treatment dealers at baseline)
+#dealers
+reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
+baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
+
+#farmers
+rating_dyads <- read.csv(paste(path,"/baseline/data/farmer/public/rating_dyads.csv",sep="/"))
+
+rating_dyads[rating_dyads=="n/a"] <- NA
+rating_dyads[rating_dyads==98] <- NA
+
+rating_dyads$bought_last_season <- ifelse(rating_dyads$bought_last_season=="Yes",1,0)
+
+as_numeric <- c("bought_last_season","general_rating","location_rating","price_rating","quality_rating"
+                ,"stock_rating","reputation_rating","seed_quality_general_rating","seed_yield_rating"
+                ,"seed_drought_rating","seed_disease_rating","seed_maturing_rating"
+                ,"seed_germinate_rating")
+rating_dyads[as_numeric] <- lapply(rating_dyads[as_numeric],function(x)as.numeric(as.character(x)))
+
+rating_dyads_aggr_F <- aggregate(rating_dyads,by=list(rating_dyads$farmer_ID),FUN="mean",na.rm=T)
+rating_dyads_aggr_F = rating_dyads_aggr_F[c("Group.1","bought_last_season","general_rating"
+                                            ,"location_rating","price_rating","quality_rating"
+                                            ,"stock_rating","reputation_rating"
+                                            ,"seed_quality_general_rating","seed_yield_rating"
+                                            ,"seed_drought_rating","seed_disease_rating"
+                                            ,"seed_maturing_rating","seed_germinate_rating")]
+
+baseline_farmers <- merge(baseline_farmers,rating_dyads_aggr_F,by.x="farmer_ID",by.y="Group.1",all.x=TRUE)
+
+#SERVICES (CH treatment farmers were asked during baseline, CH control farmers were asked during CH rating dissemination)
+dealer_services_dyads <- read.csv(paste(path,"/Study design/treatments/info_clearing/farmer/data/public/dealer_services_dyads.csv",sep="/"))
+
+dealer_services_dyads[dealer_services_dyads=="n/a"] <- NA
+dealer_services_dyads[dealer_services_dyads==98] <- NA
+
+dealer_services_dyads$knows_dealer <- ifelse(dealer_services_dyads$knows_dealer=="Yes",1,0)
+dealer_services_dyads$bought_at_dealer<-ifelse(dealer_services_dyads$bought_at_dealer=="Yes",1,0)
+dealer_services_dyads$customer_years <- 2021 - as.numeric(as.character(substr(dealer_services_dyads$duration_customer,start=1,stop=4))) #dealer baseline data collection in 2020, CH rating dissemination in 2021
+dealer_services_dyads$knows_other_customer<-ifelse(dealer_services_dyads$knows_other_customer=="Yes",1,0)
+dealer_services_dyads$refunds<-ifelse(dealer_services_dyads$refunds=="Yes",1,0)
+dealer_services_dyads$gives_credit<-ifelse(dealer_services_dyads$gives_credit=="Yes",1,0)
+dealer_services_dyads$gives_advice<-ifelse(dealer_services_dyads$gives_advice=="Yes",1,0)
+dealer_services_dyads$delivers<-ifelse(dealer_services_dyads$delivers=="Yes",1,0)
+dealer_services_dyads$after_sales_service<-ifelse(dealer_services_dyads$after_sales_service=="Yes",1,0)
+dealer_services_dyads$payment_mehtods<-ifelse(dealer_services_dyads$payment_mehtods=="Yes",1,0)
+dealer_services_dyads$small_quant<-ifelse(dealer_services_dyads$small_quant=="Yes",1,0)
+
+as_numeric <- c("knows_dealer","bought_at_dealer","customer_years","knows_other_customer","refunds"
+                ,"gives_credit","gives_advice","delivers","after_sales_service","payment_mehtods"
+                ,"small_quant")
+dealer_services_dyads[as_numeric] <- lapply(dealer_services_dyads[as_numeric],function(x)as.numeric(as.character(x)))
+
+#dealers
+dealer_services_dyads_aggr_D <- aggregate(dealer_services_dyads,by=list(dealer_services_dyads$shop_ID),FUN="mean",na.rm=T)
+dealer_services_dyads_aggr_D = dealer_services_dyads_aggr_D[c("Group.1","knows_dealer"
+                                                              ,"bought_at_dealer","customer_years"
+                                                              ,"knows_other_customer","refunds"
+                                                              ,"gives_credit","gives_advice"
+                                                              ,"delivers","after_sales_service"
+                                                              ,"payment_mehtods","small_quant")]
+baseline_dealers <- merge(baseline_dealers,dealer_services_dyads_aggr_D,by.x="shop_ID",by.y="Group.1",all.x=TRUE)
+
+#farmers
+dealer_services_dyads_aggr_F <- aggregate(dealer_services_dyads,by=list(dealer_services_dyads$farmer_ID),FUN="mean",na.rm=T)
+dealer_services_dyads_aggr_F = dealer_services_dyads_aggr_F[c("Group.1","knows_dealer"
+                                                              ,"bought_at_dealer","customer_years"
+                                                              ,"knows_other_customer","refunds"
+                                                              ,"gives_credit","gives_advice"
+                                                              ,"delivers","after_sales_service"
+                                                              ,"payment_mehtods","small_quant")]
+baseline_farmers <- merge(baseline_farmers, dealer_services_dyads_aggr_F, by.x="farmer_ID", by.y="Group.1", all.x = TRUE)
 
 ###################################################
 #####DESCRIPTIVE STATISTICS + DATA EXPLORATION#####
@@ -14,7 +87,7 @@ baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_f
 #####Descriptive statistics: agro-input dealer#####
 ###################################################
 
-df_descriptives_dealer <- array(NA,dim=c(79,5))
+df_descriptives_dealer <- array(NA,dim=c(99,5))
 
 ###variable transformation###
 baseline_dealers$maize.owner.agree.gender<-ifelse(baseline_dealers$maize.owner.agree.gender=="Male",1,0)
@@ -256,7 +329,12 @@ variables <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_prim
                ,"maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117","maize.owner.agree.inspection.q118"
                ,"maize.owner.agree.inspection.q119","maize.owner.agree.inspection.q120","maize.owner.agree.inspection.q121"
                ,"maize.owner.agree.inspection.q122","maize.owner.agree.q70","reading","visible_expdate","seed_expired","visible_packdate"
-               ,"seedolderthan6m","shelflife_Caro","origin","cert","lot","verif")
+               ,"seedolderthan6m","shelflife_Caro","origin","cert","lot","verif"
+               ,"knows_dealer","bought_at_dealer","customer_years","knows_other_customer","refunds"
+               ,"gives_credit","gives_advice","delivers","after_sales_service","payment_mehtods"
+               ,"small_quant"
+               ,"general","yield","drought_resistent","disease_resistent","early_maturing"
+               ,"germination","nr_reviews")
 
 baseline_dealers[variables] <- lapply(baseline_dealers[variables],function(x) replace(x,x==999,NA))
 baseline_dealers[variables] <- lapply(baseline_dealers[variables],function(x) replace(x,x==98,NA))
@@ -274,7 +352,7 @@ for (i in 1:length(variables)) {
 #####Descriptive statistics: farmer#####
 ########################################
 
-df_descriptives_farmer <- array(NA,dim=c(102,5))
+df_descriptives_farmer <- array(NA,dim=c(130,5))
 
 ###variable transformation###
 
@@ -565,7 +643,14 @@ variables_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q9","Check2.ch
                       ,"Check2.check.maize.q51","yield_inkg","landproductivity","Check2.check.maize.q52","yield_inUGX"
                       ,"yield_indollar","landproductivity_inUGX","landproductivity_indollar","Check2.check.maize.q53","Check2.check.maize.q54"
                       ,"Check2.check.maize.q55","outputprice_indollar","revenueUGX","revenue_dollar","Check2.check.maize.q56"
-                      ,"Check2.check.maize.q57","priceindollar","costforseed_dollar","marketvaluedollars")
+                      ,"Check2.check.maize.q57","priceindollar","costforseed_dollar","marketvaluedollars"
+                      ,"bought_last_season","general_rating"
+                      ,"location_rating","price_rating","quality_rating"
+                      ,"stock_rating","reputation_rating"
+                      ,"seed_quality_general_rating","seed_yield_rating"
+                      ,"seed_drought_rating","seed_disease_rating"
+                      ,"seed_maturing_rating","seed_germinate_rating"
+                      ,"knows_dealer","bought_at_dealer","customer_years","knows_other_customer")
 
 for (i in 1:length(variables_farmer)) {
   df_descriptives_farmer[i,1] <- sum(baseline_farmers[variables_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[variables_farmer[i]])))
@@ -585,8 +670,8 @@ for (i in 1:length(variables_farmer)) {
 #to use vcovCR
 library(clubSandwich)
 
-df_averages <- array(NA,dim=c(2,20))
-df_ols <- array(NA,dim=c(3,3,20))
+df_averages <- array(NA,dim=c(2,25))
+df_ols <- array(NA,dim=c(3,3,25))
 
 #Bjorn's variable: amount of sold hybird/OPV maize seed during last season in kg
 sel <- c("maize.owner.agree.long10h.q25", "maize.owner.agree.longe7h.q37", "maize.owner.agree.longe5.q50", "maize.owner.agree.longe4.q62")
@@ -607,9 +692,11 @@ baseline_dealers$maize.owner.agree.skill.q105_b<-ifelse(baseline_dealers$maize.o
 ###loop###
 balance_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_primary","maize.owner.agree.q3"
                     ,"maize.owner.agree.q6","years_shop","maize.owner.agree.q10","maize.owner.agree.nr_var"
-                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72","maize.owner.agree.temp.q81"
-                    ,"alwaysexplains","q93_bin","maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
-                    ,"maize.owner.agree.inspection.q115","reading","lot")
+                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72"
+                    ,"maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
+                    ,"maize.owner.agree.inspection.q115","reading","lot"
+                    ,"refunds"
+                    ,"gives_credit","after_sales_service")
 
 for (i in 1:length(balance_dealer)){
   df_averages[1,i] <- sum(baseline_dealers[balance_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))
@@ -698,6 +785,7 @@ df_ols_attritionD <- array(NA,dim=c(3,20))
 
 #simulate random attrition
 library(dplyr)
+set.seed(10081996)
 lostdealers <- sample_n(baseline_dealers,35)
 lostdealers = lostdealers[c("shop_ID")]
 lostdealers$attrition_ind_D <- 1
@@ -727,6 +815,22 @@ for (i in 1:length(attrition_dealer)){
   df_ols_attritionD[3,i] <- summary(ols)$coefficients[2,4]}
 
 number_lostD <- sum(baseline_dealers$attrition_ind_D==1)
+number_lostD_control <- sum(baseline_dealers$attrition_ind_D==1 & baseline_dealers$training == 0 & baseline_dealers$clearing == 0 & baseline_dealers$farmer == 0)
+number_lostD_training <- sum(baseline_dealers$attrition_ind_D==1 & baseline_dealers$training == 1)
+number_lostD_clearing <- sum(baseline_dealers$attrition_ind_D==1 & baseline_dealers$clearing == 1)
+number_lostD_farmer <- sum(baseline_dealers$attrition_ind_D==1 & baseline_dealers$farmer == 1)
+
+number_allD <- sum(nrow(baseline_dealers))
+number_allD_control <- sum(baseline_dealers$training == 0 & baseline_dealers$clearing == 0 & baseline_dealers$farmer == 0)
+number_allD_training <- sum(baseline_dealers$training == 1)
+number_allD_clearing <- sum(baseline_dealers$clearing == 1)
+number_allD_farmer <- sum(baseline_dealers$farmer == 1)
+
+perc_lostD <- sum(number_lostD/number_allD*100)
+perc_lostD_control <- sum(number_lostD_control/number_allD_control*100)
+perc_lostD_training <- sum(number_lostD_training/number_allD_training*100)
+perc_lostD_clearing <- sum(number_lostD_clearing/number_allD_clearing*100)
+perc_lostD_farmer <- sum(number_lostD_farmer/number_allD_farmer*100)
 
 ###########################
 #####Attrition: farmer#####
@@ -765,3 +869,20 @@ for (i in 1:length(attrition_farmer)){
   df_ols_attritionF[3,i] <- summary(ols)$coefficients[2,4]}
 
 number_lostF <- sum(baseline_farmers$attrition_ind_F==1)
+number_lostF <- sum(baseline_farmers$attrition_ind_F==1)
+number_lostF_control <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$training == 0 & baseline_farmers$Check2.check.maize.clearing == 0 & baseline_farmers$Check2.check.maize.video_shown == 0)
+number_lostF_training <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$training == 1)
+number_lostF_clearing <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.clearing == 1)
+number_lostF_farmer <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.video_shown == 1)
+
+number_allF <- sum(nrow(baseline_farmers))
+number_allF_control <- sum(baseline_farmers$training == 0 & baseline_farmers$Check2.check.maize.clearing == 0 & baseline_farmers$Check2.check.maize.video_shown == 0)
+number_allF_training <- sum(baseline_farmers$training == 1)
+number_allF_clearing <- sum(baseline_farmers$Check2.check.maize.clearing == 1)
+number_allF_farmer <- sum(baseline_farmers$Check2.check.maize.video_shown == 1)
+
+perc_lostF <- sum(number_lostF/number_allF*100)
+perc_lostF_control <- sum(number_lostF_control/number_allF_control*100)
+perc_lostF_training <- sum(number_lostF_training/number_allF_training*100)
+perc_lostF_clearing <- sum(number_lostF_clearing/number_allF_clearing*100)
+perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
