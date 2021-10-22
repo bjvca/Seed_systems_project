@@ -102,6 +102,13 @@ ODK_imp$scorex <-  NA
 ODK_imp$scorex <- ifelse(ODK_imp$score > 3.468970, "excellent!", ifelse(ODK_imp$score > 3.287588, "very good!", ifelse(ODK_imp$score > 3.116589, "good!", "okay!")))
 ODK_imp$scorex [is.na(ODK_imp$scorex)] <-  "not rated"
 
+ODK_imp$rank <- rank(ODK_imp$score)
+ODK_imp$rank[is.na(ODK_imp$score)] <- NA
+ODK_imp$stars <- round(min(ODK_imp$score, na.rm=T)+ ODK_imp$rank*(max(ODK_imp$score, na.rm=T)-min(ODK_imp$score, na.rm=T))/max(ODK_imp$rank, na.rm=T),digits = 1)
+ODK_imp$stars_pic <- ifelse(ODK_imp$stars > 4.75, "star_5.png", ifelse(ODK_imp$stars > 4.25, "stars_45.png", ifelse(ODK_imp$stars > 3.75, "stars_4.png", ifelse(ODK_imp$stars > 3.25, "stars_35.png", ifelse(ODK_imp$stars > 2.75, "stars_3.png", ifelse(ODK_imp$stars > 2.25, "stars_25.png", "stars_2.png"))))))
+ODK_imp$stars_pic[is.na(ODK_imp$stars)] <-  "not_rated.png"
+ODK_imp$rank <- NULL
+
 write.csv(ODK_imp,file="ODK_imp_rated.csv", row.names=FALSE)
 
 quantile(ODK_imp$score,c(.2,.4,.6,.8), na.rm=T)
