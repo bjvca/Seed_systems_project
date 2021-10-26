@@ -889,3 +889,111 @@ perc_lostF_control <- sum(number_lostF_control/number_allF_control*100)
 perc_lostF_training <- sum(number_lostF_training/number_allF_training*100)
 perc_lostF_clearing <- sum(number_lostF_clearing/number_allF_clearing*100)
 perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
+
+##################
+#####ANALYSIS#####
+##################
+
+#####################################
+#####Analysis: agro-input dealer#####
+#####################################
+
+trim <- function(var,dataset,trim_perc=.01){
+  dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
+  return(dataset)}
+
+#1. Cumulative quantity sold of a hybrid and a open-pollinated maize variety last season in kg
+baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
+baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
+baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
+
+
+baseline_dealers$maize.owner.agree.long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
+baseline_dealers <- trim("maize.owner.agree.long10h.q25",baseline_dealers,trim_perc=.01)
+
+baseline_dealers$mid_maize.owner.agree.long10h.q25 <- (baseline_dealers$maize.owner.agree.long10h.q25+49.81021*baseline_dealers$training+49.81021*baseline_dealers$clearing+49.81021*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.long10h.q25 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q25))
+baseline_dealers$mid_maize.owner.agree.long10h.q25[baseline_dealers$mid_maize.owner.agree.long10h.q25==999]<-NA
+baseline_dealers$mid_maize.owner.agree.long10h.q25[baseline_dealers$mid_maize.owner.agree.q20=="0"] <- 0
+baseline_dealers <- trim("mid_maize.owner.agree.long10h.q25",baseline_dealers,trim_perc=.01)
+
+
+baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
+baseline_dealers <- trim("maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.01)
+
+baseline_dealers$mid_maize.owner.agree.longe5.q50 <- (baseline_dealers$maize.owner.agree.longe5.q50+80.19542*baseline_dealers$training+80.19542*baseline_dealers$clearing+80.19542*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.longe5.q50 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q50))
+baseline_dealers$mid_maize.owner.agree.longe5.q50[baseline_dealers$mid_maize.owner.agree.longe5.q50==999]<-NA
+baseline_dealers$mid_maize.owner.agree.longe5.q50[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.01)
+
+
+baseline_dealers$quantitysold <- baseline_dealers$maize.owner.agree.long10h.q25+baseline_dealers$maize.owner.agree.longe5.q50
+baseline_dealers$mid_quantitysold <- baseline_dealers$mid_maize.owner.agree.long10h.q25+baseline_dealers$mid_maize.owner.agree.longe5.q50
+
+#2. Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated maize variety
+
+baseline_dealers$maize.owner.agree.long10h.q26 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.long10h.q26))
+baseline_dealers <- trim("maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.01)
+baseline_dealers$mid_maize.owner.agree.long10h.q26 <- baseline_dealers$maize.owner.agree.long10h.q26
+baseline_dealers$mid_maize.owner.agree.long10h.q26 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q26))
+baseline_dealers <- trim("mid_maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.01)
+
+baseline_dealers$maize.owner.agree.longe5.q51 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe5.q51))
+baseline_dealers <- trim("maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.01)
+baseline_dealers$mid_maize.owner.agree.longe5.q51 <- baseline_dealers$maize.owner.agree.longe5.q51
+baseline_dealers$mid_maize.owner.agree.longe5.q51 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q51))
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.01)
+
+baseline_dealers$revenue <- baseline_dealers$maize.owner.agree.long10h.q25*baseline_dealers$maize.owner.agree.long10h.q26+baseline_dealers$maize.owner.agree.longe5.q50*baseline_dealers$maize.owner.agree.longe5.q51
+baseline_dealers$mid_revenue <- baseline_dealers$mid_maize.owner.agree.long10h.q25*baseline_dealers$mid_maize.owner.agree.long10h.q26+baseline_dealers$mid_maize.owner.agree.longe5.q50*baseline_dealers$mid_maize.owner.agree.longe5.q51
+
+#3. Number of customers who bought maize seed on average day at beginning of last season
+
+baseline_dealers <- trim("maize.owner.agree.q7",baseline_dealers,trim_perc=.01)
+baseline_dealers$mid_maize.owner.agree.q7 <- (baseline_dealers$maize.owner.agree.q7+2.066*baseline_dealers$training+2.066*baseline_dealers$clearing+2.066*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.q7 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.q7))
+baseline_dealers <- trim("mid_maize.owner.agree.q7",baseline_dealers,trim_perc=.01)
+
+#4. Moisture content of random seed bag
+
+baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.01)
+baseline_dealers$mid_reading <- (baseline_dealers$reading+1.356*baseline_dealers$training+1.356*baseline_dealers$clearing+1.356*baseline_dealers$farmer)
+baseline_dealers$mid_reading <- as.numeric(as.character(baseline_dealers$mid_reading))
+baseline_dealers <- trim("mid_reading",baseline_dealers,trim_perc=.01)
+
+
+
+
+
+
+
+
+df_means_D_prim <- array(NA,dim=c(3,7))
+df_ols_D_prim <- array(NA,dim=c(3,3,7))
+
+###loop###
+results_dealer_prim <- c("mid_quantitysold","mid_revenue","mid_maize.owner.agree.q7","reading")
+results_dealer_prim_base <- c("quantitysold","revenue","maize.owner.agree.q7","mid_reading")
+
+for (i in 1:length(results_dealer_prim)){
+  df_means_D_prim[1,i] <- sum(baseline_dealers[results_dealer_prim[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]])))
+  df_means_D_prim[2,i] <- sqrt(var(baseline_dealers[results_dealer_prim[i]], na.rm=T))
+  df_means_D_prim[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]]))-sum(is.na(baseline_dealers[results_dealer_prim_base[i]]))+sum(is.na(baseline_dealers[results_dealer_prim[i]])&is.na(baseline_dealers[results_dealer_prim_base[i]]))
+  
+  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  
+  df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_prim[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_prim[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]
+  
+  df_ols_D_prim[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_prim[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_prim[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_prim[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_prim[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_prim[3,3,i] <- summary(ols)$coefficients[4,4]}

@@ -5868,7 +5868,7 @@ end{center}
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6555,7 +6555,7 @@ Orthogonality tests of randomization balance
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11393,6 +11393,1037 @@ If attritors and non-attritors differ significantly and attrition could
  and adjust for this bias.
  Manski (1989) and Lee (2002) for example suggest non-parametric bounds
  on the treatment effect that can be estimated from available data.
+\end_layout
+
+\begin_layout Part*
+Outcome variables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Agro-input dealer
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_prim"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Cumulative quantity sold of a hybrid and an open-pollinated maize variety
+ last season in kg
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,1]<.05,"*",ifelse(df_ols_D_prim[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,1]<.05,"*",ifelse(df_ols_D_prim[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,1]<.05,"*",ifelse(df_ols_D_prim[3,3,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,1],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_prim[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated
+ maize variety
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[1,2],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,2],digits=0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,2]<.05,"*",ifelse(df_ols_D_prim[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,2],digits=0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,2]<.05,"*",ifelse(df_ols_D_prim[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,3,2],digits=0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,2]<.05,"*",ifelse(df_ols_D_prim[3,3,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_prim[2,2],digits=0),nsmall=0)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,2],digits=0),nsmall=0)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,2],digits=0),nsmall=0)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,3,2],digits=0),nsmall=0)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of customers who bought maize seed on average day at beginning of
+ last season
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,3]<.05,"*",ifelse(df_ols_D_prim[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,3]<.05,"*",ifelse(df_ols_D_prim[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,3]<.05,"*",ifelse(df_ols_D_prim[3,3,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_prim[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,3,3],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Moisture content of random seed bag
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,4]<.05,"*",ifelse(df_ols_D_prim[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,4]<.05,"*",ifelse(df_ols_D_prim[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,4]<.05,"*",ifelse(df_ols_D_prim[3,3,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,4],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_prim[2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,3,4],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports sample means (and standard deviations below);
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Agro-input dealer
+\end_layout
+
+\begin_layout Subsection*
+Primary
+\end_layout
+
+\begin_layout Enumerate
+Sales prices of a hybrid and an open-pollinated maize variety at beginning
+ of last season in UGX per kg
+\end_layout
+
+\begin_layout Enumerate
+Index of seed handling and storage practices (Enumerators are also asked
+ to inspect the area where seed is stored)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Capital-intensive (owner)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Is the roof leak-proof? (q72)
+\end_layout
+
+\begin_layout Enumerate
+Is the roof insulated to keep heat out? (q73)
+\end_layout
+
+\begin_layout Enumerate
+Are the walls insulated to keep the heat out? (q74)
+\end_layout
+
+\begin_layout Enumerate
+Is the area ventilated (q75) (windows, (manual) air-conditioning, ventilators)
+\end_layout
+
+\begin_layout Enumerate
+Do you see any official certificates displayed in the store (eg that the
+ shop was inspected, that the owner attended trainings or that the business
+ is registered with some association) (q81) (measure of registered/ unregistered
+ shop?)
+\end_layout
+
+\begin_layout Enumerate
+What do you do with seed that have exceeded shelf live (expired)? (q83)
+ (This has never happened/ Return to supplier/ Sell at discount/ Given away/
+ Thrown away/ sell at normal price/ mix with other seed/ Other) (doing the
+ right thing can be expensive)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Labor-intensive, condition: information (attendant)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Are seed stored in a dedicated area, away from other merchandize? (q69)
+\end_layout
+
+\begin_layout Enumerate
+Do you have a problem with rats or pests (insects, rats)? (q71) (consequence
+ of cleaning and discipline)
+\end_layout
+
+\begin_layout Enumerate
+Lighting conditions in area where seed is stored? (q78) (Direct sunlight/
+ Ambient lighting conditions/ dark (including in a box)) 
+\end_layout
+
+\begin_layout Enumerate
+On what surface are seed stored? (q79) (Directly on floor/ On cardboard/
+ On wood/ On pallets/ On shelves/ Other)
+\end_layout
+
+\begin_layout Enumerate
+Do you see maize seed that is stored in open bags or open containers? (q80)
+\end_layout
+
+\begin_layout Enumerate
+On a scale of 1 to 5, rate this shop in terms of cleanness and professionality
+ 1 poor 5 excellent (q82)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Index of dealer services and efforts (services offered by the dealer/the
+ effort of the dealer)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+When farmers buy seed, do you explain how the seed should be used (seed
+ spacing, seed rate, complementary inputs) (q85)
+\end_layout
+
+\begin_layout Enumerate
+When farmers buy seed, do you usually recommend complementary inputs (fertilizer
+, chemical,…) (q86)
+\end_layout
+
+\begin_layout Enumerate
+Do you offer extension/training to your clients on how to use improved seed
+ varieties? (q87)
+\end_layout
+
+\begin_layout Enumerate
+Did you offer discounts to clients that buy large quantities of maize seed
+ during the second season of 2020? (q88)
+\end_layout
+
+\begin_layout Enumerate
+What is that smallest package of improved seed (OPV/hybird) that you stocked
+ during this season (without repackaging) (q89)
+\end_layout
+
+\begin_layout Enumerate
+NOT Do you repackage seed yourself when clients wanted smaller packages
+ than what the seed comes in? (q90)
+\end_layout
+
+\begin_layout Enumerate
+Do you provide seed on credit (pay after harvest)? (q93)
+\end_layout
+
+\begin_layout Enumerate
+Since last season, did you receive any complaint from a customer that seed
+ you sold was not good? (q96)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+What did you do? (q96b)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What payment modalities do you accept? (q97)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection*
+Secondary
+\end_layout
+
+\begin_layout Enumerate
+dealer motivation/ satisfaction
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Do you see yourself working as an agro-input dealer 3 years from now? (q9a)
+\end_layout
+
+\begin_layout Enumerate
+Do you think your job makes a positive difference in other’s life? (q9b)
+\end_layout
+
+\begin_layout Enumerate
+On a scale of 1 to 5, how likely are you to recommend working as an agro-input
+ dealer to friends or family? (q9c)
+\end_layout
+
+\begin_layout Enumerate
+On a scale of 1 to 5, how happy do you feel when you come to work in the
+ morning? (q9d)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+number of improved maize varieties (number of improved seed varieties stocked
+ during the second season of 2020)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+How many maize varieties did you have in stock during the second season
+ of 2020 (including hybrids/OPV/landraces)? (nr_var)
+\end_layout
+
+\begin_layout Enumerate
+How many hybrid maize seed varieties did you have in stock during the second
+ season of 2020? (q19)
+\end_layout
+
+\begin_layout Enumerate
+How many OPV maize seed varieties did you have in stock during the second
+ season of 2020? (q44)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Longe 10H (seed variety stock and turn over) (most important hybrid seed
+ variety that is generally sold in the area) (the most common hybrid)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Did you have Longe 10H in stock in the second season of 2020.
+ (q20)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe 10H was carried forward from the previous season (first
+ season 2020) into the second season of 2020 (kg) (q21)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe 10H was bought by you from any provider during the second
+ season of 2020 (in kg) (q22)
+\end_layout
+
+\begin_layout Enumerate
+From whom did you as an agro-input dealer directly buy Longe 10H in the
+ second season of 2020 ? (if the dealer says he has multiple sources select
+ the most important one) (q23)
+\end_layout
+
+\begin_layout Enumerate
+What was the cost of Longe 10H per Kg from where you obtained it during
+ the second season of 2020? (q24)
+\end_layout
+
+\begin_layout Enumerate
+Sales price per kilogram of ${q25} at the beginning of the second season
+ of 2020 (q26)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe10H was lost/wasted the second season of 2020 (kg) (q27)
+\end_layout
+
+\begin_layout Enumerate
+Did you ever run out of Longe10H during the second season of 2020? (q29)
+\end_layout
+
+\begin_layout Enumerate
+Estimate how often you ran out of stock for Longe10 H during the second
+ season of 2020 (q30)
+\end_layout
+
+\begin_layout Enumerate
+How long (days) did it on average take to get restocked for Longe10H during
+ the second season of 2020: (days) (q31)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Longe 5 (seed variety stock and turn over) (most commonly traded Open Pollinated
+ Variety)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Did you have Longe 5 in 2020 In stock in the second season 2020? (q45)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe 5 was carried forward from the previous season (first
+ season 2020) into the second season of 2020 (kg) (q46)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe 5 was bought by you from any provider during the second
+ season of 2020 (in kg) (q47)
+\end_layout
+
+\begin_layout Enumerate
+From whom did you as an agro-input dealer directly buy Longe 5 in the second
+ season of 2020 (if dealer mentions mulitple select most important)? (q48)
+\end_layout
+
+\begin_layout Enumerate
+What was the cost of Longe 5 from where you obtained it during the second
+ season of 2020? (ugx per kg) (q49)
+\end_layout
+
+\begin_layout Enumerate
+How much of Longe 5 was lost/wasted the second season of 2020 (kg) (q52)
+\end_layout
+
+\begin_layout Enumerate
+Did you ever run out of this Longe 5 during the second season of 2020? (q54)
+\end_layout
+
+\begin_layout Enumerate
+Estimate how often you ran out of stock for Longe 5 during the second season
+ of 2020 (q55)
+\end_layout
+
+\begin_layout Enumerate
+How long (days) did it on average take to get restocked for Longe 5 during
+ the second season of 2020: (days) (q56)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+self-rating (ask input dealers to rate themselves on the following attributes:)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Dealer's self-perception- Please rate yourself on the following attributes:
+ Location – according to your own opinion, are you located close to clients,
+ in a convenient location? (1 extremely inaccessible – 5 very good location
+ and access) (q99)
+\end_layout
+
+\begin_layout Enumerate
+Dealer's self-perception- Please rate yourself on the following attributes:
+ Price – according to your own opinion, are you competitively priced? (1
+ you are very expensive, 5 you are very competitively priced) (q100)
+\end_layout
+
+\begin_layout Enumerate
+Dealer's self-perception- Please rate yourself on the following attributes:
+ Quality of produce, seed in particular – according to your own opinion,
+ do you sell good products, no fake seed (1 very poor quality-often fake,
+ 5 excellent quality) (q101)
+\end_layout
+
+\begin_layout Enumerate
+Dealer's self-perception- Please rate yourself on the following attributes:
+ Stock – according to your own opinion, is seed availability at all time
+ and in the quantities that customers want? (1 always out of stock and sells
+ in only large quantities, 5 always has stock and accepts to sell in smaller
+ quantities).
+ (q102)
+\end_layout
+
+\begin_layout Enumerate
+Reputation – according to your own opinion, are others recommending you
+ (1.
+ others think you are a lousy agro-dealer, 5.
+ others think you are an excellent agro-dealer) (103)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+skills and knowledge, particularly related to seed handling and storage
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+How long can seed be carried over before losing viability? (q104)
+\end_layout
+
+\begin_layout Enumerate
+How should seed best be stored after repackaging? (q105)
+\end_layout
+
+\begin_layout Enumerate
+What is the minimum recommended distance between the floor and where seed
+ is stored? (q106)
+\end_layout
+
+\begin_layout Enumerate
+How should seed ideally be stored in your store room? (q107)
+\end_layout
+
+\begin_layout Enumerate
+What statement do you agree most with: (q108)
+\end_layout
+
+\begin_layout Enumerate
+If a farmer complains about poor soil, which of the following 3 seed varieties
+ do you recommend: (q109)
+\end_layout
+
+\begin_layout Enumerate
+How often can OPVs be recycled without significant yield loss: (q110)
+\end_layout
+
+\begin_layout Enumerate
+What do you tell clients who inquire about the yield benefits of hybrid
+ seed? (q111)
+\end_layout
+
+\begin_layout Enumerate
+If a farmer misses the rains or lives in areas that receive little rain,
+ what variety of maize do your recommend: (q112)
+\end_layout
+
+\begin_layout Enumerate
+When a farmer is late for planting in the short season and needs fast maturing
+ variety, which maize do you recommend? (q113)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+official (membership of business associations)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Is this business registered as a seed dealer with UNADA (Uganda National
+ Agro-input Dealers Association? (q114)
+\end_layout
+
+\begin_layout Enumerate
+Does this business have a trading license issued by local government? (q115)
+\end_layout
+
+\begin_layout Enumerate
+Is this business a member of any other professional association? (q116)
+\end_layout
+
+\begin_layout Enumerate
+How often were you inspected by DAO/MAAIF or UNADA last year (indicate 0
+ if no inspection happened).
+ (q117)
+\end_layout
+
+\begin_layout Enumerate
+Have you ever received a warning as a result of inspection if something
+ was not up to standard? (q118)
+\end_layout
+
+\begin_layout Enumerate
+Has some of your produce ever been confiscated after inspection? (q119)
+\end_layout
+
+\begin_layout Enumerate
+Do you have equipment to monitor moisture in the seed? (q121)
+\end_layout
+
+\begin_layout Enumerate
+Do you monitor temperature in your seed store? (q122)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+bag (bought one bag of seed)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Record expiry date indicated on the bag (exp)
+\end_layout
+
+\begin_layout Enumerate
+Date of packaging (date_pack)
+\end_layout
+
+\begin_layout Enumerate
+Is the seed in the original bag without any signs of damage? (origin)
+\end_layout
+
+\begin_layout Enumerate
+Does it have a certification sticker from inspection agency? (cert)
+\end_layout
+
+\begin_layout Enumerate
+Does packaging have a Lot number (lot)
+\end_layout
+
+\begin_layout Enumerate
+Does packaging have e-verification? (verif)
+\end_layout
+
+\begin_layout Enumerate
+Variety type (variety)
+\end_layout
+
+\begin_layout Enumerate
+What is is the name of the manifucture of the seed? (company)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+ratings
+\end_layout
+
+\begin_layout Enumerate
+services
 \end_layout
 
 \end_body
