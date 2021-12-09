@@ -1561,7 +1561,7 @@ for (i in 1:length(results_dealer_prim)){
 
 ### p value adjustement for multiple hypothesis test
 
-df_dealer_prim <- data.frame(baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
                              ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
                              ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
                              ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
@@ -1589,7 +1589,7 @@ adjust_p(0.03,df_dealer_prim,9)
 #need mean correlation among outcomes other than outcome k (r_.k)
 #--> outcomes other than outcome k
 
-df_dealer_prim <- data.frame(baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
                              ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
                              ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
                              ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
