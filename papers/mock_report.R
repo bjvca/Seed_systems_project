@@ -704,7 +704,7 @@ for (i in 1:length(balance_dealer)){
   
   formula1 <- as.formula(paste(balance_dealer[i],paste("training*clearing*farmer"),sep="~"))
   ols <- lm(formula1, data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   df_ols[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
   df_ols[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
@@ -751,8 +751,7 @@ for (i in 1:length(balance_farmer)){
   formula2 <- as.formula(paste(balance_farmer[i],paste("training*Check2.check.maize.clearing*Check2.check.maize.video_shown"),sep="~")) #* because of interactions
   ols <- lm(formula2, data=baseline_farmers)
   #vcovCR for cluster-robust variance-covariance matrix
-  #CR0 is the original form of the sandwich estimator (Liang & Zeger, 1986), which does not make any small-sample correction.
-  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with training (Estimate, SE, p-val (Satt))
   df_ols_farmer[1,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,1]
@@ -766,7 +765,7 @@ for (i in 1:length(balance_farmer)){
   
   #filling df_ols with video (Estimate, SE, p-val (Satt))
   #randomization at village level ie. at shop level
-  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR0")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   df_ols_farmer[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
   df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
@@ -1441,7 +1440,7 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.o
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
   #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
   df_ols_D_prim[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
@@ -1497,7 +1496,7 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.o
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
   #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
   df_ols_D_prim[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
@@ -1553,7 +1552,7 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.o
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
   #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR0")
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
   df_ols_D_prim[1,3,i] <- summary(ols)$coefficients[4,1]
