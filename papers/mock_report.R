@@ -1582,3 +1582,52 @@ if (outcome_k>0 & outcome_k<=dim(df_outcome)[2]) {
 adjust_p(0.03,df_dealer_prim,9)
 
 
+###here is what Caro had -- 
+#Aker, Boumnijel, McClelland, Tierney (2012)
+
+#mid_quantitysold
+#need mean correlation among outcomes other than outcome k (r_.k)
+#--> outcomes other than outcome k
+
+df_dealer_prim <- data.frame(baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
+                             ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
+                             ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
+#no baseline_dealers$mid_quantitysold
+#no baseline_dealers$index_overall_prim_dealer_midF
+
+#need mean correlation among outcomes other than outcome k (r_.k)
+#--> correlation among outcomes other than outcome k
+
+df_cor_dealer_prim <- cor(df_dealer_prim,use = "pairwise.complete.obs")
+
+#need mean correlation among outcomes other than outcome k (r_.k)
+#--> mean correlation among outcomes other than outcome k
+
+r_.k = (df_cor_dealer_prim[1,2]+df_cor_dealer_prim[1,3]+df_cor_dealer_prim[1,4]+df_cor_dealer_prim[1,5]+df_cor_dealer_prim[1,6]+df_cor_dealer_prim[1,7]
+        +df_cor_dealer_prim[1,8]+df_cor_dealer_prim[2,3]+df_cor_dealer_prim[2,4]+df_cor_dealer_prim[2,5]+df_cor_dealer_prim[2,6]+df_cor_dealer_prim[2,7]
+        +df_cor_dealer_prim[2,8]+df_cor_dealer_prim[3,4]+df_cor_dealer_prim[3,5]+df_cor_dealer_prim[3,6]+df_cor_dealer_prim[3,7]+df_cor_dealer_prim[3,8]
+        +df_cor_dealer_prim[4,5]+df_cor_dealer_prim[4,6]+df_cor_dealer_prim[4,7]+df_cor_dealer_prim[4,8]+df_cor_dealer_prim[5,6]+df_cor_dealer_prim[5,7]
+        +df_cor_dealer_prim[5,8]+df_cor_dealer_prim[6,7]+df_cor_dealer_prim[6,8]+df_cor_dealer_prim[7,8])/28
+
+#use formula
+M = 9
+
+g_k = M^(1-r_.k)
+
+#training
+p_k_T = df_ols_D_prim[3,1,1]
+
+#CH
+p_k_CH = df_ols_D_prim[3,2,1]
+
+#video
+p_k_F = df_ols_D_prim[3,3,1]
+
+padj_midquantitysold_T = 1-(1-p_k_T)^g_k
+padj_midquantitysold_CH = 1-(1-p_k_CH)^g_k
+padj_midquantitysold_F = 1-(1-p_k_F)^g_k
+
+
+
+
