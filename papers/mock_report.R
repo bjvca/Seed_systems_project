@@ -1569,7 +1569,7 @@ df_dealer_prim <- data.frame(baseline_dealers$mid_av_salesprices,baseline_dealer
 
 
 
-## turn this into a function
+##this defines the function:
 adjust_p <- function(pval,df_outcome,outcome_k=1) {
 ## takes as input: pval (eg.0.231), the outcomes in the family (as a data.frame), the rank of the variable pval is for (default is the first in the df)
 if (outcome_k>0 & outcome_k<=dim(df_outcome)[2]) {
