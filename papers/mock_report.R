@@ -897,6 +897,8 @@ perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 #####Analysis: agro-input dealer#####
 #####################################
 
+#####Primary
+
 trim <- function(var,dataset,trim_perc=.01){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
@@ -1156,13 +1158,14 @@ icwIndex <- function(	xmat,
   return(list(weights = weights, index = index))
 }
 
-#midline index
-index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid)
-baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index
-
-#baseline index
-index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base)
-baseline_dealers$index_practices_cap_base <- index_practices_cap_base$index
+#BELOW!
+# #midline index
+# index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid)
+# baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index
+# 
+# #baseline index
+# index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base)
+# baseline_dealers$index_practices_cap_base <- index_practices_cap_base$index
 
 
 
@@ -1559,75 +1562,232 @@ for (i in 1:length(results_dealer_prim)){
   df_ols_D_prim[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_prim[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-### p value adjustement for multiple hypothesis test
-
-df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
-                             ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
-                             ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
-
-
-
-##this defines the function:
-adjust_p <- function(pval,df_outcome,outcome_k=1) {
-## takes as input: pval (eg.0.231), the outcomes in the family (as a data.frame), the rank of the variable pval is for (default is the first in the df)
-if (outcome_k>0 & outcome_k<=dim(df_outcome)[2]) {
-	cor_mat <- cor(df_outcome,use = "pairwise.complete.obs")[-outcome_k,-outcome_k]
-	mean_cor_mat <- mean(cor_mat[lower.tri(cor_mat)])
-	return(1-(1-pval)^(dim(df_outcome)[2]^(1-mean_cor_mat)))
-	}
-}
-
-##example
-adjust_p(0.03,df_dealer_prim,9)
-
-
-###here is what Caro had -- 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 
-#mid_quantitysold
-#need mean correlation among outcomes other than outcome k (r_.k)
-#--> outcomes other than outcome k
+# ###Caro's cumbersome solution for baseline_dealers$mid_av_salesprices:
+# #need mean correlation among outcomes other than outcome k (r_.k)
+# #--> outcomes other than outcome k
+# df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
+#                              ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
+#                              ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
+#                              ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
+# #no baseline_dealers$mid_av_salesprices
+# #no baseline_dealers$index_overall_prim_dealer_midF
+# 
+# #need mean correlation among outcomes other than outcome k (r_.k)
+# #--> correlation among outcomes other than outcome k
+# df_cor_dealer_prim <- cor(df_dealer_prim,use = "pairwise.complete.obs")
+# 
+# #need mean correlation among outcomes other than outcome k (r_.k)
+# #--> mean correlation among outcomes other than outcome k
+# r_.k = (df_cor_dealer_prim[1,2]+df_cor_dealer_prim[1,3]+df_cor_dealer_prim[1,4]+df_cor_dealer_prim[1,5]+df_cor_dealer_prim[1,6]+df_cor_dealer_prim[1,7]
+#         +df_cor_dealer_prim[1,8]+df_cor_dealer_prim[2,3]+df_cor_dealer_prim[2,4]+df_cor_dealer_prim[2,5]+df_cor_dealer_prim[2,6]+df_cor_dealer_prim[2,7]
+#         +df_cor_dealer_prim[2,8]+df_cor_dealer_prim[3,4]+df_cor_dealer_prim[3,5]+df_cor_dealer_prim[3,6]+df_cor_dealer_prim[3,7]+df_cor_dealer_prim[3,8]
+#         +df_cor_dealer_prim[4,5]+df_cor_dealer_prim[4,6]+df_cor_dealer_prim[4,7]+df_cor_dealer_prim[4,8]+df_cor_dealer_prim[5,6]+df_cor_dealer_prim[5,7]
+#         +df_cor_dealer_prim[5,8]+df_cor_dealer_prim[6,7]+df_cor_dealer_prim[6,8]+df_cor_dealer_prim[7,8])/28
+# 
+# #use formula
+# M = 9
+# g_k = M^(1-r_.k)
+# 
+# p_k_T = df_ols_D_prim[3,1,2] #training
+# p_k_CH = df_ols_D_prim[3,2,2] #CH
+# p_k_F = df_ols_D_prim[3,3,2] #video
+# 
+# padj_midquantitysold_T = 1-(1-p_k_T)^g_k
+# padj_midquantitysold_CH = 1-(1-p_k_CH)^g_k
+# padj_midquantitysold_F = 1-(1-p_k_F)^g_k
 
-df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
-                             ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
-                             ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
-#no baseline_dealers$mid_quantitysold
-#no baseline_dealers$index_overall_prim_dealer_midF
+###Bjorn's function
+adjust_p <- function(pval,df_outcome,outcome_k=1) {
+  ## takes as input: pval (eg.0.231), the outcomes in the family (as a data.frame), the rank of the variable pval is for (default is the first in the df)
+  if (outcome_k>0 & outcome_k<=dim(df_outcome)[2]) {
+    cor_mat <- cor(df_outcome,use = "pairwise.complete.obs")[-outcome_k,-outcome_k]
+    mean_cor_mat <- mean(cor_mat[lower.tri(cor_mat)])
+    return(1-(1-pval)^(dim(df_outcome)[2]^(1-mean_cor_mat)))
+  }
+}
 
-#need mean correlation among outcomes other than outcome k (r_.k)
-#--> correlation among outcomes other than outcome k
+df_dealer_primT <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midT
+                             ,baseline_dealers$index_practices_lab_midT,baseline_dealers$index_practices_all_midT
+                             ,baseline_dealers$index_efforts_midT)
 
-df_cor_dealer_prim <- cor(df_dealer_prim,use = "pairwise.complete.obs")
+df_dealer_primC <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midC
+                             ,baseline_dealers$index_practices_lab_midC,baseline_dealers$index_practices_all_midC
+                             ,baseline_dealers$index_efforts_midC)
 
-#need mean correlation among outcomes other than outcome k (r_.k)
-#--> mean correlation among outcomes other than outcome k
+df_dealer_primF <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midF
+                             ,baseline_dealers$index_practices_lab_midF,baseline_dealers$index_practices_all_midF
+                             ,baseline_dealers$index_efforts_midF)
+#no index_overall_prim_dealer_midF
 
-r_.k = (df_cor_dealer_prim[1,2]+df_cor_dealer_prim[1,3]+df_cor_dealer_prim[1,4]+df_cor_dealer_prim[1,5]+df_cor_dealer_prim[1,6]+df_cor_dealer_prim[1,7]
-        +df_cor_dealer_prim[1,8]+df_cor_dealer_prim[2,3]+df_cor_dealer_prim[2,4]+df_cor_dealer_prim[2,5]+df_cor_dealer_prim[2,6]+df_cor_dealer_prim[2,7]
-        +df_cor_dealer_prim[2,8]+df_cor_dealer_prim[3,4]+df_cor_dealer_prim[3,5]+df_cor_dealer_prim[3,6]+df_cor_dealer_prim[3,7]+df_cor_dealer_prim[3,8]
-        +df_cor_dealer_prim[4,5]+df_cor_dealer_prim[4,6]+df_cor_dealer_prim[4,7]+df_cor_dealer_prim[4,8]+df_cor_dealer_prim[5,6]+df_cor_dealer_prim[5,7]
-        +df_cor_dealer_prim[5,8]+df_cor_dealer_prim[6,7]+df_cor_dealer_prim[6,8]+df_cor_dealer_prim[7,8])/28
+#example
+adjust_p(0.03,df_dealer_primT,9)
 
-#use formula
-M = 9
+df_ols_D_prim_J <- array(NA,dim=c(3,3,9))
 
-g_k = M^(1-r_.k)
+results_dealer_prim_J <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
+                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid")
+#no index_overall_prim_dealer_midF
 
-#training
-p_k_T = df_ols_D_prim[3,1,1]
-
-#CH
-p_k_CH = df_ols_D_prim[3,2,1]
-
-#video
-p_k_F = df_ols_D_prim[3,3,1]
-
-padj_midquantitysold_T = 1-(1-p_k_T)^g_k
-padj_midquantitysold_CH = 1-(1-p_k_CH)^g_k
-padj_midquantitysold_F = 1-(1-p_k_F)^g_k
+for (i in 1:length(results_dealer_prim_J)){
+  df_ols_D_prim_J[3,1,i] <- adjust_p(df_ols_D_prim[3,1,i],df_dealer_primT,i)
+  df_ols_D_prim_J[3,2,i] <- adjust_p(df_ols_D_prim[3,2,i],df_dealer_primC,i)
+  df_ols_D_prim_J[3,3,i] <- adjust_p(df_ols_D_prim[3,3,i],df_dealer_primF,i)}
 
 
 
 
+
+
+################################################################################################################################################
+################################################################################################################################################
+################################################################################################################################################
+
+#####Secondary
+
+#1. Index of dealer's motivation and satisfaction
+###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
+###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
+
+#Do you see yourself working as an agro-input dealer 3 years from now? (q9a): yes=good
+baseline_dealers$mid_maize.owner.agree.q9_a <- rnorm(348)
+baseline_dealers$maize.owner.agree.q9_a <- NA
+
+#Do you think your job makes a positive difference in other's life? (q9b): yes=good
+baseline_dealers$mid_maize.owner.agree.q9.b <- rnorm(348)
+baseline_dealers$maize.owner.agree.q9.b <- NA
+
+#On a scale of 1 to 5, how likely are you to recommend working as an agro-input dealer to friends or family? (q9c) more=better
+baseline_dealers$mid_maize.owner.agree.q9_c <- rnorm(348)
+baseline_dealers$maize.owner.agree.q9_c <- NA
+
+#On a scale of 1 to 5, how happy do you feel when you come to work in the morning? (q9d) more=better
+baseline_dealers$mid_maize.owner.agree.q9_d <- rnorm(348)
+baseline_dealers$maize.owner.agree.q9_d <- NA
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,baseline_dealers$mid_maize.owner.agree.q9.b
+                                  ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d)
+
+variables_motivation_base <- cbind(baseline_dealers$maize.owner.agree.q9_a,baseline_dealers$maize.owner.agree.q9.b
+                                   ,baseline_dealers$maize.owner.agree.q9_c,baseline_dealers$maize.owner.agree.q9_d)
+
+
+
+#dont forget to trim
+#dont forget to transform like bl
+#dont forget to simulate midline
+
+
+
+################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
+baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
+
+index_motivation_base <- icwIndex(xmat=variables_motivation_base)
+baseline_dealers$index_motivation_base <- index_motivation_base$index #baseline index
+
+results_dealer_sec <- c("index_motivation_mid")
+
+results_dealer_sec_base <- c("index_motivation_base")
+
+
+
+df_means_D_sec <- array(NA,dim=c(3,10))
+
+for (i in 1:length(results_dealer_sec)){
+  df_means_D_sec[1,i] <- sum(baseline_dealers[results_dealer_sec[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec[i]])))
+  df_means_D_sec[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec[i]], na.rm=T))
+  df_means_D_sec[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec[i]])&is.na(baseline_dealers[results_dealer_sec_base[i]]))}
+
+
+
+df_ols_D_sec <- array(NA,dim=c(3,3,10))
+
+baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
+baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
+baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
+
+index_motivation_base <- icwIndex(xmat=variables_motivation_base)
+baseline_dealers$index_motivation_base <- index_motivation_base$index #baseline index
+
+results_dealer_sec <- c("index_motivation_mid")
+
+results_dealer_sec_base <- c("index_motivation_base")
+
+for (i in 1:length(results_dealer_sec)){
+  
+  if (is.null(results_dealer_sec_base)) {
+    ols <- lm(as.formula(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+    vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+    
+    df_ols_D_sec[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+    df_ols_D_sec[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+    df_ols_D_sec[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]} 
+  
+  else {
+    ols <- lm(as.formula(paste(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~"),results_dealer_sec_base[i],sep="+")),data=baseline_dealers)
+    #ols <- lm(as.formula(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+    vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+    
+    df_ols_D_sec[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+    df_ols_D_sec[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+    df_ols_D_sec[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  }
+
+
+
+
+# baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+# baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+# 
+# #1.
+# index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
+# baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
+# 
+# index_motivation_base <- icwIndex(xmat=variables_motivation_base)
+# baseline_dealers$index_motivation_base <- index_motivation_base$index #baseline index
+# 
+# results_dealer_sec <- c("index_motivation_mid")
+# 
+# results_dealer_sec_base <- c("index_motivation_base")
+# 
+# for (i in 1:length(results_dealer_sec)){
+#   ols <- lm(as.formula(paste(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~"),results_dealer_sec_base[i],sep="+")),data=baseline_dealers)
+#   #ols <- lm(as.formula(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+#   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+#   
+#   df_ols_D_sec[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+#   df_ols_D_sec[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+#   df_ols_D_sec[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+# 
+# 
+# 
+# 
+# baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
+# baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
+# 
+# #1.
+# index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
+# baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
+# 
+# index_motivation_base <- icwIndex(xmat=variables_motivation_base)
+# baseline_dealers$index_motivation_base <- index_motivation_base$index #baseline index
+# 
+# results_dealer_sec <- c("index_motivation_mid")
+# 
+# results_dealer_sec_base <- c("index_motivation_base")
+# 
+# 
+# 
+# #Aker, Boumnijel, McClelland, Tierney (2012)
