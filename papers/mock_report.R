@@ -1734,17 +1734,10 @@ variables_servicesFARM_base <- cbind(baseline_dealers$refunds,baseline_dealers$g
                                 ,baseline_dealers$delivers,baseline_dealers$after_sales_service,baseline_dealers$payment_mehtods
                                 ,baseline_dealers$small_quant)
 
-
-#,"knows_dealer","bought_at_dealer","customer_years","knows_other_customer"
-
-
-
 #dont forget to transform like bl
 #dont forget to trim
 #dont forget to simulate midline
 #dont forget to trim
-
-
 
 ########################
 #outcomes with baseline#
