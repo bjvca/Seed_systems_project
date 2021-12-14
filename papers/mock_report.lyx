@@ -16214,18 +16214,6 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,10],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 cline{2-6}
@@ -16246,56 +16234,59 @@ textbf{Overall index of secondary dealer outcome variables (unadj)}
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_sec[1,8],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_D_secL10H[1,11],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_sec[1,1,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_secL10H[1,1,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,8]<.01,"**"
+Sexpr{ifelse(df_ols_D_secL10H[3,1,11]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,1,8]<.05,"*",ifelse(df_ols_D_sec[3,1,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,2,8]<.1,"+","")))}}$
+	,ifelse(df_ols_D_secL10H[3,1,11]<.05,"*",ifelse(df_ols_D_secL10H[3,1,11]<.1,"+","
+")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_sec[1,3,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_secL10H[1,2,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,8]<.01,"**"
+Sexpr{ifelse(df_ols_D_secL10H[3,2,11]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,3,8]<.1,"+","")))}}$
+	,ifelse(df_ols_D_secL10H[3,2,11]<.05,"*",ifelse(df_ols_D_secL10H[3,2,11]<.1,"+","
+")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_sec[3,8],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_D_secL10H[1,3,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL10H[3,3,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_secL10H[3,2,11]<.05,"*",ifelse(df_ols_D_secL10H[3,3,11]<.1,"+","
+")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_secL10H[3,11],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -16306,28 +16297,28 @@ Sexpr{format(round(df_means_D_sec[3,8],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_D_sec[2,8],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_D_secL10H[2,11],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_sec[2,1,8],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_secL10H[2,1,11],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_sec[2,2,8],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_secL10H[2,2,11],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_sec[2,3,8],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_secL10H[2,3,11],digits=3),nsmall=3)})
 \backslash
 
 \backslash
