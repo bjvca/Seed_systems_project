@@ -2339,3 +2339,27 @@ for (i in 1:length(results_dealer_secL10H)){
   df_ols_D_secL10H[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_D_secL10H[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_secL10H[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+#Aker, Boumnijel, McClelland, Tierney (2012)
+
+df_dealer_secL10HT <- data.frame(baseline_dealers$mid_maize.owner.agree.q20,baseline_dealers$mid_maize.owner.agree.long10h.q21,baseline_dealers$mid_maize.owner.agree.long10h.q22
+                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q24,baseline_dealers$mid_maize.owner.agree.long10h.q25
+                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q26,baseline_dealers$mid_maize.owner.agree.long10h.q27
+                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q29,baseline_dealers$mid_maize.owner.agree.long10h.q30
+                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q31)
+df_dealer_secL10HC <- df_dealer_secL10HT
+df_dealer_secL10HF <- df_dealer_secL10HT
+#no overall index
+#all the same here
+
+df_ols_D_secL10H_J <- array(NA,dim=c(3,3,10))
+
+results_dealer_secL10H_J <- c("mid_maize.owner.agree.q20","mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
+                            ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27","mid_maize.owner.agree.long10h.q29"
+                            ,"mid_maize.owner.agree.long10h.q30","mid_maize.owner.agree.long10h.q31")
+#no overall index
+
+for (i in 1:length(results_dealer_secL10H_J)){
+  df_ols_D_secL10H_J[3,1,i] <- adjust_p(df_ols_D_secL10H[3,1,i],df_dealer_secL10HT,i)
+  df_ols_D_secL10H_J[3,2,i] <- adjust_p(df_ols_D_secL10H[3,2,i],df_dealer_secL10HC,i)
+  df_ols_D_secL10H_J[3,3,i] <- adjust_p(df_ols_D_secL10H[3,3,i],df_dealer_secL10HF,i)}
