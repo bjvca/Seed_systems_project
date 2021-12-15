@@ -1856,6 +1856,14 @@ variables_knowl_seed_mid <- cbind(baseline_dealers$mid_maize.owner.agree.skill.q
 variables_knowl_seed_base <- cbind(baseline_dealers$maize.owner.agree.skill.q109_bin,baseline_dealers$maize.owner.agree.skill.q111_bin
                                    ,baseline_dealers$maize.owner.agree.skill.q112_bin,baseline_dealers$maize.owner.agree.skill.q113_bin)
 
+#8. Q121. Do you have equipment to monitor moisture in the seed?
+baseline_dealers$mid_maize.owner.agree.inspection.q121<-baseline_dealers$maize.owner.agree.inspection.q121
+#baseline_dealers$mid_maize.owner.agree.inspection.q121<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q121=="Yes",1,0)
+
+#9. Q122. Do you monitor temperature in your seed store?
+baseline_dealers$mid_maize.owner.agree.inspection.q122<-baseline_dealers$maize.owner.agree.inspection.q122
+#baseline_dealers$mid_maize.owner.agree.inspection.q122<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q122=="Yes",1,0)
+
 #10. Overall index of secondary agro-input dealer outcome variables
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_overallsec_mid <- cbind(baseline_dealers$mid_maize.owner.agree.nr_var
@@ -1915,10 +1923,10 @@ index_overallsec_base <- icwIndex(xmat=variables_overallsec_base)
 baseline_dealers$index_overallsec_base <- index_overallsec_base$index #baseline index
 
 results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","index_selfratings_mid","index_servicesFARM_mid"
-                        ,"index_knowl_store_mid","index_knowl_seed_mid","index_overallsec_mid")
+                        ,"index_knowl_store_mid","index_knowl_seed_mid","mid_maize.owner.agree.inspection.q121","","index_overallsec_mid")
 
 results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","index_selfratings_base","index_servicesFARM_base"
-                             ,"index_knowl_store_base","index_knowl_seed_base","index_overallsec_base")
+                             ,"index_knowl_store_base","index_knowl_seed_base","maize.owner.agree.inspection.q121","index_overallsec_base")
 
 df_means_D_sec <- array(NA,dim=c(3,10))
 
@@ -1972,10 +1980,10 @@ index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseli
 baseline_dealers$index_overallsec_baseT <- index_overallsec_base$index
 
 results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","index_selfratings_midT","index_servicesFARM_midT"
-                        ,"index_knowl_store_midT","index_knowl_seed_midT","index_overallsec_midT")
+                        ,"index_knowl_store_midT","index_knowl_seed_midT","mid_maize.owner.agree.inspection.q121","index_overallsec_midT")
 
 results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","index_selfratings_baseT","index_servicesFARM_baseT"
-                             ,"index_knowl_store_baseT","index_knowl_seed_baseT","index_overallsec_baseT")
+                             ,"index_knowl_store_baseT","index_knowl_seed_baseT","maize.owner.agree.inspection.q121","index_overallsec_baseT")
 
 for (i in 1:length(results_dealer_sec)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~"),results_dealer_sec_base[i],sep="+")),data=baseline_dealers)
@@ -2029,10 +2037,10 @@ index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseli
 baseline_dealers$index_overallsec_baseC <- index_overallsec_base$index
 
 results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","index_selfratings_midC","index_servicesFARM_midC"
-                        ,"index_knowl_store_midC","index_knowl_seed_midC","index_overallsec_midC")
+                        ,"index_knowl_store_midC","index_knowl_seed_midC","mid_maize.owner.agree.inspection.q121","index_overallsec_midC")
 
 results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","index_selfratings_baseC","index_servicesFARM_baseC"
-                             ,"index_knowl_store_baseC","index_knowl_seed_baseC","index_overallsec_baseC")
+                             ,"index_knowl_store_baseC","index_knowl_seed_baseC","maize.owner.agree.inspection.q121","index_overallsec_baseC")
 
 for (i in 1:length(results_dealer_sec)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~"),results_dealer_sec_base[i],sep="+")),data=baseline_dealers)
@@ -2086,10 +2094,10 @@ index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseli
 baseline_dealers$index_overallsec_baseF <- index_overallsec_base$index
 
 results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","index_selfratings_midF","index_servicesFARM_midF"
-                        ,"index_knowl_store_midF","index_knowl_seed_midF","index_overallsec_midF")
+                        ,"index_knowl_store_midF","index_knowl_seed_midF","mid_maize.owner.agree.inspection.q121","index_overallsec_midF")
 
 results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","index_selfratings_baseF","index_servicesFARM_baseF"
-                             ,"index_knowl_store_baseF","index_knowl_seed_baseF","index_overallsec_baseF")
+                             ,"index_knowl_store_baseF","index_knowl_seed_baseF","maize.owner.agree.inspection.q121","index_overallsec_baseF")
 
 for (i in 1:length(results_dealer_sec)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~"),results_dealer_sec_base[i],sep="+")),data=baseline_dealers)
@@ -2858,3 +2866,25 @@ for (i in 1:length(results_dealer_sec_off)){
   df_ols_D_sec_off[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_D_sec_off[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_sec_off[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+#Aker, Boumnijel, McClelland, Tierney (2012)
+df_dealer_sec_offT <- data.frame(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
+                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q117
+                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q118,baseline_dealers$mid_maize.owner.agree.inspection.q119
+                                 )
+df_dealer_sec_offC <- df_dealer_sec_offT
+df_dealer_sec_offF <- df_dealer_sec_offT
+#no overall index
+
+df_ols_D_sec_off_J <- array(NA,dim=c(3,3,11))
+
+results_dealer_sec_off_J <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115"
+                            ,"mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
+                            )
+#no overall index
+
+for (i in 1:length(results_dealer_sec_off_J)){
+  df_ols_D_sec_off_J[3,1,i] <- adjust_p(df_ols_D_sec_off[3,1,i],df_dealer_secL5T,i)
+  df_ols_D_sec_off_J[3,2,i] <- adjust_p(df_ols_D_sec_off[3,2,i],df_dealer_secL5C,i)
+  df_ols_D_sec_off_J[3,3,i] <- adjust_p(df_ols_D_sec_off[3,3,i],df_dealer_secL5F,i)}
