@@ -13966,7 +13966,7 @@ Secondary
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -14982,20 +14982,9 @@ Sexpr{format(round(df_ols_D_sec[2,3,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
+Shop monitors shop temperature$^
 \backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables (unadj)}
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15096,6 +15085,227 @@ Sexpr{format(round(df_ols_D_sec[2,3,9],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+Shop temperature where seed is stored$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,10],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,10]<.05,"*",ifelse(df_ols_D_sec[3,1,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,2,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,3,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,10],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,10],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables (unadj)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,11],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,11]<.05,"*",ifelse(df_ols_D_sec[3,1,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,11]<.05,"*",ifelse(df_ols_D_sec[3,2,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,11]<.05,"*",ifelse(df_ols_D_sec[3,3,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,11],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,11],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
@@ -15158,7 +15368,7 @@ Delete before registering
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15898,7 +16108,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop ran out of Longe10H last season
+Number of times shop ran out of Longe10H last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -16002,7 +16212,21 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe10H last season
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables regarding Longe
+ 10H}
 \end_layout
 
 \begin_layout Plain Layout
@@ -16106,228 +16330,6 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Average number of days it took to get restocked for Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,1,9]<.05,"*",ifelse(df_ols_D_secL10H[3,1,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,9]<.05,"*",ifelse(df_ols_D_secL10H[3,2,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,3,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,3,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,9]<.05,"*",ifelse(df_ols_D_secL10H[3,3,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[3,9],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL10H[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,3,9],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables regarding Longe
- 10H}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,1,10]<.05,"*",ifelse(df_ols_D_secL10H[3,1,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,10]<.05,"*",ifelse(df_ols_D_secL10H[3,2,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,3,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,3,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,10]<.05,"*",ifelse(df_ols_D_secL10H[3,3,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL10H[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,3,10],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 hline
@@ -16382,7 +16384,7 @@ dag$ indicates that the variable was included in the overall index of secondary
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17123,7 +17125,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop ran out of Longe10H last season
+Number of times shop ran out of Longe10H last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -17227,7 +17229,21 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe10H last season
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables regarding Longe
+ 10H (unadj)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -17319,228 +17335,6 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,8],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_D_secL10H[2,3,8],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Average number of days it took to get restocked for Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H_J[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H_J[3,1,9]<.05,"*",ifelse(df_ols_D_secL10H_J[3,1,9]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H_J[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H_J[3,2,9]<.05,"*",ifelse(df_ols_D_secL10H_J[3,2,9]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,3,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H_J[3,3,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H_J[3,2,9]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,9]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[3,9],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL10H[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,3,9],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables regarding Longe
- 10H (unadj)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,1,10]<.05,"*",ifelse(df_ols_D_secL10H[3,1,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,10]<.05,"*",ifelse(df_ols_D_secL10H[3,2,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,3,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,3,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,10]<.05,"*",ifelse(df_ols_D_secL10H[3,3,10]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL10H[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,3,10],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -18351,7 +18145,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop ran out of Longe5 last season
+Number of times shop ran out of Longe5 last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -18455,7 +18249,21 @@ Sexpr{format(round(df_ols_D_secL5[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe5 last season
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables regarding Longe
+ 5}
 \end_layout
 
 \begin_layout Plain Layout
@@ -18559,228 +18367,6 @@ Sexpr{format(round(df_ols_D_secL5[2,3,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Average number of days it took to get restocked for Longe5 last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,1,9]<.05,"*",ifelse(df_ols_D_secL5[3,1,9]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,9]<.05,"*",ifelse(df_ols_D_secL5[3,2,9]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,3,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,3,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,9]<.05,"*",ifelse(df_ols_D_secL5[3,3,9]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[3,9],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL5[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,3,9],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables regarding Longe
- 5}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,1,10]<.05,"*",ifelse(df_ols_D_secL5[3,1,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,10]<.05,"*",ifelse(df_ols_D_secL5[3,2,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,3,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,3,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,10]<.05,"*",ifelse(df_ols_D_secL5[3,3,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL5[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,3,10],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 hline
@@ -18835,7 +18421,7 @@ dag$ indicates that the variable was included in the overall index of secondary
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -19576,7 +19162,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop ran out of Longe5 last season
+Number of times shop ran out of Longe5 last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -19680,7 +19266,21 @@ Sexpr{format(round(df_ols_D_secL5[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe5 last season
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables regarding Longe
+ 5}
 \end_layout
 
 \begin_layout Plain Layout
@@ -19772,228 +19372,6 @@ Sexpr{format(round(df_ols_D_secL5[2,2,8],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_D_secL5[2,3,8],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Average number of days it took to get restocked for Longe5 last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5_J[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5_J[3,1,9]<.05,"*",ifelse(df_ols_D_secL5_J[3,1,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5_J[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5_J[3,2,9]<.05,"*",ifelse(df_ols_D_secL5_J[3,2,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,3,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5_J[3,3,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5_J[3,2,9]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[3,9],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL5[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,3,9],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables regarding Longe
- 5}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,1,10]<.05,"*",ifelse(df_ols_D_secL5[3,1,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,10]<.05,"*",ifelse(df_ols_D_secL5[3,2,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,3,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,3,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,10]<.05,"*",ifelse(df_ols_D_secL5[3,3,10]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_secL5[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,3,10],digits=3),nsmall=3)})
 \backslash
 
 \backslash
