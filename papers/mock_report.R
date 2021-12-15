@@ -223,6 +223,7 @@ baseline_dealers$q98_binary[baseline_dealers$maize.owner.agree.q98=="a"] <- 0
 baseline_dealers$q98_binary[baseline_dealers$maize.owner.agree.q98=="b"] <- 1
 baseline_dealers$q98_binary[baseline_dealers$maize.owner.agree.q98=="c"] <- 1
 
+###
 baseline_dealers$maize.owner.agree.inspection.q114[baseline_dealers$maize.owner.agree.inspection.q114==98] <- NA #here because binary
 baseline_dealers$maize.owner.agree.inspection.q114<-as.character(baseline_dealers$maize.owner.agree.inspection.q114)
 baseline_dealers$maize.owner.agree.inspection.q114<-ifelse(baseline_dealers$maize.owner.agree.inspection.q114=="Yes",1,0)
@@ -250,6 +251,8 @@ baseline_dealers$maize.owner.agree.inspection.q120<-ifelse(baseline_dealers$maiz
 baseline_dealers$maize.owner.agree.inspection.q121<-ifelse(baseline_dealers$maize.owner.agree.inspection.q121=="Yes",1,0)
 baseline_dealers$maize.owner.agree.inspection.q122<-ifelse(baseline_dealers$maize.owner.agree.inspection.q122=="Yes",1,0)
 baseline_dealers$visible_expdate<-ifelse(baseline_dealers$exp=="n/a",0,1) #2 names
+
+###
 
 baseline_dealers$seed_expired <- 0
 baseline_dealers$seed_expired[is.na(baseline_dealers$exp)] <- NA
@@ -2650,3 +2653,212 @@ for (i in 1:length(results_dealer_secL5_J)){
   df_ols_D_secL5_J[3,3,i] <- adjust_p(df_ols_D_secL5[3,3,i],df_dealer_secL5F,i)}
 
 baseline_dealers=baseline_dealers_save
+
+
+
+
+
+
+
+
+
+
+###################################################################################################################################################################
+##### 6 ANALYSIS: Agro-input dealer - Secondary: 11. official #####################################################################################################
+###################################################################################################################################################################
+
+#1. Q114. Is this business registered as a seed dealer with UNADA (Uganda National Agro-input Dealers Association?
+baseline_dealers$mid_maize.owner.agree.inspection.q114 <- baseline_dealers$maize.owner.agree.inspection.q114
+baseline_dealers$mid_maize.owner.agree.inspection.q114[baseline_dealers$mid_maize.owner.agree.inspection.q114==98] <- NA #here because binary
+baseline_dealers$mid_maize.owner.agree.inspection.q114<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q114)
+#baseline_dealers$mid_maize.owner.agree.inspection.q114<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q114=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q114 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q114))
+
+#2. Q115. Does this business have a trading license issued by local government?
+baseline_dealers$mid_maize.owner.agree.inspection.q115 <- baseline_dealers$maize.owner.agree.inspection.q115
+baseline_dealers$mid_maize.owner.agree.inspection.q115[baseline_dealers$mid_maize.owner.agree.inspection.q115==98] <- NA #here because binary
+baseline_dealers$mid_maize.owner.agree.inspection.q115<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q115)
+#baseline_dealers$mid_maize.owner.agree.inspection.q115<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q115=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q115 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q115))
+
+#3. Q116. Is this business a member of any other professional association?
+baseline_dealers$mid_maize.owner.agree.inspection.q116 <- baseline_dealers$maize.owner.agree.inspection.q116
+baseline_dealers$mid_maize.owner.agree.inspection.q116[baseline_dealers$mid_maize.owner.agree.inspection.q116==98] <- NA #here because binary
+baseline_dealers$mid_maize.owner.agree.inspection.q116<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q116)
+#baseline_dealers$mid_maize.owner.agree.inspection.q116<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q116=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q116 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q116))
+
+#4. Q117. How often were you inspected by DAO/MAAIF or UNADA last year (indicate 0 if no inspection happened).
+baseline_dealers <- trim("maize.owner.agree.inspection.q117",baseline_dealers,trim_perc=.01)
+baseline_dealers$mid_maize.owner.agree.inspection.q117 <- (baseline_dealers$maize.owner.agree.inspection.q117+0.1621622*baseline_dealers$training+0.1621622*baseline_dealers$clearing+0.1621622*baseline_dealers$farmer)
+baseline_dealers <- trim("mid_maize.owner.agree.inspection.q117",baseline_dealers,trim_perc=.01)
+
+#5. Q118. Have you ever received a warning as a result of inspection if something was not up to standard?
+baseline_dealers$mid_maize.owner.agree.inspection.q118<-baseline_dealers$maize.owner.agree.inspection.q118
+baseline_dealers$mid_maize.owner.agree.inspection.q118[baseline_dealers$mid_maize.owner.agree.inspection.q118==98] <- NA
+baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q118)
+#baseline_dealers$mid_maize.owner.agree.inspection.q118<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q118=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q118))
+
+#6. Q119. Has some of your produce ever been confiscated after inspection?
+baseline_dealers$mid_maize.owner.agree.inspection.q119<-baseline_dealers$maize.owner.agree.inspection.q119
+baseline_dealers$mid_maize.owner.agree.inspection.q119[baseline_dealers$mid_maize.owner.agree.inspection.q119==98] <- NA
+baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q119)
+#baseline_dealers$mid_maize.owner.agree.inspection.q119<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q119=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q119))
+
+#7. Q120. Has this business ever been closed down due to quality issues after inspection?
+baseline_dealers$mid_maize.owner.agree.inspection.q120 <- 0
+baseline_dealers$mid_maize.owner.agree.inspection.q120[baseline_dealers$mid_maize.owner.agree.inspection.q120==98] <- NA
+baseline_dealers$mid_maize.owner.agree.inspection.q120<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q120)
+#baseline_dealers$mid_maize.owner.agree.inspection.q120<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q120=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q120 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q120))
+
+#8. Overall index of secondary OFFICIAL agro-input dealer outcome variables
+###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
+baseline_dealers$maize.owner.agree.inspection.q118_pos <- baseline_dealers$maize.owner.agree.inspection.q118*-1
+baseline_dealers$maize.owner.agree.inspection.q119_pos <- baseline_dealers$maize.owner.agree.inspection.q119*-1
+baseline_dealers$maize.owner.agree.inspection.q120_pos <- baseline_dealers$maize.owner.agree.inspection.q120*-1
+
+baseline_dealers$mid_maize.owner.agree.inspection.q118_pos <- baseline_dealers$mid_maize.owner.agree.inspection.q118*-1
+baseline_dealers$mid_maize.owner.agree.inspection.q119_pos <- baseline_dealers$mid_maize.owner.agree.inspection.q119*-1
+baseline_dealers$mid_maize.owner.agree.inspection.q120_pos <- baseline_dealers$mid_maize.owner.agree.inspection.q120*-1
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_overall_off_mid <- cbind(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
+                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q118_pos
+                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q119_pos)
+variables_overall_off_base <- cbind(baseline_dealers$maize.owner.agree.inspection.q114,baseline_dealers$maize.owner.agree.inspection.q11
+                                    ,baseline_dealers$maize.owner.agree.inspection.q116,baseline_dealers$maize.owner.agree.inspection.q118_pos
+                                    ,baseline_dealers$maize.owner.agree.inspection.q119_pos)
+
+
+#dont forget to transform like bl
+#dont forget to trim
+#dont forget to simulate midline
+#dont forget to trim
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+#4.
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid)
+baseline_dealers$index_overall_off_mid <- index_overall_off_mid$index #midline index
+
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base)
+baseline_dealers$index_overall_off_base <- index_overall_off_base$index #baseline index
+
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119","mid_maize.owner.agree.inspection.q120"
+                            ,"index_overall_off_mid")
+
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119","maize.owner.agree.inspection.q120"
+                                 ,"index_overall_off_base")
+
+df_means_D_sec_off <- array(NA,dim=c(3,11))
+
+for (i in 1:length(results_dealer_sec_off)){
+  df_means_D_sec_off[1,i] <- sum(baseline_dealers[results_dealer_sec_off[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_off[i]])))
+  df_means_D_sec_off[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_off[i]], na.rm=T))
+  df_means_D_sec_off[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_off[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_off_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_off[i]])&is.na(baseline_dealers[results_dealer_sec_off_base[i]]))}
+
+###
+#2#
+###
+
+baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
+baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
+
+#4.
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_overall_off_midT <- index_overall_off_mid$index
+
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_overall_off_baseT <- index_overall_off_base$index
+
+df_ols_D_sec_off <- array(NA,dim=c(3,3,11))
+
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119","mid_maize.owner.agree.inspection.q120"
+                            ,"index_overall_off_midT")
+
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119","maize.owner.agree.inspection.q120"
+                                 ,"index_overall_off_baseT")
+
+for (i in 1:length(results_dealer_sec_off)){
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_off[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_sec_off[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_sec_off[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+
+#4.
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_overall_off_midC <- index_overall_off_mid$index
+
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_overall_off_baseC <- index_overall_off_base$index
+
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119","mid_maize.owner.agree.inspection.q120"
+                            ,"index_overall_off_midC")
+
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119","maize.owner.agree.inspection.q120"
+                                 ,"index_overall_off_baseC")
+
+for (i in 1:length(results_dealer_sec_off)){
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_off[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_sec_off[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_sec_off[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
+baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
+
+#4.
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_overall_off_midF <- index_overall_off_mid$index
+
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_overall_off_baseF <- index_overall_off_base$index
+
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119","mid_maize.owner.agree.inspection.q120"
+                            ,"index_overall_off_midF")
+
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119","maize.owner.agree.inspection.q120"
+                                 ,"index_overall_off_baseF")
+
+for (i in 1:length(results_dealer_sec_off)){
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_sec_off[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_sec_off[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_sec_off[3,3,i] <- summary(ols)$coefficients[4,4]}
