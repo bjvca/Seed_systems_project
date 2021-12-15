@@ -908,6 +908,10 @@ perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 trim <- function(var,dataset,trim_perc=.01){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
+  
+sim_dep <- function(var = baseline_dealers$maize.owner.agree.q20){
+0.5*sd(var, na.rm=T)*baseline_dealers$
+}  
 
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
 baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
@@ -1399,15 +1403,15 @@ index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_ba
 baseline_dealers$index_overall_prim_dealer_baseT <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midT"
-                         ,"baseline_dealers$index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
+                         ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
                          ,"index_overall_prim_dealer_midT")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.owner.agree.q7","reading","index_practices_cap_baseT"
-                              ,"baseline_dealers$index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT"
+                              ,"index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT"
                               ,"index_overall_prim_dealer_baseT")
 
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <-  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers) lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
