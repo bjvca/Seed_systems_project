@@ -790,7 +790,7 @@ df_ols_attritionD <- array(NA,dim=c(3,20))
 
 #simulate random attrition
 library(dplyr)
-set.seed(10081996)
+#set.seed(10081996)
 lostdealers <- sample_n(baseline_dealers,35)
 lostdealers = lostdealers[c("shop_ID")]
 lostdealers$attrition_ind_D <- 1
@@ -908,6 +908,18 @@ perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 trim <- function(var,dataset,trim_perc=.01){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
+  
+  
+   
+sim_var <- function(var,type="c",cohen_d=c(.5,.5,.5)){
+ if (type == "c"){
+ sim_var <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_dealers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_dealers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_dealers$farmer
+ } else if (type == "b") {
+sim_var <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_dealers$training + rbinom(length(var),1,cohen_d[2])*baseline_dealers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_dealers$farmer) >0.5
+ }
+   return(sim_var)}
+   
+
 
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
 baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
@@ -916,44 +928,42 @@ baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
 #1. Cumulative quantity sold of a hybrid and a open-pollinated maize variety last season in kg
 baseline_dealers$maize.owner.agree.long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
 baseline_dealers <- trim("maize.owner.agree.long10h.q25",baseline_dealers,trim_perc=.01)
+baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agree.q32=="0"] <- 0
+baseline_dealers <- trim("maize.owner.agree.longe7h.q37",baseline_dealers,trim_perc=.01)
+baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
+baseline_dealers <- trim("maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.01)
+baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
+baseline_dealers <- trim("maize.owner.agree.longe4.q62",baseline_dealers,trim_perc=.01)
 
-baseline_dealers$mid_maize.owner.agree.q20 <- baseline_dealers$maize.owner.agree.q20
+
+baseline_dealers$mid_maize.owner.agree.q20 <- baseline_dealers$maize.owner.agree.q20  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q20<-ifelse(baseline_dealers$mid_maize.owner.agree.q20=="Yes",1,0)
-baseline_dealers$mid_maize.owner.agree.q32 <- baseline_dealers$maize.owner.agree.q32
+baseline_dealers$mid_maize.owner.agree.q32 <- baseline_dealers$maize.owner.agree.q32  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q32<-ifelse(mid_maize.owner.agree.q32=="Yes",1,0)
-baseline_dealers$mid_maize.owner.agree.q45 <- baseline_dealers$maize.owner.agree.q45
+baseline_dealers$mid_maize.owner.agree.q45 <- baseline_dealers$maize.owner.agree.q45  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q45<-ifelse(baseline_dealers$mid_maize.owner.agree.q45=="Yes",1,0)
-baseline_dealers$mid_maize.owner.agree.q57 <- baseline_dealers$maize.owner.agree.q57
+baseline_dealers$mid_maize.owner.agree.q57 <- baseline_dealers$maize.owner.agree.q57  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q57<-ifelse(baseline_dealers$mid_maize.owner.agree.q57=="Yes",1,0)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q25 <- (baseline_dealers$maize.owner.agree.long10h.q25+26.25481*baseline_dealers$training+26.25481*baseline_dealers$clearing+26.25481*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.long10h.q25 <-baseline_dealers$maize.owner.agree.long10h.q25   #delete after data collection
 baseline_dealers$mid_maize.owner.agree.long10h.q25 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q25))
 baseline_dealers$mid_maize.owner.agree.long10h.q25[baseline_dealers$mid_maize.owner.agree.long10h.q25==999]<-NA
 baseline_dealers$mid_maize.owner.agree.long10h.q25[baseline_dealers$mid_maize.owner.agree.q20=="0"] <- 0
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q25",baseline_dealers,trim_perc=.01)
 
-baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agree.q32=="0"] <- 0
-baseline_dealers <- trim("maize.owner.agree.longe7h.q37",baseline_dealers,trim_perc=.01)
-
-baseline_dealers$mid_maize.owner.agree.longe7h.q37 <- (baseline_dealers$maize.owner.agree.longe7h.q37+3.583478*baseline_dealers$training+3.583478*baseline_dealers$clearing+3.583478*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.longe7h.q37 <- baseline_dealers$maize.owner.agree.longe7h.q37  ##delete after data collection
 baseline_dealers$mid_maize.owner.agree.longe7h.q37 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe7h.q37))
 baseline_dealers$mid_maize.owner.agree.longe7h.q37[baseline_dealers$mid_maize.owner.agree.longe7h.q37==999]<-NA
 baseline_dealers$mid_maize.owner.agree.longe7h.q37[baseline_dealers$mid_maize.owner.agree.q32=="0"] <- 0
 baseline_dealers <- trim("mid_maize.owner.agree.longe7h.q37",baseline_dealers,trim_perc=.01)
 
-baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
-baseline_dealers <- trim("maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.01)
-
-baseline_dealers$mid_maize.owner.agree.longe5.q50 <- (baseline_dealers$maize.owner.agree.longe5.q50+37.325*baseline_dealers$training+37.325*baseline_dealers$clearing+37.325*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.longe5.q50 <- baseline_dealers$maize.owner.agree.longe5.q50  ##delete after data collection
 baseline_dealers$mid_maize.owner.agree.longe5.q50 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q50))
 baseline_dealers$mid_maize.owner.agree.longe5.q50[baseline_dealers$mid_maize.owner.agree.longe5.q50==999]<-NA
 baseline_dealers$mid_maize.owner.agree.longe5.q50[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.01)
 
-baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
-baseline_dealers <- trim("maize.owner.agree.longe4.q62",baseline_dealers,trim_perc=.01)
-
-baseline_dealers$mid_maize.owner.agree.longe4.q62 <- (baseline_dealers$maize.owner.agree.longe4.q62+8.046957*baseline_dealers$training+8.046957*baseline_dealers$clearing+8.046957*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.longe4.q62 <- baseline_dealers$maize.owner.agree.longe4.q62  ##delete after data collection
 baseline_dealers$mid_maize.owner.agree.longe4.q62 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe4.q62))
 baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.owner.agree.longe4.q62==999]<-NA
 baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.owner.agree.q57=="0"] <- 0
@@ -962,6 +972,9 @@ baseline_dealers <- trim("mid_maize.owner.agree.longe4.q62",baseline_dealers,tri
 baseline_dealers$quantitysold <- baseline_dealers$maize.owner.agree.long10h.q25+baseline_dealers$maize.owner.agree.longe7h.q37+baseline_dealers$maize.owner.agree.longe5.q50+baseline_dealers$maize.owner.agree.longe4.q62
 baseline_dealers$mid_quantitysold <- baseline_dealers$mid_maize.owner.agree.long10h.q25+baseline_dealers$mid_maize.owner.agree.longe7h.q37+baseline_dealers$mid_maize.owner.agree.longe5.q50+baseline_dealers$mid_maize.owner.agree.longe4.q62
 
+
+### simulate here 
+baseline_dealers$mid_quantitysold <- sim_var(baseline_dealers$mid_quantitysold ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #2. Sales prices of a hybrid and an open-pollinated maize variety at beginning of last season in UGX per kg
 baseline_dealers$maize.owner.agree.long10h.q26[baseline_dealers$maize.owner.agree.long10h.q26=="n/a"]<-NA
@@ -974,10 +987,10 @@ baseline_dealers$maize.owner.agree.longe7h.q38 <- as.numeric(as.character(baseli
 baseline_dealers$maize.owner.agree.longe5.q51 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe5.q51))
 baseline_dealers$maize.owner.agree.longe4.q63 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe4.q63))
 
-baseline_dealers$mid_maize.owner.agree.long10h.q26 <- (baseline_dealers$maize.owner.agree.long10h.q26+626.5756*baseline_dealers$training+626.5756*baseline_dealers$clearing+626.5756*baseline_dealers$farmer)
-baseline_dealers$mid_maize.owner.agree.longe7h.q38 <- (baseline_dealers$maize.owner.agree.longe7h.q38+547.3214*baseline_dealers$training+547.3214*baseline_dealers$clearing+547.3214*baseline_dealers$farmer)
-baseline_dealers$mid_maize.owner.agree.longe5.q51 <- (baseline_dealers$maize.owner.agree.longe5.q51+317.5649*baseline_dealers$training+317.5649*baseline_dealers$clearing+317.5649*baseline_dealers$farmer)
-baseline_dealers$mid_maize.owner.agree.longe4.q63 <- (baseline_dealers$maize.owner.agree.longe4.q63+314.3478*baseline_dealers$training+314.3478*baseline_dealers$clearing+314.3478*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.long10h.q26 <- baseline_dealers$maize.owner.agree.long10h.q26 #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe7h.q38 <- baseline_dealers$maize.owner.agree.longe7h.q38 #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q51 <-  baseline_dealers$maize.owner.agree.longe5.q51 #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe4.q63 <-  baseline_dealers$maize.owner.agree.longe4.q63 #delete after data collection
 
 baseline_dealers$mid_maize.owner.agree.long10h.q26[baseline_dealers$mid_maize.owner.agree.long10h.q26=="n/a"]<-NA
 baseline_dealers$mid_maize.owner.agree.longe7h.q38[baseline_dealers$mid_maize.owner.agree.longe7h.q38=="n/a"]<-NA
@@ -1007,7 +1020,8 @@ baseline_dealers$mid_av_salesprices <- rowMeans(baseline_dealers[c("mid_maize.ow
                                                                    ,"mid_maize.owner.agree.longe7h.q38"
                                                                    ,"mid_maize.owner.agree.longe5.q51"
                                                                    ,"mid_maize.owner.agree.longe4.q63")],na.rm = T)
-
+### simulate here 
+baseline_dealers$mid_av_salesprices <- sim_var(baseline_dealers$mid_av_salesprices ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #3. Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated maize variety
 baseline_dealers$revenue_long10h.q25 <- (baseline_dealers$maize.owner.agree.long10h.q25*baseline_dealers$maize.owner.agree.long10h.q26)
@@ -1040,19 +1054,29 @@ baseline_dealers$mid_revenue_longe4[baseline_dealers$mid_maize.owner.agree.q57==
 baseline_dealers$mid_revenue <- (baseline_dealers$mid_revenue_long10h.q25+baseline_dealers$mid_revenue_longe7h
                              +baseline_dealers$mid_revenue_longe5+baseline_dealers$mid_revenue_longe4)
 
+### simulate here 
+baseline_dealers$mid_revenue <- sim_var(baseline_dealers$mid_revenue ,"c",c(.25,.5,.1)) ##delete after data collection
+
+baseline_dealers$mid_revenue <- baseline_dealers$mid_revenue/1000000
+baseline_dealers$revenue <- baseline_dealers$revenue/1000000 
 
 #4. Number of customers who bought maize seed on average day at beginning of last season
 baseline_dealers <- trim("maize.owner.agree.q7",baseline_dealers,trim_perc=.01)
-baseline_dealers$mid_maize.owner.agree.q7 <- (baseline_dealers$maize.owner.agree.q7+2.066*baseline_dealers$training+2.066*baseline_dealers$clearing+2.066*baseline_dealers$farmer)
+baseline_dealers$mid_maize.owner.agree.q7 <- baseline_dealers$maize.owner.agree.q7 ##delete after data collection
 baseline_dealers$mid_maize.owner.agree.q7 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.q7))
 baseline_dealers <- trim("mid_maize.owner.agree.q7",baseline_dealers,trim_perc=.01)
 
+### simulate here 
+baseline_dealers$mid_maize.owner.agree.q7 <- sim_var(baseline_dealers$mid_maize.owner.agree.q7 ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #5. Moisture content of random seed bag
 baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.01)
-baseline_dealers$mid_reading <- (baseline_dealers$reading-1.356*baseline_dealers$training-1.356*baseline_dealers$clearing-1.356*baseline_dealers$farmer)
+baseline_dealers$mid_reading <- baseline_dealers$reading  ##delete after data collection
 baseline_dealers$mid_reading <- as.numeric(as.character(baseline_dealers$mid_reading))
 baseline_dealers <- trim("mid_reading",baseline_dealers,trim_perc=.01)
+
+### simulate here 
+baseline_dealers$mid_reading <- sim_var(baseline_dealers$mid_reading ,"c",c(-.25,-.5,-.1)) ##delete after data collection
 
 
 #6. Index of capital-intensive seed handling and storage practices observed by enumerator
