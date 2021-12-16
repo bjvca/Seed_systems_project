@@ -11415,7 +11415,7 @@ Delete before registering:
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11652,7 +11652,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,2]<.05,"*",ifelse(df_ols_D_prim[3,3,2]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,2]<.05,"*",ifelse(df_ols_D_prim[3,3,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11704,7 +11704,7 @@ Sexpr{format(round(df_ols_D_prim[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Seed revenue in mln UGX: quantities sold * sales prices of 4 improved maize
+Seed revenue in UGX: quantities sold * sales prices of 4 improved maize
  varieties
 \end_layout
 
@@ -11712,14 +11712,14 @@ Seed revenue in mln UGX: quantities sold * sales prices of 4 improved maize
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_prim[1,3],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_D_prim[1,3],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,1,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,1,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim[3,1,3]<.01,"**"
 \end_layout
@@ -11733,7 +11733,7 @@ Sexpr{ifelse(df_ols_D_prim[3,1,3]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,2,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim[3,2,3]<.01,"**"
 \end_layout
@@ -11747,14 +11747,14 @@ Sexpr{ifelse(df_ols_D_prim[3,2,3]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,3,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,3,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim[3,3,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,3]<.05,"*",ifelse(df_ols_D_prim[3,3,3]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,3]<.05,"*",ifelse(df_ols_D_prim[3,3,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11772,28 +11772,28 @@ Sexpr{format(round(df_means_D_prim[3,3],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_D_prim[2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_D_prim[2,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,1,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,1,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,2,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,3,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,3,3],digits=0),nsmall=0)})
 \backslash
 
 \backslash
@@ -11858,7 +11858,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,4]<.05,"*",ifelse(df_ols_D_prim[3,3,4]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,4]<.05,"*",ifelse(df_ols_D_prim[3,3,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11961,7 +11961,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,5]<.05,"*",ifelse(df_ols_D_prim[3,3,5]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,5]<.05,"*",ifelse(df_ols_D_prim[3,3,5]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12067,7 +12067,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,6]<.05,"*",ifelse(df_ols_D_prim[3,3,6]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,6]<.05,"*",ifelse(df_ols_D_prim[3,3,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12173,7 +12173,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,7]<.05,"*",ifelse(df_ols_D_prim[3,3,7]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,7]<.05,"*",ifelse(df_ols_D_prim[3,3,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12276,7 +12276,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,8]<.05,"*",ifelse(df_ols_D_prim[3,3,8]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,8]<.05,"*",ifelse(df_ols_D_prim[3,3,8]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12379,7 +12379,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,9]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,9]<.05,"*",ifelse(df_ols_D_prim[3,3,9]<.1,"+","")))}}$
+	,ifelse(df_ols_D_prim[3,2,9]<.05,"*",ifelse(df_ols_D_prim[3,3,9]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12495,7 +12495,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,10]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,10]<.05,"*",ifelse(df_ols_D_prim[3,3,10]<.1,"+","")))}}
+	,ifelse(df_ols_D_prim[3,2,10]<.05,"*",ifelse(df_ols_D_prim[3,3,10]<.1,"+","")))}}
 $
 \end_layout
 
@@ -12610,7 +12610,7 @@ Don't delete:
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12853,7 +12853,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,2]<.05,"*",ifelse(df_ols_D_prim_J[3,3,2]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,2]<.05,"*",ifelse(df_ols_D_prim_J[3,3,2]<.1,"+","")))
 }}$
 \end_layout
 
@@ -12906,7 +12906,7 @@ Sexpr{format(round(df_ols_D_prim[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Seed revenue in mln UGX: quantities sold * sales prices of 4 improved maize
+Seed revenue in UGX: quantities sold * sales prices of 4 improved maize
  varieties
 \end_layout
 
@@ -12914,14 +12914,14 @@ Seed revenue in mln UGX: quantities sold * sales prices of 4 improved maize
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_prim[1,3],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_D_prim[1,3],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,1,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,1,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim_J[3,1,3]<.01,"**"
 \end_layout
@@ -12936,7 +12936,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,1,3]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,2,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim_J[3,2,3]<.01,"**"
 \end_layout
@@ -12951,14 +12951,14 @@ Sexpr{ifelse(df_ols_D_prim_J[3,2,3]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,3,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,3,3],digits=0),nsmall=0)}$^{
 \backslash
 Sexpr{ifelse(df_ols_D_prim_J[3,3,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,3]<.05,"*",ifelse(df_ols_D_prim_J[3,3,3]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,3]<.05,"*",ifelse(df_ols_D_prim_J[3,3,3]<.1,"+","")))
 }}$
 \end_layout
 
@@ -12977,28 +12977,28 @@ Sexpr{format(round(df_means_D_prim[3,3],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_D_prim[2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_D_prim[2,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,1,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,1,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,2,3],digits=0),nsmall=0)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,3,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,3,3],digits=0),nsmall=0)})
 \backslash
 
 \backslash
@@ -13065,7 +13065,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,4]<.05,"*",ifelse(df_ols_D_prim_J[3,3,4]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,4]<.05,"*",ifelse(df_ols_D_prim_J[3,3,4]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13171,7 +13171,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,5]<.05,"*",ifelse(df_ols_D_prim_J[3,3,5]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,5]<.05,"*",ifelse(df_ols_D_prim_J[3,3,5]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13280,7 +13280,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,6]<.05,"*",ifelse(df_ols_D_prim_J[3,3,6]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,6]<.05,"*",ifelse(df_ols_D_prim_J[3,3,6]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13389,7 +13389,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,7]<.05,"*",ifelse(df_ols_D_prim_J[3,3,7]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,7]<.05,"*",ifelse(df_ols_D_prim_J[3,3,7]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13495,7 +13495,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,8]<.05,"*",ifelse(df_ols_D_prim_J[3,3,8]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,8]<.05,"*",ifelse(df_ols_D_prim_J[3,3,8]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13601,7 +13601,7 @@ Sexpr{ifelse(df_ols_D_prim_J[3,3,9]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim_J[3,3,9]<.05,"*",ifelse(df_ols_D_prim_J[3,3,9]<.1,"+","")))
+	,ifelse(df_ols_D_prim_J[3,2,9]<.05,"*",ifelse(df_ols_D_prim_J[3,3,9]<.1,"+","")))
 }}$
 \end_layout
 
@@ -13719,7 +13719,7 @@ Sexpr{ifelse(df_ols_D_prim[3,3,10]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,10]<.05,"*",ifelse(df_ols_D_prim[3,3,10]<.1,"+","")))}}
+	,ifelse(df_ols_D_prim[3,2,10]<.05,"*",ifelse(df_ols_D_prim[3,3,10]<.1,"+","")))}}
 $
 \end_layout
 
@@ -14260,7 +14260,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,1],digits=3),nsmall=3)})
 
 Number of 
 \backslash
-textbf{hybrid maize} varieties in stock last season$^
+textbf{hybrid} maize varieties in stock last season$^
 \backslash
 dag$
 \end_layout
@@ -14311,7 +14311,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,2]<.05,"*",ifelse(df_ols_D_sec[3,3,2]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,2]<.05,"*",ifelse(df_ols_D_sec[3,3,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14416,7 +14416,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,3]<.05,"*",ifelse(df_ols_D_sec[3,3,3]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,3]<.05,"*",ifelse(df_ols_D_sec[3,3,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14520,7 +14520,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,4]<.05,"*",ifelse(df_ols_D_sec[3,3,4]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,4]<.05,"*",ifelse(df_ols_D_sec[3,3,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14623,7 +14623,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,5]<.05,"*",ifelse(df_ols_D_sec[3,3,5]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,5]<.05,"*",ifelse(df_ols_D_sec[3,3,5]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14726,7 +14726,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,6]<.05,"*",ifelse(df_ols_D_sec[3,3,6]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,3,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14829,7 +14829,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,7]<.05,"*",ifelse(df_ols_D_sec[3,3,7]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,3,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -14930,7 +14930,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,8]<.05,"*",ifelse(df_ols_D_sec[3,3,8]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,3,8]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15033,7 +15033,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,9]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,9]<.05,"*",ifelse(df_ols_D_sec[3,3,9]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,9]<.05,"*",ifelse(df_ols_D_sec[3,3,9]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15147,7 +15147,7 @@ Sexpr{ifelse(df_ols_D_sec[3,3,10]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec[3,3,10]<.05,"*",ifelse(df_ols_D_sec[3,3,10]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,3,10]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15201,127 +15201,6 @@ Sexpr{format(round(df_ols_D_sec[2,3,10],digits=3),nsmall=3)})
 
 
 \backslash
-<<<<<<< HEAD
-=======
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables (unadj)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,11],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,11]<.05,"*",ifelse(df_ols_D_sec[3,1,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,11]<.05,"*",ifelse(df_ols_D_sec[3,2,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,3,11]<.05,"*",ifelse(df_ols_D_sec[3,3,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,11],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,11],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
->>>>>>> a1bedcd96fdc2223c076300bb5f235c4f782ed0e
 hline
 \backslash
 hline
@@ -15382,7 +15261,7 @@ Delete before registering
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15624,7 +15503,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,2]<.05,"*",ifelse(df_ols_D_secL10H[3,3,2]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,2]<.05,"*",ifelse(df_ols_D_secL10H[3,3,2]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -15755,7 +15634,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,3]<.05,"*",ifelse(df_ols_D_secL10H[3,3,3]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,3]<.05,"*",ifelse(df_ols_D_secL10H[3,3,3]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -15861,7 +15740,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,4]<.05,"*",ifelse(df_ols_D_secL10H[3,3,4]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,4]<.05,"*",ifelse(df_ols_D_secL10H[3,3,4]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -15965,7 +15844,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,5]<.05,"*",ifelse(df_ols_D_secL10H[3,3,5]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,5]<.05,"*",ifelse(df_ols_D_secL10H[3,3,5]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -16069,7 +15948,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,6]<.05,"*",ifelse(df_ols_D_secL10H[3,3,6]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,6]<.05,"*",ifelse(df_ols_D_secL10H[3,3,6]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -16173,7 +16052,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,7]<.05,"*",ifelse(df_ols_D_secL10H[3,3,7]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,7]<.05,"*",ifelse(df_ols_D_secL10H[3,3,7]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -16291,7 +16170,7 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H[3,3,8]<.05,"*",ifelse(df_ols_D_secL10H[3,3,8]<.1,"+","")
+	,ifelse(df_ols_D_secL10H[3,2,8]<.05,"*",ifelse(df_ols_D_secL10H[3,3,8]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -16641,7 +16520,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,2]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,2]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,2]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,2]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -16772,7 +16651,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,3]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,3]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,3]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,3]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -16878,7 +16757,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,4]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,4]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,4]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,4]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -16982,7 +16861,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,5]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,5]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,5]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,5]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -17086,7 +16965,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,6]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,6]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,6]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,6]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -17190,7 +17069,7 @@ Sexpr{ifelse(df_ols_D_secL10H_J[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_J[3,3,7]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,7]<.1,"+"
+	,ifelse(df_ols_D_secL10H_J[3,2,7]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,7]<.1,"+"
 ,"")))}}$
 \end_layout
 
@@ -17308,13 +17187,8 @@ Sexpr{ifelse(df_ols_D_secL10H[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-<<<<<<< HEAD
 	,ifelse(df_ols_D_secL10H[3,2,8]<.05,"*",ifelse(df_ols_D_secL10H[3,3,8]<.1,"+","")
 ))}}$
-=======
-	,ifelse(df_ols_D_secL10H_J[3,3,8]<.05,"*",ifelse(df_ols_D_secL10H_J[3,3,8]<.1,"+"
-,"")))}}$
->>>>>>> a1bedcd96fdc2223c076300bb5f235c4f782ed0e
 \end_layout
 
 \begin_layout Plain Layout
@@ -17424,7 +17298,7 @@ Longe5
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17666,7 +17540,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,2]<.05,"*",ifelse(df_ols_D_secL5[3,3,2]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,2]<.05,"*",ifelse(df_ols_D_secL5[3,3,2]<.1,"+","")))}}
 $
 \end_layout
 
@@ -17797,7 +17671,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,3]<.05,"*",ifelse(df_ols_D_secL5[3,3,3]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,3]<.05,"*",ifelse(df_ols_D_secL5[3,3,3]<.1,"+","")))}}
 $
 \end_layout
 
@@ -17903,7 +17777,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,4]<.05,"*",ifelse(df_ols_D_secL5[3,3,4]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,4]<.05,"*",ifelse(df_ols_D_secL5[3,3,4]<.1,"+","")))}}
 $
 \end_layout
 
@@ -18007,7 +17881,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,5]<.05,"*",ifelse(df_ols_D_secL5[3,3,5]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,5]<.05,"*",ifelse(df_ols_D_secL5[3,3,5]<.1,"+","")))}}
 $
 \end_layout
 
@@ -18111,7 +17985,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,6]<.05,"*",ifelse(df_ols_D_secL5[3,3,6]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,6]<.05,"*",ifelse(df_ols_D_secL5[3,3,6]<.1,"+","")))}}
 $
 \end_layout
 
@@ -18215,7 +18089,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,7]<.05,"*",ifelse(df_ols_D_secL5[3,3,7]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,7]<.05,"*",ifelse(df_ols_D_secL5[3,3,7]<.1,"+","")))}}
 $
 \end_layout
 
@@ -18333,7 +18207,7 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5[3,3,8]<.05,"*",ifelse(df_ols_D_secL5[3,3,8]<.1,"+","")))}}
+	,ifelse(df_ols_D_secL5[3,2,8]<.05,"*",ifelse(df_ols_D_secL5[3,3,8]<.1,"+","")))}}
 $
 \end_layout
 
@@ -18683,7 +18557,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,2]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,2]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,2]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,2]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -18814,7 +18688,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,3]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,3]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,3]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,3]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -18920,7 +18794,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,4]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,4]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,4]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,4]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19024,7 +18898,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,5]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,5]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,5]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,5]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19128,7 +19002,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,6]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,6]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,6]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,6]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19232,7 +19106,7 @@ Sexpr{ifelse(df_ols_D_secL5_J[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL5_J[3,3,7]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,7]<.1,"+","")
+	,ifelse(df_ols_D_secL5_J[3,2,7]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,7]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19350,13 +19224,8 @@ Sexpr{ifelse(df_ols_D_secL5[3,3,8]<.01,"**"
 
 \begin_layout Plain Layout
 
-<<<<<<< HEAD
 	,ifelse(df_ols_D_secL5[3,2,8]<.05,"*",ifelse(df_ols_D_secL5[3,3,8]<.1,"+","")))}}
 $
-=======
-	,ifelse(df_ols_D_secL5_J[3,3,8]<.05,"*",ifelse(df_ols_D_secL5_J[3,3,8]<.1,"+","")
-))}}$
->>>>>>> a1bedcd96fdc2223c076300bb5f235c4f782ed0e
 \end_layout
 
 \begin_layout Plain Layout
@@ -19459,21 +19328,22 @@ dag$ indicates that the variable was included in the overall index of secondary
 \end_layout
 
 \begin_layout Standard
-Official
+registration/ trading license/ membership/ inspection
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Differences between treatment and control groups - Agro-input dealer, secondary
- outcome variables regarding official 
+ outcome variables regarding registration/ trading license/ membership/
+ inspection 
 \begin_inset CommandInset label
 LatexCommand label
 name "results_dealer_sec_official"
@@ -19709,7 +19579,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,2]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,2]<.05,"*",ifelse(df_ols_D_sec_off[3,3,2]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_D_sec_off[3,3,2]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19815,7 +19685,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,3]<.05,"*",ifelse(df_ols_D_sec_off[3,3,3]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,3]<.05,"*",ifelse(df_ols_D_sec_off[3,3,3]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -19919,7 +19789,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,4]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,4]<.05,"*",ifelse(df_ols_D_sec_off[3,3,4]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,4]<.05,"*",ifelse(df_ols_D_sec_off[3,3,4]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -20025,7 +19895,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,5]<.05,"*",ifelse(df_ols_D_sec_off[3,3,5]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,5]<.05,"*",ifelse(df_ols_D_sec_off[3,3,5]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -20131,7 +20001,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,6]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,6]<.05,"*",ifelse(df_ols_D_sec_off[3,3,6]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,6]<.05,"*",ifelse(df_ols_D_sec_off[3,3,6]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -20197,7 +20067,8 @@ cline{2-6}
 
 
 \backslash
-textbf{Overall index of secondary dealer outcome variables regarding official}
+textbf{Overall index of secondary dealer outcome variables regarding registratio
+n etc.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -20248,7 +20119,7 @@ Sexpr{ifelse(df_ols_D_sec_off[3,3,7]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_off[3,3,7]<.05,"*",ifelse(df_ols_D_sec_off[3,3,7]<.1,"+","")
+	,ifelse(df_ols_D_sec_off[3,2,7]<.05,"*",ifelse(df_ols_D_sec_off[3,3,7]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -20362,8 +20233,8 @@ status collapsed
 
 \begin_layout Plain Layout
 Differences between treatment and control groups - Agro-input dealer, secondary
- outcome variables regarding official: P-values adjusted according to Sankoh,
- Huque, Dubey 
+ outcome variables regarding registration/ trading license/ membership/
+ inspection: P-values adjusted according to Sankoh, Huque, Dubey 
 \begin_inset CommandInset label
 LatexCommand label
 name "results_dealer_sec_official-1"
@@ -21087,7 +20958,8 @@ cline{2-6}
 
 
 \backslash
-textbf{Overall index of secondary dealer outcome variables regarding official
+textbf{Overall index of secondary dealer outcome variables regarding registratio
+n etc.
  (undj)}
 \end_layout
 
@@ -21250,14 +21122,15 @@ Seed bag
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Differences between treatment and control groups - Agro-input dealer, secondary
- outcome variables regarding seed bag
+ outcome variables regarding seed bag (selection: enumerator was able to
+ buy bag of seed)
 \begin_inset CommandInset label
 LatexCommand label
 name "results_dealer_sec_official-2"
@@ -21823,7 +21696,688 @@ Sexpr{ifelse(df_ols_D_sec_bag[3,3,5]<.01,"**"
 
 \begin_layout Plain Layout
 
-,ifelse(df_ols_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,3,5]<.1,"+","")
+	,ifelse(df_ols_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,3,5]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,5],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,3,5],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports sample means (and standard deviations below);
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+ $^
+\backslash
+dag$ indicates that the variable was included in the overall index of secondary
+ dealer outcome variables.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Agro-input dealer, secondary
+ outcome variables regarding seed bag: P-values adjusted according to Sankoh,
+ Huque, Dubey (selection: enumerator was able to buy bag of seed)
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_sec_official-2-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows expiry date$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,1,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,1,1]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,1,1]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,1]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,2,1]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,3,1]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,3,1]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,1],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows packaging date$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,1,2]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,1,2]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,2,2]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,3,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,3,2]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,3,2],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Days since packaging date/expiry date minus 6 months$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,1,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,1,3]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,1,3]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,3]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,2,3]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,3]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,3,3]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,3,3],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Random seed bag shows lot number$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,1,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,1,4]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,1,4]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,2,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,4]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,2,4]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_J[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_J[3,2,4]<.05,"*",ifelse(df_ols_D_sec_bag_J[3,3,4]<.1,"+"
+,"")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,4],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,3,4],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables regarding seed
+ bag}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag[3,1,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag[3,1,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,5]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag[3,2,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,5]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,3,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag[3,3,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,3,5]<.1,"+","")
 ))}}$
 \end_layout
 
@@ -21927,7 +22481,7 @@ dag$ indicates that the variable was included in the overall index of secondary
 \end_layout
 
 \begin_layout Enumerate
-Index of dealer's motivation and satisfaction (done)
+Index of dealer's motivation and satisfaction
 \end_layout
 
 \begin_deeper
@@ -21951,25 +22505,8 @@ On a scale of 1 to 5, how happy do you feel when you come to work in the
 
 \end_deeper
 \begin_layout Enumerate
-Number of maize varieties in stock last season (incl.
- hybrids, OPV, landraces)
-\end_layout
-
-\begin_layout Enumerate
-Number of 
-\backslash
-textbf{hybrid maize} varieties in stock last season
-\end_layout
-
-\begin_layout Enumerate
-Number of 
-\backslash
-textbf{open-pollinated} maize varieties in stock last season (done)
-\end_layout
-
-\begin_layout Enumerate
 Index of dealer's self-ratings on location, price, product quality, stock,
- reputation (done)
+ reputation
 \end_layout
 
 \begin_deeper
@@ -22047,7 +22584,7 @@ Shop sells small quantities if necessary
 
 \end_deeper
 \begin_layout Enumerate
-Index of dealer's knowledge about seed storage (done)
+Index of dealer's knowledge about seed storage
 \end_layout
 
 \begin_deeper
@@ -22074,7 +22611,7 @@ What statement do you agree most with: (q108)
 
 \end_deeper
 \begin_layout Enumerate
-Index of dealer's knowledge about seed (done)
+Index of dealer's knowledge about seed
 \end_layout
 
 \begin_deeper
@@ -22100,95 +22637,6 @@ If a farmer misses the rains or lives in areas that receive little rain,
 \begin_layout Enumerate
 When a farmer is late for planting in the short season and needs fast maturing
  variety, which maize do you recommend? (q113)
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Longe 10H (most common hybrid variety in the area) (done)
-\end_layout
-
-\begin_layout Enumerate
-Longe 5 (seed variety stock and turn over) (most common open-pollinated
- variety) (done)
-\end_layout
-
-\begin_layout Enumerate
-official (membership of business associations)
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Is this business registered as a seed dealer with UNADA (Uganda National
- Agro-input Dealers Association? (q114)
-\end_layout
-
-\begin_layout Enumerate
-Does this business have a trading license issued by local government? (q115)
-\end_layout
-
-\begin_layout Enumerate
-Is this business a member of any other professional association? (q116)
-\end_layout
-
-\begin_layout Enumerate
-How often were you inspected by DAO/MAAIF or UNADA last year (indicate 0
- if no inspection happened).
- (q117)
-\end_layout
-
-\begin_layout Enumerate
-Have you ever received a warning as a result of inspection if something
- was not up to standard? (q118)
-\end_layout
-
-\begin_layout Enumerate
-Has some of your produce ever been confiscated after inspection? (q119)
-\end_layout
-
-\begin_layout Enumerate
-Do you have equipment to monitor moisture in the seed? (q121)
-\end_layout
-
-\begin_layout Enumerate
-Do you monitor temperature in your seed store? (q122)
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-bag (bought one bag of seed)
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Record expiry date indicated on the bag (exp)
-\end_layout
-
-\begin_layout Enumerate
-Date of packaging (date_pack)
-\end_layout
-
-\begin_layout Enumerate
-Is the seed in the original bag without any signs of damage? (origin)
-\end_layout
-
-\begin_layout Enumerate
-Does it have a certification sticker from inspection agency? (cert)
-\end_layout
-
-\begin_layout Enumerate
-Does packaging have a Lot number (lot)
-\end_layout
-
-\begin_layout Enumerate
-Does packaging have e-verification? (verif)
-\end_layout
-
-\begin_layout Enumerate
-Variety type (variety)
-\end_layout
-
-\begin_layout Enumerate
-What is is the name of the manifucture of the seed? (company)
 \end_layout
 
 \end_deeper
