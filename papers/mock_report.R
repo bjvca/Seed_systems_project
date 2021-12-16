@@ -1083,35 +1083,35 @@ baseline_dealers$mid_reading <- sim_var(baseline_dealers$mid_reading ,"c",c(-.25
 ###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 #Is the roof leak-proof? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q72 <- baseline_dealers$maize.owner.agree.temp.q72
+baseline_dealers$mid_maize.owner.agree.temp.q72 <- baseline_dealers$maize.owner.agree.temp.q72 ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q72 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q72=="Yes",1,0)
 
 #Is the roof insulated to keep heat out? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q73 <- baseline_dealers$maize.owner.agree.temp.q73
+baseline_dealers$mid_maize.owner.agree.temp.q73 <- baseline_dealers$maize.owner.agree.temp.q73 ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q73 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q73=="Yes",1,0)
 
 #Are the walls insulated to keep the heat out? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q74 <- baseline_dealers$maize.owner.agree.temp.q74
+baseline_dealers$mid_maize.owner.agree.temp.q74 <- baseline_dealers$maize.owner.agree.temp.q74 ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q74 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q74=="Yes",1,0)
 
 #Is the area ventilated? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q75 <- baseline_dealers$maize.owner.agree.temp.q75
+baseline_dealers$mid_maize.owner.agree.temp.q75 <- baseline_dealers$maize.owner.agree.temp.q75 ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q75<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q75=="Yes",1,0)
 
 #Do you see any official certificates displayed in the shop (e.g. inspection, trainings, registration with association)? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q81 <- baseline_dealers$maize.owner.agree.temp.q81
+baseline_dealers$mid_maize.owner.agree.temp.q81 <- baseline_dealers$maize.owner.agree.temp.q81 ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q81<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q81=="Yes",1,0)
 
 #What do you do with seed that have exceeded shelf live (expired)? yes=good
 #(a This has never happened/b Return to supplier/c Sell at discount/d Given away/e Thrown away/f sell at normal price/g mix with other seed/96 Other)
-baseline_dealers$mid_maize.owner.agree.q83.a<-baseline_dealers$maize.owner.agree.q83.a
-baseline_dealers$mid_maize.owner.agree.q83.b<-baseline_dealers$maize.owner.agree.q83.b
-baseline_dealers$mid_maize.owner.agree.q83.c<-baseline_dealers$maize.owner.agree.q83.c
-baseline_dealers$mid_maize.owner.agree.q83.d<-baseline_dealers$maize.owner.agree.q83.d
-baseline_dealers$mid_maize.owner.agree.q83.e<-baseline_dealers$maize.owner.agree.q83.e
-baseline_dealers$mid_maize.owner.agree.q83.f<-baseline_dealers$maize.owner.agree.q83.f
-baseline_dealers$mid_maize.owner.agree.q83.g<-baseline_dealers$maize.owner.agree.q83.g
-baseline_dealers$mid_maize.owner.agree.q83.96<-baseline_dealers$maize.owner.agree.q83.96
+baseline_dealers$mid_maize.owner.agree.q83.a<-baseline_dealers$maize.owner.agree.q83.a ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.b<-baseline_dealers$maize.owner.agree.q83.b ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.c<-baseline_dealers$maize.owner.agree.q83.c ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.d<-baseline_dealers$maize.owner.agree.q83.d ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.e<-baseline_dealers$maize.owner.agree.q83.e ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.f<-baseline_dealers$maize.owner.agree.q83.f ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.g<-baseline_dealers$maize.owner.agree.q83.g ##delete after data collection
+baseline_dealers$mid_maize.owner.agree.q83.96<-baseline_dealers$maize.owner.agree.q83.96 ##delete after data collection
 
 baseline_dealers$goodpractice_expired2 <- 1
 baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.96==1] <- NA
@@ -1177,25 +1177,25 @@ icwIndex <- function(	xmat,
 #7. Index of labor-intensive seed handling and storage practices observed by enumerator
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 #Are seed stored in a dedicated area, away from other merchandize? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q69 <- baseline_dealers$maize.owner.agree.temp.q69
+baseline_dealers$mid_maize.owner.agree.temp.q69 <- baseline_dealers$maize.owner.agree.temp.q69  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q69 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q69=="Yes",1,0)
 
 #Do you have a problem with rats or pests (insects, rats)? yes=BAD
 baseline_dealers$maize.owner.agree.temp.q71_rev<-ifelse(baseline_dealers$maize.owner.agree.temp.q71==1,0,1)
 
-baseline_dealers$mid_maize.owner.agree.temp.q71 <- baseline_dealers$maize.owner.agree.temp.q71
+baseline_dealers$mid_maize.owner.agree.temp.q71 <- baseline_dealers$maize.owner.agree.temp.q71  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q71<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q71=="Yes",1,0)
 baseline_dealers$mid_maize.owner.agree.temp.q71_rev<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q71==1,0,1)
 
 #Lighting conditions in area where seed is stored? yes=good
 #Wilberforce: ambient lighting condition is ideal for seed storage
-baseline_dealers$mid_maize.owner.agree.temp.q78 <- baseline_dealers$maize.owner.agree.temp.q78
+baseline_dealers$mid_maize.owner.agree.temp.q78 <- baseline_dealers$maize.owner.agree.temp.q78  ##delete after data collection
 baseline_dealers$mid_lighting[baseline_dealers$mid_maize.owner.agree.temp.q78==1] <- 0
 baseline_dealers$mid_lighting[baseline_dealers$mid_maize.owner.agree.temp.q78==2] <- 1
 baseline_dealers$mid_lighting[baseline_dealers$mid_maize.owner.agree.temp.q78==3] <- 0
 
 #On what surface are seed stored? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q79 <- baseline_dealers$maize.owner.agree.temp.q79
+baseline_dealers$mid_maize.owner.agree.temp.q79 <- baseline_dealers$maize.owner.agree.temp.q79  ##delete after data collection
 
 baseline_dealers$mid_surface[baseline_dealers$mid_maize.owner.agree.temp.q79==1] <- 0
 baseline_dealers$mid_surface[baseline_dealers$mid_maize.owner.agree.temp.q79==2] <- 0
@@ -1207,12 +1207,12 @@ baseline_dealers$mid_surface[baseline_dealers$mid_maize.owner.agree.temp.q79==96
 #Do you see maize seed that is stored in open bags or open containers? yes=BAD
 baseline_dealers$maize.owner.agree.temp.q80_rev <- ifelse(baseline_dealers$maize.owner.agree.temp.q80==1,0,1)
 
-baseline_dealers$mid_maize.owner.agree.temp.q80 <- baseline_dealers$maize.owner.agree.temp.q80
+baseline_dealers$mid_maize.owner.agree.temp.q80 <- baseline_dealers$maize.owner.agree.temp.q80  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.temp.q80<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q80=="Yes",1,0)
 baseline_dealers$mid_maize.owner.agree.temp.q80_rev <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q80==1,0,1)
 
 #On a scale of 1 to 5, rate this shop in terms of cleanness and professionality yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q82 <- baseline_dealers$maize.owner.agree.temp.q82
+baseline_dealers$mid_maize.owner.agree.temp.q82 <- baseline_dealers$maize.owner.agree.temp.q82  ##delete after data collection
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_practices_lab_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q69,baseline_dealers$mid_maize.owner.agree.temp.q71_rev
@@ -1242,29 +1242,29 @@ variables_practices_all_base <- cbind(baseline_dealers$maize.owner.agree.temp.q7
 #9. Index of efforts of dealer and services offered by dealer
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 #When farmers buy seed, do you explain how the seed should be used (seed spacing, seed rate, complementary inputs) yes=good
-baseline_dealers$mid_maize.owner.agree.q85 <- baseline_dealers$maize.owner.agree.q85
+baseline_dealers$mid_maize.owner.agree.q85 <- baseline_dealers$maize.owner.agree.q85  ##delete after data collection
 baseline_dealers$mid_alwaysexplains[baseline_dealers$mid_maize.owner.agree.q85=="a"] <- 0
 baseline_dealers$mid_alwaysexplains[baseline_dealers$mid_maize.owner.agree.q85=="b"] <- 0
 baseline_dealers$mid_alwaysexplains[baseline_dealers$mid_maize.owner.agree.q85=="c"] <- 1
 
 #When farmers buy seed, do you usually recommend complementary inputs (fertilizer, chemical,.) yes=good
-baseline_dealers$mid_maize.owner.agree.q86 <- baseline_dealers$maize.owner.agree.q86
+baseline_dealers$mid_maize.owner.agree.q86 <- baseline_dealers$maize.owner.agree.q86  ##delete after data collection
 baseline_dealers$mid_alwaysrecom[baseline_dealers$mid_maize.owner.agree.q86=="a"] <- 0
 baseline_dealers$mid_alwaysrecom[baseline_dealers$mid_maize.owner.agree.q86=="b"] <- 0
 baseline_dealers$mid_alwaysrecom[baseline_dealers$mid_maize.owner.agree.q86=="c"] <- 1
 
 #Do you offer extension/training to your clients on how to use improved seed varieties? yes=good
-baseline_dealers$mid_maize.owner.agree.q87 <- baseline_dealers$maize.owner.agree.q87
+baseline_dealers$mid_maize.owner.agree.q87 <- baseline_dealers$maize.owner.agree.q87  ##delete after data collection
 baseline_dealers$mid_extension[baseline_dealers$mid_maize.owner.agree.q87=="1"] <- 0
 baseline_dealers$mid_extension[baseline_dealers$mid_maize.owner.agree.q87=="2"] <- 1
 baseline_dealers$mid_extension[baseline_dealers$mid_maize.owner.agree.q87=="3"] <- 1
 
 #Did you offer discounts to clients that buy large quantities of maize seed during the second season of 2020? yes=good
-baseline_dealers$mid_maize.owner.agree.q88 <- baseline_dealers$maize.owner.agree.q88
+baseline_dealers$mid_maize.owner.agree.q88 <- baseline_dealers$maize.owner.agree.q88  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q88<-ifelse(baseline_dealers$mid_maize.owner.agree.q88=="Yes",1,0)
 
 #What is that smallest package of improved seed (OPV/hybird) that you stocked during this season (without repackaging) yes=good
-baseline_dealers$mid_maize.owner.agree.q89 <- baseline_dealers$maize.owner.agree.q89
+baseline_dealers$mid_maize.owner.agree.q89 <- baseline_dealers$maize.owner.agree.q89  ##delete after data collection
 baseline_dealers$mid_q89_bin[baseline_dealers$mid_maize.owner.agree.q89=="1"] <- 1
 baseline_dealers$mid_q89_bin[baseline_dealers$mid_maize.owner.agree.q89=="2"] <- 0
 baseline_dealers$mid_q89_bin[baseline_dealers$mid_maize.owner.agree.q89=="3"] <- 0
@@ -1272,7 +1272,7 @@ baseline_dealers$mid_q89_bin[baseline_dealers$mid_maize.owner.agree.q89=="4"] <-
 baseline_dealers$mid_q89_bin[baseline_dealers$mid_maize.owner.agree.q89=="other"] <- NA
 
 #Do you provide seed on credit (pay after harvest)? yes=good
-baseline_dealers$mid_maize.owner.agree.q93 <- baseline_dealers$maize.owner.agree.q93
+baseline_dealers$mid_maize.owner.agree.q93 <- baseline_dealers$maize.owner.agree.q93  ##delete after data collection
 baseline_dealers$mid_q93_bin[baseline_dealers$mid_maize.owner.agree.q93=="1"] <- 0
 baseline_dealers$mid_q93_bin[baseline_dealers$mid_maize.owner.agree.q93=="2"] <- 1
 baseline_dealers$mid_q93_bin[baseline_dealers$mid_maize.owner.agree.q93=="3"] <- 1
@@ -1280,12 +1280,12 @@ baseline_dealers$mid_q93_bin[baseline_dealers$mid_maize.owner.agree.q93=="3"] <-
 #Since last season, did you receive any complaint from a customer that seed you sold was not good? yes=BAD
 baseline_dealers$maize.owner.agree.q96_rev<-ifelse(baseline_dealers$maize.owner.agree.q96==1,0,1)
 
-baseline_dealers$mid_maize.owner.agree.q96 <- baseline_dealers$maize.owner.agree.q96
+baseline_dealers$mid_maize.owner.agree.q96 <- baseline_dealers$maize.owner.agree.q96  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q96<-ifelse(baseline_dealers$mid_maize.owner.agree.q96=="Yes",1,0)
-baseline_dealers$mid_maize.owner.agree.q96_rev<-ifelse(baseline_dealers$mid_maize.owner.agree.q96==1,0,1)
+baseline_dealers$mid_maize.owner.agree.q96_rev<-ifelse(baseline_dealers$mid_maize.owner.agree.q96==1,0,1) 
 
 #What payment modalities do you accept?
-baseline_dealers$mid_maize.owner.agree.q97.b <- baseline_dealers$maize.owner.agree.q97.b
+baseline_dealers$mid_maize.owner.agree.q97.b <- baseline_dealers$maize.owner.agree.q97.b  ##delete after data collection
 #baseline_dealers$mid_maize.owner.agree.q97.b<-ifelse(baseline_dealers$mid_maize.owner.agree.q97.b=="True",1,0)
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
@@ -1306,7 +1306,7 @@ variables_efforts_base <- cbind(baseline_dealers$alwaysexplains,baseline_dealers
 #4. YES: Number of customers who bought maize seed on average day at beginning of last season: more=better: 
 #5. YES: Moisture content of random seed bag: less=better
 baseline_dealers$reading_pos <- baseline_dealers$reading*-1
-baseline_dealers$mid_reading_pos <- baseline_dealers$mid_reading*-1
+baseline_dealers$mid_reading_pos <- baseline_dealers$mid_reading*-1 
 #6. YES: Index of capital-intensive seed handling and storage practices observed by enumerator: more=better
 #7. YES: Index of labor-intensive seed handling and storage practices observed by enumerator: more=better
 #8. NO: Index of all seed handling and storage practices observed by enumerator: more=better
@@ -1336,12 +1336,19 @@ baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #midli
 index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base)
 baseline_dealers$index_practices_cap_base <- index_practices_cap_base$index #baseline index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_cap_mid <- sim_var(baseline_dealers$index_practices_cap_mid ,"c",c(.25,.5,.1)) ##delete after data collection
 #7.
 index_practices_lab_mid <- icwIndex(xmat=variables_practices_lab_mid)
 baseline_dealers$index_practices_lab_mid <- index_practices_lab_mid$index
 
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base)
 baseline_dealers$index_practices_lab_base <- index_practices_lab_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_lab_mid <- sim_var(baseline_dealers$index_practices_lab_mid ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #8.
 index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid)
@@ -1350,6 +1357,10 @@ baseline_dealers$index_practices_all_mid <- index_practices_all_mid$index
 index_practices_all_base <- icwIndex(xmat=variables_practices_all_base)
 baseline_dealers$index_practices_all_base <- index_practices_all_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_all_mid <- sim_var(baseline_dealers$index_practices_all_mid ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #9.
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid)
 baseline_dealers$index_efforts_mid <- index_efforts_mid$index
@@ -1357,12 +1368,22 @@ baseline_dealers$index_efforts_mid <- index_efforts_mid$index
 index_efforts_base <- icwIndex(xmat=variables_efforts_base)
 baseline_dealers$index_efforts_base <- index_efforts_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_efforts_mid <- sim_var(baseline_dealers$index_efforts_mid ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
 #10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid)
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index
 
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base)
 baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_overall_prim_dealer_mid <- sim_var(baseline_dealers$index_overall_prim_dealer_mid ,"c",c(.25,.5,.1)) ##delete after data collection
+
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
                          ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid"
@@ -1394,12 +1415,21 @@ baseline_dealers$index_practices_cap_midT <- index_practices_cap_mid$index
 index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_practices_cap_baseT <- index_practices_cap_base$index
 
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_cap_midT <- sim_var(baseline_dealers$index_practices_cap_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #7.
 index_practices_lab_mid <- icwIndex(xmat=variables_practices_lab_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_practices_lab_midT <- index_practices_lab_mid$index
 
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_practices_lab_baseT <- index_practices_lab_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_lab_midT <- sim_var(baseline_dealers$index_practices_lab_midT ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #8.
 index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$training_control)
@@ -1408,12 +1438,20 @@ baseline_dealers$index_practices_all_midT <- index_practices_all_mid$index
 index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_practices_all_baseT <- index_practices_all_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_all_midT <- sim_var(baseline_dealers$index_practices_all_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #9.
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_efforts_midT <- index_efforts_mid$index
 
 index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_efforts_baseT <- index_efforts_base$index
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_efforts_midT <- sim_var(baseline_dealers$index_efforts_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
 
 #10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control)
@@ -1421,6 +1459,12 @@ baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid
 
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_baseT <- index_overall_prim_dealer_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_overall_prim_dealer_midT <- sim_var(baseline_dealers$index_overall_prim_dealer_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midT"
                          ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
@@ -1452,12 +1496,21 @@ baseline_dealers$index_practices_cap_midC <- index_practices_cap_mid$index
 index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_practices_cap_baseC <- index_practices_cap_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_cap_midC <- sim_var(baseline_dealers$index_practices_cap_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
 #7.
 index_practices_lab_mid <- icwIndex(xmat=variables_practices_lab_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_practices_lab_midC <- index_practices_lab_mid$index
 
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_practices_lab_baseC <- index_practices_lab_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_lab_midC <- sim_var(baseline_dealers$index_practices_lab_midC ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #8.
 index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$clearing_control)
@@ -1466,6 +1519,11 @@ baseline_dealers$index_practices_all_midC <- index_practices_all_mid$index
 index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_practices_all_baseC <- index_practices_all_base$index
 
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_all_midC <- sim_var(baseline_dealers$index_practices_all_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #9.
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_efforts_midC <- index_efforts_mid$index
@@ -1473,12 +1531,20 @@ baseline_dealers$index_efforts_midC <- index_efforts_mid$index
 index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_efforts_baseC <- index_efforts_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_efforts_midC <- sim_var(baseline_dealers$index_efforts_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_baseC <- index_overall_prim_dealer_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_overall_prim_dealer_midC <- sim_var(baseline_dealers$index_overall_prim_dealer_midC ,"c",c(.25,.5,.1)) ##delete after data collection
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midC"
                          ,"index_practices_lab_midC","index_practices_all_midC","index_efforts_midC"
@@ -1509,12 +1575,20 @@ baseline_dealers$index_practices_cap_midF <- index_practices_cap_mid$index
 index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_practices_cap_baseF <- index_practices_cap_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_cap_midF <- sim_var(baseline_dealers$index_practices_cap_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #7.
 index_practices_lab_mid <- icwIndex(xmat=variables_practices_lab_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_practices_lab_midF <- index_practices_lab_mid$index
 
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_practices_lab_baseF <- index_practices_lab_base$index
+
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_lab_midF <- sim_var(baseline_dealers$index_practices_lab_midF ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #8.
 index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$farmer_control)
@@ -1523,12 +1597,19 @@ baseline_dealers$index_practices_all_midF <- index_practices_all_mid$index
 index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_practices_all_baseF <- index_practices_all_base$index
 
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_practices_all_midF <- sim_var(baseline_dealers$index_practices_all_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
 #9.
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_efforts_midF <- index_efforts_mid$index
 
 index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_efforts_baseF <- index_efforts_base$index
+# do simulation here: just take baseline index and add effects (consider as continous)
+##simulate here
+baseline_dealers$index_efforts_midF <- sim_var(baseline_dealers$index_efforts_midF ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control)
@@ -1536,6 +1617,8 @@ baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid
 
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_baseF <- index_overall_prim_dealer_base$index
+##simulate here
+baseline_dealers$index_overall_prim_dealer_midF <- sim_var(baseline_dealers$index_overall_prim_dealer_midF ,"c",c(.25,.5,.1)) ##delete after data collection
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midF"
                          ,"index_practices_lab_midF","index_practices_all_midF","index_efforts_midF"
