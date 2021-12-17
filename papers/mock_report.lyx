@@ -3766,7 +3766,7 @@ Sexpr{format(round(df_descriptives_farmer[29,5],digits=3),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Farmer mentioned Longe5/Nalongo when asked for improved maize varieties
+Farmer mentioned Longe 5/Nalongo when asked for improved maize varieties
  & 
 \backslash
 Sexpr{format(round(df_descriptives_farmer[30,1],digits=3),nsmall=3)} & 
@@ -12583,7 +12583,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -13809,7 +13809,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -13828,6 +13828,51 @@ dag$ indicates that the variable was included in the overall index of primary
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Reason why outcomes are not included in index in tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Impact on Average sales price of 4 improved maize varieties last season
+ in UGX/ kg is ambiguous (eg.
+ increased adoption could increase demand and hence prices but dealers could
+ also lower prices to be more customer friendly).
+\end_layout
+
+\begin_layout Standard
+Seed revenue in mln UGX is a function of Cumulative quantity sold of 4 improved
+ maize varieties last season in kg (which is already included in the index)
+ and * sAverage sales price of 4 improved maize varieties last season in
+ UGX/ kg (where impact is ambiguous).
+\end_layout
+
+\begin_layout Standard
+Index of all seed handling and storage practices observed by enumerator
+ is already included in the index as Index of capital-intensive seed handling
+ and storage practices observed by enumerator and Index of labor-intensive
+ seed handling and storage practices observed by enumerator.
 \end_layout
 
 \begin_layout Enumerate
@@ -13966,6 +14011,15 @@ What payment modalities do you accept? (q97)
 Secondary
 \end_layout
 
+\begin_layout Subsubsection*
+Indices
+\end_layout
+
+\begin_layout Standard
+These variables are not adjusted for multiple hypothesis testing because
+ they are a;ready indices.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 wide false
@@ -13977,10 +14031,10 @@ status collapsed
 
 \begin_layout Plain Layout
 Differences between treatment and control groups - Agro-input dealer, secondary
- outcome variables
+ outcome variables regarding indices
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec"
+name "results_dealer_sec_ind"
 
 \end_inset
 
@@ -14158,10 +14212,595 @@ Sexpr{format(round(df_ols_D_sec_nobase[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of maize varieties in stock last season (incl.
- hybrids, OPV, landraces)$^
+Index of dealer's self-ratings on location, price, product quality, stock,
+ reputation
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-dag$
+Sexpr{format(round(df_means_D_sec[1,8],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,8]<.05,"*",ifelse(df_ols_D_sec[3,1,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,3,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,8],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,8],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of dealer's efforts and services according to farmers
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,5]<.05,"*",ifelse(df_ols_D_sec[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,5]<.05,"*",ifelse(df_ols_D_sec[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,5]<.05,"*",ifelse(df_ols_D_sec[3,3,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,5],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,5],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of dealer's knowledge about seed storage
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,6]<.05,"*",ifelse(df_ols_D_sec[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,3,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,6],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of dealer's knowledge about seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,7]<.05,"*",ifelse(df_ols_D_sec[3,1,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,3,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,7],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports means of the entire sample (control and treatment
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
+ and standard deviations below in brackets;  **, * and + denote significance
+ at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+ $^
+\backslash
+dag$ indicates that the variable was included in the overall index of secondary
+ dealer outcome variables.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Other secondary
+\end_layout
+
+\begin_layout Standard
+Reason why outcomes are not included in index in tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Number of maize varieties in stock last season (incl.
+ hybrids, OPV, landraces) is a function of Number of hybrid maize varieties
+ in stock last season and Number of open-pollinated maize varieties in stock
+ last season which are both included in the index.
+\end_layout
+
+\begin_layout Standard
+Shop has equipment to monitor seed moisture is not included because we expect
+ a large effect of the dealer training on that variable (as we handed moisture
+ meters to dealers after the training) and we do not want to bias the overall
+ index.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Agro-input dealer, secondary
+ outcome variables
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_sec"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of maize varieties in stock last season (incl.
+ hybrids, OPV, landraces)
 \end_layout
 
 \begin_layout Plain Layout
@@ -14472,10 +15111,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's self-ratings on location, price, product quality, stock,
- reputation$^
-\backslash
-dag$
+Shop has equipment to monitor seed moisture
 \end_layout
 
 \begin_layout Plain Layout
@@ -14576,101 +15212,9 @@ Sexpr{format(round(df_ols_D_sec[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's efforts and services according to farmers$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,5]<.05,"*",ifelse(df_ols_D_sec[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,5]<.05,"*",ifelse(df_ols_D_sec[3,2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,5]<.05,"*",ifelse(df_ols_D_sec[3,3,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,5],digits=0),nsmall=0)}
-\backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,5],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
+cline{2-6}
 \end_layout
 
 \begin_layout Plain Layout
@@ -14679,316 +15223,9 @@ Sexpr{format(round(df_ols_D_sec[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's knowledge about seed storage$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,6]<.05,"*",ifelse(df_ols_D_sec[3,1,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,2,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,3,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,6],digits=0),nsmall=0)}
-\backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,6],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of dealer's knowledge about seed$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,7],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,7]<.05,"*",ifelse(df_ols_D_sec[3,1,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,2,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,3,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,7],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,7],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has equipment to monitor seed moisture
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,8]<.05,"*",ifelse(df_ols_D_sec[3,1,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,2,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,8]<.05,"*",ifelse(df_ols_D_sec[3,3,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,8],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,8],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop monitors shop temperature$^
-\backslash
-dag$
+textbf{Overall index of secondary dealer outcome variables}
 \end_layout
 
 \begin_layout Plain Layout
@@ -15091,120 +15328,6 @@ Sexpr{format(round(df_ols_D_sec[2,3,9],digits=3),nsmall=3)})
 
 
 \backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of secondary dealer outcome variables (unadj)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,10]<.05,"*",ifelse(df_ols_D_sec[3,1,10]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,2,10]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,3,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,3,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,3,10]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,3,10],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
 hline
 \backslash
 hline
@@ -15234,7 +15357,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -15256,14 +15379,6 @@ dag$ indicates that the variable was included in the overall index of secondary
 \end_layout
 
 \begin_layout Standard
-Longe10H
-\end_layout
-
-\begin_layout Standard
-Delete before registering
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
@@ -15274,11 +15389,11 @@ status collapsed
 
 \begin_layout Plain Layout
 Differences between treatment and control groups - Agro-input dealer, secondary
- outcome variables regarding Longe 10H (most common hybrid variety in area)
- (selection: if shop had Longe 10H in stock last season)
+ outcome variables: P-values adjusted according to Sankoh, Huque, Dubey
+ (1997)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_Longe 10H"
+name "results_dealer_sec_adj"
 
 \end_inset
 
@@ -15352,7 +15467,750 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Amount of Longe10H carried into last season from previous season in kg
+Number of maize varieties in stock last season (incl.
+ hybrids, OPV, landraces)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,1,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,1,1]<.05,"*",ifelse(df_ols_D_sec_J[3,1,1]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,1]<.05,"*",ifelse(df_ols_D_sec_J[3,2,1]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,3,1]<.05,"*",ifelse(df_ols_D_sec_J[3,3,1]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,1],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of 
+\backslash
+textbf{hybrid} maize varieties in stock last season$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,1,2]<.05,"*",ifelse(df_ols_D_sec_J[3,1,2]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,2]<.05,"*",ifelse(df_ols_D_sec_J[3,2,2]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,3,2]<.05,"*",ifelse(df_ols_D_sec_J[3,3,2]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,2],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of 
+\backslash
+textbf{open-pollinated} maize varieties in stock last season$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,1,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,1,3]<.05,"*",ifelse(df_ols_D_sec_J[3,1,3]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,3]<.05,"*",ifelse(df_ols_D_sec_J[3,2,3]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,3]<.05,"*",ifelse(df_ols_D_sec_J[3,3,3]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,3],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has equipment to monitor seed moisture
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,1,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,1,4]<.05,"*",ifelse(df_ols_D_sec_J[3,1,4]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,2,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,4]<.05,"*",ifelse(df_ols_D_sec_J[3,2,4]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_J[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_J[3,2,4]<.05,"*",ifelse(df_ols_D_sec_J[3,3,4]<.1,"+","")))}}
+$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,4],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,4],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of secondary dealer outcome variables}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,9],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,9]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,9]<.05,"*",ifelse(df_ols_D_sec[3,1,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,9]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,9]<.05,"*",ifelse(df_ols_D_sec[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,9]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,9]<.05,"*",ifelse(df_ols_D_sec[3,3,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,9],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,9],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports means of the entire sample (control and treatment
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
+ and standard deviations below in brackets;  **, * and + denote significance
+ at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+ $^
+\backslash
+dag$ indicates that the variable was included in the overall index of secondary
+ dealer outcome variables.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Longe 10H
+\end_layout
+
+\begin_layout Standard
+Reason why outcomes are (not) included in index in tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Amount of Longe10H carried into last season from previous season in kg:
+ last season=autumn 2021, previous season=spring2021 –> dealer purchased
+ seed before treatments happened –> no impact on supply but impact on demand.
+\end_layout
+
+\begin_layout Standard
+Cost of Longe10H per kg last season in UGX will increase as dealers seek
+ high quality (more expensive seed).
+ Furthermore seed demand by dealers will increase due to increased adoption,
+ so prices rise until supply follows.
+\end_layout
+
+\begin_layout Standard
+Impact on Sales price of Longe10H per kg at beginning of last season in
+ UGX is ambiguous (eg.
+ increased adoption could increase demand and hence prices but dealers could
+ also lower prices to be more customer friendly).
+\end_layout
+
+\begin_layout Standard
+Amount of Longe10H lost/wasted last season in kg is excluded because of
+ many missing observations.
+\end_layout
+
+\begin_layout Standard
+The effect on Number of times shop ran out of Longe10H last season is also
+ ambiguous: increased depand could increase this number, better management
+ and planning could decrease it.
+ Furthermore, this number depends on parameters further up the value chain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Agro-input dealer, secondary
+ outcome variables regarding Longe 10H (most common hybrid variety in area)
+ (selection: if shop had Longe 10H in stock last season)
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_sec_L10H"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Amount of Longe 10H carried into last season from previous season in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15456,7 +16314,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe10H bought by shop from provider last season in kg$^
+Amount of Longe 10H bought by shop from provider last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -15562,34 +16420,9 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Most important source where shop directly bought Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & &
+Cost of Longe 10H per kg last season in UGX$^
 \backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Cost of Longe10H per kg last season in UGX
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15693,7 +16526,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity of Longe10H sold last season in kg$^
+Quantity of Longe 10H sold last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -15799,7 +16632,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price of Longe10H per kg at beginning of last season in UGX
+Sales price of Longe 10H per kg at beginning of last season in UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -15903,7 +16736,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe10H lost/wasted last season in kg
+Amount of Longe 10H lost/wasted last season in kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -16007,7 +16840,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe10H last season
+Number of times shop ran out of Longe 10H last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -16260,7 +17093,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -16297,7 +17130,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  if shop had Longe 10H in stock last season)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_Longe 10H-1"
+name "results_dealer_sec_L10H_adj"
 
 \end_inset
 
@@ -16371,7 +17204,9 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Amount of Longe10H carried into last season from previous season in kg
+Amount of Longe 10H carried into last season from previous season in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -16475,7 +17310,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe10H bought by shop from provider last season in kg$^
+Amount of Longe 10H bought by shop from provider last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -16581,34 +17416,9 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Most important source where shop directly bought Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & &
+Cost of Longe 10H per kg last season in UGX$^
 \backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Cost of Longe10H per kg last season in UGX
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -16712,7 +17522,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity of Longe10H sold last season in kg$^
+Quantity of Longe 10H sold last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -16818,7 +17628,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price of Longe10H per kg at beginning of last season in UGX
+Sales price of Longe 10H per kg at beginning of last season in UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -16922,7 +17732,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe10H lost/wasted last season in kg
+Amount of Longe 10H lost/wasted last season in kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -17026,7 +17836,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe10H last season
+Number of times shop ran out of Longe 10H last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -17279,7 +18089,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -17300,8 +18110,8 @@ dag$ indicates that the variable was included in the overall index of secondary
 
 \end_layout
 
-\begin_layout Standard
-Longe5
+\begin_layout Subsubsection*
+Longe 5
 \end_layout
 
 \begin_layout Standard
@@ -17319,7 +18129,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  (selection: if shop had Longe 5 in stock last season)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_Longe 10H-2"
+name "results_dealer_sec_L5"
 
 \end_inset
 
@@ -17393,7 +18203,9 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Amount of Longe5 carried into last season from previous season in kg
+Amount of Longe 5 carried into last season from previous season in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -17497,7 +18309,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe5 bought by shop from provider last season in kg$^
+Amount of Longe 5 bought by shop from provider last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -17603,34 +18415,9 @@ Sexpr{format(round(df_ols_D_secL5[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Most important source where shop directly bought Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & &
+Cost of Longe 5 per kg last season in UGX$^
 \backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Cost of Longe5 per kg last season in UGX
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -17734,7 +18521,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity of Longe5 sold last season in kg$^
+Quantity of Longe 5 sold last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -17840,7 +18627,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price of Longe5 per kg at beginning of last season in UGX
+Sales price of Longe 5 per kg at beginning of last season in UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -17944,7 +18731,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe5 lost/wasted last season in kg
+Amount of Longe 5 lost/wasted last season in kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -18048,7 +18835,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe5 last season
+Number of times shop ran out of Longe 5 last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -18301,7 +19088,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -18338,7 +19125,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  had Longe 5 in stock last season)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_Longe 10H-2-1"
+name "results_dealer_sec_L5_adj"
 
 \end_inset
 
@@ -18412,7 +19199,9 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Amount of Longe5 carried into last season from previous season in kg
+Amount of Longe 5 carried into last season from previous season in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -18516,7 +19305,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe5 bought by shop from provider last season in kg$^
+Amount of Longe 5 bought by shop from provider last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -18622,34 +19411,9 @@ Sexpr{format(round(df_ols_D_secL5[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Most important source where shop directly bought Longe10H last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & &
+Cost of Longe 5 per kg last season in UGX$^
 \backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Cost of Longe5 per kg last season in UGX
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -18753,7 +19517,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity of Longe5 sold last season in kg$^
+Quantity of Longe 5 sold last season in kg$^
 \backslash
 dag$
 \end_layout
@@ -18859,7 +19623,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price of Longe5 per kg at beginning of last season in UGX
+Sales price of Longe 5 per kg at beginning of last season in UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -18963,7 +19727,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of Longe5 lost/wasted last season in kg
+Amount of Longe 5 lost/wasted last season in kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -19067,7 +19831,7 @@ Sexpr{format(round(df_ols_D_secL5[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of times shop ran out of Longe5 last season
+Number of times shop ran out of Longe 5 last season
 \end_layout
 
 \begin_layout Plain Layout
@@ -19320,7 +20084,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -19341,8 +20105,38 @@ dag$ indicates that the variable was included in the overall index of secondary
 
 \end_layout
 
+\begin_layout Subsubsection*
+Registration/ trading license/ membership/ inspection
+\end_layout
+
 \begin_layout Standard
-registration/ trading license/ membership/ inspection
+Reason why outcomes are (not) included in index in tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_off"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_off_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Dealers and farmers are likely to not have influence on the Number of times
+ shop was inspected by DAO/MAAIF/UNADA last year, so the impact of our treatment
+s is ambiguous.
 \end_layout
 
 \begin_layout Standard
@@ -19360,7 +20154,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  inspection 
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_official"
+name "results_dealer_sec_off"
 
 \end_inset
 
@@ -20217,7 +21011,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -20253,7 +21047,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  inspection: P-values adjusted according to Sankoh, Huque, Dubey 
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_official-1"
+name "results_dealer_sec_off_adj"
 
 \end_inset
 
@@ -21111,7 +21905,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -21132,7 +21926,7 @@ dag$ indicates that the variable was included in the overall index of secondary
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection*
 Seed bag
 \end_layout
 
@@ -21151,7 +21945,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  buy bag of seed)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_official-2"
+name "results_dealer_sec_bag"
 
 \end_inset
 
@@ -21798,7 +22592,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
@@ -21834,7 +22628,7 @@ Differences between treatment and control groups - Agro-input dealer, secondary
  Huque, Dubey (selection: enumerator was able to buy bag of seed)
 \begin_inset CommandInset label
 LatexCommand label
-name "results_dealer_sec_official-2-1"
+name "results_dealer_sec_bag_adj"
 
 \end_inset
 
@@ -22481,7 +23275,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports means of the entire sample (control and treatment
- groups: only 12% of dealers were not treated, rest was treated somehow)
+ groups: only 12 percent of dealers were not treated, rest was treated somehow)
  and standard deviations below in brackets;  **, * and + denote significance
  at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
