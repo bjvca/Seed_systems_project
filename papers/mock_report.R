@@ -1728,7 +1728,7 @@ for (i in 1:length(results_dealer_prim_J)){
 
 
 ################################################################################################################################################################################
-##### 2 ANALYSIS: Agro-input dealer - Secondary: outcomes without baseline######################################################################################################
+##### 2 ANALYSIS: Agro-input dealer - Primary and secondary: outcomes without baseline######################################################################################################
 ################################################################################################################################################################################
 
 #1. Index of dealer's motivation and satisfaction
@@ -1751,6 +1751,34 @@ baseline_dealers$mid_maize.owner.agree.q9_d <- (rbinom(348, 1, 0.5)+0.1*baseline
 variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,baseline_dealers$mid_maize.owner.agree.q9.b
                                   ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d)
 
+#2. Index of shop's maize seed ratings by farmers
+#set.seed(29091993)
+
+baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),348,replace = T)
+baseline_dealers$mid_general <- baseline_dealers$mid_general+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+baseline_dealers$mid_yield=sample(na.omit(baseline_dealers$yield),348,replace = T)
+baseline_dealers$mid_yield <- baseline_dealers$mid_yield+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+baseline_dealers$mid_drought_resistent=sample(na.omit(baseline_dealers$drought_resistent),348,replace = T)
+baseline_dealers$mid_drought_resistent <- baseline_dealers$mid_drought_resistent+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+baseline_dealers$mid_disease_resistent=sample(na.omit(baseline_dealers$disease_resistent),348,replace = T)
+baseline_dealers$mid_disease_resistent <- baseline_dealers$mid_disease_resistent+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+baseline_dealers$mid_early_maturing=sample(na.omit(baseline_dealers$early_maturing),348,replace = T)
+baseline_dealers$mid_early_maturing <- baseline_dealers$mid_early_maturing+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+baseline_dealers$mid_germination=sample(na.omit(baseline_dealers$germination),348,replace = T)
+baseline_dealers$mid_germination <- baseline_dealers$mid_germination+0.5*baseline_dealers$training+0.5*baseline_dealers$clearing+0.5*baseline_dealers$farmer
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
+                                  ,baseline_dealers$mid_disease_resistent,baseline_dealers$mid_early_maturing,baseline_dealers$mid_germination)
+
+# ,"general","yield","drought_resistent"
+# ,"disease_resistent","early_maturing","germination"
+
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
 
@@ -1762,7 +1790,11 @@ variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,ba
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
 baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
 
-results_dealer_sec_nobase <- c("index_motivation_mid")
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
+baseline_dealers$index_ratings_mid <- index_ratings_mid$index #midline index
+
+results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid")
 
 df_means_D_sec_nobase <- array(NA,dim=c(3,10))
 
@@ -1784,7 +1816,11 @@ baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_motivation_midT <- index_motivation_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_mid")
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_ratings_midT <- index_ratings_mid$index
+
+results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
@@ -1805,7 +1841,11 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_motivation_midC <- index_motivation_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_mid")
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_ratings_midC <- index_ratings_mid$index
+
+results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
@@ -1826,7 +1866,11 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_motivation_midF <- index_motivation_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_mid")
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_ratings_midF <- index_ratings_mid$index
+
+results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)

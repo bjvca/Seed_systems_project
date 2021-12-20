@@ -11415,7 +11415,7 @@ Delete before registering:
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12431,12 +12431,66 @@ Sexpr{format(round(df_ols_D_prim[2,3,9],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of shop's maize seed ratings by farmers
+Index of shop's maize seed ratings by farmers (not at midline)
 \end_layout
 
 \begin_layout Plain Layout
 
-& & & &
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_nobase[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_nobase[3,1,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,2]<.1,"
++","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_nobase[3,2,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,2]<.1,"
++","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,3,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_nobase[3,3,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,3,2]<.1,"
++","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_nobase[3,2],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -12445,7 +12499,30 @@ Index of shop's maize seed ratings by farmers
 
 \begin_layout Plain Layout
 
-& & & &
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec_nobase[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,3,2],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -13679,7 +13756,7 @@ Sexpr{format(round(df_ols_D_prim[2,3,9],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of shop's maize seed ratings by farmers
+Index of shop's maize seed ratings by farmers (not at midline)
 \end_layout
 
 \begin_layout Plain Layout
@@ -13925,6 +14002,11 @@ Index of all seed handling and storage practices observed by enumerator
  seed handling and storage practices observed by enumerator.
 \end_layout
 
+\begin_layout Standard
+Index of shop's maize seed ratings by farmers: not collected at midline
+ because rating dealers is part of clearinghouse treatment.
+\end_layout
+
 \begin_layout Enumerate
 Index of seed handling and storage practices observed by enumerators
 \end_layout
@@ -14067,7 +14149,7 @@ Indices
 
 \begin_layout Standard
 These variables are not adjusted for multiple hypothesis testing because
- they are a;ready indices.
+ they are already indices.
 \end_layout
 
 \begin_layout Standard
