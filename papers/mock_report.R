@@ -909,9 +909,7 @@ perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 trim <- function(var,dataset,trim_perc=.01){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
-  
-  
-   
+
 sim_var <- function(var,type="c",cohen_d=c(.5,.5,.5)){
  if (type == "c"){
  sim_var <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_dealers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_dealers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_dealers$farmer
@@ -1297,24 +1295,7 @@ variables_efforts_base <- cbind(baseline_dealers$alwaysexplains,baseline_dealers
                                 ,baseline_dealers$maize.owner.agree.q88,baseline_dealers$q89_bin,baseline_dealers$q93_bin
                                 ,baseline_dealers$maize.owner.agree.q96_rev,baseline_dealers$maize.owner.agree.q97.b)
 
-#10. ratings
-baseline_dealers$mid_general <- (baseline_dealers$general+0.3771956*baseline_dealers$training+0.3771956*baseline_dealers$clearing-0.3771956*baseline_dealers$farmer)
-baseline_dealers$mid_yield <- (baseline_dealers$yield+0.3537389*baseline_dealers$training+0.3537389*baseline_dealers$clearing-0.3537389*baseline_dealers$farmer)
-baseline_dealers$mid_drought_resistent <- (baseline_dealers$drought_resistent+0.2938011*baseline_dealers$training+0.2938011*baseline_dealers$clearing-0.2938011*baseline_dealers$farmer)
-baseline_dealers$mid_disease_resistent <- (baseline_dealers$disease_resistent+0.2445126*baseline_dealers$training+0.2445126*baseline_dealers$clearing-0.2445126*baseline_dealers$farmer)
-baseline_dealers$mid_early_maturing <- (baseline_dealers$early_maturing+0.3816825*baseline_dealers$training+0.3816825*baseline_dealers$clearing-0.3816825*baseline_dealers$farmer)
-baseline_dealers$mid_germination <- (baseline_dealers$germination+0.3668794*baseline_dealers$training+0.3668794*baseline_dealers$clearing-0.3668794*baseline_dealers$farmer)
-
-###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
-                               ,baseline_dealers$mid_disease_resistent,baseline_dealers$mid_early_maturing,baseline_dealers$mid_germination)
-variables_ratings_base <- cbind(baseline_dealers$general,baseline_dealers$yield,baseline_dealers$drought_resistent
-                                ,baseline_dealers$disease_resistent,baseline_dealers$early_maturing,baseline_dealers$germination)
-
-# ,"general","yield","drought_resistent","disease_resistent","early_maturing"
-# ,"germination")
-
-#11. Overall index of primary agro-input dealer outcome variables
+#10. Overall index of primary agro-input dealer outcome variables
 ###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 #1. YES: Cumulative quantity sold of a hybrid and a open-pollinated maize variety last season in kg: more=better
@@ -1385,19 +1366,11 @@ baseline_dealers$index_efforts_mid <- index_efforts_mid$index
 index_efforts_base <- icwIndex(xmat=variables_efforts_base)
 baseline_dealers$index_efforts_base <- index_efforts_base$index
 
-#10.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
-baseline_dealers$index_ratings_mid <- index_ratings_mid$index
-
-index_ratings_base <- icwIndex(xmat=variables_ratings_base)
-baseline_dealers$index_ratings_base <- index_ratings_base$index
-
-
 # do simulation here: just take baseline index and add effects (consider as continous)
 ##simulate here
 baseline_dealers$index_efforts_mid <- sim_var(baseline_dealers$index_efforts_mid ,"c",c(.25,.5,.1)) ##delete after data collection
 
-#11.
+#10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid)
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index
 
@@ -1409,21 +1382,23 @@ baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_bas
 baseline_dealers$index_overall_prim_dealer_mid <- sim_var(baseline_dealers$index_overall_prim_dealer_mid ,"c",c(.25,.5,.1)) ##delete after data collection
 
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
-                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid","index_ratings_mid"
+results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
+                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
+                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid"
                          ,"index_overall_prim_dealer_mid")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.owner.agree.q7","reading","index_practices_cap_base"
-                              ,"index_practices_lab_base","index_practices_all_base","index_efforts_base","index_ratings_base"
+results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
+                              ,"maize.owner.agree.q7","reading","index_practices_cap_base"
+                              ,"index_practices_lab_base","index_practices_all_base","index_efforts_base"
                               ,"index_overall_prim_dealer_base")
 
-df_means_D_prim <- array(NA,dim=c(3,11))
+df_means_D_prim <- array(NA,dim=c(3,10))
 
 for (i in 1:length(results_dealer_prim)){
   df_means_D_prim[1,i] <- sum(baseline_dealers[results_dealer_prim[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]])))
   df_means_D_prim[2,i] <- sqrt(var(baseline_dealers[results_dealer_prim[i]], na.rm=T))
   df_means_D_prim[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]]))-sum(is.na(baseline_dealers[results_dealer_prim_base[i]]))+sum(is.na(baseline_dealers[results_dealer_prim[i]])&is.na(baseline_dealers[results_dealer_prim_base[i]]))}
 
-df_ols_D_prim <- array(NA,dim=c(3,3,11))
+df_ols_D_prim <- array(NA,dim=c(3,3,10))
 
 ###
 #2#
@@ -1478,13 +1453,6 @@ baseline_dealers$index_efforts_baseT <- index_efforts_base$index
 baseline_dealers$index_efforts_midT <- sim_var(baseline_dealers$index_efforts_midT ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #10.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$training_control)
-baseline_dealers$index_ratings_midT <- index_ratings_mid$index
-
-index_ratings_base <- icwIndex(xmat=variables_ratings_base,sgroup = baseline_dealers$training_control)
-baseline_dealers$index_ratings_baseT <- index_ratings_base$index
-
-#11.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid$index
 
@@ -1497,11 +1465,13 @@ baseline_dealers$index_overall_prim_dealer_midT <- sim_var(baseline_dealers$inde
 
 
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midT"
-                         ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT","index_ratings_midT"
+results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
+                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midT"
+                         ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
                          ,"index_overall_prim_dealer_midT")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.owner.agree.q7","reading","index_practices_cap_baseT"
-                              ,"index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT","index_ratings_baseT"
+results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
+                              ,"maize.owner.agree.q7","reading","index_practices_cap_baseT"
+                              ,"index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT"
                               ,"index_overall_prim_dealer_baseT")
 
 for (i in 1:length(results_dealer_prim)){
@@ -1562,22 +1532,11 @@ baseline_dealers$index_efforts_midC <- index_efforts_mid$index
 index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_efforts_baseC <- index_efforts_base$index
 
-#10.
-# index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$clearing_control)
-# baseline_dealers$index_ratings_midC <- index_ratings_mid$index
-baseline_dealers$mid_score <- baseline_dealers$score
-baseline_dealers$index_ratings_midC <- baseline_dealers$mid_score
-
-# index_ratings_base <- icwIndex(xmat=variables_ratings_base,sgroup = baseline_dealers$clearing_control)
-# baseline_dealers$index_ratings_baseC <- index_ratings_base$index
-baseline_dealers$index_ratings_baseC <- baseline_dealers$score
-
-
 # do simulation here: just take baseline index and add effects (consider as continous)
 ##simulate here
 baseline_dealers$index_efforts_midC <- sim_var(baseline_dealers$index_efforts_midC ,"c",c(.25,.5,.1)) ##delete after data collection
 
-#11.
+#10.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
@@ -1588,11 +1547,13 @@ baseline_dealers$index_overall_prim_dealer_baseC <- index_overall_prim_dealer_ba
 ##simulate here
 baseline_dealers$index_overall_prim_dealer_midC <- sim_var(baseline_dealers$index_overall_prim_dealer_midC ,"c",c(.25,.5,.1)) ##delete after data collection
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midC"
-                         ,"index_practices_lab_midC","index_practices_all_midC","index_efforts_midC","index_ratings_midC"
+results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
+                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midC"
+                         ,"index_practices_lab_midC","index_practices_all_midC","index_efforts_midC"
                          ,"index_overall_prim_dealer_midC")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue","maize.owner.agree.q7","reading","index_practices_cap_baseC","index_practices_lab_baseC"
-                              ,"index_practices_all_baseC","index_efforts_baseC","index_ratings_baseC"
+results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
+                              ,"maize.owner.agree.q7","reading","index_practices_cap_baseC"
+                              ,"index_practices_lab_baseC","index_practices_all_baseC","index_efforts_baseC"
                               ,"index_overall_prim_dealer_baseC")
 
 for (i in 1:length(results_dealer_prim)){
@@ -1655,13 +1616,6 @@ baseline_dealers$index_efforts_baseF <- index_efforts_base$index
 baseline_dealers$index_efforts_midF <- sim_var(baseline_dealers$index_efforts_midF ,"c",c(.25,.5,.1)) ##delete after data collection
 
 #10.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$farmer_control)
-baseline_dealers$index_ratings_midF <- index_ratings_mid$index
-
-index_ratings_base <- icwIndex(xmat=variables_ratings_base,sgroup = baseline_dealers$farmer_control)
-baseline_dealers$index_ratings_baseF <- index_ratings_base$index
-
-#11.
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid$index
 
@@ -1674,11 +1628,11 @@ baseline_dealers$index_overall_prim_dealer_midF <- sim_var(baseline_dealers$inde
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
                          ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midF"
                          ,"index_practices_lab_midF","index_practices_all_midF","index_efforts_midF"
-                         ,"index_ratings_midF","index_overall_prim_dealer_midF")
+                         ,"index_overall_prim_dealer_midF")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
                               ,"maize.owner.agree.q7","reading","index_practices_cap_baseF"
                               ,"index_practices_lab_baseF","index_practices_all_baseF","index_efforts_baseF"
-                              ,"index_ratings_baseF","index_overall_prim_dealer_baseF")
+                              ,"index_overall_prim_dealer_baseF")
 
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
@@ -1753,7 +1707,7 @@ df_dealer_primF <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers
 #example
 adjust_p(0.03,df_dealer_primT,9)
 
-df_ols_D_prim_J <- array(NA,dim=c(3,3,11))
+df_ols_D_prim_J <- array(NA,dim=c(3,3,10))
 
 results_dealer_prim_J <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
                          ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid")

@@ -12436,6 +12436,46 @@ Index of shop's maize seed ratings by farmers
 
 \begin_layout Plain Layout
 
+& & & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index of primary dealer outcome variables (nobs bc of moisture)}
+\end_layout
+
+\begin_layout Plain Layout
+
 & 
 \backslash
 Sexpr{format(round(df_means_D_prim[1,10],digits=3),nsmall=3)}
@@ -12458,7 +12498,17 @@ $
 
 \begin_layout Plain Layout
 
-& NA$^{NA}$
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,10]<.05,"*",ifelse(df_ols_D_prim[3,2,10]<.1,"+","")))}}
+$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12513,127 +12563,6 @@ Sexpr{format(round(df_ols_D_prim[2,2,10],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_D_prim[2,3,10],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of primary dealer outcome variables (nobs bc of moisture)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_prim[1,11],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,1,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,1,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,1,11]<.05,"*",ifelse(df_ols_D_prim[3,1,11]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,2,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,2,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,2,11]<.05,"*",ifelse(df_ols_D_prim[3,2,11]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,3,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,3,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,3,11]<.05,"*",ifelse(df_ols_D_prim[3,3,11]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_prim[3,11],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_D_prim[2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,1,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,3,11],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -13798,21 +13727,21 @@ nadj)}
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_prim[1,11],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_D_prim[1,10],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,1,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,1,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_prim[3,1,11]<.01,"**"
+Sexpr{ifelse(df_ols_D_prim[3,1,10]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,1,11]<.05,"*",ifelse(df_ols_D_prim[3,1,11]<.1,"+","")))}}
+	,ifelse(df_ols_D_prim[3,1,10]<.05,"*",ifelse(df_ols_D_prim[3,1,10]<.1,"+","")))}}
 $
 \end_layout
 
@@ -13820,14 +13749,14 @@ $
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,2,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,2,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_prim[3,2,11]<.01,"**"
+Sexpr{ifelse(df_ols_D_prim[3,2,10]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,2,11]<.05,"*",ifelse(df_ols_D_prim[3,2,11]<.1,"+","")))}}
+	,ifelse(df_ols_D_prim[3,2,10]<.05,"*",ifelse(df_ols_D_prim[3,2,10]<.1,"+","")))}}
 $
 \end_layout
 
@@ -13835,14 +13764,14 @@ $
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,3,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_prim[1,3,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_prim[3,3,11]<.01,"**"
+Sexpr{ifelse(df_ols_D_prim[3,3,10]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,3,11]<.05,"*",ifelse(df_ols_D_prim[3,3,11]<.1,"+","")))}}
+	,ifelse(df_ols_D_prim[3,3,10]<.05,"*",ifelse(df_ols_D_prim[3,3,10]<.1,"+","")))}}
 $
 \end_layout
 
@@ -13850,7 +13779,7 @@ $
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_prim[3,11],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_D_prim[3,10],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -13861,28 +13790,28 @@ Sexpr{format(round(df_means_D_prim[3,11],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_D_prim[2,11],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_D_prim[2,10],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,1,11],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,1,10],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,2,11],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,2,10],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,3,11],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_prim[2,3,10],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -14836,7 +14765,7 @@ Shop has equipment to monitor seed moisture is not included because we expect
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
