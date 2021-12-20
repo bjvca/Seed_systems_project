@@ -1298,12 +1298,12 @@ variables_efforts_base <- cbind(baseline_dealers$alwaysexplains,baseline_dealers
                                 ,baseline_dealers$maize.owner.agree.q96_rev,baseline_dealers$maize.owner.agree.q97.b)
 
 #10. ratings
-baseline_dealers$mid_general <- (baseline_dealers$general+0.3771956*baseline_dealers$training+0.3771956*baseline_dealers$clearing+0.3771956*baseline_dealers$farmer)
-baseline_dealers$mid_yield <- (baseline_dealers$yield+0.3537389*baseline_dealers$training+0.3537389*baseline_dealers$clearing+0.3537389*baseline_dealers$farmer)
-baseline_dealers$mid_drought_resistent <- (baseline_dealers$drought_resistent+0.2938011*baseline_dealers$training+0.2938011*baseline_dealers$clearing+0.2938011*baseline_dealers$farmer)
-baseline_dealers$mid_disease_resistent <- (baseline_dealers$disease_resistent+0.2445126*baseline_dealers$training+0.2445126*baseline_dealers$clearing+0.2445126*baseline_dealers$farmer)
-baseline_dealers$mid_early_maturing <- (baseline_dealers$early_maturing+0.3816825*baseline_dealers$training+0.3816825*baseline_dealers$clearing+0.3816825*baseline_dealers$farmer)
-baseline_dealers$mid_germination <- (baseline_dealers$germination+0.3668794*baseline_dealers$training+0.3668794*baseline_dealers$clearing+0.3668794*baseline_dealers$farmer)
+baseline_dealers$mid_general <- (baseline_dealers$general+0.3771956*baseline_dealers$training+0.3771956*baseline_dealers$clearing-0.3771956*baseline_dealers$farmer)
+baseline_dealers$mid_yield <- (baseline_dealers$yield+0.3537389*baseline_dealers$training+0.3537389*baseline_dealers$clearing-0.3537389*baseline_dealers$farmer)
+baseline_dealers$mid_drought_resistent <- (baseline_dealers$drought_resistent+0.2938011*baseline_dealers$training+0.2938011*baseline_dealers$clearing-0.2938011*baseline_dealers$farmer)
+baseline_dealers$mid_disease_resistent <- (baseline_dealers$disease_resistent+0.2445126*baseline_dealers$training+0.2445126*baseline_dealers$clearing-0.2445126*baseline_dealers$farmer)
+baseline_dealers$mid_early_maturing <- (baseline_dealers$early_maturing+0.3816825*baseline_dealers$training+0.3816825*baseline_dealers$clearing-0.3816825*baseline_dealers$farmer)
+baseline_dealers$mid_germination <- (baseline_dealers$germination+0.3668794*baseline_dealers$training+0.3668794*baseline_dealers$clearing-0.3668794*baseline_dealers$farmer)
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
