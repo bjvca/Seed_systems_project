@@ -791,7 +791,7 @@ df_ols_attritionD <- array(NA,dim=c(3,20))
 
 #simulate random attrition
 library(dplyr)
-#set.seed(10081996)
+set.seed(10081996)
 lostdealers <- sample_n(baseline_dealers,35)
 lostdealers = lostdealers[c("shop_ID")]
 lostdealers$attrition_ind_D <- 1
