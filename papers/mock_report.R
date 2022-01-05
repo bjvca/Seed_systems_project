@@ -916,7 +916,12 @@ sim_var <- function(var,type="c",cohen_d=c(.5,.5,.5)){
  if (type == "c"){
  sim_var <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_dealers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_dealers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_dealers$farmer
  } else if (type == "b") {
+ if (sum(cohen_d)>0) {
 sim_var <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_dealers$training + rbinom(length(var),1,cohen_d[2])*baseline_dealers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_dealers$farmer) >0.5
+} else {
+sim_var <- (sample(var) - rbinom(length(var),1,abs(cohen_d[1]))*baseline_dealers$training - rbinom(length(var),1,abs(cohen_d[2]))*baseline_dealers$clearing - rbinom(length(var),1,abs(cohen_d[3]))*baseline_dealers$farmer) >0.5
+
+}
  }
    return(sim_var)}
 
