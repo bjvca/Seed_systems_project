@@ -1310,11 +1310,13 @@ baseline_dealers$mid_reading_pos <- baseline_dealers$mid_reading*-1
 #9. YES: Index of efforts of dealer and services offered by dealer: more=better
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_maize.owner.agree.q7
+variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
+                                           ,baseline_dealers$mid_maize.owner.agree.q7
                                            ,baseline_dealers$mid_reading_pos
                                            ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
                                            ,baseline_dealers$index_efforts_mid)
-variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$maize.owner.agree.q7
+variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$revenue
+                                            ,baseline_dealers$maize.owner.agree.q7
                                             ,baseline_dealers$reading_pos
                                             ,baseline_dealers$index_practices_cap_base,baseline_dealers$index_practices_lab_base
                                             ,baseline_dealers$index_efforts_base)
@@ -1717,191 +1719,6 @@ for (i in 1:length(results_dealer_prim_J)){
   df_ols_D_prim_J[3,1,i] <- adjust_p(df_ols_D_prim[3,1,i],df_dealer_primT,i)
   df_ols_D_prim_J[3,2,i] <- adjust_p(df_ols_D_prim[3,2,i],df_dealer_primC,i)
   df_ols_D_prim_J[3,3,i] <- adjust_p(df_ols_D_prim[3,3,i],df_dealer_primF,i)}
-
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
-##### 2 ANALYSIS: Agro-input dealer - Primary and secondary: outcomes without baseline######################################################################################################
-################################################################################################################################################################################
-
-#1. Index of dealer's motivation and satisfaction
-###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
-###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
-
-#Do you see yourself working as an agro-input dealer 3 years from now? (q9a): yes=good
-baseline_dealers$mid_maize.owner.agree.q9_a <- (rbinom(348, 1, 0.5))
-
-#Do you think your job makes a positive difference in other's life? (q9b): yes=good
-baseline_dealers$mid_maize.owner.agree.q9.b <- (rbinom(348, 1, 0.5))
-
-#On a scale of 1 to 5, how likely are you to recommend working as an agro-input dealer to friends or family? (q9c) more=better
-baseline_dealers$mid_maize.owner.agree.q9_c <- (rbinom(348, 1, 0.5))
-
-#On a scale of 1 to 5, how happy do you feel when you come to work in the morning? (q9d) more=better
-baseline_dealers$mid_maize.owner.agree.q9_d <- (rbinom(348, 1, 0.5))
-
-###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,baseline_dealers$mid_maize.owner.agree.q9.b
-                                  ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d)
-
-#2. Index of shop's maize seed ratings by farmers
-
-baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),348,replace = T)
-
-baseline_dealers$mid_yield=sample(na.omit(baseline_dealers$yield),348,replace = T)
-
-baseline_dealers$mid_drought_resistent=sample(na.omit(baseline_dealers$drought_resistent),348,replace = T)
-
-baseline_dealers$mid_disease_resistent=sample(na.omit(baseline_dealers$disease_resistent),348,replace = T)
-
-baseline_dealers$mid_early_maturing=sample(na.omit(baseline_dealers$early_maturing),348,replace = T)
-
-baseline_dealers$mid_germination=sample(na.omit(baseline_dealers$germination),348,replace = T)
-
-###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
-                                  ,baseline_dealers$mid_disease_resistent,baseline_dealers$mid_early_maturing,baseline_dealers$mid_germination)
-
-################################################################################################################################################################################
-###4. Create index: weighted average of outcomes for individual i in area j
-
-###
-#1#
-###
-
-#1.
-index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
-baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
-
-##simulate here
-baseline_dealers$index_motivation_mid <- sim_var(baseline_dealers$index_motivation_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-#2.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
-baseline_dealers$index_ratings_mid <- index_ratings_mid$index #midline index
-
-##simulate here
-baseline_dealers$index_ratings_mid <- sim_var(baseline_dealers$index_ratings_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid")
-
-df_means_D_sec_nobase <- array(NA,dim=c(3,10))
-
-for (i in 1:length(results_dealer_sec_nobase)){
-  df_means_D_sec_nobase[1,i] <- sum(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]])))
-  df_means_D_sec_nobase[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T))
-  df_means_D_sec_nobase[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]]))}
-
-###
-#2#
-###
-
-df_ols_D_sec_nobase <- array(NA,dim=c(3,3,10))
-
-baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
-baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
-
-#1.
-index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$training_control)
-baseline_dealers$index_motivation_midT <- index_motivation_mid$index
-
-##simulate here
-baseline_dealers$index_motivation_midT <- sim_var(baseline_dealers$index_motivation_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#2.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$training_control)
-baseline_dealers$index_ratings_midT <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midT <- sim_var(baseline_dealers$index_ratings_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-
-
-results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT")
-
-for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-  
-  df_ols_D_sec_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
-
-###
-#3#
-###
-
-baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
-baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
-
-#1.
-index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$clearing_control)
-baseline_dealers$index_motivation_midC <- index_motivation_mid$index
-
-##simulate here
-baseline_dealers$index_motivation_midC <- sim_var(baseline_dealers$index_motivation_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#2.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$clearing_control)
-baseline_dealers$index_ratings_midC <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midC <- sim_var(baseline_dealers$index_ratings_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC")
-
-for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-  
-  df_ols_D_sec_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
-
-###
-#4#
-###
-
-baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
-baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
-
-#1.
-index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$farmer_control)
-baseline_dealers$index_motivation_midF <- index_motivation_mid$index
-
-##simulate here
-baseline_dealers$index_motivation_midF <- sim_var(baseline_dealers$index_motivation_midF ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#2.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$farmer_control)
-baseline_dealers$index_ratings_midF <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midF <- sim_var(baseline_dealers$index_ratings_midF ,"c",c(.25,.5,.1)) ##delete after data collection
-
-results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF")
-
-for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-  
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_D_sec_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_D_sec_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_D_sec_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 
 
@@ -2511,7 +2328,7 @@ baseline_dealers$mid_maize.owner.agree.long10h.q27[baseline_dealers$mid_maize.ow
 baseline_dealers$mid_maize.owner.agree.long10h.q27 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q27)
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q27",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q27 <- sim_var(baseline_dealers$maize.owner.agree.long10h.q27,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.long10h.q27 <- sim_var(baseline_dealers$mid_maize.owner.agree.long10h.q27,"c",c(.25,.5,.1)) #delete after data collection
 
 #8. Did you ever run out of Longe10H during the second season of 2020? (q29)
 baseline_dealers$maize.owner.agree.long10h.q29[baseline_dealers$maize.owner.agree.long10h.q29=="n/a"] <- NA
@@ -2571,7 +2388,7 @@ baseline_dealers$index_overall_Longe10H_mid <- index_overall_Longe10H_mid$index 
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base)
 baseline_dealers$index_overall_Longe10H_base <- index_overall_Longe10H_base$index #baseline index
 
-baseline_dealers$index_overall_Longe10H_mid <- sim_var(baseline_dealers$index_overall_Longe10H_base,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$index_overall_Longe10H_mid <- sim_var(baseline_dealers$index_overall_Longe10H_mid,"c",c(.25,.5,.1)) #delete after data collection
 
 results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
                             ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
@@ -2602,7 +2419,7 @@ baseline_dealers$index_overall_Longe10H_midT <- index_overall_Longe10H_mid$index
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_Longe10H_baseT <- index_overall_Longe10H_base$index
 
-baseline_dealers$index_overall_Longe10H_midT <- sim_var(baseline_dealers$index_overall_Longe10H_baseT,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$index_overall_Longe10H_midT <- sim_var(baseline_dealers$index_overall_Longe10H_midT,"c",c(.25,.5,.1)) #delete after data collection
 
 df_ols_D_secL10H <- array(NA,dim=c(3,3,11))
 
@@ -2637,7 +2454,7 @@ baseline_dealers$index_overall_Longe10H_midC <- index_overall_Longe10H_mid$index
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_Longe10H_baseC <- index_overall_Longe10H_base$index
 
-baseline_dealers$index_overall_Longe10H_midC <- sim_var(baseline_dealers$index_overall_Longe10H_baseC,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$index_overall_Longe10H_midC <- sim_var(baseline_dealers$index_overall_Longe10H_midC,"c",c(.25,.5,.1)) #delete after data collection
 
 results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
                             ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
@@ -2670,7 +2487,7 @@ baseline_dealers$index_overall_Longe10H_midF <- index_overall_Longe10H_mid$index
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_Longe10H_baseF <- index_overall_Longe10H_base$index
 
-baseline_dealers$index_overall_Longe10H_midF <- sim_var(baseline_dealers$index_overall_Longe10H_baseF,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$index_overall_Longe10H_midF <- sim_var(baseline_dealers$index_overall_Longe10H_midF,"c",c(.25,.5,.1)) #delete after data collection
 
 results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
                             ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
@@ -2713,6 +2530,90 @@ for (i in 1:length(results_dealer_secL10H_J)){
   df_ols_D_secL10H_J[3,1,i] <- adjust_p(df_ols_D_secL10H[3,1,i],df_dealer_secL10HT,i)
   df_ols_D_secL10H_J[3,2,i] <- adjust_p(df_ols_D_secL10H[3,2,i],df_dealer_secL10HC,i)
   df_ols_D_secL10H_J[3,3,i] <- adjust_p(df_ols_D_secL10H[3,3,i],df_dealer_secL10HF,i)}
+
+
+
+
+
+
+
+
+
+
+###################################################################################################################################################################
+##### 4B ANALYSIS: Agro-input dealer - Secondary: 9. Longe 10H: not controlling for baseline ######################################################################
+###################################################################################################################################################################
+
+#results_dealer_secL10H_B
+#df_means_D_secL10H_B
+#df_ols_D_secL10H_B
+
+variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.long10h.q21_pos,baseline_dealers$mid_maize.owner.agree.long10h.q22,baseline_dealers$mid_maize.owner.agree.long10h.q24
+                                        ,baseline_dealers$mid_maize.owner.agree.long10h.q25)
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_mid")
+
+df_means_D_secL10H_B <- array(NA,dim=c(3,11))
+
+for (i in 1:length(results_dealer_secL10H_B)){
+  df_means_D_secL10H_B[1,i] <- sum(baseline_dealers[results_dealer_secL10H_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H_B[i]])))
+  df_means_D_secL10H_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL10H_B[i]], na.rm=T))
+  df_means_D_secL10H_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H_B[i]]))}
+
+###
+#2#
+###
+
+df_ols_D_secL10H_B <- array(NA,dim=c(3,3,11))
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midT")
+
+for (i in 1:length(results_dealer_secL10H_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_secL10H_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_secL10H_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_secL10H_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midC")
+
+for (i in 1:length(results_dealer_secL10H_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_secL10H_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_secL10H_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_secL10H_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midF")
+
+for (i in 1:length(results_dealer_secL10H_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_secL10H_B[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_secL10H_B[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_secL10H_B[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 baseline_dealers=baseline_dealers_save
 
@@ -3023,6 +2924,83 @@ for (i in 1:length(results_dealer_secL5_J)){
   df_ols_D_secL5_J[3,1,i] <- adjust_p(df_ols_D_secL5[3,1,i],df_dealer_secL5T,i)
   df_ols_D_secL5_J[3,2,i] <- adjust_p(df_ols_D_secL5[3,2,i],df_dealer_secL5C,i)
   df_ols_D_secL5_J[3,3,i] <- adjust_p(df_ols_D_secL5[3,3,i],df_dealer_secL5F,i)}
+
+
+
+
+
+
+
+
+
+
+###################################################################################################################################################################
+##### 5B ANALYSIS: Agro-input dealer - Secondary: Longe 5, not controlling for baseline ###########################################################################
+###################################################################################################################################################################
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+results_dealer_secL5_B <- c("index_overall_Longe5_mid")
+
+df_means_D_secL5_B <- array(NA,dim=c(3,11))
+
+for (i in 1:length(results_dealer_secL5_B)){
+  df_means_D_secL5_B[1,i] <- sum(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])))
+  df_means_D_secL5_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T))
+  df_means_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))-sum(is.na(baseline_dealers[results_dealer_secL5_base[i]]))+sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])&is.na(baseline_dealers[results_dealer_secL5_base[i]]))}
+
+###
+#2#
+###
+
+df_ols_D_secL5_B <- array(NA,dim=c(3,3,11))
+
+results_dealer_secL5_B <- c("index_overall_Longe5_midT")
+
+for (i in 1:length(results_dealer_secL5_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_secL5_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_secL5_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_secL5_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+results_dealer_secL5_B <- c("index_overall_Longe5_midC")
+
+for (i in 1:length(results_dealer_secL5_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_secL5_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_secL5_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_secL5_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+results_dealer_secL5_B <- c("index_overall_Longe5_midF")
+
+for (i in 1:length(results_dealer_secL5_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_secL5_B[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_secL5_B[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_secL5_B[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 baseline_dealers=baseline_dealers_save
 
@@ -3476,7 +3454,281 @@ for (i in 1:length(results_dealer_sec_bag_J)){
   df_ols_D_sec_bag_J[3,2,i] <- adjust_p(df_ols_D_sec_bag[3,2,i],df_dealer_sec_bagC,i)
   df_ols_D_sec_bag_J[3,3,i] <- adjust_p(df_ols_D_sec_bag[3,3,i],df_dealer_sec_bagF,i)}
 
+
+
+
+
+
+
+
+
+
+###################################################################################################################################################################
+##### 7B ANALYSIS: Agro-input dealer - Secondary: 11. seed bag, not controlling for baseline ######################################################################
+###################################################################################################################################################################
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+results_dealer_sec_bag_B <- c("index_overall_bag_mid")
+
+df_means_D_sec_bag_B <- array(NA,dim=c(3,11))
+
+for (i in 1:length(results_dealer_sec_bag_B)){
+  df_means_D_sec_bag_B[1,i] <- sum(baseline_dealers[results_dealer_sec_bag_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag_B[i]])))
+  df_means_D_sec_bag_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag_B[i]], na.rm=T))
+  df_means_D_sec_bag_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag_B[i]]))}
+
+###
+#2#
+###
+
+df_ols_D_sec_bag_B <- array(NA,dim=c(3,3,11))
+
+results_dealer_sec_bag_B <- c("index_overall_bag_midT")
+
+for (i in 1:length(results_dealer_sec_bag_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_bag_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_sec_bag_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_sec_bag_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+results_dealer_sec_bag_B <- c("index_overall_bag_midC")
+
+for (i in 1:length(results_dealer_sec_bag_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_bag_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_sec_bag_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_sec_bag_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+results_dealer_sec_bag_B <- c("index_overall_bag_midF")
+
+for (i in 1:length(results_dealer_sec_bag_B)){
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_sec_bag_B[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_sec_bag_B[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_sec_bag_B[3,3,i] <- summary(ols)$coefficients[4,4]}
+
 baseline_dealers=baseline_dealers_save
+
+
+
+
+
+
+
+
+
+
+################################################################################################################################################################################
+##### 2 ANALYSIS: Agro-input dealer - Primary and secondary: outcomes without baseline######################################################################################################
+################################################################################################################################################################################
+
+#1. Index of dealer's motivation and satisfaction
+###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
+###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
+
+#Do you see yourself working as an agro-input dealer 3 years from now? (q9a): yes=good
+baseline_dealers$mid_maize.owner.agree.q9_a <- (rbinom(348, 1, 0.5))
+
+#Do you think your job makes a positive difference in other's life? (q9b): yes=good
+baseline_dealers$mid_maize.owner.agree.q9.b <- (rbinom(348, 1, 0.5))
+
+#On a scale of 1 to 5, how likely are you to recommend working as an agro-input dealer to friends or family? (q9c) more=better
+baseline_dealers$mid_maize.owner.agree.q9_c <- (rbinom(348, 1, 0.5))
+
+#On a scale of 1 to 5, how happy do you feel when you come to work in the morning? (q9d) more=better
+baseline_dealers$mid_maize.owner.agree.q9_d <- (rbinom(348, 1, 0.5))
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,baseline_dealers$mid_maize.owner.agree.q9.b
+                                  ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d)
+
+#2. Index of shop's maize seed ratings by farmers
+
+baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),348,replace = T)
+
+baseline_dealers$mid_yield=sample(na.omit(baseline_dealers$yield),348,replace = T)
+
+baseline_dealers$mid_drought_resistent=sample(na.omit(baseline_dealers$drought_resistent),348,replace = T)
+
+baseline_dealers$mid_disease_resistent=sample(na.omit(baseline_dealers$disease_resistent),348,replace = T)
+
+baseline_dealers$mid_early_maturing=sample(na.omit(baseline_dealers$early_maturing),348,replace = T)
+
+baseline_dealers$mid_germination=sample(na.omit(baseline_dealers$germination),348,replace = T)
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
+                               ,baseline_dealers$mid_disease_resistent,baseline_dealers$mid_early_maturing,baseline_dealers$mid_germination)
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
+baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
+
+##simulate here
+baseline_dealers$index_motivation_mid <- sim_var(baseline_dealers$index_motivation_mid ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
+baseline_dealers$index_ratings_mid <- index_ratings_mid$index #midline index
+
+##simulate here
+baseline_dealers$index_ratings_mid <- sim_var(baseline_dealers$index_ratings_mid ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid"
+                               ,"index_overall_prim_dealer_mid","index_overallsec_mid"
+                               ,"index_overall_off_mid")
+
+df_means_D_sec_nobase <- array(NA,dim=c(3,10))
+
+for (i in 1:length(results_dealer_sec_nobase)){
+  df_means_D_sec_nobase[1,i] <- sum(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]])))
+  df_means_D_sec_nobase[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T))
+  df_means_D_sec_nobase[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]]))}
+
+###
+#2#
+###
+
+df_ols_D_sec_nobase <- array(NA,dim=c(3,3,10))
+
+baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
+baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_motivation_midT <- index_motivation_mid$index
+
+##simulate here
+baseline_dealers$index_motivation_midT <- sim_var(baseline_dealers$index_motivation_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_ratings_midT <- index_ratings_mid$index
+
+##simulate here
+baseline_dealers$index_ratings_midT <- sim_var(baseline_dealers$index_ratings_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+
+
+results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT"
+                               ,"index_overall_prim_dealer_midT","index_overallsec_midT"
+                               ,"index_overall_off_midT")
+
+for (i in 1:length(results_dealer_sec_nobase)){
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_D_sec_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_D_sec_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_motivation_midC <- index_motivation_mid$index
+
+##simulate here
+baseline_dealers$index_motivation_midC <- sim_var(baseline_dealers$index_motivation_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_ratings_midC <- index_ratings_mid$index
+
+##simulate here
+baseline_dealers$index_ratings_midC <- sim_var(baseline_dealers$index_ratings_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC"
+                               ,"index_overall_prim_dealer_midC","index_overallsec_midC"
+                               ,"index_overall_off_midC")
+
+for (i in 1:length(results_dealer_sec_nobase)){
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_D_sec_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_D_sec_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_D_sec_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
+baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
+
+#1.
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_motivation_midF <- index_motivation_mid$index
+
+##simulate here
+baseline_dealers$index_motivation_midF <- sim_var(baseline_dealers$index_motivation_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
+
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_ratings_midF <- index_ratings_mid$index
+
+##simulate here
+baseline_dealers$index_ratings_midF <- sim_var(baseline_dealers$index_ratings_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
+results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF"
+                               ,"index_overall_prim_dealer_midF","index_overallsec_midF"
+                               ,"index_overall_off_midF")
+
+for (i in 1:length(results_dealer_sec_nobase)){
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_D_sec_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_D_sec_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_D_sec_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+
+
+
 
 
 
@@ -3933,233 +4185,6 @@ for (i in 1:length(results_farmer_prim_J)){
 
 
 ################################################################################################################################################################################
-##### 9 ANALYSIS: Farmer - Primary and secondary: outcomes without baseline#####################################################################################################
-################################################################################################################################################################################
-
-#1. index of seed quality perception: average ratings of maize seed of all input dealers in catchment area (q68, q69 aggregated at household level)
-baseline_farmers$mid_seed_quality_general_rating=sample(na.omit(baseline_farmers$seed_quality_general_rating),3470,replace = T)
-baseline_farmers$mid_seed_quality_general_rating <- as.numeric(as.character(baseline_farmers$mid_seed_quality_general_rating))
-
-baseline_farmers$mid_seed_yield_rating=sample(na.omit(baseline_farmers$seed_yield_rating),3470,replace = T)
-baseline_farmers$mid_seed_yield_rating <- as.numeric(as.character(baseline_farmers$mid_seed_yield_rating))
-
-baseline_farmers$mid_seed_drought_rating_rating=sample(na.omit(baseline_farmers$seed_drought_rating),3470,replace = T)
-baseline_farmers$mid_seed_drought_rating <- as.numeric(as.character(baseline_farmers$mid_seed_drought_rating))
-
-baseline_farmers$mid_seed_disease_rating=sample(na.omit(baseline_farmers$seed_disease_rating),3470,replace = T)
-baseline_farmers$mid_seed_disease_rating <- as.numeric(as.character(baseline_farmers$mid_seed_disease_rating))
-
-baseline_farmers$mid_seed_maturing_rating=sample(na.omit(baseline_farmers$seed_maturing_rating),3470,replace = T)
-baseline_farmers$mid_seed_maturing_rating <- as.numeric(as.character(baseline_farmers$mid_seed_maturing_rating))
-
-baseline_farmers$mid_seed_germinate_rating=sample(na.omit(baseline_farmers$seed_germinate_rating),3470,replace = T)
-baseline_farmers$mid_seed_germinate_rating <- as.numeric(as.character(baseline_farmers$mid_seed_germinate_rating))
-
-###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating,baseline_farmers$mid_seed_yield_rating
-                                ,baseline_farmers$mid_seed_drought_rating,baseline_farmers$mid_seed_disease_rating
-                                ,baseline_farmers$mid_seed_maturing_rating,baseline_farmers$mid_seed_germinate_rating)
-
-#2. Shop ratings
-baseline_farmers$mid_general_rating=sample(na.omit(baseline_farmers$general_rating),3470,replace = T)
-baseline_farmers$mid_general_rating <- as.numeric(as.character(baseline_farmers$mid_general_rating))
-
-baseline_farmers$mid_location_rating=sample(na.omit(baseline_farmers$location_rating),3470,replace = T)
-baseline_farmers$mid_location_rating <- as.numeric(as.character(baseline_farmers$mid_location_rating))
-
-baseline_farmers$mid_price_rating=sample(na.omit(baseline_farmers$price_rating),3470,replace = T)
-baseline_farmers$mid_price_rating <- as.numeric(as.character(baseline_farmers$mid_price_rating))
-
-baseline_farmers$mid_quality_rating=sample(na.omit(baseline_farmers$quality_rating),3470,replace = T)
-baseline_farmers$mid_quality_rating <- as.numeric(as.character(baseline_farmers$mid_quality_rating))
-
-baseline_farmers$mid_stock_rating=sample(na.omit(baseline_farmers$stock_rating),3470,replace = T)
-baseline_farmers$mid_stock_rating <- as.numeric(as.character(baseline_farmers$mid_stock_rating))
-
-baseline_farmers$mid_reputation_rating=sample(na.omit(baseline_farmers$reputation_rating),3470,replace = T)
-baseline_farmers$mid_reputation_rating <- as.numeric(as.character(baseline_farmers$mid_reputation_rating))
-
-###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline_farmers$mid_location_rating
-                                ,baseline_farmers$mid_price_rating,baseline_farmers$mid_quality_rating
-                                ,baseline_farmers$mid_stock_rating,baseline_farmers$mid_reputation_rating)
-
-#3. switching
-baseline_farmers$mid_farmerswitched <- (rbinom(3470, 1, 0.5))
-baseline_farmers$mid_farmerswitched <- sim_var_F(baseline_farmers$mid_farmerswitched,"b",c(.25,.5,.1))
-baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$mid_farmerswitched==TRUE,1,0) #delete
-
-#4. Did you harvest as much maize from this **${plot_select_name}** plot in the second season (entoigo) of 2020 (including maize that was consumed) as you expected?
-baseline_farmers$mid_Check2.check.maize.q51a <- (rbinom(3470, 1, 0.5))
-baseline_farmers$mid_Check2.check.maize.q51a <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51a,"b",c(.25,.5,.1))
-baseline_farmers$mid_Check2.check.maize.q51a<-ifelse(baseline_farmers$mid_Check2.check.maize.q51a==TRUE,1,0) #delete
-
-#5. if q51a=no: Why did you not harvest as much maize as you expected?
-# a.	the weather was unfortunate
-# b.	my planting material was poor
-# c.	pests e.g. fall arm worm destroyed my harvest
-# d.	my soil was not fertile
-# e.	I did not plant on time
-# f.	I did not weed on time
-# g.	I did not manage pests e.g. fall arm worm well
-# h.	I did not apply complimentary inputs like fertilizer
-# i.	Others
-
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51a==1] <- 0
-
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="a"] <- 0
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="b"] <- 0
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="c"] <- 0
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="d"] <- 0
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="e"] <- 1
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="f"] <- 1
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="g"] <- 1
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="h"] <- 1
-# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="i"] <- NA
-
-baseline_farmers$mid_Check2.check.maize.q51b <- (rbinom(3470, 1, 0.5))
-baseline_farmers$mid_Check2.check.maize.q51b <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51b,"b",c(.25,.5,.1))
-baseline_farmers$mid_Check2.check.maize.q51b<-ifelse(baseline_farmers$mid_Check2.check.maize.q51b==TRUE,1,0) #delete
-
-#6. skill questions
-baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),3470,replace = T) #took any index as basis
-
-################################################################################################################################################################################
-###4. Create index: weighted average of outcomes for individual i in area j
-
-###
-#1#
-###
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
-baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index #midline index
-
-baseline_farmers$index_ratingsF_mid <- sim_var_F(baseline_farmers$index_ratingsF_mid,"c",c(.25,.5,.1)) #delete
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid)
-baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index #midline index
-
-baseline_farmers$index_ratingsshopF_mid <- sim_var_F(baseline_farmers$index_ratingsshopF_mid,"c",c(.25,.5,.1)) #delete
-
-results_farmer_nobase <- c("index_ratingsF_mid","index_ratingsshopF_mid","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid")
-
-df_means_F_nobase <- array(NA,dim=c(3,10))
-
-for (i in 1:length(results_farmer_nobase)){
-  df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
-  df_means_F_nobase[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
-  df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
-
-###
-#2#
-###
-
-df_ols_F_nobase <- array(NA,dim=c(3,3,10))
-
-baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
-baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
-
-baseline_farmers$index_ratingsF_midT <- sim_var_F(baseline_farmers$index_ratingsF_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
-
-baseline_farmers$index_ratingsshopF_midT <- sim_var_F(baseline_farmers$index_ratingsshopF_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
-
-###
-#3#
-###
-
-baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
-baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
-
-##simulate here
-baseline_farmers$index_ratingsF_midC <- sim_var_F(baseline_farmers$index_ratingsF_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
-
-##simulate here
-baseline_farmers$index_ratingsshopF_midC <- sim_var_F(baseline_farmers$index_ratingsshopF_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
-results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
-
-###
-#4#
-###
-
-baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
-baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
-
-##simulate here
-baseline_farmers$index_ratingsF_midF <- sim_var_F(baseline_farmers$index_ratingsF_midF ,"c",c(.25,.5,.1)) ##delete after data collection
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
-
-##simulate here
-baseline_farmers$index_ratingsshopF_midF <- sim_var_F(baseline_farmers$index_ratingsshopF_midF ,"c",c(.25,.5,.1)) ##delete after data collection
-
-results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
 ##### 10 ANALYSIS: Farmer - Secondary ##########################################################################################################################################
 ################################################################################################################################################################################
 
@@ -4448,7 +4473,7 @@ baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races==TRUE,1,
 baseline_farmers$Land_Races_pos <- baseline_farmers$Land_Races*-1
 baseline_farmers$mid_Land_Races_pos <- baseline_farmers$mid_Land_Races*-1
 
-#4. improved
+#4. improved (NOT INCLUDED ANYMORE)
 baseline_farmers$mid_improved<-((baseline_farmers$mid_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$mid_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$mid_Check2.check.maize.q31=="Panner")|(baseline_farmers$mid_Check2.check.maize.q31=="Wema")|(baseline_farmers$mid_Check2.check.maize.q31=="KH_series"|baseline_farmers$mid_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_4")|(baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"))
 baseline_farmers$mid_improved<-ifelse(baseline_farmers$mid_improved=="TRUE",1,0)
 
@@ -4524,11 +4549,11 @@ baseline_farmers$index_overallsec_plotF_mid <- sim_var_F(baseline_farmers$index_
 
 
 results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_improved","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
+                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_mid")
 
 results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"improved","farmer_saved_seed","Bought_from_agro_input_shop"
+                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_base")
 
 df_means_F_sec_plot <- array(NA,dim=c(3,11))
@@ -4558,11 +4583,11 @@ baseline_farmers$index_overallsec_plotF_midT <- sim_var_F(baseline_farmers$index
 df_ols_F_sec_plot <- array(NA,dim=c(3,3,11))
 
 results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_improved","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
+                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midT")
 
 results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"improved","farmer_saved_seed","Bought_from_agro_input_shop"
+                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseT")
 
 for (i in 1:length(results_farmer_sec_plot)){
@@ -4592,11 +4617,11 @@ baseline_farmers$index_overallsec_plotF_midC <- sim_var_F(baseline_farmers$index
 
 
 results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_improved","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
+                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midC")
 
 results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"improved","farmer_saved_seed","Bought_from_agro_input_shop"
+                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseC")
 
 for (i in 1:length(results_farmer_sec_plot)){
@@ -4626,11 +4651,11 @@ baseline_farmers$index_overallsec_plotF_midF <- sim_var_F(baseline_farmers$index
 
 
 results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_improved","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
+                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midF")
 
 results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"improved","farmer_saved_seed","Bought_from_agro_input_shop"
+                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseF")
 
 for (i in 1:length(results_farmer_sec_plot)){
@@ -4645,7 +4670,7 @@ for (i in 1:length(results_farmer_sec_plot)){
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV,baseline_farmers$mid_Land_Races
-                                 ,baseline_farmers$mid_improved,baseline_farmers$mid_farmer_saved_seed
+                                 ,baseline_farmers$mid_farmer_saved_seed
                                  ,baseline_farmers$mid_Bought_from_agro_input_shop,baseline_farmers$mid_adoption_onfield)
 df_farmer_sec_plotC <- df_farmer_sec_plotT
 df_farmer_sec_plotF <- df_farmer_sec_plotT
@@ -4653,7 +4678,7 @@ df_farmer_sec_plotF <- df_farmer_sec_plotT
 
 df_ols_F_sec_plot_J <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_plot_J <- c("mid_hybrid","mid_OPV","mid_Land_Races","mid_improved","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop","mid_adoption_onfield")
+results_farmer_sec_plot_J <- c("mid_hybrid","mid_OPV","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop","mid_adoption_onfield")
 #no overall index
 
 for (i in 1:length(results_farmer_sec_plot_J)){
@@ -4968,7 +4993,7 @@ for (i in 1:length(results_farmer_sec_seed_J)){
 ##### 13 ANALYSIS: Farmer - Secondary: Yield etc. ##############################################################################################################################
 ################################################################################################################################################################################
 
-#1. Yield in kg
+#1. Production in kg
 baseline_farmers$yield_inkg_untrimmed <- baseline_farmers$yield_inkg
 baseline_farmers <- trim("yield_inkg",baseline_farmers,trim_perc=.05)
 
@@ -4980,7 +5005,7 @@ baseline_farmers <- trim("mid_yield_inkg",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_yield_inkg <- sim_var_F(baseline_farmers$mid_yield_inkg,"c",c(.25,.5,.1)) #delete
 
-#2. productivity
+#2. yield
 baseline_farmers <- trim("landproductivity",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_Check2.check.maize.q29 <- baseline_farmers$Check2.check.maize.q29
@@ -5041,25 +5066,11 @@ baseline_farmers <- trim("mid_revenueUGX",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_revenueUGX <- sim_var_F(baseline_farmers$mid_revenueUGX,"c",c(.25,.5,.1)) #delete
 
-#7. Q56. How much did you keep for seed (record in kg)?
-baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
-baseline_farmers <- trim("Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q56 <- baseline_farmers$Check2.check.maize.q56
-baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q56))
-baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
-baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q56 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q56,"c",c(.25,.5,.1)) #delete
-
-baseline_farmers$mid_Check2.check.maize.q56_pos <- baseline_farmers$mid_Check2.check.maize.q56*-1
-baseline_farmers$Check2.check.maize.q56_pos <- baseline_farmers$Check2.check.maize.q56*-1
-
 #8.
-variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_yield_inkg
-                                          ,baseline_farmers$mid_marketvalue_kg,baseline_farmers$mid_soldinkg)
-variables_overall_yieldetc_base <- cbind(baseline_farmers$yield_inkg
-                                                       ,baseline_farmers$marketvalue_kg,baseline_farmers$soldinkg)
+variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
+                                          ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX)
+variables_overall_yieldetc_base <- cbind(baseline_farmers$landproductivity
+                                          ,baseline_farmers$soldinkg,baseline_farmers$revenueUGX)
 
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
@@ -5077,13 +5088,13 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 
 baseline_farmers$index_overall_yieldetc_mid <- sim_var_F(baseline_farmers$index_overall_yieldetc_mid,"c",c(.25,.5,.1)) #delete
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_marketvalue_kg"
-                                 ,"mid_soldinkg","mid_charged","mid_revenueUGX"
-                                 ,"mid_Check2.check.maize.q56","index_overall_yieldetc_mid")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
+                                 ,"mid_soldinkg","mid_revenueUGX"
+                                 ,"index_overall_yieldetc_mid")
 
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","marketvalue_kg"
-                                      ,"soldinkg","charged","revenueUGX"
-                                      ,"Check2.check.maize.q56","index_overall_yieldetc_base")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
+                                      ,"soldinkg","revenueUGX"
+                                      ,"index_overall_yieldetc_base")
 
 df_means_F_sec_yieldetc <- array(NA,dim=c(3,11))
 
@@ -5110,13 +5121,13 @@ baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index
 
 df_ols_F_sec_yieldetc <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_marketvalue_kg"
-                                 ,"mid_soldinkg","mid_charged","mid_revenueUGX"
-                                 ,"mid_Check2.check.maize.q56","index_overall_yieldetc_midT")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
+                                 ,"mid_soldinkg","mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midT")
 
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","marketvalue_kg"
-                                      ,"soldinkg","charged","revenueUGX"
-                                      ,"Check2.check.maize.q56","index_overall_yieldetc_baseT")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
+                                      ,"soldinkg","revenueUGX"
+                                      ,"index_overall_yieldetc_baseT")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -5143,13 +5154,13 @@ baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$in
 
 baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_marketvalue_kg"
-                                 ,"mid_soldinkg","mid_charged","mid_revenueUGX"
-                                 ,"mid_Check2.check.maize.q56","index_overall_yieldetc_midC")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
+                                 ,"mid_soldinkg","mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midC")
 
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","marketvalue_kg",
-                                      "soldinkg","charged","revenueUGX"
-                                      ,"Check2.check.maize.q56","index_overall_yieldetc_baseC")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity",
+                                      "soldinkg","revenueUGX"
+                                      ,"index_overall_yieldetc_baseC")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -5176,13 +5187,13 @@ baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$in
 
 baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_marketvalue_kg"
-                                 ,"mid_soldinkg","mid_charged","mid_revenueUGX"
-                                 ,"mid_Check2.check.maize.q56","index_overall_yieldetc_midF")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
+                                 ,"mid_soldinkg","mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midF")
 
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","marketvalue_kg"
-                                      ,"soldinkg","charged","revenueUGX"
-                                      ,"Check2.check.maize.q56","index_overall_yieldetc_baseF")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
+                                      ,"soldinkg","revenueUGX"
+                                      ,"index_overall_yieldetc_baseF")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -5195,18 +5206,18 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   df_ols_F_sec_yieldetc[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_sec_yieldetcT <- data.frame(baseline_farmers$mid_yield_inkg,baseline_farmers$mid_landproductivity,baseline_farmers$mid_marketvalue_kg
-                                      ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_charged,baseline_farmers$mid_revenueUGX
-                                      ,baseline_farmers$mid_Check2.check.maize.q56)
+df_farmer_sec_yieldetcT <- data.frame(baseline_farmers$mid_yield_inkg,baseline_farmers$mid_landproductivity
+                                      ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX
+                                      )
 df_farmer_sec_yieldetcC <- df_farmer_sec_yieldetcT
 df_farmer_sec_yieldetcF <- df_farmer_sec_yieldetcT
 #no overall index
 
 df_ols_F_sec_yieldetc_J <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_yieldetc_J <- c("mid_yield_inkg","mid_landproductivity","mid_marketvalue_kg"
-                                   ,"mid_soldinkg","mid_charged","mid_revenueUGX"
-                                   ,"mid_Check2.check.maize.q56")
+results_farmer_sec_yieldetc_J <- c("mid_yield_inkg","mid_landproductivity"
+                                   ,"mid_soldinkg","mid_revenueUGX"
+                                   )
 #no overall index
 
 for (i in 1:length(results_farmer_sec_yieldetc_J)){
@@ -5219,4 +5230,318 @@ for (i in 1:length(results_farmer_sec_yieldetc_J)){
 #df_ols_F_sec_yieldetc
 #df_farmer_sec_yieldetc
 
+
+
+
+
+
+
+
+
+
+################################################################################################################################################################################
+##### 9 ANALYSIS: Farmer - Primary and secondary: outcomes without baseline#####################################################################################################
+################################################################################################################################################################################
+
+#1. index of seed quality perception: average ratings of maize seed of all input dealers in catchment area (q68, q69 aggregated at household level)
+baseline_farmers$mid_seed_quality_general_rating=sample(na.omit(baseline_farmers$seed_quality_general_rating),3470,replace = T)
+baseline_farmers$mid_seed_quality_general_rating <- as.numeric(as.character(baseline_farmers$mid_seed_quality_general_rating))
+
+baseline_farmers$mid_seed_yield_rating=sample(na.omit(baseline_farmers$seed_yield_rating),3470,replace = T)
+baseline_farmers$mid_seed_yield_rating <- as.numeric(as.character(baseline_farmers$mid_seed_yield_rating))
+
+baseline_farmers$mid_seed_drought_rating_rating=sample(na.omit(baseline_farmers$seed_drought_rating),3470,replace = T)
+baseline_farmers$mid_seed_drought_rating <- as.numeric(as.character(baseline_farmers$mid_seed_drought_rating))
+
+baseline_farmers$mid_seed_disease_rating=sample(na.omit(baseline_farmers$seed_disease_rating),3470,replace = T)
+baseline_farmers$mid_seed_disease_rating <- as.numeric(as.character(baseline_farmers$mid_seed_disease_rating))
+
+baseline_farmers$mid_seed_maturing_rating=sample(na.omit(baseline_farmers$seed_maturing_rating),3470,replace = T)
+baseline_farmers$mid_seed_maturing_rating <- as.numeric(as.character(baseline_farmers$mid_seed_maturing_rating))
+
+baseline_farmers$mid_seed_germinate_rating=sample(na.omit(baseline_farmers$seed_germinate_rating),3470,replace = T)
+baseline_farmers$mid_seed_germinate_rating <- as.numeric(as.character(baseline_farmers$mid_seed_germinate_rating))
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating,baseline_farmers$mid_seed_yield_rating
+                                ,baseline_farmers$mid_seed_drought_rating,baseline_farmers$mid_seed_disease_rating
+                                ,baseline_farmers$mid_seed_maturing_rating,baseline_farmers$mid_seed_germinate_rating)
+
+#2. Shop ratings
+baseline_farmers$mid_general_rating=sample(na.omit(baseline_farmers$general_rating),3470,replace = T)
+baseline_farmers$mid_general_rating <- as.numeric(as.character(baseline_farmers$mid_general_rating))
+
+baseline_farmers$mid_location_rating=sample(na.omit(baseline_farmers$location_rating),3470,replace = T)
+baseline_farmers$mid_location_rating <- as.numeric(as.character(baseline_farmers$mid_location_rating))
+
+baseline_farmers$mid_price_rating=sample(na.omit(baseline_farmers$price_rating),3470,replace = T)
+baseline_farmers$mid_price_rating <- as.numeric(as.character(baseline_farmers$mid_price_rating))
+
+baseline_farmers$mid_quality_rating=sample(na.omit(baseline_farmers$quality_rating),3470,replace = T)
+baseline_farmers$mid_quality_rating <- as.numeric(as.character(baseline_farmers$mid_quality_rating))
+
+baseline_farmers$mid_stock_rating=sample(na.omit(baseline_farmers$stock_rating),3470,replace = T)
+baseline_farmers$mid_stock_rating <- as.numeric(as.character(baseline_farmers$mid_stock_rating))
+
+baseline_farmers$mid_reputation_rating=sample(na.omit(baseline_farmers$reputation_rating),3470,replace = T)
+baseline_farmers$mid_reputation_rating <- as.numeric(as.character(baseline_farmers$mid_reputation_rating))
+
+###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
+variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline_farmers$mid_location_rating
+                                    ,baseline_farmers$mid_price_rating,baseline_farmers$mid_quality_rating
+                                    ,baseline_farmers$mid_stock_rating,baseline_farmers$mid_reputation_rating)
+
+#3. switching
+baseline_farmers$mid_farmerswitched <- (rbinom(3470, 1, 0.5))
+baseline_farmers$mid_farmerswitched <- sim_var_F(baseline_farmers$mid_farmerswitched,"b",c(.25,.5,.1))
+baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$mid_farmerswitched==TRUE,1,0) #delete
+
+#4. Did you harvest as much maize from this **${plot_select_name}** plot in the second season (entoigo) of 2020 (including maize that was consumed) as you expected?
+baseline_farmers$mid_Check2.check.maize.q51a <- (rbinom(3470, 1, 0.5))
+baseline_farmers$mid_Check2.check.maize.q51a <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51a,"b",c(.25,.5,.1))
+baseline_farmers$mid_Check2.check.maize.q51a<-ifelse(baseline_farmers$mid_Check2.check.maize.q51a==TRUE,1,0) #delete
+
+#5. if q51a=no: Why did you not harvest as much maize as you expected?
+# a.	the weather was unfortunate
+# b.	my planting material was poor
+# c.	pests e.g. fall arm worm destroyed my harvest
+# d.	my soil was not fertile
+# e.	I did not plant on time
+# f.	I did not weed on time
+# g.	I did not manage pests e.g. fall arm worm well
+# h.	I did not apply complimentary inputs like fertilizer
+# i.	Others
+
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51a==1] <- 0
+
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="a"] <- 0
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="b"] <- 0
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="c"] <- 0
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="d"] <- 0
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="e"] <- 1
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="f"] <- 1
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="g"] <- 1
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="h"] <- 1
+# baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="i"] <- NA
+
+baseline_farmers$mid_Check2.check.maize.q51b <- (rbinom(3470, 1, 0.5))
+baseline_farmers$mid_Check2.check.maize.q51b <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51b,"b",c(.25,.5,.1))
+baseline_farmers$mid_Check2.check.maize.q51b<-ifelse(baseline_farmers$mid_Check2.check.maize.q51b==TRUE,1,0) #delete
+
+#6. skill questions
+baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),3470,replace = T) #took any index as basis
+
+#CREATE NEW INDEX BECAUSE SWITCHING
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched,baseline_farmers$index_practices_mid)
+
+#CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
+variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
+                                        ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
+                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56_pos)
+
+#7. Q56. How much did you keep for seed (record in kg)?
+baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
+baseline_farmers <- trim("Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+
+baseline_farmers$mid_Check2.check.maize.q56 <- baseline_farmers$Check2.check.maize.q56
+baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q56))
+baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
+baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+
+baseline_farmers$mid_Check2.check.maize.q56 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q56,"c",c(.25,.5,.1)) #delete
+
+baseline_farmers$mid_Check2.check.maize.q56_pos <- baseline_farmers$mid_Check2.check.maize.q56*-1
+baseline_farmers$Check2.check.maize.q56_pos <- baseline_farmers$Check2.check.maize.q56*-1
+
+
+
+################################################################################################################################################################################
+###4. Create index: weighted average of outcomes for individual i in area j
+
+###
+#1#
+###
+
+#1.
+index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
+baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index #midline index
+
+baseline_farmers$index_ratingsF_mid <- sim_var_F(baseline_farmers$index_ratingsF_mid,"c",c(.25,.5,.1)) #delete
+
+#2.
+index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid)
+baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index #midline index
+
+baseline_farmers$index_ratingsshopF_mid <- sim_var_F(baseline_farmers$index_ratingsshopF_mid,"c",c(.25,.5,.1)) #delete
+
+#NEW OVERALL 
+
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid)
+baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index #midline index
+
+baseline_farmers$index_overallprimF_mid <- sim_var_F(baseline_farmers$index_overallprimF_mid,"c",c(.25,.5,.1)) #delete
+
+#ALSO NEW
+index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index #midline index
+
+baseline_farmers$index_overall_yieldetc_mid <- sim_var_F(baseline_farmers$index_overall_yieldetc_mid,"c",c(.25,.5,.1)) #delete
+
+results_farmer_nobase <- c("index_ratingsF_mid","index_ratingsshopF_mid","mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
+                           ,"index_overallprimF_mid","index_overallsecF_mid"
+                           ,"index_overallsec_plotF_mid","index_overall_seedonplot_mid"
+                           ,"index_overall_yieldetc_mid","mid_Check2.check.maize.q56")
+
+df_means_F_nobase <- array(NA,dim=c(3,12))
+
+for (i in 1:length(results_farmer_nobase)){
+  df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
+  df_means_F_nobase[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
+  df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
+
+###
+#2#
+###
+
+df_ols_F_nobase <- array(NA,dim=c(3,3,12))
+
+baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
+baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
+
+#1.
+index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
+
+baseline_farmers$index_ratingsF_midT <- sim_var_F(baseline_farmers$index_ratingsF_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#2.
+index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
+
+baseline_farmers$index_ratingsshopF_midT <- sim_var_F(baseline_farmers$index_ratingsshopF_midT ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#NEW OVERALL
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid)
+baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index #midline index
+
+baseline_farmers$index_overallprimF_midT <- sim_var_F(baseline_farmers$index_overallprimF_midT,"c",c(.25,.5,.1)) #delete
+
+#ALSO NEW
+index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index #midline index
+
+baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index_overall_yieldetc_midT,"c",c(.25,.5,.1)) #delete
+
+results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
+                           ,"index_overallprimF_midT","index_overallsecF_midT"
+                           ,"index_overallsec_plotF_midT","index_overall_seedonplot_midT"
+                           ,"index_overall_yieldetc_midT","mid_Check2.check.maize.q56")
+
+for (i in 1:length(results_farmer_nobase)){
+  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  
+  df_ols_F_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_F_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_F_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+
+###
+#3#
+###
+
+baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
+baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
+
+#1.
+index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
+
+##simulate here
+baseline_farmers$index_ratingsF_midC <- sim_var_F(baseline_farmers$index_ratingsF_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#2.
+index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
+
+##simulate here
+baseline_farmers$index_ratingsshopF_midC <- sim_var_F(baseline_farmers$index_ratingsshopF_midC ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#NEW OVERALL
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid)
+baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index #midline index
+
+baseline_farmers$index_overallprimF_midC <- sim_var_F(baseline_farmers$index_overallprimF_midC,"c",c(.25,.5,.1)) #delete
+
+#ALSO NEW
+index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index #midline index
+
+baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
+
+results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
+                           ,"index_overallprimF_midC","index_overallsecF_midC"
+                           ,"index_overallsec_plotF_midC","index_overall_seedonplot_midC"
+                           ,"index_overall_yieldetc_midC","mid_Check2.check.maize.q56")
+
+for (i in 1:length(results_farmer_nobase)){
+  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  
+  df_ols_F_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_F_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_F_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+
+###
+#4#
+###
+
+baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
+baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
+
+#1.
+index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
+baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
+
+##simulate here
+baseline_farmers$index_ratingsF_midF <- sim_var_F(baseline_farmers$index_ratingsF_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
+#2.
+index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
+baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
+
+##simulate here
+baseline_farmers$index_ratingsshopF_midF <- sim_var_F(baseline_farmers$index_ratingsshopF_midF ,"c",c(.25,.5,.1)) ##delete after data collection
+
+results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
+                           ,"index_overallprimF_midF","index_overallsecF_midF"
+                           ,"index_overallsec_plotF_midF","index_overall_seedonplot_midF"
+                           ,"index_overall_yieldetc_midF","mid_Check2.check.maize.q56")
+
+#NEW OVERALL
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid)
+baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index #midline index
+
+baseline_farmers$index_overallprimF_midF <- sim_var_F(baseline_farmers$index_overallprimF_midF,"c",c(.25,.5,.1)) #delete
+
+#ALSO NEW
+index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index #midline index
+
+baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
+
+for (i in 1:length(results_farmer_nobase)){
+  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+#here
 
