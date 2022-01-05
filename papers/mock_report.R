@@ -2266,7 +2266,7 @@ baseline_dealers$mid_maize.owner.agree.long10h.q21[baseline_dealers$mid_maize.ow
 baseline_dealers$mid_maize.owner.agree.long10h.q21 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q21)
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q21",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q21 <- sim_var(baseline_dealers$maize.owner.agree.long10h.q21,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.long10h.q21 <- sim_var(baseline_dealers$maize.owner.agree.long10h.q21,"c",c(-.25,-.5,-.1)) #delete after data collection
 
 baseline_dealers$maize.owner.agree.long10h.q21_pos <- baseline_dealers$maize.owner.agree.long10h.q21*-1
 baseline_dealers$mid_maize.owner.agree.long10h.q21_pos <- baseline_dealers$mid_maize.owner.agree.long10h.q21*-1
@@ -2333,7 +2333,7 @@ baseline_dealers$mid_maize.owner.agree.long10h.q27[baseline_dealers$mid_maize.ow
 baseline_dealers$mid_maize.owner.agree.long10h.q27 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q27)
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q27",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q27 <- sim_var(baseline_dealers$mid_maize.owner.agree.long10h.q27,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.long10h.q27 <- sim_var(baseline_dealers$mid_maize.owner.agree.long10h.q27,"c",c(-.25,-.5,-.1)) #delete after data collection
 
 #8. Did you ever run out of Longe10H during the second season of 2020? (q29)
 baseline_dealers$maize.owner.agree.long10h.q29[baseline_dealers$maize.owner.agree.long10h.q29=="n/a"] <- NA
@@ -2554,7 +2554,7 @@ for (i in 1:length(results_dealer_secL10H_J)){
 #df_ols_D_secL10H_B
 
 variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.long10h.q21_pos,baseline_dealers$mid_maize.owner.agree.long10h.q22,baseline_dealers$mid_maize.owner.agree.long10h.q24
-                                        ,baseline_dealers$mid_maize.owner.agree.long10h.q25)
+                                         ,baseline_dealers$mid_maize.owner.agree.long10h.q25)
 
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
@@ -2656,7 +2656,7 @@ baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$midmaize.owne
 baseline_dealers$mid_maize.owner.agree.longe5.q46<-ihs(baseline_dealers$mid_maize.owner.agree.longe5.q46)
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q46",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q46 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q46,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q46 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q46,"c",c(-.25,-.5,-.1)) #delete after data collection
 
 baseline_dealers$mid_maize.owner.agree.longe5.q46_pos <- baseline_dealers$mid_maize.owner.agree.longe5.q46*-1
 baseline_dealers$maize.owner.agree.longe5.q46_pos <- baseline_dealers$maize.owner.agree.longe5.q46*-1
@@ -2723,7 +2723,7 @@ baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.own
 baseline_dealers$mid_maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q52)
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q52,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q52,"c",c(-.25,-.5,-.1)) #delete after data collection
 
 #8. Q54. Did you ever run out of this Longe 5 during the second season of 2020?
 baseline_dealers$maize.owner.agree.longe5.q54[baseline_dealers$maize.owner.agree.longe5.q54=="n/a"] <- NA
@@ -3060,7 +3060,7 @@ baseline_dealers <- trim("mid_maize.owner.agree.inspection.q117",baseline_dealer
 baseline_dealers$mid_maize.owner.agree.inspection.q117 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q117,"c",c(.25,.5,.1)) #delete after data collection
 
 #5. Q118. Have you ever received a warning as a result of inspection if something was not up to standard?
-baseline_dealers$mid_maize.owner.agree.inspection.q118 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q118,"b",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.inspection.q118 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q118,"b",c(-.25,-.5,-.1)) #delete after data collection
 baseline_dealers$mid_maize.owner.agree.inspection.q118<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q118==TRUE,1,0) #delete
 
 baseline_dealers$mid_maize.owner.agree.inspection.q118[baseline_dealers$mid_maize.owner.agree.inspection.q118==98] <- NA
@@ -3069,7 +3069,7 @@ baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.character(baseline_de
 baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q118))
 
 #6. Q119. Has some of your produce ever been confiscated after inspection?
-baseline_dealers$mid_maize.owner.agree.inspection.q119 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q119,"b",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.inspection.q119 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q119,"b",c(-.25,-.5,-.1)) #delete after data collection
 baseline_dealers$mid_maize.owner.agree.inspection.q119<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q119==TRUE,1,0) #delete
 
 baseline_dealers$mid_maize.owner.agree.inspection.q119[baseline_dealers$mid_maize.owner.agree.inspection.q119==98] <- NA
@@ -3307,7 +3307,7 @@ baseline_dealers$mid_shelflife_Caro <- baseline_dealers$mid_date - as.Date(basel
 baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- NA
 baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro))
 
-baseline_dealers$mid_shelflife_Caro <- sim_var(baseline_dealers$shelflife_Caro,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_shelflife_Caro <- sim_var(baseline_dealers$shelflife_Caro,"c",c(-.25,-.5,-.1)) #delete after data collection
 
 baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02)
 baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
@@ -3321,6 +3321,8 @@ baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot==TRUE,1,0) #delete
 #5. Overall index
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 baseline_dealers$mid_shelflife_Caro_pos <- baseline_dealers$mid_shelflife_Caro*-1
+baseline_dealers$shelflife_Caro_pos <- baseline_dealers$shelflife_Caro*-1
+
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_overall_bag_mid <- cbind(baseline_dealers$mid_visible_expdate,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro_pos,baseline_dealers$mid_lot)
@@ -3752,7 +3754,12 @@ sim_var_F <- function(var,type="c",cohen_d=c(.5,.5,.5)){
   if (type == "c"){
     sim_var_F <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_farmers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_farmers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_farmers$farmer
   } else if (type == "b") {
-    sim_var_F <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_farmers$training + rbinom(length(var),1,cohen_d[2])*baseline_farmers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_farmers$farmer) >0.5
+    if (sum(cohen_d)>0) {
+      sim_var_F <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_farmers$training + rbinom(length(var),1,cohen_d[2])*baseline_farmers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_farmers$farmer) >0.5
+    } else {
+      sim_var_F <- (sample(var) - rbinom(length(var),1,abs(cohen_d[1]))*baseline_farmers$training - rbinom(length(var),1,abs(cohen_d[2]))*baseline_farmers$clearing - rbinom(length(var),1,abs(cohen_d[3]))*baseline_farmers$farmer) >0.5
+      
+    }
   }
   return(sim_var_F)}
 
@@ -4197,7 +4204,7 @@ for (i in 1:length(results_farmer_prim_J)){
 baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$Check2.check.maize.q25h
 #baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q25h <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q25h,"b",c(.25,.5,.1)) #delete
+baseline_farmers$mid_Check2.check.maize.q25h <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q25h,"b",c(-.25,-.5,-.1)) #delete
 baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h==TRUE,1,0) #delete
 
 baseline_farmers$Check2.check.maize.q25h_pos <- baseline_farmers$Check2.check.maize.q25h*-1
@@ -4472,7 +4479,7 @@ baseline_farmers$mid_OPV<-ifelse(baseline_farmers$mid_OPV==TRUE,1,0) #delete
 baseline_farmers$mid_Land_Races<-(baseline_farmers$mid_Check2.check.maize.q31=="Land_Races")
 baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races=="TRUE",1,0)
 
-baseline_farmers$mid_Land_Races <- sim_var_F(baseline_farmers$mid_Land_Races,"b",c(.25,.5,.1)) #delete
+baseline_farmers$mid_Land_Races <- sim_var_F(baseline_farmers$mid_Land_Races,"b",c(-.25,-.5,-.1)) #delete
 baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races==TRUE,1,0) #delete
 
 baseline_farmers$Land_Races_pos <- baseline_farmers$Land_Races*-1
@@ -4491,9 +4498,9 @@ baseline_farmers$farmer_saved_seed[is.na(baseline_farmers$Check2.check.maize.q32
 baseline_farmers$mid_Check2.check.maize.q32 <- baseline_farmers$Check2.check.maize.q32
 baseline_farmers$mid_farmer_saved_seed<-((baseline_farmers$mid_Check2.check.maize.q32=="a")|(baseline_farmers$mid_Check2.check.maize.q32=="b"))
 baseline_farmers$mid_farmer_saved_seed[is.na(baseline_farmers$mid_Check2.check.maize.q32)] <- 0
-baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed=="TRUE",1,0)
+#baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed=="TRUE",1,0)
 
-baseline_farmers$mid_farmer_saved_seed <- sim_var_F(baseline_farmers$mid_farmer_saved_seed,"b",c(.25,.5,.1)) #delete
+baseline_farmers$mid_farmer_saved_seed <- sim_var_F(baseline_farmers$mid_farmer_saved_seed,"b",c(-.25,-.5,-.1)) #delete
 baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed==TRUE,1,0) #delete
 
 baseline_farmers$mid_farmer_saved_seed_pos <- baseline_farmers$mid_farmer_saved_seed*-1
@@ -4757,7 +4764,7 @@ baseline_farmers$mid_Check2.check.maize.q38 <- baseline_farmers$Check2.check.mai
 baseline_farmers$mid_Check2.check.maize.q38_untrimmed <- baseline_farmers$mid_Check2.check.maize.q38
 baseline_farmers <- trim("mid_Check2.check.maize.q38",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q38 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q38,"c",c(.25,.5,.1)) #delete
+baseline_farmers$mid_Check2.check.maize.q38 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q38,"c",c(-.25,-.5,-.1)) #delete
 
 baseline_farmers$mid_Check2.check.maize.q38_pos <- baseline_farmers$mid_Check2.check.maize.q38*-1
 baseline_farmers$Check2.check.maize.q38_pos <- baseline_farmers$Check2.check.maize.q38*-1
@@ -5330,20 +5337,14 @@ baseline_farmers$mid_Check2.check.maize.q51a<-ifelse(baseline_farmers$mid_Check2
 # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="i"] <- NA
 
 baseline_farmers$mid_Check2.check.maize.q51b <- (rbinom(3470, 1, 0.5))
-baseline_farmers$mid_Check2.check.maize.q51b <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51b,"b",c(.25,.5,.1))
+baseline_farmers$mid_Check2.check.maize.q51b <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51b,"b",c(-.25,-.5,-.1))
 baseline_farmers$mid_Check2.check.maize.q51b<-ifelse(baseline_farmers$mid_Check2.check.maize.q51b==TRUE,1,0) #delete
+
+baseline_farmers$mid_Check2.check.maize.q51b <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q51b))
+baseline_farmers$mid_Check2.check.maize.q51b_pos <- baseline_farmers$mid_Check2.check.maize.q51b*-1
 
 #6. skill questions
 baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),3470,replace = T) #took any index as basis
-
-#CREATE NEW INDEX BECAUSE SWITCHING
-variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched,baseline_farmers$index_practices_mid)
-
-#CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
-variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
-                                        ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
-                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56_pos)
 
 #7. Q56. How much did you keep for seed (record in kg)?
 baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
@@ -5354,12 +5355,19 @@ baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_
 baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
 baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q56 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q56,"c",c(.25,.5,.1)) #delete
+baseline_farmers$mid_Check2.check.maize.q56 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q56,"c",c(-.25,-.5,-.1)) #delete
 
 baseline_farmers$mid_Check2.check.maize.q56_pos <- baseline_farmers$mid_Check2.check.maize.q56*-1
 baseline_farmers$Check2.check.maize.q56_pos <- baseline_farmers$Check2.check.maize.q56*-1
 
+#CREATE NEW INDEX BECAUSE SWITCHING
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched,baseline_farmers$index_practices_mid)
 
+#CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
+variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
+                                        ,baseline_farmers$mid_Check2.check.maize.q51b_pos,baseline_farmers$mid_soldinkg
+                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56_pos)
 
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
