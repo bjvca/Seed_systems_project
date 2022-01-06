@@ -25444,20 +25444,9 @@ Sexpr{format(round(df_ols_F_prim[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
+Farmer thinks that maize seed at agro-input shops is counterfeit/adulterated$^
 \backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index controlling for baseline}
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -25546,6 +25535,223 @@ Sexpr{format(round(df_ols_F_prim[2,2,6],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_F_prim[2,3,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted local land race maize seed on this field$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,1,7]<.05,"*",ifelse(df_ols_F_prim[3,1,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,2,7]<.05,"*",ifelse(df_ols_F_prim[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,3,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,3,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,3,7]<.05,"*",ifelse(df_ols_F_prim[3,3,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_prim[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,3,7],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index controlling for baseline}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[1,8],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,1,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,1,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,1,8]<.05,"*",ifelse(df_ols_F_prim[3,1,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,2,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,2,8]<.05,"*",ifelse(df_ols_F_prim[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,3,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,3,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,3,8]<.05,"*",ifelse(df_ols_F_prim[3,3,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[3,8],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_prim[2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,1,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,3,8],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -25724,7 +25930,7 @@ dag$ indicates that the variable was included in the overall index of primary
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -26424,20 +26630,9 @@ Sexpr{format(round(df_ols_F_prim[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
+Farmer thinks that maize seed at agro-input shops is counterfeit/adulterated$^
 \backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index of primary farmer outcome variables (unadj)}
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -26453,12 +26648,13 @@ Sexpr{format(round(df_means_F_prim[1,6],digits=3),nsmall=3)}
 \backslash
 Sexpr{format(round(df_ols_F_prim[1,1,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_prim[3,1,6]<.01,"**"
+Sexpr{ifelse(df_ols_F_prim_J[3,1,6]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_prim[3,1,6]<.05,"*",ifelse(df_ols_F_prim[3,1,6]<.1,"+","")))}}$
+	,ifelse(df_ols_F_prim_J[3,1,6]<.05,"*",ifelse(df_ols_F_prim_J[3,1,6]<.1,"+","")))
+}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -26467,12 +26663,13 @@ Sexpr{ifelse(df_ols_F_prim[3,1,6]<.01,"**"
 \backslash
 Sexpr{format(round(df_ols_F_prim[1,2,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_prim[3,2,6]<.01,"**"
+Sexpr{ifelse(df_ols_F_prim_J[3,2,6]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_prim[3,2,6]<.05,"*",ifelse(df_ols_F_prim[3,2,6]<.1,"+","")))}}$
+	,ifelse(df_ols_F_prim_J[3,2,6]<.05,"*",ifelse(df_ols_F_prim_J[3,2,6]<.1,"+","")))
+}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -26481,12 +26678,13 @@ Sexpr{ifelse(df_ols_F_prim[3,2,6]<.01,"**"
 \backslash
 Sexpr{format(round(df_ols_F_prim[1,3,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_prim[3,3,6]<.01,"**"
+Sexpr{ifelse(df_ols_F_prim_J[3,3,6]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_prim[3,3,6]<.05,"*",ifelse(df_ols_F_prim[3,3,6]<.1,"+","")))}}$
+	,ifelse(df_ols_F_prim_J[3,3,6]<.05,"*",ifelse(df_ols_F_prim_J[3,3,6]<.1,"+","")))
+}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -26526,6 +26724,226 @@ Sexpr{format(round(df_ols_F_prim[2,2,6],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_F_prim[2,3,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted local land race maize seed on this field$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim_J[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim_J[3,1,7]<.05,"*",ifelse(df_ols_F_prim_J[3,1,7]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim_J[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim_J[3,2,7]<.05,"*",ifelse(df_ols_F_prim_J[3,2,7]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,3,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim_J[3,3,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim_J[3,3,7]<.05,"*",ifelse(df_ols_F_prim_J[3,3,7]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_prim[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,3,7],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index controlling for baseline}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[1,8],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,1,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,1,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,1,8]<.05,"*",ifelse(df_ols_F_prim[3,1,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,2,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,2,8]<.05,"*",ifelse(df_ols_F_prim[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_prim[1,3,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_prim[3,3,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_prim[3,3,8]<.05,"*",ifelse(df_ols_F_prim[3,3,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_prim[3,8],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_prim[2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,1,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_prim[2,3,8],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -26801,7 +27219,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer thinks that maize seed at agro-input shops is counterfeit/adulterated$^
+Number of improved maize varieties the farmer is are aware of$^
 \backslash
 dag$
 \end_layout
@@ -26904,7 +27322,7 @@ Sexpr{format(round(df_ols_F_sec[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of improved maize varieties the farmer is are aware of$^
+Farmer knows particular shop in neighborhood$^
 \backslash
 dag$
 \end_layout
@@ -27007,7 +27425,7 @@ Sexpr{format(round(df_ols_F_sec[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer knows particular shop in neighborhood$^
+Farmer bought shop's seed last season$^
 \backslash
 dag$
 \end_layout
@@ -27098,109 +27516,6 @@ Sexpr{format(round(df_ols_F_sec[2,2,3],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_F_sec[2,3,3],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer bought shop's seed last season$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,1,4]<.05,"*",ifelse(df_ols_F_sec[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,4]<.05,"*",ifelse(df_ols_F_sec[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,3,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,3,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,3,4]<.05,"*",ifelse(df_ols_F_sec[3,3,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_F_sec[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,3,4],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -27317,10 +27632,6 @@ Sexpr{format(round(df_ols_F_nobase[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 cline{2-6}
@@ -27341,56 +27652,56 @@ textbf{Overall index of secondary farmer outcome variables}
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[1,5],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec[1,4],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,1,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,5]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,1,4]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,1,5]<.05,"*",ifelse(df_ols_F_sec[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,5]<.05,"*",ifelse(df_ols_F_sec[3,2,5]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,1,4]<.05,"*",ifelse(df_ols_F_sec[3,1,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,3,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,3,5]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,2,4]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,3,5]<.05,"*",ifelse(df_ols_F_sec[3,3,5]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,2,4]<.05,"*",ifelse(df_ols_F_sec[3,2,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[3,5],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_F_sec[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec[3,3,4]<.05,"*",ifelse(df_ols_F_sec[3,3,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -27401,28 +27712,28 @@ Sexpr{format(round(df_means_F_sec[3,5],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec[2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec[2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,1,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,1,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,3,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,3,4],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -27685,7 +27996,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer thinks that maize seed at agro-input shops is counterfeit/adulterated$^
+Number of improved maize varieties the farmer is are aware of$^
 \backslash
 dag$
 \end_layout
@@ -27791,7 +28102,7 @@ Sexpr{format(round(df_ols_F_sec[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of improved maize varieties the farmer is are aware of$^
+Farmer knows particular shop in neighborhood$^
 \backslash
 dag$
 \end_layout
@@ -27897,7 +28208,7 @@ Sexpr{format(round(df_ols_F_sec[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer knows particular shop in neighborhood$^
+Farmer bought shop's seed last season$^
 \backslash
 dag$
 \end_layout
@@ -28003,112 +28314,6 @@ Sexpr{format(round(df_ols_F_sec[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer bought shop's seed last season$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_J[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_J[3,1,4]<.05,"*",ifelse(df_ols_F_sec_J[3,1,4]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_J[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_J[3,2,4]<.05,"*",ifelse(df_ols_F_sec_J[3,2,4]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,3,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_J[3,3,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_J[3,3,4]<.05,"*",ifelse(df_ols_F_sec_J[3,3,4]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_F_sec[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,3,4],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Index of farmer skill questions (only collected at endline)
 \end_layout
 
@@ -28149,63 +28354,63 @@ cline{2-6}
 
 
 \backslash
-textbf{Overall index of secondary farmer outcome variables (unadj)}
+textbf{Overall index of secondary farmer outcome variables}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[1,5],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec[1,4],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,1,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,5]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,1,4]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,1,5]<.05,"*",ifelse(df_ols_F_sec[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,5]<.05,"*",ifelse(df_ols_F_sec[3,2,5]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,1,4]<.05,"*",ifelse(df_ols_F_sec[3,1,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,3,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,3,5]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,2,4]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,3,5]<.05,"*",ifelse(df_ols_F_sec[3,3,5]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,2,4]<.05,"*",ifelse(df_ols_F_sec[3,2,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[3,5],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_F_sec[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec[3,3,4]<.05,"*",ifelse(df_ols_F_sec[3,3,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -28216,28 +28421,28 @@ Sexpr{format(round(df_means_F_sec[3,5],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec[2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec[2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,1,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,1,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,3,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,3,4],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -28431,7 +28636,7 @@ ated maize seed, which are both included in the index.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
