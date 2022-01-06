@@ -12,7 +12,7 @@ knitr
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
+\inputencoding utf8-plain
 \fontencoding global
 \font_roman "default" "default"
 \font_sans "default" "default"
@@ -33,7 +33,17 @@ knitr
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=black, urlcolor=blue, citecolor=blue, pdfstartview={FitH}, hyperfootnotes=false, unicode=true"
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -46,9 +56,11 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine biblatex-natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -81,11 +93,403 @@ knitr
 \begin_body
 
 \begin_layout Title
-Mock report
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{ Bjorn Van Campenhout
+\backslash
+thanks{Development Strategy and Governance Division, International Food
+ Policy Research Institute, Leuven, Belgium - corresponding author: b.vancampenho
+ut@cgiar.org} , Proscovia Renzaho Ntakyo
+\backslash
+thanks{National Agricultural Research Organisation (NARO), Uganda} ,  Robert
+ Sparrow
+\backslash
+thanks{Development Economics Group, Wageningen University and Research,
+ Wageningen, The Netherlands} , 
+\backslash
+
+\backslash
+ David J Spielman
+\backslash
+thanks{Development Strategy and Governance Division, International Food
+ Policy Research Institute, Kigali, Rwanda} , Caroline Miehe
+\backslash
+thanks{LICOS Centre for Institutions and Economic Performance, KULeuven,
+ Leuven, Belgium}}
 \end_layout
 
-\begin_layout Part*
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Demand and supply factors constraining the emergence and sustainability
+ of an efficient seed system: A mock report
+\end_layout
+
+\begin_layout Abstract
+Agricultural technology remains under-adopted among smallholder farmers
+ in Sub-Saharan Africa.
+ We investigate how the quality of an agricultural technology—improved maize
+ seed—affects its adoption.
+ We test three hypotheses that will be tested in a series of randomized
+ controlled trials among agro-input dealers and smallholder farmers in Uganda.
+ This document is essentially a (somewhat bare bone) mock report, where
+ the entire analysis has been run on simulated data before the start of
+ (midline) data collection.
+ Mock reports serve to tie the hands of the researcher, reducing degrees
+ of freedom in the choice of what specifications to run and what variables
+ to include when testing hypotheses.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "humphreys2013fishing"
+literal "false"
+
+\end_inset
+
+ argue that (comprehensive but nonbinding) mock reports such as this one
+ can reduce intentionally or unintentionally fishing, thereby making science
+ more reliable body of published research.
+\end_layout
+
+\begin_layout Abstract
+keywords: seed systems, information clearinghouse, learning failures, informatio
+n, input quality, agricultural technology adoption
+\end_layout
+
+\begin_layout Abstract
+JEL codes: O13; Q12; Q16; D82; D83
+\end_layout
+
+\begin_layout Section*
+The study
+\end_layout
+
+\begin_layout Standard
+The study for which this document provides a mock report was designed to
+ addresses quality considerations about the technology (improved seed) as
+ a particular constraint to adoption, a topic that has received considerable
+ attention recently 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,bold2017lemon"
+literal "false"
+
+\end_inset
+
+.
+ In the study, we specifically explore (perceived) quality of improved maize
+ seed as a constraint to its adoption among a sample of smallholder maize
+ farmers in Uganda.
+ Maize is an important crop in Uganda, both for home consumption and as
+ a source of income.
+ Yet, the uptake of improved maize seed by smallholder farmers to improve
+ its yields remains persistently low, despite their higher yield potential
+ compared to traditional seed varieties.
+ Studies have advanced several factors explaining smallholder’s limited
+ adoption of improved inputs in Uganda, and of improved maize seed in particular.
+ These have included farmers’ beliefs that the inputs are of poor quality—counte
+rfeited, adulterated, or otherwise non-performant 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
+literal "false"
+
+\end_inset
+
+.
+ Our study will test interventions aimed at identifying the relative importance
+ of potential sources of these (perceived) quality issues at different levels
+ for agricultural technology adoption.
+ It will bring to light the cognitive, economic, and behavioral aspects
+ that underlie under-adoption of these technologies.
+\end_layout
+
+\begin_layout Standard
+In the study, we test three hypotheses through a series of randomized controlled
+ trials among agro-input dealers and smallholder farmers in Uganda.
+ In a first hypothesis, quality concerns that constrain uptake are caused
+ by information inefficiencies at the level of the agro-input dealer, who
+ is assumed to lack knowledge about proper storage and handling.
+ An intensive training program is expected to increase improved maize seed
+ quality and subsequent adoption by farmers.
+ A second hypothesis conjectures that information asymmetry between seller
+ and buyer with respect to the quality of seed – a classic lemons technology
+ – leads to under-adoption.
+ We implement a crowd-sourced information clearinghouse similar to yelp.com
+ to test this hypothesis.
+ This hypothesis targets the interaction between farmers and input dealers.
+ A third hypothesis targets farmers directly, as sub-optimal adoption is
+ assumed to be caused by learning failures: Farmers might attribute disappointin
+g outcomes to poor input quality, while in reality many input dimensions
+ like the time of planting, weeding and fertilizer application co-determine
+ outcomes.
+ An ICT-mediated information campaign that stresses the importance of paying
+ attention to all input dimensions is implemented to test this hypothesis.
+ For detailed information about the study, we refer to the associated pre-analys
+is plan of the study that can be found on the AEA RCT registry (
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.socialscienceregistry.org/trials/6361"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Baseline data was collected among a sample of about 350 agro-input dealers
+ towards the end of 2020 and among a sample of about 3,500 smallholder farmers
+ in the beginning of 2021.
+ This mock report relies extensively on this baseline data.
+ A first part of the report provides descriptive statistics for the baseline
+ data.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report baseline summary statistics at the agro-input dealer level.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ does this for the farmers.
+ 
+\end_layout
+
+\begin_layout Standard
+A second part checks for balance between treatment and control groups in
+ a set of pre-registered baseline characteristics—typically the first table
+ in RCT studies.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ does this for agro-input dealers, while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at balance between treatment and control farmer.
+ As we test 3 different hypothesis using three difference interventions,
+ we also need 3 balance tests for each variable.
+ We also have a short section on attrition.
+\end_layout
+
+\begin_layout Standard
+We then turn to the analysis of the (pre-registered) outcomes that will
+ be used to judge the effectiveness of the interventions—the center piece
+ of a mock report.
+ In particular, we simulate mock endline data by randomly sampling from
+ the baseline outcome and adding a hypothesized treatment effect.
+ We then report difference between treatment and control groups using ANCOVA
+ models that also control for the baseline value of the outcome.
+ Results of these regressions are reported for a set of primary outcomes
+ at the agro-input dealer level (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) as well as at the farmer level (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ We also provide various tables of secondary outcomes that are grouped by
+ family, again for agro-input dealers (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_ind"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_bag_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and for farmers (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot yield etc_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+This document was written using the open source lyx/Latex typesetting software.
+ The analysis is contained in an R script called 
+\begin_inset Quotes eld
+\end_inset
+
+mock_report.R
+\begin_inset Quotes erd
+\end_inset
+
+, which is run from within lyx/latex using the 
+\begin_inset CommandInset href
+LatexCommand href
+name "knitr engine"
+target "https://en.wikipedia.org/wiki/Knitr"
+literal "false"
+
+\end_inset
+
+.
+ All code, data and documents are also under revision control using git
+ and publicly accessible via github (
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/bjvca/Seed_systems_project"
+
+\end_inset
+
+).
+ The fact that the entire project is under revision control using git/github
+ provides detailed and time-stamped recording of any changes made over the
+ course of the project, further reducing scope for fishing by the researchers
+ and increasing transparency with respect to the decisions made.
+ 
+\end_layout
+
+\begin_layout Section*
 Descriptive statistics
+\end_layout
+
+\begin_layout Standard
+The first part of this report provides descriptive statistics for the baseline
+ data.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report baseline summary statistics at the agro-input dealer level.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ does this for the farmers.
 \end_layout
 
 \begin_layout Standard
@@ -6547,8 +6951,38 @@ end{center}
 
 \end_layout
 
-\begin_layout Part*
+\begin_layout Section*
 Orthogonality tests of randomization balance
+\end_layout
+
+\begin_layout Standard
+Testing if treatment and control groups are comparable in terms of a set
+ of pre-registered baseline characteristics are often reported in field
+ experiments.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ does this for agro-input dealers, while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at balance between treatment and control farmer.
+ As we test 3 different hypothesis using three difference interventions,
+ we also need 3 balance tests for each variable.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -8646,7 +9080,7 @@ Note: First column reports sample means (and standard deviations below);
 
 \end_layout
 
-\begin_layout Part*
+\begin_layout Section*
 Orthogonality tests of survey attrition
 \end_layout
 
@@ -8671,9 +9105,40 @@ While random attrition only reduces statistical power, attrition which is
 \end_layout
 
 \begin_layout Standard
-We will report attrition levels in the treatment and comparison groups and
- test whether attritors and non-attritors differ systematically in our baseline
- data, at least along observable dimensions.
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "attrition"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ simulates attrition levels in the treatment and comparison groups.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "attrition_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "attrition_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ use this simulated attrition to show how we will test whether attritors
+ and non-attritors differ systematically in our baseline data, at least
+ along observable dimensions.
  In these tests of survey attrition we include the same variables as in
  our tests of randomization balance.
 \end_layout
@@ -11395,16 +11860,104 @@ If attritors and non-attritors differ significantly and attrition could
  on the treatment effect that can be estimated from available data.
 \end_layout
 
-\begin_layout Part*
+\begin_layout Section*
 Outcome variables
 \end_layout
 
-\begin_layout Section*
-Agro-input dealer
+\begin_layout Standard
+The remaining tables (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot yield etc_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) all test differences between treatment and control groups for the three
+ hypotheses.
+ We have separate sections for outcomes at the agro-input dealer level and
+ the farmer level.
+ We also define a set of primary outcomes to test overall impact and various
+ secondary outcomes to explore impact more in detail and look at mechanisms.
+ We generally provide two tables: and one where p-values are adjusted using
+ the method outlined in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "sankoh1997some"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection*
+Agro-input dealer
+\end_layout
+
+\begin_layout Standard
+We start with outcomes at the agro-input dealer level (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_bag_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
 Primary
+\end_layout
+
+\begin_layout Standard
+Primary outcomes at the dealer level are are reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with associated table that corrects p-values for multiple hypothesis testing
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_prim_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -13934,13 +14487,10 @@ dag$ indicates that the variable was included in the overall index.
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
-\end_layout
-
-\begin_layout Standard
-The average sales price of 4 improved maize varieties last season is not
- included because the impact of the treatments on this outcome is ambiguous
- (increased adoption could eg.
+Some outcome variables are not included in the overall index: The average
+ sales price of 4 improved maize varieties last season is not included because
+ the impact of the treatments on this outcome is ambiguous (increased adoption
+ could eg.
  increase demand and hence prices but dealers could also lower prices to
  be more customer friendly).
  The index of all seed handling and storage practices is not included because
@@ -13952,16 +14502,29 @@ The average sales price of 4 improved maize varieties last season is not
  treated farmers as rating is part of the clearinghouse treatment).
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsubsection*
 Secondary
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Indices
 \end_layout
 
 \begin_layout Standard
-The outcome variables in 
+As a first set of secondary outcomes, we construct a series of indices to
+ assess things like motivation, knowledge etc.
+ This is reported in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_ind"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The outcome variables in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_dealer_sec_ind"
@@ -13972,7 +14535,14 @@ noprefix "false"
 \end_inset
 
  are not further adjusted for multiple hypothesis testing by means of an
- overall index or p-values adjusted according to Sankoh, Huque, Dubey (1997)
+ overall index or p-values adjusted according to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "sankoh1997some"
+literal "false"
+
+\end_inset
+
  because they are all indices.
 \end_layout
 
@@ -14621,18 +15191,39 @@ Note: First column reports means of the entire sample (control and treatment
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Other secondary
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+A second family of secondary outcomes are in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with associated Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that adjusts for multiple comparisons.
 \end_layout
 
 \begin_layout Standard
-The number of maize varieties in stock last season is not included because
- it is a function of the number of hybrid maize varieties and the number
- of open-pollinated maize varieties which are both included in the index.
+Some outcome variables are not included in the overall index: The number
+ of maize varieties in stock last season is not included because it is a
+ function of the number of hybrid maize varieties and the number of open-pollina
+ted maize varieties which are both included in the index.
  Whether the shop has equipment to monitor seed moisture or not is also
  not included because we provide dealers with this equipment as part of
  the dealer training.
@@ -15976,18 +16567,41 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Longe 10H
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+We also look at outcomes for particular seed types.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_L10H"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at farmer level outcomes related to a popular hybrid maize seed,
+ while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_L10H_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives the same information but adjusted for multiple comparisons.
 \end_layout
 
 \begin_layout Standard
-The transformed sales price of Longe 10H per kg at beginning of last season
- (IHS) is not included because the impact of the treatments on this outcome
- is ambiguous (increased adoption could eg.
+Some outcome variables are not included in the overall index: The transformed
+ sales price of Longe 10H per kg at beginning of last season (IHS) is not
+ included because the impact of the treatments on this outcome is ambiguous
+ (increased adoption could eg.
  increase demand and hence prices but dealers could also lower prices to
  be more customer friendly).
  The transformed amount of Longe 10H lost/wasted last season (IHS) is not
@@ -17987,8 +18601,33 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Longe 5
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_L5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at farmer level outcomes related to a popular OPV maize seed, while
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_L5_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives the same information but adjusted for multiple comparisons.
 \end_layout
 
 \begin_layout Standard
@@ -19978,18 +20617,41 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Registration/ trading license/ membership/ inspection
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+We now turn to outcomes that are related to registration and quality control
+ (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_off"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_off_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
-The transformed number of times shop was inspected by DAO/MAAIF/UNADA last
- year (IHS) is not included because the impact of the treatments on this
- outcome is ambiguous (eg.
+Some outcome variables are not included in the overall index: The transformed
+ number of times shop was inspected by DAO/MAAIF/UNADA last year (IHS) is
+ not included because the impact of the treatments on this outcome is ambiguous
+ (eg.
  more dealers could ask to be inspected to receive a certificate and signal
  quality which would increase the number but the treatments could also improve
  quality which could make inspections less necessary and common).
@@ -21772,8 +22434,33 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Seed bag
+\end_layout
+
+\begin_layout Standard
+Finally, in each shop, we purchase a random seed bag which is then analyzed.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_bag"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_bag_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ provides comparisons.
 \end_layout
 
 \begin_layout Standard
@@ -23127,24 +23814,50 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection*
 Farmer
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Standard
+We now turn to the impact of the interventions at the farmer level.
+\end_layout
+
+\begin_layout Subsubsection*
 Primary
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+We first define a set of key outcomes.
+ These are in Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_prim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_prim_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-The index of farmer’s maize seed ratings for shops nearby and the index
- of farmer’s general ratings of shops nearby are not included because the
- questions to compute these indeces are only collected from all farmers
- at endline (at midline, these variables are only collected from clearinghouse
- treated farmers as rating is part of the clearinghouse treatment).
+Some outcome variables are not included in the overall index: The index
+ of farmer’s maize seed ratings for shops nearby and the index of farmer’s
+ general ratings of shops nearby are not included because the questions
+ to compute these indeces are only collected from all farmers at endline
+ (at midline, these variables are only collected from clearinghouse treated
+ farmers as rating is part of the clearinghouse treatment).
  The index of services of shops nearby according to farmers is not included
  because many observations are missing at baseline.
  After midline data collection, we will check whether as many observations
@@ -25523,21 +26236,40 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsubsection*
 Secondary
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Other secondary
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
-\end_layout
+We further register a family of secondary outcomes that are somewhat unrelated
+ to each other in Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-The index of farmer skills is not included because the questions to compute
- this index are only collected at endline to avoid priming.
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Some outcome variables are not included in the overall index: The index
+ of farmer skills is not included because the questions to compute this
+ index are only collected at endline to avoid priming.
 \end_layout
 
 \begin_layout Standard
@@ -26800,19 +27532,41 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Adoption on randomly selected maize field
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+We also look at plot level outcomes (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot adoption"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot adoption_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
-Whether the farmer planted hybrid not farmer saved seed or an OPV (not used
- too often) on this field is not included because it is a function of whether
- the farmer planted hybrid maize seed and whether the farmer planted open-pollin
-ated maize seed, which are both included in the index.
+Some outcome variables are not included in the overall index: Whether the
+ farmer planted hybrid not farmer saved seed or an OPV (not used too often)
+ on this field is not included because it is a function of whether the farmer
+ planted hybrid maize seed and whether the farmer planted open-pollinated
+ maize seed, which are both included in the index.
 \end_layout
 
 \begin_layout Standard
@@ -28603,18 +29357,37 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Seed on randomly selected maize field
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
-\end_layout
+We now go more into detail with respect the the seed that was used on the
+ randomly selected field (Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot seed"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-The transformed cost of seed farmer used on this field last season (amount
- * price) (IHS) is not included because it is a function of the amount of
- seed and the price of seed, which are both included in the index.
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot seed_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Some outcome variables are not included in the overall index: The transformed
+ cost of seed farmer used on this field last season (amount * price) (IHS)
+ is not included because it is a function of the amount of seed and the
+ price of seed, which are both included in the index.
 \end_layout
 
 \begin_layout Standard
@@ -30391,18 +31164,40 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Paragraph*
 Yield etc.
  on randomly selected maize field
 \end_layout
 
 \begin_layout Standard
-Some outcome variables are not included in the overall index:
+Finally, we look at production related outcomes and disposal of maize (Tables
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot yield etc."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_sec: plot yield etc_adj"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-Production from this field last season is not included because it is included
- in the yield, which is included in the index.
+Some outcome variables are not included in the overall index: Production
+ from this field last season is not included because it is included in the
+ yield, which is included in the index.
  Whether the farmer harvested as much maize as expected from this field
  last season and whether he/she did not harvest as much maize as expected
  due to own mismanagement and the transformed amount kept as seed (IHS)
@@ -31518,7 +32313,7 @@ dag$ indicates that the variable was included in the overall index.
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -32159,6 +32954,22 @@ dag$ indicates that the variable was included in the overall index.
 
 
 \end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "/home/bjvca/data/projects/Seed_systems_project/Study design/seed_systems_pap"
+options "plain"
 
 \end_inset
 
