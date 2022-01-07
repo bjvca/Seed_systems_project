@@ -1,7 +1,7 @@
 rm(list=ls())
 
 path <- getwd()
-path <- strsplit(path,"/papers")[[1]]
+path <- strsplit(path,"/papers/mock_report")[[1]]
 
 baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"))
 baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"))
