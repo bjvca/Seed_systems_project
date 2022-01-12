@@ -3746,21 +3746,25 @@ for (i in 1:length(results_dealer_sec_nobase)){
 ##### 8 ANALYSIS: Farmer - Primary##############################################################################################################################################
 ################################################################################################################################################################################
 
-baseline_farmers_cpy <- baseline_farmers
 
-baseline_farmers$training <- baseline_farmers$training
+#get treaments from baseline data and define as TRUE/FALSE
+baseline_farmers$training <- (baseline_farmers$training == 1)
 baseline_farmers$clearing <- baseline_farmers$Check2.check.maize.clearing
 baseline_farmers$farmer <- baseline_farmers$Check2.check.maize.video_shown
+baseline_farmers$Check2.check.maize.clearing <- NULL
+baseline_farmers$Check2.check.maize.video_shown <- NULL
 
+#read in farmer level midline data here
 midline_farmers <- read.csv(paste(path,"midline/data/farmer/public/midline.csv",sep="/"))
 midline_farmers[midline_farmers=="n/a"] <- NA
-baseline_farmers <- merge(baseline_farmers, midline_farmers[,names(midline_farmers)!="catchID"], by="farmer_ID")
+baseline_farmers <- merge(baseline_farmers, midline_farmers[,names(midline_farmers)!=c("catchID","clearing")], by="farmer_ID")
 
-#midline rating dayads
+#read in midline rating dayads data here
 midline_rating_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_rating_dyads.csv",sep="/"))
 
 
 midline_rating_dyads[midline_rating_dyads=="n/a"] <- NA
+## 98 in rating data means the farmer does not know - code as missing?
 midline_rating_dyads[midline_rating_dyads==98] <- NA
 
 midline_rating_dyads$knows_dealer <- ifelse(midline_rating_dyads$knows_dealer=="Yes",1,0)
@@ -3807,18 +3811,19 @@ names(midline_dealer_services_dyads_aggr_F) <- c("Group.1","mid_knows_dealer"
                                                               ,"mid_payment_mehtods","mid_small_quant")                                                  
 baseline_farmers <- merge(baseline_farmers, midline_dealer_services_dyads_aggr_F, by.x="farmer_ID", by.y="Group.1", all.x = TRUE)
 
-sim_var_F <- function(var,type="c",cohen_d=c(.5,.5,.5)){
-  if (type == "c"){
-    sim_var_F <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_farmers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_farmers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_farmers$farmer
-  } else if (type == "b") {
-    if (sum(cohen_d)>0) {
-      sim_var_F <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_farmers$training + rbinom(length(var),1,cohen_d[2])*baseline_farmers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_farmers$farmer) >0.5
-    } else {
-      sim_var_F <- (sample(var) - rbinom(length(var),1,abs(cohen_d[1]))*baseline_farmers$training - rbinom(length(var),1,abs(cohen_d[2]))*baseline_farmers$clearing - rbinom(length(var),1,abs(cohen_d[3]))*baseline_farmers$farmer) >0.5
-      
-    }
-  }
-  return(sim_var_F)}
+#this was for mock report - can go now that we have real data
+#sim_var_F <- function(var,type="c",cohen_d=c(.5,.5,.5)){
+#  if (type == "c"){
+#    sim_var_F <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_farmers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_farmers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_farmers$farmer
+#  } else if (type == "b") {
+#    if (sum(cohen_d)>0) {
+#      sim_var_F <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_farmers$training + rbinom(length(var),1,cohen_d[2])*baseline_farmers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_farmers$farmer) >0.5
+#    } else {
+#      sim_var_F <- (sample(var) - rbinom(length(var),1,abs(cohen_d[1]))*baseline_farmers$training - rbinom(length(var),1,abs(cohen_d[2]))*baseline_farmers$clearing - rbinom(length(var),1,abs(cohen_d[3]))*baseline_farmers$farmer) >0.5
+#      
+#    }
+#  }
+#  return(sim_var_F)}
 
 #1. Q25a. Did you use any quality maize seed like **OPV or hybrid in **seed  the second season of **2020 (entoigo 2020)** for any of your plots?
 #baseline_farmers$mid_Check2.check.maize.q25a <- baseline_farmers$Check2.check.maize.q25a #delete
@@ -3826,8 +3831,7 @@ sim_var_F <- function(var,type="c",cohen_d=c(.5,.5,.5)){
 #baseline_farmers$mid_Check2.check.maize.q25a <- sim_var_F(baseline_farmers$Check2.check.maize.q25a,"b",c(.25,.5,.1)) #delete
 #baseline_farmers$mid_Check2.check.maize.q25a<-ifelse(baseline_farmers$mid_Check2.check.maize.q25a==TRUE,1,0) #delete
 
-#this is the correct one
-baseline_farmers$mid_Check2.check.maize.q25a<-ifelse(baseline_farmers$check.maize.q25a=="Yes",1,0) 
+baseline_farmers$mid_Check2.check.maize.q25a <- ifelse(baseline_farmers$check.maize.q25a=="Yes",1,0) 
 
 #2. q25b. Where did you obtain the maize seed used in the second season of **2020 (entoigo 2020)** on any of your plots?
 baseline_farmers$agro <- ifelse(baseline_farmers$Check2.check.maize.q25b=="d",1,0)
@@ -3845,9 +3849,8 @@ baseline_farmers$mid_agro <- ifelse(baseline_farmers$check.maize.q25b=="d",1,0)
 baseline_farmers$mid_agro[is.na(baseline_farmers$mid_agro)] <- 0
 baseline_farmers$mid_agro[is.na(baseline_farmers$mid_Check2.check.maize.q25a)] <- NA
 
-
 #3. Q25d. How much quality maize seed (hybrid or OPV) did you buy from an input dealer in the second agricultural season of 2020? Record amount in **KG**
-baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
+baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] <- 0
 baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
@@ -3857,9 +3860,8 @@ baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] <- 0
 baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
 baseline_farmers <- trim("mid_Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
-#baseline_farmers$mid_Check2.check.maize.q25d <- sim_var_F(baseline_farmers$Check2.check.maize.q25d,"c",c(.25,.5,.1)) #delete
 
-#4. services
+#4. services - these come from te dyads
 #baseline_farmers$mid_refunds <- baseline_farmers$refunds
 #baseline_farmers$mid_refunds<-ifelse(baseline_farmers$mid_refunds=="Yes",1,0)
 baseline_farmers$mid_refunds <- as.numeric(as.character(baseline_farmers$mid_refunds))
@@ -3903,96 +3905,95 @@ baseline_farmers$correct_q40 <- 0
 baseline_farmers$correct_q40[baseline_farmers$Check2.check.maize.q40=="b"] <- 1
 baseline_farmers$correct_q40[baseline_farmers$Check2.check.maize.q40=="c"] <- 1
 
-baseline_farmers$mid_Check2.check.maize.q40 <- baseline_farmers$Check2.check.maize.q40
-baseline_farmers$mid_correct_q40 <- 0
-baseline_farmers$mid_correct_q40[baseline_farmers$mid_Check2.check.maize.q40=="b"] <- 1
-baseline_farmers$mid_correct_q40[baseline_farmers$mid_Check2.check.maize.q40=="c"] <- 1
+baseline_farmers$mid_Check2.check.maize.q40 <- baseline_farmers$check.maize.q40
+baseline_farmers$mid_Check2.check.maize.q40 <- ifelse(baseline_farmers$mid_Check2.check.maize.q40 == "b" | baseline_farmers$mid_Check2.check.maize.q40 == "c",1,0)
+
 
 #q41
 #Wilber: The same applies to q41.
 baseline_farmers$correct_q41 <- ifelse(baseline_farmers$Check2.check.maize.q41=="1",1,0)
 baseline_farmers$correct_q41[baseline_farmers$Check2.check.maize.q41=="2"] <- 1
 
-baseline_farmers$mid_Check2.check.maize.q41 <- baseline_farmers$Check2.check.maize.q41
+baseline_farmers$mid_Check2.check.maize.q41 <- baseline_farmers$check.maize.q41
 baseline_farmers$mid_Check2.check.maize.q41 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q41))
 baseline_farmers$mid_correct_q41 <- ifelse(baseline_farmers$mid_Check2.check.maize.q41=="1",1,0)
 baseline_farmers$mid_correct_q41[baseline_farmers$mid_Check2.check.maize.q41=="2"] <- 1
 
-#q42
+#q42  Did you apply organic manure
 baseline_farmers$correct_q42 <- NA
 baseline_farmers$correct_q42[baseline_farmers$Check2.check.maize.q42=="1"] <- 1
 baseline_farmers$correct_q42[baseline_farmers$Check2.check.maize.q42=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q42 <- baseline_farmers$Check2.check.maize.q42
-#baseline_farmers$mid_Check2.check.maize.q42<-ifelse(baseline_farmers$mid_Check2.check.maize.q42=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q42 <- baseline_farmers$check.maize.q42
+baseline_farmers$mid_Check2.check.maize.q42<-ifelse(baseline_farmers$mid_Check2.check.maize.q42=="Yes",1,0)
 baseline_farmers$mid_correct_q42 <- NA
 baseline_farmers$mid_correct_q42[baseline_farmers$mid_Check2.check.maize.q42=="1"] <- 1
 baseline_farmers$mid_correct_q42[baseline_farmers$mid_Check2.check.maize.q42=="0"] <- 0
 
-#q43
+#q43  Did you apply DAP
 baseline_farmers$correct_q43 <- NA
 baseline_farmers$correct_q43[baseline_farmers$Check2.check.maize.q43=="1"] <- 1
 baseline_farmers$correct_q43[baseline_farmers$Check2.check.maize.q43=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q43 <- baseline_farmers$Check2.check.maize.q43
-#baseline_farmers$mid_Check2.check.maize.q43<-ifelse(baseline_farmers$mid_Check2.check.maize.q43=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q43 <- baseline_farmers$check.maize.q43
+baseline_farmers$mid_Check2.check.maize.q43<-ifelse(baseline_farmers$mid_Check2.check.maize.q43=="Yes",1,0)
 baseline_farmers$mid_correct_q43 <- NA
 baseline_farmers$mid_correct_q43[baseline_farmers$mid_Check2.check.maize.q43=="1"] <- 1
 baseline_farmers$mid_correct_q43[baseline_farmers$mid_Check2.check.maize.q43=="0"] <- 0
 
-#q44
+#q44  Did you apply Urea
 baseline_farmers$correct_q44 <- NA
 baseline_farmers$correct_q44[baseline_farmers$Check2.check.maize.q44=="1"] <- 1
 baseline_farmers$correct_q44[baseline_farmers$Check2.check.maize.q44=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q44 <- baseline_farmers$Check2.check.maize.q44
-#baseline_farmers$mid_Check2.check.maize.q44<-ifelse(baseline_farmers$mid_Check2.check.maize.q44=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q44 <- baseline_farmers$check.maize.q44
+baseline_farmers$mid_Check2.check.maize.q44<-ifelse(baseline_farmers$mid_Check2.check.maize.q44=="Yes",1,0)
 baseline_farmers$mid_Check2.check.maize.q44 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q44))
 baseline_farmers$mid_correct_q44 <- NA
 baseline_farmers$mid_correct_q44[baseline_farmers$mid_Check2.check.maize.q44=="1"] <- 1
 baseline_farmers$mid_correct_q44[baseline_farmers$mid_Check2.check.maize.q44=="0"] <- 0
 
-#q45
+#q45 times weeding - 3 is recommended
 baseline_farmers$correct_q45[baseline_farmers$Check2.check.maize.q45>=3] <- 1
 baseline_farmers$correct_q45[baseline_farmers$Check2.check.maize.q45<3] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q45 <- baseline_farmers$Check2.check.maize.q45
+baseline_farmers$mid_Check2.check.maize.q45 <- as.numeric(as.character(baseline_farmers$check.maize.q45))
 baseline_farmers$mid_correct_q45[baseline_farmers$mid_Check2.check.maize.q45>=3] <- 1
 baseline_farmers$mid_correct_q45[baseline_farmers$mid_Check2.check.maize.q45<3] <- 0
 
-#q46
+#q46 How many days after planting did you do first weeding 
 baseline_farmers$correct_q46 <- (baseline_farmers$Check2.check.maize.q46 <= 20)
 baseline_farmers$correct_q46<-ifelse(baseline_farmers$correct_q46=="TRUE",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q46 <- baseline_farmers$Check2.check.maize.q46
+baseline_farmers$mid_Check2.check.maize.q46 <- baseline_farmers$check.maize.q46
 baseline_farmers$mid_Check2.check.maize.q46 <- (as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q46)))
 baseline_farmers$mid_correct_q46 <- (baseline_farmers$mid_Check2.check.maize.q46 <= 20)
 baseline_farmers$mid_correct_q46<-ifelse(baseline_farmers$mid_correct_q46=="TRUE",1,0)
 
-#q47
+#q47 Used pesticides
 baseline_farmers$correct_q47 <- NA
 baseline_farmers$correct_q47[baseline_farmers$Check2.check.maize.q47=="1"] <- 1
 baseline_farmers$correct_q47[baseline_farmers$Check2.check.maize.q47=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q47 <- baseline_farmers$Check2.check.maize.q47
-#baseline_farmers$mid_Check2.check.maize.q47<-ifelse(baseline_farmers$mid_Check2.check.maize.q47=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q47 <- baseline_farmers$check.maize.q47
+baseline_farmers$mid_Check2.check.maize.q47<-ifelse(baseline_farmers$mid_Check2.check.maize.q47=="Yes",1,0)
 baseline_farmers$mid_correct_q47 <- NA
 baseline_farmers$mid_correct_q47[baseline_farmers$mid_Check2.check.maize.q47=="1"] <- 1
 baseline_farmers$mid_correct_q47[baseline_farmers$mid_Check2.check.maize.q47=="0"] <- 0
 
-#q48
+#q48 - timeing of plating
 baseline_farmers$correct_q48 <- ifelse(baseline_farmers$Check2.check.maize.q48=="2",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q48 <- baseline_farmers$Check2.check.maize.q48
+baseline_farmers$mid_Check2.check.maize.q48 <- baseline_farmers$check.maize.q48
 baseline_farmers$mid_correct_q48 <- ifelse(baseline_farmers$mid_Check2.check.maize.q48=="2",1,0)
 
-#q49
+#q49 - gap filling
 baseline_farmers$correct_q49 <- NA
 baseline_farmers$correct_q49[baseline_farmers$Check2.check.maize.q49=="1"] <- 1
 baseline_farmers$correct_q49[baseline_farmers$Check2.check.maize.q49=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q49 <- baseline_farmers$Check2.check.maize.q49
-#baseline_farmers$mid_Check2.check.maize.q49<-ifelse(baseline_farmers$mid_Check2.check.maize.q49=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q49 <- baseline_farmers$check.maize.q49
+baseline_farmers$mid_Check2.check.maize.q49<-ifelse(baseline_farmers$mid_Check2.check.maize.q49=="Yes",1,0)
 baseline_farmers$mid_correct_q49 <- NA
 baseline_farmers$mid_correct_q49[baseline_farmers$mid_Check2.check.maize.q49=="1"] <- 1
 baseline_farmers$mid_correct_q49[baseline_farmers$mid_Check2.check.maize.q49=="0"] <- 0
@@ -4007,46 +4008,37 @@ variables_practices_base <- cbind(baseline_farmers$correct_q40,baseline_farmers$
                                   ,baseline_farmers$correct_q46,baseline_farmers$correct_q47,baseline_farmers$correct_q48
                                   ,baseline_farmers$correct_q49)
 
-index_practices_mid <- icwIndex(xmat=variables_practices_mid)
-baseline_farmers$index_practices_mid <- index_practices_mid$index #midline index
+#I dont think we need to do this here but in the loops below becuase the comparison group changes as well:
+#index_practices_mid <- icwIndex(xmat=variables_practices_mid)
+#baseline_farmers$index_practices_mid <- index_practices_mid$index #midline index
 
-index_practices_base <- icwIndex(xmat=variables_practices_base)
-baseline_farmers$index_practices_base <- index_practices_base$index #baseline index
+#index_practices_base <- icwIndex(xmat=variables_practices_base)
+#baseline_farmers$index_practices_base <- index_practices_base$index #baseline index
 
-baseline_farmers$index_practices_mid <- sim_var_F(baseline_farmers$index_practices_mid,"c",c(.25,.5,.1)) #delete
+
 
 #1. Q25h. Do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? NEW ANSWER OPTION
-baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$Check2.check.maize.q25h
-#baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$check.maize.q25h
+baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q25h <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q25h,"b",c(-.25,-.5,-.1)) #delete
-baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h==TRUE,1,0) #delete
-
-baseline_farmers$Check2.check.maize.q25h_pos <- baseline_farmers$Check2.check.maize.q25h*-1
-baseline_farmers$mid_Check2.check.maize.q25h_pos <- baseline_farmers$mid_Check2.check.maize.q25h*-1
+#dont do this - we need to standardize first before taking the negative - better use the reverse option in the icxIndex function
+#baseline_farmers$Check2.check.maize.q25h_pos <- baseline_farmers$Check2.check.maize.q25h*-1
+#baseline_farmers$mid_Check2.check.maize.q25h_pos <- baseline_farmers$mid_Check2.check.maize.q25h*-1
 
 #3. farmer saved
-baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$Check2.check.maize.q31
+baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$check.maize.q31
 
 baseline_farmers$mid_Land_Races<-(baseline_farmers$mid_Check2.check.maize.q31=="Land_Races")
 baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races=="TRUE",1,0)
 
-baseline_farmers$mid_Land_Races <- sim_var_F(baseline_farmers$mid_Land_Races,"b",c(-.25,-.5,-.1)) #delete
-baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races==TRUE,1,0) #delete
-
-baseline_farmers$Land_Races_pos <- baseline_farmers$Land_Races*-1
-baseline_farmers$mid_Land_Races_pos <- baseline_farmers$mid_Land_Races*-1
+#dont do this - we need to standardize first before taking the negative - better use the reverse option in the icxIndex function
+#baseline_farmers$Land_Races_pos <- baseline_farmers$Land_Races*-1
+#baseline_farmers$mid_Land_Races_pos <- baseline_farmers$mid_Land_Races*-1
 
 
 
 
-#6. overall index
-variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_mid
-                                 ,baseline_farmers$mid_Check2.check.maize.q25h_pos,baseline_farmers$mid_Land_Races_pos)
-variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
-                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices
-                                  ,baseline_farmers$Check2.check.maize.q25h_pos,baseline_farmers$Land_Races_pos)
+
 
 
 ################################################################################################################################################################################
@@ -4063,27 +4055,33 @@ baseline_farmers$index_servicesF_mid <- index_servicesF_mid$index #midline index
 index_servicesF_base <- icwIndex(xmat=variables_servicesF_base)
 baseline_farmers$index_servicesF_base <- index_servicesF_base$index #baseline index
 
-baseline_farmers$index_servicesF_mid <- sim_var_F(baseline_farmers$index_servicesF_mid,"c",c(.25,.5,.1)) #delete
+
 
 #5.
 #done above to include in overall index
-# index_practices_mid <- icwIndex(xmat=variables_practices_mid)
-# baseline_farmers$index_practices_mid <- index_practices_mid$index #midline index
-# 
-# index_practices_base <- icwIndex(xmat=variables_practices_base)
-# baseline_farmers$index_practices_base <- index_practices_base$index #baseline index
-# 
-# baseline_farmers$index_practices_mid <- sim_var_F(baseline_farmers$index_practices_mid,"c",c(.25,.5,.1)) #delete
+ index_practices_mid <- icwIndex(xmat=variables_practices_mid)
+ baseline_farmers$index_practices_mid <- index_practices_mid$index #midline index
+ 
+ index_practices_base <- icwIndex(xmat=variables_practices_base)
+ baseline_farmers$index_practices_base <- index_practices_base$index #baseline index
+
 
 #6. 
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_mid
+                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
+                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_base
+                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
+                                  
 
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid)
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid, revcols=c(5,6))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index #midline index
 
-index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base)
+index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base, revcols=c(5,6))
 baseline_farmers$index_overallprimF_base <- index_overallprimF_base$index #baseline index
 
-baseline_farmers$index_overallprimF_mid <- sim_var_F(baseline_farmers$index_overallprimF_mid,"c",c(.25,.5,.1)) #delete
+
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
                          ,"index_servicesF_mid","index_practices_mid","mid_Check2.check.maize.q25h"
@@ -4099,6 +4097,8 @@ for (i in 1:length(results_farmer_prim)){
   df_means_F_prim[1,i] <- sum(baseline_farmers[results_farmer_prim[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]])))
   df_means_F_prim[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim[i]], na.rm=T))
   df_means_F_prim[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))}
+  
+save(df_means_F_prim, file = paste(path,"papers/midline_report/output/df_means_F_prim.Rd",sep="/") )
 
 ###
 #2#
@@ -4108,31 +4108,35 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #4.
-index_servicesF_midT <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midT <- icwIndex(xmat=variables_servicesF_mid, sgroup = baseline_farmers$training_control)
 baseline_farmers$index_servicesF_midT <- index_servicesF_midT$index #midline index
 
-index_servicesF_baseT <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseT <- icwIndex(xmat=variables_servicesF_base, sgroup = baseline_farmers$training_control)
 baseline_farmers$index_servicesF_baseT <- index_servicesF_baseT$index #baseline index
 
-baseline_farmers$index_servicesF_midT <- sim_var_F(baseline_farmers$index_servicesF_midT,"c",c(.25,.5,.1)) #delete
 
 #5.
-index_practices_midT <- icwIndex(xmat=variables_practices_mid)
+index_practices_midT <- icwIndex(xmat=variables_practices_mid, sgroup = baseline_farmers$training_control)
 baseline_farmers$index_practices_midT <- index_practices_midT$index #midline index
 
-index_practices_baseT <- icwIndex(xmat=variables_practices_base)
+index_practices_baseT <- icwIndex(xmat=variables_practices_base, sgroup = baseline_farmers$training_control)
 baseline_farmers$index_practices_baseT <- index_practices_baseT$index #baseline index
 
-baseline_farmers$index_practices_midT <- sim_var_F(baseline_farmers$index_practices_midT,"c",c(.25,.5,.1)) #delete
+#6. overall index
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_midT
+                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
+                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_baseT
+                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
 
 #6.
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid)
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid, sgroup = baseline_farmers$training_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index #midline index
 
-index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base)
+index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base, sgroup = baseline_farmers$training_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index #baseline index
 
-baseline_farmers$index_overallprimF_midT <- sim_var_F(baseline_farmers$index_overallprimF_midT,"c",c(.25,.5,.1)) #delete
 
 
 
@@ -4163,31 +4167,37 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #4.
-index_servicesF_midC <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midC <- icwIndex(xmat=variables_servicesF_mid, sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_servicesF_midC <- index_servicesF_midC$index #midline index
 
-index_servicesF_baseC <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseC <- icwIndex(xmat=variables_servicesF_base, sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_servicesF_baseC <- index_servicesF_baseC$index #baseline index
 
-baseline_farmers$index_servicesF_midC <- sim_var_F(baseline_farmers$index_servicesF_midC,"c",c(.25,.5,.1)) #delete
+
 
 #5.
-index_practices_midC <- icwIndex(xmat=variables_practices_mid)
+index_practices_midC <- icwIndex(xmat=variables_practices_mid, sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_practices_midC <- index_practices_midC$index #midline index
 
-index_practices_baseC <- icwIndex(xmat=variables_practices_base)
+index_practices_baseC <- icwIndex(xmat=variables_practices_base, sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_practices_baseC <- index_practices_baseC$index #baseline index
 
-baseline_farmers$index_practices_midC <- sim_var_F(baseline_farmers$index_practices_midC,"c",c(.25,.5,.1)) #delete
+#6. overall index
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_midC
+                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
+                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_baseC
+                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
 
 #6.
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid)
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid, sgroup = baseline_farmers$clearing_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index #midline index
 
-index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base)
+index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base, sgroup = baseline_farmers$clearing_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index #baseline index
 
-baseline_farmers$index_overallprimF_midC <- sim_var_F(baseline_farmers$index_overallprimF_midC,"c",c(.25,.5,.1)) #delete
+
 
 
 
@@ -4200,13 +4210,14 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.mai
                               ,"Land_Races","index_overallprimF_baseC")
 
 for (i in 1:length(results_farmer_prim)){
+if (results_farmer_prim[i]!="index_servicesF_midC") {
   ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
   df_ols_F_prim[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
   df_ols_F_prim[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_prim[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_prim[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}}
 
 ###
 #4#
@@ -4216,31 +4227,34 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #4.
-index_servicesF_midF <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midF <- icwIndex(xmat=variables_servicesF_mid, sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_servicesF_midF <- index_servicesF_midF$index #midline index
 
-index_servicesF_baseF <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseF <- icwIndex(xmat=variables_servicesF_base, sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_servicesF_baseF <- index_servicesF_baseF$index #baseline index
 
-baseline_farmers$index_servicesF_midF <- sim_var_F(baseline_farmers$index_servicesF_midF,"c",c(.25,.5,.1)) #delete
 
 #5.
-index_practices_midF <- icwIndex(xmat=variables_practices_mid)
+index_practices_midF <- icwIndex(xmat=variables_practices_mid, sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_practices_midF <- index_practices_midF$index #midline index
 
-index_practices_baseF <- icwIndex(xmat=variables_practices_base)
+index_practices_baseF <- icwIndex(xmat=variables_practices_base, sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_practices_baseF <- index_practices_baseF$index #baseline index
 
-baseline_farmers$index_practices_midF <- sim_var_F(baseline_farmers$index_practices_midF,"c",c(.25,.5,.1)) #delete
+variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_midF
+                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
+                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_baseF
+                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
 
 #6.
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid)
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid, sgroup = baseline_farmers$farmer_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index #midline index
 
-index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base)
+index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base, sgroup = baseline_farmers$farmer_control, revcols=c(5,6))
 baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index #baseline index
 
-baseline_farmers$index_overallprimF_midF <- sim_var_F(baseline_farmers$index_overallprimF_midF,"c",c(.25,.5,.1)) #delete
 
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
@@ -4263,522 +4277,9 @@ for (i in 1:length(results_farmer_prim)){
   df_ols_F_prim[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_F_prim[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_mid
-                                 ,baseline_farmers$index_practices_midF,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primC <- df_farmer_primT
-df_farmer_primF <- df_farmer_primT
-#no overall index
 
-df_ols_F_prim_J <- array(NA,dim=c(3,3,11))
 
-results_farmer_prim_J <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                           ,"index_servicesF_mid","index_practices_midF","mid_Check2.check.maize.q25h"
-                           ,"mid_Land_Races")
-#no overall index
-
-for (i in 1:length(results_farmer_prim_J)){
-  df_ols_F_prim_J[3,1,i] <- adjust_p(df_ols_F_prim[3,1,i],df_farmer_primT,i)
-  df_ols_F_prim_J[3,2,i] <- adjust_p(df_ols_F_prim[3,2,i],df_farmer_primC,i)
-  df_ols_F_prim_J[3,3,i] <- adjust_p(df_ols_F_prim[3,3,i],df_farmer_primF,i)}
-
-#results_farmer_prim
-#df_means_F_prim
-#df_ols_F_prim
-
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
-##### 10 ANALYSIS: Farmer - Secondary ##########################################################################################################################################
-################################################################################################################################################################################
-baseline_farmers <- baseline_farmers
-# #1. Q25h. Do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? NEW ANSWER OPTION
-# baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$Check2.check.maize.q25h
-# #baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
-# 
-# baseline_farmers$mid_Check2.check.maize.q25h <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q25h,"b",c(-.25,-.5,-.1)) #delete
-# baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h==TRUE,1,0) #delete
-# 
-# baseline_farmers$Check2.check.maize.q25h_pos <- baseline_farmers$Check2.check.maize.q25h*-1
-# baseline_farmers$mid_Check2.check.maize.q25h_pos <- baseline_farmers$mid_Check2.check.maize.q25h*-1
-
-#2. Q26. ${enumerator} : Ask the farmer to mention as many improved maize varieties that they are aware of
-baseline_farmers$Check2.check.maize.q26.Longe_10H <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_10H=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Longe_7H <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_7H=="True",1,0)
-#baseline_farmers$Check2.check.maize.q26.Longe_7R_Kayongo.go <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_7R_Kayongo.go=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Bazooka <- ifelse(baseline_farmers$Check2.check.maize.q26.Bazooka=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Longe_6H <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_6H=="True",1,0)
-#baseline_farmers$Check2.check.maize.q26.Longe_5 <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_5=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Longe_4 <- ifelse(baseline_farmers$Check2.check.maize.q26.Longe_4=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Panner <- ifelse(baseline_farmers$Check2.check.maize.q26.Panner=="True",1,0)
-#baseline_farmers$Check2.check.maize.q26.Wema <- ifelse(baseline_farmers$Check2.check.maize.q26.Wema=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.KH_series <- ifelse(baseline_farmers$Check2.check.maize.q26.KH_series=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Land_Races <- ifelse(baseline_farmers$Check2.check.maize.q26.Land_Races=="True",1,0)
-baseline_farmers$Check2.check.maize.q26.Other_hybrid <- ifelse(baseline_farmers$Check2.check.maize.q26.Other_hybrid=="True",1,0)
-
-baseline_farmers$number_known <- (baseline_farmers$Check2.check.maize.q26.Longe_10H
-                                  +baseline_farmers$Check2.check.maize.q26.Longe_7H
-                                  +baseline_farmers$Check2.check.maize.q26.Longe_7R_Kayongo.go
-                                  +baseline_farmers$Check2.check.maize.q26.Bazooka
-                                  +baseline_farmers$Check2.check.maize.q26.Longe_6H
-                                  +baseline_farmers$Check2.check.maize.q26.Longe_5
-                                  +baseline_farmers$Check2.check.maize.q26.Longe_4
-                                  +baseline_farmers$Check2.check.maize.q26.Panner
-                                  +baseline_farmers$Check2.check.maize.q26.Wema
-                                  +baseline_farmers$Check2.check.maize.q26.KH_series
-                                  +baseline_farmers$Check2.check.maize.q26.Land_Races
-                                  +baseline_farmers$Check2.check.maize.q26.Other_hybrid)
-
-baseline_farmers$mid_Check2.check.maize.q26.Longe_10H <- baseline_farmers$Check2.check.maize.q26.Longe_10H
-baseline_farmers$mid_Check2.check.maize.q26.Longe_7H <- baseline_farmers$Check2.check.maize.q26.Longe_7H
-baseline_farmers$mid_Check2.check.maize.q26.Longe_7R_Kayongo.go <- baseline_farmers$Check2.check.maize.q26.Longe_7R_Kayongo.go
-baseline_farmers$mid_Check2.check.maize.q26.Bazooka <- baseline_farmers$Check2.check.maize.q26.Bazooka
-baseline_farmers$mid_Check2.check.maize.q26.Longe_6H <- baseline_farmers$Check2.check.maize.q26.Longe_6H
-baseline_farmers$mid_Check2.check.maize.q26.Longe_5 <- baseline_farmers$Check2.check.maize.q26.Longe_5
-baseline_farmers$mid_Check2.check.maize.q26.Longe_4 <- baseline_farmers$Check2.check.maize.q26.Longe_4
-baseline_farmers$mid_Check2.check.maize.q26.Panner <- baseline_farmers$Check2.check.maize.q26.Panner
-baseline_farmers$mid_Check2.check.maize.q26.Wema <- baseline_farmers$Check2.check.maize.q26.Wema
-baseline_farmers$mid_Check2.check.maize.q26.KH_series <- baseline_farmers$Check2.check.maize.q26.KH_series
-baseline_farmers$mid_Check2.check.maize.q26.Land_Races <- baseline_farmers$Check2.check.maize.q26.Land_Races
-baseline_farmers$mid_Check2.check.maize.q26.Other_hybrid <- baseline_farmers$Check2.check.maize.q26.Other_hybrid
-
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_10H <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_10H=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_7H <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_7H=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_7R_Kayongo.go <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_7R_Kayongo.go=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Bazooka <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Bazooka=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_6H <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_6H=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_5 <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_5=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Longe_4 <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Longe_4=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Panner <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Panner=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Wema <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Wema=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.KH_series <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.KH_series=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Land_Races <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Land_Races=="True",1,0)
-# baseline_farmers$mid_Check2.check.maize.q26.Other_hybrid <- ifelse(baseline_farmers$mid_Check2.check.maize.q26.Other_hybrid=="True",1,0)
-
-baseline_farmers$mid_number_known <- (baseline_farmers$mid_Check2.check.maize.q26.Longe_10H
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Longe_7H
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Longe_7R_Kayongo.go
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Bazooka
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Longe_6H
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Longe_5
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Longe_4
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Panner
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Wema
-                                  +baseline_farmers$mid_Check2.check.maize.q26.KH_series
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Land_Races
-                                  +baseline_farmers$mid_Check2.check.maize.q26.Other_hybrid)
-
-baseline_farmers$mid_number_known <- sim_var_F(baseline_farmers$number_known,"c",c(.25,.5,.1)) #delete
-
-#3. Q64. Do you know **${calc_biz}**  or ${dealer_name} sometimes called ${nickname} located in ${market_name} market. The place can be described as: ${eye}
-baseline_farmers$mid_knows_dealer <- baseline_farmers$knows_dealer
-#baseline_farmers$mid_knows_dealer <- ifelse(baseline_farmers$mid_knows_dealer=="Yes",1,0)
-baseline_farmers$mid_knows_dealer <- as.numeric(as.character(baseline_farmers$mid_knows_dealer))
-
-baseline_farmers$mid_knows_dealer <- sim_var_F(baseline_farmers$mid_knows_dealer,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_knows_dealer<-ifelse(baseline_farmers$mid_knows_dealer==TRUE,1,0) #delete
-
-#4. Q67. Did you buy seed from  **${calc_biz}** in the last season (entoigo 2020)
-baseline_farmers$bought_last_season[baseline_farmers$knows_dealer==0] <- 0
-baseline_farmers$bought_last_season[baseline_farmers$bought_at_dealer==0] <- 0
-
-baseline_farmers$mid_bought_at_dealer <- baseline_farmers$bought_at_dealer
-baseline_farmers$mid_bought_last_season <- baseline_farmers$bought_last_season
-#baseline_farmers$mid_bought_last_season <- ifelse(baseline_farmers$mid_bought_last_season=="Yes",1,0)
-baseline_farmers$mid_bought_last_season <- as.numeric(as.character(baseline_farmers$mid_bought_last_season))
-baseline_farmers$mid_bought_last_season[baseline_farmers$mid_knows_dealer==0] <- 0
-baseline_farmers$mid_bought_last_season[baseline_farmers$mid_bought_at_dealer==0] <- 0
-
-baseline_farmers$mid_bought_last_season <- sim_var_F(baseline_farmers$mid_bought_last_season,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_bought_last_season<-ifelse(baseline_farmers$mid_bought_last_season==TRUE,1,0) #delete
-
-#5. overall index
-variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-                                   ,baseline_farmers$mid_knows_dealer,baseline_farmers$mid_bought_last_season)
-variables_overallsecF_base <- cbind(baseline_farmers$number_known
-                                    ,baseline_farmers$knows_dealer,baseline_farmers$bought_last_season)
-
-################################################################################################################################################################################
-###4. Create index: weighted average of outcomes for individual i in area j
-
-###
-#1#
-###
-
-#5.
-index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
-baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index #midline index
-
-index_overallsecF_base <- icwIndex(xmat=variables_overallsecF_base)
-baseline_farmers$index_overallsecF_base <- index_overallsecF_base$index #baseline index
-
-baseline_farmers$index_overallsecF_mid <- sim_var_F(baseline_farmers$index_overallsecF_mid,"c",c(.25,.5,.1)) #delete
-
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_mid")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_base")
-
-df_means_F_sec <- array(NA,dim=c(3,11))
-
-for (i in 1:length(results_farmer_sec)){
-  df_means_F_sec[1,i] <- sum(baseline_farmers[results_farmer_sec[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]])))
-  df_means_F_sec[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec[i]], na.rm=T))
-  df_means_F_sec[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec[i]])&is.na(baseline_farmers[results_farmer_sec_base[i]]))}
-
-###
-#2#
-###
-
-baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
-baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
-
-#5.
-index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid)
-baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index #midline index
-
-index_overallsecF_baseT <- icwIndex(xmat=variables_overallsecF_base)
-baseline_farmers$index_overallsecF_baseT <- index_overallsecF_baseT$index #baseline index
-
-baseline_farmers$index_overallsecF_midT <- sim_var_F(baseline_farmers$index_overallsecF_midT,"c",c(.25,.5,.1)) #delete
-
-df_ols_F_sec <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midT")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseT")
-
-for (i in 1:length(results_farmer_sec)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~"),results_farmer_sec_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_sec[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
-
-###
-#3#
-###
-
-baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
-baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
-
-#5.
-index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid)
-baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index #midline index
-
-index_overallsecF_baseC <- icwIndex(xmat=variables_overallsecF_base)
-baseline_farmers$index_overallsecF_baseC <- index_overallsecF_baseC$index #baseline index
-
-baseline_farmers$index_overallsecF_midC <- sim_var_F(baseline_farmers$index_overallsecF_midC,"c",c(.25,.5,.1)) #delete
-
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midC")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseC")
-
-for (i in 1:length(results_farmer_sec)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~"),results_farmer_sec_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_sec[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
-
-###
-#4#
-###
-
-baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
-baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
-
-#5.
-index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid)
-baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index #midline index
-
-index_overallsecF_baseF <- icwIndex(xmat=variables_overallsecF_base)
-baseline_farmers$index_overallsecF_baseF <- index_overallsecF_baseF$index #baseline index
-
-baseline_farmers$index_overallsecF_midF <- sim_var_F(baseline_farmers$index_overallsecF_midF,"c",c(.25,.5,.1)) #delete
-
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midF")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseF")
-
-for (i in 1:length(results_farmer_sec)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~"),results_farmer_sec_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_secT <- data.frame(baseline_farmers$mid_number_known
-                                  ,baseline_farmers$mid_knows_dealer,baseline_farmers$mid_bought_last_season)
-df_farmer_secC <- df_farmer_secT
-df_farmer_secF <- df_farmer_secT
-#no overall index
-
-df_ols_F_sec_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_J <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season")
-#no overall index
-
-for (i in 1:length(results_farmer_sec_J)){
-  df_ols_F_sec_J[3,1,i] <- adjust_p(df_ols_F_sec[3,1,i],df_farmer_secT,i)
-  df_ols_F_sec_J[3,2,i] <- adjust_p(df_ols_F_sec[3,2,i],df_farmer_secC,i)
-  df_ols_F_sec_J[3,3,i] <- adjust_p(df_ols_F_sec[3,3,i],df_farmer_secF,i)}
-
-#results_farmer_sec
-#df_means_F_sec
-#df_ols_F_sec
-#df_farmer_sec
-
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
-##### 11 ANALYSIS: Farmer - Secondary: Adoption on plot ########################################################################################################################
-################################################################################################################################################################################
-
-#1. hybrid
-baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$Check2.check.maize.q31
-baseline_farmers$mid_hybrid<-((baseline_farmers$mid_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$mid_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$mid_Check2.check.maize.q31=="Panner")|(baseline_farmers$mid_Check2.check.maize.q31=="Wema")|(baseline_farmers$mid_Check2.check.maize.q31=="KH_series"))
-baseline_farmers$mid_hybrid<-ifelse(baseline_farmers$mid_hybrid=="TRUE",1,0)
-baseline_farmers$mid_hybrid[baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"] <- NA
-
-baseline_farmers$mid_hybrid <- sim_var_F(baseline_farmers$mid_hybrid,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_hybrid<-ifelse(baseline_farmers$mid_hybrid==TRUE,1,0) #delete
-
-#2. OPV
-baseline_farmers$mid_OPV<-(baseline_farmers$mid_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_4")
-baseline_farmers$mid_OPV<-ifelse(baseline_farmers$mid_OPV=="TRUE",1,0)
-baseline_farmers$mid_OPV[baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"] <- NA
-
-baseline_farmers$mid_OPV <- sim_var_F(baseline_farmers$mid_OPV,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_OPV<-ifelse(baseline_farmers$mid_OPV==TRUE,1,0) #delete
-
-#3. farmer saved
-baseline_farmers$mid_Land_Races<-(baseline_farmers$mid_Check2.check.maize.q31=="Land_Races")
-baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races=="TRUE",1,0)
-
-baseline_farmers$mid_Land_Races <- sim_var_F(baseline_farmers$mid_Land_Races,"b",c(-.25,-.5,-.1)) #delete
-baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Land_Races==TRUE,1,0) #delete
-
-baseline_farmers$Land_Races_pos <- baseline_farmers$Land_Races*-1
-baseline_farmers$mid_Land_Races_pos <- baseline_farmers$mid_Land_Races*-1
-
-#4. improved (NOT INCLUDED ANYMORE)
-baseline_farmers$mid_improved<-((baseline_farmers$mid_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$mid_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$mid_Check2.check.maize.q31=="Panner")|(baseline_farmers$mid_Check2.check.maize.q31=="Wema")|(baseline_farmers$mid_Check2.check.maize.q31=="KH_series"|baseline_farmers$mid_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_4")|(baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"))
-baseline_farmers$mid_improved<-ifelse(baseline_farmers$mid_improved=="TRUE",1,0)
-
-baseline_farmers$mid_improved <- sim_var_F(baseline_farmers$mid_improved,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_improved<-ifelse(baseline_farmers$mid_improved==TRUE,1,0) #delete
-
-#5. farmer saved
-baseline_farmers$farmer_saved_seed[is.na(baseline_farmers$Check2.check.maize.q32)] <- 0
-
-baseline_farmers$mid_Check2.check.maize.q32 <- baseline_farmers$Check2.check.maize.q32
-baseline_farmers$mid_farmer_saved_seed<-((baseline_farmers$mid_Check2.check.maize.q32=="a")|(baseline_farmers$mid_Check2.check.maize.q32=="b"))
-baseline_farmers$mid_farmer_saved_seed[is.na(baseline_farmers$mid_Check2.check.maize.q32)] <- 0
-#baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed=="TRUE",1,0)
-
-baseline_farmers$mid_farmer_saved_seed <- sim_var_F(baseline_farmers$mid_farmer_saved_seed,"b",c(-.25,-.5,-.1)) #delete
-baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed==TRUE,1,0) #delete
-
-baseline_farmers$mid_farmer_saved_seed_pos <- baseline_farmers$mid_farmer_saved_seed*-1
-baseline_farmers$farmer_saved_seed_pos <- baseline_farmers$farmer_saved_seed*-1
-
-
-#6. agro
-baseline_farmers$Bought_from_agro_input_shop[is.na(baseline_farmers$Check2.check.maize.q32)] <- 0
-
-baseline_farmers$mid_Bought_from_agro_input_shop<-ifelse(baseline_farmers$mid_Check2.check.maize.q32=="d",1,0)
-baseline_farmers$mid_Bought_from_agro_input_shop[is.na(baseline_farmers$mid_Check2.check.maize.q32)] <- 0
-
-baseline_farmers$mid_Bought_from_agro_input_shop <- sim_var_F(baseline_farmers$mid_Bought_from_agro_input_shop,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_Bought_from_agro_input_shop<-ifelse(baseline_farmers$mid_Bought_from_agro_input_shop==TRUE,1,0) #delete
-
-#7. adoption
-baseline_farmers$mid_hybridbutsaved <- NA
-baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_farmers$mid_farmer_saved_seed == 1] <- 1
-baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_farmers$mid_farmer_saved_seed == 0] <- 0
-baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 0] <- 0
-
-baseline_farmers$mid_Check2.check.maize.q34 <- baseline_farmers$Check2.check.maize.q34
-baseline_farmers$mid_fourthormore_timeused<-((baseline_farmers$mid_Check2.check.maize.q34=="d")|(baseline_farmers$mid_Check2.check.maize.q34=="e")|(baseline_farmers$mid_Check2.check.maize.q34=="f"))
-baseline_farmers$mid_OPVbutfourthormore_timeused <- NA
-baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV==1 & baseline_farmers$mid_farmer_saved_seed==1 & baseline_farmers$mid_fourthormore_timeused==1] <- 1
-baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV==1 & baseline_farmers$mid_farmer_saved_seed==1 & baseline_farmers$mid_fourthormore_timeused==0] <- 0
-baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV==1 & baseline_farmers$mid_farmer_saved_seed==0] <- 0
-baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV == 0] <- 0
-
-baseline_farmers$mid_adoption_onfield <- baseline_farmers$mid_improved
-baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_hybridbutsaved==1] <- 0
-baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
-
-baseline_farmers$mid_adoption_onfield <- sim_var_F(baseline_farmers$mid_adoption_onfield,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_adoption_onfield<-ifelse(baseline_farmers$mid_adoption_onfield==TRUE,1,0) #delete
-
-#8. overall index
-variables_overallsec_plotF_mid <- cbind(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV,baseline_farmers$mid_Land_Races_pos
-                                        ,baseline_farmers$mid_farmer_saved_seed_pos,baseline_farmers$mid_Bought_from_agro_input_shop)
-variables_overallsec_plotF_base <- cbind(baseline_farmers$hybrid,baseline_farmers$OPV,baseline_farmers$Land_Races_pos
-                                         ,baseline_farmers$farmer_saved_seed_pos,baseline_farmers$Bought_from_agro_input_shop)
-
-################################################################################################################################################################################
-###4. Create index: weighted average of outcomes for individual i in area j
-
-###
-#1#
-###
-
-#8.
-index_overallsec_plotF_mid <- icwIndex(xmat=variables_overallsec_plotF_mid)
-baseline_farmers$index_overallsec_plotF_mid <- index_overallsec_plotF_mid$index #midline index
-
-index_overallsec_plotF_base <- icwIndex(xmat=variables_overallsec_plotF_base)
-baseline_farmers$index_overallsec_plotF_base <- index_overallsec_plotF_base$index #baseline index
-
-baseline_farmers$index_overallsec_plotF_mid <- sim_var_F(baseline_farmers$index_overallsec_plotF_mid,"c",c(.25,.5,.1)) #delete
-
-
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
-                             ,"mid_adoption_onfield","index_overallsec_plotF_mid")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
-                                  ,"adoption_onfield","index_overallsec_plotF_base")
-
-df_means_F_sec_plot <- array(NA,dim=c(3,11))
-
-for (i in 1:length(results_farmer_sec_plot)){
-  df_means_F_sec_plot[1,i] <- sum(baseline_farmers[results_farmer_sec_plot[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot[i]])))
-  df_means_F_sec_plot[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_plot[i]], na.rm=T))
-  df_means_F_sec_plot[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_plot[i]])&is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))}
-
-###
-#2#
-###
-
-baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
-baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
-
-#8.
-index_overallsec_plotF_midT <- icwIndex(xmat=variables_overallsec_plotF_mid)
-baseline_farmers$index_overallsec_plotF_midT <- index_overallsec_plotF_midT$index #midline index
-
-index_overallsec_plotF_baseT <- icwIndex(xmat=variables_overallsec_plotF_base)
-baseline_farmers$index_overallsec_plotF_baseT <- index_overallsec_plotF_baseT$index #baseline index
-
-baseline_farmers$index_overallsec_plotF_midT <- sim_var_F(baseline_farmers$index_overallsec_plotF_midT,"c",c(.25,.5,.1)) #delete
-
-
-df_ols_F_sec_plot <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
-                             ,"mid_adoption_onfield","index_overallsec_plotF_midT")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
-                                  ,"adoption_onfield","index_overallsec_plotF_baseT")
-
-for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_sec_plot[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec_plot[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec_plot[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
-
-###
-#3#
-###
-
-baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
-baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
-
-#8.
-index_overallsec_plotF_midC <- icwIndex(xmat=variables_overallsec_plotF_mid)
-baseline_farmers$index_overallsec_plotF_midC <- index_overallsec_plotF_midC$index #midline index
-
-index_overallsec_plotF_baseC <- icwIndex(xmat=variables_overallsec_plotF_base)
-baseline_farmers$index_overallsec_plotF_baseC <- index_overallsec_plotF_baseC$index #baseline index
-
-baseline_farmers$index_overallsec_plotF_midC <- sim_var_F(baseline_farmers$index_overallsec_plotF_midC,"c",c(.25,.5,.1)) #delete
-
-
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
-                             ,"mid_adoption_onfield","index_overallsec_plotF_midC")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
-                                  ,"adoption_onfield","index_overallsec_plotF_baseC")
-
-for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  df_ols_F_sec_plot[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec_plot[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec_plot[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
-
-###
-#4#
-###
-
-baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
-baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
-
-#8.
-index_overallsec_plotF_midF <- icwIndex(xmat=variables_overallsec_plotF_mid)
-baseline_farmers$index_overallsec_plotF_midF <- index_overallsec_plotF_midF$index #midline index
-
-index_overallsec_plotF_baseF <- icwIndex(xmat=variables_overallsec_plotF_base)
-baseline_farmers$index_overallsec_plotF_baseF <- index_overallsec_plotF_baseF$index #baseline index
-
-baseline_farmers$index_overallsec_plotF_midF <- sim_var_F(baseline_farmers$index_overallsec_plotF_midF,"c",c(.25,.5,.1)) #delete
-
-
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
-                             ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
-                             ,"mid_adoption_onfield","index_overallsec_plotF_midF")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
-                                  ,"farmer_saved_seed","Bought_from_agro_input_shop"
-                                  ,"adoption_onfield","index_overallsec_plotF_baseF")
-
-for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-  
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec_plot[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec_plot[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec_plot[3,3,i] <- summary(ols)$coefficients[4,4]}
+save(df_ols_F_prim, file = paste(path,"papers/midline_report/output/df_ols_F_prim.Rd",sep="/") )
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV,baseline_farmers$mid_Land_Races
@@ -4807,17 +4308,7 @@ for (i in 1:length(results_farmer_sec_plot_J)){
 
 
 
-[242] "mid_knows_dealer"                          
-[243] "mid_bought_at_dealer"                      
-[244] "mid_customer_years"                        
-[245] "mid_knows_other_customer"                  
-[246] "mid_refunds"                               
-[247] "mid_gives_credit"                          
-[248] "mid_gives_advice"                          
-[249] "mid_delivers"                              
-[250] "mid_after_sales_service"                   
-[251] "mid_payment_mehtods"                       
-[252] "mid_small_quant"   
+
 
 
 
@@ -5523,6 +5014,9 @@ for (i in 1:length(results_farmer_nobase)){
   df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
   df_means_F_nobase[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
   df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
+  
+  
+    save(df_ols_F_nobase, file = paste(path,"papers/midline_report/output/df_ols_F_nobase.Rd",sep="/") )
 
 ###
 #2#
@@ -5665,6 +5159,6 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#here
+  
+  save(df_ols_F_nobase, file = paste(path,"papers/midline_report/output/df_ols_F_nobase.Rd",sep="/") )
 
