@@ -4021,6 +4021,9 @@ variables_practices_base <- cbind(baseline_farmers$correct_q40,baseline_farmers$
 baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$check.maize.q25h
 baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
 
+## for baseline, this was asked to all but Caro set 98 to NA. Let us set 98 to No
+baseline_farmers$Check2.check.maize.q25h[is.na(baseline_farmers$Check2.check.maize.q25h)] <- 0
+
 #dont do this - we need to standardize first before taking the negative - better use the reverse option in the icxIndex function
 #baseline_farmers$Check2.check.maize.q25h_pos <- baseline_farmers$Check2.check.maize.q25h*-1
 #baseline_farmers$mid_Check2.check.maize.q25h_pos <- baseline_farmers$mid_Check2.check.maize.q25h*-1
