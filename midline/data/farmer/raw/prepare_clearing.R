@@ -123,6 +123,6 @@ farmer_raw <- read.csv( paste(path, "baseline/data/farmer/raw/baseline_farmers_a
 
 to_upload_clearing <-merge(to_upload_clearing,farmer_raw[c("farmer_ID","enumerator","Check2.check.maize.q5","Check2.check.maize.phone","Check2.check.maize.phone2","Check2.check.maize._gps_latitude","Check2.check.maize._gps_longitude" )],by="farmer_ID")
 names(to_upload_clearing)[names(to_upload_clearing) %in% c("Check2.check.maize.q5","Check2.check.maize.phone","Check2.check.maize.phone2","Check2.check.maize._gps_latitude","Check2.check.maize._gps_longitude" )] <- c("farmer_name","phone1","phone2","gps_latitude","gps_longitude" )
-
+to_upload_clearing$shops <- to_upload_clearing$nr_shops_in_catch
 
 write.csv(to_upload_clearing,file= paste(path,"midline/data/farmer/raw/to_upload_clearing.csv",sep="/"), row.names=FALSE)

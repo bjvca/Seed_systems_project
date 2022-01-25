@@ -4,6 +4,7 @@
 # by running these commands in bash/terminal:
 
 #cd output; for i in *.tex; do pdflatex $i;done
+#for i in *.tex; do pdflatex $i;done #for some reason this needs to be run twice to get the border correct...
 #rm *.aux
 #rm *.log
 #rm *.tex
@@ -75,7 +76,7 @@ dta$stars_germination_av <- min(dta$germination_corrected_av, na.rm=T)+ dta$rank
 
 for (i in 1:dim(dta)[1]) {
 
-sink(paste(paste("output_midline/output",dta$shop_ID[i],sep="_"), "tex",sep="."))
+sink(paste(paste("output_midline_2/output",dta$shop_ID[i],sep="_"), "tex",sep="."))
 cat("\\batchmode")
 cat("\n")
 cat("\\documentclass[english]{article}")
@@ -190,7 +191,7 @@ cat("\\bigskip{}")
 cat("\n")
 cat("\\begin{center}")
 cat("\n")
-cat("\\textit{SeedAdvisor certificate 2021}") 
+cat("\\textit{SeedAdvisor certificate 2022}") 
 cat("\n")
 cat("\\end{center}")
 cat("\n")
@@ -317,7 +318,7 @@ cat("\n")
 cat("\\bigskip{}")
 cat("\n")
 
-cat("\\textbf{Tip: Display this certificate in your shop to inform customers about your score. You will be scored again in January 2021, so keep standards up!}") 
+cat("\\textbf{Tip: Display this certificate in your shop to inform customers about your score. You will be scored again in July 2022, so keep standards up!}") 
 cat("\n")
 cat("\\par")
 cat("\n")
