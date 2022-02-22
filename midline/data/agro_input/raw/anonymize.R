@@ -2,12 +2,45 @@
 #execute from project_root/midline/data/agro_input/raw
 
 rm(list=ls())
-
+library(htmlwidgets)
 path <- getwd()
 
 ### reads in raw data (not public)
-shops <- read.csv(paste(path,"Dealer_MidlineV4_2022_02_07_03_51_37_380318.csv", sep="/"))
-moisture <- read.csv(paste(path,"Moisture_Midline_2022_02_07_03_52_39_498233.csv", sep="/"))
+shops <- read.csv(paste(path,"Dealer_MidlineV4_2022_02_16_03_40_40_437618-1.csv", sep="/"))
+
+### code to determine remnants
+#need to get raw baseline data
+
+path <- strsplit(path, "/midline/data/agro_input/raw")[[1]]
+
+raw_agro_base <- read.csv(paste(path,"baseline/data/agro_input/raw/raw_agro_input.csv", sep="/"))
+
+### get from base those that are not in shop
+raw_agro_base$done <- 1
+raw_agro_base$done[!(raw_agro_base$shop_ID %in% shops$shop_ID)] <- 0
+
+
+library(leaflet)
+to_plot <- raw_agro_base[c("shop_ID","maize.owner.agree._gps_latitude","maize.owner.agree._gps_longitude","done")]
+
+pal <- colorFactor(c("red", "green"), domain = c(1,0))
+
+m <- leaflet() %>% setView(lat = 0.6, lng = 33.5, zoom=9)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google') %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=to_plot, lng=~as.numeric(as.character(maize.owner.agree._gps_longitude)),  lat=~as.numeric(as.character(maize.owner.agree._gps_latitude)),radius= 3, color=~pal(done), label=~as.character(shop_ID), group="X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+
+
+
+### export remnants for revisit
+
+raw_agro_base_sub <- subset(raw_agro_base, !(shop_ID %in% shops$shop_ID))
+
+remnants <- raw_agro_base_sub[c("shop_ID","enumerator", "district","sub","parish", "village","maize.owner.agree.dealer_name","maize.owner.agree.surname","maize.owner.agree.nickname", "maize.owner.agree.phone1", "maize.owner.agree.phone2", "maize.owner.agree.biz_name", "maize.owner.agree.family_name","maize.owner.agree.market_name","maize.owner.agree.eye","maize.owner.agree._gps_latitude","maize.owner.agree._gps_longitude")]
+
+path <- getwd()
+saveWidget(m, file="AD_remnants_map.html") 
+
+write.csv(remnants,paste(path,"AD_remnants.csv", sep="/"), row.names=FALSE)
+
+moisture <- read.csv(paste(path,"Moisture_Midline_2022_02_20_05_23_34_994254.csv", sep="/"))
 
 
 moisture$age <- difftime(strptime("01.02.2022", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
