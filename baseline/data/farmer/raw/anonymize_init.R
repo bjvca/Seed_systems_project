@@ -114,7 +114,7 @@ farmers <- farmers[!(farmers$village == "Maweito" &  farmers$farmer_ID == "F_324
 
 farmers$farmer_ID[duplicated(farmers$farmer_ID)] 
 
-test <- farmers[farmers$village == "Buyara",c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
+test <- farmers[c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
 names(test) <- c("lat","long", "ID")
 m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
 #use this to investigate duplicates:

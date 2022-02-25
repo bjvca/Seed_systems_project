@@ -33,37 +33,24 @@ shops$training[shops$X_uuid =="f1efbe32-f4e9-44b1-b2dd-97a38c33897e"] <- FALSE
 shops <- subset(shops, X_uuid != "1686391d-9793-46bb-beb4-26922ac42dd7")
 
 
-### code to determine remnants
-#need to get raw baseline data
+### just to try
+shops$longe10h_kg <- as.numeric(as.character(shops$owner.agree.long10h.q25))
+shops$longe10h_kg[is.na(shops$longe10h_kg)] <- 0
 
-path <- strsplit(path, "/midline/data/agro_input/raw")[[1]]
+shops$longe7h_kg <-as.numeric(as.character(shops$owner.agree.longe7H.q38))
+shops$longe7h_kg[is.na(shops$longe7h_kg)] <- 0
 
-raw_agro_base <- read.csv(paste(path,"baseline/data/agro_input/raw/raw_agro_input.csv", sep="/"))
+shops$longe5_kg <- as.numeric(as.character(shops$owner.agree.longe5.q50))
+shops$longe5_kg[is.na(shops$longe5_kg)] <- 0
 
-### get from base those that are not in shop
-raw_agro_base$done <- 1
-raw_agro_base$done[!(raw_agro_base$shop_ID %in% shops$shop_ID)] <- 0
+shops$longe4_kg <- as.numeric(as.character(shops$owner.agree.longe4.q62))
+shops$longe4_kg[is.na(shops$longe4_kg)] <- 0
 
+shops$tot_kg <- shops$longe10h_kg + shops$longe7h_kg+ shops$longe5_kg + shops$longe4_kg
 
-library(leaflet)
-to_plot <- raw_agro_base[c("shop_ID","maize.owner.agree._gps_latitude","maize.owner.agree._gps_longitude","done")]
+summary(lm(tot_kg~clearing, data=shops))
 
-pal <- colorFactor(c("red", "green"), domain = c(1,0))
-
-m <- leaflet() %>% setView(lat = 0.6, lng = 33.5, zoom=9)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google') %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=to_plot, lng=~as.numeric(as.character(maize.owner.agree._gps_longitude)),  lat=~as.numeric(as.character(maize.owner.agree._gps_latitude)),radius= 3, color=~pal(done), label=~as.character(shop_ID), group="X_uuid")   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
-
-
-
-### export remnants for revisit
-
-raw_agro_base_sub <- subset(raw_agro_base, !(shop_ID %in% shops$shop_ID))
-
-remnants <- raw_agro_base_sub[c("shop_ID","enumerator", "district","sub","parish", "village","maize.owner.agree.dealer_name","maize.owner.agree.surname","maize.owner.agree.nickname", "maize.owner.agree.phone1", "maize.owner.agree.phone2", "maize.owner.agree.biz_name", "maize.owner.agree.family_name","maize.owner.agree.market_name","maize.owner.agree.eye","maize.owner.agree._gps_latitude","maize.owner.agree._gps_longitude")]
-
-path <- getwd()
-saveWidget(m, file="AD_remnants_map.html") 
-
-write.csv(remnants,paste(path,"AD_remnants.csv", sep="/"), row.names=FALSE)
+#merge in moisture
 
 moisture <- read.csv(paste(path,"Moisture_Midline_2022_02_20_05_23_34_994254.csv", sep="/"))
 
