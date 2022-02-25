@@ -4,10 +4,60 @@
 #then run prepare_clearing
 #ten run
 library(reshape2)
+library(ggplot2)
+library(leaflet)
 
-mid <- read.csv("Farmer_MidlineV1_2022_01_22_09_30_12_083851.csv")
 
-##investigate duplicates here!!!!!!
+mid <- read.csv("Farmer_MidlineV1_2022_01_22_09_30_12_083851.csv",stringsAsFactors=FALSE )
+
+##investigate duplicates here!!!!!! - 25 duplicates -- probably best to investigate using a map
+
+mid$farmer_ID[mid$X_uuid=="78ef5fdd-97ae-4cd8-a6c7-078dc34a1937"] <- "F_2828"
+mid$farmer_ID[mid$X_uuid=="48ab1657-dfbb-48ec-b930-b7ea264c25e3"] <- "F_566"
+mid$farmer_ID[mid$X_uuid=="496059ab-754c-47da-a0fa-44695016af7c"] <- "F_2968"
+mid$farmer_ID[mid$X_uuid=="9ad47133-8867-4e1e-82a2-8a55bd25683d"] <- "F_506"
+mid$farmer_ID[mid$X_uuid=="7ab858d0-7194-4979-b791-0f541f7f0231"] <- "F_1738"
+mid$farmer_ID[mid$X_uuid=="246c64cf-5de1-48cc-aa55-6b4a9832bc77"] <- "F_1737"
+mid$farmer_ID[mid$X_uuid=="671f311f-f554-42d6-bb14-b69bd4044ecd"] <- "F_2036"
+mid$farmer_ID[mid$X_uuid=="ed7a604a-8c7d-4556-af9a-2706def572fa"] <-  "F_3380"
+mid$farmer_ID[mid$X_uuid=="75f7a8f0-593d-4598-99ac-e62d8aa039db"] <-  "F_108"
+mid$farmer_ID[mid$X_uuid=="6d27e24b-2e18-4cd6-9134-674b4f72a922"] <-  "F_2938"
+mid$farmer_ID[mid$X_uuid=="fd38d8b7-6d2f-430a-9222-6c4907e11d45"] <-  "F_2245"
+
+
+# this is a real duplicate - delete 1
+mid <- subset(mid,farmer_ID!="F_187")
+mid <- subset(mid,farmer_ID!="F_1237")
+
+mid <- subset(mid, !(X_uuid %in% c("aa9b1673-77b0-4901-b5dc-fcafd74bffa0","598e519e-0745-479b-b207-59b1b0a8cb05","32d7dbee-95bc-4967-b8dd-2d93b99d1bca","0912e03f-6da6-46f5-91a5-fd455a9360ce","d35ae30d-4187-4fa4-972f-0914f82b3e80","dd963511-b86f-46a5-8f1f-837b12cd4f43","01f21767-6c56-4740-a039-e3dac4a7dac1","9d92c376-fa17-465a-8d6f-2328f2fd3652","81b4c7b7-06b2-4cd0-946a-679a241d1ff6","7e94052a-913e-49b3-ad76-6f001a22060f","48346776-af31-4687-938a-4887ac60b732","4e339c09-7f8d-48ff-82be-fd6bd709600e","6ddb8e69-9c60-4360-b7fc-c1a7bba8ab95")))
+
+###BELOW: this code was used to investigate duplicate
+
+#vil <- mid[mid$farmer_ID == "F_3028",c("village")][1]
+
+#test <- mid[mid$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","farmer_ID")]
+#names(test) <- c("lat","long", "ID")
+#m_m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+
+##get data from baseline
+#path <- getwd()
+#path <- strsplit(path, "midline/data/farmer/raw")[[1]]
+#farmers <- read.csv(paste(path,"baseline/data/farmer/raw/baseline_farmers_all_raw.csv",sep="/"))
+
+#test <- farmers[farmers$village == vil,c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
+#names(test) <- c("lat","long", "ID")
+#m_b <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+
+###to get uu_IDs 
+#test <- mid[mid$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","X_uuid")]
+#names(test) <- c("lat","long", "uu_ID")
+#m_id <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(uu_ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+
+#test <- mid[mid$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","farmer_ID")]
+#names(test) <- c("lat","long", "ID")
+
+####ABOVE: this code was used to investigate duplicates
+
 
 #also remove district, subcounty and village here -- we will use the encoded versions from this from the baseline data
 to_drop <- c("start","end","deviceid","simserial","phonenumber","subscriberid","enumerator", "date","district","sub","village","hh_name","enumerator_base","phone1","phone2","farmer_name","q1","chess","new_phone","q3")             
