@@ -2957,7 +2957,7 @@ df_means_D_secL5_B <- array(NA,dim=c(3,11))
 for (i in 1:length(results_dealer_secL5_B)){
   df_means_D_secL5_B[1,i] <- sum(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])))
   df_means_D_secL5_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T))
-  df_means_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))-sum(is.na(baseline_dealers[results_dealer_secL5_base[i]]))+sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])&is.na(baseline_dealers[results_dealer_secL5_base[i]]))}
+  df_means_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))}
 
 ###
 #2#
