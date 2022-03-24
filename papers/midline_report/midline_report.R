@@ -4966,7 +4966,9 @@ baseline_farmers$Check2.check.maize.q56_pos <- baseline_farmers$Check2.check.mai
 
 #CREATE NEW INDEX BECAUSE SWITCHING
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched,baseline_farmers$index_practices_mid)
+                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched
+                                    ,baseline_farmers$index_practices_mid,baseline_farmers$mid_Check2.check.maize.q25h_pos
+                                    ,baseline_farmers$mid_Land_Races_pos)
 
 #CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
