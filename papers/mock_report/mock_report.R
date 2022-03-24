@@ -2957,7 +2957,7 @@ df_means_D_secL5_B <- array(NA,dim=c(3,11))
 for (i in 1:length(results_dealer_secL5_B)){
   df_means_D_secL5_B[1,i] <- sum(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])))
   df_means_D_secL5_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T))
-  df_means_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))-sum(is.na(baseline_dealers[results_dealer_secL5_base[i]]))+sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])&is.na(baseline_dealers[results_dealer_secL5_base[i]]))}
+  df_means_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))}
 
 ###
 #2#
@@ -5398,7 +5398,9 @@ baseline_farmers$Check2.check.maize.q56_pos <- baseline_farmers$Check2.check.mai
 
 #CREATE NEW INDEX BECAUSE SWITCHING
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched,baseline_farmers$index_practices_mid)
+                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched
+                                    ,baseline_farmers$index_practices_mid,baseline_farmers$mid_Check2.check.maize.q25h_pos
+                                    ,baseline_farmers$mid_Land_Races_pos)
 
 #CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
