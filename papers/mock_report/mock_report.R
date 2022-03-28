@@ -4574,9 +4574,9 @@ baseline_farmers$mid_adoption_onfield <- sim_var_F(baseline_farmers$mid_adoption
 baseline_farmers$mid_adoption_onfield<-ifelse(baseline_farmers$mid_adoption_onfield==TRUE,1,0) #delete
 
 #8. overall index
-variables_overallsec_plotF_mid <- cbind(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV,baseline_farmers$mid_Land_Races_pos
+variables_overallsec_plotF_mid <- cbind(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
                                         ,baseline_farmers$mid_farmer_saved_seed_pos,baseline_farmers$mid_Bought_from_agro_input_shop)
-variables_overallsec_plotF_base <- cbind(baseline_farmers$hybrid,baseline_farmers$OPV,baseline_farmers$Land_Races_pos
+variables_overallsec_plotF_base <- cbind(baseline_farmers$hybrid,baseline_farmers$OPV
                                          ,baseline_farmers$farmer_saved_seed_pos,baseline_farmers$Bought_from_agro_input_shop)
 
 ################################################################################################################################################################################
@@ -4596,11 +4596,11 @@ baseline_farmers$index_overallsec_plotF_base <- index_overallsec_plotF_base$inde
 baseline_farmers$index_overallsec_plotF_mid <- sim_var_F(baseline_farmers$index_overallsec_plotF_mid,"c",c(.25,.5,.1)) #delete
 
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
+results_farmer_sec_plot <- c("mid_hybrid","mid_OPV"
                              ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_mid")
 
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
+results_farmer_sec_plot_base <- c("hybrid","OPV"
                                   ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_base")
 
@@ -4630,11 +4630,11 @@ baseline_farmers$index_overallsec_plotF_midT <- sim_var_F(baseline_farmers$index
 
 df_ols_F_sec_plot <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
+results_farmer_sec_plot <- c("mid_hybrid","mid_OPV"
                              ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midT")
 
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
+results_farmer_sec_plot_base <- c("hybrid","OPV"
                                   ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseT")
 
@@ -4664,11 +4664,11 @@ baseline_farmers$index_overallsec_plotF_baseC <- index_overallsec_plotF_baseC$in
 baseline_farmers$index_overallsec_plotF_midC <- sim_var_F(baseline_farmers$index_overallsec_plotF_midC,"c",c(.25,.5,.1)) #delete
 
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
+results_farmer_sec_plot <- c("mid_hybrid","mid_OPV"
                              ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midC")
 
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
+results_farmer_sec_plot_base <- c("hybrid","OPV"
                                   ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseC")
 
@@ -4698,11 +4698,11 @@ baseline_farmers$index_overallsec_plotF_baseF <- index_overallsec_plotF_baseF$in
 baseline_farmers$index_overallsec_plotF_midF <- sim_var_F(baseline_farmers$index_overallsec_plotF_midF,"c",c(.25,.5,.1)) #delete
 
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_Land_Races"
+results_farmer_sec_plot <- c("mid_hybrid","mid_OPV"
                              ,"mid_farmer_saved_seed","mid_Bought_from_agro_input_shop"
                              ,"mid_adoption_onfield","index_overallsec_plotF_midF")
 
-results_farmer_sec_plot_base <- c("hybrid","OPV","Land_Races"
+results_farmer_sec_plot_base <- c("hybrid","OPV"
                                   ,"farmer_saved_seed","Bought_from_agro_input_shop"
                                   ,"adoption_onfield","index_overallsec_plotF_baseF")
 
@@ -4717,7 +4717,7 @@ for (i in 1:length(results_farmer_sec_plot)){
   df_ols_F_sec_plot[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV,baseline_farmers$mid_Land_Races
+df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
                                  ,baseline_farmers$mid_farmer_saved_seed
                                  ,baseline_farmers$mid_Bought_from_agro_input_shop,baseline_farmers$mid_adoption_onfield)
 df_farmer_sec_plotC <- df_farmer_sec_plotT
@@ -4726,7 +4726,7 @@ df_farmer_sec_plotF <- df_farmer_sec_plotT
 
 df_ols_F_sec_plot_J <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_plot_J <- c("mid_hybrid","mid_OPV","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop","mid_adoption_onfield")
+results_farmer_sec_plot_J <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop","mid_adoption_onfield")
 #no overall index
 
 for (i in 1:length(results_farmer_sec_plot_J)){

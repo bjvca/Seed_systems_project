@@ -27869,7 +27869,8 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted local land race maize seed on this field$^
+Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
+ated, local land race)$^
 \backslash
 dag$
 \end_layout
@@ -27975,8 +27976,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted maize seed bought at agro-input shop on this field$^
 \backslash
 dag$
 \end_layout
@@ -28082,9 +28082,11 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted hybrid 
 \backslash
-dag$
+textbf{not farmer saved} seed or an OPV (
+\backslash
+textbf{not used too often}) on this field
 \end_layout
 
 \begin_layout Plain Layout
@@ -28188,11 +28190,20 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted hybrid 
+
 \backslash
-textbf{not farmer saved} seed or an OPV (
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-textbf{not used too often}) on this field
+textbf{Overall index controlling for baseline}
 \end_layout
 
 \begin_layout Plain Layout
@@ -28284,123 +28295,6 @@ Sexpr{format(round(df_ols_F_sec_plot[2,2,6],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_F_sec_plot[2,3,6],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[1,7],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot[3,1,7]<.05,"*",ifelse(df_ols_F_sec_plot[3,1,7]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot[3,2,7]<.05,"*",ifelse(df_ols_F_sec_plot[3,2,7]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,3,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot[3,3,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot[3,3,7]<.05,"*",ifelse(df_ols_F_sec_plot[3,3,7]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[3,7],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,3,7],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -28582,7 +28476,7 @@ dag$ indicates that the variable was included in the overall index.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -28879,7 +28773,8 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted local land race maize seed on this field$^
+Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
+ated, local land race)$^
 \backslash
 dag$
 \end_layout
@@ -28985,8 +28880,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted maize seed bought at agro-input shop on this field$^
 \backslash
 dag$
 \end_layout
@@ -29092,9 +28986,11 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted hybrid 
 \backslash
-dag$
+textbf{not farmer saved} seed or an OPV (
+\backslash
+textbf{not used too often}) on this field
 \end_layout
 
 \begin_layout Plain Layout
@@ -29186,114 +29082,6 @@ Sexpr{format(round(df_ols_F_sec_plot[2,2,5],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_F_sec_plot[2,3,5],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer planted hybrid 
-\backslash
-textbf{not farmer saved} seed or an OPV (
-\backslash
-textbf{not used too often}) on this field
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot_J[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot_J[3,1,6]<.05,"*",ifelse(df_ols_F_sec_plot_J[3,1,6]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot_J[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot_J[3,2,6]<.05,"*",ifelse(df_ols_F_sec_plot_J[3,2,6]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,3,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot_J[3,3,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot_J[3,3,6]<.05,"*",ifelse(df_ols_F_sec_plot_J[3,3,6]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,3,6],digits=3),nsmall=3)})
 \backslash
 
 \backslash
