@@ -512,7 +512,7 @@ source(paste(path,
 \begin_inset Quotes eld
 \end_inset
 
-mock_report.R
+midline_report_Caro.R
 \begin_inset Quotes erd
 \end_inset
 
@@ -11964,7 +11964,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12986,61 +12986,7 @@ Index of shop's maize seed ratings by farmers (not at midline)
 
 \begin_layout Plain Layout
 
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,1,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,2]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,2,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,2]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,3,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,3,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,3,2]<.05,"*",ifelse(df_ols_D_sec_nobase[3,3,2]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[3,2],digits=0),nsmall=0)}
+& & & &
 \backslash
 
 \backslash
@@ -13049,30 +12995,7 @@ Sexpr{format(round(df_means_D_sec_nobase[3,2],digits=0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-& (
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,3,2],digits=3),nsmall=3)})
+& & & &
 \backslash
 
 \backslash
@@ -28476,7 +28399,7 @@ dag$ indicates that the variable was included in the overall index.
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
