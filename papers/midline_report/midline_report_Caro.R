@@ -4,7 +4,6 @@ path <- getwd()
 path <- strsplit(path,"/papers/midline_report")[[1]]
 
 baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"))
-midline_dealers <- read.csv(paste(path,"/midline/data/agro_input/public/midline_dealer.csv",sep="/"))
 
 baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"))
 midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"))
@@ -41,6 +40,7 @@ rating_dyads_aggr_F = rating_dyads_aggr_F[c("Group.1","bought_last_season","gene
 baseline_farmers <- merge(baseline_farmers,rating_dyads_aggr_F,by.x="farmer_ID",by.y="Group.1",all.x=TRUE)
 
 #SERVICES (CH treatment farmers were asked during baseline, CH control farmers were asked during CH rating dissemination)
+#baseline
 dealer_services_dyads[dealer_services_dyads=="n/a"] <- NA
 dealer_services_dyads[dealer_services_dyads==98] <- NA
 
@@ -80,6 +80,43 @@ dealer_services_dyads_aggr_F = dealer_services_dyads_aggr_F[c("Group.1","knows_d
                                                               ,"delivers","after_sales_service"
                                                               ,"payment_mehtods","small_quant")]
 baseline_farmers <- merge(baseline_farmers, dealer_services_dyads_aggr_F, by.x="farmer_ID", by.y="Group.1", all.x = TRUE)
+
+#midline
+midline_dealer_services_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_dealer_services_dyads.csv",sep="/"))
+
+midline_dealer_services_dyads[midline_dealer_services_dyads=="n/a"] <- NA
+midline_dealer_services_dyads[midline_dealer_services_dyads==98] <- NA
+
+midline_dealer_services_dyads$mid_knows_dealer <- ifelse(midline_dealer_services_dyads$knows_dealer=="Yes",1,0)
+midline_dealer_services_dyads$mid_bought_at_dealer<-ifelse(midline_dealer_services_dyads$bought_at_dealer=="Yes",1,0)
+midline_dealer_services_dyads$mid_customer_years <- 2022 - as.numeric(as.character(substr(midline_dealer_services_dyads$duration_customer,start=1,stop=4))) #CH rating dissemination in 2022
+midline_dealer_services_dyads$mid_knows_other_customer<-ifelse(midline_dealer_services_dyads$knows_other_customer=="Yes",1,0)
+midline_dealer_services_dyads$mid_refunds<-ifelse(midline_dealer_services_dyads$refunds=="Yes",1,0)
+midline_dealer_services_dyads$mid_gives_credit<-ifelse(midline_dealer_services_dyads$gives_credit=="Yes",1,0)
+midline_dealer_services_dyads$mid_gives_advice<-ifelse(midline_dealer_services_dyads$gives_advice=="Yes",1,0)
+midline_dealer_services_dyads$mid_delivers<-ifelse(midline_dealer_services_dyads$delivers=="Yes",1,0)
+midline_dealer_services_dyads$mid_after_sales_service<-ifelse(midline_dealer_services_dyads$after_sales_service=="Yes",1,0)
+midline_dealer_services_dyads$mid_payment_mehtods<-ifelse(midline_dealer_services_dyads$payment_mehtods=="Yes",1,0)
+midline_dealer_services_dyads$mid_small_quant<-ifelse(midline_dealer_services_dyads$small_quant=="Yes",1,0)
+
+as_numeric <- c("mid_knows_dealer","mid_bought_at_dealer"
+                ,"mid_customer_years","mid_knows_other_customer"
+                ,"mid_refunds","mid_gives_credit"
+                ,"mid_gives_advice","mid_delivers"
+                ,"mid_after_sales_service","mid_payment_mehtods"
+                ,"mid_small_quant")
+midline_dealer_services_dyads[as_numeric] <- lapply(midline_dealer_services_dyads[as_numeric],function(x)as.numeric(as.character(x)))
+
+#dealers
+midline_dealer_services_dyads_aggr_D <- aggregate(midline_dealer_services_dyads,by=list(midline_dealer_services_dyads$shop_ID),FUN="mean",na.rm=T)
+midline_dealer_services_dyads_aggr_D = subset(midline_dealer_services_dyads_aggr_D, select = c(Group.1,mid_knows_dealer,mid_bought_at_dealer
+                                                                                               ,mid_customer_years,mid_knows_other_customer
+                                                                                               ,mid_refunds,mid_gives_credit
+                                                                                               ,mid_gives_advice,mid_delivers
+                                                                                               ,mid_after_sales_service,mid_payment_mehtods
+                                                                                               ,mid_small_quant))
+midline_dealers <- read.csv(paste(path,"/midline/data/agro_input/public/midline_dealer.csv",sep="/"))
+midline_dealers <- merge(midline_dealer_services_dyads_aggr_D,midline_dealers,by.x="Group.1",by.y="shop_ID",all.x=TRUE)
 
 ###################################################
 #####DESCRIPTIVE STATISTICS + DATA EXPLORATION#####
@@ -923,6 +960,7 @@ names(midline_dealers)[names(midline_dealers) == "variety"] <- "variety_mid"
 names(midline_dealers)[names(midline_dealers) == "date_pack"] <- "date_pack_mid"
 names(midline_dealers)[names(midline_dealers) == "other_var"] <- "other_var_mid"
 
+midline_dealers$shop_ID <- midline_dealers$Group.1
 baseline_dealers <- merge(baseline_dealers,midline_dealers,by.x="shop_ID",by.y="shop_ID",all.x=T)
 
 trim <- function(var,dataset,trim_perc=.02){
@@ -1648,8 +1686,6 @@ for (i in 1:length(results_dealer_prim_J)){
   df_ols_D_prim_J[3,2,i] <- adjust_p(df_ols_D_prim[3,2,i],df_dealer_primC,i)
   df_ols_D_prim_J[3,3,i] <- adjust_p(df_ols_D_prim[3,3,i],df_dealer_primF,i)}
 
-#XXXXX
-
 
 
 
@@ -1665,148 +1701,133 @@ for (i in 1:length(results_dealer_prim_J)){
 
 #1. Number of maize varieties in stock last season (incl. hybrids, OPV, landraces)
 baseline_dealers <- trim("maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02)
-baseline_dealers$mid_maize.owner.agree.nr_var <- sim_var(baseline_dealers$maize.owner.agree.nr_var,"c",c(.25,.5,.1)) #delete after data collection
-baseline_dealers <- trim("mid_maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02)
+
+baseline_dealers$mid_maize.owner.agree.nr_var <- baseline_dealers$owner.agree.nr_var #x
+baseline_dealers$mid_maize.owner.agree.nr_var[baseline_dealers$mid_maize.owner.agree.nr_var==999] <- NA #x
+baseline_dealers <- trim("mid_maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02) #x
 
 #2. Number of hybrid maize varieties in stock last season
 baseline_dealers <- trim("maize.owner.agree.q19",baseline_dealers,trim_perc=.02)
-baseline_dealers$mid_maize.owner.agree.q19 <- sim_var(baseline_dealers$maize.owner.agree.q19,"c",c(.25,.5,.1)) #delete after data collection
-baseline_dealers <- trim("mid_maize.owner.agree.q19",baseline_dealers,trim_perc=.02)
+
+baseline_dealers$mid_maize.owner.agree.q19 <- baseline_dealers$owner.agree.q19 #x
+baseline_dealers$mid_maize.owner.agree.q19[baseline_dealers$mid_maize.owner.agree.q19==999] <- NA #x
+baseline_dealers <- trim("mid_maize.owner.agree.q19",baseline_dealers,trim_perc=.02) #x
 
 #3. Number of OP maize varieties in stock last season
 baseline_dealers <- trim("maize.owner.agree.q44",baseline_dealers,trim_perc=.02)
-baseline_dealers$mid_maize.owner.agree.q44 <- sim_var(baseline_dealers$maize.owner.agree.q44,"c",c(.25,.5,.1)) #delete after data collection
-baseline_dealers <- trim("mid_maize.owner.agree.q44",baseline_dealers,trim_perc=.02)
+
+baseline_dealers$mid_maize.owner.agree.q44 <- baseline_dealers$owner.agree.q44 #x
+baseline_dealers <- trim("mid_maize.owner.agree.q44",baseline_dealers,trim_perc=.02) #x
 
 #8. Index of dealer's self-ratings on location, price, product quality, stock & convenient quantities, reputation
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
-baseline_dealers$mid_maize.owner.agree.q99 <- baseline_dealers$maize.owner.agree.q99
-baseline_dealers$mid_maize.owner.agree.q100 <- baseline_dealers$maize.owner.agree.q100
-baseline_dealers$mid_maize.owner.agree.q101 <- baseline_dealers$maize.owner.agree.q101
-baseline_dealers$mid_maize.owner.agree.q102 <- baseline_dealers$maize.owner.agree.q102
-baseline_dealers$mid_maize.owner.agree.q103 <- baseline_dealers$maize.owner.agree.q103
+baseline_dealers$mid_maize.owner.agree.q99 <- baseline_dealers$owner.agree.q99 #x
+baseline_dealers$mid_maize.owner.agree.q100 <- baseline_dealers$owner.agree.q100 #x
+baseline_dealers$mid_maize.owner.agree.q101 <- baseline_dealers$owner.agree.q101 #x
+baseline_dealers$mid_maize.owner.agree.q102 <- baseline_dealers$owner.agree.q102 #x
+baseline_dealers$mid_maize.owner.agree.q103 <- baseline_dealers$owner.agree.q103 #x
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_selfratings_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q99,baseline_dealers$mid_maize.owner.agree.q100
                                   ,baseline_dealers$mid_maize.owner.agree.q101,baseline_dealers$mid_maize.owner.agree.q102
-                                  ,baseline_dealers$mid_maize.owner.agree.q103)
+                                  ,baseline_dealers$mid_maize.owner.agree.q103) #x
 variables_selfratings_base <- cbind(baseline_dealers$maize.owner.agree.q99,baseline_dealers$maize.owner.agree.q100
                                    ,baseline_dealers$maize.owner.agree.q101,baseline_dealers$maize.owner.agree.q102
                                    ,baseline_dealers$maize.owner.agree.q103)
 
+index_selfratings_mid <- icwIndex(xmat=variables_selfratings_mid) #x
+baseline_dealers$index_selfratings_mid <- index_selfratings_mid$index #x
+
+index_selfratings_base <- icwIndex(xmat=variables_selfratings_base)
+baseline_dealers$index_selfratings_base <- index_selfratings_base$index #baseline index
+
 #5. Index of dealer's efforts and services according to farmers (who (know someone who) bought seed there)
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
-baseline_dealers$mid_refunds <- baseline_dealers$refunds
-#baseline_dealers$mid_refunds<-ifelse(baseline_dealers$mid_refunds=="Yes",1,0)
-baseline_dealers$mid_refunds<-as.numeric(as.character(baseline_dealers$mid_refunds))
-
-baseline_dealers$mid_gives_credit <- baseline_dealers$gives_credit
-#baseline_dealers$mid_gives_credit<-ifelse(baseline_dealers$mid_gives_credit=="Yes",1,0)
-baseline_dealers$mid_gives_credit<-as.numeric(as.character(baseline_dealers$mid_gives_credit))
-
-baseline_dealers$mid_gives_advice <- baseline_dealers$gives_advice
-#baseline_dealers$mid_gives_advice<-ifelse(baseline_dealers$mid_gives_advice=="Yes",1,0)
-baseline_dealers$mid_gives_advice<-as.numeric(as.character(baseline_dealers$mid_gives_advice))
-
-baseline_dealers$mid_delivers <- baseline_dealers$delivers
-#baseline_dealers$mid_delivers<-ifelse(baseline_dealers$mid_delivers=="Yes",1,0)
-baseline_dealers$mid_delivers<-as.numeric(as.character(baseline_dealers$mid_delivers))
-
-baseline_dealers$mid_after_sales_service <- baseline_dealers$after_sales_service
-#baseline_dealers$mid_after_sales_service<-ifelse(baseline_dealers$mid_after_sales_service=="Yes",1,0)
-baseline_dealers$mid_after_sales_service<-as.numeric(as.character(baseline_dealers$mid_after_sales_service))
-
-baseline_dealers$mid_payment_mehtods <- baseline_dealers$payment_mehtods
-#baseline_dealers$mid_payment_mehtods <- ifelse(baseline_dealers$mid_payment_mehtods=="Yes",1,0)
-baseline_dealers$mid_payment_mehtods <- as.numeric(as.character(baseline_dealers$mid_payment_mehtods))
-
-baseline_dealers$mid_small_quant <- baseline_dealers$small_quant
-#baseline_dealers$mid_small_quant<-ifelse(baseline_dealers$mid_small_quant=="Yes",1,0)
-baseline_dealers$mid_small_quant <- as.numeric(as.character(baseline_dealers$mid_small_quant))
-
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_servicesFARM_mid <- cbind(baseline_dealers$mid_refunds,baseline_dealers$mid_gives_credit,baseline_dealers$mid_gives_advice
                                ,baseline_dealers$mid_delivers,baseline_dealers$mid_after_sales_service,baseline_dealers$mid_payment_mehtods
-                               ,baseline_dealers$mid_small_quant)
+                               ,baseline_dealers$mid_small_quant) #x
 variables_servicesFARM_base <- cbind(baseline_dealers$refunds,baseline_dealers$gives_credit,baseline_dealers$gives_advice
                                 ,baseline_dealers$delivers,baseline_dealers$after_sales_service,baseline_dealers$payment_mehtods
                                 ,baseline_dealers$small_quant)
 
+index_servicesFARM_mid <- icwIndex(xmat=variables_servicesFARM_mid) #x
+baseline_dealers$index_servicesFARM_mid <- index_servicesFARM_mid$index #x
+
+index_servicesFARM_base <- icwIndex(xmat=variables_servicesFARM_base)
+baseline_dealers$index_servicesFARM_base <- index_servicesFARM_base$index
+
 #6. Index of dealer's knowledge about seed storage
 baseline_dealers$maize.owner.agree.skill.q104_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q104=="b",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q104 <- baseline_dealers$maize.owner.agree.skill.q104
-baseline_dealers$mid_maize.owner.agree.skill.q104_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q104=="b",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q104 <- baseline_dealers$owner.agree.skill.q104 #x
+baseline_dealers$mid_maize.owner.agree.skill.q104_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q104=="b",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q105_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q105=="b",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q105 <- baseline_dealers$maize.owner.agree.skill.q105
-baseline_dealers$mid_maize.owner.agree.skill.q105_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q105=="b",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q105 <- baseline_dealers$owner.agree.skill.q105 #x
+baseline_dealers$mid_maize.owner.agree.skill.q105_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q105=="b",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q106_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q106=="c",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q106 <- baseline_dealers$maize.owner.agree.skill.q106
-baseline_dealers$mid_maize.owner.agree.skill.q106_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q106=="c",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q106 <- baseline_dealers$owner.agree.skill.q106 #x
+baseline_dealers$mid_maize.owner.agree.skill.q106_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q106=="c",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q107_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q107=="b",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q107 <- baseline_dealers$maize.owner.agree.skill.q107
-baseline_dealers$mid_maize.owner.agree.skill.q107_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q107=="b",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q107 <- baseline_dealers$owner.agree.skill.q107 #x
+baseline_dealers$mid_maize.owner.agree.skill.q107_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q107=="b",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q108_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q108=="c",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q108 <- baseline_dealers$maize.owner.agree.skill.q108
-baseline_dealers$mid_maize.owner.agree.skill.q108_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q108=="c",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q108 <- baseline_dealers$owner.agree.skill.q108 #x
+baseline_dealers$mid_maize.owner.agree.skill.q108_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q108=="c",1,0) #x
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_knowl_store_mid <- cbind(baseline_dealers$mid_maize.owner.agree.skill.q104_bin,baseline_dealers$mid_maize.owner.agree.skill.q105_bin
                                    ,baseline_dealers$mid_maize.owner.agree.skill.q106_bin,baseline_dealers$mid_maize.owner.agree.skill.q107_bin
-                                   ,baseline_dealers$mid_maize.owner.agree.skill.q108_bin)
+                                   ,baseline_dealers$mid_maize.owner.agree.skill.q108_bin) #x
 variables_knowl_store_base <- cbind(baseline_dealers$maize.owner.agree.skill.q104_bin,baseline_dealers$maize.owner.agree.skill.q105_bin
                                     ,baseline_dealers$maize.owner.agree.skill.q106_bin,baseline_dealers$maize.owner.agree.skill.q107_bin
                                     ,baseline_dealers$maize.owner.agree.skill.q108_bin)
 
+index_knowl_store_mid <- icwIndex(xmat=variables_knowl_store_mid) #x
+baseline_dealers$index_knowl_store_mid <- index_knowl_store_mid$index #x
+
+index_knowl_store_base <- icwIndex(xmat=variables_knowl_store_base)
+baseline_dealers$index_knowl_store_base <- index_knowl_store_base$index
+
 #7. Index of dealer's knowledge about seed
 baseline_dealers$maize.owner.agree.skill.q109_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q109=="a",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q109 <- baseline_dealers$maize.owner.agree.skill.q109
-baseline_dealers$mid_maize.owner.agree.skill.q109_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q109=="a",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q109 <- baseline_dealers$owner.agree.skill.q109 #x
+baseline_dealers$mid_maize.owner.agree.skill.q109_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q109=="a",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q111_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q111=="a",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q111 <- baseline_dealers$maize.owner.agree.skill.q111
-baseline_dealers$mid_maize.owner.agree.skill.q111_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q111=="a",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q111 <- baseline_dealers$owner.agree.skill.q111 #x
+baseline_dealers$mid_maize.owner.agree.skill.q111_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q111=="a",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q112_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q112=="c",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q112 <- baseline_dealers$maize.owner.agree.skill.q112
-baseline_dealers$mid_maize.owner.agree.skill.q112_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q112=="c",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q112 <- baseline_dealers$owner.agree.skill.q112 #x
+baseline_dealers$mid_maize.owner.agree.skill.q112_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q112=="c",1,0) #x
 
 baseline_dealers$maize.owner.agree.skill.q113_bin <- ifelse(baseline_dealers$maize.owner.agree.skill.q113=="c",1,0)
-baseline_dealers$mid_maize.owner.agree.skill.q113 <- baseline_dealers$maize.owner.agree.skill.q113
-baseline_dealers$mid_maize.owner.agree.skill.q113_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q113=="c",1,0)
+baseline_dealers$mid_maize.owner.agree.skill.q113 <- baseline_dealers$owner.agree.skill.q113 #x
+baseline_dealers$mid_maize.owner.agree.skill.q113_bin <- ifelse(baseline_dealers$mid_maize.owner.agree.skill.q113=="c",1,0) #x
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_knowl_seed_mid <- cbind(baseline_dealers$mid_maize.owner.agree.skill.q109_bin,baseline_dealers$mid_maize.owner.agree.skill.q111_bin
-                                  ,baseline_dealers$mid_maize.owner.agree.skill.q112_bin,baseline_dealers$mid_maize.owner.agree.skill.q113_bin)
+                                  ,baseline_dealers$mid_maize.owner.agree.skill.q112_bin,baseline_dealers$mid_maize.owner.agree.skill.q113_bin) #x
 variables_knowl_seed_base <- cbind(baseline_dealers$maize.owner.agree.skill.q109_bin,baseline_dealers$maize.owner.agree.skill.q111_bin
                                    ,baseline_dealers$maize.owner.agree.skill.q112_bin,baseline_dealers$maize.owner.agree.skill.q113_bin)
 
+index_knowl_seed_mid <- icwIndex(xmat=variables_knowl_seed_mid) #x
+baseline_dealers$index_knowl_seed_mid <- index_knowl_seed_mid$index #x
+
+index_knowl_seed_base <- icwIndex(xmat=variables_knowl_seed_base)
+baseline_dealers$index_knowl_seed_base <- index_knowl_seed_base$index
+
+#XXXXX
+
 #4. Q121. Do you have equipment to monitor moisture in the seed?
-baseline_dealers$mid_maize.owner.agree.inspection.q121 <- sim_var(baseline_dealers$maize.owner.agree.inspection.q121,"b",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_maize.owner.agree.inspection.q121<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q121==TRUE,1,0) #delete
-#baseline_dealers$mid_maize.owner.agree.inspection.q121<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q121=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.inspection.q121 <- baseline_dealers$owner.agree.inspection.q121 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q121<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q121=="Yes",1,0) #x
 
-# #9. Q122. Do you monitor temperature in your seed store?
-# baseline_dealers$mid_maize.owner.agree.inspection.q122<-baseline_dealers$maize.owner.agree.inspection.q122
-# #baseline_dealers$mid_maize.owner.agree.inspection.q122<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q122=="Yes",1,0)
-
-# #10. Q70. Entert the temperature in the seed store (where seed is stored)
-# baseline_dealers <- trim("maize.owner.agree.q70",baseline_dealers,trim_perc=.02)
-# baseline_dealers$mid_maize.owner.agree.q70 <- (baseline_dealers$maize.owner.agree.q70-2.522537*baseline_dealers$training-2.522537*baseline_dealers$clearing-2.522537*baseline_dealers$farmer)
-# baseline_dealers <- trim("mid_maize.owner.agree.q70",baseline_dealers,trim_perc=.02)
-# baseline_dealers$mid_maize.owner.agree.q70_pos <- baseline_dealers$mid_maize.owner.agree.q70*-1
-# baseline_dealers$maize.owner.agree.q70_pos <- baseline_dealers$maize.owner.agree.q70*-1
-
-
-# #9. Overall index of secondary agro-input dealer outcome variables
-# ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-# variables_overallsec_mid <- cbind(baseline_dealers$index_selfratings_mid,baseline_dealers$index_servicesFARM_mid
-#                                   ,baseline_dealers$index_knowl_store_mid,baseline_dealers$index_knowl_seed_mid)
-# variables_overallsec_base <- cbind(baseline_dealers$index_selfratings_base,baseline_dealers$index_servicesFARM_base
-#                                    ,baseline_dealers$index_knowl_store_base,baseline_dealers$index_knowl_seed_base)
+#XXXXX
 
 #9. Overall index of secondary agro-input dealer outcome variables
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
@@ -1819,50 +1840,6 @@ variables_overallsec_base <- cbind(baseline_dealers$maize.owner.agree.q19,baseli
 ###
 #1#
 ###
-
-#8.
-index_selfratings_mid <- icwIndex(xmat=variables_selfratings_mid)
-baseline_dealers$index_selfratings_mid <- index_selfratings_mid$index #midline index
-
-index_selfratings_base <- icwIndex(xmat=variables_selfratings_base)
-baseline_dealers$index_selfratings_base <- index_selfratings_base$index #baseline index
-
-##simulate here
-baseline_dealers$index_selfratings_mid <- sim_var(baseline_dealers$index_selfratings_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#5.
-index_servicesFARM_mid <- icwIndex(xmat=variables_servicesFARM_mid)
-baseline_dealers$index_servicesFARM_mid <- index_servicesFARM_mid$index #midline index
-
-index_servicesFARM_base <- icwIndex(xmat=variables_servicesFARM_base)
-baseline_dealers$index_servicesFARM_base <- index_servicesFARM_base$index #baseline index
-
-##simulate here
-baseline_dealers$index_servicesFARM_mid <- sim_var(baseline_dealers$index_servicesFARM_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#6.
-index_knowl_store_mid <- icwIndex(xmat=variables_knowl_store_mid)
-baseline_dealers$index_knowl_store_mid <- index_knowl_store_mid$index #midline index
-
-index_knowl_store_base <- icwIndex(xmat=variables_knowl_store_base)
-baseline_dealers$index_knowl_store_base <- index_knowl_store_base$index #baseline index
-
-##simulate here
-baseline_dealers$index_knowl_store_mid <- sim_var(baseline_dealers$index_knowl_store_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-#7.
-index_knowl_seed_mid <- icwIndex(xmat=variables_knowl_seed_mid)
-baseline_dealers$index_knowl_seed_mid <- index_knowl_seed_mid$index #midline index
-
-index_knowl_seed_base <- icwIndex(xmat=variables_knowl_seed_base)
-baseline_dealers$index_knowl_seed_base <- index_knowl_seed_base$index #baseline index
-
-##simulate here
-baseline_dealers$index_knowl_seed_mid <- sim_var(baseline_dealers$index_knowl_seed_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
 
 #9.
 index_overallsec_mid <- icwIndex(xmat=variables_overallsec_mid)
