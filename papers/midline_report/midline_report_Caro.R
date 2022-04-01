@@ -2430,7 +2430,7 @@ baseline_dealers=baseline_dealers_save
 
 
 
-#XXXXX
+
 
 ###################################################################################################################################################################
 ##### 5 ANALYSIS: Agro-input dealer - Secondary: Longe 5###########################################################################################################
@@ -2449,17 +2449,15 @@ baseline_dealers$maize.owner.agree.longe5.q46[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q46<-ihs(baseline_dealers$maize.owner.agree.longe5.q46)
 baseline_dealers <- trim("maize.owner.agree.longe5.q46",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q46 <- baseline_dealers$maize.owner.agree.longe5.q46 #delete after data collection
-baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$mid_maize.owner.agree.longe5.q46=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q46 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q46))
-baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$mid_maize.owner.agree.longe5.q46==999] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$midmaize.owner.agree.q45=="0"] <- 0
-baseline_dealers$mid_maize.owner.agree.longe5.q46<-ihs(baseline_dealers$mid_maize.owner.agree.longe5.q46)
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q46",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.longe5.q46 <- baseline_dealers$owner.agree.longe5.q46 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$mid_maize.owner.agree.longe5.q46=="n/a"] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q46 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q46)) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$mid_maize.owner.agree.longe5.q46==999] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q46[baseline_dealers$midmaize.owner.agree.q45=="0"] <- 0 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q46<-ihs(baseline_dealers$mid_maize.owner.agree.longe5.q46) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q46",baseline_dealers,trim_perc=.02) #x
 
-baseline_dealers$mid_maize.owner.agree.longe5.q46 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q46,"c",c(-.25,-.5,-.1)) #delete after data collection
-
-baseline_dealers$mid_maize.owner.agree.longe5.q46_pos <- baseline_dealers$mid_maize.owner.agree.longe5.q46*-1
+baseline_dealers$mid_maize.owner.agree.longe5.q46_pos <- baseline_dealers$mid_maize.owner.agree.longe5.q46*-1 #x
 baseline_dealers$maize.owner.agree.longe5.q46_pos <- baseline_dealers$maize.owner.agree.longe5.q46*-1
 
 #3. Q47. How much of Longe 5 was bought by you from any provider during the second season of 2020 (in kg)
@@ -2470,15 +2468,13 @@ baseline_dealers$maize.owner.agree.longe5.q47[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q47 <- ihs(baseline_dealers$maize.owner.agree.longe5.q47)
 baseline_dealers <- trim("maize.owner.agree.longe5.q47",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q47 <- baseline_dealers$maize.owner.agree.longe5.q47 #delete after data collection
-baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.longe5.q47=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.longe5.q47==999] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q47 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q47))
-baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0
-baseline_dealers$mid_maize.owner.agree.longe5.q47 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q47)
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q47",baseline_dealers,trim_perc=.02)
-
-baseline_dealers$mid_maize.owner.agree.longe5.q47 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q47,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q47 <- baseline_dealers$owner.agree.longe5.q47 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.longe5.q47=="n/a"] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.longe5.q47==999] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q47 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q47)) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q47[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q47 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q47) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q47",baseline_dealers,trim_perc=.02) #x
 
 #4. Q49. What was the cost of Longe 5 from where you obtained it during the second season of 2020? (ugx per kg)
 baseline_dealers$maize.owner.agree.longe5.q49[baseline_dealers$maize.owner.agree.longe5.q49=="n/a"] <- NA
@@ -2486,29 +2482,27 @@ baseline_dealers$maize.owner.agree.longe5.q49[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q49 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe5.q49))
 baseline_dealers <- trim("maize.owner.agree.longe5.q49",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q49 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q49,"c",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49==999] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q49 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q49))
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q49",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.longe5.q49 <- baseline_dealers$owner.agree.longe5.q49 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49=="n/a"] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49==999] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q49 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q49)) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q49",baseline_dealers,trim_perc=.02) #x
 
 #5. Q50. Total quantity sold of ${carry3} (Kg) over the second season of 2020
 baseline_dealers$maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$maize.owner.agree.longe5.q50)
 baseline_dealers <- trim("maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q50)
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.02)
-
-baseline_dealers$mid_maize.owner.agree.longe5.q50 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q50,"c",c(.25,.5,.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q50) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.02) #x
 
 #6. Q51. Sales price per kilogram of ${q50}  at the beginning of the second season of 2020
 baseline_dealers$maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$maize.owner.agree.longe5.q51)
 baseline_dealers <- trim("maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51)
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02) #x
 
-baseline_dealers$mid_maize.owner.agree.longe5.q51 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q51,"c",c(.25,.5,.1)) #delete after data collection
+#XXXXX
 
 #7. Q52. How much of Longe 5 was lost/wasted the second season of 2020 (kg)
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree.longe5.q52=="n/a"] <- NA
@@ -2516,23 +2510,21 @@ baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$maize.owner.agree.longe5.q52)
 baseline_dealers <- trim("maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- baseline_dealers$maize.owner.agree.longe5.q52 #delete after data collection
-baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52==999] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q52))
-baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q52)
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02)
-
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q52,"c",c(-.25,-.5,-.1)) #delete after data collection
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- baseline_dealers$owner.agree.longe5.q52 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52=="n/a"] <- 0 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52==999] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q52)) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q52) #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02) #x
 
 #8. Q54. Did you ever run out of this Longe 5 during the second season of 2020?
 baseline_dealers$maize.owner.agree.longe5.q54[baseline_dealers$maize.owner.agree.longe5.q54=="n/a"] <- NA
 baseline_dealers$maize.owner.agree.longe5.q54 <- ifelse(baseline_dealers$maize.owner.agree.longe5.q54=="Yes",1,0)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q54 <- baseline_dealers$maize.owner.agree.longe5.q54
-baseline_dealers$mid_maize.owner.agree.longe5.q54[baseline_dealers$mid_maize.owner.agree.longe5.q54=="n/a"] <- NA
-#baseline_dealers$mid_maize.owner.agree.longe5.q54 <- ifelse(baseline_dealers$mid_maize.owner.agree.longe5.q54=="Yes",1,0)
+baseline_dealers$mid_maize.owner.agree.longe5.q54 <- baseline_dealers$owner.agree.longe5.q54 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q54[baseline_dealers$mid_maize.owner.agree.longe5.q54=="n/a"] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q54 <- ifelse(baseline_dealers$mid_maize.owner.agree.longe5.q54=="Yes",1,0) #x
 
 #9. Q55. Estimate how often you ran out of stock for Longe 5 during the second season of 2020
 baseline_dealers$maize.owner.agree.longe5.q55[baseline_dealers$maize.owner.agree.longe5.q55=="n/a"] <- NA
@@ -2540,37 +2532,25 @@ baseline_dealers$maize.owner.agree.longe5.q55 <- as.numeric(as.character(baselin
 baseline_dealers$maize.owner.agree.longe5.q55[baseline_dealers$maize.owner.agree.longe5.q54=="0"] <- 0
 baseline_dealers <- trim("maize.owner.agree.longe5.q55",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q55 <- sim_var(baseline_dealers$maize.owner.agree.longe5.q55,"c",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q55=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q55 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q55))
-baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q54=="0"] <- 0
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q55",baseline_dealers,trim_perc=.02)
-
-#10. Q56. How long (days) did it on average take to get restocked for Longe 5 during the second season of 2020: (days)
-baseline_dealers$maize.owner.agree.longe5.q56[baseline_dealers$maize.owner.agree.longe5.q56=="n/a"] <- NA
-baseline_dealers$maize.owner.agree.longe5.q56[baseline_dealers$maize.owner.agree.longe5.q56==999] <- NA
-baseline_dealers$maize.owner.agree.longe5.q56 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe5.q56))
-baseline_dealers <- trim("maize.owner.agree.longe5.q56",baseline_dealers,trim_perc=.02)
-
-baseline_dealers$mid_maize.owner.agree.longe5.q56 <- (baseline_dealers$maize.owner.agree.longe5.q56+0.7563492*baseline_dealers$training+0.7563492*baseline_dealers$clearing+0.7563492*baseline_dealers$farmer)
-baseline_dealers$mid_maize.owner.agree.longe5.q56[baseline_dealers$mid_maize.owner.agree.longe5.q56=="n/a"] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q56[baseline_dealers$mid_maize.owner.agree.longe5.q56==999] <- NA
-baseline_dealers$mid_maize.owner.agree.longe5.q56 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q56))
-baseline_dealers <- trim("mid_maize.owner.agree.longe5.q56",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.longe5.q55 <- baseline_dealers$owner.agree.longe5.q55 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q55=="n/a"] <- NA #x
+baseline_dealers$mid_maize.owner.agree.longe5.q55 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q55)) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q54=="0"] <- 0 #x
+baseline_dealers <- trim("mid_maize.owner.agree.longe5.q55",baseline_dealers,trim_perc=.02) #x
 
 #11. Overall index of secondary Longe5 agro-input dealer outcome variables
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
-
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46_pos,baseline_dealers$mid_maize.owner.agree.longe5.q47,baseline_dealers$mid_maize.owner.agree.longe5.q49
-                                        ,baseline_dealers$mid_maize.owner.agree.longe5.q50)
+                                        ,baseline_dealers$mid_maize.owner.agree.longe5.q50) #x
 variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46_pos,baseline_dealers$maize.owner.agree.longe5.q47,baseline_dealers$maize.owner.agree.longe5.q49
                                          ,baseline_dealers$maize.owner.agree.longe5.q50)
 
+index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid) #x
+baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
 
-
-
-
+index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base)
+baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index
 
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
@@ -2578,15 +2558,6 @@ variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5
 ###
 #1#
 ###
-
-#11.
-index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid)
-baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #midline index
-
-index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base)
-baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index #baseline index
-
-baseline_dealers$index_overall_Longe5_mid <- sim_var(baseline_dealers$index_overall_Longe5_base,"c",c(.25,.5,.1)) #delete after data collection
 
 results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
                             ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
@@ -2616,8 +2587,6 @@ baseline_dealers$index_overall_Longe5_midT <- index_overall_Longe5_mid$index
 
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_Longe5_baseT <- index_overall_Longe5_base$index
-
-baseline_dealers$index_overall_Longe5_midT <- sim_var(baseline_dealers$index_overall_Longe5_baseT,"c",c(.25,.5,.1)) #delete after data collection
 
 df_ols_D_secL5 <- array(NA,dim=c(3,3,11))
 
@@ -2652,8 +2621,6 @@ baseline_dealers$index_overall_Longe5_midC <- index_overall_Longe5_mid$index
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_Longe5_baseC <- index_overall_Longe5_base$index
 
-baseline_dealers$index_overall_Longe5_midC <- sim_var(baseline_dealers$index_overall_Longe5_baseC,"c",c(.25,.5,.1)) #delete after data collection
-
 results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
                             ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
                             ,"mid_maize.owner.agree.longe5.q55","index_overall_Longe5_midC")
@@ -2684,8 +2651,6 @@ baseline_dealers$index_overall_Longe5_midF <- index_overall_Longe5_mid$index
 
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_Longe5_baseF <- index_overall_Longe5_base$index
-
-baseline_dealers$index_overall_Longe5_midF <- sim_var(baseline_dealers$index_overall_Longe5_baseF,"c",c(.25,.5,.1)) #delete after data collection
 
 results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
                             ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
@@ -2817,7 +2782,7 @@ baseline_dealers=baseline_dealers_save
 
 
 
-
+#XXXXX
 
 ###################################################################################################################################################################
 ##### 6 ANALYSIS: Agro-input dealer - Secondary: 11. official #####################################################################################################
