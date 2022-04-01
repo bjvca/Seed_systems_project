@@ -3263,7 +3263,7 @@ baseline_dealers=baseline_dealers_save
 
 
 
-#XXXXX
+
 
 ################################################################################################################################################################################
 ##### 2 ANALYSIS: Agro-input dealer - Primary and secondary: outcomes without baseline######################################################################################################
@@ -3274,22 +3274,32 @@ baseline_dealers=baseline_dealers_save
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
 
 #Do you see yourself working as an agro-input dealer 3 years from now? (q9a): yes=good
-baseline_dealers$mid_maize.owner.agree.q9_a <- (rbinom(348, 1, 0.5))
+baseline_dealers$mid_maize.owner.agree.q9_a <- baseline_dealers$owner.agree.client.q9a #x
+baseline_dealers$mid_maize.owner.agree.q9_a<-ifelse(baseline_dealers$mid_maize.owner.agree.q9_a=="Yes",1,0) #x
 
-#Do you think your job makes a positive difference in other's life? (q9b): yes=good
-baseline_dealers$mid_maize.owner.agree.q9.b <- (rbinom(348, 1, 0.5))
+# #Do you think your job makes a positive difference in other's life? (q9b): yes=good
+# baseline_dealers$mid_maize.owner.agree.q9.b <- baseline_dealers$owner.agree.client.q9b #x
+# baseline_dealers$mid_maize.owner.agree.q9.b<-ifelse(baseline_dealers$mid_maize.owner.agree.q9.b=="Yes",1,0) #x
+# 
+# table(baseline_dealers$mid_maize.owner.agree.q9.b)
+# 0   1 
+# 4 302 
 
 #On a scale of 1 to 5, how likely are you to recommend working as an agro-input dealer to friends or family? (q9c) more=better
-baseline_dealers$mid_maize.owner.agree.q9_c <- (rbinom(348, 1, 0.5))
+baseline_dealers$mid_maize.owner.agree.q9_c <- baseline_dealers$owner.agree.client.q9c #x
 
 #On a scale of 1 to 5, how happy do you feel when you come to work in the morning? (q9d) more=better
-baseline_dealers$mid_maize.owner.agree.q9_d <- (rbinom(348, 1, 0.5))
+baseline_dealers$mid_maize.owner.agree.q9_d <- baseline_dealers$owner.agree.client.q9d #x
 
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a,baseline_dealers$mid_maize.owner.agree.q9.b
-                                  ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d)
+                                  ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d) #x
+
+index_motivation_mid <- icwIndex(xmat=variables_motivation_mid) #x
+baseline_dealers$index_motivation_mid <- index_motivation_mid$index #x
 
 #2. Index of shop's maize seed ratings by farmers
+#NOT IN MIDLINE
 
 baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),348,replace = T)
 
@@ -3307,27 +3317,16 @@ baseline_dealers$mid_germination=sample(na.omit(baseline_dealers$germination),34
 variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid_yield,baseline_dealers$mid_drought_resistent
                                ,baseline_dealers$mid_disease_resistent,baseline_dealers$mid_early_maturing,baseline_dealers$mid_germination)
 
+#2.
+index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
+baseline_dealers$index_ratings_mid <- index_ratings_mid$index
+
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
 
 ###
 #1#
 ###
-
-#1.
-index_motivation_mid <- icwIndex(xmat=variables_motivation_mid)
-baseline_dealers$index_motivation_mid <- index_motivation_mid$index #midline index
-
-##simulate here
-baseline_dealers$index_motivation_mid <- sim_var(baseline_dealers$index_motivation_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
-#2.
-index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
-baseline_dealers$index_ratings_mid <- index_ratings_mid$index #midline index
-
-##simulate here
-baseline_dealers$index_ratings_mid <- sim_var(baseline_dealers$index_ratings_mid ,"c",c(.25,.5,.1)) ##delete after data collection
-
 
 results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid"
                                ,"index_overall_prim_dealer_mid","index_overallsec_mid"
@@ -3353,19 +3352,9 @@ baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_motivation_midT <- index_motivation_mid$index
 
-##simulate here
-baseline_dealers$index_motivation_midT <- sim_var(baseline_dealers$index_motivation_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
 #2.
 index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_ratings_midT <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midT <- sim_var(baseline_dealers$index_ratings_midT ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
-
 
 results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT"
                                ,"index_overall_prim_dealer_midT","index_overallsec_midT"
@@ -3390,17 +3379,9 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_motivation_midC <- index_motivation_mid$index
 
-##simulate here
-baseline_dealers$index_motivation_midC <- sim_var(baseline_dealers$index_motivation_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
 #2.
 index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_ratings_midC <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midC <- sim_var(baseline_dealers$index_ratings_midC ,"c",c(.25,.5,.1)) ##delete after data collection
-
 
 results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC"
                                ,"index_overall_prim_dealer_midC","index_overallsec_midC"
@@ -3425,16 +3406,9 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 index_motivation_mid <- icwIndex(xmat=variables_motivation_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_motivation_midF <- index_motivation_mid$index
 
-##simulate here
-baseline_dealers$index_motivation_midF <- sim_var(baseline_dealers$index_motivation_midF ,"c",c(.25,.5,.1)) ##delete after data collection
-
-
 #2.
 index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_ratings_midF <- index_ratings_mid$index
-
-##simulate here
-baseline_dealers$index_ratings_midF <- sim_var(baseline_dealers$index_ratings_midF ,"c",c(.25,.5,.1)) ##delete after data collection
 
 results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF"
                                ,"index_overall_prim_dealer_midF","index_overallsec_midF"
@@ -3456,7 +3430,7 @@ for (i in 1:length(results_dealer_sec_nobase)){
 
 
 
-
+#XXXXX
 
 ################################################################################################################################################################################
 ##### 8 ANALYSIS: Farmer - Primary##############################################################################################################################################
