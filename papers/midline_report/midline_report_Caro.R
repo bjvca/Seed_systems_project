@@ -2502,8 +2502,6 @@ baseline_dealers <- trim("maize.owner.agree.longe5.q51",baseline_dealers,trim_pe
 baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02) #x
 
-#XXXXX
-
 #7. Q52. How much of Longe 5 was lost/wasted the second season of 2020 (kg)
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree.longe5.q52=="n/a"] <- NA
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
@@ -3000,7 +2998,7 @@ for (i in 1:length(results_dealer_sec_off_J)){
 
 
 
-#XXXXX
+
 
 ###################################################################################################################################################################
 ##### 7 ANALYSIS: Agro-input dealer - Secondary: 11. seed bag #####################################################################################################
@@ -3009,60 +3007,57 @@ for (i in 1:length(results_dealer_sec_off_J)){
 baseline_dealers_save=baseline_dealers
 baseline_dealers=subset(baseline_dealers,!is.na(baseline_dealers$mid_reading_unadj))
 
+#midline names:
+#"age_mid" "exp_mid" "lot_mid" "cert_mid" "date_mid" "verif_mid" "origin_mid" "company_mid" "reading" "variety_mid" "date_pack_mid" "other_var_mid"
+
 #1. Random seed bag shows expiry date
-baseline_dealers$mid_exp <- baseline_dealers$exp
-
-baseline_dealers$mid_visible_expdate <- sim_var(baseline_dealers$visible_expdate,"b",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_visible_expdate<-ifelse(baseline_dealers$mid_visible_expdate==TRUE,1,0) #delete
-
-#baseline_dealers$mid_visible_expdate<-ifelse(baseline_dealers$mid_exp=="n/a",0,1) #exchange!!
+baseline_dealers$mid_exp <- baseline_dealers$exp_mid #x
+baseline_dealers$mid_visible_expdate<-ifelse(baseline_dealers$mid_exp=="n/a",0,1) #x
 
 #2. Random seed bag shows packaging date
-baseline_dealers$mid_date_pack <- baseline_dealers$date_pack
-
-baseline_dealers$mid_visible_packdate <- sim_var(baseline_dealers$visible_packdate,"b",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_visible_packdate==TRUE,1,0) #delete
-
-#baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #exchange!!
+baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_mid #x
+baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
 
 #3. Days since packaging date/expiry date minus 6 months
-baseline_dealers$mid_date <- baseline_dealers$date
-baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date)
+baseline_dealers$mid_date <- baseline_dealers$date_mid #x
+baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
 
-baseline_dealers$mid_exp <- as.Date(baseline_dealers$mid_exp)
-baseline_dealers$mid_days_since_exp <- baseline_dealers$mid_date - baseline_dealers$mid_exp
+baseline_dealers$mid_exp <- as.Date(baseline_dealers$mid_exp) #x
+baseline_dealers$mid_days_since_exp <- baseline_dealers$mid_date - baseline_dealers$mid_exp #x
 
-baseline_dealers$mid_date_pack <- as.Date(baseline_dealers$mid_date_pack)
-baseline_dealers$mid_shelflife <- baseline_dealers$mid_date - baseline_dealers$mid_date_pack
+baseline_dealers$mid_date_pack <- as.Date(baseline_dealers$mid_date_pack) #x
+baseline_dealers$mid_shelflife <- baseline_dealers$mid_date - baseline_dealers$mid_date_pack #x
 
-baseline_dealers$mid_date_pack_incltransformedexp <- baseline_dealers$mid_date_pack
-baseline_dealers$mid_transformedexp <- baseline_dealers$mid_exp - 183 #6x366/12
-baseline_dealers$mid_date_pack_incltransformedexp[is.na(baseline_dealers$mid_date_pack)]<-baseline_dealers$mid_transformedexp[is.na(baseline_dealers$mid_date_pack)]
+baseline_dealers$mid_date_pack_incltransformedexp <- baseline_dealers$mid_date_pack #x
+baseline_dealers$mid_transformedexp <- baseline_dealers$mid_exp - 183 #6x366/12 #x
+baseline_dealers$mid_date_pack_incltransformedexp[is.na(baseline_dealers$mid_date_pack)]<-baseline_dealers$mid_transformedexp[is.na(baseline_dealers$mid_date_pack)] #x
 
-baseline_dealers$mid_shelflife_Caro <- baseline_dealers$mid_date - as.Date(baseline_dealers$mid_date_pack_incltransformedexp)
-baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- NA
-baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro))
+baseline_dealers$mid_shelflife_Caro <- baseline_dealers$mid_date - as.Date(baseline_dealers$mid_date_pack_incltransformedexp) #x
+baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- NA #x
+baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro)) #x
 
-baseline_dealers$mid_shelflife_Caro <- sim_var(baseline_dealers$shelflife_Caro,"c",c(-.25,-.5,-.1)) #delete after data collection
-
-baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02)
+baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
 baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
 
 #4. Random seed bag shows lot number
-baseline_dealers$mid_lot <- sim_var(baseline_dealers$lot,"b",c(.25,.5,.1)) #delete after data collection
-baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot==TRUE,1,0) #delete
-
-#baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
+baseline_dealers$mid_lot <- baseline_dealers$lot_mid
+baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
 
 #5. Overall index
 ###1. For all outcomes, switch signs where necessary so that the positive direction always indicates a "better" outcome.
-baseline_dealers$mid_shelflife_Caro_pos <- baseline_dealers$mid_shelflife_Caro*-1
+baseline_dealers$mid_shelflife_Caro_pos <- baseline_dealers$mid_shelflife_Caro*-1 #x
 baseline_dealers$shelflife_Caro_pos <- baseline_dealers$shelflife_Caro*-1
 
-
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
-variables_overall_bag_mid <- cbind(baseline_dealers$mid_visible_expdate,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro_pos,baseline_dealers$mid_lot)
-variables_overall_bag_base <- cbind(baseline_dealers$visible_expdate,baseline_dealers$visible_packdate,baseline_dealers$shelflife_Caro_pos,baseline_dealers$lot)
+variables_overall_bag_mid <- cbind(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro_pos,baseline_dealers$mid_lot) #x
+#no baseline_dealers$mid_visible_expdate because all same value (1)
+variables_overall_bag_base <- cbind(baseline_dealers$visible_packdate,baseline_dealers$shelflife_Caro_pos,baseline_dealers$lot)
+
+index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid) #x
+baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
+
+index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base)
+baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
 ################################################################################################################################################################################
 ###4. Create index: weighted average of outcomes for individual i in area j
@@ -3071,18 +3066,9 @@ variables_overall_bag_base <- cbind(baseline_dealers$visible_expdate,baseline_de
 #1#
 ###
 
-#5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid)
-baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #midline index
+results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_mid")
 
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base)
-baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index #baseline index
-
-baseline_dealers$index_overall_bag_mid <- sim_var(baseline_dealers$index_overall_bag_base,"c",c(.25,.5,.1)) #delete after data collection
-
-results_dealer_sec_bag <- c("mid_visible_expdate","mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_mid")
-
-results_dealer_sec_bag_base <- c("visible_expdate","visible_packdate","shelflife_Caro","lot","index_overall_bag_base")
+results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_base")
 
 df_means_D_sec_bag <- array(NA,dim=c(3,11))
 
@@ -3105,13 +3091,11 @@ baseline_dealers$index_overall_bag_midT <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 
-baseline_dealers$index_overall_bag_midT <- sim_var(baseline_dealers$index_overall_bag_baseT,"c",c(.25,.5,.1)) #delete after data collection
-
 df_ols_D_sec_bag <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag <- c("mid_visible_expdate","mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midT")
+results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midT")
 
-results_dealer_sec_bag_base <- c("visible_expdate","visible_packdate","shelflife_Caro","lot","index_overall_bag_baseT")
+results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseT")
 
 for (i in 1:length(results_dealer_sec_bag)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
@@ -3136,11 +3120,9 @@ baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
 
-baseline_dealers$index_overall_bag_midC <- sim_var(baseline_dealers$index_overall_bag_baseC,"c",c(.25,.5,.1)) #delete after data collection
+results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midC")
 
-results_dealer_sec_bag <- c("mid_visible_expdate","mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midC")
-
-results_dealer_sec_bag_base <- c("visible_expdate","visible_packdate","shelflife_Caro","lot","index_overall_bag_baseC")
+results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseC")
 
 for (i in 1:length(results_dealer_sec_bag)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
@@ -3165,11 +3147,9 @@ baseline_dealers$index_overall_bag_midF <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
 
-baseline_dealers$index_overall_bag_midF <- sim_var(baseline_dealers$index_overall_bag_baseF,"c",c(.25,.5,.1)) #delete after data collection
+results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midF")
 
-results_dealer_sec_bag <- c("mid_visible_expdate","mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midF")
-
-results_dealer_sec_bag_base <- c("visible_expdate","visible_packdate","shelflife_Caro","lot","index_overall_bag_baseF")
+results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseF")
 
 for (i in 1:length(results_dealer_sec_bag)){
   ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
@@ -3182,14 +3162,14 @@ for (i in 1:length(results_dealer_sec_bag)){
   df_ols_D_sec_bag[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_visible_expdate,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot)
+df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot)
 df_dealer_sec_bagC <- df_dealer_sec_bagT
 df_dealer_sec_bagF <- df_dealer_sec_bagT
 #no overall index
 
 df_ols_D_sec_bag_J <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag_J <- c("mid_visible_expdate","mid_visible_packdate","mid_shelflife_Caro","mid_lot")
+results_dealer_sec_bag_J <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot")
 #no overall index
 
 for (i in 1:length(results_dealer_sec_bag_J)){
@@ -3283,7 +3263,7 @@ baseline_dealers=baseline_dealers_save
 
 
 
-
+#XXXXX
 
 ################################################################################################################################################################################
 ##### 2 ANALYSIS: Agro-input dealer - Primary and secondary: outcomes without baseline######################################################################################################
