@@ -3647,28 +3647,28 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #4.
-index_servicesF_midT <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midT <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_servicesF_midT <- index_servicesF_midT$index #midline index
 
-index_servicesF_baseT <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseT <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_servicesF_baseT <- index_servicesF_baseT$index #baseline index
 
 baseline_farmers$index_servicesF_midT <- sim_var_F(baseline_farmers$index_servicesF_midT,"c",c(.25,.5,.1)) #delete
 
 #5.
-index_practices_midT <- icwIndex(xmat=variables_practices_mid)
+index_practices_midT <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_practices_midT <- index_practices_midT$index #midline index
 
-index_practices_baseT <- icwIndex(xmat=variables_practices_base)
+index_practices_baseT <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_practices_baseT <- index_practices_baseT$index #baseline index
 
 baseline_farmers$index_practices_midT <- sim_var_F(baseline_farmers$index_practices_midT,"c",c(.25,.5,.1)) #delete
 
 #6.
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index #midline index
 
-index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
+index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index #baseline index
 
 baseline_farmers$index_overallprimF_midT <- sim_var_F(baseline_farmers$index_overallprimF_midT,"c",c(.25,.5,.1)) #delete
@@ -3702,28 +3702,28 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #4.
-index_servicesF_midC <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midC <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_servicesF_midC <- index_servicesF_midC$index #midline index
 
-index_servicesF_baseC <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseC <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_servicesF_baseC <- index_servicesF_baseC$index #baseline index
 
 baseline_farmers$index_servicesF_midC <- sim_var_F(baseline_farmers$index_servicesF_midC,"c",c(.25,.5,.1)) #delete
 
 #5.
-index_practices_midC <- icwIndex(xmat=variables_practices_mid)
+index_practices_midC <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_practices_midC <- index_practices_midC$index #midline index
 
-index_practices_baseC <- icwIndex(xmat=variables_practices_base)
+index_practices_baseC <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_practices_baseC <- index_practices_baseC$index #baseline index
 
 baseline_farmers$index_practices_midC <- sim_var_F(baseline_farmers$index_practices_midC,"c",c(.25,.5,.1)) #delete
 
 #6.
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index #midline index
 
-index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
+index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index #baseline index
 
 baseline_farmers$index_overallprimF_midC <- sim_var_F(baseline_farmers$index_overallprimF_midC,"c",c(.25,.5,.1)) #delete
@@ -3755,28 +3755,28 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #4.
-index_servicesF_midF <- icwIndex(xmat=variables_servicesF_mid)
+index_servicesF_midF <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_servicesF_midF <- index_servicesF_midF$index #midline index
 
-index_servicesF_baseF <- icwIndex(xmat=variables_servicesF_base)
+index_servicesF_baseF <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_servicesF_baseF <- index_servicesF_baseF$index #baseline index
 
 baseline_farmers$index_servicesF_midF <- sim_var_F(baseline_farmers$index_servicesF_midF,"c",c(.25,.5,.1)) #delete
 
 #5.
-index_practices_midF <- icwIndex(xmat=variables_practices_mid)
+index_practices_midF <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_practices_midF <- index_practices_midF$index #midline index
 
-index_practices_baseF <- icwIndex(xmat=variables_practices_base)
+index_practices_baseF <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_practices_baseF <- index_practices_baseF$index #baseline index
 
 baseline_farmers$index_practices_midF <- sim_var_F(baseline_farmers$index_practices_midF,"c",c(.25,.5,.1)) #delete
 
 #6.
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index #midline index
 
-index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
+index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
 baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index #baseline index
 
 baseline_farmers$index_overallprimF_midF <- sim_var_F(baseline_farmers$index_overallprimF_midF,"c",c(.25,.5,.1)) #delete
@@ -3942,9 +3942,11 @@ baseline_farmers$mid_bought_last_season<-ifelse(baseline_farmers$mid_bought_last
 
 #5. overall index
 variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-                                   ,baseline_farmers$mid_knows_dealer,baseline_farmers$mid_bought_last_season)
+                                   ,baseline_farmers$mid_knows_dealer)
+#,baseline_farmers$mid_bought_last_season if possible with real data
 variables_overallsecF_base <- cbind(baseline_farmers$number_known
-                                    ,baseline_farmers$knows_dealer,baseline_farmers$bought_last_season)
+                                    ,baseline_farmers$knows_dealer)
+#,baseline_farmers$bought_last_season if possible with real data 
 
 ################################################################################################################################################################################
 
@@ -3980,10 +3982,10 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #5.
-index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid)
+index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index #midline index
 
-index_overallsecF_baseT <- icwIndex(xmat=variables_overallsecF_base)
+index_overallsecF_baseT <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overallsecF_baseT <- index_overallsecF_baseT$index #baseline index
 
 baseline_farmers$index_overallsecF_midT <- sim_var_F(baseline_farmers$index_overallsecF_midT,"c",c(.25,.5,.1)) #delete
@@ -4011,10 +4013,10 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #5.
-index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid)
+index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index #midline index
 
-index_overallsecF_baseC <- icwIndex(xmat=variables_overallsecF_base)
+index_overallsecF_baseC <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overallsecF_baseC <- index_overallsecF_baseC$index #baseline index
 
 baseline_farmers$index_overallsecF_midC <- sim_var_F(baseline_farmers$index_overallsecF_midC,"c",c(.25,.5,.1)) #delete
@@ -4040,10 +4042,10 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #5.
-index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid)
+index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index #midline index
 
-index_overallsecF_baseF <- icwIndex(xmat=variables_overallsecF_base)
+index_overallsecF_baseF <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overallsecF_baseF <- index_overallsecF_baseF$index #baseline index
 
 baseline_farmers$index_overallsecF_midF <- sim_var_F(baseline_farmers$index_overallsecF_midF,"c",c(.25,.5,.1)) #delete
@@ -4214,10 +4216,10 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #8.
-index_overallsec_plotF_midT <- icwIndex(xmat=variables_overallsec_plotF_mid,revcols = c(3))
+index_overallsec_plotF_midT <- icwIndex(xmat=variables_overallsec_plotF_mid,sgroup = baseline_farmers$training_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_midT <- index_overallsec_plotF_midT$index #midline index
 
-index_overallsec_plotF_baseT <- icwIndex(xmat=variables_overallsec_plotF_base,revcols = c(3))
+index_overallsec_plotF_baseT <- icwIndex(xmat=variables_overallsec_plotF_base,sgroup = baseline_farmers$training_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_baseT <- index_overallsec_plotF_baseT$index #baseline index
 
 baseline_farmers$index_overallsec_plotF_midT <- sim_var_F(baseline_farmers$index_overallsec_plotF_midT,"c",c(.25,.5,.1)) #delete
@@ -4250,10 +4252,10 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #8.
-index_overallsec_plotF_midC <- icwIndex(xmat=variables_overallsec_plotF_mid,revcols = c(3))
+index_overallsec_plotF_midC <- icwIndex(xmat=variables_overallsec_plotF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_midC <- index_overallsec_plotF_midC$index #midline index
 
-index_overallsec_plotF_baseC <- icwIndex(xmat=variables_overallsec_plotF_base,revcols = c(3))
+index_overallsec_plotF_baseC <- icwIndex(xmat=variables_overallsec_plotF_base,sgroup = baseline_farmers$clearing_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_baseC <- index_overallsec_plotF_baseC$index #baseline index
 
 baseline_farmers$index_overallsec_plotF_midC <- sim_var_F(baseline_farmers$index_overallsec_plotF_midC,"c",c(.25,.5,.1)) #delete
@@ -4284,10 +4286,10 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #8.
-index_overallsec_plotF_midF <- icwIndex(xmat=variables_overallsec_plotF_mid,revcols = c(3))
+index_overallsec_plotF_midF <- icwIndex(xmat=variables_overallsec_plotF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_midF <- index_overallsec_plotF_midF$index #midline index
 
-index_overallsec_plotF_baseF <- icwIndex(xmat=variables_overallsec_plotF_base,revcols = c(3))
+index_overallsec_plotF_baseF <- icwIndex(xmat=variables_overallsec_plotF_base,sgroup = baseline_farmers$farmer_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_baseF <- index_overallsec_plotF_baseF$index #baseline index
 
 baseline_farmers$index_overallsec_plotF_midF <- sim_var_F(baseline_farmers$index_overallsec_plotF_midF,"c",c(.25,.5,.1)) #delete
@@ -4470,19 +4472,19 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #1.
-index_ratingplot_midT <- icwIndex(xmat=variables_ratingplot_mid)
+index_ratingplot_midT <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingplot_midT <- index_ratingplot_midT$index #midline index
 
-index_ratingplot_baseT <- icwIndex(xmat=variables_ratingplot_base)
+index_ratingplot_baseT <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingplot_baseT <- index_ratingplot_baseT$index #baseline index
 
 baseline_farmers$index_ratingplot_midT <- sim_var_F(baseline_farmers$index_ratingplot_midT,"c",c(.25,.5,.1)) #delete
 
 #7.
-index_overall_seedonplot_midT <- icwIndex(xmat=variables_overall_seedonplot_mid,revcols = c(4))
+index_overall_seedonplot_midT <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_midT <- index_overall_seedonplot_midT$index #midline index
 
-index_overall_seedonplot_baseT <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
+index_overall_seedonplot_baseT <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_baseT <- index_overall_seedonplot_baseT$index #baseline index
 
 baseline_farmers$index_overall_seedonplot_midT <- sim_var_F(baseline_farmers$index_overall_seedonplot_midT,"c",c(.25,.5,.1)) #delete
@@ -4514,19 +4516,19 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #1.
-index_ratingplot_midC <- icwIndex(xmat=variables_ratingplot_mid)
+index_ratingplot_midC <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingplot_midC <- index_ratingplot_midC$index #midline index
 
-index_ratingplot_baseC <- icwIndex(xmat=variables_ratingplot_base)
+index_ratingplot_baseC <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingplot_baseC <- index_ratingplot_baseC$index #baseline index
 
 baseline_farmers$index_ratingplot_midC <- sim_var_F(baseline_farmers$index_ratingplot_midC,"c",c(.25,.5,.1)) #delete
 
 #7.
-index_overall_seedonplot_midC <- icwIndex(xmat=variables_overall_seedonplot_mid,revcols = c(4))
+index_overall_seedonplot_midC <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_midC <- index_overall_seedonplot_midC$index #midline index
 
-index_overall_seedonplot_baseC <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
+index_overall_seedonplot_baseC <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_baseC <- index_overall_seedonplot_baseC$index #baseline index
 
 baseline_farmers$index_overall_seedonplot_midC <- sim_var_F(baseline_farmers$index_overall_seedonplot_midC,"c",c(.25,.5,.1)) #delete
@@ -4556,19 +4558,19 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #1.
-index_ratingplot_midF <- icwIndex(xmat=variables_ratingplot_mid)
+index_ratingplot_midF <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingplot_midF <- index_ratingplot_midF$index #midline index
 
-index_ratingplot_baseF <- icwIndex(xmat=variables_ratingplot_base)
+index_ratingplot_baseF <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingplot_baseF <- index_ratingplot_baseF$index #baseline index
 
 baseline_farmers$index_ratingplot_midF <- sim_var_F(baseline_farmers$index_ratingplot_midF,"c",c(.25,.5,.1)) #delete
 
 #7.
-index_overall_seedonplot_midF <- icwIndex(xmat=variables_overall_seedonplot_mid,revcols = c(4))
+index_overall_seedonplot_midF <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_midF <- index_overall_seedonplot_midF$index #midline index
 
-index_overall_seedonplot_baseF <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
+index_overall_seedonplot_baseF <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_baseF <- index_overall_seedonplot_baseF$index #baseline index
 
 baseline_farmers$index_overall_seedonplot_midF <- sim_var_F(baseline_farmers$index_overall_seedonplot_midF,"c",c(.25,.5,.1)) #delete
@@ -4749,10 +4751,10 @@ baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #8.
-index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid)
+index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index #midline index
 
-index_overall_yieldetc_baseT <- icwIndex(xmat=variables_overall_yieldetc_base)
+index_overall_yieldetc_baseT <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overall_yieldetc_baseT <- index_overall_yieldetc_baseT$index #baseline index
 
 baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index_overall_yieldetc_midT,"c",c(.25,.5,.1)) #delete
@@ -4784,10 +4786,10 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
 baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #8.
-index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid)
+index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index #midline index
 
-index_overall_yieldetc_baseC <- icwIndex(xmat=variables_overall_yieldetc_base)
+index_overall_yieldetc_baseC <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$index #baseline index
 
 baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
@@ -4817,10 +4819,10 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
 baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #8.
-index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid)
+index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index #midline index
 
-index_overall_yieldetc_baseF <- icwIndex(xmat=variables_overall_yieldetc_base)
+index_overall_yieldetc_baseF <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$index #baseline index
 
 baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
@@ -5057,13 +5059,13 @@ for (i in 1:length(results_farmer_sec_yieldetc_J)){
 # baseline_farmers$index_ratingsshopF_midT <- sim_var_F(baseline_farmers$index_ratingsshopF_midT ,"c",c(.25,.5,.1)) ##delete after data collection
 # 
 # #NEW OVERALL
-# index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,revcols(6,7))
+# index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols(6,7))
 # baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index #midline index
 # 
 # baseline_farmers$index_overallprimF_midT <- sim_var_F(baseline_farmers$index_overallprimF_midT,"c",c(.25,.5,.1)) #delete
 # 
 # #ALSO NEW
-# index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
+# index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
 # baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index #midline index
 # 
 # baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index_overall_yieldetc_midT,"c",c(.25,.5,.1)) #delete
@@ -5104,13 +5106,13 @@ for (i in 1:length(results_farmer_sec_yieldetc_J)){
 # baseline_farmers$index_ratingsshopF_midC <- sim_var_F(baseline_farmers$index_ratingsshopF_midC ,"c",c(.25,.5,.1)) ##delete after data collection
 # 
 # #NEW OVERALL
-# index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,revcols(6,7))
+# index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols(6,7))
 # baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index #midline index
 # 
 # baseline_farmers$index_overallprimF_midC <- sim_var_F(baseline_farmers$index_overallprimF_midC,"c",c(.25,.5,.1)) #delete
 # 
 # #ALSO NEW
-# index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
+# index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
 # baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index #midline index
 # 
 # baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
@@ -5157,13 +5159,13 @@ for (i in 1:length(results_farmer_sec_yieldetc_J)){
 #                            ,"index_overall_yieldetc_midF","mid_Check2.check.maize.q56")
 # 
 # #NEW OVERALL
-# index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,revcols(6,7))
+# index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols(6,7))
 # baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index #midline index
 # 
 # baseline_farmers$index_overallprimF_midF <- sim_var_F(baseline_farmers$index_overallprimF_midF,"c",c(.25,.5,.1)) #delete
 # 
 # #ALSO NEW
-# index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
+# index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
 # baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index #midline index
 # 
 # baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
