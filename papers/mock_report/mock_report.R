@@ -4201,10 +4201,14 @@ for (i in 1:length(results_farmer_prim)){
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_mid
-                                 ,baseline_farmers$index_practices_midF,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primC <- df_farmer_primT
-df_farmer_primF <- df_farmer_primT
+                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midT
+                                 ,baseline_farmers$index_practices_midT,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+df_farmer_primC <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midC
+                              ,baseline_farmers$index_practices_midC,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+df_farmer_primF <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
+                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midF
+                              ,baseline_farmers$index_practices_midF,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
 #no overall index
 
 df_ols_F_prim_J <- array(NA,dim=c(3,3,11))

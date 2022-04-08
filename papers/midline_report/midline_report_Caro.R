@@ -401,10 +401,10 @@ df_descriptives_farmer <- array(NA,dim=c(130,5))
 ###variable transformation###
 
 baseline_farmers[baseline_farmers==999] <- NA
-baseline_farmers[baseline_farmers==96] <- NA
-#baseline_farmers[, 4:94][baseline_farmers[, 4:94] == 96] <- NA #columns 4-94 only
-baseline_farmers[baseline_farmers==98] <- NA
-#baseline_farmers[, 4:94][baseline_farmers[, 4:94] == 98] <- NA
+#baseline_farmers[baseline_farmers==96] <- NA
+baseline_farmers[, 4:122][baseline_farmers[, 4:122] == 96] <- NA #columns 4-94 only
+#baseline_farmers[baseline_farmers==98] <- NA
+baseline_farmers[, 4:122][baseline_farmers[, 4:122] == 98] <- NA
 baseline_farmers[baseline_farmers=="n/a"] <- NA
 
 baseline_farmers$Check2.check.maize.q15<-ifelse(baseline_farmers$Check2.check.maize.q15=="Male",1,0)
