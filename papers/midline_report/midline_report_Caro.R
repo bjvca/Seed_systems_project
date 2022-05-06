@@ -3475,19 +3475,6 @@ baseline_farmers[, 4:270][baseline_farmers[, 4:270] == 96] <- NA #columns 4-246 
 baseline_farmers[, 4:270][baseline_farmers[, 4:270] == 98] <- NA
 baseline_farmers[baseline_farmers=="n/a"] <- NA
 
-sim_var_F <- function(var,type="c",cohen_d=c(.5,.5,.5)){
-  if (type == "c"){
-    sim_var_F <- sample(var) +  cohen_d[1]*sd(var, na.rm=T)*baseline_farmers$training + cohen_d[2]*sd(var, na.rm=T)*baseline_farmers$clearing+ cohen_d[3]*sd(var, na.rm=T)*baseline_farmers$farmer
-  } else if (type == "b") {
-    if (sum(cohen_d)>0) {
-      sim_var_F <- (sample(var) + rbinom(length(var),1,cohen_d[1])*baseline_farmers$training + rbinom(length(var),1,cohen_d[2])*baseline_farmers$clearing+ rbinom(length(var),1,cohen_d[3])*baseline_farmers$farmer) >0.5
-    } else {
-      sim_var_F <- (sample(var) - rbinom(length(var),1,abs(cohen_d[1]))*baseline_farmers$training - rbinom(length(var),1,abs(cohen_d[2]))*baseline_farmers$clearing - rbinom(length(var),1,abs(cohen_d[3]))*baseline_farmers$farmer) >0.5
-      
-    }
-  }
-  return(sim_var_F)}
-
 #1. Q25a. Did you use any quality maize seed like **OPV or hybrid in **seed  the second season of **2020 (entoigo 2020)** for any of your plots?
 baseline_farmers$mid_Check2.check.maize.q25a <- baseline_farmers$check.maize.q25a
 baseline_farmers$mid_Check2.check.maize.q25a<-ifelse(baseline_farmers$mid_Check2.check.maize.q25a=="Yes",1,0)
@@ -4268,74 +4255,60 @@ for (i in 1:length(results_farmer_sec_plot_J)){
 
 
 
-#XXXXX
-
 ################################################################################################################################################################################
 ##### 12 ANALYSIS: Farmer - Secondary: Seed on plot ############################################################################################################################
 ################################################################################################################################################################################
 
 #1. seed on plot rating
-baseline_farmers$mid_Check2.check.maize.q35a <- baseline_farmers$Check2.check.maize.q35a
-baseline_farmers$mid_Check2.check.maize.q35b <- baseline_farmers$Check2.check.maize.q35b
-baseline_farmers$mid_Check2.check.maize.q35c <- baseline_farmers$Check2.check.maize.q35c
-baseline_farmers$mid_Check2.check.maize.q35d <- baseline_farmers$Check2.check.maize.q35d
-baseline_farmers$mid_Check2.check.maize.q35e <- baseline_farmers$Check2.check.maize.q35e
-baseline_farmers$mid_Check2.check.maize.q35f <- baseline_farmers$Check2.check.maize.q35f
-baseline_farmers$mid_Check2.check.maize.q35g <- baseline_farmers$Check2.check.maize.q35g
-baseline_farmers$mid_Check2.check.maize.q35h <- baseline_farmers$Check2.check.maize.q35h
-baseline_farmers$mid_Check2.check.maize.q35i <- baseline_farmers$Check2.check.maize.q35i
+baseline_farmers$mid_Check2.check.maize.q35a <- baseline_farmers$check.maize.q35a
+baseline_farmers$mid_Check2.check.maize.q35b <- baseline_farmers$check.maize.q35b
+baseline_farmers$mid_Check2.check.maize.q35c <- baseline_farmers$check.maize.q35c
+baseline_farmers$mid_Check2.check.maize.q35d <- baseline_farmers$check.maize.q35d
+baseline_farmers$mid_Check2.check.maize.q35e <- baseline_farmers$check.maize.q35e
+baseline_farmers$mid_Check2.check.maize.q35f <- baseline_farmers$check.maize.q35f
+#baseline_farmers$mid_Check2.check.maize.q35g <- baseline_farmers$Check2.check.maize.q35g
+baseline_farmers$mid_Check2.check.maize.q35h <- baseline_farmers$check.maize.q35h
+baseline_farmers$mid_Check2.check.maize.q35i <- baseline_farmers$check.maize.q35i
 
 variables_ratingplot_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q35a,baseline_farmers$mid_Check2.check.maize.q35b,baseline_farmers$mid_Check2.check.maize.q35c,
                                   baseline_farmers$mid_Check2.check.maize.q35d,baseline_farmers$mid_Check2.check.maize.q35e,baseline_farmers$mid_Check2.check.maize.q35f,
-                                  baseline_farmers$mid_Check2.check.maize.q35g,baseline_farmers$mid_Check2.check.maize.q35h,baseline_farmers$mid_Check2.check.maize.q35i)
+                                  baseline_farmers$mid_Check2.check.maize.q35h,baseline_farmers$mid_Check2.check.maize.q35i)
 variables_ratingplot_base <- cbind(baseline_farmers$Check2.check.maize.q35a,baseline_farmers$Check2.check.maize.q35b,baseline_farmers$Check2.check.maize.q35c,
                                    baseline_farmers$Check2.check.maize.q35d,baseline_farmers$Check2.check.maize.q35e,baseline_farmers$Check2.check.maize.q35f,
-                                   baseline_farmers$Check2.check.maize.q35g,baseline_farmers$Check2.check.maize.q35h,baseline_farmers$Check2.check.maize.q35i)
+                                   baseline_farmers$Check2.check.maize.q35h,baseline_farmers$Check2.check.maize.q35i)
 
 index_ratingplot_mid <- icwIndex(xmat=variables_ratingplot_mid)
-baseline_farmers$index_ratingplot_mid <- index_ratingplot_mid$index #midline index
+baseline_farmers$index_ratingplot_mid <- index_ratingplot_mid$index
 
 index_ratingplot_base <- icwIndex(xmat=variables_ratingplot_base)
-baseline_farmers$index_ratingplot_base <- index_ratingplot_base$index #baseline index
-
-baseline_farmers$index_ratingplot_mid <- sim_var_F(baseline_farmers$index_ratingplot_mid,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_ratingplot_base <- index_ratingplot_base$index
 
 #2. satisfied
-baseline_farmers$mid_Check2.check.maize.q36 <- baseline_farmers$Check2.check.maize.q36
-#baseline_farmers$mid_Check2.check.maize.q36<-ifelse(baseline_farmers$mid_Check2.check.maize.q36=="Yes",1,0)
-
-baseline_farmers$mid_Check2.check.maize.q36 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q36,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_Check2.check.maize.q36<-ifelse(baseline_farmers$mid_Check2.check.maize.q36==TRUE,1,0) #delete
+baseline_farmers$mid_Check2.check.maize.q36 <- baseline_farmers$check.maize.q36
+baseline_farmers$mid_Check2.check.maize.q36<-ifelse(baseline_farmers$mid_Check2.check.maize.q36=="Yes",1,0)
 
 #3. use again
-baseline_farmers$mid_Check2.check.maize.q37 <- baseline_farmers$Check2.check.maize.q37
-#baseline_farmers$mid_Check2.check.maize.q37<-ifelse(baseline_farmers$mid_Check2.check.maize.q37=="Yes",1,0)
-
-baseline_farmers$mid_Check2.check.maize.q37 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q37,"b",c(.25,.5,.1)) #delete
-baseline_farmers$mid_Check2.check.maize.q37<-ifelse(baseline_farmers$mid_Check2.check.maize.q37==TRUE,1,0) #delete
+baseline_farmers$mid_Check2.check.maize.q37 <- baseline_farmers$check.maize.q37
+baseline_farmers$mid_Check2.check.maize.q37<-ifelse(baseline_farmers$mid_Check2.check.maize.q37=="Yes",1,0)
 
 #4. Q38. How much seed did you use  on **${plot_select_name}** in the second season (entoigo) of 2020? **(in kg)**?
 baseline_farmers$Check2.check.maize.q38_untrimmed <- baseline_farmers$Check2.check.maize.q38
 baseline_farmers <- trim("Check2.check.maize.q38",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q38 <- baseline_farmers$Check2.check.maize.q38
+baseline_farmers$mid_Check2.check.maize.q38 <- as.numeric(as.character(baseline_farmers$check.maize.q38))
 baseline_farmers$mid_Check2.check.maize.q38_untrimmed <- baseline_farmers$mid_Check2.check.maize.q38
 baseline_farmers <- trim("mid_Check2.check.maize.q38",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q38 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q38,"c",c(-.25,-.5,-.1)) #delete
 
 #5. Q39. How much was the cost of 1 kg of this seed? (in UGX)
 baseline_farmers$Check2.check.maize.q39[baseline_farmers$Check2.check.maize.q32=="a"] <- 0
 baseline_farmers$Check2.check.maize.q39_untrimmed <- baseline_farmers$Check2.check.maize.q39
 baseline_farmers <- trim("Check2.check.maize.q39",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q39 <- baseline_farmers$Check2.check.maize.q39
+baseline_farmers$mid_Check2.check.maize.q39 <- baseline_farmers$check.maize.q39
 baseline_farmers$mid_Check2.check.maize.q39 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q39))
 baseline_farmers$mid_Check2.check.maize.q39[baseline_farmers$mid_Check2.check.maize.q32=="a"] <- 0
 baseline_farmers$mid_Check2.check.maize.q39_untrimmed <- baseline_farmers$mid_Check2.check.maize.q39
 baseline_farmers <- trim("mid_Check2.check.maize.q39",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q39 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q39,"c",c(.25,.5,.1)) #delete
 
 #6. cost
 baseline_farmers$costforseed_new <- baseline_farmers$Check2.check.maize.q38_untrimmed*baseline_farmers$Check2.check.maize.q39_untrimmed
@@ -4346,8 +4319,6 @@ baseline_farmers$mid_costforseed_new <- baseline_farmers$mid_Check2.check.maize.
 baseline_farmers$mid_costforseed_new <- ihs(baseline_farmers$mid_costforseed_new)
 baseline_farmers <- trim("mid_costforseed_new",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_costforseed_new <- sim_var_F(baseline_farmers$mid_costforseed_new,"c",c(.25,.5,.1)) #delete
-
 #7. overall
 variables_overall_seedonplot_mid <- cbind(baseline_farmers$index_ratingplot_mid,baseline_farmers$mid_Check2.check.maize.q36
                                           ,baseline_farmers$mid_Check2.check.maize.q37,baseline_farmers$mid_Check2.check.maize.q38
@@ -4356,23 +4327,17 @@ variables_overall_seedonplot_base <- cbind(baseline_farmers$index_ratingplot_bas
                                            ,baseline_farmers$Check2.check.maize.q37,baseline_farmers$Check2.check.maize.q38
                                            ,baseline_farmers$Check2.check.maize.q39)
 
+index_overall_seedonplot_mid <- icwIndex(xmat=variables_overall_seedonplot_mid,revcols = c(4))
+baseline_farmers$index_overall_seedonplot_mid <- index_overall_seedonplot_mid$index
+
+index_overall_seedonplot_base <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
+baseline_farmers$index_overall_seedonplot_base <- index_overall_seedonplot_base$index
+
 ################################################################################################################################################################################
 
 ###
 #1#
 ###
-
-#1.
-#above to be in overall index
-
-#7.
-index_overall_seedonplot_mid <- icwIndex(xmat=variables_overall_seedonplot_mid,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_mid <- index_overall_seedonplot_mid$index #midline index
-
-index_overall_seedonplot_base <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_base <- index_overall_seedonplot_base$index #baseline index
-
-baseline_farmers$index_overall_seedonplot_mid <- sim_var_F(baseline_farmers$index_overall_seedonplot_mid,"c",c(.25,.5,.1)) #delete
 
 results_farmer_sec_seed <- c("index_ratingplot_mid","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
                              ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
@@ -4398,21 +4363,17 @@ baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #1.
 index_ratingplot_midT <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingplot_midT <- index_ratingplot_midT$index #midline index
+baseline_farmers$index_ratingplot_midT <- index_ratingplot_midT$index
 
 index_ratingplot_baseT <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingplot_baseT <- index_ratingplot_baseT$index #baseline index
-
-baseline_farmers$index_ratingplot_midT <- sim_var_F(baseline_farmers$index_ratingplot_midT,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_ratingplot_baseT <- index_ratingplot_baseT$index
 
 #7.
 index_overall_seedonplot_midT <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$training_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_midT <- index_overall_seedonplot_midT$index #midline index
+baseline_farmers$index_overall_seedonplot_midT <- index_overall_seedonplot_midT$index
 
 index_overall_seedonplot_baseT <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$training_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_baseT <- index_overall_seedonplot_baseT$index #baseline index
-
-baseline_farmers$index_overall_seedonplot_midT <- sim_var_F(baseline_farmers$index_overall_seedonplot_midT,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_overall_seedonplot_baseT <- index_overall_seedonplot_baseT$index
 
 df_ols_F_sec_seed <- array(NA,dim=c(3,3,11))
 
@@ -4442,21 +4403,17 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #1.
 index_ratingplot_midC <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingplot_midC <- index_ratingplot_midC$index #midline index
+baseline_farmers$index_ratingplot_midC <- index_ratingplot_midC$index
 
 index_ratingplot_baseC <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingplot_baseC <- index_ratingplot_baseC$index #baseline index
-
-baseline_farmers$index_ratingplot_midC <- sim_var_F(baseline_farmers$index_ratingplot_midC,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_ratingplot_baseC <- index_ratingplot_baseC$index
 
 #7.
 index_overall_seedonplot_midC <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$clearing_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_midC <- index_overall_seedonplot_midC$index #midline index
+baseline_farmers$index_overall_seedonplot_midC <- index_overall_seedonplot_midC$index
 
 index_overall_seedonplot_baseC <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$clearing_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_baseC <- index_overall_seedonplot_baseC$index #baseline index
-
-baseline_farmers$index_overall_seedonplot_midC <- sim_var_F(baseline_farmers$index_overall_seedonplot_midC,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_overall_seedonplot_baseC <- index_overall_seedonplot_baseC$index
 
 results_farmer_sec_seed <- c("index_ratingplot_midC","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
                              ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
@@ -4484,21 +4441,17 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #1.
 index_ratingplot_midF <- icwIndex(xmat=variables_ratingplot_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingplot_midF <- index_ratingplot_midF$index #midline index
+baseline_farmers$index_ratingplot_midF <- index_ratingplot_midF$index
 
 index_ratingplot_baseF <- icwIndex(xmat=variables_ratingplot_base,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingplot_baseF <- index_ratingplot_baseF$index #baseline index
-
-baseline_farmers$index_ratingplot_midF <- sim_var_F(baseline_farmers$index_ratingplot_midF,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_ratingplot_baseF <- index_ratingplot_baseF$index
 
 #7.
 index_overall_seedonplot_midF <- icwIndex(xmat=variables_overall_seedonplot_mid,sgroup = baseline_farmers$farmer_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_midF <- index_overall_seedonplot_midF$index #midline index
+baseline_farmers$index_overall_seedonplot_midF <- index_overall_seedonplot_midF$index
 
 index_overall_seedonplot_baseF <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$farmer_control,revcols = c(4))
-baseline_farmers$index_overall_seedonplot_baseF <- index_overall_seedonplot_baseF$index #baseline index
-
-baseline_farmers$index_overall_seedonplot_midF <- sim_var_F(baseline_farmers$index_overall_seedonplot_midF,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_overall_seedonplot_baseF <- index_overall_seedonplot_baseF$index
 
 results_farmer_sec_seed <- c("index_ratingplot_midF","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
                              ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
@@ -4541,11 +4494,6 @@ for (i in 1:length(results_farmer_sec_seed_J)){
   df_ols_F_sec_seed_J[3,2,i] <- adjust_p(df_ols_F_sec_seed[3,2,i],df_farmer_sec_seedC,i)
   df_ols_F_sec_seed_J[3,3,i] <- adjust_p(df_ols_F_sec_seed[3,3,i],df_farmer_sec_seedF,i)}
 
-#results_farmer_sec_seed
-#df_means_F_sec_seed
-#df_ols_F_sec_seed
-#df_farmer_sec_seed
-
 
 
 
@@ -4563,32 +4511,18 @@ for (i in 1:length(results_farmer_sec_seed_J)){
 baseline_farmers$yield_inkg_untrimmed <- baseline_farmers$yield_inkg
 baseline_farmers <- trim("yield_inkg",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q50 <- baseline_farmers$Check2.check.maize.q50
-baseline_farmers$mid_Check2.check.maize.q51 <- baseline_farmers$Check2.check.maize.q51
+baseline_farmers$mid_Check2.check.maize.q50 <- as.numeric(as.character(baseline_farmers$check.maize.q50))
+baseline_farmers$mid_Check2.check.maize.q51 <- as.numeric(as.character(baseline_farmers$check.maize.q51))
 baseline_farmers$mid_yield_inkg <- baseline_farmers$mid_Check2.check.maize.q50*baseline_farmers$mid_Check2.check.maize.q51
 baseline_farmers$mid_yield_inkg_untrimmed <- baseline_farmers$mid_yield_inkg
 baseline_farmers <- trim("mid_yield_inkg",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_yield_inkg <- sim_var_F(baseline_farmers$mid_yield_inkg,"c",c(.25,.5,.1)) #delete
-
 #2. yield
 baseline_farmers <- trim("landproductivity",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q29 <- baseline_farmers$Check2.check.maize.q29
+baseline_farmers$mid_Check2.check.maize.q29 <- as.numeric(as.character(baseline_farmers$check.maize.q29))
 baseline_farmers$mid_landproductivity <- baseline_farmers$mid_yield_inkg_untrimmed/baseline_farmers$mid_Check2.check.maize.q29 #yield in kg per acre
 baseline_farmers <- trim("mid_landproductivity",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_landproductivity <- sim_var_F(baseline_farmers$mid_landproductivity,"c",c(.25,.5,.1)) #delete
-
-#3. Q52. What was the market value of one such bag during the time of the harvest in the second season (entoigo) of 2020?
-baseline_farmers$marketvalue_kg <- (baseline_farmers$Check2.check.maize.q52/baseline_farmers$Check2.check.maize.q51)
-baseline_farmers <- trim("marketvalue_kg",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q52 <- baseline_farmers$Check2.check.maize.q52
-baseline_farmers$mid_marketvalue_kg <- (baseline_farmers$mid_Check2.check.maize.q52/baseline_farmers$mid_Check2.check.maize.q51)
-baseline_farmers <- trim("mid_marketvalue_kg",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_marketvalue_kg <- sim_var_F(baseline_farmers$mid_marketvalue_kg,"c",c(.25,.5,.1)) #delete
 
 #4. amount sold
 baseline_farmers$Check2.check.maize.q54[baseline_farmers$Check2.check.maize.q53==0] <- 0
@@ -4596,9 +4530,9 @@ baseline_farmers$soldinkg <- baseline_farmers$Check2.check.maize.q54*baseline_fa
 baseline_farmers$soldinkg <- ihs(baseline_farmers$soldinkg)
 baseline_farmers <- trim("soldinkg",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_Check2.check.maize.q53 <- baseline_farmers$Check2.check.maize.q53
-baseline_farmers$mid_Check2.check.maize.q54 <- baseline_farmers$Check2.check.maize.q54
-#baseline_farmers$mid_Check2.check.maize.q53<-ifelse(baseline_farmers$mid_Check2.check.maize.q53=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q53 <- baseline_farmers$check.maize.q53
+baseline_farmers$mid_Check2.check.maize.q53<-ifelse(baseline_farmers$mid_Check2.check.maize.q53=="Yes",1,0)
+baseline_farmers$mid_Check2.check.maize.q54 <- baseline_farmers$check.maize.q54
 baseline_farmers$mid_Check2.check.maize.q54 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q54))
 
 baseline_farmers$mid_Check2.check.maize.q54[baseline_farmers$mid_Check2.check.maize.q53==0] <- 0
@@ -4606,31 +4540,18 @@ baseline_farmers$mid_soldinkg <- baseline_farmers$mid_Check2.check.maize.q54*bas
 baseline_farmers$mid_soldinkg <- ihs(baseline_farmers$mid_soldinkg)
 baseline_farmers <- trim("mid_soldinkg",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_soldinkg <- sim_var_F(baseline_farmers$mid_soldinkg,"c",c(.25,.5,.1)) #delete
-
-#5. Q55. How much did you charge for one kg?
-baseline_farmers$charged <- baseline_farmers$Check2.check.maize.q55/baseline_farmers$Check2.check.maize.q51
-baseline_farmers <- trim("charged",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_Check2.check.maize.q55 <- baseline_farmers$Check2.check.maize.q55
-baseline_farmers$mid_Check2.check.maize.q55 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q55))
-baseline_farmers$mid_Check2.check.maize.q55_untrimmed <- baseline_farmers$mid_Check2.check.maize.q55
-baseline_farmers$mid_charged <- baseline_farmers$mid_Check2.check.maize.q55/baseline_farmers$mid_Check2.check.maize.q51
-baseline_farmers <- trim("mid_charged",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_charged <- sim_var_F(baseline_farmers$mid_charged,"c",c(.25,.5,.1)) #delete
-
 #6. revenue
 baseline_farmers$revenueUGX[baseline_farmers$Check2.check.maize.q53==0] <- 0
 baseline_farmers$revenueUGX <- ihs(baseline_farmers$revenueUGX)
 baseline_farmers <- trim("revenueUGX",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_revenueUGX <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q54))*baseline_farmers$mid_Check2.check.maize.q55_untrimmed
+baseline_farmers$mid_Check2.check.maize.q55 <- baseline_farmers$check.maize.q55
+baseline_farmers$mid_Check2.check.maize.q55 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q55))
+
+baseline_farmers$mid_revenueUGX <- baseline_farmers$mid_Check2.check.maize.q54*baseline_farmers$mid_Check2.check.maize.q55
 baseline_farmers$mid_revenueUGX[baseline_farmers$mid_Check2.check.maize.q53==0] <- 0
 baseline_farmers$mid_revenueUGX <- ihs(baseline_farmers$mid_revenueUGX)
 baseline_farmers <- trim("mid_revenueUGX",baseline_farmers,trim_perc=.05)
-
-baseline_farmers$mid_revenueUGX <- sim_var_F(baseline_farmers$mid_revenueUGX,"c",c(.25,.5,.1)) #delete
 
 #8.
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
@@ -4638,28 +4559,23 @@ variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
 variables_overall_yieldetc_base <- cbind(baseline_farmers$landproductivity
                                           ,baseline_farmers$soldinkg,baseline_farmers$revenueUGX)
 
+index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
+
+index_overall_yieldetc_base <- icwIndex(xmat=variables_overall_yieldetc_base)
+baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$index
+
 ################################################################################################################################################################################
 
 ###
 #1#
 ###
 
-#8.
-index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
-baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index #midline index
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
+                                 ,"mid_revenueUGX","index_overall_yieldetc_mid")
 
-index_overall_yieldetc_base <- icwIndex(xmat=variables_overall_yieldetc_base)
-baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$index #baseline index
-
-baseline_farmers$index_overall_yieldetc_mid <- sim_var_F(baseline_farmers$index_overall_yieldetc_mid,"c",c(.25,.5,.1)) #delete
-
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
-                                 ,"mid_soldinkg","mid_revenueUGX"
-                                 ,"index_overall_yieldetc_mid")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
-                                      ,"soldinkg","revenueUGX"
-                                      ,"index_overall_yieldetc_base")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
+                                      ,"revenueUGX","index_overall_yieldetc_base")
 
 df_means_F_sec_yieldetc <- array(NA,dim=c(3,11))
 
@@ -4677,22 +4593,18 @@ baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 
 #8.
 index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index #midline index
+baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
 index_overall_yieldetc_baseT <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_overall_yieldetc_baseT <- index_overall_yieldetc_baseT$index #baseline index
-
-baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index_overall_yieldetc_midT,"c",c(.25,.5,.1)) #delete
+baseline_farmers$index_overall_yieldetc_baseT <- index_overall_yieldetc_baseT$index
 
 df_ols_F_sec_yieldetc <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
-                                 ,"mid_soldinkg","mid_revenueUGX"
-                                 ,"index_overall_yieldetc_midT")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midT")
 
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
-                                      ,"soldinkg","revenueUGX"
-                                      ,"index_overall_yieldetc_baseT")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
+                                      ,"revenueUGX","index_overall_yieldetc_baseT")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -4712,20 +4624,16 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 
 #8.
 index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index #midline index
+baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
 index_overall_yieldetc_baseC <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$index #baseline index
+baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$index
 
-baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midC")
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
-                                 ,"mid_soldinkg","mid_revenueUGX"
-                                 ,"index_overall_yieldetc_midC")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity",
-                                      "soldinkg","revenueUGX"
-                                      ,"index_overall_yieldetc_baseC")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
+                                      ,"revenueUGX","index_overall_yieldetc_baseC")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -4745,20 +4653,16 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 
 #8.
 index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index #midline index
+baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
 
 index_overall_yieldetc_baseF <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$index #baseline index
+baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$index
 
-baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
+results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midF")
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity"
-                                 ,"mid_soldinkg","mid_revenueUGX"
-                                 ,"index_overall_yieldetc_midF")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity"
-                                      ,"soldinkg","revenueUGX"
-                                      ,"index_overall_yieldetc_baseF")
+results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
+                                      ,"revenueUGX","index_overall_yieldetc_baseF")
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
@@ -4772,8 +4676,7 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_yieldetcT <- data.frame(baseline_farmers$mid_yield_inkg,baseline_farmers$mid_landproductivity
-                                      ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX
-                                      )
+                                      ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX)
 df_farmer_sec_yieldetcC <- df_farmer_sec_yieldetcT
 df_farmer_sec_yieldetcF <- df_farmer_sec_yieldetcT
 #no overall index
@@ -4781,19 +4684,13 @@ df_farmer_sec_yieldetcF <- df_farmer_sec_yieldetcT
 df_ols_F_sec_yieldetc_J <- array(NA,dim=c(3,3,11))
 
 results_farmer_sec_yieldetc_J <- c("mid_yield_inkg","mid_landproductivity"
-                                   ,"mid_soldinkg","mid_revenueUGX"
-                                   )
+                                   ,"mid_soldinkg","mid_revenueUGX")
 #no overall index
 
 for (i in 1:length(results_farmer_sec_yieldetc_J)){
   df_ols_F_sec_yieldetc_J[3,1,i] <- adjust_p(df_ols_F_sec_yieldetc[3,1,i],df_farmer_sec_yieldetcT,i)
   df_ols_F_sec_yieldetc_J[3,2,i] <- adjust_p(df_ols_F_sec_yieldetc[3,2,i],df_farmer_sec_yieldetcC,i)
   df_ols_F_sec_yieldetc_J[3,3,i] <- adjust_p(df_ols_F_sec_yieldetc[3,3,i],df_farmer_sec_yieldetcF,i)}
-
-#results_farmer_sec_yieldetc
-#df_means_F_sec_yieldetc
-#df_ols_F_sec_yieldetc
-#df_farmer_sec_yieldetc
 
 
 
@@ -4864,58 +4761,50 @@ baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index
 baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$check.maize.q25i=="2",1,0)
 baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$check.maize.q25i)] <- 0
 
-# #4. Did you harvest as much maize from this **${plot_select_name}** plot in the second season (entoigo) of 2020 (including maize that was consumed) as you expected?
-# baseline_farmers$mid_Check2.check.maize.q51a <- (rbinom(3470, 1, 0.5))
-# baseline_farmers$mid_Check2.check.maize.q51a <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51a,"b",c(.25,.5,.1))
-# baseline_farmers$mid_Check2.check.maize.q51a<-ifelse(baseline_farmers$mid_Check2.check.maize.q51a==TRUE,1,0) #delete
+#4. Did you harvest as much maize from this **${plot_select_name}** plot in the second season (entoigo) of 2020 (including maize that was consumed) as you expected?
+baseline_farmers$mid_Check2.check.maize.q51a <- baseline_farmers$check.maize.q51a
+baseline_farmers$mid_Check2.check.maize.q51a<-ifelse(baseline_farmers$mid_Check2.check.maize.q51a=="Yes",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q51a <- baseline_farmers$mid_farmerswitched #placeholder
- 
-# #5. if q51a=no: Why did you not harvest as much maize as you expected?
-# # a.	the weather was unfortunate
-# # b.	my planting material was poor
-# # c.	pests e.g. fall arm worm destroyed my harvest
-# # d.	my soil was not fertile
-# # e.	I did not plant on time
-# # f.	I did not weed on time
-# # g.	I did not manage pests e.g. fall arm worm well
-# # h.	I did not apply complimentary inputs like fertilizer
-# # i.	Others
-# 
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51a==1] <- 0
-# 
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="a"] <- 0
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="b"] <- 0
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="c"] <- 0
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="d"] <- 0
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="e"] <- 1
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="f"] <- 1
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="g"] <- 1
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="h"] <- 1
-# # baseline_dealers$mid_myownfault[baseline_dealers$mid_Check2.check.maize.q51b=="i"] <- NA
-# 
-# baseline_farmers$mid_Check2.check.maize.q51b <- (rbinom(3470, 1, 0.5))
-# baseline_farmers$mid_Check2.check.maize.q51b <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q51b,"b",c(-.25,-.5,-.1))
-# baseline_farmers$mid_Check2.check.maize.q51b<-ifelse(baseline_farmers$mid_Check2.check.maize.q51b==TRUE,1,0) #delete
-# 
-# baseline_farmers$mid_Check2.check.maize.q51b <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q51b))
+#5. if q51a=no: Why did you not harvest as much maize as you expected?
+# a.	the weather was unfortunate
+# b.	my planting material was poor
+# c.	pests e.g. fall arm worm destroyed my harvest
+# d.	my soil was not fertile
+# e.	I did not plant on time !
+# f.	I did not weed on time !
+# g.	I did not manage pests e.g. fall arm worm well !
+# h.	I did not apply complimentary inputs like fertilizer !
+# i.	Others
 
-baseline_farmers$mid_Check2.check.maize.q51b <- baseline_farmers$mid_farmerswitched #placeholder
+baseline_farmers$mid_myownfault <- NA
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51a==1] <- 0
+
+baseline_farmers$mid_Check2.check.maize.q51b <- baseline_farmers$check.maize.q51b
+
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="a"] <- 0
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="b"] <- 0
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="c"] <- 0
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="d"] <- 0
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="e"] <- 1
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="f"] <- 1
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="g"] <- 1
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="h"] <- 1
+baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="i"] <- NA
 
 #6. skill questions
 baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),3470,replace = T) #took any index as basis
 #placeholder #to do endline (mind: T, CH, F have different indices)
 
-# #7. Q56. How much did you keep for seed (record in kg)?
-# baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
-# baseline_farmers <- trim("Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
-# 
-# baseline_farmers$mid_Check2.check.maize.q56 <- baseline_farmers$Check2.check.maize.q56
-# baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q56))
-# baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
-# baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
-# 
-# baseline_farmers$mid_Check2.check.maize.q56 <- sim_var_F(baseline_farmers$mid_Check2.check.maize.q56,"c",c(-.25,-.5,-.1)) #delete
+#7. Q56. How much did you keep for seed (record in kg)?
+baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
+baseline_farmers <- trim("Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+
+baseline_farmers$mid_Check2.check.maize.q56 <- baseline_farmers$check.maize.q56
+baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q56))
+baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
+baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+
+#XXXXX
 
 #new overallprimF index because of mid_farmerswitched
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
@@ -4935,35 +4824,24 @@ variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
 index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
 baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
 
-# #CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
-# variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
-#                                         ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
-#                                         ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56)
-# 
-# #new index_overallsecF_mid because index_skillsF_mid
-# variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-#                                    ,baseline_farmers$mid_knows_dealer)
-# #,baseline_farmers$mid_bought_last_season if possible with real data
-# #,baseline_farmers$index_skillsF_mid) #to do after endline
-# 
+#CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
+variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
+                                        ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
+                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56)
+
+index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
+baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
+
 ################################################################################################################################################################################
 
 ###
 #1#
 ###
 
-# #ALSO NEW
-# index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
-# baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index #midline index
-# 
-# baseline_farmers$index_overall_yieldetc_mid <- sim_var_F(baseline_farmers$index_overall_yieldetc_mid,"c",c(.25,.5,.1)) #delete
-# 
-
 results_farmer_nobase <- c("index_ratingsF_mid","index_ratingsshopF_mid","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
-                           ,"index_overallprimF_mid","index_overallsecF_mid","index_overallsec_plotF_mid")
-#,"index_overall_seedonplot_mid"
-                           # ,"index_overall_yieldetc_mid","mid_Check2.check.maize.q56")
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"index_overallprimF_mid","index_overallsecF_mid","index_overallsec_plotF_mid"
+                           ,"index_overall_seedonplot_mid","index_overall_yieldetc_mid","mid_Check2.check.maize.q56")
 
 df_means_F_nobase <- array(NA,dim=c(3,12))
 
@@ -4997,18 +4875,14 @@ baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
 index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
 
-# #ALSO NEW
-# index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
-# baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index #midline index
-# 
-# baseline_farmers$index_overall_yieldetc_midT <- sim_var_F(baseline_farmers$index_overall_yieldetc_midT,"c",c(.25,.5,.1)) #delete
-# 
+#new overall_yieldetc
+index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
+baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
 results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
-                           ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT")
-#,"index_overall_seedonplot_midT"
-                           # ,"index_overall_yieldetc_midT","mid_Check2.check.maize.q56")
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT"
+                           ,"index_overall_seedonplot_midT","index_overall_yieldetc_midT","mid_Check2.check.maize.q56")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
@@ -5041,17 +4915,14 @@ baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 
-# #ALSO NEW
-# index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
-# baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index #midline index
-# 
-# baseline_farmers$index_overall_yieldetc_midC <- sim_var_F(baseline_farmers$index_overall_yieldetc_midC,"c",c(.25,.5,.1)) #delete
+#new overall_yieldetc
+index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
+baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
 results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
-                           ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC")
-#,"index_overall_seedonplot_midC"
-                           # ,"index_overall_yieldetc_midC","mid_Check2.check.maize.q56")
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC"
+                           ,"index_overall_seedonplot_midC","index_overall_yieldetc_midC","mid_Check2.check.maize.q56")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
@@ -5084,18 +4955,14 @@ baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
 
-# #ALSO NEW
-# index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
-# baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index #midline index
-# 
-# baseline_farmers$index_overall_yieldetc_midF <- sim_var_F(baseline_farmers$index_overall_yieldetc_midF,"c",c(.25,.5,.1)) #delete
-# 
- 
+#new overall_yieldetc
+index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
+baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
+
 results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_Check2.check.maize.q51b","index_skillsF_mid"
-                           ,"index_overallprimF_midF","index_overallsecF_midF","index_overallsec_plotF_midF")
-#,"index_overall_seedonplot_midF"
-                           # ,"index_overall_yieldetc_midF","mid_Check2.check.maize.q56")
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"index_overallprimF_midF","index_overallsecF_midF","index_overallsec_plotF_midF"
+                           ,"index_overall_seedonplot_midF","index_overall_yieldetc_midF","mid_Check2.check.maize.q56")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
