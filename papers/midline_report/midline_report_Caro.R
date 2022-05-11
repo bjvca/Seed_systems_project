@@ -887,39 +887,24 @@ for (i in 1:length(balance_farmer)){
 #####Attrition: agro-input dealer#####
 ######################################
 
-df_averages_attritionD <- array(NA,dim=c(2,20))
-df_ols_attritionD <- array(NA,dim=c(3,20))
+names(midline_dealers)[names(midline_dealers) == "age"] <- "age_mid" #because same name in bl and ml
+names(midline_dealers)[names(midline_dealers) == "exp"] <- "exp_mid"
+names(midline_dealers)[names(midline_dealers) == "lot"] <- "lot_mid"
+names(midline_dealers)[names(midline_dealers) == "cert"] <- "cert_mid"
+names(midline_dealers)[names(midline_dealers) == "date"] <- "date_mid"
+names(midline_dealers)[names(midline_dealers) == "verif"] <- "verif_mid"
+names(midline_dealers)[names(midline_dealers) == "origin"] <- "origin_mid"
+names(midline_dealers)[names(midline_dealers) == "company"] <- "company_mid"
+names(midline_dealers)[names(midline_dealers) == "reading"] <- "reading_mid"
+names(midline_dealers)[names(midline_dealers) == "variety"] <- "variety_mid"
+names(midline_dealers)[names(midline_dealers) == "date_pack"] <- "date_pack_mid"
+names(midline_dealers)[names(midline_dealers) == "other_var"] <- "other_var_mid"
 
-#simulate random attrition
-library(dplyr)
-set.seed(10083)
-lostdealers <- sample_n(baseline_dealers,35)
-lostdealers = lostdealers[c("shop_ID")]
-lostdealers$attrition_ind_D <- 1
-baseline_dealers <- merge(baseline_dealers, lostdealers, by.x="shop_ID", by.y="shop_ID", all.x = TRUE)
-baseline_dealers$attrition_ind_D[is.na(baseline_dealers$attrition_ind_D)] <- 0
+midline_dealers$shop_ID <- midline_dealers$Group.1
+baseline_dealers <- merge(baseline_dealers,midline_dealers,by.x="shop_ID",by.y="shop_ID",all.x=T)
 
-# baseline_dealers$attrition_ind_D <- 0
-# baseline_dealers$attrition_ind_D[is.na(midline_dealers$q0)] <- 1
-
-###loop###
-attrition_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_primary","maize.owner.agree.q3"
-                    ,"maize.owner.agree.q6","years_shop","maize.owner.agree.q10","maize.owner.agree.nr_var"
-                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72","maize.owner.agree.temp.q81"
-                    ,"alwaysexplains","q93_bin","maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
-                    ,"maize.owner.agree.inspection.q115","reading","lot")
-
-for (i in 1:length(attrition_dealer)){
-  df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
-  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
-  
-  formula1 <- as.formula(paste(attrition_dealer[i],paste("attrition_ind_D"),sep="~"))
-  ols <- lm(formula1, data=baseline_dealers)
-
-  #attrition at dealer level, so no clustering needed
-  df_ols_attritionD[1,i] <- summary(ols)$coefficients[2,1]
-  df_ols_attritionD[2,i] <- summary(ols)$coefficients[2,2]
-  df_ols_attritionD[3,i] <- summary(ols)$coefficients[2,4]}
+baseline_dealers$attrition_ind_D <- 0
+baseline_dealers$attrition_ind_D[is.na(baseline_dealers$owner.agree.age)] <- 1
 
 number_lostD <- sum(baseline_dealers$attrition_ind_D==1)
 number_lostD_control <- sum(baseline_dealers$attrition_ind_D==1 & baseline_dealers$training == 0 & baseline_dealers$clearing == 0 & baseline_dealers$farmer == 0)
@@ -939,43 +924,50 @@ perc_lostD_training <- sum(number_lostD_training/number_allD_training*100)
 perc_lostD_clearing <- sum(number_lostD_clearing/number_allD_clearing*100)
 perc_lostD_farmer <- sum(number_lostD_farmer/number_allD_farmer*100)
 
+attrition_dealer <- c("attrition_ind_D")
+
+df_averages_attritionD <- array(NA,dim=c(2,25))
+df_ols_attritionD <- array(NA,dim=c(3,3,25))
+
+for (i in 1:length(attrition_dealer)){
+  df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
+  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
+  
+  formula1 <- as.formula(paste(attrition_dealer[i],paste("training*clearing*farmer"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_attritionD[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
+  df_ols_attritionD[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
+  df_ols_attritionD[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]
+  
+  df_ols_attritionD[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
+  df_ols_attritionD[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
+  df_ols_attritionD[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]
+  
+  #farmer video treatment at village/shop level so no clustering needed
+  df_ols_attritionD[1,3,i] <- summary(ols)$coefficients[4,1]
+  df_ols_attritionD[2,3,i] <- summary(ols)$coefficients[4,2]
+  df_ols_attritionD[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+################################################################################################################################################
+
 ###########################
 #####Attrition: farmer#####
 ###########################
 
-df_averages_attritionF <- array(NA,dim=c(2,20))
-df_ols_attritionF <- array(NA,dim=c(3,20))
+baseline_farmers$training <- baseline_farmers$training
+baseline_farmers$clearing <- baseline_farmers$Check2.check.maize.clearing
+baseline_farmers$farmer <- baseline_farmers$Check2.check.maize.video_shown
 
-#simulate random attrition
-lostfarmers <- sample_n(baseline_farmers,350)
-lostfarmers = lostfarmers[c("farmer_ID")]
-lostfarmers$attrition_ind_F <- 1
-baseline_farmers <- merge(baseline_farmers, lostfarmers, by.x="farmer_ID", by.y="farmer_ID", all.x = TRUE)
-baseline_farmers$attrition_ind_F[is.na(baseline_farmers$attrition_ind_F)] <- 0
+names(midline_farmers)[names(midline_farmers) == "clearing"] <- "mid_clearing" #because same name in bl and ml
+names(midline_farmers)[names(midline_farmers) == "catchID"] <- "mid_catchID" #because same name in bl and ml
 
-# baseline_farmers$attrition_ind_F <- 0
-# baseline_farmers$attrition_ind_F[is.na(midline_farmers$q0)] <- 1
+baseline_farmers <- merge(baseline_farmers,midline_farmers,by.x="farmer_ID",by.y="Group.1",all.x=T)
 
-###loop###
-attrition_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
-                    ,"Check2.check.maize.q18","Check2.check.maize.q20","Check2.check.maize.q22","Check2.check.maize.q25a"
-                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30a.1"
-                    ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
-                    ,"landproductivity","Check2.check.maize.q53")
+baseline_farmers$attrition_ind_F <- 0
+baseline_farmers$attrition_ind_F[is.na(baseline_farmers$mid_catchID)] <- 1
 
-for (i in 1:length(attrition_farmer)){
-  df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
-  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
-  
-  formula1 <- as.formula(paste(attrition_farmer[i],paste("attrition_ind_F"),sep="~"))
-  ols <- lm(formula1, data=baseline_farmers)
-  
-  #attrition at dealer level, so no clustering needed
-  df_ols_attritionF[1,i] <- summary(ols)$coefficients[2,1]
-  df_ols_attritionF[2,i] <- summary(ols)$coefficients[2,2]
-  df_ols_attritionF[3,i] <- summary(ols)$coefficients[2,4]}
-
-number_lostF <- sum(baseline_farmers$attrition_ind_F==1)
 number_lostF <- sum(baseline_farmers$attrition_ind_F==1)
 number_lostF_control <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$training == 0 & baseline_farmers$Check2.check.maize.clearing == 0 & baseline_farmers$Check2.check.maize.video_shown == 0)
 number_lostF_training <- sum(baseline_farmers$attrition_ind_F==1 & baseline_farmers$training == 1)
@@ -994,6 +986,38 @@ perc_lostF_training <- sum(number_lostF_training/number_allF_training*100)
 perc_lostF_clearing <- sum(number_lostF_clearing/number_allF_clearing*100)
 perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 
+df_averages_attritionF <- array(NA,dim=c(2,25))
+df_ols_attritionF <- array(NA,dim=c(3,3,25))
+
+attrition_farmer <- c("attrition_ind_F")
+
+for (i in 1:length(attrition_farmer)){
+  df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
+  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
+  
+  formula2 <- as.formula(paste(attrition_farmer[i],paste("training*Check2.check.maize.clearing*Check2.check.maize.video_shown"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  
+  #filling df_ols with training (Estimate, SE, p-val (Satt))
+  df_ols_attritionF[1,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,1]
+  df_ols_attritionF[2,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,2]
+  df_ols_attritionF[3,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,5]
+  
+  #filling df_ols with CH (Estimate, SE, p-val (Satt))
+  df_ols_attritionF[1,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,1]
+  df_ols_attritionF[2,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,2]
+  df_ols_attritionF[3,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,5]
+  
+  #filling df_ols with video (Estimate, SE, p-val (Satt))
+  #randomization at village level ie. at shop level
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
+  
+  df_ols_attritionF[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
+  df_ols_attritionF[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
+  df_ols_attritionF[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
+
 
 
 
@@ -1007,22 +1031,6 @@ perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 ##### 1 ANALYSIS: Agro-input dealer - Primary###################################################################################################################################
 ################################################################################################################################################################################
 
-names(midline_dealers)[names(midline_dealers) == "age"] <- "age_mid" #because same name in bl and ml
-names(midline_dealers)[names(midline_dealers) == "exp"] <- "exp_mid"
-names(midline_dealers)[names(midline_dealers) == "lot"] <- "lot_mid"
-names(midline_dealers)[names(midline_dealers) == "cert"] <- "cert_mid"
-names(midline_dealers)[names(midline_dealers) == "date"] <- "date_mid"
-names(midline_dealers)[names(midline_dealers) == "verif"] <- "verif_mid"
-names(midline_dealers)[names(midline_dealers) == "origin"] <- "origin_mid"
-names(midline_dealers)[names(midline_dealers) == "company"] <- "company_mid"
-names(midline_dealers)[names(midline_dealers) == "reading"] <- "reading_mid"
-names(midline_dealers)[names(midline_dealers) == "variety"] <- "variety_mid"
-names(midline_dealers)[names(midline_dealers) == "date_pack"] <- "date_pack_mid"
-names(midline_dealers)[names(midline_dealers) == "other_var"] <- "other_var_mid"
-
-midline_dealers$shop_ID <- midline_dealers$Group.1
-baseline_dealers <- merge(baseline_dealers,midline_dealers,by.x="shop_ID",by.y="shop_ID",all.x=T)
-
 trim <- function(var,dataset,trim_perc=.02){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
@@ -1030,9 +1038,6 @@ trim <- function(var,dataset,trim_perc=.02){
 ihs <- function(x) {
   y <- log(x + sqrt(x ^ 2 + 1))
   return(y)}
-
-   
-
 
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
 baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
@@ -1512,7 +1517,7 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
 
 for (i in 1:length(results_dealer_prim)){
   ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
-  #ols <-  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers) lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <-  lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
@@ -3458,15 +3463,6 @@ for (i in 1:length(results_dealer_sec_nobase)){
 ################################################################################################################################################################################
 ##### 8 ANALYSIS: Farmer - Primary##############################################################################################################################################
 ################################################################################################################################################################################
-
-baseline_farmers$training <- baseline_farmers$training
-baseline_farmers$clearing <- baseline_farmers$Check2.check.maize.clearing
-baseline_farmers$farmer <- baseline_farmers$Check2.check.maize.video_shown
-
-names(midline_farmers)[names(midline_farmers) == "clearing"] <- "mid_clearing" #because same name in bl and ml
-names(midline_farmers)[names(midline_farmers) == "catchID"] <- "mid_catchID" #because same name in bl and ml
-
-baseline_farmers <- merge(baseline_farmers,midline_farmers,by.x="farmer_ID",by.y="Group.1",all.x=T)
 
 baseline_farmers[baseline_farmers==999] <- NA
 #baseline_farmers[baseline_farmers==96] <- NA
