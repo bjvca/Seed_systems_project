@@ -9824,6 +9824,81 @@ If attritors and non-attritors differ significantly and attrition could
  on the treatment effect that can be estimated from available data.
 \end_layout
 
+\begin_layout Standard
+Written in May 2022:
+\end_layout
+
+\begin_layout Standard
+Despite our efforts to minimize attrition, we failed to collect midline
+ data from 12.07% of agro-input dealers who were part of the original sample.
+ This reduces our statistical power.
+ Furthermore, the probability that a dealer left the sample is correlated
+ with the clearinghouse treatment status and this might bias the estimates.
+\end_layout
+
+\begin_layout Standard
+Whether our estimates are biased or not depends on the reason why more agro-inpu
+t dealers in the clearinghouse treatment group were found than in the clearingho
+use control group.
+ It is for example plausible that enumerators invested made less of an effort
+ when finding clearinghouse control dealers because they did not have to
+ deliver their SeedAdvisor certificates.
+ Carrying this certificate might have made them more persistent when looking
+ for a shop because they did not want to return to their supervisor without
+ having delivered that paper.
+ Moreover, the certificate might have helped the enumerators to find the
+ treated dealers because they were able to show the names to neighbors etc.
+ (instead of just asking) who in turn helped finding them.
+ In that case, a larger number of random dealers left the control sample,
+ meaning that the dealers who were not found are not different from the
+ ones that were found.
+ The subsample of dealers that remained in the control group would then
+ be representative for the entire control group, hence our estimates would
+ be unbiased.
+\end_layout
+
+\begin_layout Standard
+On the other hand, a non-random subset of agro-input dealers might have
+ left our sample.
+ It is for example plausible that the worst performing shops in the clearinghous
+e control group went bankrupt.
+ Our clearinghouse treatment might have prevented bankruptcy and helped
+ dealers to stay in the market because it served as some kind of advertisement
+ if the rating was good.
+ Hence, as our treatment effects are positive, selection bias is most likely
+ negative.
+ Duflo, Glennerster and Kremer state in their famous toolkit for using randomiza
+tion in development economics research that in this case, when attrition
+ bias is negative and the treatment effect is positive, the ordinary unadjusted
+ estimates provide a lower bounds for the true effect.
+ In other words, selection-contaminated comparisons provide a lower bound
+ on the impact of the treatment on the outcome variables (Angrist, Bettinger,
+ Kremer, 2006).
+ To construct upper bounds for treatment estimates that are robust to non-random
+ attrition, we can use non-parametric approaches, for example the ones by
+ Manski (1989) or Lee (2002).
+ The upper bound on the treatment effect can be estimated from available
+ data if we make plausible assumptions about the monotonicity of outcomes
+ and attrition, and relative rank restrictions on the distribution of outcomes.
+\end_layout
+
+\begin_layout Standard
+However, we refrain from estimating these upper Manski (1989) or Lee (2002)
+ bounds at this point in time.
+ Instead, we will increase our efforts to find every agro-input dealer at
+ endline data collection.
+ If a dealer is not found despite this, we will include the question why
+ the dealer was not found in the ODK data collection app, and add answer
+ options like shop closed, shop relocated, shop sells different products,
+ dealer does not want to be interviewed, shop could not be located etc.
+ If attrition remains correlated with the clearinghouse treatment, we can
+ use this information to check the assumptions mentioned above, and to eventuall
+y estimate the upper bounds.
+ At this point, we do not know which dealers have left our sample, and therefore
+ choose the most conservative approach, namely to look at the ordinary unadjuste
+d estimates, which are lower bounds for the true effect.
+\end_layout
+
 \begin_layout Section*
 Outcome variables
 \end_layout
@@ -28354,7 +28429,7 @@ Some outcome variables are not included in the overall index: Production
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
