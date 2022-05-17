@@ -16,10 +16,6 @@ midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv"
 
 #BASELINE
 
-#dealers
-reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
-baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
-
 #farmers
 rating_dyads <- read.csv(paste(path,"/baseline/data/farmer/public/rating_dyads.csv",sep="/"))
 rating_dyads[rating_dyads=="n/a"] <- NA
@@ -42,6 +38,24 @@ rating_dyads_aggr_F = rating_dyads_aggr_F[c("Group.1","bought_last_season","gene
                                             ,"seed_maturing_rating","seed_germinate_rating")]
 
 baseline_farmers <- merge(baseline_farmers,rating_dyads_aggr_F,by.x="farmer_ID",by.y="Group.1",all.x=TRUE)
+
+#dealers (again)
+rating_dyads_aggr_D <- aggregate(rating_dyads,by=list(rating_dyads$shop_ID),FUN="mean",na.rm=T)
+rating_dyads_aggr_D = rating_dyads_aggr_D[c("Group.1","bought_last_season","general_rating"
+                                            ,"location_rating","price_rating","quality_rating"
+                                            ,"stock_rating","reputation_rating"
+                                            ,"seed_quality_general_rating","seed_yield_rating"
+                                            ,"seed_drought_rating","seed_disease_rating"
+                                            ,"seed_maturing_rating","seed_germinate_rating")]
+
+baseline_dealers <- merge(baseline_dealers,rating_dyads_aggr_D,by.x="shop_ID",by.y="Group.1",all.x=TRUE)
+
+baseline_dealers$general <- baseline_dealers$seed_quality_general_rating #because I've previously worked with reviews_seed by Bjorn with different variable names
+baseline_dealers$yield <- baseline_dealers$seed_yield_rating
+baseline_dealers$drought_resistent <- baseline_dealers$seed_drought_rating
+baseline_dealers$disease_resistent <- baseline_dealers$seed_disease_rating
+baseline_dealers$early_maturing <- baseline_dealers$seed_maturing_rating
+baseline_dealers$germination <- baseline_dealers$seed_germinate_rating
 
 #MIDLINE
 
@@ -81,6 +95,18 @@ midline_rating_dyads_aggr_F = subset(midline_rating_dyads_aggr_F, select = c("Gr
                                             ,"mid_seed_maturing_rating","mid_seed_germinate_rating"))
 
 baseline_farmers <- merge(baseline_farmers,midline_rating_dyads_aggr_F,by.x="farmer_ID",by.y="Group.1",all.x=TRUE)
+
+#dealers
+midline_rating_dyads_aggr_D <- aggregate(midline_rating_dyads,by=list(midline_rating_dyads$shop_ID),FUN="mean",na.rm=T)
+midline_rating_dyads_aggr_D = subset(midline_rating_dyads_aggr_D, select = c("Group.1","mid_bought_last_season","mid_general_rating"
+                                                                             ,"mid_location_rating","mid_price_rating","mid_quality_rating"
+                                                                             ,"mid_stock_rating","mid_reputation_rating"
+                                                                             ,"mid_seed_quality_general_rating","mid_seed_yield_rating"
+                                                                             ,"mid_seed_drought_rating","mid_seed_disease_rating"
+                                                                             ,"mid_seed_maturing_rating","mid_seed_germinate_rating"))
+
+baseline_dealers <- merge(baseline_dealers,midline_rating_dyads_aggr_D,by.x="shop_ID",by.y="Group.1",all.x=TRUE)
+
 
 ###
 #B# SERVICES (CH treatment farmers were asked during baseline, CH control farmers were asked during CH rating dissemination)
@@ -437,7 +463,7 @@ variables <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_prim
                ,"gives_credit","gives_advice","delivers","after_sales_service","payment_mehtods"
                ,"small_quant"
                ,"general","yield","drought_resistent","disease_resistent","early_maturing"
-               ,"germination","nr_reviews")
+               ,"germination")
 
 baseline_dealers[variables] <- lapply(baseline_dealers[variables],function(x) replace(x,x==999,NA))
 baseline_dealers[variables] <- lapply(baseline_dealers[variables],function(x) replace(x,x==98,NA))
@@ -704,9 +730,11 @@ baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",bas
 #INTERCROPPED OR NOT, THERE'S AN EQUAL NUMBER OF MAIZE CROPS.
 baseline_farmers$yield_inkg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51 #production in kg
 baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29 #yield in kg per acre
+
 baseline_farmers$yield_inUGX <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q52
 baseline_farmers$yield_indollar <- baseline_farmers$yield_inUGX/3561.51
 baseline_farmers$landproductivity_inUGX <- baseline_farmers$yield_inUGX/baseline_farmers$Check2.check.maize.q29
+
 baseline_farmers$landproductivity_indollar <- baseline_farmers$landproductivity_inUGX/3561.51
 
 baseline_farmers$Check2.check.maize.q53<-ifelse(baseline_farmers$Check2.check.maize.q53=="Yes",1,0)
@@ -4308,6 +4336,8 @@ baseline_farmers <- trim("mid_Check2.check.maize.q39",baseline_farmers,trim_perc
 
 #6. cost
 baseline_farmers$costforseed_new <- baseline_farmers$Check2.check.maize.q38_untrimmed*baseline_farmers$Check2.check.maize.q39_untrimmed
+
+baseline_farmers$costforseed_new_untrimmed <- baseline_farmers$costforseed_new
 baseline_farmers$costforseed_new <- ihs(baseline_farmers$costforseed_new)
 baseline_farmers <- trim("costforseed_new",baseline_farmers,trim_perc=.05)
 
@@ -4514,6 +4544,7 @@ baseline_farmers$mid_yield_inkg_untrimmed <- baseline_farmers$mid_yield_inkg
 baseline_farmers <- trim("mid_yield_inkg",baseline_farmers,trim_perc=.05)
 
 #2. yield
+baseline_farmers$landproductivity_untrimmed <- baseline_farmers$landproductivity
 baseline_farmers <- trim("landproductivity",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_Check2.check.maize.q29 <- as.numeric(as.character(baseline_farmers$check.maize.q29))
@@ -4968,3 +4999,145 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
+
+
+
+
+
+
+
+
+
+
+#OTHER CALCULATIONS
+#1. difference in ratings between dealers and farmers
+mean(baseline_dealers$maize.owner.agree.q101,na.rm = T) #4.045977
+mean(baseline_dealers$quality_rating,na.rm = T) #3.759996
+
+t.test(baseline_dealers$maize.owner.agree.q101,baseline_dealers$quality_rating) #p-value < 2.2e-16
+#dealers rate their seed quality better than farmers do
+
+
+
+#2. is improved seed worth it?
+mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*kgs/bag)/area in acres
+mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==0],na.rm = T)
+
+589.4402/423.5282 #farmers who adopted had 39.1738% more yield per acre
+
+mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*market value/bag)/area in acres
+mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==0],na.rm = T)
+
+412705.3-298563.5 #farmers who adopted earned 114 141.8 UGX more per acre
+
+baseline_farmers$costforseed_new_untrimmed_peracre <- baseline_farmers$costforseed_new_untrimmed/baseline_farmers$Check2.check.maize.q29
+
+mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==1],na.rm = T) #seed in kg*cost/kg
+mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==0],na.rm = T)
+
+31699.39-1302.27 #farmers who adopted spent 30397.12 UGX more per acre
+
+114141.8/30397.12 #farmers who adopted almost quadrupled (3.75502) their investment
+
+
+
+#3. Are the seed quality ratings correlated with other measures of seed quailty?
+
+# variables_ratingsD <- cbind(baseline_dealers$seed_quality_general_rating,baseline_dealers$seed_yield_rating
+#                             ,baseline_dealers$seed_drought_rating,baseline_dealers$seed_disease_rating
+#                             ,baseline_dealers$seed_maturing_rating,baseline_dealers$seed_germinate_rating)
+# 
+# index_ratingsD <- icwIndex(xmat=variables_ratingsD)
+# baseline_dealers$index_ratingsD <- index_ratingsD$index
+# 
+# baseline_dealers$index_ratingsD <- rowMeans(baseline_dealers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+#                                                                ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
+
+#DEALERS
+reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
+baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
+
+baseline_dealers$index_ratingsD <- baseline_dealers$score_corrected
+
+#Shop only sells farm inputs
+cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q5,use = "pairwise.complete.obs")
+#good: positive correlation of 0.12
+
+#Index of labor-intensive seed handling and storage practices observed by enumerator
+cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_lab_base,use = "pairwise.complete.obs")
+#neutral: positive correlation of 0.01 (too weak)
+
+#Index of capital-intensive seed handling and storage practices observed by enumerator
+cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_cap_base,use = "pairwise.complete.obs")
+#good: positive correlation of 0.13
+
+#Index of all seed handling and storage practices observed by enumerator
+cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_all_base,use = "pairwise.complete.obs")
+#neutral: positive correlation of 0.06
+
+#Shop received seed related complaint from customer
+cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q96,use = "pairwise.complete.obs")
+#good: negative correlation of -0.12
+
+#Moisture in random seed bag in percent
+cor(baseline_dealers$index_ratingsD,baseline_dealers$reading,use = "pairwise.complete.obs")
+#neutral: negative correlation of -0.01
+
+#Random seed bag shows lot number
+cor(baseline_dealers$index_ratingsD,baseline_dealers$lot,use = "pairwise.complete.obs")
+#neutral: positive correlation of 0.04
+
+#Random seed bag shows packaging date
+cor(baseline_dealers$index_ratingsD,baseline_dealers$visible_packdate,use = "pairwise.complete.obs")
+#neutral: positive correlation 0.08
+
+#Days since packaging date/expiry date minus 6 months
+cor(baseline_dealers$index_ratingsD,baseline_dealers$shelflife_Caro,use = "pairwise.complete.obs")
+#bad: positive correlation of 0.01 but should be negative
+
+#Shop received a warning after inspection
+cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
+#bad: positive correlation of 0.05 but should be negative
+
+summary(regression <- lm(baseline_dealers$index_ratingsD~baseline_dealers$maize.owner.agree.q5
+                         +baseline_dealers$index_practices_cap_base+baseline_dealers$maize.owner.agree.q96
+                         +baseline_dealers$lot+baseline_dealers$visible_packdate))
+
+#FARMERS
+#Index of farmer's ratings of seed used on randomly selected maize field last season
+#Yield in kg/acre (production/area)
+cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
+#very good: positive correlation of 0.21
+
+summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
+
+
+
+#4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
+variables_ratingsF <- cbind(rating_dyads$seed_quality_general_rating,rating_dyads$seed_yield_rating
+                                ,rating_dyads$seed_drought_rating,rating_dyads$seed_disease_rating
+                                ,rating_dyads$seed_maturing_rating,rating_dyads$seed_germinate_rating)
+
+index_ratingsF <- icwIndex(xmat=variables_ratingsF)
+rating_dyads$index_ratingsF <- index_ratingsF$index
+
+rating_dyads$index_ratingsF <- rowMeans(rating_dyads[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+                                                       ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
+
+table(rating_dyads$bought_at_dealer) #3536 No, 807 Yes
+
+mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="Yes"],na.rm = T) #3.390949
+mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="No"],na.rm = T) #3.478922
+
+summary(regression3 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_at_dealer))
+#farmers who never bought seed there rate significantly better
+
+rating_dyads$bought_last_season[rating_dyads$bought_at_dealer=="No"] <- 0
+
+table(rating_dyads$bought_last_season) #3990 No, 353 Yes
+
+mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==1],na.rm = T) #3.354545
+mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==0],na.rm = T) #3.438055
+
+summary(regression4 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_last_season))
+#farmers who didn't buy seed there last season rate significantly better
