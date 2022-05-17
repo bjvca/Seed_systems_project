@@ -5011,6 +5011,9 @@ for (i in 1:length(results_farmer_nobase)){
 
 #OTHER CALCULATIONS
 #1. difference in ratings between dealers and farmers
+
+#attention: only CH treated farmers
+
 mean(baseline_dealers$maize.owner.agree.q101,na.rm = T) #4.045977
 mean(baseline_dealers$quality_rating,na.rm = T) #3.759996
 
@@ -5042,6 +5045,8 @@ mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoptio
 
 
 #3. Are the seed quality ratings correlated with other measures of seed quailty?
+
+#attention: only CH treated dealers
 
 # variables_ratingsD <- cbind(baseline_dealers$seed_quality_general_rating,baseline_dealers$seed_yield_rating
 #                             ,baseline_dealers$seed_drought_rating,baseline_dealers$seed_disease_rating
@@ -5104,6 +5109,7 @@ summary(regression <- lm(baseline_dealers$index_ratingsD~baseline_dealers$maize.
                          +baseline_dealers$lot+baseline_dealers$visible_packdate))
 
 #FARMERS
+#attention: any seed, not specific seed
 #Index of farmer's ratings of seed used on randomly selected maize field last season
 #Yield in kg/acre (production/area)
 cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
@@ -5114,12 +5120,19 @@ summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$ind
 
 
 #4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
-variables_ratingsF <- cbind(rating_dyads$seed_quality_general_rating,rating_dyads$seed_yield_rating
-                                ,rating_dyads$seed_drought_rating,rating_dyads$seed_disease_rating
-                                ,rating_dyads$seed_maturing_rating,rating_dyads$seed_germinate_rating)
 
-index_ratingsF <- icwIndex(xmat=variables_ratingsF)
-rating_dyads$index_ratingsF <- index_ratingsF$index
+#attention: only CH treated farmers
+
+# variables_ratingsF <- cbind(rating_dyads$seed_quality_general_rating,rating_dyads$seed_yield_rating
+#                                 ,rating_dyads$seed_drought_rating,rating_dyads$seed_disease_rating
+#                                 ,rating_dyads$seed_maturing_rating,rating_dyads$seed_germinate_rating)
+# 
+# index_ratingsF <- icwIndex(xmat=variables_ratingsF)
+# rating_dyads$index_ratingsF <- index_ratingsF$index
+
+#not straightforward to interpret, so:
+
+#at rating_dyads level because baseline_farmers$bought_at_dealer and baseline_farmers$bought_last_season are averages
 
 rating_dyads$index_ratingsF <- rowMeans(rating_dyads[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
                                                        ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
@@ -5130,7 +5143,7 @@ mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="Yes"],na.rm = T
 mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="No"],na.rm = T) #3.478922
 
 summary(regression3 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_at_dealer))
-#farmers who never bought seed there rate significantly better
+#farmers who never bought seed at dealer rate significantly better
 
 rating_dyads$bought_last_season[rating_dyads$bought_at_dealer=="No"] <- 0
 
@@ -5140,4 +5153,24 @@ mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==1],na.rm = T) 
 mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==0],na.rm = T) #3.438055
 
 summary(regression4 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_last_season))
-#farmers who didn't buy seed there last season rate significantly better
+#farmers who didn't buy seed at dealer last season rate significantly better
+
+# variables_ratingsF <- cbind(baseline_farmers$seed_quality_general_rating,baseline_farmers$seed_yield_rating
+#                             ,baseline_farmers$seed_drought_rating,baseline_farmers$seed_disease_rating
+#                             ,baseline_farmers$seed_maturing_rating,baseline_farmers$seed_germinate_rating)
+# 
+# index_ratingsF <- icwIndex(xmat=variables_ratingsF)
+# baseline_farmers$index_ratingsF <- index_ratingsF$index
+
+#not straightforward to interpret, so:
+
+baseline_farmers$index_ratingsF <- rowMeans(baseline_farmers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+                                                               ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
+
+#baseline_farmers$agro==1 if farmer used quality maize seed bought at agro-input shop for any plot last season
+#attention: ANY agro-input shop
+mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==1],na.rm = T) #3.371677
+mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==0],na.rm = T) #3.425568
+
+summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$agro))
+#farmers who used quality maize seed bought at agro-input shop rate worse than those who didn't (but not significantly)
