@@ -5174,3 +5174,39 @@ mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==0],na.rm = T) #3.425
 
 summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$agro))
 #farmers who used quality maize seed bought at agro-input shop rate worse than those who didn't (but not significantly)
+
+mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==1],na.rm = T) #3.377495
+mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==0],na.rm = T) #3.435884
+
+summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$Check2.check.maize.q25a))
+#farmers who adopt rate worse than those who don't (but not significantly)
+
+
+
+#check yellow questions in "variables farmer" (C:\Users\u0127963\Desktop\PhD\Seed_systems_project_without_Bjorn\report)
+table(baseline_farmers$check.maize.q25f) #clearinghouse control group
+table(baseline_farmers$check.maize.q25fx) #clearinghouse treatment group
+
+#62 farmers didn't buy seed at agro-input shop because it is too far way or in an inconvenient location
+#1024 farmers didn't buy seed at agro-input shop because it is too expensive
+#82 farmers didn't buy seed at agro-input shop because it isn't of good quality
+#15 farmers didn't buy seed at agro-input shop because it is always out of stock/doesn't sell the seed they are looking for
+#8 farmer didn't buy seed at agro-input shop because it sells only in inconvenient quantities
+#1 farmer didn't buy seed at agro-input shop because of other reasons
+#0 farmers didn't buy seed at agro-input shop because shop's SeedAdvisor rating was too low (only for clearinghouse treatment group)
+
+table(baseline_farmers$check.maize.q25f_2)
+table(baseline_farmers$check.maize.q25f_2x)
+
+#315 farmers bought seed at particular agro-input shop because it is close by or in an convenient location
+#70 farmers bought seed at particular agro-input shop because it is not very expensive
+#641 farmers bought seed at particular agro-input shop because seed there is of very good quality
+#87 farmers bought seed at particular agro-input shop because it always has a good stock of seed I am looking for
+#56 farmers bought seed at particular agro-input shop because it sells in convenient quantities
+#14 farmers bought seed at particular agro-input shop because it's SeedAdvisor rating was high
+
+#Q67a. Do you know **${calc_biz}**'s SeedAdvisor rating?
+table(midline_rating_dyads$knows_dealer) #5081 know dealer, 5782 don't
+table(midline_rating_dyads$knows_SA_rating) #67 know rating, 929 don't
+#the next question you had to answer if you answered yes (if q67a=yes: What is  **${calc_biz}**'s SeedAdvisor rating?) might have influenced this answer
+table(midline_rating_dyads$SA_rating)
