@@ -1059,8 +1059,6 @@ for (i in 1:length(attrition_farmer)){
 ##### 1 ANALYSIS: Agro-input dealer - Primary###################################################################################################################################
 ################################################################################################################################################################################
 
-baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
-
 trim <- function(var,dataset,trim_perc=.02){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
@@ -5215,13 +5213,25 @@ table(midline_rating_dyads$SA_rating)
 
 
 
-#heterogeneity analysis for specialized dealers only (74.1%)
-baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
-#had to change all these 348 to 258 but that won't be necessary at endline:
-#baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),258,replace = T)
+#heterogeneity analysis: only shops which only sell farm inputs (74.1%)
+#paste this before analysis:
+#baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
+#also had to change these 348's to 258's but that won't be necessary at endline:
+#e.g. baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),258,replace = T)
 
-#new effects
-#CH on Transformed seed revenue in mln UGX (IHS)
-#training and CH on Transformed quantity of Longe 10H sold last season in kg (IHS)
-#training on overall index regarding Longe 10H
-#CH on Days since packaging date/expiry date minus 6 months
+#new effects:
+#CH on transformed seed revenue in mln UGX (IHS)
+#training and CH on transformed quantity of Longe 10H sold last season in kg (IHS)
+#training on overall index Longe 10H
+#CH on shelflife (days since packaging date/expiry date minus 6 months)
+
+
+
+#attrition: how many (un-)specialized dealers?
+sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==1)
+#31 of 258 (12%) specialized shops left the sample
+sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==0)
+#11 of 90 (12%) un-specialized shops left the sample
+
+summary(regression5 <- lm(baseline_dealers$attrition_ind_D~baseline_dealers$maize.owner.agree.q5))
+#shops which only sell farm inputs are not significantly more/less likely to leave the sample
