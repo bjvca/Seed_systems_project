@@ -5235,3 +5235,36 @@ sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==0
 
 summary(regression5 <- lm(baseline_dealers$attrition_ind_D~baseline_dealers$maize.owner.agree.q5))
 #shops which only sell farm inputs are not significantly more/less likely to leave the sample
+
+
+
+#intended to treat vs. treated
+sum(baseline_dealers$training==1 & baseline_dealers$attrition_ind_D==0)
+#147 dealers who didn't leave sample received training
+sum(baseline_dealers$training==0 & baseline_dealers$attrition_ind_D==0)
+#159 dealers who didn't leave sample didn't receive training
+
+table(baseline_dealers$owner.agree.q11a)
+sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11a=="Yes",na.rm = T)
+#120 of 147 (82%) dealers who were supposed to receive training, say that they were invited to our training
+
+table(baseline_dealers$owner.agree.q11b)
+sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11b=="Yes",na.rm = T)
+#105 of 147 (71%) dealers who were supposed to receive training, say that they attended our training
+
+mean(as.numeric(as.character(baseline_dealers$owner.agree.q11c)),na.rm = T)
+#our training was rated 4.52/5 on average
+
+#CH
+sum(baseline_dealers$clearing==1 & baseline_dealers$attrition_ind_D==0)
+#179 dealers who didn't leave sample received CH
+sum(baseline_dealers$clearing==0 & baseline_dealers$attrition_ind_D==0)
+#127 dealers who didn't leave sample didn't receive CH
+
+table(baseline_dealers$owner.agree.q2a)
+sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2a=="Yes",na.rm = T)
+#124 of 179 dealers (69%) who were supposed to receive certificate say that they did
+
+table(baseline_dealers$owner.agree.q2b)
+sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2b=="Yes",na.rm = T)
+#66 of 179 dealers (37%) who were supposed to receive certificate say that they know their shop's rating
