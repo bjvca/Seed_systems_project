@@ -3066,6 +3066,7 @@ baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n
 
 #3. Days since packaging date/expiry date minus 6 months
 baseline_dealers$mid_date <- baseline_dealers$date_mid #x
+baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
 baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
 
 baseline_dealers$mid_exp <- as.Date(baseline_dealers$mid_exp) #x
@@ -4076,6 +4077,8 @@ for (i in 1:length(results_farmer_sec_J)){
   df_ols_F_sec_J[3,1,i] <- adjust_p(df_ols_F_sec[3,1,i],df_farmer_secT,i)
   df_ols_F_sec_J[3,2,i] <- adjust_p(df_ols_F_sec[3,2,i],df_farmer_secC,i)
   df_ols_F_sec_J[3,3,i] <- adjust_p(df_ols_F_sec[3,3,i],df_farmer_secF,i)}
+
+#currently NAs because only two variables
 
 
 
@@ -5268,3 +5271,23 @@ sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2a=="Yes",na.rm
 table(baseline_dealers$owner.agree.q2b)
 sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2b=="Yes",na.rm = T)
 #66 of 179 dealers (37%) who were supposed to receive certificate say that they know their shop's rating
+
+
+
+#read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluations/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-power
+#"if you have a few clusters that are much larger than the rest, you may want to not include them in the experiment"
+#exclude catchment areas with more than 10 dealers/villages and redo analysis
+table(baseline_dealers$catchID)
+table(baseline_farmers$catchID)
+
+# #paste this before analysis:
+# baseline_dealers$large_catchID <- ifelse(baseline_dealers$catchID==3|baseline_dealers$catchID==32|baseline_dealers$catchID==59,1,0)
+# #|baseline_dealers$catchID==64
+# baseline_dealers=subset(baseline_dealers,large_catchID=="0")
+
+# baseline_farmers$large_catchID <- ifelse(baseline_farmers$catchID==3|baseline_farmers$catchID==32|baseline_farmers$catchID==59,1,0)
+# #|baseline_farmers$catchID==64
+# baseline_farmers=subset(baseline_farmers,large_catchID=="0")
+
+# #then again, change all "sample(na.omit("
+# #nothing interesting happens
