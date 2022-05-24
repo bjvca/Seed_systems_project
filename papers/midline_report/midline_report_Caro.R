@@ -3520,6 +3520,8 @@ baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
 baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
+#email to Bjorn (08/04) about farmer q25d 
+
 baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$check.maize.q25d
 baseline_farmers$mid_Check2.check.maize.q25d <- as.numeric((as.character(baseline_farmers$mid_Check2.check.maize.q25d)))
 baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
@@ -5364,3 +5366,12 @@ baseline_farmers$received_2nd_ml_rating[baseline_farmers$attrition_ind_F==1 & ba
 baseline_farmers$watched_video <- baseline_farmers$Check2.check.maize.video_shown
 baseline_farmers$watched_video[baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.video_shown==1] <- NA
 #doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
+
+
+
+#OC11. CR3 to CR0
+#Average sales price of 4 improved maize varieties last season in UGX/ kg
+#Days since packaging date/expiry date minus 6 months
+#Overall index controlling for baseline (secondary outcome variables regarding seed bag)
+
+#Farmer planted local land race maize seed on this field
