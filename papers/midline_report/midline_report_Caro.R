@@ -1071,6 +1071,8 @@ baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
 baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
 baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
 
+#insert here for heterogeneity analyses with different treatment indicators:
+
 #1. Cumulative quantity sold of a hybrid and a open-pollinated maize variety last season in kg
 baseline_dealers$maize.owner.agree.long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
 baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agree.q32=="0"] <- 0
@@ -5013,7 +5015,7 @@ for (i in 1:length(results_farmer_nobase)){
 
 
 #OTHER CALCULATIONS
-#1. difference in ratings between dealers and farmers
+#OC1. difference in ratings between dealers and farmers
 
 #attention: only CH treated farmers
 
@@ -5025,7 +5027,7 @@ t.test(baseline_dealers$maize.owner.agree.q101,baseline_dealers$quality_rating) 
 
 
 
-#2. is improved seed worth it?
+#OC2. is improved seed worth it?
 mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*kgs/bag)/area in acres
 mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==0],na.rm = T)
 
@@ -5047,7 +5049,7 @@ mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoptio
 
 
 
-#3. Are the seed quality ratings correlated with other measures of seed quailty?
+#OC3. Are the seed quality ratings correlated with other measures of seed quailty?
 
 #attention: only CH treated dealers
 
@@ -5122,7 +5124,7 @@ summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$ind
 
 
 
-#4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
+#OC4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
 
 #attention: only CH treated farmers
 
@@ -5186,7 +5188,7 @@ summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$Check
 
 
 
-#check yellow questions in "variables farmer" (C:\Users\u0127963\Desktop\PhD\Seed_systems_project_without_Bjorn\report)
+#OC5. check yellow questions in "variables farmer" (C:\Users\u0127963\Desktop\PhD\Seed_systems_project_without_Bjorn\report)
 table(baseline_farmers$check.maize.q25f) #clearinghouse control group
 table(baseline_farmers$check.maize.q25fx) #clearinghouse treatment group
 
@@ -5216,7 +5218,7 @@ table(midline_rating_dyads$SA_rating)
 
 
 
-#heterogeneity analysis: only shops which only sell farm inputs (74.1%)
+#OC6. heterogeneity analysis: only shops which only sell farm inputs (74.1%)
 #paste this before analysis:
 #baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
 #also had to change these 348's to 258's but that won't be necessary at endline:
@@ -5230,7 +5232,7 @@ table(midline_rating_dyads$SA_rating)
 
 
 
-#attrition: how many (un-)specialized dealers?
+#OC7. attrition: how many (un-)specialized dealers?
 sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==1)
 #31 of 258 (12%) specialized shops left the sample
 sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==0)
@@ -5241,7 +5243,7 @@ summary(regression5 <- lm(baseline_dealers$attrition_ind_D~baseline_dealers$maiz
 
 
 
-#intended to treat vs. treated
+#OC8. intended to treat vs. treated
 sum(baseline_dealers$training==1 & baseline_dealers$attrition_ind_D==0)
 #147 dealers who didn't leave sample received training
 sum(baseline_dealers$training==0 & baseline_dealers$attrition_ind_D==0)
@@ -5274,7 +5276,7 @@ sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2b=="Yes",na.rm
 
 
 
-#read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluations/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-power
+#OC9. read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluations/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-power
 #"if you have a few clusters that are much larger than the rest, you may want to not include them in the experiment"
 #exclude catchment areas with more than 10 dealers/villages and redo analysis
 table(baseline_dealers$catchID)
@@ -5291,3 +5293,74 @@ table(baseline_farmers$catchID)
 
 # #then again, change all "sample(na.omit("
 # #nothing interesting happens
+
+
+
+#OC10. different treatment stati
+#1. TRAINING
+#1.a training according to dealers
+baseline_dealers$say_that_attended_training <- NA
+baseline_dealers$say_that_attended_training[baseline_dealers$owner.agree.q11b=="Yes"] <- 1
+baseline_dealers$say_that_attended_training[baseline_dealers$training==0] <- 0
+#unreliable because at least 136 dealers attended the training (I checked their attendance) (here: 105)
+
+#1.b training according to our attendance list
+#insert above analysis but after sign
+training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";")
+training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
+baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
+baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
+#baseline_dealers$training <- baseline_dealers$someone_attended
+
+#now significant
+#Average sales price of 4 improved maize varieties last season in UGX/ kg
+#Index of all seed handling and storage practices observed by enumerator
+#Transformed amount of Longe 5 bought by shop from provider last season in kg (IHS)
+#Shop's products were confiscated after inspection
+
+#2. CLEARINGHOUSE
+#general note: too complex because of combination of certificates to dealers, ratings to farmers in person, SMS...
+
+#DEALERS
+#2.D.a first dissemination to dealers
+#2.D.a.1 first dissemination to dealers according to dealers
+baseline_dealers$say_that_certificate <- NA
+baseline_dealers$say_that_certificate[baseline_dealers$owner.agree.q2a=="Yes"] <- 1
+baseline_dealers$say_that_certificate[baseline_dealers$clearing==0] <- 0
+#unreliable because Richard says that 182 (at least 157) dealers received certificate (here: 124)
+
+#2.D.a.2 first dissemination to dealers according to Richard
+#need to ask Richard
+
+#2.D.b second dissemination to dealers
+#2.D.b.1 second dissemination to dealers according to dealers
+#see at endline
+
+#2.D.a.2 second dissemination to dealers according to us
+#everyone in midline_dealers with clearing==1 received certificate (same visit)
+baseline_dealers$received_2nd_ml_certificate <- baseline_dealers$clearing
+baseline_dealers$received_2nd_ml_certificate[baseline_dealers$attrition_ind_D==1 & baseline_dealers$clearing==1] <- NA
+#doesn't make sense for midline analysis because dealers that left midline sample aren't in analysis anyway
+
+#FARMERS
+#2.F.a first dissemination to farmers according to us
+farmer_dissemination_final <- read.csv("C:/Users/u0127963/Dropbox/NWO seed system devt Uganda proposal development/Study design/treatments/info_clearing/farmer/data/farmer_dissemination_final.csv") #54 missing
+
+#2.F.b second dissemination to farmers according to us
+#not everyone in midline_farmers with clearing==1 received certificate (not same visit) but good proxy because almost same time (Jan and Feb)
+#midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
+baseline_farmers$received_2nd_ml_rating <- baseline_farmers$clearing
+baseline_farmers$received_2nd_ml_rating[baseline_farmers$attrition_ind_F==1 & baseline_farmers$clearing==1] <- NA
+#doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
+
+#3. VIDEO
+#3.a first video shown
+#video shown during farmer baseline data collection and again during baseline rating dissemination/ service questions --> complete sample
+
+#3.b second video shown
+#we showed the farmer video during midline rating dissemination/ service questions
+#not everyone in midline_farmers with video==1 saw video (not same visit) but good proxy because almost same time (Jan and Feb)
+#midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
+baseline_farmers$watched_video <- baseline_farmers$Check2.check.maize.video_shown
+baseline_farmers$watched_video[baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.video_shown==1] <- NA
+#doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
