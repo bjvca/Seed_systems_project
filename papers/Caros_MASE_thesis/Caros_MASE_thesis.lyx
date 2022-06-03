@@ -1,0 +1,3829 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=black, urlcolor=blue, citecolor=blue, pdfstartview={FitH}, hyperfootnotes=false, unicode=true"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{Caroline Miehe
+\backslash
+thanks{LICOS Centre for Institutions and Economic Performance, KU Leuven,
+ Leuven, Belgium}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Overcoming lemon technologies: Can a crowd-sourced information clearinghouse
+ save the Ugandan market for seed?
+\end_layout
+
+\begin_layout Abstract
+Agricultural technology remains under-adopted among smallholder farmers
+ in Sub-Saharan Africa.
+ We investigate how the quality of an agricultural technology affects its
+ adoption.
+ As improved maize seed quality is easier to observe by sellers than by
+ buyers, we hypothesize that this information asymmetry leads to poor seed
+ quality offered by agro-input dealers, resulting in under-adoption by farmers.
+ To overcome this classic lemons technology problem, we implement a crowd-source
+d information clearinghouse similar to yelp.com in the market for seed.
+ This intervention is tested in a randomized controlled trial among 350
+ agro-input dealers and 3500 smallholder farmers in Uganda.
+\end_layout
+
+\begin_layout Abstract
+keywords: Seed Systems, Information Clearinghouse, Learning (Failures),
+ Information (Asymmetries), Agricultural Input Quality, Agricultural Technology
+ Adoption (Puzzle)
+\end_layout
+
+\begin_layout Abstract
+JEL codes: O13; Q12; Q16; D82; D83
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Itemize
+Our study will test an intervention aimed at identifying the relative importance
+ of a potential source of these (perceived) quality issues for agricultural
+ technology adoption.
+ It will bring to light the cognitive, economic and behavioral aspects that
+ underlie under-adoption of these technologies.
+\end_layout
+
+\begin_layout Itemize
+and are therefore important actors in the seed supply chain.
+ Seed quality may hence arise at their level.
+ 
+\end_layout
+
+\begin_layout Itemize
+This intervention targets the interaction between the dealer and the farmer
+ in the seed supply chain and is tested to assess the relative importance
+ of this potential cause for low demand for improved seed.
+ 
+\end_layout
+
+\begin_layout Section
+Background
+\end_layout
+
+\begin_layout Subsection
+The context
+\end_layout
+
+\begin_layout Standard
+One of the most effective ways to increase agricultural productivity is
+ through the adoption of improved agricultural technologies and practices.
+ These include mechanization, but the Green Revolution has demonstrated
+ that large gains can also be expected from improved inputs such as inorganic
+ fertilizers and high yielding cultivars.
+ However, technology adoption remains below optimum, particularly among
+ the poor in sub-Saharan Africa 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gollin2005technology"
+literal "true"
+
+\end_inset
+
+.
+ As a result, differences in yields between sub-Saharan Africa and areas
+ that experienced a Green Revolution have nearly doubled since 1961 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "magruder2018assessment"
+literal "true"
+
+\end_inset
+
+.
+ To reduce this yield gap, it is important to identify the drivers of, and
+ constraints to, technology adoption.
+\end_layout
+
+\begin_layout Standard
+In line with the general trend in economics, the drivers and constraints
+ of agricultural technology adoption have increasingly been studied using
+ field experiments 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de2016agricultural,de2017field"
+literal "false"
+
+\end_inset
+
+.
+ For instance, the Agricultural Technology Adoption Initiative (ATAI), a
+ collaboration between MIT's Abdul Latif Jameel Poverty Action Lab (J-PAL)
+ and UC Berkeley's Center for Effective Global Action (CEGA) has funded
+ a series of field experiments to illuminate what helps and hinders technology
+ adoption among smallholder farmers.
+ Identified key constraints include poor access to information 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ashraf2009finding"
+literal "true"
+
+\end_inset
+
+, procrastination and time-inconsistent preferences 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "duflo2011nudging"
+literal "true"
+
+\end_inset
+
+, heterogeneity in the net benefits to the technology due to high transaction
+ costs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "suri2011selection"
+literal "true"
+
+\end_inset
+
+, the lack of access to insurance 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karlan2014agricultural"
+literal "true"
+
+\end_inset
+
+, and learning failures 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hanna2014learning"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This study addresses the quality of agricultural inputs as a particular
+ constraint their adoption, a topic that has received considerable attention
+ recently 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bold2017lemon,article"
+literal "false"
+
+\end_inset
+
+.
+ We specifically explore (perceived) quality of improved maize seed as a
+ constraint to its adoption among a sample of smallholder maize farmers
+ in Uganda.
+ Maize is an important crop there, both for home consumption and as a source
+ of income.
+ While improved maize seeds are adopted to some extent, various factors
+ constrain the further development and sustainability of an efficient Ugandan
+ seed system.
+ Recent studies argue that smallholder adoption of improved inputs in Uganda,
+ and of improved maize seed in particular, is limited by farmers’ beliefs
+ that the inputs are of poor quality - counterfeited, adulterated, or otherwise
+ non-performant 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The problem
+\end_layout
+
+\begin_layout Standard
+Because agricultural input quality is hardly observable, information asymmetries
+ between sellers and buyers characterize the markets for seed and fetilizer.
+ As argued in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "false"
+
+\end_inset
+
+, the Ugandan market for improved maize seed appears similar to the market
+ for used cars described in 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "george1970market"
+literal "false"
+
+\end_inset
+
+’s classic study 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "george1970market"
+literal "true"
+
+\end_inset
+
+.
+ In such a market where the quality is known by the seller, but not (yet)
+ by the buyer, the quality of products can degrade.
+ Here, smallholder farmers can hardly assess the quality of agricultural
+ inputs prior to purchase.
+ Agro-input dealers who sell these inputs to farmers may exploit this informatio
+n assymetry, and their malpractices may lead to poor seed quality.
+\end_layout
+
+\begin_layout Quotation
+hypthesis: The malpractices of agro-input dealers lead to poor agricultural
+ input quality.
+\end_layout
+
+\begin_layout Standard
+These malpractices may on the one hand be intentional.
+ Dealers may sacrifice quality to increase profits, for instance by mixing
+ good quality seed with poor quality seed to cut costs.
+ There are indications of this kind of adulteration at some point in the
+ Ugandan input value chain.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "true"
+
+\end_inset
+
+ find that hybrid maize seed contains less than 50% authentic seed, while
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1080/00220388.2018.1464143"
+literal "false"
+
+\end_inset
+
+ find that nearly one in three bottles of herbicide contains less than 75%
+ of the labeled concentration of the active ingredient.
+\end_layout
+
+\begin_layout Standard
+On the other hand, these malpractices may be unintentional.
+ Poor handling and storage at the level of the agro-input dealer may lead
+ to seed quality deterioration.
+ The dealer may not be aware and thus sell seed of inferior quality without
+ intending to do so.
+ There is also some evidence of this kind of quality reduction.
+ In a comprehensive study of the Ugandan seed supply chain, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "BARRIGA2020104928"
+literal "true"
+
+\end_inset
+
+ document various issues related to handling and storage that may reduce
+ the quality of this input.
+ For example, smallholder farmers often need smaller quantities than what
+ is packaged in standard bags, and dealers thus often repackage in sub-optimal
+ environments.
+ Poor rotation of seed stock and storage in open bags, in moist conditions
+ or in direct sunlight also reduce seed quality.
+\end_layout
+
+\begin_layout Standard
+These intentional and unintentional malpractices at the agro-input dealer
+ level may lead to poor agricultural input quality.
+ Purchasing poor inputs will lead to disappointing experiences at the farmer
+ level.
+ As a result, farmers' future willingness to pay and their seed adoption
+ is low.
+\end_layout
+
+\begin_layout Quotation
+hypthesis: Smallholder farmers under-adopt agricultural inputs because they
+ perceive the quality of these inputs sold at agro-input dealers to be poor.
+\end_layout
+
+\begin_layout Subsection
+The potential solution
+\end_layout
+
+\begin_layout Standard
+This problem can be solved by reducing information asymmetries between the
+ two parties.
+ While Uganda does regulate seed quality through seed certification processes
+ and standards, this mechanism provides farmers with a relatively weak and
+ unreliable indication of quality.
+ Alternative mechanisms such as electronic verification systems have also
+ been experimented with, but the cost of implementation has proven challenging,
+ and they depend on the reliability of the underlying seed certification
+ system.
+ In our study, we will test an alternative, decentralized clearinghouse
+ that is based on crowd-sourced information and works through reputational
+ mechanisms, much like yelp.com or tripadvisor.com.
+\end_layout
+
+\begin_layout Standard
+Information clearinghouse mechanisms have been studied to some extent, but
+ mostly to address market price information asymmetries between smallholder
+ farmers and middlemen.
+ Assuming that middlemen are better informed about prevailing prices in
+ the market than farmers, theory suggests that providing farmers with price
+ information increases their bargaining power.
+ However, evidence is mixed: while 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/25760218"
+literal "false"
+
+\end_inset
+
+ finds that internet kiosks that provided wholesale price information significan
+tly increased soy prices in India, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "fafchamps2012impact"
+literal "false"
+
+\end_inset
+
+ do not find a statistically significant effect of market information delivered
+ to farmers' mobile phones by a commercial service called Reuters Market
+ Light (RML) in a neighboring state.
+ 
+\end_layout
+
+\begin_layout Standard
+A clearinghouse that relies on crowd-sourced ratings may be more effective
+ to increase seed quality in the market.
+ While prices can generally be observed reasonably easy, assessing an experience
+ good such as seed is much harder.
+ At the time of purchase, visual seed inspection is limited to seed purity
+ and the presence of mold.
+ Germination can only be assessed after planting.
+ Some seed may also be more susceptible to pests and diseases, so the overall
+ quality of seed can only be judged after harvest.
+ Aggregation of the experiences of many users may thus be a particular powerful
+ way to reveal the quality of the product.
+ And mind that a clearinghouse may affect both intentional and non-intentional
+ quality reductions.
+ 
+\end_layout
+
+\begin_layout Standard
+The study by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "true"
+
+\end_inset
+
+, who set up a rating system for public veterinary services in Pakistan,
+ is probably the closest to ours.
+ They find that farmers who use the clearinghouse enjoy a 25 percent higher
+ success rate of artificial insemination.
+ Their research suggests that this is mostly due to increased veterinarian
+ effort, as few farmers seem to be switching from veterinaries that receive
+ poor ratings to veterinaries that receive good ratings.
+\end_layout
+
+\begin_layout Standard
+Hence a crowd-sourced information clearinghouse can be an important institutiona
+l innovation to solve the problem of asymmetric information in the market
+ for agricultural inputs.
+ It may be preferable to alternative strategies such as regulating quality
+ due to its likely lower cost, self-sustaining nature and scaleability,
+ and helps to overcome problems such as insufficient public investment in
+ regulatory systems, regulatory enforcement, and market surveillance.
+\end_layout
+
+\begin_layout Quotation
+hypthesis: An information clearinghouse reduces malpractices at the agro-input
+ dealer level and in turn improves smallholder farmers' perception and adoption
+ of agricultural inputs.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ToC_CH.pdf
+	scale 60
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Theory of change
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An information clearinghouse may work through different impact pathways.
+ Firstly, farmers who did not buy (or who bought only a little) seed before
+ may start adopting (or adopting more) improved seed when they realize that
+ an agro-input dealer in their vicinity has a good rating, meaning that
+ the quality of the seed sold there is better than expected.
+ Secondly, farmers may switch from low rated dealers to higher rated dealers
+ after learning that their usually chosen agro-input dealer received a poor
+ rating.
+ Alternatively, farmers may pressure their usual dealers to increase their
+ efforts.
+ Dealers could also start improving on their own (ie.
+ without the pressure of farmers) after they have learned that their seed
+ quality is rated poorly and want to improve their products.
+ Lastly, dealers could also increase their efforts after seeing that they
+ were rated well and feel motivated and satisfied due to this reward.
+ All these scenarios lead to seed of better quality, farmers purchasing
+ better seed which improves their experiences by reducing risk and increasing
+ profitability and later their perception of seed.
+ Ultimately, this is expected to lead to increased adoption of improved
+ seed.
+\end_layout
+
+\begin_layout Section
+Experimental design
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experimental-design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Level of randomization
+\end_layout
+
+\begin_layout Subsubsection
+Ethics
+\end_layout
+
+\begin_layout Standard
+Because randomizing our intervention at the level of the agro-input dealer
+ prompted ethical concerns, we randomized at the level of the catchment
+ area.
+ Often, dealers are clustered in markets or trading centers.
+ Two or more agro-input dealers may operate in the same neighborhood, or
+ in the same street or even right next to each other.
+ One dealer may get assigned to the clearinghouse treatment group and receives
+ a good rating, while his/her neighbor gets assigned to the clearinghouse
+ control group and does not get the chance to receive any rating.
+ Farmers may prefer the dealer with the rating, even though the seed quality
+ of the control dealer may be the same or even better.
+ The rating would in this case lead to a competitive advantage for the treated
+ dealer, but the reverse may be also true if the treated dealer gets a poor
+ rating.
+ Randomizing at area level reduces the risk of harming someone with our
+ experiement.
+ As it is important to think about the ethics of experimentation, especially
+ when the participants are vulnerable 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NBERw27600"
+literal "false"
+
+\end_inset
+
+, we opted to be more ethical at the expense of statistical power.
+\end_layout
+
+\begin_layout Subsubsection
+Outcomes at dealer and farmer level
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+training: While this is less of a concern for the first treatment, we were
+ still worried that providing an intense training treatment to one input
+ dealer but not to his or her immediate neighbor may be difficult in practice.
+ So also for this treatment, catchment areas will be targeted.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another benefit of randomizing at catchment area level is that it allows
+ us to measure the effect of the clearinghouse at the level of the dealer
+ and at the level of the farmer.
+ If we would randomize at dealer level, one dealer may be rated but his/her
+ neighbor may not.
+ If we want to know if the clearinghouse leads to increased adoption of
+ improved maize seed among farmers, we need to be able to connect each farmer
+ unambiguously to treatment ot control, hence to a single dealer.
+ We avoid this by randomizing at the catchment area level because then all
+ dealers within that area were rated (or not) and all farmers within that
+ area are potential customers of only dealers who were (or not).
+\end_layout
+
+\begin_layout Subsubsection
+Definition of a catchment area
+\end_layout
+
+\begin_layout Standard
+A catchment area is defined as an area that is served by an agro-input dealer,
+ as the area where this dealer's customers live.
+ If catchment areas of two or more dealers overlap because these dealers
+ operate in the same town, street or right next to each other.
+ Assignment of the input dealers to catchment areas is done on the basis
+ of geographical location.
+ Using GPS coordinates of the input dealers, the halversine function is
+ used to construct an adjacency matrix, and input dealers that are less
+ than 5 kilometer apart are grouped into a single catchment area.
+ The 5 kilometer threshold was selected based on visual inspection of the
+ map, the size of an average village and reported distance between farmers
+ and input dealers.
+ 
+\end_layout
+
+\begin_layout Subsection
+Factorial design
+\end_layout
+
+\begin_layout Standard
+The information clearinghouse is part of a larger project which evaluates
+ the effects of different interventions.
+ In this field experiment, various treatment and control groups are randomly
+ assigned to different combinations of treatment or control conditions.
+ The randomized control trial (RCT) took the form of a 
+\begin_inset Formula $2^{3}$
+\end_inset
+
+ factorial design because we tested the impact of three interventions.
+ To test the hypotheses above, a rating system was set up among a random
+ sub-sample of catchment areas of input dealers, and farmer and input dealers
+ will receive feedback on the ratings.
+ The other two interventions are not of interest for this paper.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+we trained agro-input dealers in a random sub-sample of catchment areas
+ on proper seed handling and storage and farmers in a random subset of villages
+ watched a video that points out the importance of combining improved seed
+ with other inputs and careful crop management
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Factorial designs allow recycling of treated units in the orthogonal factor
+ to be used as controls.
+ As such, to estimate main effects, less observations are needed than would
+ be the case in parallel designs.
+ More details can be found in the Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec: Details about factorial design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Power Analysis Simulations
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Power-Analysis-Simulations"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We used simulations to determine sample sizes for the experimental layout
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experimental-design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Simulation, where the experiment is run thousands of times and one simply
+ counts how frequently the treatment comes up significant, provides a flexible
+ and intuitive way to analyze power.
+ Furthermore, instead of relying on a theoretical distribution for the outcome
+ variables that takes assumptions and returns an analytic solution, simulations
+ can sample from real data.
+ In our case, we use survey data from about 80 input dealers that were collected
+ in three districts in eastern Uganda in July 2019.
+ Furthermore, we surveyed 1,500 farmers in the catchment areas of these
+ 80 input dealers
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The data was part of a survey of the maize value chain, and can be found
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://github.com/bjvca/PIMMVC/tree/master/data/public"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We will analyze power both outcomes at the input dealer level and at the
+ farmer level.
+ The appedix contains more info on which outcome variables are considered
+ and which treatment effect sizes are assumed.
+\end_layout
+
+\begin_layout Standard
+To determine sample size (defined in terms of the number of catchment areas
+ for the first two treatments), the algorithm iterates over different candidate
+ sample sizes (eg.
+ from 75 catchment areas up to 125 catchment areas with increments of 5
+ catchment areas).
+ For each candidate sample size, a random sample with replacement is drawn
+ from the survey data.
+ This sample is then used to run a number (eg.
+ 1000) of simulations of the experiment.
+ In particular, for each simulation, all input dealers that are in half
+ of the catchment areas are assigned to the treatment condition and the
+ other half to the control condition.
+ To the outcomes of interest that are assigned to the treatment condition,
+ the assumed effect is added and the analysis is conducted.
+ In our case, we are interested in the average treatment effect, so we simply
+ regress the outcome on a treatment indicator and record if the coefficient
+ on the treatment indicator is significant at the 5 percent level.
+ Finally, we determine how often, out of the total number of simulations,
+ we were able to detect the effect at the 5 percent significance level.
+ This will give us the power associated with that particular candidate sample
+ size.
+ Power can then be plotted against sample size to obtain power curves as
+ is shown in detail in the appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec: Details about power analysis simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Once we have decided how many catchment areas (and associated input dealers)
+ are necessary to detect effects at the level of the input dealer, we need
+ to determine how many farmers we need to sample from these catchment areas
+ to identify impact of the interventions on that level.
+ To make sure we have sufficient farmers to rate each input dealer, we will
+ allocate a fixed number of farmers to each input dealer.
+ This may mean that we have slightly differing numbers of farmers in the
+ different treatment groups, as the randomization happened at the catchment
+ area.
+ While this may reduce power somewhat, this does not bias impact estimates.
+ 
+\end_layout
+
+\begin_layout Standard
+We again use simulation to determine the number of farmers per input dealer.
+ When we determined the minimum number of catchment areas (and corresponding
+ input dealers), we fix the number of catchment areas at this number.
+ We then iterate over different candidate sample sizes of farmers per input
+ dealer (ranging from only one farmer per input dealer, which would lead
+ to a total sample the same numer of farmers as of dealers, to 25 farmers
+ per input dealer, which would lead to a sample size of many more farmers
+ than dealers).
+ The resulting sample in each iterations is used to run a number (eg.
+ 1000) of simulations of the experiment.
+ For each simulation, all farmers that are in the catchment area of input
+ dealers that are in half of the catchment areas are assigned to the treatment
+ condition and all other farmers are assigned to the control condition.
+ To the farmer level outcomes of interest that are assigned to the treatment
+ condition in this way, the assumed effect is added and the analysis is
+ conducted.
+ We again determine how often, out of the total number of simulations, we
+ were able to detect the effect at the 5 percent significance level, which
+ will give us the power associated to that iteration.
+ 
+\end_layout
+
+\begin_layout Standard
+We find that if the number of catchment areas is larger than 112, our experiment
+s will return statistically significant results 80 percent of the time.
+ This corresponds to about 318 input dealers.
+ Based on further simulations, we decided to collect information on 10 farmers
+ per input dealer, leading to a sample size of 3,200 households.
+ Our expected sample sizes are therefore 318 input dealers and 3,200 households.
+ We will collect more data to account for attrition.
+ More details can be found in the appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec: Details about power analysis simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Ethical clearance
+\end_layout
+
+\begin_layout Standard
+This research received clearance form Makerere's School of Social Sciences
+ Research Ethics Committee (MAKSS REC 08.20.436/PR1) as well as from IFPRI
+ IRB (DSGD-20-0829).
+ The research was also registered at the Ugandan National Commission for
+ Science and Technology (UNCST SS603ES).
+\end_layout
+
+\begin_layout Section
+Intervention
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Intervention"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To measure an input dealer's seed quality and to subsequently disseminate
+ this information to farmers, we set up an information clearinghouse.
+ This section provides a detailed description of this intervention that
+ was implemented.
+\end_layout
+
+\begin_layout Subsection
+Collection of ratings
+\end_layout
+
+\begin_layout Standard
+Prior to the intervention, we collected baseline data from farmers in catchment
+ areas of the agro-input dealers that were enrolled in the study.
+ Right after this baseline interview in April 2021 (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), we asked farmers to rate dealers in their catchment area on a number
+ of characteristics.
+ To ensure that farmers knew exactly which dealer they were rating, we used
+ the name of the shop and the dealer, the nicknames and other names under
+ which they may be known in the community (e.g.
+ son of ...).
+ Furthermore, we mentioned the name of the market, a description of the
+ place and added a picture of the shop which was collected during our census
+ (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Sample-and-data"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ All this information was pre-loaded onto the tablet computers used for
+ data collection and the relevant dealers and questions showed up automatically
+ right after the interview.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename timeline_new_new_CH only.pdf
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timeline of clearinghouse intervention 
+\begin_inset CommandInset label
+LatexCommand label
+name "timeline"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Farmers' answers to the questions that can be found in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "questions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ constitute the dealer ratings.
+ Farmers were able to assess these seed quality attributes based on observing
+ germination and yields, the resistance of the seeds against pests etc.
+ The questions are carefully formulated and include "as advertised" because
+ not every improved maize seed variety is eg.
+ drought tolerant, ie.
+ some of these seed attributes are not quality dimensions of every seed
+ variety.
+ That is why no dealer should be punished for selling seed that is not drought
+ tolerant unless he or she is intransparent about this or even uses deceptive
+ marketing practices.
+ Note that all questions deal with seed quality, not with other attributes
+ that could distinguish good from bad dealers like their prices or services
+ (e.g.
+ whether or not a dealer offers seed on credit or advice).
+ The aim of the clearinghouse rating it to make unobservable seed quality
+ observable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Questions for farmers to rate agro-input dealers 
+\begin_inset CommandInset label
+LatexCommand label
+name "questions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & min & max 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{1-3}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Do you know this 
+\backslash
+emph{shop name} or 
+\backslash
+emph{dealer name}, & no & yes
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sometimes called 
+\backslash
+emph{nickname}, located in 
+\backslash
+emph{market name}? & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+The place can be described as 
+\backslash
+emph{description}.
+ & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{1-3}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Please rate this agro-input shop on: & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Quality and authenticity of seed & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{1-3}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Please rate the maize seed that this agro-input shop sells on: & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+General quality & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield as advertised & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Drought tolerance as advertised & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pest/disease tolerance as advertised & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Speed of maturing as advertised & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Germination & 1 star & 5 stars
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Computation of ratings 
+\end_layout
+
+\begin_layout Standard
+Based on the responses of all farmers in the catchment area, we computed
+ the ratings for each agro-input dealer.
+ These ratings were translated into words and stars, so that they are easily
+ understandable for farmers and dealers who are not used to interpreting
+ numbers.
+\end_layout
+
+\begin_layout Paragraph*
+What to do if a treated dealer does not receive a single rating?
+\end_layout
+
+\begin_layout Standard
+If a dealer in a treated catchment area is not rated by a single farmer
+ eg.
+ because no farmer knew him/her, we could act as if data were missing and
+ fill in the catchment area mean as his/her rating.
+ However, this is not as innocent as it seems because it is likely that
+ missingness is not random.
+ Poor quality dealers have less customers, so their likelihood to get rated
+ is lower.
+ Giving them average catchment area ratings inflates the ratings of these
+ low quality dealers.
+ Instead, we simply told farmers that we do not have information about this
+ dealer (implicitly informing the farmer that the dealer exists), see also
+ table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "SMS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Should more ratings lead to better ratings?
+\end_layout
+
+\begin_layout Standard
+If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is rated
+ by 1 farmer and gets rating 3,6, we treat dealer B as the better dealer.
+ Even though getting many (few) farmer ratings might be due to good (poor)
+ quality (missingness might not be random, see precious paragraph), there
+ might be other reasons why dealers are rated by many (few) farmers.
+ Also on TripAdvisor, having more reviews than a rival hotel does not guarantee
+ a higher ranking.
+\end_layout
+
+\begin_layout Paragraph*
+Should ratings depend on catchment area dealer performance?
+\end_layout
+
+\begin_layout Standard
+The following shows that ratings should not depend on catchment area averages.
+ In an area with poor quality dealers in which one dealer is a bit better
+ than the rest but still poor, we do not want this dealer to be rated well
+ (ie.
+ expose farmers to poor quality dealers).
+ Similarly, in an area with good dealers in which one dealer is a bit worse
+ than the rest but still good, we do not want this dealer to be rated poorly
+ (which would be unfair towards him/her).
+ On the other hand, only 9% of dealers received a rating below 3 out of
+ 5, so we would throw away valuable data if we would only disseminate good
+ scores without any variation.
+ Therefore, we take the distribution of ratings into account by using quintiles.
+ Consequently, less dealers got rating 4 or 5, more dealers got rating 3.
+ This could strengthen the effect of the treatment on dealer effort.
+ If dealers get rating 3 instead of 4 or 5, they could be more inclined
+ to improve their scores.
+ Consequently, also the effect on seed quality itself could be larger.
+ However, the clearinghouse should also have a signaling effect, which might
+ be weaker if more dealers are rated 3 than rated 4 or 5 (dealers seem to
+ be of worse quality to farmers).
+ Therefore, we chose names of the quintiles with a positive connotation
+ during rating dissemination: as most dealers received a good or very good
+ rating before taking the distribution into account, we ensure that even
+ a 3 is still communicated as "good" to farmers to not weaken the signaling
+ effect and because of the distribution of the original ratings, we intend
+ to disseminate ratings as truthfully, purely and as closely to reality
+ as possible.
+ That is why the first quintile is translated to "okay" and gets one star,
+ the second one is named "good" and receives two stars, the third quintile
+ is "very good" and gets three stars, the fourth and fifth one are "excellent"
+ and awarded with four and five stars.
+\end_layout
+
+\begin_layout Paragraph*
+Are female dealers rated worse than male dealers?
+\end_layout
+
+\begin_layout Standard
+Because 41% of agro-input dealers in our sample are female and women could
+ be rated more negatively, we also tested whether there are significant
+ differences between the ratings of female dealers and the ratings of male
+ dealers.
+ We controlled for some potentially confounding variables, like age, education
+ level, distances to the nearest tarmac and murram roads (as measures of
+ remoteness) and additionally for many indications of quality (whether the
+ shop only sells farm inputs, years since shop establishment, questions
+ related the quality of the shop's roof, walls, ventilation, floor, lighting
+ and seed storage, questions related to rats/pests, official certificates,
+ cleanness and professionality, customer complaints, and temperature).
+ Because we found a significant difference in ratings (Pr(>|t|) < 0.1) after
+ controlling for all this, we have no reason to believe that this difference
+ can be explained by real quality differences.
+ Hence there is no other reason than discrimination for female dealers to
+ be rated worse.
+ Therefore, we adjusted the ratings of female dealers accordingly to prevent
+ this kind of discrimination.
+ Otherwise female dealers could be harmed by our intervention.
+ We changed the ratings of all female dealers by adding the coefficients
+ of the gender dummy to the initial ratings.
+ This means that we regressed all seed quality attributes on the gender
+ dummy and add the resulting coefficients to these individual ratings.
+ Then we did the same with the mean (summary) rating.
+\end_layout
+
+\begin_layout Subsection
+Dissemination of ratings to farmers
+\end_layout
+
+\begin_layout Subsubsection
+SMS
+\begin_inset CommandInset label
+LatexCommand label
+name "SMS text"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first rating dissemination, ie.
+ the first distribution of agro-input dealer ratings to farmers and dealers,
+ happened in July and August 2021 because farmers started buying seed for
+ the next agricultural season in August.
+ In the treated catchment areas, farmers were provided with the ratings
+ of all dealers in their proximity.
+ Due to the pandemic and a Ugandan lockdown from June 18 until July 30 2021,
+ our project faced a lot of uncertainty, especially because farmers and
+ dealers needed to be treated before the second agricultural season of 2021.
+ To ensure that farmers received the necessary information before buying
+ seed, we sent them one SMS per dealer in their catchment area in the beginning
+ of July 2021, see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This text message was translated into three local languages - Lusoga, Lugwere,
+ Samia - choosen at the sub-county level (87 sub-counties) to increase specifici
+ty.
+ Also in the control catchment areas, farmers received an SMS with all dealer
+ names in their proximity, so that they were aware of the presence of these
+ dealers.
+ This could enable us to seperate the "knowledge effect" (farmers knowing
+ which dealers operate in their proximity) from the clearinghouse effect
+ (making unobservable seed quality observable).
+ This approach is also double-blind: control farmers believe that they are
+ treated which is important 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bulte2014behavioral"
+literal "false"
+
+\end_inset
+
+.
+ These text messages were sent to safeguard the realization of the clearinghouse
+ intervention, even if lockdown measures would have stayed in place and
+ so that we would not have been able to visit farmers in person.
+ Please see table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "SMS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for details about these text messages.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Text messages to disseminate ratings to farmers 
+\begin_inset CommandInset label
+LatexCommand label
+name "SMS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{ll}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+treatment SMS & Did you know that customers from agro-input
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& shop x rate the quality of maize seed sold
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& there as okay/good/very good/excellent?
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+treatment SMS for & Hello from AgroAdvisor! Customers from
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dealers without rating & agro-input shop x did not rate the
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& quality of maize seed sold there.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+control SMS & Hello from AgroAdvisor! Did you know
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& that you can get quality maize
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& seed in your area from x? 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+In person
+\end_layout
+
+\begin_layout Standard
+For the success of the clearinghouse treatment it was crucial to disseminate
+ the ratings to farmers before they started buying seed, so that they could
+ use that information when chosing where to purchase inputs.
+ That is why we had to visit them before mid-August
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In the second agricultural season of 2021, farmers started buying seed later
+ than usual.
+ That is due to delayed rains in the first agricultural season which delayed
+ they planting then.
+ Hence few farmers harvested as usual in July 2021 while most waited for
+ maturity and harvested maize between mid-July and early August.
+ Farmers cannot start planting until the crop from the previous season is
+ harvested.
+ Besides, they need to sell some of the harvested maize to raise money for
+ buying seed.
+ Therefore, second season planting only took place in between mid-August
+ and early September.
+ That is why farmers bought seed later than usual.
+\end_layout
+
+\end_inset
+
+.
+ Luckily Ugandan regulations allowed us to go to the field immediately after
+ the lockdown ended on July 30.
+ Our enumerators re-visited all (treatment and control) farmers in the first
+ half of August 2021 (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and farmers were treated as initially planned.
+\end_layout
+
+\begin_layout Standard
+For this purpose, we designed a visually appealing dissemination app which
+ cycles through all dealers in the catchment area of each farmer.
+ Again, to ensure that farmers could identify the dealer in question, we
+ used the shop and owner names, nicknames and alternative names, location,
+ a description and a photo of the shop.
+ In the version designed for clearinghouse treated farmers, the cycling
+ through dealers starts with the dealer with the highest rating.
+ We used passive voice and coverted ratings into words and stars: "We wanted
+ to let you know that customers from input dealer x rate the quality of
+ maize seed sold there as okay/good/very good/excellent! The quality of
+ the maize seed that this agro-input shop sells got a score of 1/2/3/4/5
+ out of 5!".
+ Then the enumerator showed the stars after showing the photo of the shop
+ again.
+\end_layout
+
+\begin_layout Standard
+To ensure that control farmers were also aware of the existence of dealers
+ in their proximity (to seperate the "knowledge effect" from the clearinghouse
+ effect, see above in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "SMS text"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) we also cycled through all dealers in control areas and asked a couple
+ of questions e.g.
+ "Do you know the agro-input shop called x?" (similar to the rating collection
+ during baseline data collection but with less questions).
+ This led control farmers to believe that they were treated, which is of
+ importance 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bulte2014behavioral"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Dissemination of ratings to dealers
+\end_layout
+
+\begin_layout Standard
+Agro-input dealers received their own general and specific ratings by means
+ of a report on paper.
+ It was delivered to the shops in July 2021, see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The front showed a visually appealing certificate with a logo and the own
+ general rating: "Input dealer x scores y out of 5.
+ This was based on z reviews.
+ This score means that farmers in the area think that the quality of the
+ maize seed this shop sells is: okay/good/very good/excellent.
+ SeedAdvisor certicate 2021." Scores, words and stars matched those disseminated
+ to farmers (see above).
+\end_layout
+
+\begin_layout Standard
+The back of the paper report showed an explanation and more detailed information.
+ In addition to the dealer's general rating, it shows the dealer's specific
+ ratings (overall quality, yield, drought and disease resistance, speed
+ of maturing, and germination) and the average ratings of other agro-input
+ dealers in the same catchment area in a table, visualized by stars.
+ This shows dealers their relative position in the area and might stimulate
+ competition.
+ Dealers were not informed about the individual ratings of their competitors,
+ they only knew the catchment area averages.
+\end_layout
+
+\begin_layout Standard
+The certificate can be used to display the ratings in the shop, similar
+ to a 
+\begin_inset Quotes eld
+\end_inset
+
+certificate of excellence
+\begin_inset Quotes erd
+\end_inset
+
+ of Tripadvisor but dealers may or may not hang it.
+ However, the person who visited all dealers and delivers their personalized
+ certificates recommended hanging it, as they might not think about it themselve
+s.
+ There is also a note on the back of the report which recommends displaying
+ the certicate in the shop.
+ The delivering person also reminded dealers to read the information on
+ the back so that dealers are fully informed.
+\end_layout
+
+\begin_layout Standard
+Furthermore, we expect dealers to be more likely to change their behavior
+ ie.
+ increase their efforts if they know that they will be scored again.
+ They need to expect a second set of scores.
+ That is why the person delivering the reports explicitly mentioned to every
+ dealer that they will be scored again.
+ Furthermore, there is a note on the report that informs dealers that they
+ will be scored again in January 2022.
+\end_layout
+
+\begin_layout Subsection
+More collections and disseminations of ratings
+\end_layout
+
+\begin_layout Standard
+A second round of agro-input dealer ratings was collected during farmer
+ midline data collection in January 2022, after farmers harvested in November/De
+cember and the second season of 2021 was over.
+ Enumerators revisited farmers for the midline survey and collected the
+ second dealer ratings in person.
+ The resulting second clearinghouse ratings were disseminated to farmers
+ and input dealers between mid-January and mid-February 2022 because farmers
+ started buying seed in Feburary/March and planted seed in March/April.
+ Farmers also received a second set of SMS in the beginning of March 2022.
+ Finally, after the first agricultural season of 2022, the a third round
+ of dealer ratings will be collected as part of the end line data collection
+ in July/August 2022, because farmers harvest maize in June/July.
+ The third rating is a post-treatment outcome variable.
+ Knowing that the clearinghouse will remain in place for some time could
+ motivate dealers to change their behaviour and increase farmers' trust
+ in these ratings.
+ The timeline is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "timeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Methodology
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methodology"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Specification
+\end_layout
+
+\begin_layout Standard
+Due to the random assignment to treatment and control groups, simply comparing
+ outcome variable means of treatment and control farmers and agro-input
+ dealers provides unbiased estimates of the effect of the clearinghouse
+ intervention on the outcomes of interest.
+ To increase power, we condition the estimates on baseline values of the
+ outcome variables.
+ For this intervention where randomization happened at the catchment area
+ level, we look at the impact both at the dealer level and at the farmer
+ level.
+ We estimate the following specification using ordinary least-squares (OLS)
+ to get the average treatment effects (ATE) of the clearinghouse intervention:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $Y_{1ij}$
+\end_inset
+
+ is the outcome variable for input dealer/farmer 
+\emph on
+i
+\emph default
+ in catchment area 
+\emph on
+j
+\emph default
+ at end line, 
+\begin_inset Formula $Y_{0ij}$
+\end_inset
+
+ is the corresponding outcome at baseline, 
+\begin_inset Formula $T_{j}$
+\end_inset
+
+ is a dummy for the treatment status of catchment area 
+\emph on
+j
+\emph default
+, 
+\begin_inset Formula $X_{ij}$
+\end_inset
+
+ is a vector of all the interactions between the different orthogonal catchment
+ area level treatments in the factorial design 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "muralidharan2019factorial"
+literal "false"
+
+\end_inset
+
+, and 
+\begin_inset Formula $ε_{ij}$
+\end_inset
+
+ is an input dealer/farmer-specific error term
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Note that we can not control for the farmer level (third) treatment in this
+ specification.
+ But I guess that will not bias the estimate of beta but only reduce precision
+ a bit.
+ what about interaction terms? trainingxvideo, CHxvideo
+\end_layout
+
+\end_inset
+
+.
+ The coefficient 
+\begin_inset Formula $β$
+\end_inset
+
+ is our estimated ATE for the treatment under consideration.
+ In general, we will use two-tailed tests and traditional confidence thresholds
+ of 10, 5 and 1 percent.
+\end_layout
+
+\begin_layout Subsection
+Multiple hypothesis testing
+\end_layout
+
+\begin_layout Standard
+Because we will test for treatment effects on a range of outcome measures,
+ we will deal with multiple outcomes and multiple hypotheses testing by
+ means of two approaches.
+ Firstly, we follow a method proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ and aggregate different outcome measures within each domain into single
+ summary indices.
+ Each index is computed as a weighted mean of the standardized values of
+ the outcome variables.
+ The weights of this efficient generalized least squares estimator are calculate
+d to maximize the amount of information captured in the index by giving
+ less weight to outcomes that are highly correlated with each other.
+ Combining outcomes in indices is a common strategy to guard against over-reject
+ion of the null hypothesis due to multiple inference.
+\end_layout
+
+\begin_layout Standard
+However, it may also be interesting to see the effect of the intervention
+ on individual outcomes.
+ An alternative strategy to deal with the multiple comparisons problem is
+ to adjust the significance levels to control the Family Wise Error Rates
+ (FWER).
+ We used re-randomization to construct the joint null distribution for the
+ family of outcomes we are testing.
+ From this family-wise sharp null, we obtained the corresponding FWER-consistent
+ significance thresholds by determining which cutoffs yield 10 percent,
+ five percent and one percent significant hypothesis tests across all tests
+ and simulations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ottoboni2021permutation,caughey2017nonparametric"
+literal "true"
+
+\end_inset
+
+.
+ Impact will be judged by looking at outcomes both at the input dealer level
+ (eg.
+ investments in seed storage infrastructure, quantity of seed sold,...) as
+ well as at the farmer level (eg.
+ likelihood that farmer adopted improved seed, maize yields,...).
+\end_layout
+
+\begin_layout Subsection
+Variable construction
+\end_layout
+
+\begin_layout Standard
+For continuous variables, 5 percent trimmed values will be used to reduce
+ influence of outliers (2.5 percent trimming at each side of the distribution).
+ Inverse hyperbolic sine transforms will be used if skewness exceeds 1.96.
+ Trimming will always be done on end results.
+ For instance, if the outcome is yield at the plot level, then production
+ will first be divided by plot area, after which inverse hyperbolic sine
+ is taken and the end result is trimmed.
+ Outcomes for which 95 percent of observations have the same value within
+ the relevant sample will be omitted from the analysis and will not be included
+ in any indicators or hypothesis tests.
+\end_layout
+
+\begin_layout Subsection
+Missing variables
+\end_layout
+
+\begin_layout Standard
+When we field our surveys, some respondents will not answer one or more
+ questions that measure an outcome.
+ We will handle missing variables from survey questions by checking whether
+ item non-response is correlated with treatment status, and if it is, construct
+ bounds for our treatment estimates that are robust to this.
+ To be more precise, we will assess the relationship between missing outcomes
+ and treatment assignment using a hypothesis test and report these results.
+ If p<.05 for the assessment of the relationship between treatment and missing
+ outcomes, we will report an extreme value bounds analysis in which we set
+ all of the missing outcomes for treatment to the (block) maximum and all
+ missing outcomes for control to the (block) minimum.
+ If p≥0.5 for the assessment of the relationship between treatment and missing
+ outcomes, we will impute the missing outcomes using the mean of the assignment-
+by-block subcategory.
+\end_layout
+
+\begin_layout Section
+Data
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Sample-and-data"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This procedure resulted in 68 input dealers being distributed over 24 catchment
+ areas.
+ In the data we used for power simulations, a catchment area has thus on
+ average 2.8 input dealers, with a minimum of 1 and a maximum of 6.
+\end_layout
+
+\begin_layout Subsection
+Sample
+\end_layout
+
+\begin_layout Standard
+This section describes the samples to be used in the study.
+ Our samples will include input dealers located in trading centers and villages
+ (key market sheds) as well as maize farmers that are located in the catchment
+ areas of these market sheds.
+ The input dealer sample is obtained by including all input dealers of 11
+ districts in Busoga.
+ These input dealers will be listed during a census that we will do ourselves.
+ After the census, dealers will be assigned to a particular catchment area.
+ Dealers that are less than 5 km apart are assigned to the same catchment
+ area.
+ This final list of catchment areas will then be used for the allocation
+ of the first treatments according to the design in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The assignment will be done using a computer algorithm.
+ For the first two factors, corresponding to the input-dealer training and
+ the information clearinghouse, randomization will happen at the level of
+ the catchment area.
+ For the third factor that address learning failures of farmers, randomization
+ will happen at the level of the village.
+\end_layout
+
+\begin_layout Standard
+We will also randomly sample a fixed number of farmers in a village connected
+ to each input dealer.
+ This will be done by asking every dealer from which village most his/her
+ customers from.
+ If this village was already named by another dealer, the village with the
+ second most customers will be chosen.
+ Enumerators will be sent to these villages and are instructed to randomly
+ sample a fixed number of households that meet the inclusion criteria.
+\end_layout
+
+\begin_layout Standard
+For some outcomes, details at plot level will be needed (for instance, seed
+ spacing and seed rate).
+ However, farmers often have more than one plot.
+ As outcomes on different plots within the same household are likely to
+ be strongly correlated and the interventions are assigned at a higher level,
+ it may not be cost effective to survey all plots.
+ An unbiased estimate of the outcome at the household level can be obtained
+ by randomly selecting one plot.
+ To do so, we ask enumerators to first list all plots, with names farmers
+ use to refer to these plots (eg.
+ home plot, irrigated plot, plot near the sugar cane factory, ...).
+ The ODK program then randomly selects one plot for which detailed questions
+ are asked.
+\end_layout
+
+\begin_layout Standard
+We will measure the key outcomes of interest before and after the treatments,
+ so that we can assess the treatment effects of the three interventions.
+ The dealer baseline survey will be conducted in September and October 2020,
+ the farmer baseline survey in April 2021, both before the second agricultural
+ season of 2021.
+ The interventions will be carried out before the second agricultural season
+ of 2021.
+ To assess their impact, midline data will be collected after the second
+ agricultural season of 2021, and end line data will be collected after
+ the first agricultural season of 2022.
+ The baseline, midline and endline surveys will constitute the key sources
+ of data for the study.
+ We will collect information on a range of outcome indicators at the level
+ of the input dealer.
+ The key outcomes of interest can be found in the next section.
+\end_layout
+
+\begin_layout Subsection
+Variables
+\end_layout
+
+\begin_layout Standard
+In this section, we register the variables that will be used in the study.
+\end_layout
+
+\begin_layout Standard
+Impact will be judged by looking at outcomes both at the input dealer level
+ (eg.
+ investments in seed storage infrastructure, quantity of seed sold,...) as
+ well as at the farmer level (eg.
+ likelihood that farmer adopted improved seed, maize yields,...).
+\end_layout
+
+\begin_layout Standard
+Regardless of who is targeted by the intervention, we will assess changes
+ in outcomes at both the input dealer level and at the level of the farmer.
+\end_layout
+
+\begin_layout Standard
+Impact will be judged by looking at outcomes both at the input dealer level
+ (eg.
+ investments in seed storage infrastructure, quantity of seed sold,...) as
+ well as at the farmer level (eg.
+ likelihood that farmer adopted improved seed, maize yields,...).
+\end_layout
+
+\begin_layout Subsection
+Descriptives
+\end_layout
+
+\begin_layout Subsection
+Baseline variables for balance
+\end_layout
+
+\begin_layout Standard
+Standard orthogonality tables will be included in the report.
+ At each outcome level (farmer and input dealer), we pre-register 10 variables.
+ Half of these are characteristics that are less likely to be affected by
+ the intervention, while the other 5 are picked from the primary and secondary
+ outcomes listed in the next subsection.
+ To test balance at the level of the 
+\emph on
+farmer
+\emph default
+, the following variables will be compared at baseline:
+\end_layout
+
+\begin_layout Enumerate
+age of household head - years (q14)
+\end_layout
+
+\begin_layout Enumerate
+household head has finished primary education - 1 is yes (q17)
+\end_layout
+
+\begin_layout Enumerate
+gender of household head - 1 is male (q15)
+\end_layout
+
+\begin_layout Enumerate
+household size - number of people in household/that eats in house on a regular
+ basis (including interviewee) (q18)
+\end_layout
+
+\begin_layout Enumerate
+distance of homestead to nearest agro-input shop selling maize seed - km
+ (q10)
+\end_layout
+
+\begin_layout Enumerate
+has used quality maize seed on any plot in last season - 1 is yes (q25a)
+\end_layout
+
+\begin_layout Enumerate
+thinks that maize seed that you can buy at agro-input dealer is counterfeit/adul
+terated - 1 is yes (q25h) 
+\end_layout
+
+\begin_layout Enumerate
+has bought quality maize seed from agro-input shop for any plot in last
+ season - 1 is yes (q25a, q25b aggregated at household level)
+\end_layout
+
+\begin_layout Enumerate
+quantity of quality maize seed bought from an input dealer in last season
+ - kg (q25d)
+\end_layout
+
+\begin_layout Enumerate
+maize yields on a randomly chosen plot in last season - production/size
+ of plot (q29, q50, q51) (intercropping was not taken into account because
+ if maize is intercropped, it is almost always the main crop, so that there
+ are equal numbers of maize crops on intercropped and not intercropped plots)
+\end_layout
+
+\begin_layout Standard
+To test balance at the level of the 
+\emph on
+input dealer
+\emph default
+, the following variables will be compared at baseline:
+\end_layout
+
+\begin_layout Enumerate
+age of person interviewed (most knowledgeable person) - years (age)
+\end_layout
+
+\begin_layout Enumerate
+gender of person interviewed (most knowledgeable person) - 1 is male (gender)
+\end_layout
+
+\begin_layout Enumerate
+person interviewed (most knowledgeable person) has finished primary education
+ - 1 is yes (educ)
+\end_layout
+
+\begin_layout Enumerate
+number of years business has been in operation (today - year business was
+ founded) (q8)
+\end_layout
+
+\begin_layout Enumerate
+distance of shop to nearest tarmac road - km (q3)
+\end_layout
+
+\begin_layout Enumerate
+number of customers buying something related to agriculture on average day
+ during week (q6)
+\end_layout
+
+\begin_layout Enumerate
+quantity of quality maize seed sold during last season - kg (q25, q37, q50,
+ q62)
+\end_layout
+
+\begin_layout Enumerate
+quantity of seed that was lost/wasted during last season - kg (q27, q39,
+ q52, q64)
+\end_layout
+
+\begin_layout Enumerate
+someone who works in this store received a training on handling and storage
+ of maize seed - 1 is yes (q10)
+\end_layout
+
+\begin_layout Enumerate
+person interviewed knows how to repackage seed in a proper way (in paper
+ bags/perforated polyethylene bags) - 1 is yes (q105)
+\end_layout
+
+\begin_layout Subsection
+Primary outcome variables
+\end_layout
+
+\begin_layout Standard
+The ultimate objective of this study is to see how the interventions increase
+ technology adoption and ultimately well-being of the actors involved.
+ At the level of the input dealer, we pre-register 7 primary outcomes, aimed
+ at measuring increased seed sales both at the extensive (total sales) and
+ intensive (sales per customer) margins:
+\end_layout
+
+\begin_layout Enumerate
+quantity of quality maize seed sold in last agricultural season (derived
+ from quantities of different varieties of maize sold) - kilograms (q25,
+ q37, q50, q62)
+\end_layout
+
+\begin_layout Enumerate
+price of quality maize seed sold in last agricultural season (derived from
+ prices of different varieties of maize sold) - Ugandan shilling per kilogram
+ (q26, q38, q51, q63)
+\end_layout
+
+\begin_layout Enumerate
+seed related revenue: price of quality maize seed sold*quantity of quality
+ maize seed sold - Ugandan shilling (q25*q26, q37*q38, q50*q51, q62*q63)
+\end_layout
+
+\begin_layout Enumerate
+number of customers that bought seed from shop in last season (q7)
+\end_layout
+
+\begin_layout Enumerate
+moisture content of one bag of seed (q2-reading)
+\end_layout
+
+\begin_layout Enumerate
+index of seed handling and storage practices (based on q69 - q80, q82, q83,
+ q90, q92, q121, q122)
+\end_layout
+
+\begin_layout Enumerate
+index of dealer service/effort (based on q85 - q98)
+\end_layout
+
+\begin_layout Standard
+At the farmer level, we also pre-register 7 primary outcomes, again evaluating
+ the interventions at the extensive and intensive margins.
+ We will also look at production and yield, but we do not pre-register these
+ as key outcomes as we did not power the experiment to pick up the kind
+ of effects that are identified in other studies (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Power-Analysis-Simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+*purchased* quality maize seed in last season for any plot - 1 is yes (q25a,
+ q25b aggregated at household level)
+\end_layout
+
+\begin_layout Enumerate
+bought quality maize seed from agro-input shop for any plot in last season
+ - 1 is yes (q25a, q25b aggregated at household level)
+\end_layout
+
+\begin_layout Enumerate
+quantity of quality maize seed bought from an input dealer in last season
+ - kg (q25d)
+\end_layout
+
+\begin_layout Enumerate
+index of seed quality perception: average ratings of maize seed of all input
+ dealers in catchment area (q68, q69 aggregated at household level)
+\end_layout
+
+\begin_layout Enumerate
+index of dealer (effort) perception (q68b-q68f, q70-q76)
+\end_layout
+
+\begin_layout Enumerate
+share of farmers switching to different dealers (q67) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+also for farmer video: It would be interesting to see if farmers that watched
+ the video and have disappointing yields are more likely to switch input
+ dealers then farmers that did not watch the video?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+index of farmers practices: interaction between adoption on that plot (q31,
+ (q32)) and farmers' practices on that plot (q40-q49)
+\end_layout
+
+\begin_layout Standard
+Indices are constructed following 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ as also indicated in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methodology"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Secondary outcome variables
+\end_layout
+
+\begin_layout Standard
+To identify the steps along the causal chain, we pre-register a range of
+ secondary outcomes.
+ At the level of the input dealer, we start by investigating changes in
+ skills and knowledge, particularly related to seed handling and storage.
+ This will be done through 10 multiple choice questions.
+ Each multiple choice question will have 3 possible answers from which the
+ input dealer can choose (there will also be a "don't know" option).
+\end_layout
+
+\begin_layout Itemize
+How long can seed be carried over before losing viability? (q104)
+\end_layout
+
+\begin_layout Itemize
+How should seed best be stored after repackaging? (q105)
+\end_layout
+
+\begin_layout Itemize
+What is the minimum recommended distance between the floor and where seed
+ is stored? (q106)
+\end_layout
+
+\begin_layout Itemize
+How should seed ideally be stored in your store room? (q107)
+\end_layout
+
+\begin_layout Itemize
+What statement do you agree most with? (q108)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You should repackage all your seed to visually verify that you are selling
+ good quality seed.
+\end_layout
+
+\begin_layout Itemize
+You should repackages all your seed so you can sell more to small farmers.
+\end_layout
+
+\begin_layout Itemize
+You should avoid repackaging your seed as much as possible.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If a farmer complains about poor soil, which of the following 3 seed varieties
+ do you recommend? (q109)
+\end_layout
+
+\begin_layout Itemize
+How often can OPVs be recycled without significant yield loss? (q110)
+\end_layout
+
+\begin_layout Itemize
+What do you tell clients who inquire about the yield benefits of hybrid
+ seed? (q111)
+\end_layout
+
+\begin_layout Itemize
+If a farmer misses the rains or lives in areas that receive little rain,
+ what variety of maize do your recommend? (q112)
+\end_layout
+
+\begin_layout Itemize
+When a farmer is late for planting in the short season and needs fast maturing
+ variety, which maize do you recommend? (q113)
+\end_layout
+
+\begin_layout Itemize
+What is the most important determinant in deciding which seed to buy and
+ how much? (q84)
+\end_layout
+
+\begin_layout Standard
+Another set of key outcomes is related to seed variety stock and turn over.
+ We start with establishing how many improved seed varieties were stocked
+ during the second season of 2020 (nr_var, q19, q44).
+ We then iterate over the two most important hybrid seeds that are generally
+ sold in the area (Longe 10H, Longe 7H).
+ We will ask for each seed variety:
+\end_layout
+
+\begin_layout Itemize
+How much was carried forward from the previous season (first season 2020)
+ into the second season of 2020 (kg) (q21)
+\end_layout
+
+\begin_layout Itemize
+How much was bought by you from any provider during the second season of
+ 2020 (in kg) (q22)
+\end_layout
+
+\begin_layout Itemize
+From whom did you as a agro-input dealer directly buy in the second season
+ of 2020? (q23)
+\end_layout
+
+\begin_layout Itemize
+What was the cost from where you obtained it during the second season of
+ 2020? (per kg) (q24)
+\end_layout
+
+\begin_layout Itemize
+Total quantity sold over the second season of 2020 (kg) (q25)
+\end_layout
+
+\begin_layout Itemize
+Sales price per kilogram at the beginning of the second season of 2020 (q26)
+\end_layout
+
+\begin_layout Itemize
+How much was lost/wasted the second season of 2020 (kg) (q27)
+\end_layout
+
+\begin_layout Itemize
+Did you ever run out of this during the second season of 2020 (ie.
+ did you have to disappoint clients) (q29)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estimate how often you ran out of stock during the second season of 2020
+ (q30)
+\end_layout
+
+\begin_layout Itemize
+How long (days) did it on average take to get restocked during the second
+ season of 2020 (days) (q31)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The same questions will be repeated for the two most commonly traded Open
+ Pollinated Varieties (Longe 4 and Longe 5).
+\end_layout
+
+\begin_layout Standard
+We will also buy one bag of Longe 10H (the most common hybrid).
+ On the basis of this, we will:
+\end_layout
+
+\begin_layout Itemize
+test moisture content (see primary outcomes) (q2-reading)
+\end_layout
+
+\begin_layout Itemize
+record production date indicated on package (q3b-date_pack)
+\end_layout
+
+\begin_layout Itemize
+Is the bag airtight without any signs of damage? (q4-origin)
+\end_layout
+
+\begin_layout Itemize
+Does it have a certification sticker from inspection agency? (q5-cert)
+\end_layout
+
+\begin_layout Itemize
+Does packaging have a Lot number? (q6-lot)
+\end_layout
+
+\begin_layout Itemize
+Does packaging have e-verification? (q7-verif)
+\end_layout
+
+\begin_layout Standard
+Enumerators are also asked to inspect the area where seed is stored.
+ Here, we will check:
+\end_layout
+
+\begin_layout Itemize
+Temperature (q70)
+\end_layout
+
+\begin_layout Itemize
+Is seed stored in a dedicated area, away from other merchandize? (q69)
+\end_layout
+
+\begin_layout Itemize
+Are there any noticeable pests (insects, rats)? (q71) 
+\end_layout
+
+\begin_layout Itemize
+Is the roof leak proof? (q72)
+\end_layout
+
+\begin_layout Itemize
+Is the roof insulated to keep heat out? (q73)
+\end_layout
+
+\begin_layout Itemize
+Are the walls insulated to keep heat out? (q74)
+\end_layout
+
+\begin_layout Itemize
+Is the area ventilated? (q75)
+\end_layout
+
+\begin_layout Itemize
+Are the walls plastered? (q76)
+\end_layout
+
+\begin_layout Itemize
+Material of floor (q77)
+\end_layout
+
+\begin_layout Itemize
+Lighting conditions (q78)
+\end_layout
+
+\begin_layout Itemize
+On what surface is seed stored? (q79)
+\end_layout
+
+\begin_layout Itemize
+Do you see maize seed that is stored in open bags? (q80)
+\end_layout
+
+\begin_layout Itemize
+Do you see any official certificates displayed (eg.
+ that the shop was inspected, that the owner attended trainings or that
+ the business is registered with some association) (q81)
+\end_layout
+
+\begin_layout Itemize
+On a scale of 1 to 5, rate this shop in terms of cleanness and professionalism
+ (q82)
+\end_layout
+
+\begin_layout Standard
+The interventions may also lead input dealers to voluntarily expose themselves
+ to increased scrutiny to signal to farmers that they deliver quality products.
+ We thus also ask about membership of business associations:
+\end_layout
+
+\begin_layout Itemize
+Is this business registered as a seed dealer with UNADA (Uganda National
+ Agro-input Dealers Association)? (q114)
+\end_layout
+
+\begin_layout Itemize
+Does this business have a trading license issued by local government? (q115)
+\end_layout
+
+\begin_layout Itemize
+Is this business a member of any other professional association? (q116)
+\end_layout
+
+\begin_layout Itemize
+How often were you inspected by DAO/MAAIF last year (q117) 
+\end_layout
+
+\begin_layout Itemize
+Have you ever received a warning as a result of inspection if something
+ was not up to standard? (q118) 
+\end_layout
+
+\begin_layout Itemize
+Has some of your produce ever been confiscated after inspection? (q119)
+\end_layout
+
+\begin_layout Itemize
+Has this business ever been closed down due to quality issues after inspection?
+ (q120)
+\end_layout
+
+\begin_layout Itemize
+Do you have equipment to monitor moisture in the seed? (q121)
+\end_layout
+
+\begin_layout Itemize
+Do you monitor temperature in your seed store? (q122)
+\end_layout
+
+\begin_layout Standard
+We will look a range of outcomes related to services offered by the dealer/the
+ effort of the dealer: 
+\end_layout
+
+\begin_layout Itemize
+What do you do with seed that has exceeded shelf live (expired)? (q83) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I don't think this belongs to dealer service/effort
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What is the most important determinant in deciding which seed to buy and
+ how much? (q84) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I don't think this belongs to dealer service/effort
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When farmers buy seed, do you explain how the seed should be used? (q85)
+\end_layout
+
+\begin_layout Itemize
+When farmers buy seed, do you usually recommend complementary inputs? (q86)
+\end_layout
+
+\begin_layout Itemize
+Do you offer extension/training to your clients on how to use improved seed
+ varieties? (q87)
+\end_layout
+
+\begin_layout Itemize
+Did you offer discounts to clients that buy large quantities of maize seed
+ during the second season of 2020? (q88)
+\end_layout
+
+\begin_layout Itemize
+What is that smallest package of improved seed that you stocked during this
+ season (without repackaging)? (q89)
+\end_layout
+
+\begin_layout Itemize
+Do you repackage seed yourself when clients want smaller packages than what
+ the seed comes in? (q90) 
+\end_layout
+
+\begin_layout Itemize
+Do you charge more per kg if customers only want to buy 1 kg? (q91)
+\end_layout
+
+\begin_layout Itemize
+When repackaging seed, do you keep track of expiry date (eg.
+ include it in the bag/write it on the bag)? (q92)
+\end_layout
+
+\begin_layout Itemize
+Do you provide seed on credit (pay after harvest)? (q93)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Give an estimate of how many people you gave credit since last season.
+ (q94)
+\end_layout
+
+\begin_layout Itemize
+How many of these were women? (q95).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Since last season, did you receive any complaint from a customer that seed
+ you sold was not good? What did you do? (q96, q96b) 
+\end_layout
+
+\begin_layout Itemize
+What payment modalities do you accept? (q97)
+\end_layout
+
+\begin_layout Itemize
+Do you deliver seeds to the premises of farmers? (q98)
+\end_layout
+
+\begin_layout Standard
+Finally, we ask input dealers to rate themselves on the following attributes:
+ 
+\end_layout
+
+\begin_layout Itemize
+Location – are you located close to clients, in a convenient location? (q99)
+\end_layout
+
+\begin_layout Itemize
+Price – are you competitively priced? (q100)
+\end_layout
+
+\begin_layout Itemize
+Quality of produce, seed in particular – do you sell good products, no fake
+ seed? (q101)
+\end_layout
+
+\begin_layout Itemize
+Stock – is seed available at all time and in the quantities that customers
+ want? (q102)
+\end_layout
+
+\begin_layout Itemize
+Reputation – are others recommending you? (q103)
+\end_layout
+
+\begin_layout Standard
+At the level of the 
+\emph on
+farmer
+\emph default
+, we will also look at knowledge.
+ However, as the intervention aimed at farmers is less about creating new
+ knowledge and more about changing false beliefs, we ask fewer questions,
+ and questions that are more open ended and are only asked in the endline
+ questionnaire to avoid priming effects.
+\end_layout
+
+\begin_layout Itemize
+Is good seed handling/management less, equally, or more important when using
+ quality maize seed like OPV or hybrid seed? 
+\end_layout
+
+\begin_layout Itemize
+Please indicate what applies for weeding including removing striga when
+ you are using hybrid seeds.
+ 
+\end_layout
+
+\begin_layout Itemize
+Please indicate what applies for fertilizer application when you are using
+ hybrid seeds.
+\end_layout
+
+\begin_layout Itemize
+Where to best plant your improved seed?
+\end_layout
+
+\begin_layout Itemize
+How to invest your money?
+\end_layout
+
+\begin_layout Itemize
+If you want to be a successful farmer, what is the best spacing and number
+ of seeds per hill you should use for your maize?
+\end_layout
+
+\begin_layout Standard
+Additional questions are asked to learn about possible impact pathways:
+\end_layout
+
+\begin_layout Itemize
+What is the most important reason you didn't buy improved maize seed at
+ the agro-input shop during the last season? (q25f)
+\end_layout
+
+\begin_layout Itemize
+What is the most important reason you bought improved maize seed at that
+ particular agro-input shop during the last season? (q25f_2)
+\end_layout
+
+\begin_layout Itemize
+Why was the seed at agro-input shops not of good quality during the last
+ season? (q25g)
+\end_layout
+
+\begin_layout Itemize
+Do you think that maize seed that you can buy at agro-input dealer is counterfei
+t/adulterated? (q25h)
+\end_layout
+
+\begin_layout Itemize
+enumerator: Ask the farmer to mention as many improved maize varieties that
+ they are aware of.
+ (q26)
+\end_layout
+
+\begin_layout Standard
+The farmer level questionnaire has a set of questions about all the input
+ dealers that are in the catchment area of the farmer.
+ As this is part of the information clearinghouse treatment, this module
+ is only administered to households in catchment areas that are assigned
+ to the clearinghouse treatment.
+ We start by asking:
+\end_layout
+
+\begin_layout Itemize
+Do you know this input dealer? (q64)
+\end_layout
+
+\begin_layout Itemize
+Have you ever bought seed from this input dealer? (q65)
+\end_layout
+
+\begin_layout Itemize
+For how long have you been a customer of this input dealer? (q65b)
+\end_layout
+
+\begin_layout Itemize
+Do you know anyone who ever bought seed from this input dealer? (q66) 
+\end_layout
+
+\begin_layout Standard
+We then ask farmers to provide ratings similar to the self-rating of input
+ dealers:
+\end_layout
+
+\begin_layout Itemize
+General quality (q68a)
+\end_layout
+
+\begin_layout Itemize
+Location – close to clients, in a convenient location? (q68b)
+\end_layout
+
+\begin_layout Itemize
+Price – competitive pricing, discounts? (q68c)
+\end_layout
+
+\begin_layout Itemize
+Quality of seed – good products, no fake seed? (q68d)
+\end_layout
+
+\begin_layout Itemize
+Stock – availability of seeds at all time? (q68e)
+\end_layout
+
+\begin_layout Itemize
+Reputation – others are recommending him? (q68f)
+\end_layout
+
+\begin_layout Standard
+We then ask farmers to provide ratings of input dealers’ maize seed:
+\end_layout
+
+\begin_layout Itemize
+Does the seed that the agro input dealer sell is generally considered of
+ good quality? (q69a)
+\end_layout
+
+\begin_layout Itemize
+Does the seed that this input dealer sells normally leads to yields as advertise
+d? (q69b)
+\end_layout
+
+\begin_layout Itemize
+Is the seed that this input dealer sells as drought tolerant as advertised?
+ (q69c)
+\end_layout
+
+\begin_layout Itemize
+Is the seed that this input dealer sells as pest/disease tolerant as advertised?
+ (q69d)
+\end_layout
+
+\begin_layout Itemize
+Is the seed that this input dealer sells as early maturing seed also early
+ maturing in reality? (q69e)
+\end_layout
+
+\begin_layout Itemize
+In general, does the seed that this input dealer sells germinate well? (q69f)
+\end_layout
+
+\begin_layout Standard
+In addition, we check if the treatments affect the services provided by
+ the agro-input dealer:
+\end_layout
+
+\begin_layout Itemize
+If there is a problem with the seed of this input dealer, can you carry
+ the seed back to this input dealer and get a refund (insurance)? (q70)
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer give credit, ie.
+ gives you seed (or inputs more in general) that you can pay for later (after
+ harvest) (q71)
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer train/advise you on how to use improved seed varieties
+ while buying seed? (q72)
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer deliver seeds to clients at home? (q73)
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer offer after-sales service? (q74)
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer accept different payment methods? (q75) 
+\end_layout
+
+\begin_layout Itemize
+Does this input dealer sell small quantities if necessary (1kg)? (q76)
+\end_layout
+
+\begin_layout Standard
+We also cycle through maize plots and ask, for a randomly selected plot,
+ the following questions:
+\end_layout
+
+\begin_layout Itemize
+farmers' seed adoption
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+percentage of farmers reporting that they planted a quality maize seed variety
+ on randomly selected plot in last season (q31)
+\end_layout
+
+\begin_layout Itemize
+percentage of farmers reporting that they planted a quality maize seed variety
+ bought from agro-input shop on randomly selected plot in last season (q31,
+ q32)
+\end_layout
+
+\begin_layout Itemize
+percentage of farmers reporting that they planted farmer saved seed on randomly
+ selected plot in last season (q32)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+quality perceptions of seed used: Please rate the particular seed you used
+ on the randomly selected plot in the last season, on these dimensions:
+ (q35a - q35j)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+General quality (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+High yield (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Drought tolerant (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Pest/disease tolerant (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Early maturing (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Higher market price/easy to market/in high demand (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Good taste of variety or high nutritional content (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Low Price (including obtained for free) (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Availability (1 to 5) 
+\end_layout
+
+\begin_layout Itemize
+Germination rate (1 to 5)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Were you satisfied with quality of the planting material (seed) that you
+ used on the randomly selected plot in the last season? (q36)
+\end_layout
+
+\begin_layout Itemize
+If not satisfied, did you tell the supplier of the seed that you were not
+ satisfied? (q36b)
+\end_layout
+
+\begin_layout Itemize
+Would you use this seed that was used on the randomly selected plot again
+ in the future? (q37)
+\end_layout
+
+\begin_layout Itemize
+number/share of farmers switching to an input dealer with a higher ranking,
+ as measured by a question on the farmer baseline/end line questionnaire
+ which ask the farmer for the input dealer of his/her latest seed purchase
+ (q65), combined with data on ratings of the two dealers in case the farmers
+ has changed input dealers (q69a-q69f)
+\end_layout
+
+\begin_layout Itemize
+practices adopted by farmers on the randomly selected plot:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+How much seed did you use in the last season? (kg) (q38)
+\end_layout
+
+\begin_layout Itemize
+How much was the cost of 1 kg of this seed? (UGX) (q39)
+\end_layout
+
+\begin_layout Itemize
+What seed/plant spacing was used in the last season? (q40)
+\end_layout
+
+\begin_layout Itemize
+Number of seeds per hill used in the last season? (q41)
+\end_layout
+
+\begin_layout Itemize
+Did you apply organic manure to the soil before planting in the last season?
+ (q42)
+\end_layout
+
+\begin_layout Itemize
+Did you apply DAP (black in color) or NPK (brown in color) in the last season?
+ How much DAP in the last season? (kg) (q43, q43a)
+\end_layout
+
+\begin_layout Itemize
+Did you apply Urea (white in color) in the last season? How much Urea in
+ the last season? (kg) (q44, q44a)
+\end_layout
+
+\begin_layout Itemize
+How many times did you weed in the last season? (q45)
+\end_layout
+
+\begin_layout Itemize
+How many days after planting did you do first weeding in the last season
+ (q46)
+\end_layout
+
+\begin_layout Itemize
+Did you use any pesticides, herbicides or fungicides? (q47)
+\end_layout
+
+\begin_layout Itemize
+When did you plant the seed in the last season? (q48)
+\end_layout
+
+\begin_layout Itemize
+Did you re-sow where seeds did not germinate in the last seasonrevision
+ control? (q49)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+maize yield/revenue/profit
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+How many bags of maize did you harvest from this randomly selected plot
+ in the last season (including maize that was consumed)? (q50)
+\end_layout
+
+\begin_layout Itemize
+How many kgs is in one bag? (q51)
+\end_layout
+
+\begin_layout Itemize
+What was the market value of one such bag during the time of the harvest
+ in the last season? (q52)
+\end_layout
+
+\begin_layout Itemize
+Did you sell any maize that you harvested on this randomly selected plot
+ in the last season? (q53)
+\end_layout
+
+\begin_layout Itemize
+How many bags of maize did you sell from this randomly selected plot in
+ the last season? (q54)
+\end_layout
+
+\begin_layout Itemize
+How much did you charge for one bag? (q55)
+\end_layout
+
+\begin_layout Itemize
+How much did you keep for seed (record in kg)? (q56)
+\end_layout
+
+\begin_layout Itemize
+How many bags of maize do you expect to harvest from this randomly selected
+ plot (including maize that will be consumed) in the next season? (q57)
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Subsection
+Transparency and replicability
+\end_layout
+
+\begin_layout Standard
+Throughout this project, we will go the extra mile in tying our hands to
+ avoid issues related to specification search, variable selection, etc.
+ Here we outline the various strategies.
+\end_layout
+
+\begin_layout Itemize
+pre-analysis plan
+\end_layout
+
+\begin_layout Itemize
+revision control
+\end_layout
+
+\begin_layout Itemize
+mock report: After baseline data is collected and the randomization on the
+ computer has happened, a pre-registered report will be produced and added
+ to the AEA RCT registry and GitHub.
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/seed_systems_pap"
+options "C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/IFPRI_Style"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appendix
+\end_layout
+
+\begin_layout Subsection
+Details about power analysis simulations
+\begin_inset CommandInset label
+LatexCommand label
+name "sec: Details about power analysis simulations"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will investigate both outcomes at the input dealer level and at the farmer
+ level.
+ We analyze power at the input dealer level first and consider two outcome
+ variables: (i) the quantity of seed sold by the input dealer in the last
+ season, and (ii) the reputation of the input dealer.
+ The quantity of seed that the input dealer sold is a continuous variable
+ (kilogram) with mean 325 and standard deviation 454.
+ For the reputation outcome variable, farmers rate the input dealers in
+ their catchment areas on a scale from 1 to 5.
+ A dealer's reputation is then calculated as the average of those ratings
+ and treated as a continuous variable.
+ The mean reputation of an input dealer in the sample is 3.68 and the standard
+ deviation is 0.61.
+\end_layout
+
+\begin_layout Standard
+We also need to assume a treatment effect size for the interventions that
+ will be implemented at the catchment area level.
+ As we did not immediately find credible studies that evaluated the impact
+ of catchment area level interventions on quantity sold nor reputation,
+ we decided to define expected treatment effect size in terms of cohen's
+ d, settling for a size that is between small and medium, of 0.35 times the
+ standard deviation.
+ For quantity sold, this means 159 kilogram, while for reputation the minimal
+ detectable effect size becomes 0.21.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-q_sold"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ looks at power levels for different sample sizes (in terms of number of
+ catchment areas included in the study) to detect an increase of 159 kilogram
+ of improved seed sold by the input dealer at the 5 percent significance
+ level.
+ If the number of catchment areas is larger than 93, we hit the 80 percent
+ power threshold.
+ These 93 catchment areas correspond to about 263 input dealers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/power_quantitysold.png
+	lyxscale 10
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for quantity sold
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-q_sold"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-reputation-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show how power increases when more catchment areas are included in
+ the study if we want to detect a 0.21 increase in the reputation of the
+ input dealers.
+ If the number of catchment areas is larger than 112, our experiments will
+ return statistically significant results 80 percent of the time.
+ This corresponds to about 318 input dealers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/power_reputation_av_farmers.png
+	lyxscale 10
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for reputation
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-reputation-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We consider three variables at the level of the farmer: yield, input use
+ and seed quality (based on the rating that farmers give to the seed).
+ Maize yield per acre is a continuous variable with a mean of 541 kilogram
+ per acre and a standard deviation of 412 kilogram per acre.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1002/ajae.12089"
+literal "false"
+
+\end_inset
+
+ find a treatment effect of 10.5 percent when they investigated the effectiveness
+ of videos as means of delivering information on input use and improved
+ maize management practices to farmers.
+ Using a similar effect size, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-yield-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that we need at least 15 farmers per input dealer, which would result
+ in a total sample size of 4,770 farmers.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/power_yield_kg_per_acre.png
+	lyxscale 10
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for yield
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-yield-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another outcome variable of interest is input use, ie.
+ the adoption of improved maize seed, a binary variable.
+ In our data, 63 percent of farmers adopt improved seed and the standard
+ deviation is 0.48.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1002/ajae.12089"
+literal "false"
+
+\end_inset
+
+ find an effect of 0.065 percentage points of videos to deliver information
+ on fertilizer use.
+ If we assume a similar effect size, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-adoption-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ suggests we need at least 4 farmers per input dealer.
+ This would result in a sample of 1,272 farmers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/power_inputuse_binary.png
+	lyxscale 10
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for input use
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-adoption-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last outcome we consider in our power analysis is the quality of seed
+ assessed by farmers.
+ The initial quality rating from 1 to 5 is transformed into a binary variable
+ with a mean of 0.26 and a standard deviation of 0.44.
+ We assume a small effect in terms of Cohen’s d (0.2 times the standard deviation
+ or 0.088 percentage points).
+ Given this assumption, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Power-quality-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows we need at least 5 farmers per input dealer, corresponding to a total
+ sample size of almost 1,600 farmers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/power_seedquality_binary.png
+	lyxscale 10
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power analysis simulations for seed quality
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Power-quality-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We conclude that we need at least 15 farmers per input dealer to detect
+ effect sizes similar to the ones 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1002/ajae.12089"
+literal "false"
+
+\end_inset
+
+ found.
+ Ideally, the total number of farmers that need to be included in the study
+ is thus 4,770.
+ However, finding impact on yields is hard, as this is an outcome that is
+ pretty far down the causal impact chain.
+ Yields also show high variability.
+ Finally, our project is mainly concerned with increasing seed quality as
+ an intermediary to increase yield.
+ As such, more direct outcomes such as input use and quality are of primary
+ interest.
+ Further considering financial constraints and logistics, we decided to
+ collect information on 10 farmers per input dealer, leading to a sample
+ size of 3,200 households.
+ Our expected sample sizes are therefore 318 input dealers and 3,200 households.
+ We will collect more data to account for attrition.
+\end_layout
+
+\begin_layout Subsection
+Details about factorial design
+\begin_inset CommandInset label
+LatexCommand label
+name "sec: Details about factorial design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our factorial design deviates from commonly used factorial designs in that
+ the experimental unit differs depending on the factor.
+ For the first two factors, corresponding to the information clearinghouse
+ and the input-dealer training, randomization happens at the level of the
+ catchment area.
+ For the third factor that addresses learning failures of farmers, randomization
+ happens at the level of the village.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The main motivation to randomize at the village level is to eliminate potential
+ spillover effects for the third treatment.
+ However, as we will discuss later, we make sure there is correspondence
+ between villages and input dealers, which would allow us to also look at
+ the impact of the farmer training treatment on outcomes at the input dealer
+ level.
+ However, at that level, spillovers may affect results.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resulting layout, with sample sizes indicated in each treatment cell
+ is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The first two interventions are implemented at the catchment area level.
+ A total of 130 catchment areas are included in the study.
+ Half of these are randomly allocated to the first treatment: all input
+ dealers in 66 catchment areas receive the input dealer training, while
+ input dealers in the remaining 64 catchment areas function as the control
+ for this treatment.
+ This corresponds to 166 and 182 input dealers in these treatment arms.
+ Orthogonal to the first factor, the second factor is placed, corresponding
+ to the second treatment that is also implemented at the catchment area
+ level.
+ Also here, in half of the 130 catchment areas an information clearinghouse
+ was implemented, and half of the catchment areas function as a control
+ for this treatment.
+ However, this is done in such a way that balance with respect to the first
+ treatment exists in both treatment and control groups for the second treatment.
+ This means that the treatment group of the second treatment consists of
+ 33 catchment areas that received the first treatment and 32 catchment areas
+ that function as the control for the first treatment.
+ Similarly, for the control catchment areas for the second treatment, 33
+ are catchment areas where input dealers received the input dealer training
+ and 32 catchment areas where input dealers did not get trained.
+\end_layout
+
+\begin_layout Standard
+While the third treatment is implemented at the level of the village, it
+ is also important to preserve balance in the orthogonal factors.
+ In other words, we need to make sure that an equal number of villages that
+ are assigned to receive a treatment against learning failures are drawn
+ from catchment areas where input dealers received training as from catchment
+ areas where the input dealer training did not take place.
+ Similarly, orthogonality should also be maintained for the second treatment.
+ Therefore, in each of the four treatment cells formed by interacting the
+ first two treatments, 175 villages were randomly assigned to the third
+ treatment while another 173 villages were assigned to the control.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename actual_design.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Design
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Design"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
