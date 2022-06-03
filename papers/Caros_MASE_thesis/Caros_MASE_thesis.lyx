@@ -1886,6 +1886,8 @@ Due to the random assignment to treatment and control groups, simply comparing
  outcome variable means of treatment and control farmers and agro-input
  dealers provides unbiased estimates of the effect of the clearinghouse
  intervention on the outcomes of interest.
+ Note that impact will be judged by looking at outcomes both at the agor-input
+ dealer level as well as at the farmer level.
  To increase power, we condition the estimates on baseline values of the
  outcome variables.
  For this intervention where randomization happened at the catchment area
@@ -1951,14 +1953,13 @@ literal "false"
 
  is an input dealer/farmer-specific error term
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-Note that we can not control for the farmer level (third) treatment in this
- specification.
- But I guess that will not bias the estimate of beta but only reduce precision
- a bit.
- what about interaction terms? trainingxvideo, CHxvideo
+Note that we do control for the farmer video (third) treatment and the interacti
+on terms (trainingxvideo, CHxvideo) but that this isn't correctly noted
+ by X subscript j because this treatment happens at dealer/shop/village
+ level, not at catchment area level.
 \end_layout
 
 \end_inset
@@ -1978,10 +1979,30 @@ Multiple hypothesis testing
 \end_layout
 
 \begin_layout Standard
-Because we will test for treatment effects on a range of outcome measures,
- we will deal with multiple outcomes and multiple hypotheses testing by
- means of two approaches.
- Firstly, we follow a method proposed by 
+As we investigate the impact channels of the clearinghouse by considering
+ several possible outcomes, it is essential to account for multiple hypothesis
+ testing.
+ We look at treatment effects on a range of outcome measures and deal with
+ multiple hypotheses testing by means of two approaches.
+ One approach, followed for example by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/2531158"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2004experimental"
+literal "false"
+
+\end_inset
+
+, is to aggregate a family of outcomes into groupings to examine whether
+ there is an overall impact of the treatment on this family.
+ We use a method by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -1989,42 +2010,73 @@ literal "false"
 
 \end_inset
 
- and aggregate different outcome measures within each domain into single
- summary indices.
+ and aggregate different outcomes within each domain into single summary
+ indices.
  Each index is computed as a weighted mean of the standardized values of
  the outcome variables.
  The weights of this efficient generalized least squares estimator are calculate
 d to maximize the amount of information captured in the index by giving
  less weight to outcomes that are highly correlated with each other.
- Combining outcomes in indices is a common strategy to guard against over-reject
-ion of the null hypothesis due to multiple inference.
+ Combining outcomes in indices is a common strategy against over-rejection
+ of the null hypothesis due to multiple inference.
+ This approach is useful to see whether a particular treatment has generally
+ a positive impact.
+ It is for example interesting to group primary outcome variables at the
+ agro-input dealer level to see if the clearinghouse treatment has a positive
+ impact on dealers.
+ However, interpreting these effects can be difficult.
+ Furthermore, we remain interested in individual outcomes because they inform
+ us about the individual channels of impact.
+ For example, it is interesting to see whether the seed handling practices,
+ efforts and services of dealers improved at midlinedue to the clearinghouse,
+ even though the overall index of dealer primary outcomes might not have
+ significantly changed, yet.
 \end_layout
 
 \begin_layout Standard
-However, it may also be interesting to see the effect of the intervention
- on individual outcomes.
- An alternative strategy to deal with the multiple comparisons problem is
- to adjust the significance levels to control the Family Wise Error Rates
- (FWER).
- We used re-randomization to construct the joint null distribution for the
- family of outcomes we are testing.
- From this family-wise sharp null, we obtained the corresponding FWER-consistent
- significance thresholds by determining which cutoffs yield 10 percent,
- five percent and one percent significant hypothesis tests across all tests
- and simulations 
+As we are interested in the effect of the clearinghouse on individual outcomes,
+ an alternative strategy to deal with multiple comparisons is to adjust
+ the significance levels according to family-wise error rates.
+ Here individual coefficients are considered to be part of a family of n
+ hypotheses.
+ The family-wise error rate is the probability of at least one type I error
+ in this family.
+ We can maintain the family-wise error rate at some level α like 0.05 or
+ 0.10 by adjusting the p-values used to test each individual null hypothesis
+ in the family.
+ The simplest of these methods is the Bonferroni adjustment, where α/n are
+ used as critical values.
+ The downside of this method is that it assumes that outcomes are independent,
+ and it often too conservative when outcomes are correlated.
+ That is why we adjust while accounting for correlation, an approach used
+ by 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "ottoboni2021permutation,caughey2017nonparametric"
-literal "true"
+LatexCommand citet
+key "sankoh1997some"
+literal "false"
+
+\end_inset
+
+ and later by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "aker2012zap"
+literal "false"
 
 \end_inset
 
 .
- Impact will be judged by looking at outcomes both at the input dealer level
- (eg.
- investments in seed storage infrastructure, quantity of seed sold,...) as
- well as at the farmer level (eg.
- likelihood that farmer adopted improved seed, maize yields,...).
+ In this procedure the adjusted p-value depends on the number of outcomes
+ being tested, the unadjusted p-value for an outcome, and the mean correlation
+ among the other outcomes.
+ If outcomes are independent, then the procedure is equal to the Bonferroni
+ adjustment.
+ If the outcomes are perfectly correlated, the adjusted p-value is equivalent
+ to the unadjusted p-value.
+\end_layout
+
+\begin_layout Standard
+here
 \end_layout
 
 \begin_layout Subsection
@@ -3275,6 +3327,15 @@ revision control
 mock report: After baseline data is collected and the randomization on the
  computer has happened, a pre-registered report will be produced and added
  to the AEA RCT registry and GitHub.
+\end_layout
+
+\begin_layout Subsection
+Heterogeeity analysis
+\end_layout
+
+\begin_layout Standard
+increasingly investigate the channels of impact through subgroup heterogeneity
+ analysis
 \end_layout
 
 \begin_layout Section
