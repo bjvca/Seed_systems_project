@@ -5,6 +5,7 @@ rm(list=ls())
 
 path <- getwd()
 path <- strsplit(path, "/registered_report")[[1]]
+path <- strsplit(path, "/analysis")[[1]]
 baseline_farmers <- read.csv(paste(path,"data/farmer/public/baseline_farmers.csv", sep="/"), stringsAsFactors = TRUE)
 
 #no treatment indicator for dealer training in baseline_farmers
