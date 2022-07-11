@@ -1062,7 +1062,8 @@ To evaluate the impact of the clearinghouse, we conduct a randomized controlled
  trial (RCT).
  We randomize at area level because randomizing at the level of the individual
  agro-input shop prompted ethical concerns.
- Often, dealers are clustered in towns, markets or trading centers.
+ Often, dealers are clustered in towns, villages, markets, trading centers
+ and other key market sheds.
  Two or more dealers may operate in the same neighborhood, or in the same
  street or even right next to each other.
  If we would randomize at shop level, one dealer may get assigned to the
@@ -2615,10 +2616,11 @@ Sample
 \end_layout
 
 \begin_layout Standard
-Our sample includes agro-input dealers located in trading centers and villages
- as well as maize farmers that are living in the catchment areas of these
- key market sheds.
- The power simulations described in section 
+Our sample consists of agro-input dealers and smallholder maize farmers
+ who live in the catchment areas of these dealers.
+ The shops are often located in towns, villages, markets, trading centers
+ and other key market sheds.
+ The power simulations described in subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Power-Analysis-Simulations"
@@ -2630,19 +2632,22 @@ noprefix "false"
 
  resulted in 318 dealers and 3180 households distributed over 112 catchment
  areas.
- The dealer sample is obtained by listing all agro-input shops in 11 districts
+ The dealer sample was obtained by listing all agro-input shops in 11 districts
  in southeastern Uganda, which roughly corresponds to the Busoga kingdom,
  during a census.
  This resulted in 348 dealers, a sufficient sample to detect treatment effects
  according to our power simulations.
+ Our enumerators always tried to talk to the person who is most knowledgeable
+ about the day to day operations of the business, inventories, sales, and
+ so on.
 \end_layout
 
 \begin_layout Standard
-After the census, dealers were assigned to catchment areas.
- The definition of a catchment area can be found in subsubsection 
+After the census, agro-input dealers were assigned to catchment areas.
+ The definition of a catchment area can be found in subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Definition of a catchment area"
+reference "subsection: Level of randomization"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2650,29 +2655,28 @@ noprefix "false"
 \end_inset
 
 .
- The 348 dealers in Busoga were assigned to 130 catchment areas.
- On average, there are 2.7 dealers in an area, with a minimum of 1 and a
- maximum of 18.
- As randomization happened at the level of the catchment area, a computer
- algorithm used this list of areas for the allocation of the treatment.
+ The 348 shops in Busoga were assigned to 130 catchment areas.
+ One to 18 dealers operate in an area, with a mean of 2.7.
+ A computer algorithm used this list of catchment areas for the allocation
+ of the treatment because randomization happened at area level.
 \end_layout
 
 \begin_layout Standard
-Then we connected agro-input shops to villages by asking every dealer from
- which village most of his/her customers come from
+To connect agro-input shops and villages, we asked every dealer where most
+ of his/her customers came from
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
-If this village was already named by another dealer, the village with the
- second most customers will be chosen.
+If a village was already named by another dealer, the village with the second
+ most customers was chosen.
 \end_layout
 
 \end_inset
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 delete footnote?
@@ -2681,45 +2685,36 @@ delete footnote?
 \end_inset
 
 .
- 
+ Then enumerators were sent to these villages and instructed to randomly
+ sample ten households that meet the inclusion criteria.
+ Consequently, 3470 smallholder maize farmers were sampled, sufficient to
+ detect treatment effects according to our power simulation.
+ The enumerators were instructed to talk to someone who is most knowledgeable
+ and makes most decisions regarding maize farming activities in the household.
 \end_layout
 
 \begin_layout Standard
-sampling_village = village with most customers according to dealer/ 2nd
- village if already dealer with that village (because dealer in treatment
- area and dealer in control area could both name same village)
-\end_layout
-
-\begin_layout Standard
-Enumerators were sent to these villages and instructed to randomly sample
- ten households that meet the inclusion criteria.
- Consequently, we sampled 3470 farmers, sufficient to detect treatment effects
- according to our power simulation.
-\end_layout
-
-\begin_layout Standard
-For some outcomes, details at plot level are needed (for instance, seed
- spacing and seed rate).
+For some outcome variables, details at the plot level are needed (e.g.
+ seed spacing or rate).
  However, farmers often have more than one plot.
- As outcomes on different plots within the same household are likely to
- be strongly correlated and the intervention is assigned at a higher level,
- it is not cost effective to ask questions about all plots.
+ As outcomes on different plots from the same farmer are likely to be strongly
+ correlated, it is not cost effective to ask questions about all plots.
  An unbiased estimate of the outcome at the household level can be obtained
  by randomly selecting one plot.
  To do so, we ask enumerators to first list all plots, with names farmers
- use to refer to these plots (eg.
- home plot, irrigated plot, plot near the sugar cane factory, ...).
+ use to refer to these plots (e.g.
+ home plot, plot near the sugar cane factory).
  The ODK program then randomly selects one plot for which detailed questions
  are asked.
 \end_layout
 
 \begin_layout Standard
-We measured the outcomes of interest before and after the treatments, so
- that we can assess the treatment effect of the intervention.
+We measure the outcomes of interest before and after the intervention, so
+ that we can assess the treatment effect.
  Baseline data was collected from dealers in September and October 2020
  and from farmers in April 2021.
- Midline data was collected in January in February 2022, and end line data
- will be collected in July and August 2022.
+ Midline data was collected in January and in February 2022, and end line
+ data was collected in July and August 2022.
  See also the timeline in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2731,16 +2726,57 @@ noprefix "false"
 \end_inset
 
 .
- The baseline, midline and endline surveys will constitute the key sources
- of data for the study.
-\end_layout
-
-\begin_layout Enumerate
-(most knowledgeable person)
+ The baseline, midline and endline surveys will constitute the key data
+ sources for this study.
 \end_layout
 
 \begin_layout Subsection
 Descriptive statistics
+\end_layout
+
+\begin_layout Standard
+This subsection provides descriptive statistics for the baseline data.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_dealer3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report summary statistics at the agro-input dealer level, tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptives_farmer4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at the farmer level.
 \end_layout
 
 \begin_layout Standard
@@ -2796,150 +2832,6 @@ midline_report_Caro.R
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Baseline data was collected among a sample of about 350 agro-input dealers
- towards the end of 2020 and among a sample of about 3,500 smallholder farmers
- in the beginning of 2021.
- This mock report relies extensively on this baseline data.
- A first part of the report provides descriptive statistics for the baseline
- data.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_dealer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_dealer3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- report baseline summary statistics at the agro-input dealer level.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_farmer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_farmer4"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- does this for the farmers.
- 
-\end_layout
-
-\begin_layout Standard
-The first part of this report provides descriptive statistics for the baseline
- data.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_dealer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_dealer3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- report baseline summary statistics at the agro-input dealer level.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_farmer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_farmer4"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- does this for the farmers.
-\backslash
-
-\end_layout
-
-\begin_layout Standard
-• information asymmetry? farmers’ seed quality ratings vs.
- dealers’ seed quality ratings
-\end_layout
-
-\begin_layout Standard
-• yieldIMS - yieldMS > costIMS - costMS (assuming all other costs same)
- 
-\end_layout
-
-\begin_layout Standard
-• Do farmers who bought seed rate significantly different than farmers who
- didn’t buy seed?
-\end_layout
-
-\begin_layout Standard
-• check yellow questions in variables farmer (C:
-\backslash
-Users
-\backslash
-u0127963
-\backslash
-Desktop
-\backslash
-PhD
-\backslash
-Seed_systems_project_without_Bjorn
-\backslash
-report)
-\end_layout
-
-\begin_layout Standard
-o only for clearinghouse treatment group: Did you receive a SeedAdvisor
- certificate? if q9a=yes: Do you know your shop's rating on this SeedAdvisor
- certificate? if q9b=yes: What is your shop's rating on this SeedAdvisor
- certificate? 
-\end_layout
-
-\begin_layout Standard
-“other calculations” in R: The only reliable way of detecting varietal purity
- of a sample is by DNA fingerprinting.
 \end_layout
 
 \begin_layout Standard
@@ -9354,6 +9246,49 @@ end{center}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+• information asymmetry? farmers’ seed quality ratings vs.
+ dealers’ seed quality ratings
+\end_layout
+
+\begin_layout Standard
+• yieldIMS - yieldMS > costIMS - costMS (assuming all other costs same)
+ 
+\end_layout
+
+\begin_layout Standard
+• Do farmers who bought seed rate significantly different than farmers who
+ didn’t buy seed?
+\end_layout
+
+\begin_layout Standard
+• check yellow questions in variables farmer (C:
+\backslash
+Users
+\backslash
+u0127963
+\backslash
+Desktop
+\backslash
+PhD
+\backslash
+Seed_systems_project_without_Bjorn
+\backslash
+report)
+\end_layout
+
+\begin_layout Standard
+o only for clearinghouse treatment group: Did you receive a SeedAdvisor
+ certificate? if q9a=yes: Do you know your shop's rating on this SeedAdvisor
+ certificate? if q9b=yes: What is your shop's rating on this SeedAdvisor
+ certificate? 
+\end_layout
+
+\begin_layout Standard
+“other calculations” in R: The only reliable way of detecting varietal purity
+ of a sample is by DNA fingerprinting.
 \end_layout
 
 \begin_layout Subsection
