@@ -10783,7 +10783,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11452,8 +11452,8 @@ Heterogeneity analyses
 \end_layout
 
 \begin_layout Standard
-In this subsection, we investigate the channels of impact through several
- subgroup heterogeneity analyses.
+In this subsection, we explore the channels of impact through heterogeneity
+ analysis.
 \end_layout
 
 \begin_layout Subsubsection
@@ -11462,11 +11462,10 @@ Specialized agro-input shops
 
 \begin_layout Standard
 When we asked agro-input dealers during baseline data collection whether
- their shop only sells farm inputs, 74 percent of them answered with yes,
- while 26 percent report to also sell other products.
- Rerunning the analysis while including only specialized shops indicates
- that the clearinghouse has a larger impact on those shops.
- Table 
+ their shop only sells farm inputs, 74 percent answered with yes, while
+ 26 percent reported to also sell other products.
+ The results of rerunning the analysis for specialized shops only can be
+ found in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_dealer_prim_het1"
@@ -11476,21 +11475,31 @@ noprefix "false"
 
 \end_inset
 
- shows that specialized shops in the treatment group have significantly
- more revenue from selling maize seed than specialized shops in the control
- group, whereas we previously did not find any treatment effect on primary
- outcomes at dealer level.
- A reason for this could be that the effect of the clearinghouse on the
- efforts and services is larger within the group of specialized dealers
- (if compared to all dealers).
- For these special shops, the treatment also has an significnat impact on
- shelflife (measued as the number of days since the packaging date or if
- this date is not visible on the bag, the expiry date minues 6 months).
- Treated dealers stock 79 days younger seed, while the mean is 150 days,
- an important indication of quality.
+.
+ Treated specialized shops earn significantly more revenue from selling
+ maize seed than specialized shops in the control group, whereas we previously
+ did not find any treatment effect on primary outcomes at dealer level.
+ Revenue could have increased because the clearinghouse's effect on efforts
+ and services is larger for the subset of specialized dealers (if compared
+ to all dealers).
+ For these special shops, the treatment also reduced the shelflife of stored
+ seed (measured as the number of days between the packaging date and the
+ enumerator's seed purchase or, if this date is not visible on the bag,
+ the expiry date minus six months) significantly.
+ A maize seed bag's shelflife is an important indication of its quality.
+ Treated specialized dealers stock seed which is on average 79 days younger
+ than seed stocked by control dealers, while the mean is 150 days.
  Treated specialized dealers also sell significantly more Longe 10H.
  All this could explain why specialized shops in treated catchment areas
- enjoy a higher revenue than specialized shops in control areas.
+ enjoy a higher revenue than specialized shops in control areas and indicates
+ that the clearinghouse has a stronger impact on specialized agro-input
+ shops.
+ An explanation could be that dealers who only sell inputs and equipment
+ used in agricultural production take the maize seed ratings more serious
+ because they deal with their only business, while shops which also sell
+ other products are less endangered if some maize seed customers are not
+ satisfied with the product quality.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -11498,10 +11507,6 @@ noprefix "false"
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11566,51 +11571,254 @@ dag$ indicates that the variable is included in the overall index.
 
 \end_inset
 
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Hi Bjorn, I know that you won't be happy with this lazy screenshot way but
+ I spent quite some time looking for an efficient but didn't succeed.
+ Perhaps you know a smart LyX/R way and could give me a hint.
+ Otherwise I will code this in a lengthy Caro way for the final thesis.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Subsubsection
-Larger catchment areas
+More competitive catchment areas
 \end_layout
 
-\begin_layout Itemize
-what if the smallest (no competition) catchment areas are excluded, who
- drives the results? also, does this change over time? diff in diff 
+\begin_layout Standard
+The full sample contains 46 catchment areas with only one dealer.
+ Excluding these smallest clusters leaves us with 302 shops and 3020 farmers
+ in 84 areas.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_farmer_het2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports that within this subset of more competitive areas, the clearinghouse
+ has a slightly larger effect on farmers switching to different agro-input
+ shops.
+ According to farmers, the difference in efforts and services between treatment
+ and control group is larger in these areas and significant at the 1 percent
+ level.
+ For areas with more than one dealer, the difference in likelihood of packaging
+ dates being visible on maize seed bags is also larger than for the full
+ sample.
+ Together, this could indicate that the clearinghouse works better in areas
+ with several shops and that our results for the full sample are driven
+ by these dealers.
+ This stands to reason because in areas with only one shop, it is less easy
+ for farmers to switch and dealers could be less inclined to increase their
+ efforts if there is no threat of competition nearby.
+ At the farmer level, the coefficient for the quality ratings for seed used
+ on the randomly selected maize field is smaller and insignificant here.
+ 
 \end_layout
 
-\begin_layout Itemize
-also exclude smallest clusters
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on primary outcomes at farmer level: More competitive
+ catchment areas only
+\begin_inset CommandInset label
+LatexCommand label
+name "results_farmer_het2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename heterogeneity_2_farmers.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd column reports differences between treatment and control groups and
+ standard errors below in brackets; they are clustered at the level of randomiza
+tion; 3rd column reports number of observations; **, * and + denote significance
+ at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the overall index.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Smaller catchment areas
+Less competitive catchment areas
 \end_layout
 
-\begin_layout Itemize
-what if the largest catchment areas are excluded, who drives the results?
- also, does this change over time? diff in diff 
-\end_layout
+\begin_layout Standard
+Similarly, we investigate what happens if we exclude areas with more than
+ ten dealers.
+ Note that excluding these largest clusters could improve statistical power,
+ even though it implies throwing away sample 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Differentsizedbasketsoffruit"
+literal "false"
 
-\begin_layout Itemize
-blog: Different-sized baskets of fruit … exclude largest clusters to improve
- power
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-#OC9.
- read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluati
-ons/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-pow
-er
+.
+ We drop three catchment areas which leads to a subset of 303 dealers and
+ 3020 farmers in 127 areas, and repeat the analysis.
+ The coefficient for farmers switching to different agro-input shops remains
+ very similar, meaning that the results for the entire sample are not driven
+ by these larger areas.
+ The impact of the clearinghouse on dealers' efforts and services and the
+ likelihood that a seed bag shows the packaging date are weaker, indicating
+ that the dealers in the largest areas increased their efforts in response
+ to the treatment more than other dealers.
+ On the other hand, the quality ratings of seed used on the randomly selected
+ maize field are stronger in this subgroup without the most competitive
+ areas.
 \end_layout
 
 \begin_layout Subsubsection
 Shops that were rated
 \end_layout
 
-\begin_layout Itemize
-16 of 193 treated dealers were not rated by a singleof seed farmer in the
- first round.
- –> exclude
+\begin_layout Standard
+In the first round, 16 of 193 dealers in the clearinghouse treatment group
+ were not rated by a single of farmer, so we exclude them and rerun the
+ analysis.
+ For this subsample, the difference between treated and control dealers
+ in terms on efforts and services is larger and significant at the 1 percent
+ level.
+ We also find a significant impact on the overall index summarizing variables
+ related to the bag of maize seed.
+ This result is driven by the shelflife variable, an important indication
+ of seed quality.
+ In conclusion, the impact of the clearinghouse seems stronger for shops
+ that were actually rated.
+ This implies that the treatment effect is smaller for dealers who were
+ supposed to be but not actually treated, which is what one would expect.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on secondary outcomes at dealer level: Seed bag:
+ Shops that were rated only 
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_sec_het4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename heterogeneity_4_dealers.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd column reports differences between treatment and control groups and
+ standard errors below in brackets; they are clustered at the level of randomiza
+tion; 3rd column reports number of observations; **, * and + denote significance
+ at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the overall index.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -11625,73 +11833,79 @@ name "section: Discussion"
 \end_layout
 
 \begin_layout Standard
-while not rebust to muktiple hypothesis testing, it's interesting that variables
- change from theory of change./
+When farmers were asked why they bought maize seed at a particular agro-input
+ shop during the midline interview, a couple of clearinghouse treated farmers
+ named the shop's high SeedAdvisor rating as the most important reason.
+ Also the results show that several outcome variables change in response
+ to the clearinghouse treatment, and behave the way the theory of change
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "figure: Theory of change"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ predicted.
+ These changes, even though often unrobust to multiple hypothesis testing,
+ can be interpreted as first indications of an impact.
+ Note that at this point in time, ratings have been disseminated only once,
+ and that changing farmer and dealer behavior is likely to take some time.
+ If the clearinghouse triggers farmers to choose better dealers and dealers
+ to increase their efforts, so that farmers purchase better seed, then it
+ still takes another agricultural season for farmers to have better experiences,
+ perceive seed to be better and ultimately increase improved maize seed
+ adoption.
+ That is why endline data will show whether the clearinghouse has a substantial
+ impact or not.
 \end_layout
 
 \begin_layout Standard
-o what if dealers start to fake ratings? we test whether what theory predicts
- really happens (does quality improve because we make unobservable quality
- observable?) we don’t evaluate a policy intervention if we scale this up,
- if this becomes a policy, this concern needs to be addressed (but also
- other concerns e.g.
- do more ratings lead to higher ratings or do more recent ratings count
- more etc.) 
-\end_layout
-
-\begin_layout Paragraph
-Do the ratings measure seed quality?
-\end_layout
-
-\begin_layout Standard
-The only reliable way of detecting varietal purity of a sample is by DNA
- fingerprinting.
- To test whether the ratings measure seed quality or something else, we
- checked whether they are correlated with other more objective measures
- of seed quailty.
+Because the objective of the clearinghouse is to make improved maize seed
+ quality observble, its functioning could be endangered if the ratings farmers
+ give do not actually measure seed quality but for example the personal
+ relationship between farmers and dealer.
+ That is why we tested whether the ratings are actually correlated with
+ seed quality.
+ Even though objectively measuring seed quality is challenging and DNA fingerpri
+nting is the only reliable way to detect varietal purity, we were able to
+ check whether ratings are correlated with other objective indications of
+ seed quailty.
  Note that this was only done for treated shops because control shops had
  not been rated at baseline, yet.
  We find that specialized agro-input shops that only sell farm inputs have
  higher ratings.
- We also constructed an Index of capital-intensive seed handling and storage
- practices observed by enumerator and find that this index is positively
- correlated with the rating.
- Dealers who did not receive any complaint from a customer since last season
- that seed they sold was not good have higher ratings than dealers who did.
- 
-\end_layout
-
-\begin_layout Standard
-Farmers did not only rate the seed of agro-input shops but also the seed
- they used on a randomly selected maize field last season, using the same
+ The index of capital-intensive seed handling and storage practices is also
+ positively correlated with the rating.
+ Dealers who did not receive any complaint about seed they sold from a customer
+ since last season that have higher ratings than dealers who did.
+ Furthermore, farmers did not only rate the seed of agro-input shops but
+ also the seed they used on a randomly selected maize field, using the same
  questions.
- We created an index of these ratings found a positive correlation between
- these seed ratings and the farmer's yield in kilogram per acre.
+ We find that an index of these seed ratings is positively correlated with
+ the farmer's yield.
+ All this shows that the clearinghouse ratings do measure maize seed quality
+ to some extend.
 \end_layout
 
 \begin_layout Standard
-"Is CH rating a valid measure (because it could measure e.g.
- personal relationship)?
-\end_layout
-
-\begin_layout Standard
-correlation between CH rating and objective measures of seed quality (but
- objectively measuring seed quality is difficult)
-\end_layout
-
-\begin_layout Standard
-correlation with end result yield"
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-When we asked farmers at midline for the most important reason why they
- bought maize seed at an particular agro-input shop last season, 14 of 677
- clearinghouse treated farmers (2%) who answered this question named the
- shop's high SeedAdvisor rating.
+Another danger to the functioning of the clearinghouse could be agro-input
+ dealers who start to influence ratings in a dishonest manner, for example
+ by bribing farmers.
+ Note that during this trial, raters and ratees were connected by asking
+ dealers where their customers come from, and collecting ratings from ten
+ random farmers from that village.
+ Dealer would need to understand our experimental design in order to know
+ which farmer they need to influence.
+ That is why it is almost impossible that dealers cheat during this trial.
+ However, is the clearinghouse intervention would be scaled up, these kind
+ of challenges would need to be addressed.
+ However, the objective of this paper is to test whether a prediction of
+ the occurs in practice, whether making seed quality observable improves
+ this quality and ultimately adoption, and not to provide a policy intervention,
+ sophisticated enough to be applied without further considerations.
 \end_layout
 
 \begin_layout Section
@@ -11705,9 +11919,36 @@ name "section: Conclusion"
 
 \end_layout
 
+\begin_layout Section
+Acknowledgements
+\end_layout
+
 \begin_layout Standard
-acknowledgement: o thank Grzegorz Orczykowski and Helene Martin in all acknowled
-gement sections of the papers
+We would like to thank Charles Marc Wanume, Walukano Wilberforce, Leocardia
+ Nabwire and Richard Ariong for their support in the field.
+ We would like to thank Grzegorz Orczykowski and Helene Martin for ? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+https://forum.getodk.org/t/cycle-through-records-from-pulled-data/32997 -
+ what exactly should I write here?
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Funding?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11789,7 +12030,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -12142,7 +12383,7 @@ Our factorial design deviates from commonly used factorial designs in that
  For the third factor that addresses learning failures of farmers, randomization
  happens at the level of the village.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The main motivation to randomize at the village level is to eliminate potential
@@ -12211,22 +12452,17 @@ While the third treatment is implemented at the level of the village, it
 \begin_layout Standard
 \begin_inset Float figure
 wide false
-sideways true
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename actual_design.pdf
-	lyxscale 50
 	scale 50
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -12242,6 +12478,10 @@ name "fig:Design"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
