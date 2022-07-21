@@ -845,13 +845,13 @@ for (i in 1:length(balance_dealer)){
   ols <- lm(formula1, data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]
+  df_ols[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 
-  df_ols[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]
+  df_ols[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]
   
   #farmer video treatment at village/shop level so no clustering needed
   df_ols[1,3,i] <- summary(ols)$coefficients[4,1]
@@ -893,22 +893,22 @@ for (i in 1:length(balance_farmer)){
   vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with training (Estimate, SE, p-val (Satt))
-  df_ols_farmer[1,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,1]
-  df_ols_farmer[2,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,2]
-  df_ols_farmer[3,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,5]
+  df_ols_farmer[1,1,i] <- coef_test(ols, vcov_cluster_catchID)$beta[2]
+  df_ols_farmer[2,1,i] <- coef_test(ols, vcov_cluster_catchID)$SE[2]
+  df_ols_farmer[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]
   
   #filling df_ols with CH (Estimate, SE, p-val (Satt))
-  df_ols_farmer[1,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,1]
-  df_ols_farmer[2,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,2]
-  df_ols_farmer[3,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,5]
+  df_ols_farmer[1,2,i] <- coef_test(ols, vcov_cluster_catchID)$beta[3]
+  df_ols_farmer[2,2,i] <- coef_test(ols, vcov_cluster_catchID)$SE[3]
+  df_ols_farmer[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]
   
   #filling df_ols with video (Estimate, SE, p-val (Satt))
   #randomization at village level ie. at shop level
   vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
-  df_ols_farmer[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
-  df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
-  df_ols_farmer[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
+  df_ols_farmer[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_farmer[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_farmer[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #difference in mean primary education: I first counted g (Other) as 0, now as NA
 #difference in mean bought from dealer: correct if NA=0
@@ -975,13 +975,13 @@ for (i in 1:length(attrition_dealer)){
   ols <- lm(formula1, data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_attritionD[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_attritionD[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_attritionD[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]
+  df_ols_attritionD[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_attritionD[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_attritionD[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   
-  df_ols_attritionD[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_attritionD[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_attritionD[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]
+  df_ols_attritionD[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_attritionD[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_attritionD[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]
   
   #farmer video treatment at village/shop level so no clustering needed
   df_ols_attritionD[1,3,i] <- summary(ols)$coefficients[4,1]
@@ -1042,22 +1042,22 @@ for (i in 1:length(attrition_farmer)){
   vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with training (Estimate, SE, p-val (Satt))
-  df_ols_attritionF[1,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,1]
-  df_ols_attritionF[2,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,2]
-  df_ols_attritionF[3,1,i] <- coef_test(ols, vcov_cluster_catchID)[2,5]
+  df_ols_attritionF[1,1,i] <- coef_test(ols, vcov_cluster_catchID)$beta[2]
+  df_ols_attritionF[2,1,i] <- coef_test(ols, vcov_cluster_catchID)$SE[2]
+  df_ols_attritionF[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]
   
   #filling df_ols with CH (Estimate, SE, p-val (Satt))
-  df_ols_attritionF[1,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,1]
-  df_ols_attritionF[2,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,2]
-  df_ols_attritionF[3,2,i] <- coef_test(ols, vcov_cluster_catchID)[3,5]
+  df_ols_attritionF[1,2,i] <- coef_test(ols, vcov_cluster_catchID)$beta[3]
+  df_ols_attritionF[2,2,i] <- coef_test(ols, vcov_cluster_catchID)$SE[3]
+  df_ols_attritionF[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]
   
   #filling df_ols with video (Estimate, SE, p-val (Satt))
   #randomization at village level ie. at shop level
   vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
-  df_ols_attritionF[1,3,i] <- coef_test(ols, vcov_cluster_shop)[4,1]
-  df_ols_attritionF[2,3,i] <- coef_test(ols, vcov_cluster_shop)[4,2]
-  df_ols_attritionF[3,3,i] <- coef_test(ols, vcov_cluster_shop)[4,5]}
+  df_ols_attritionF[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_attritionF[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_attritionF[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 
 
@@ -1598,9 +1598,9 @@ for (i in 1:length(results_dealer_prim)){
   #ols <-  lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
-  df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_prim[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_prim[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_prim[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_prim[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -1658,9 +1658,9 @@ for (i in 1:length(results_dealer_prim)){
   #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
-  df_ols_D_prim[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_prim[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_prim[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_prim[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_prim[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_prim[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -2025,9 +2025,9 @@ for (i in 1:length(results_dealer_sec)){
   #ols <- lm(as.formula(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
-  df_ols_D_sec[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_sec[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_sec[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_sec[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -2086,9 +2086,9 @@ for (i in 1:length(results_dealer_sec)){
   #ols <- lm(as.formula(paste(results_dealer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
-  df_ols_D_sec[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_sec[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_sec[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_sec[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3,5]}
 
 ###
 #4#
@@ -2352,9 +2352,9 @@ for (i in 1:length(results_dealer_secL10H)){
   #ols <- lm(as.formula(paste(results_dealer_secL10H[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL10H[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_secL10H[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_secL10H[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_secL10H[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_secL10H[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_secL10H[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -2383,9 +2383,9 @@ for (i in 1:length(results_dealer_secL10H)){
   #ols <- lm(as.formula(paste(results_dealer_secL10H[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL10H[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_secL10H[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_secL10H[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_secL10H[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_secL10H[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_secL10H[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -2491,9 +2491,9 @@ for (i in 1:length(results_dealer_secL10H_B)){
   ols <- lm(as.formula(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL10H_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_secL10H_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_secL10H_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_secL10H_B[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_secL10H_B[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_secL10H_B[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -2506,9 +2506,9 @@ for (i in 1:length(results_dealer_secL10H_B)){
   ols <- lm(as.formula(paste(results_dealer_secL10H_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL10H_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_secL10H_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_secL10H_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_secL10H_B[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_secL10H_B[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_secL10H_B[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -2710,9 +2710,9 @@ for (i in 1:length(results_dealer_secL5)){
   #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL5[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_secL5[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_secL5[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_secL5[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_secL5[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_secL5[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -2741,9 +2741,9 @@ for (i in 1:length(results_dealer_secL5)){
   #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL5[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_secL5[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_secL5[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_secL5[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_secL5[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_secL5[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -2844,9 +2844,9 @@ for (i in 1:length(results_dealer_secL5_B)){
   ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL5_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_secL5_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_secL5_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_secL5_B[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_secL5_B[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_secL5_B[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -2859,9 +2859,9 @@ for (i in 1:length(results_dealer_secL5_B)){
   ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_secL5_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_secL5_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_secL5_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_secL5_B[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_secL5_B[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_secL5_B[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -3001,9 +3001,9 @@ for (i in 1:length(results_dealer_sec_off)){
   #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_off[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec_off[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec_off[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_sec_off[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_sec_off[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_sec_off[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -3032,9 +3032,9 @@ for (i in 1:length(results_dealer_sec_off)){
   #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_off[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec_off[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec_off[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_sec_off[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_sec_off[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_sec_off[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -3200,9 +3200,9 @@ for (i in 1:length(results_dealer_sec_bag)){
   #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_bag[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec_bag[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec_bag[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_sec_bag[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_sec_bag[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_sec_bag[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -3227,9 +3227,9 @@ for (i in 1:length(results_dealer_sec_bag)){
   #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_bag[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec_bag[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec_bag[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_sec_bag[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_sec_bag[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_sec_bag[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -3316,9 +3316,9 @@ for (i in 1:length(results_dealer_sec_bag_B)){
   ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_bag_B[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec_bag_B[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec_bag_B[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_sec_bag_B[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_sec_bag_B[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_sec_bag_B[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -3331,9 +3331,9 @@ for (i in 1:length(results_dealer_sec_bag_B)){
   ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_bag_B[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec_bag_B[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec_bag_B[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_sec_bag_B[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_sec_bag_B[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_sec_bag_B[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -3472,9 +3472,9 @@ for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_D_sec_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_D_sec_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_D_sec_nobase[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_D_sec_nobase[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_D_sec_nobase[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -3503,9 +3503,9 @@ for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
-  df_ols_D_sec_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_D_sec_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_D_sec_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_D_sec_nobase[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_D_sec_nobase[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_D_sec_nobase[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -3780,7 +3780,7 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.mai
                               ,"index_servicesF_base","index_practices_base","Check2.check.maize.q25h"
                               ,"Land_Races","index_overallprimF_base")
 
-df_means_F_prim <- array(NA,dim=c(3,11))
+df_means_F_prim <- array(NA,dim=c(3,8))
 
 for (i in 1:length(results_farmer_prim)){
   df_means_F_prim[1,i] <- sum(baseline_farmers[results_farmer_prim[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]])))
@@ -3830,9 +3830,9 @@ for (i in 1:length(results_farmer_prim)){
   #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
-  df_ols_F_prim[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_prim[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_prim[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_prim[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_prim[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_prim[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -3875,9 +3875,9 @@ for (i in 1:length(results_farmer_prim)){
   #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
-  df_ols_F_prim[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_prim[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_prim[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_prim[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_prim[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_prim[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -4091,9 +4091,9 @@ for (i in 1:length(results_farmer_sec)){
   #ols <- lm(as.formula(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_sec[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_sec[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_sec[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -4118,9 +4118,9 @@ for (i in 1:length(results_farmer_sec)){
   #ols <- lm(as.formula(paste(results_farmer_sec[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_sec[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_sec[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_sec[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -4280,9 +4280,9 @@ for (i in 1:length(results_farmer_sec_plot)){
   #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_plot[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec_plot[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec_plot[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_sec_plot[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_sec_plot[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_sec_plot[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -4309,9 +4309,9 @@ for (i in 1:length(results_farmer_sec_plot)){
   #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_plot[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec_plot[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec_plot[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_sec_plot[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_sec_plot[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_sec_plot[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -4508,9 +4508,9 @@ for (i in 1:length(results_farmer_sec_seed)){
   #ols <- lm(as.formula(paste(results_farmer_sec_seed[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_seed[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec_seed[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec_seed[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_sec_seed[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_sec_seed[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_sec_seed[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -4546,9 +4546,9 @@ for (i in 1:length(results_farmer_sec_seed)){
   #ols <- lm(as.formula(paste(results_farmer_sec_seed[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_seed[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec_seed[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec_seed[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_sec_seed[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_sec_seed[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_sec_seed[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -4730,9 +4730,9 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   #ols <- lm(as.formula(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_yieldetc[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_sec_yieldetc[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_sec_yieldetc[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_sec_yieldetc[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_sec_yieldetc[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_sec_yieldetc[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -4759,9 +4759,9 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   #ols <- lm(as.formula(paste(results_farmer_sec_yieldetc[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
-  df_ols_F_sec_yieldetc[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_sec_yieldetc[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_sec_yieldetc[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_sec_yieldetc[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_sec_yieldetc[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_sec_yieldetc[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
@@ -5010,9 +5010,9 @@ for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
-  df_ols_F_nobase[1,1,i] <- coef_test(ols, vcov_cluster)[2,1]
-  df_ols_F_nobase[2,1,i] <- coef_test(ols, vcov_cluster)[2,2]
-  df_ols_F_nobase[3,1,i] <- coef_test(ols, vcov_cluster)[2,5]}
+  df_ols_F_nobase[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_F_nobase[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_F_nobase[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
 ###
 #3#
@@ -5050,9 +5050,9 @@ for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
-  df_ols_F_nobase[1,2,i] <- coef_test(ols, vcov_cluster)[3,1]
-  df_ols_F_nobase[2,2,i] <- coef_test(ols, vcov_cluster)[3,2]
-  df_ols_F_nobase[3,2,i] <- coef_test(ols, vcov_cluster)[3,5]}
+  df_ols_F_nobase[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_F_nobase[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_F_nobase[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
