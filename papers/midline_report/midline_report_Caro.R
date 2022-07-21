@@ -2088,7 +2088,7 @@ for (i in 1:length(results_dealer_sec)){
 
   df_ols_D_sec[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
   df_ols_D_sec[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols_D_sec[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3,5]}
+  df_ols_D_sec[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
 ###
 #4#
