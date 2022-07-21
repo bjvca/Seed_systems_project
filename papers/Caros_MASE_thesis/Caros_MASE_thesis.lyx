@@ -1168,7 +1168,7 @@ The clearinghouse is part of a larger project which evaluates the effects
  orthogonal factor.
  As such, to estimate main effects, less observations are needed than with
  parallel designs.
- More details can be found in the Appendix 
+ More details can be found in the appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec: Details about factorial design"
@@ -7536,7 +7536,7 @@ literal "false"
 
  state in their famous toolkit for using randomization in development economics
  research that in this case, when attrition bias is negative and the treatment
- effect is positive, the ordinary unadjusted estimates provide a lower bounds
+ effect is positive, the ordinary unadjusted estimates provide a lower bound
  for the true effect.
  In other words, selection-contaminated comparisons provide a lower bound
  on the impact of the treatment on the outcome variables 
@@ -7642,8 +7642,8 @@ literal "false"
  various secondary outcomes to explore the effects in more detail and understand
  the mechanisms at work.
  As both actors are targeted by the intervention, impact will be judged
- by assessing changes in outcomes at both the agro-input dealer level as
- well as the farmer level.
+ by assessing changes in outcomes both at the agro-input dealer level as
+ well as at the farmer level.
 \end_layout
 
 \begin_layout Standard
@@ -7696,8 +7696,8 @@ noprefix "false"
 .
  To keep this paper at a reasonable length, we include only one set of tables,
  the one with ordinary p-values.
- While they are not robust to multiple hypothesis testing, they enable us
- to identify first indications of an impact.
+ While this approach is not robust to multiple hypothesis testing, it enables
+ us to identify first indications of an impact.
  Similar tables but with adjusted p-values can be found in this 
 \begin_inset CommandInset href
 LatexCommand href
@@ -7712,9 +7712,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We report overall indices which have been constructed following 
+We report one overall index, which has been constructed following 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "anderson2008multiple"
 literal "false"
 
@@ -7730,7 +7730,7 @@ noprefix "false"
 
 \end_inset
 
-.
+, per outcome family and table.
  
 \begin_inset ERT
 status open
@@ -8679,6 +8679,7 @@ Farmer
 \end_layout
 
 \begin_layout Standard
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_farmer_prim"
@@ -8689,11 +8690,7 @@ noprefix "false"
 \end_inset
 
  reports the effects of the clearinghouse intervention on a set of key outcomes
- at the 
-\shape italic
-farmer
-\shape default
- level.
+ at the farmer level.
  The index of farmers' maize seed ratings for shops in their catchment area,
  our measure of product quality perception, contains the answers to the
  questions in table 
@@ -8745,7 +8742,7 @@ noprefix "false"
 .
  Endline data will show whether this leads to farmers purchasing better
  seed which would improve their experiences and their perception of improved
- maize seed and ultimately, to increased adoption.
+ maize seed and ultimately, adoption.
 \end_layout
 
 \begin_layout Standard
@@ -9536,12 +9533,11 @@ Agro-input dealer
 \end_layout
 
 \begin_layout Standard
-As a first set of secondary outcomes at the dealer level, we construct a
- set of 
+As a first set of secondary outcomes at the dealer level, we construct 
 \shape italic
 indices
 \shape default
-, aggregating different outcomes according to 
+ which aggregate different outcomes according to 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -10111,9 +10107,9 @@ noprefix "false"
 \begin_layout Standard
 We also collected information related to 
 \shape italic
-memberships, licenses, and inspection
+memberships, licenses, and inspections
 \shape default
-s.
+.
  The clearinghouse could lead dealers to voluntarily expose themselves to
  increased scrutiny to signal farmers that they deliver quality products.
  That is why we ask whether the shop is a member of UNADA or any other professio
@@ -10182,8 +10178,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average treatment effects on secondary outcomes at dealer level: Seed bag
- 
+Average treatment effects on secondary outcomes at dealer level: Bag of
+ maize seed 
 \begin_inset CommandInset label
 LatexCommand label
 name "results_dealer_sec_bag"
@@ -10700,9 +10696,9 @@ noprefix "false"
 
  we look at the 
 \shape italic
-adoption of improved maize seed
+adoption of improved maize seed on that field
 \shape default
- on that field.
+.
  The clearinghouse did not affect any variable in this family (yet).
 \end_layout
 
@@ -10719,7 +10715,7 @@ noprefix "false"
 
 , we zoom in on the particular 
 \shape italic
-seed farmers used
+maize seed farmers used
 \shape default
  on the randomly selected field, and investigate farmers' quality perceptions.
  For the rating index, farmers were asked to rate this seed in terms of
@@ -11351,8 +11347,12 @@ dag$ indicates that the variable is included in the overall index.
 \end_layout
 
 \begin_layout Standard
-We further look at production and disposal related outcomes on the randomly
- selected field, like maize yield and revenue.
+We further look at 
+\shape italic
+production and disposal 
+\shape default
+related outcomes, like maize yield and revenue from the randomly selected
+ field.
  Note that inter-cropping was not taken into account when calculating these
  numbers because if maize is inter-cropped, it is almost always the main
  crop, so that there are equal numbers of maize crops on inter-cropped and
@@ -11418,7 +11418,7 @@ noprefix "false"
 \end_inset
 
 .
- Looking at skills and knowledge, this is computed by means of questions
+ Looking at skills and knowledge, this index is computed by means of questions
  asking about seed handling and management when using improved quality maize
  seed, including questions about weeding, fertilizer application, the best
  location to plant, and seed spacing.
@@ -11460,11 +11460,11 @@ noprefix "false"
  maize seed than specialized shops in the control group, whereas we previously
  did not find any treatment effect on primary outcomes at dealer level.
  Revenue could have increased because the clearinghouse's effect on efforts
- and services is larger for this subset of specialized dealers.
- For these special shops, the treatment also reduced the shelf-life of stored
- seed (measured as the number of days between the packaging date and the
- enumerator's seed purchase or, if this date is not visible on the bag,
- the expiry date minus six months) significantly.
+ and services is larger for this subset of dealers.
+ For these specialized shops, the treatment also reduced the shelf-life
+ of stored seed (measured as the number of days between the packaging date
+ and the enumerator's seed purchase or, if this date is not visible on the
+ bag, the expiry date minus six months) significantly.
  A maize seed bag's shelf-life is an important indication of its quality.
  Treated specialized dealers stock seed which is on average 79 days younger
  than seed stocked by control dealers, while the mean is 150 days.
@@ -11477,7 +11477,7 @@ noprefix "false"
  used in agricultural production take the maize seed ratings more serious
  because they concern their only business, while shops which also sell other
  products are less endangered if some maize seed customers are not satisfied
- with the product quality.
+ with their product quality.
  
 \end_layout
 
@@ -11585,8 +11585,8 @@ noprefix "false"
 \end_inset
 
  reports that within this subset of more competitive areas, the clearinghouse
- has a slightly larger effect on farmers switching to different agro-input
- shops.
+ has a slightly larger effect on the switching of farmers to different agro-inpu
+t shops.
  According to farmers, the difference in efforts and services between treatment
  and control group is larger in these areas and significant at the 1% level.
  For areas with more than one dealer, the difference in likelihood of packaging
@@ -11686,7 +11686,7 @@ Similarly, we investigate what happens if we exclude areas with more than
  even though it implies throwing away sample 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Differentsizedbasketsoffruit"
+key "differentsizedbaskets"
 literal "false"
 
 \end_inset
@@ -11714,8 +11714,18 @@ Shops that were rated
 In the first round, 8% of dealers in the clearinghouse treatment group were
  not rated by a single of farmer, so we exclude them and rerun the analysis.
  For this sub-sample, the difference between treated and control dealers
- in terms on efforts and services is larger and significant at the 1% level.
- We also find a significant impact on the overall index summarizing variables
+ in terms of efforts and services is larger and significant at the 1% level.
+ As shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "results_dealer_sec_het4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we also find a significant impact on the overall index summarizing variables
  related to the bag of maize seed.
  This result is driven by the shelf-life variable, an important indication
  of seed quality.
@@ -11827,23 +11837,26 @@ noprefix "false"
  predicted.
  These changes, even though often not robust to multiple hypothesis testing,
  can be interpreted as first indications of an impact.
- Note that at this point in time, ratings have been disseminated only once,
- and that changing farmer and dealer behavior is likely to take some time.
+ Note that the reported unadjusted estimates are conservative lower bounds
+ for the true effect as attrition bias is negative and the treatment effect
+ is positive.
+ Also note that at this point in time, ratings have been disseminated only
+ once, and that changing farmer and dealer behavior is likely to take some
+ time.
  If the clearinghouse triggers farmers to choose better dealers and dealers
  to increase their efforts, so that farmers purchase better seed, then it
  still takes another agricultural season for farmers to have better experiences,
  perceive seed to be better and ultimately increase improved maize seed
  adoption.
- Only endline data will show whether the clearinghouse has a substantial
- impact or not.
+ Endline data will show whether the clearinghouse has a substantial impact.
 \end_layout
 
 \begin_layout Standard
 Because the objective of the clearinghouse is to make maize seed quality
- observable, its functioning could be endangered if the farmers' ratings
- do not actually measure seed quality but for example the personal relationship
+ observable, its functioning could be endangered if farmers' ratings do
+ not actually measure seed quality but for example the personal relationship
  between a farmer and a dealer.
- That is why we tested whether the ratings are correlated with seed quality.
+ That is why we test whether the ratings are correlated with seed quality.
  Even though objectively measuring seed quality is challenging and DNA fingerpri
 nting is the only reliable way to detect varietal purity, we were able to
  check whether ratings are correlated with other objective indications of
@@ -11909,8 +11922,7 @@ t dealers lead to poor seed quality, resulting in under-adoption by smallholder
 \begin_layout Standard
 To assess the importance of this potential constraint to agricultural technology
  adoption, we test an intervention which reduces the information asymmetry
- between seller and buyer by making the quality of improved maize seed observabl
-e.
+ between seller and buyer by making the quality of maize seed observable.
  To this end, we implement an information clearinghouse that is based on
  crowd-sourced ratings in the market for seed.
  This clearinghouse is tested in a randomized controlled trial among 350
@@ -11969,6 +11981,7 @@ options "C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/IFPRI_S
 \end_layout
 
 \begin_layout Section
+\start_of_appendix
 Appendix
 \end_layout
 
@@ -11984,7 +11997,7 @@ name "sec: Details about power analysis simulations"
 \end_layout
 
 \begin_layout Standard
-We will investigate both outcomes at the input dealer level and at the farmer
+We investigate both outcomes at the input dealer level and at the farmer
  level.
  We analyze power at the input dealer level first and consider two outcome
  variables: (i) the quantity of seed sold by the input dealer in the last
@@ -12457,11 +12470,11 @@ While the third treatment is implemented at the level of the village, it
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename actual_design.pdf
+	filename actual_design_nofarmers.pdf
 	scale 50
 
 \end_inset
@@ -12613,8 +12626,8 @@ The transformed cost of seed farmer used on this field last season is not
 \end_layout
 
 \begin_layout Paragraph
-Secondary outcomes at farmer level: Seed used on randomly selected maize
- field
+Secondary outcomes at farmer level: Production and disposal on randomly
+ selected maize field
 \end_layout
 
 \begin_layout Standard
@@ -13944,7 +13957,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average treatment effects on secondary outcomes at dealer level: memberships,
+Average treatment effects on secondary outcomes at dealer level: Memberships,
  licenses, and inspections
 \begin_inset CommandInset label
 LatexCommand label
@@ -15533,8 +15546,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Average treatment effects on secondary outcomes at farmer level: Yield etc.
- on randomly selected maize field
+Average treatment effects on secondary outcomes at farmer level: Production
+ and disposal on randomly selected maize field
 \begin_inset CommandInset label
 LatexCommand label
 name "results_farmer_sec: plot yield etc."
