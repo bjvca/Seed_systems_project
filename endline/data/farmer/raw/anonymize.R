@@ -1,9 +1,21 @@
 ## run in Seed_systems_project/endline/data/farmer/raw/
 path <- getwd()
 library(reshape2)
+library(leaflet)
+library(htmlwidgets)
 
 farmer_endline <- read.csv("latest.csv", stringsAsFactors=FALSE )
 
+### get baseline data to show progress
+farmer_baseline <- read.csv("/home/bjvca/data/projects/Seed_systems_project/endline/questionnaires/farmer/to_upload_endline_farmers.csv", stringsAsFactors=FALSE )
+
+farmer_baseline$done <- FALSE
+farmer_baseline$done[farmer_baseline$farmer_ID %in% names(table(farmer_endline$farmer_ID))] <- TRUE
+farmer_baseline$gps_latitude <- as.numeric(as.character(farmer_baseline$gps_latitude))
+farmer_baseline$gps_longitude  <- as.numeric(as.character(farmer_baseline$gps_longitude))
+pal <- colorFactor(c("red", "green"),farmer_baseline$done)
+m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=farmer_baseline, lng=~gps_longitude, lat=~gps_latitude,radius= 2, color=~pal(done), popup = ~as.character(farmer_ID) )   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+saveWidget(m, file="farmer_endline_progress.html") 
 
 #also remove district, subcounty and village here -- we will use the encoded versions from this from the baseline data
 to_drop <- c("start","end","deviceid","simserial","phonenumber","subscriberid","enumerator", "date","district","sub","village","hh_name","enumerator_base","phone1","phone2","farmer_name","q1","lat","long","chess","new_phone","q3")             
@@ -14,7 +26,7 @@ to_drop <- c("check.consent","check.sig_consent","check.maize.q5","check.maize.p
 farmer_endline <- farmer_endline[ , !(names(farmer_endline) %in% to_drop)]
 
 #remove names for plot in random plot selection module
-to_drop <- c("check.maize.plot.1..plot_num","check.maize.plot_count","check.maize.plot.1..q28","check.maize.plot.2..plot_num","check.maize.plot.2..q28","check.maize.plot.3..plot_num","check.maize.plot.3..q28","check.maize.plot_calc1","check.maize.plot_calc2","check.maize.plot_select_name","check.maize.order")
+to_drop <- c("check.maize.plot.1..plot_num","check.maize.plot_count","check.maize.plot.1..q28","check.maize.plot.2..plot_num","check.maize.plot.2..q28","check.maize.plot.3..plot_num","check.maize.plot.3..q28", "check.maize.plot.4..plot_num","check.maize.plot.4..q28","check.maize.plot.5..plot_num","check.maize.plot.5..q28","check.maize.plot_calc1","check.maize.plot_calc2","check.maize.plot_select_name","check.maize.order")
 
 farmer_endline <- farmer_endline[ , !(names(farmer_endline) %in% to_drop)]
 
@@ -748,7 +760,9 @@ for (i in 1:18) {
         paste(paste("check.maize.clear.shops",i,sep="."),"pos",sep = ".."))] <- NULL
 }
 
-write.csv(mid,"/home/bjvca/data/projects/Seed_systems_project/endline/data/farmer/public/endline.csv", row.names=FALSE)
+write.csv(farmer_endline,"/home/bjvca/data/projects/Seed_systems_project/endline/data/farmer/public/endline.csv", row.names=FALSE)
 
 write.csv(all_shops,"/home/bjvca/data/projects/Seed_systems_project/endline/data/farmer/public/endline_rating_dyads.csv", row.names=FALSE)
-
+farmer_endline$check.maize.q25a[farmer_endline$check.maize.q25a == "98"] <- NA
+farmer_endline$check.maize.q25a[farmer_endline$check.maize.q25a == "n/a"] <- NA
+summary(lm((farmer_endline$check.maize.q25a=="Yes")~farmer_endline$clearing))
