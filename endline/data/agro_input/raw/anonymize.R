@@ -27,9 +27,24 @@ dealer_endline$check.owner.agree.barcode <- as.numeric(as.character(dealer_endli
 moisture$barcode <- as.numeric(as.character(moisture$barcode))
 
 ##manually fix here to make sure all moisture measurements are used!
+
+moisture$barcode[moisture$id=="AD 45 25"] <- 766
+moisture$barcode[moisture$id=="AD 166 32"] <- 767
+moisture$barcode[moisture$id=="AD 205 33"] <- 573
+moisture$barcode[moisture$id=="AD 18456"] <- 511
+moisture$barcode[moisture$id=="AD 84 27"] <- 679
+moisture$barcode[moisture$id=="AD 205 33"] <- 572
+
+#These have data in the moisture dataset, but not (yet) in dealer_endline
+# moisture$barcode[!(moisture$barcode %in% dealer_endline$check.owner.agree.barcode)]
+# 678 765 514 608 605 611 602 761 573
+# moisture$id[!(moisture$barcode %in% dealer_endline$check.owner.agree.barcode)]
+# "AD2340"     "AD-31452"   "AD 2642"    "AD 70 19"   " AD 250 16" "AD 160 30"  "AD 347 22"  "AD 14029"  
+
+
+dealer_endline[dealer_endline$shop_ID=="AD_250",]
+
 moisture <- moisture[c("barcode","id","reading","exp","date_pack","origin","cert","lot","verif","variety","other_var","company","age")]
-
-
 
 dealer_endline <- merge(dealer_endline, moisture,by.x="check.owner.agree.barcode",by.y="barcode", all.x=T)
 
