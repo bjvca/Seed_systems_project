@@ -146,9 +146,10 @@ Quality constraints to agricultural technology adoption: Can an information
 Agricultural technologies remain under-adopted among smallholder farmers
  in sub-Saharan Africa.
  We investigate how the quality of an agricultural input affects its adoption.
- As the quality of maize seed is easier to observe for sellers than for
- buyers, we hypothesize that this information asymmetry leads to poor seed
- quality offered by agro-input dealers, resulting in under-adoption by farmers.
+ As the sellers of maize seed have more information about its quality than
+ the buyers, we hypothesize that this information asymmetry leads to poor
+ seed quality offered by agro-input dealers, resulting in under-adoption
+ by farmers.
  To overcome this classic lemons technology problem, we implement a crowd-source
 d information clearinghouse similar to yelp.com in the market for seed, meaning
  that we collect and disseminate farmers' ratings of seed quality.
@@ -299,7 +300,7 @@ literal "true"
 \begin_layout Standard
 This study addresses a particular constraint to technology adoption: the
  perceived quality of agricultural inputs in the market, which has received
- considerable attention from top journals 
+ considerable attention from academics and policy makers recently 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon,MICHELSON2021102579"
@@ -307,7 +308,7 @@ literal "false"
 
 \end_inset
 
- and policy makers recently.
+.
  To this end, we look at Ugandan 
 \shape italic
 improved maize seed varieties
@@ -316,13 +317,12 @@ improved maize seed varieties
  varieties.
  Maize is an important crop in Uganda, both for home consumption and as
  a source of income.
- Yet, the uptake of improved varieties by smallholder farmers remains below
- the optimum, despite the higher yield potential compared to traditional
- varieties.
+ Yet, the uptake of improved varieties by smallholder farmers remains persistent
+ly low, despite the higher yield potential compared to traditional varieties.
 \end_layout
 
 \begin_layout Standard
-Because agricultural input quality is hardly observable, information asymmetries
+Because agricultural input quality is hard to observe, information asymmetries
  between sellers and buyers characterize the markets for seed and fertilizer.
  
 \begin_inset CommandInset citation
@@ -350,9 +350,9 @@ literal "true"
 \end_inset
 
 .
- In such a market where the quality is easier to observe for the seller
- than for the buyer, there is no incentive for vendors to sell good products
- and average quality can degrade.
+ In such a market where sellers have more information about the quality
+ of the good than buyers, there is no incentive for vendors to sell good
+ products and average quality can degrade.
  That is why recent studies claim that smallholder adoption of agricultural
  inputs, and of improved maize seed in Uganda in particular, is limited
  by farmers’ beliefs that the inputs are of poor quality - counterfeited,
@@ -383,14 +383,30 @@ To assess the importance of this potential constraint to agricultural technology
  crowd-sourced ratings and works through reputational mechanisms, much like
  yelp.com or tripadvisor.com, in the market for seed.
  This means that we aggregate the experiences of many users by collecting
- the ratings of smallholder farmers to reveal the quality of maize seed.
+ the ratings of smallholder farmers to reveal the quality of maize seed
+ sold by each agro-input dealer.
  Then we disseminate these ratings back to farmers and dealers.
- The treatment targets the interaction between farmers and agro-input dealers
- who sell improved seed and play a crucial role in the seed system because
- they form a key link between seed producers and users.
+ The treatment targets the interaction between farmers and dealers who sell
+ improved seed and play a crucial role in the seed system because they form
+ a key link between seed producers and users.
  This crowd-sourced information clearinghouse is tested in a randomized
- controlled trial among 350 agro-input dealers and 3500 smallholder maize
- farmers in Uganda.
+ controlled trial (RCT) among 350 agro-input dealers and 3500 smallholder
+ maize farmers in Uganda
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This research received clearance from Makerere University's School of Social
+ Sciences Research Ethics Committee (MAKSS REC 08.20.436/PR1) as well as from
+ International Food Policy Research Institute (IFPRI)'s Institutional Review
+ Board (IRB) (DSGD-20-0829).
+ The research was also registered at the Ugandan National Commission for
+ Science and Technology (UNCST SS603ES).
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -400,9 +416,7 @@ Midline data shows that dealers increase their efforts and improve their
  There are some indications that these two mechanisms eventually lead to
  better maize seed quality.
  Heterogeneity analysis suggests that the clearinghouse works better for
- dealers who only sell farm inputs, for dealers who face more competition
- and for dealers who were known by at least one farmer in the sample, so
- that they received a rating.
+ dealers who specialize and for dealers who face more competition.
  However, endline data has to be analyzed before we can confidently draw
  conclusions.
 \end_layout
@@ -472,7 +486,7 @@ noprefix "false"
 \end_inset
 
 .
- Then we discuss and conclude in sections 
+ Then we discuss our findings and conclude in sections 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Discussion"
@@ -523,9 +537,13 @@ Agro-input shops sell only
 \shape italic
 improved
 \shape default
- seed because the alternative is seed which farmers harvested themselves
- in the previous crop season and saved to plant it in the following season,
- so that it this seed usually for free and not sold.
+ seed.
+ The alternative to improved seed is farmer saved seed which farmers harvested
+ themselves in the previous crop season and saved to plant it in the following
+ season.
+ This seed usually free of charge (if the farmer him/herself saved it) or
+ cheap (if a neighbor, relative, someone else saved it) and not sold by
+ agro-input shops.
 \end_layout
 
 \end_inset
@@ -544,8 +562,9 @@ literal "false"
 
 .
  Furthermore, they are part of an important network with connections to
- actors across the value chain, such as manufacturers of inputs, government
- organizations and other agribusinesses.
+ actors across the value chain, such as manufacturers of inputs (e.g.
+ seed companies), government organizations (e.g.
+ breeders) and other agribusinesses.
  While the importance of these actors in the seed supply chain seems straightfor
 ward and some authors emphasize the role of private agents 
 \begin_inset CommandInset citation
@@ -565,12 +584,55 @@ literal "false"
 
 \begin_layout Subsection
 The problem
+\begin_inset CommandInset label
+LatexCommand label
+name "subsection: The problem"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-As Ugandan farmers can hardly assess the quality of improved maize seed
- prior to purchase, we hypothesize that agro-input dealers exploit this
- information asymmetry, and that their malpractices lead to poor seed quality.
+The ability of smallholders to infer maize seed quality is severely limited.
+ It is impossible to accurately determine quality on the basis of visual
+ examination before purchase, as farmers can only visually inspect seed
+ purity and the presence of mold.
+ But also after using the seed, farmers can hardly assess quality because
+ there are so many factors at play in agricultural production.
+ If they experience a disappointing harvest, they cannot safely conclude
+ that the seed material was poor because it could have also been poor soil,
+ insufficient, late or too much rain, or own mismanagement like late planting
+ or insufficient weeding.
+ Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
+ inputs, rather than to other possible causes.
+ Learning about the true quality becomes more difficult when this misattribution
+ is present (Hoel et al., 2021).
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "tjernstrom2021learning"
+literal "false"
+
+\end_inset
+
+ agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
+ about the returns to inputs.
+ Also 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+ find that farmers in developing countries routinely misperceive input quality.
+\end_layout
+
+\begin_layout Standard
+As Ugandan farmers can hardly assess the quality of maize seed prior to
+ purchase, we hypothesize that agro-input dealers exploit this information
+ asymmetry, and that their malpractices lead to poor seed quality.
  In a context relatively similar to ours, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -583,15 +645,6 @@ literal "false"
  no incentive for sellers to address food safety losses because they are
  not observable for buyers, so that there is no correlation between prices
  and this unobservable quality attribute.
-\end_layout
-
-\begin_layout Quote
-
-\series bold
-hypothesis 1:
-\series default
- The malpractices of agro-input dealers lead to poor agricultural input
- quality.
 \end_layout
 
 \begin_layout Standard
@@ -678,6 +731,21 @@ literal "true"
  environments.
  Poor rotation of seed stock and storage in open bags, in moist conditions
  or in direct sunlight also reduce seed quality.
+ Also in our baseline data, we find a positive correlation between a seed
+ bag's shelflife and its moisture, meaning that older seed is more moist,
+ and therefore more susceptible to storage molds and pests.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I included this sentence due to your comment but am not sure whether it
+ fits here.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -697,17 +765,9 @@ literal "false"
  find that concerns about seed quality reduce farmers’ willingness to invest
  in seeds, as farmers are willing to pay 15% more for bags directly from
  the seed company than for bags from local retailers.
- Due to farmers’ beliefs that the inputs are of poor quality, their seed
- adoption will be low.
-\end_layout
-
-\begin_layout Quote
-
-\series bold
-hypothesis 2:
-\series default
- Smallholder farmers under-adopt agricultural inputs because they perceive
- the quality of these inputs sold at agro-input dealers to be poor.
+ That is why we hypothesize that smallholder farmers' seed adoption is low
+ because they perceive the quality of these inputs sold at agro-input dealers
+ to be poor.
 \end_layout
 
 \begin_layout Subsection
@@ -720,7 +780,7 @@ This classic lemons technology problem can be solved by reducing information
  In Kenya, seed companies have started marketing their seed using novel
  packaging features to signal product quality and authenticity 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 key "gharib2021fear"
 literal "false"
 
@@ -791,8 +851,6 @@ A clearinghouse that relies on crowd-sourced ratings may be more effective
  in increasing seed quality in the market.
  While prices can generally be observed reasonably easy, assessing an experience
  or credence good such as seed is much more difficult.
- At the time of purchase, visual seed inspection is limited to seed purity
- and the presence of mold.
  Aggregating the experiences of many users may thus be a particularly powerful
  way to reveal the quality of the product.
 \end_layout
@@ -822,30 +880,23 @@ literal "true"
 \end_inset
 
 's study, veterinaries provide their services directly, without an intermediary.
- Reducing asymmetric information can be even more important in markets with
- intermediaries like agro-input dealers, where producers do not sell to
- consumers directly.
+ If producers do not sell to consumers directly, so that more entities and
+ transactions are involved, there is even more scope for information asymmetries.
+ That is why reducing asymmetric information can be even more important
+ in markets with intermediaries like agro-input dealers.
 \end_layout
 
 \begin_layout Standard
 Hence a crowd-sourced information clearinghouse can be an important institutiona
 l innovation to solve the problem of asymmetric information in the market
  for agricultural inputs and may affect both intentional and non-intentional
- quality reductions.
+ quality reductions by reducing malpractices at the agro-input dealer level.
+ We hypothesize that it improves smallholder farmers' perception and adoption
+ of agricultural inputs.
  It may be preferable to alternative strategies due to its likely lower
  cost, self-sustaining nature and scaleability, and helps to overcome problems
  such as insufficient public investment in regulatory systems, regulatory
  enforcement, and market surveillance.
-\end_layout
-
-\begin_layout Quote
-
-\series bold
-hypothesis 3:
-\series default
- An information clearinghouse reduces malpractices at the agro-input dealer
- level and in turn improves smallholder farmers' perception and adoption
- of agricultural inputs.
 \end_layout
 
 \begin_layout Standard
@@ -915,8 +966,8 @@ Secondly, farmers could switch from low rated shops to higher rated shops
 \begin_layout Standard
 \begin_inset Float figure
 wide false
-sideways false
-status open
+sideways true
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -937,7 +988,7 @@ centering
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ToC_CH.pdf
-	scale 60
+	scale 80
 
 \end_inset
 
@@ -973,15 +1024,11 @@ name "figure: Theory of change"
 \end_layout
 
 \begin_layout Subsection
-(Un)observable maize seed quality
+Maize seed as an experience or credence good
 \end_layout
 
 \begin_layout Standard
-While we are certain that it is impossible to accurately determine maize
- seed quality on the basis of visual examination before purchase, it remains
- up to discussion whether farmers can infer quality after experiencing the
- good.
- If farmers could observe the quality of seed perfectly after using it once,
+If farmers could observe the quality of seed perfectly after using it once,
  i.e.
  after one agricultural season, there would be no need for a clearinghouse
  as Ugandan farmers plant maize twice a year and could infer relatively
@@ -992,8 +1039,18 @@ While we are certain that it is impossible to accurately determine maize
 \end_layout
 
 \begin_layout Standard
-On the one hand, farmers can somewhat infer maize seed quality after one
- season.
+While farmers’ ability to infer seed quality is limited as described above
+ in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsection: The problem"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, they can infer maize seed quality to some extend.
  Shortly after planting, farmers can observe germination rates, i.e.
  the proportion of seeds that germinate, and later how fast the seed matures.
  Some seed may also be more susceptible to pests and diseases, while other
@@ -1001,41 +1058,6 @@ On the one hand, farmers can somewhat infer maize seed quality after one
  After harvest, the farmer can observe the yield.
  All these attributes of seed quality can be judged to some extent after
  one agricultural season.
-\end_layout
-
-\begin_layout Standard
-On the other hand, farmers’ ability to infer seed quality must be somewhat
- limited, since we would otherwise expect prices to be correlated with observabl
-e quality, so that counterfeiting and adulteration would be less prevalent.
- For smallholders, it remains difficult to assess quality ex-post because
- there are so many factors at play.
- If a farmer experiences a disappointing harvest, he or she cannot safely
- conclude that the seed material was poor because it could have also been
- poor soil, insufficient, late or too much rain, or own mismanagement like
- late planting or insufficient weeding.
- Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
- inputs, rather than to other possible causes.
- Learning about the true quality becomes more difficult when this misattribution
- is present (Hoel et al., 2021).
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "tjernstrom2021learning"
-literal "false"
-
-\end_inset
-
- agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
- about the returns to inputs.
- Also 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- find that farmers in developing countries routinely misperceive input quality.
 \end_layout
 
 \begin_layout Standard
@@ -1050,6 +1072,20 @@ In conclusion, improved maize seed lies somewhere on the continuum between
  The extension literature shows that a smallholder is more likely to trust
  that information if it comes from more than one source, e.g.
  from a clearinghouse rating that is computed based on multiple opinions.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+potential note for Robert: would be better to motivate this with a model
+ that differentiates between temporal and cross-sectional learning (more
+ T vs.
+ more N).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1075,47 +1111,16 @@ name "subsection: Level of randomization"
 \end_layout
 
 \begin_layout Standard
-To evaluate the impact of the clearinghouse, we conduct a randomized controlled
- trial (RCT).
- We randomize at area level because randomizing at the level of the individual
- agro-input shop prompted ethical concerns.
- Often, dealers are clustered in towns, villages, markets, trading centers
- and other key market sheds.
- Two or more dealers may operate in the same neighborhood, or in the same
- street or even right next to each other.
- If we would randomize at shop level, one dealer may get assigned to the
- clearinghouse treatment group and receive a good rating, while his or her
- neighbor gets assigned to the clearinghouse control group and does not
- get the chance to receive any rating.
- Farmers may prefer the dealer with the rating, even though the seed quality
- of the control dealer may be similar or even better.
- The rating would in this case lead to a competitive advantage for the treated
- dealer, but the reverse may also be true if the treated dealer gets a poor
- rating.
- Randomizing at area level reduces the risk of harming someone with our
- experiment.
- As it is important to think about the ethics of experimentation, especially
- when the participants are vulnerable 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw27600"
-literal "false"
-
-\end_inset
-
-, we opted to be more ethical at the expense of statistical power.
- To compensate this loss in power, we undergo the extra costs and logistic
- challenges of having a much larger sample than the one we would have needed
- if we would have randomized at the level of the individual dealer.
-\end_layout
-
-\begin_layout Standard
-A 
+To evaluate the impact of the clearinghouse, we conduct an RCT.
+ We randomize at the level of the 
 \shape italic
 catchment area
 \shape default
- is defined as the area that is served by an agro-input dealer, as the area
- where this shop's customers live.
+.
+ A catchment area is defined as the area that is served by an agro-input
+ dealer, as the area where this shop's customers live.
+ Dealers were listed during our census of all shops in 11 districts in southeast
+ern Uganda.
  If the catchment areas of two or more shops overlap because these dealers
  operate in the same town, street or right next to each other, they are
  assigned to the same catchment area.
@@ -1129,56 +1134,56 @@ catchment area
 \end_layout
 
 \begin_layout Standard
-Another benefit of randomizing at catchment area level is that it allows
- us to measure the effect of the clearinghouse on agro-input dealers and
- on farmers.
- If we would randomize at shop level, one dealer may be rated but his or
- her neighbor may not.
- Some farmers would then have access to treated and control dealers, so
- that it would be difficult to distinguish treatment and control farmers.
- That is why we could hardly measure the effect of our intervention of farmer
- outcomes.
- If we want to know if the clearinghouse leads to e.g.
- increased improved maize seed adoption among farmers, we need to be able
- to connect each farmer unambiguously to treatment or control.
- We ensure this by randomizing at the catchment area level because then
- all dealers within an area are rated (or not) and all farmers within that
- area are potential customers of only dealers who are (or not).
- Furthermore, randomizing at catchment area level erases any spillover concerns.
- Otherwise treated dealers might for example inform control dealers nearby
- that they will be rated soon, which would contaminate the control group.
-\end_layout
-
-\begin_layout Subsection
-Factorial design
-\end_layout
-
-\begin_layout Standard
-The clearinghouse is part of a larger project which evaluates the effects
- of different interventions.
- In this field experiment, various treatment and control groups are randomly
- assigned to different combinations of treatment and control conditions.
- We used a 
-\begin_inset Formula $2^{3}$
-\end_inset
-
- factorial design because we tested the impact of three interventions.
- The other two treatments are not of interest for this paper.
- Factorial designs allow the recycling of treated units as controls in the
- orthogonal factor.
- As such, to estimate main effects, less observations are needed than with
- parallel designs.
- More details can be found in the appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec: Details about factorial design"
-plural "false"
-caps "false"
-noprefix "false"
+We randomize at catchment area level for three reasons.
+ Firstly, because randomizing at the level of the individual agro-input
+ shop prompted ethical concerns and it is important to think about the ethics
+ of experimentation, especially when the participants are vulnerable 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NBERw27600"
+literal "false"
 
 \end_inset
 
 .
+ Often, dealers are clustered in towns, villages, markets, trading centers
+ and other key market sheds.
+ Two or more dealers may operate in the same neighborhood, or in the same
+ street or even right next to each other.
+ If we would randomize at shop level, one dealer may get assigned to the
+ clearinghouse treatment group and receive a good rating, while his or her
+ neighbor gets assigned to the clearinghouse control group and does not
+ get the chance to receive any rating.
+ Farmers may prefer the dealer with the rating, even though the seed quality
+ of the control dealer may be similar or even better.
+ The rating would in this case lead to a competitive advantage for the treated
+ dealer, but the reverse may also be true if the treated dealer gets a poor
+ rating.
+ Randomizing at catchment area level reduces the risk of harming someone
+ with our experiment.
+ Secondly, erases any spillover concerns.
+ Otherwise treated dealers might for example inform control dealers nearby
+ that they will be rated soon, which would contaminate the control group.
+ Thirdly, randomizing at area level allows us to measure the effect of the
+ clearinghouse on farmers.
+ If we would randomize at shop level, one dealer may be rated but his or
+ her neighbor may not.
+ Some farmers would then have access to treated and control dealers, so
+ that it would be difficult to distinguish treatment and control farmers.
+ If we want to know if the clearinghouse leads to e.g.
+ increased improved maize seed adoption among farmers, we need to be able
+ to connect each farmer unambiguously to treatment or control.
+ We ensure this by randomizing at the area level because then all dealers
+ within an area are rated (or not) and all farmers within that area are
+ potential customers of only dealers who are (or not).
+\end_layout
+
+\begin_layout Standard
+For these reasons we opted to randomize at the catchment area at the expense
+ of statistical power.
+ To compensate this loss in power, we undergo the extra costs and logistic
+ challenges of having a much larger sample than the one we would have needed
+ if we would have randomized at the level of the individual dealer.
 \end_layout
 
 \begin_layout Subsection
@@ -1195,9 +1200,7 @@ name "sec:Power-Analysis-Simulations"
 \begin_layout Standard
 We used simulations to determine the sample sizes for this experimental
  layout.
- Simulating, so that the experiment is run thousands of times and one simply
- counts how frequently the treatment comes up significant, provides a flexible
- and intuitive way to analyze power.
+ Simulating provides a flexible and intuitive way to analyze power.
  Furthermore, instead of relying on theoretical distributions for the outcome
  variables that take assumptions and return analytic solutions, simulations
  can sample from real data.
@@ -1275,9 +1278,9 @@ noprefix "false"
 \begin_layout Standard
 Once we determined the minimum number of catchment areas (and corresponding
  dealers) that are necessary to detect effects at the level of the agro-input
- dealer, we fix the number of catchment areas there to then determine the
- number of farmers we need to sample per dealer to the identify impact of
- the interventions on that level.
+ dealer, we fix the number of catchment areas and then determine the number
+ of farmers we need to sample per dealer to the identify impact of the intervent
+ions on that level.
  To make sure we have sufficient farmers to rate each dealer, we allocate
  a fixed number of farmers to each dealer.
  This means that we have slightly differing numbers of farmers in the different
@@ -1303,7 +1306,6 @@ s will return statistically significant results 80% of the time.
  This corresponds to about 318 agro-input dealers.
  Based on further simulations, we decided to collect information on 10 farmers
  per dealer, leading to a sample size of 3,200 households.
- We will collect more data to account for attrition.
  More details can be found in the appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1318,80 +1320,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-Transparency and replicability
-\end_layout
-
-\begin_layout Standard
-We went the extra mile in tying our hands to avoid any issues related to
- specification search, variable selection, fishing etc.
- Firstly, all documents, codes, and data related to this project are under
- revision control and publicly accessible via 
-\begin_inset CommandInset href
-LatexCommand href
-name "GitHub"
-target "https://github.com/bjvca/Seed_systems_project"
-literal "false"
-
-\end_inset
-
- which provides time-stamped recordings of any changes made over the course
- of the project.
- All documents including this one were written with the open source LyX
- or LaTeX typesetting software which allows revision control.
- Secondly, we registered a pre-analysis plan.
- For detailed information about the study, we refer to this plan that can
- be found on the 
-\begin_inset CommandInset href
-LatexCommand href
-name "American Economic Association (AEA)'s registry for RCTs"
-target "https://www.socialscienceregistry.org/trials/6361"
-literal "true"
-
-\end_inset
-
-.
- Thirdly, we completed the entire econometric analysis on simulated data
- and produced a mock report, all before midline data was collected.
- This report was registered and added to the AEA RCT registry and GitHub.
- Mock reports serve to tie the hands of researcher, reducing degrees of
- freedom in the choice of what specifications to run and what variables
- to include when testing hypotheses.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "humphreys2013fishing"
-literal "false"
-
-\end_inset
-
- argue that (comprehensive but nonbinding) mock reports can reduce intentional
- and unintentional fishing, and make published research more reliable.
- This mock analysis is contained in an R script, which is run from within
- the LyX or LaTeX typesetting software using the 
-\begin_inset CommandInset href
-LatexCommand href
-name "knitr engine"
-target "https://en.wikipedia.org/wiki/Knitr"
-literal "false"
-
-\end_inset
-
-.
- All this was done to increases transparency with respect to the decisions
- made.
-\end_layout
-
-\begin_layout Subsection
 Ethical clearance
-\end_layout
-
-\begin_layout Standard
-This research received clearance from Makerere University's School of Social
- Sciences Research Ethics Committee (MAKSS REC 08.20.436/PR1) as well as from
- International Food Policy Research Institute (IFPRI)'s Institutional Review
- Board (IRB) (DSGD-20-0829).
- The research was also registered at the Ugandan National Commission for
- Science and Technology (UNCST SS603ES).
 \end_layout
 
 \begin_layout Section
@@ -1406,10 +1335,7 @@ name "section: Intervention"
 \end_layout
 
 \begin_layout Standard
-To measure the quality of maize seed provided by agro-input shops and to
- subsequently disseminate this information to farmers and dealers, we set
- up an information clearinghouse.
- This section contains a detailed description of the intervention.
+This section contains a detailed description of the intervention.
 \end_layout
 
 \begin_layout Subsection
@@ -1417,8 +1343,10 @@ Collection of ratings
 \end_layout
 
 \begin_layout Standard
-Prior to the intervention, we collected baseline data from smallholder farmers.
- Right after this baseline interview in April 2021 (see figure 
+Right after we collected baseline data from smallholder farmers, we asked
+ farmers to rate dealers in their catchment area on a number of characteristics
+ in April 2021.
+ The timeline is illustrated in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1428,14 +1356,13 @@ noprefix "false"
 
 \end_inset
 
-), we asked farmers to rate dealers in their catchment area on a number
- of characteristics.
+.
  To ensure that farmers certainly knew which dealer they were rating, we
  used the names of the shops and dealers, the nicknames and other names
  under which they may be known in the community (e.g.
  son of ...).
  Furthermore, we provided names of the markets, descriptions of the places
- and pictures of the shops which were collected during our census (see section
+ and pictures of the shops which were collected during a census (see section
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1448,8 +1375,7 @@ noprefix "false"
 
 ).
  All this information was preloaded onto the tablet computers used for data
- collection and the relevant dealers and questions showed up automatically
- right after the interview.
+ collection and the relevant dealers and questions showed up automatically.
 \end_layout
 
 \begin_layout Standard
@@ -1797,127 +1723,7 @@ Based on the answers of all farmers in a catchment area, we computed the
  These ratings were translated into words and stars, so that they are easily
  understandable for farmers and dealers who are not used to interpreting
  numbers.
-\end_layout
-
-\begin_layout Paragraph*
-What to do if a treated dealer does not receive a single rating?
-\end_layout
-
-\begin_layout Standard
-If a shop in a treated catchment area is not rated by a single farmer e.g.
- because no farmer in our sample knows him or her, we could fill in the
- catchment area mean as his or her rating.
- However, this is not as innocent as it seems because it is likely that
- the lack of ratings is not random.
- Poor quality dealers have less customers, so their likelihood to get rated
- is lower.
- Giving them average catchment area ratings inflates the ratings of these
- low quality dealers.
- Instead, we simply told farmers that we do not have information about this
- shop (implicitly informing the farmer that it exists), see also table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "SMS"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 16 of 193 treated dealers were not rated by a single farmer in the first
- round.
-\end_layout
-
-\begin_layout Paragraph*
-Should more ratings lead to better ratings?
-\end_layout
-
-\begin_layout Standard
-Some shops were not rated by any smallholder in the first round, while others
- were rated by up to 22 smallholders.
- If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is
- rated by 1 farmer and gets rating 3,6, we treat dealer B as the better
- dealer.
- Even though receiving many (few) ratings can be related to good (poor)
- quality (the lack of ratings could be nonrandom, see previous paragraph),
- there could be other reasons why dealers are rated by many (few) farmers.
- Furthermore, giving higher ratings to better-known dealers could harm new
- dealers entering the market and dealers who are discriminated e.g.
- due to their gender.
- Also on TripAdvisor, having more reviews than a rival hotel does not guarantee
- a higher ranking.
-\end_layout
-
-\begin_layout Paragraph*
-Should ratings depend on catchment area dealer performance?
-\end_layout
-
-\begin_layout Standard
-The following examples show that ratings should not depend on catchment
- area averages.
- In an area with poor quality dealers in which one dealer is a bit better
- than the rest but still poor, we do not want this dealer to be rated well
- (i.e.
- expose farmers to poor quality dealers).
- Similarly, in an area with good dealers in which one dealer is a bit worse
- than the rest but still good, we do not want this dealer to be rated poorly
- (which would be unfair towards him or her).
- On the other hand, less than 9% of shops received a rating below 3 out
- of 5, so we would throw away valuable data if we would only disseminate
- good scores without any variation.
- Therefore, we take the distribution of ratings into account by using quintiles.
- Consequently, less dealers receive rating 4 or 5, more dealers receive
- rating 1 or 2.
- This could strengthen the effect of the treatment on dealer effort.
- If dealers get ratings 1 or 2 instead of 4 or 5, they could feel more inclined
- to improve their scores.
- Consequently, also the effect on seed quality itself could be larger.
- However, the clearinghouse should also have a signaling effect, which might
- be weaker if more dealers are rated 1 or 2 instead of 4 or 5 (dealers would
- seem to be of worse quality to farmers).
- Therefore, we chose words with a positive connotation as the quintile names
- for rating dissemination.
- As most dealers received a good or very good rating before taking the distribut
-ion into account, we ensure that even a 2 is still communicated as "good"
- to farmers to not weaken the signaling effect.
- That is why the first quintile is translated to "okay" and gets one star,
- the second one is named "good" and receives two stars, the third quintile
- is "very good" and gets three stars, the fourth and fifth one are "excellent"
- and awarded with four and five stars.
- This way of considering the distribution of the original ratings when choosing
- the names also helps us to disseminate ratings as truthfully, purely and
- as closely to reality as possible.
-\end_layout
-
-\begin_layout Paragraph*
-Are female dealers rated worse than male dealers?
-\end_layout
-
-\begin_layout Standard
-Because 41% of the agro-input dealers in our sample are female and women
- could be discriminated and hence perceived and rated worse, we tested whether
- there are significant differences between the ratings of female dealers
- and the ratings of male dealers.
- We controlled for some potentially confounding variables like age, education,
- distances to the nearest tarmac and murram roads (as measures of remoteness)
- and additionally for many indications of quality (whether the shop only
- sells farm inputs, years since shop establishment, questions related to
- the quality of the shop's roof, walls, ventilation, floor, lighting and
- seed storage, questions related to rats and pests, official certificates,
- cleanness and professionality, customer complaints, and temperature).
- Because we found a significant difference in ratings (Pr(>|t|) < 0.1) after
- controlling for all this, we have no reason to believe that this difference
- can be explained by real quality differences.
- Hence there is no other reason than discrimination for female dealers to
- be rated worse.
- Therefore, we adjusted the ratings of female dealers accordingly to prevent
- that they are harmed by our intervention.
- We changed the ratings of all female dealers by adding the coefficients
- of the gender dummy to the initial ratings.
- This means that we regressed all seed quality attributes on the gender
- dummy and add the resulting coefficients to these individual ratings.
- Then we did the same with the mean (summary) rating.
+ More details about the rating computations can be found in appendix x.
 \end_layout
 
 \begin_layout Subsection
@@ -2259,8 +2065,8 @@ For this purpose, we designed a visually appealing dissemination app which
  We used passive voice and converted ratings into words and stars: "We wanted
  to let you know that customers from input dealer x rate the quality of
  maize seed sold there as okay/good/very good/excellent! The quality of
- the maize seed that this agro-input shop sells got a score of 1/2/3/4/5
- out of 5!".
+ the maize seed that this agro-input shop sells got a score of x out of
+ 5!".
  Then the enumerator showed the stars after showing the photo of the shop
  again.
 \end_layout
@@ -2340,6 +2146,8 @@ The certificate can be used to display the ratings in the shop, similar
 s.
  There is also a note on the back of the report which recommends displaying
  the certificate in the shop.
+ To further increase the likelihood that dealers would display the certificate,
+ we laminated the reports.
  The delivering person also reminded dealers to read the information on
  the back so that dealers are fully informed.
 \end_layout
@@ -2348,49 +2156,18 @@ s.
 Furthermore, we expect dealers to be more likely to change their behavior
  i.e.
  increase their efforts if they know that they will be scored again.
- They need to expect a second set of scores.
  That is why the person delivering the reports explicitly mentioned to every
  dealer that they will be scored again.
  Furthermore, there is a note on the report that informs dealers that they
  will be scored again in January 2022.
-\end_layout
-
-\begin_layout Subsection
-Further collection and dissemination of ratings
-\end_layout
-
-\begin_layout Standard
-A second round of agro-input dealer ratings was collected right after farmer
- midline data collection in January 2022, after farmers harvested in November
- or December and the second season of 2021 was over.
- Enumerators revisited farmers for the midline survey and collected the
- second dealer ratings in person.
- The resulting second clearinghouse ratings were disseminated to farmers
- and dealers between mid-January and mid-February 2022, before farmers started
- buying seed in February or March and planted seed in March or April.
- Farmers also received a second set of SMS in the beginning of March 2022.
- Finally, after the first agricultural season of 2022, the third round of
- dealer ratings will be collected as part of the endline data collection
- in July or August 2022 after farmers harvest maize in June or July.
- The third rating is a post-treatment outcome variable.
+ The intervention was repeated in the course of 2022.
  Knowing that the clearinghouse will remain in place for some time could
  motivate dealers to change their behavior and increase farmers' trust in
  these ratings.
- The timeline is illustrated in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "timeline"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Section
-Methodology
+Empirical strategy
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Methodology"
@@ -2421,7 +2198,7 @@ Due to the random assignment to treatment and control groups, simply comparing
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one}
+Y_{1ij}=\alpha+\beta T_{j}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one}
 \end{equation}
 
 \end_inset
@@ -2454,19 +2231,6 @@ j
 \emph on
 j
 \emph default
-, 
-\begin_inset Formula $X_{ij}$
-\end_inset
-
- is a vector of all the interactions between the different orthogonal treatments
- in the factorial design 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "muralidharan2019factorial"
-literal "false"
-
-\end_inset
-
 , and 
 \begin_inset Formula $ε_{ij}$
 \end_inset
@@ -2506,11 +2270,24 @@ name "subsection: Multiple hypothesis testing"
 \end_layout
 
 \begin_layout Standard
-Because we investigate the impact channels of the clearinghouse by considering
- several possible outcomes, it is essential to account for multiple hypothesis
- testing.
- We look at treatment effects on a range of outcome measures and deal with
- multiple hypotheses testing by means of two approaches.
+We evaluate the effect of the clearinghouse intervention and investigate
+ its impact channels by considering a range of different outcome measures.
+ Testing hypotheses regarding multiple outcomes calls for special techniques
+ because the probability of rejecting a true null hypothesis for at least
+ one outcome is larger than the significance level used for each test 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kling2004experimental"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+That is why we account for multiple hypothesis testing by means of two approache
+s.
  One approach, followed for example by 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -4574,7 +4351,80 @@ Orthogonality tests of randomization balance
 To test if treatment and control groups are comparable in terms of a set
  of baseline characteristics, i.e.
  to test for balance at baseline, we include standard orthogonality tables
- with 40 pre-registered variables.
+ with 40 pre-registered variables
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We went the extra mile in tying our hands to avoid any issues related to
+ specification search, variable selection, fishing etc.
+ Firstly, all documents, codes, and data related to this project are under
+ revision control and publicly accessible via 
+\begin_inset CommandInset href
+LatexCommand href
+name "GitHub"
+target "https://github.com/bjvca/Seed_systems_project"
+literal "false"
+
+\end_inset
+
+ which provides time-stamped recordings of any changes made over the course
+ of the project.
+ All documents including this one were written with the open source LyX
+ or LaTeX typesetting software.
+ Secondly, we registered a pre-analysis plan.
+ For detailed information about the study, we refer to this plan that can
+ be found on the 
+\begin_inset CommandInset href
+LatexCommand href
+name "American Economic Association (AEA)'s registry for RCTs"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "true"
+
+\end_inset
+
+.
+ Thirdly, we completed the entire econometric analysis on simulated data
+ and produced a mock report, all before midline data was collected.
+ This report was registered and added to the AEA RCT registry and GitHub.
+ Mock reports serve to tie the hands of researcher, reducing degrees of
+ freedom in the choice of what specifications to run and what variables
+ to include when testing hypotheses.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "humphreys2013fishing"
+literal "false"
+
+\end_inset
+
+ argue that (comprehensive but nonbinding) mock reports can reduce intentional
+ and unintentional fishing, and make published research more reliable.
+ This mock analysis is contained in an R script, which is run from within
+ the LyX or LaTeX typesetting software using the 
+\begin_inset CommandInset href
+LatexCommand href
+name "knitr engine"
+target "https://en.wikipedia.org/wiki/Knitr"
+literal "false"
+
+\end_inset
+
+, and can be found 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://github.com/bjvca/Seed_systems_project/tree/master/papers/mock_report"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  Some of these characteristics are unlikely to be affected by the intervention,
  while others are picked from the primary and secondary outcomes.
  In table 
@@ -11588,7 +11438,8 @@ noprefix "false"
  has a slightly larger effect on the switching of farmers to different agro-inpu
 t shops.
  According to farmers, the difference in efforts and services between treatment
- and control group is larger in these areas and significant at the 1% level.
+ and control group is larger in these areas and sso that ignificant at the
+ 1% level.
  For areas with more than one dealer, the difference in likelihood of packaging
  dates being visible on maize seed bags is also larger than for the full
  sample.
@@ -11973,7 +11824,8 @@ Acknowledgments
 status open
 
 \begin_layout Plain Layout
-Funding?
+Funding? see discr.
+ paper/ pre registry AEA/ Roberts email 
 \end_layout
 
 \end_inset
@@ -11998,7 +11850,7 @@ https://forum.getodk.org/t/cycle-through-records-from-pulled-data/32997 -
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "seed_systems_pap"
+bibfiles "C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/seed_systems_pap"
 options "IFPRI_Style"
 
 \end_inset
@@ -12407,48 +12259,35 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Details about factorial design
+Details about rating computations
 \begin_inset CommandInset label
 LatexCommand label
-name "sec: Details about factorial design"
+name "sec: Details about rating computations"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-Our factorial design deviates from commonly used factorial designs in that
- the experimental unit differs depending on the factor.
- For the first two factors, corresponding to the information clearinghouse
- and the input-dealer training, randomization happens at the level of the
- catchment area.
- For the third factor that addresses learning failures of farmers, randomization
- happens at the level of the village.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-The main motivation to randomize at the village level is to eliminate potential
- spillover effects for the third treatment.
- However, as we will discuss later, we make sure there is correspondence
- between villages and input dealers, which would allow us to also look at
- the impact of the farmer training treatment on outcomes at the input dealer
- level.
- However, at that level, spillovers may affect results.
-\end_layout
-
-\end_inset
-
-
+\begin_layout Paragraph*
+What to do if a treated dealer does not receive a single rating?
 \end_layout
 
 \begin_layout Standard
-The resulting layout, with sample sizes indicated in each treatment cell
- is illustrated in figure 
+If a shop in a treated catchment area is not rated by a single farmer e.g.
+ because no farmer in our sample knows him or her, we could fill in the
+ catchment area mean as his or her rating.
+ However, this is not as innocent as it seems because it is likely that
+ the lack of ratings is not random.
+ Poor quality dealers have less customers, so their likelihood to get rated
+ is lower.
+ Giving them average catchment area ratings inflates the ratings of these
+ low quality dealers.
+ Instead, we simply told farmers that we do not have information about this
+ shop (implicitly informing the farmer that it exists), see also table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Design"
+reference "SMS"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12456,81 +12295,94 @@ noprefix "false"
 \end_inset
 
 .
- The first two interventions are implemented at the catchment area level.
- A total of 130 catchment areas are included in the study.
- Half of these are randomly allocated to the first treatment: all input
- dealers in 66 catchment areas receive the input dealer training, while
- input dealers in the remaining 64 catchment areas function as the control
- for this treatment.
- This corresponds to 166 and 182 input dealers in these treatment arms.
- Orthogonal to the first factor, the second factor is placed, corresponding
- to the second treatment that is also implemented at the catchment area
- level.
- Also here, in half of the 130 catchment areas an information clearinghouse
- was implemented, and half of the catchment areas function as a control
- for this treatment.
- However, this is done in such a way that balance with respect to the first
- treatment exists in both treatment and control groups for the second treatment.
- This means that the treatment group of the second treatment consists of
- 33 catchment areas that received the first treatment and 32 catchment areas
- that function as the control for the first treatment.
- Similarly, for the control catchment areas for the second treatment, 33
- are catchment areas where input dealers received the input dealer training
- and 32 catchment areas where input dealers did not get trained.
+ 16 of 193 treated dealers were not rated by a single farmer in the first
+ round.
+\end_layout
+
+\begin_layout Paragraph*
+Should more ratings lead to better ratings?
 \end_layout
 
 \begin_layout Standard
-While the third treatment is implemented at the level of the village, it
- is also important to preserve balance in the orthogonal factors.
- In other words, we need to make sure that an equal number of villages that
- are assigned to receive a treatment against learning failures are drawn
- from catchment areas where input dealers received training as from catchment
- areas where the input dealer training did not take place.
- Similarly, orthogonality should also be maintained for the second treatment.
- Therefore, in each of the four treatment cells formed by interacting the
- first two treatments, 175 villages were randomly assigned to the third
- treatment while another 173 villages were assigned to the control.
+Some shops were not rated by any smallholder in the first round, while others
+ were rated by up to 22 smallholders.
+ If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is
+ rated by 1 farmer and gets rating 3,6, we treat dealer B as the better
+ dealer.
+ Even though receiving many (few) ratings can be related to good (poor)
+ quality (the lack of ratings could be nonrandom, see previous paragraph),
+ there could be other reasons why dealers are rated by many (few) farmers.
+ Furthermore, giving higher ratings to better-known dealers could harm new
+ dealers entering the market and dealers who are discriminated e.g.
+ due to their gender.
+ Also on TripAdvisor, having more reviews than a rival hotel does not guarantee
+ a higher ranking.
+\end_layout
+
+\begin_layout Paragraph*
+Should ratings depend on catchment area dealer performance?
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename actual_design_nofarmers.pdf
-	scale 50
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Design
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Design"
-
-\end_inset
-
-
+The following examples show that ratings should not depend on catchment
+ area averages.
+ In an area with poor quality dealers in which one dealer is a bit better
+ than the rest but still poor, we do not want this dealer to be rated well
+ (i.e.
+ expose farmers to poor quality dealers).
+ Similarly, in an area with good dealers in which one dealer is a bit worse
+ than the rest but still good, we do not want this dealer to be rated poorly
+ (which would be unfair towards him or her).
+ On the other hand, less than 9% of shops received a rating below 3 out
+ of 5, so we would throw away valuable data if we would only disseminate
+ good scores without any variation.
+ Therefore, we take the distribution of ratings into account by using quintiles.
+ Consequently, less dealers receive rating 4 or 5, more dealers receive
+ rating 1 or 2.
+ This could strengthen the effect of the treatment on dealer effort.
+ If dealers get ratings 1 or 2 instead of 4 or 5, they could feel more inclined
+ to improve their scores.
+ Consequently, also the effect on seed quality itself could be larger.
+ However, the clearinghouse should also have a signaling effect, which might
+ be weaker if more dealers are rated 1 or 2 instead of 4 or 5 (dealers would
+ seem to be of worse quality to farmers).
+ Therefore, we chose words with a positive connotation as the quintile names
+ for rating dissemination.
+ As most dealers received a good or very good rating before taking the distribut
+ion into account, we ensure that even a 2 is still communicated as "good"
+ to farmers to not weaken the signaling effect.
+ That is why the first quintile is translated to "okay" and gets one star,
+ the second one is named "good" and receives two stars, the third quintile
+ is "very good" and gets three stars, the fourth and fifth one are "excellent"
+ and awarded with four and five stars.
+ This way of considering the distribution of the original ratings when choosing
+ the names also helps us to disseminate ratings as truthfully, purely and
+ as closely to reality as possible.
 \end_layout
 
-\end_inset
-
-
+\begin_layout Paragraph*
+Are female dealers rated worse than male dealers?
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
+\begin_layout Standard
+Because we found significant differences between the ratings of female (41%
+ of dealers) and male agro-input dealers (59% of dealers) after controlling
+ for some potentially confounding variables like education and for several
+ indications of quality, we have no reason to believe that these differences
+ in perception can be explained by differences in real quality.
+ Instead, it is likely that women are perceived to be worse due to discriminatio
+n 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "De2022"
+literal "false"
 
 \end_inset
 
-
+, so that we adjusted the ratings of female dealers accordingly to prevent
+ that they are harmed by our intervention.
+ We regressed all seed quality attributes on the gender dummy and added
+ the resulting coefficients to the initial ratings of female dealers.
 \end_layout
 
 \begin_layout Subsection
