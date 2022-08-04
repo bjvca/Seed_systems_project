@@ -366,7 +366,7 @@ literal "false"
 
 .
  These studies provide empirical evidence of Ugandan agricultural inputs
- being lemons and also in our sample, 69% of farmers think that seed which
+ being lemons and also in our sample, 68% of farmers think that seed which
  is sold at agro-input shops is fake.
  In line with this literature, we hypothesize that the intentional and unintenti
 onal malpractices of dealers lead to poor seed quality, resulting in under-adopt
@@ -702,7 +702,7 @@ literal "false"
 \end_inset
 
 .
- Also in our sample, 69% of farmers think that maize seed that is sold at
+ Also in our sample, 68% of farmers think that maize seed that is sold at
  shops is adulterated.
 \end_layout
 
@@ -2271,7 +2271,7 @@ name "subsection: Multiple hypothesis testing"
 
 \begin_layout Standard
 We evaluate the effect of the clearinghouse intervention and investigate
- its impact channels by considering a range of different outcome measures.
+ its impact channels by considering a range of different outcome variables.
  Testing hypotheses regarding multiple outcomes calls for special techniques
  because the probability of rejecting a true null hypothesis for at least
  one outcome is larger than the significance level used for each test 
@@ -2321,7 +2321,10 @@ literal "false"
  The weights of this efficient generalized least squares estimator are calculate
 d to maximize the amount of information captured in the index by giving
  less weight to outcomes that are highly correlated with each other.
- Combining outcomes in indices is a common strategy against over-rejection
+\end_layout
+
+\begin_layout Standard
+Combining outcomes in indices is a common strategy against over-rejection
  of the null hypothesis due to multiple inference.
  This approach is useful to see whether a particular treatment generally
  has a positive impact.
@@ -2338,20 +2341,30 @@ d to maximize the amount of information captured in the index by giving
 \end_layout
 
 \begin_layout Standard
-As we are interested in the effect of the clearinghouse on individual outcomes,
- an alternative strategy to deal with multiple comparisons is to adjust
- the significance levels according to family-wise error rates.
+An alternative strategy to deal with multiple comparisons is to adjust the
+ significance levels according to family-wise error rates.
  Here individual coefficients are considered to be part of a family of n
  hypotheses.
  The family-wise error rate is the probability of at least one type I error
  in this family.
  We can maintain the family-wise error rate at some level alpha like 0.05
- or 0.10 by adjusting the p-values used to test each individual null hypothesis
- in the family.
+ by adjusting the p-values used to test each individual null hypothesis
+ in the family 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "multiple"
+literal "false"
+
+\end_inset
+
+.
  The simplest of these methods is the Bonferroni adjustment, where alpha/n
  are used as critical values.
+ For example, if one would like to test 20 hypotheses, the cutoff p-value
+ for testing each individual outcome would be less than 0.0025 so that the
+ family-wise error rate remains at the 0.05 level.
  The downside of this method is that it assumes that outcomes are independent,
- and it often too conservative when outcomes are correlated.
+ rendering it too conservative when outcomes are correlated.
  That is why we adjust while accounting for correlation, an approach used
  by 
 \begin_inset CommandInset citation
@@ -2391,17 +2404,9 @@ name "subsection: Variable construction"
 \end_layout
 
 \begin_layout Standard
-For continuous variables at the farmer level, 5% trimmed values are used
- to reduce the influence of outliers (2.5% trimming at each side of the distribut
-ion).
- At the agro-input dealer level, we use 2% trimmed values (1% trimming at
- each side of the distribution) because there are less observations at this
- level and we do not want to loose more statistical power than necessary.
- Inverse hyperbolic sine transforms are used if skewness exceeds 1.96.
- Trimming is always done on end results.
- For instance, if the outcome is yield, then production will first be divided
- by plot area, after which inverse hyperbolic sine is taken and the end
- result is trimmed.
+For continuous variables, trimmed values are used to reduce the influence
+ of outliers.
+ Inverse hyperbolic sine transforms are used if variables are skewed.
  Outcomes for which 95% of observations have the same value within the relevant
  sample are omitted from the analysis and not included in any indicators
  or hypothesis tests.
@@ -2442,8 +2447,8 @@ noprefix "false"
  The dealer sample was obtained by listing all agro-input shops in 11 districts
  in southeastern Uganda, which roughly corresponds to the Busoga kingdom,
  during a census.
- This resulted in 348 dealers, a sufficient sample to detect treatment effects
- according to our power simulations.
+ This final sample consists of 348 dealers, sufficient to detect treatment
+ effects according to our power simulations.
 \end_layout
 
 \begin_layout Standard
@@ -2490,9 +2495,9 @@ delete footnote?
 
 .
  Then enumerators were sent to these villages and instructed to randomly
- sample ten households that meet the inclusion criteria.
- Consequently, 3470 smallholder maize farmers were sampled, sufficient to
- detect treatment effects according to our power simulations.
+ sample ten households that grow maize.
+ Consequently, about 3500 smallholder maize farmers were sampled, sufficient
+ to detect treatment effects according to our power simulations.
 \end_layout
 
 \begin_layout Standard
@@ -2506,170 +2511,32 @@ For some outcome variables, details at the plot level are needed (e.g.
  To do so, we ask enumerators to first list all plots, with names farmers
  use to refer to these plots (e.g.
  home plot, plot near the sugar cane factory).
- The Open Data Kit (ODK) program then randomly selects one plot for which
- detailed questions are asked.
+ The Computer-Assisted Personal Interviews (CAPI) software then randomly
+ selects one plot for which detailed questions are asked.
 \end_layout
 
 \begin_layout Standard
 We measure the outcomes of interest before and after the intervention, so
- that we can assess the treatment effect.
+ that we can condition the treatment effect estimates on baseline values
+ of the outcome variables to increase power.
  Baseline data was collected from dealers in September and October 2020
  and from farmers in April 2021.
  Midline data was collected in January and in February 2022, and endline
- data was collected in July and August 2022.
- See also the timeline in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "timeline"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ data will be collected in July and August 2022.
  The baseline, midline and endline surveys will constitute the key data
  sources for this study.
 \end_layout
 
 \begin_layout Subsection
 Descriptive statistics
-\end_layout
-
-\begin_layout Standard
-This subsection provides descriptive statistics for the baseline data.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_dealer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- reports summary statistics at the 
-\shape italic
-shop level
-\shape default
-.
- We see substantial heterogeneity among the agro-input dealers in our sample.
- Some are small informal shops which are located in rural areas and sell
- maize seed only during the planting season while they usually sell other
- products.
- Others have many customers, are efficient, located in towns and specialized
- in inputs and equipment used in agricultural production.
- The average shop was established 5 years ago and is located 7 kilometers
- from the nearest tarmac road.
- It has 3 maize varieties in stock, 41 customers per day and 21 of them
- buy maize seed.
- 75% have a trading license issued by the local government, 74% are specialized
- shops which only sell farm inputs, and 44% are registered with the Uganda
- National Agro-Input and Dealers’ Association (UNADA).
-\end_layout
-
-\begin_layout Standard
-When enumerators approached a shop to interview the agro-input dealer, they
- tried to talk to the person who is most knowledgeable about the day to
- day operations of the business, inventories, sales, and so on.
- The average respondent is 32 years old.
- 60% are male and almost 40% finished secondary education.
- In 56% of the cases, the respondent is the owner of the shop and half of
- the respondents were trained on seed handling and storage.
-\end_layout
-
-\begin_layout Standard
-We also collected a variety of variables related to the quality of maize
- seed sold at these agro-input shops.
- Our enumerators asked if they could check where the seed is stored and
- noted that there is quite some room for improvement.
- 65% of shops have problems with pests like rats or insects, only 54% have
- a leak-proof roof, and 16% store maize seed in open containers.
- Then we asked dealers about the services they provide.
- Around half of them always recommend complementary inputs, offer extension
- or training and credit.
- On the other hand, 52% of dealers repackage seed into smaller quantities
- which often causes deterioration in quality, and 2 in 3 shops received
- a complaint about seed they sold from a customer since last season.
- We also purchased a bag of maize seed.
- Note that only 232 shops in our sample had seed in stock at the time of
- the baseline interview, hence the smaller sample size.
- We measured the moisture in the bag and found that it was 13.6% on average,
- with a minimum of 10.3 and a maximum of 17.4.
- Note that seed moisture content determines whether molds and storage pests
- thrive, so that moisture should stay below 13%.
- While 68% of seed bags show a packaging date, only 18% show an expiry date,
- 8% show a certification sticker, and 3% show an indication of e-verification.
-\end_layout
-
-\begin_layout Standard
-Interestingly, when asked to rate the product quality of an agro-input shop
- on a scale of 1 to 5, dealers rated themselves significantly better than
- farmers did.
- It is also interesting to note that farmers who bought seed at a particular
- agro-input shop rate this shop's seed significantly worse than farmers
- who did not.
- Both comparisons can only be made for clearinghouse treated dealers and
- farmers because control dealers were not rated at baseline, and control
- farmers did not rate at baseline, hence the smaller sample size.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
-
-<<standard_beginning, echo=F, warning=F, message=F>>=
+former descriptives table:
 \end_layout
 
 \begin_layout Plain Layout
-
-path2 <- getwd()
-\end_layout
-
-\begin_layout Plain Layout
-
-path2 <- strsplit(path2,"/Caros_MASE_thesis")[[1]]
-\end_layout
-
-\begin_layout Plain Layout
-
-path2 <- paste(path2,"midline_report",sep="/")
-\end_layout
-
-\begin_layout Plain Layout
-
-source(paste(path2,
-\begin_inset Quotes eld
-\end_inset
-
-midline_report_Caro.R
-\begin_inset Quotes erd
-\end_inset
-
-,sep=
-\begin_inset Quotes erd
-\end_inset
-
-/
-\begin_inset Quotes erd
-\end_inset
-
-))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -2679,7 +2546,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Descriptive statistics - Agro-input dealer
+Descriptive statistics
 \begin_inset CommandInset label
 LatexCommand label
 name "descriptives_dealer1"
@@ -2754,6 +2621,21 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
+
+\backslash
+textbf{Agro-input dealer} & & & & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 Shop's distance to nearest tarmac road in km & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[6,1],digits=2),nsmall=2)} & 
@@ -2800,32 +2682,7 @@ Sexpr{format(round(df_descriptives_dealer[8,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Number of customers per day & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[9,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[9,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[9,3],digits=2),nsmall=0)}  & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[9,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[9,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of customers per day 
-\backslash
-textbf{buying maize seed} & 
+Number of customers buying maize seed per day & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[10,1],digits=2),nsmall=2)} & 
 \backslash
@@ -2837,102 +2694,6 @@ Sexpr{format(round(df_descriptives_dealer[10,3],digits=2),nsmall=0)}  &
 Sexpr{format(round(df_descriptives_dealer[10,4],digits=2),nsmall=2)} & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[10,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Years since shop establishment & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[11,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[11,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[11,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[11,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[11,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of maize varieties in stock & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[19,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[19,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[19,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[19,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[19,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop is registered with UNADA & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[60,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[60,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[60,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[60,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[60,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has trading license by local government & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[61,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[61,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[61,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[61,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[61,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -3050,34 +2811,6 @@ Sexpr{format(round(df_descriptives_dealer[5,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Respondent received training on seed handling & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[16,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[16,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[16,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[16,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[16,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3115,30 +2848,6 @@ Sexpr{format(round(df_descriptives_dealer[27,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Shop has leak-proof roof & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[28,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[28,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[28,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[28,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[28,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Shop stores maize seed in open containers & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[36,1],digits=2),nsmall=2)} & 
@@ -3151,101 +2860,6 @@ Sexpr{format(round(df_descriptives_dealer[36,3],digits=2),nsmall=0)}  &
 Sexpr{format(round(df_descriptives_dealer[36,4],digits=2),nsmall=2)} & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[36,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop always recommends complementary inputs & 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(df_descriptives_dealer[42,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[42,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[42,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[42,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[42,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop offers extension/training & 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(df_descriptives_dealer[43,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[43,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[43,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[43,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[43,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop repackages seed into smaller quantities & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[46,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[46,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[46,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[46,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[46,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -3347,30 +2961,6 @@ Sexpr{format(round(df_descriptives_dealer[70,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Random seed bag shows expiry date & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[71,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[71,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[71,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[71,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[71,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Random seed bag shows packaging date & 
 \backslash
 Sexpr{format(round(df_descriptives_dealer[73,1],digits=2),nsmall=2)} & 
@@ -3395,54 +2985,6 @@ Sexpr{format(round(df_descriptives_dealer[73,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Random seed bag shows certification sticker & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[77,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[77,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[77,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[77,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[77,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Random seed bag shows e-verification & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[79,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[79,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[79,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[79,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[79,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3451,226 +2993,6 @@ Sexpr{format(round(df_descriptives_dealer[79,5],digits=2),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop's rating by farmers: product quality & 
-\backslash
-Sexpr{format(round(3.76,digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(2.00,digits=3),nsmall=0)} & 
-\backslash
-Sexpr{format(round(5.00,digits=3),nsmall=0)}  & 
-\backslash
-Sexpr{format(round(0.65,digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(177,digits=3),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Dealer's self-rating: product quality & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[57,1],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[57,2],digits=3),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[57,3],digits=3),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[57,4],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(df_descriptives_dealer[57,5],digits=3),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "descriptives_farmer1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- reports summary statistics at the 
-\shape italic
-farmer level
-\shape default
-.
- When approaching the household, the enumerators were instructed to interview
- someone who is most knowledgeable about maize farming.
- However, a set of questions deals with the household head, who could be
- or could not be the respondent.
- 78% the household heads in our sample are male, 51% have finished primary
- education.
- The average household head is 49 years old.
-\end_layout
-
-\begin_layout Standard
-The average household started farming maize 23 years ago and has 3 acres
- of land for crop production.
- 13% of farmers in our sample are members of farmer groups, associations
- or cooperatives.
- On average, 9 people belong to one household and share 3 rooms.
- The homestead of an average farmer is located 1 kilometer from the headquarters
- of the village, 4 kilometers from the nearest agro-input shop, and 9 kilometers
- from the nearest tarmac road.
-\end_layout
-
-\begin_layout Standard
-Half of the farmers in our sample adopted improved maize seed on any of
- their fields last season, of these adopting farmers, 2 out of 3 bought
- this seed at an agro-input shop.
- Baseline data also shows that quality is an important factor when farmers
- decide whether and where to buy maize seed.
- When we asked farmers for the most important reason why they bought seed
- at an agro-input shop last season, seed there being of very good quality
- was the most frequent answer with 58%.
- On the other hand, when we asked farmers for the most important reason
- why they did not buy seed at an agro-input shop last season, quality concerns
- were the second most frequent answer (after the shop being too expensive).
- 
-\end_layout
-
-\begin_layout Standard
-Only 25% applied Di-Ammonium Phosphate (DAP) or Nitrogen, Phosphorus, and
- Potassium (NPK) on a randomly selected maize field, 7% applied Urea, and
- 41% applied pesticides, herbicides or fungicides.
- Consequently, productivity is low with 500 kilograms per acre.
- Interestingly, farmers who adopted improved maize seed harvested 589 kilograms
- (worth 413 000 Ugandan shillings (UGX)) per acre on average, whereas farmers
- who did not harvested 424 kilograms (worth 299 000 UGX) per acre, meaning
- that adopting farmers had 40% more yield (worth 114 000 UGX) per acre.
- However, farmers who adopted report to have spent on average 32 000 UGX
- per acre on seed material, farmers who did not 1000 UGX per acre.
- This results in a difference of 30 000 UGX per acre in seed costs, meaning
- that adopting farmers almost quadrupled their investment.
- Half of all farmers sold some maize.
- The ones that did earned an average revenue of 313 000 UGX (80 US dollars).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Descriptive statistics - Farmer
-\begin_inset CommandInset label
-LatexCommand label
-name "descriptives_farmer1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & min & max & SD & obs.
-\backslash
-
-\backslash
 
 \end_layout
 
@@ -3687,7 +3009,22 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer's age in years & 
+
+\backslash
+textbf{Farmer} & & & & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Household head's age in years & 
 \backslash
 Sexpr{format(round(df_descriptives_farmer[6,1],digits=2),nsmall=2)} & 
 \backslash
@@ -3710,7 +3047,7 @@ Sexpr{format(round(df_descriptives_farmer[6,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Farmer is male & 
+Household head is male & 
 \backslash
 Sexpr{format(round(df_descriptives_farmer[7,1],digits=2),nsmall=2)} & 
 \backslash
@@ -3733,7 +3070,7 @@ Sexpr{format(round(df_descriptives_farmer[7,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Farmer finished primary education & 
+Household head finished primary education & 
 \backslash
 Sexpr{format(round(df_descriptives_farmer[10,1],digits=2),nsmall=2)} & 
 \backslash
@@ -3770,17 +3107,17 @@ Sexpr{format(round(df_descriptives_farmer[10,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Homestead's distance to village headquarters in km & 
+Homestead's distance to nearest tarmac road in km & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[2,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_descriptives_farmer[1,1],digits=2),nsmall=2)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[2,2],digits=2),nsmall=0)} & 
+Sexpr{format(round(df_descriptives_farmer[1,2],digits=2),nsmall=0)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[2,3],digits=2),nsmall=0)}  & 
+Sexpr{format(round(df_descriptives_farmer[1,3],digits=2),nsmall=0)}  & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[2,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_descriptives_farmer[1,4],digits=2),nsmall=2)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[2,5],digits=2),nsmall=0)}
+Sexpr{format(round(df_descriptives_farmer[1,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -3816,29 +3153,6 @@ Sexpr{format(round(df_descriptives_farmer[3,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Homestead's distance to nearest tarmac road in km & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[1,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[1,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[1,3],digits=2),nsmall=0)}  & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[1,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[1,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Number of people in household (incl.
  respondent) & 
 \backslash
@@ -3855,34 +3169,6 @@ Sexpr{format(round(df_descriptives_farmer[12,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of rooms in house & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[13,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[13,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[13,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[13,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[13,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3953,18 +3239,42 @@ Sexpr{format(round(df_descriptives_farmer[16,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Farmer is member of farmer association/cooperative & 
+Land productivity in kg/acre (yield/area) & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[17,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_descriptives_farmer[86,1],digits=1),nsmall=1)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[17,2],digits=2),nsmall=0)} & 
+Sexpr{format(round(df_descriptives_farmer[86,2],digits=2),nsmall=0)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[17,3],digits=2),nsmall=0)}  &
+Sexpr{format(round(df_descriptives_farmer[86,3],digits=2),nsmall=0)}  &
  
 \backslash
-Sexpr{format(round(df_descriptives_farmer[17,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_descriptives_farmer[86,4],digits=0),nsmall=0)} & 
 \backslash
-Sexpr{format(round(df_descriptives_farmer[17,5],digits=2),nsmall=0)}
+Sexpr{format(round(df_descriptives_farmer[86,5],digits=2),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer sold maize & 
+\backslash
+Sexpr{format(round(df_descriptives_farmer[92,1],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(df_descriptives_farmer[92,2],digits=2),nsmall=0)} & 
+\backslash
+Sexpr{format(round(df_descriptives_farmer[92,3],digits=2),nsmall=0)}  &
+ 
+\backslash
+Sexpr{format(round(df_descriptives_farmer[92,4],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(df_descriptives_farmer[92,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -4038,116 +3348,7 @@ Sexpr{format(round(df_descriptives_farmer[20,5],digits=2),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Farmer didn't buy seed at shop because it's too expensive & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[23,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[23,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[23,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[23,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[23,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer didn't buy seed at shop because it's of bad quality & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[24,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[24,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[24,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[24,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[24,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer bought seed at shop because it's of good quality & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[25,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[25,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[25,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[25,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[25,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmers thinks seed at agro-input shop is counterfeit  & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[29,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[29,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[29,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[29,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[29,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer applied DAP/NPK on maize field & 
+Farmer used DAP/NPK & 
 \backslash
 Sexpr{format(round(df_descriptives_farmer[72,1],digits=2),nsmall=2)} & 
 \backslash
@@ -4162,147 +3363,6 @@ Sexpr{format(round(df_descriptives_farmer[72,5],digits=2),nsmall=0)}
 \backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer applied Urea on maize field & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[74,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[74,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[74,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[74,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[74,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer applied pesti-/herbi-/fungicides on maize field & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[80,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[80,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[80,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[80,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[80,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Land productivity in kg/acre (yield/area) & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[86,1],digits=1),nsmall=1)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[86,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[86,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[86,4],digits=0),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[86,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer sold maize from this field & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[92,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[92,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[92,3],digits=2),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[92,4],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[92,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Revenue in 1000 UGX (number of sold bags x price/bag) & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[96,1],digits=0),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[96,2],digits=2),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[96,3],digits=0),nsmall=0)}  &
- 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[96,4],digits=0),nsmall=0)} & 
-\backslash
-Sexpr{format(round(df_descriptives_farmer[96,5],digits=2),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -4341,6 +3401,203 @@ end{center}
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This subsection describes the baseline sample.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports means in the 
+\shape italic
+agro-input shop 
+\shape default
+sample.
+ When enumerators approached a shop to interview the dealer, they tried
+ to talk to the person who is most knowledgeable about the day to day operations
+ of the business, inventories, sales, and so on.
+ The average respondent is 32 years old.
+ 60% are male and more than 90% finished primary education.
+ In 55% of the cases, the respondent is the owner of the shop.
+\end_layout
+
+\begin_layout Standard
+We see substantial heterogeneity among the agro-input shops.
+ Some are small informal stores which are located in rural areas and sell
+ maize seed only during the planting season while they usually sell other
+ products.
+ Others have many customers, are efficient, located in towns and specialized
+ in inputs and equipment used in agricultural production.
+ The average shop was established 5 years ago and is located 7 kilometers
+ from the nearest tarmac road.
+ It has 41 customers per day.
+ 74% are specialized shops which only sell farm inputs.
+\end_layout
+
+\begin_layout Standard
+We also collected a variety of variables related to the quality of maize
+ seed sold at these agro-input shops.
+ Enumerators asked if they could inspect the area where seed is stored and
+ noted that there is quite some room for improvement.
+ 65% of shops have problems with pests like rats or insects and 16% store
+ maize seed in open containers.
+ Then we asked dealers about the services they provide.
+ Around half of them offer credit and extension or training.
+ On the other hand, 2 in 3 shops received a complaint about seed they sold
+ from a customer since last season.
+\end_layout
+
+\begin_layout Standard
+We also purchased a bag of maize seed.
+ Note that only 232 shops in our sample had seed in stock at the time of
+ the baseline interview.
+ We measured the moisture in the bag and found that it was 13.6% on average,
+ with a minimum of 10.3 and a maximum of 17.4.
+ Note that seed moisture content determines whether molds and storage pests
+ thrive, so that moisture should stay below 13%.
+ While 68% of seed bags show a packaging date, only 18% show an expiry date,
+ and 8% show a certification sticker.
+\end_layout
+
+\begin_layout Standard
+Interestingly, when asked to rate the product quality of an agro-input shop
+ on a scale of 1 to 5, dealers rated themselves significantly better than
+ farmers did.
+ It is also interesting to note that farmers who bought seed at a particular
+ agro-input shop rate this shop's seed significantly worse than farmers
+ who did not.
+ Both comparisons can only be made for clearinghouse treated dealers and
+ farmers because control dealers were not rated at baseline, and control
+ farmers did not rate at baseline.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<standard_beginning, echo=F, warning=F, message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- strsplit(path2,"/Caros_MASE_thesis")[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- paste(path2,"midline_report",sep="/")
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path2,
+\begin_inset Quotes eld
+\end_inset
+
+midline_report_Caro.R
+\begin_inset Quotes erd
+\end_inset
+
+,sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports means in the 
+\shape italic
+farmer 
+\shape default
+sample.
+ When approaching a household, the enumerators were instructed to interview
+ the person who is most knowledgeable about maize farming.
+ However, a set of questions deals with the household head, who could be
+ or could not be the respondent.
+ 78% the household heads in our sample are male, 51% have finished primary
+ education.
+ The average household head is 49 years old.
+\end_layout
+
+\begin_layout Standard
+On average, 9 people belong to one household and share 3 rooms.
+ The homestead of an average farmer is located 4 kilometers from the nearest
+ agro-input shop and 9 kilometers from the nearest tarmac road.
+ The average household started farming maize 23 years ago and has 3 acres
+ of land for crop production.
+\end_layout
+
+\begin_layout Standard
+Half of the farmers in our sample adopted improved maize seed on at least
+ one of their fields last season.
+ Of these adopting farmers, 2 out of 3 bought this seed at an agro-input
+ shop.
+ Baseline data also shows that quality is an important factor when farmers
+ decide whether and where to buy maize seed.
+ When we asked farmers for the most important reason why they bought seed
+ at an agro-input shop last season, seed there being of very good quality
+ was the most frequent answer with 58%.
+ On the other hand, when we asked farmers for the most important reason
+ why they did not buy seed at an agro-input shop last season, quality concerns
+ were the second most frequent answer (after the shop being too expensive).
+\end_layout
+
+\begin_layout Standard
+Only 25% applied chemical fertilizers (Di-Ammonium Phosphate (DAP) or Nitrogen,
+ Phosphorus, and Potassium (NPK)) on a randomly selected maize field.
+ Consequently, productivity is low with 500 kilograms per acre.
+ Interestingly, farmers who adopted improved maize seed harvested 589 kilograms
+ (worth 413 000 Ugandan shillings (UGX)) per acre on average, whereas farmers
+ who did not harvested 424 kilograms (worth 299 000 UGX) per acre, meaning
+ that adopting farmers had 39% more yield (worth 114 000 UGX) per acre.
+ However, farmers who adopted report to have spent on average 32 000 UGX
+ per acre on seed material, farmers who did not 1 000 UGX per acre.
+ This results in a difference of 31 000 UGX per acre in seed costs, meaning
+ that adopting farmers almost quadrupled their investment.
 \end_layout
 
 \begin_layout Subsection
@@ -4505,7 +3762,7 @@ status open
 
 
 \backslash
-small
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -4566,21 +3823,21 @@ cline{2-3}
 
 \begin_layout Plain Layout
 
-Respondent's age in years
+Respondent's age (in years)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,1],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,1],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,1],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,1]<.01,"**",ifelse(df_ols[3,2,1]<.05,"*",ifelse(df_ols[3,2
 ,1]<.1,"+","")))}}$ 
@@ -4594,14 +3851,14 @@ Sexpr{ifelse(df_ols[3,2,1]<.01,"**",ifelse(df_ols[3,2,1]<.05,"*",ifelse(df_ols[3
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,1],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,1],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,1],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4621,14 +3878,14 @@ Respondent is male
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,2],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,2],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,2],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,2]<.01,"**",ifelse(df_ols[3,2,2]<.05,"*",ifelse(df_ols[3,2
 ,2]<.1,"+","")))}}$ 
@@ -4642,14 +3899,14 @@ Sexpr{ifelse(df_ols[3,2,2]<.01,"**",ifelse(df_ols[3,2,2]<.05,"*",ifelse(df_ols[3
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,2],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,2],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,2],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols[2,2,2],digits=2),nsmall=2)})
 \backslash
 
 \backslash
@@ -4669,14 +3926,14 @@ Respondent finished primary education
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,3],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,3],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,3],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,3]<.01,"**",ifelse(df_ols[3,2,3]<.05,"*",ifelse(df_ols[3,2
 ,3]<.1,"+","")))}}$ 
@@ -4690,14 +3947,14 @@ Sexpr{ifelse(df_ols[3,2,3]<.01,"**",ifelse(df_ols[3,2,3]<.05,"*",ifelse(df_ols[3
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,3],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,3],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,3],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4710,72 +3967,24 @@ Sexpr{format(round(df_ols[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop's distance to nearest tarmac road in km
+Respondent owns shop
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,4],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,23],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,23],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols[3,2,4]<.01,"**",ifelse(df_ols[3,2,4]<.05,"*",ifelse(df_ols[3,2
-,4]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,4],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of customers per day
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,5]<.01,"**",ifelse(df_ols[3,2,5]<.05,"*",ifelse(df_ols[3,2
-,5]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols[3,2,23]<.01,"**",ifelse(df_ols[3,2,23]<.05,"*",ifelse(df_ols[3
+,2,23]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4786,62 +3995,14 @@ Sexpr{ifelse(df_ols[3,2,5]<.01,"**",ifelse(df_ols[3,2,5]<.05,"*",ifelse(df_ols[3
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,23],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,5],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Years since shop establishment
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,6]<.01,"**",ifelse(df_ols[3,2,6]<.05,"*",ifelse(df_ols[3,2
-,6]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,6],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,23],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4861,14 +4022,14 @@ Respondent received training on maize seed handling/storage
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,7],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,7],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,7],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,7]<.01,"**",ifelse(df_ols[3,2,7]<.05,"*",ifelse(df_ols[3,2
 ,7]<.1,"+","")))}}$ 
@@ -4882,302 +4043,14 @@ Sexpr{ifelse(df_ols[3,2,7]<.01,"**",ifelse(df_ols[3,2,7]<.05,"*",ifelse(df_ols[3
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,7],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,7],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,7],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of maize varieties in stock
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,8]<.01,"**",ifelse(df_ols[3,2,8]<.05,"*",ifelse(df_ols[3,2
-,8]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,8],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Amount of maize seed sold during last season in kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,9]<.01,"**",ifelse(df_ols[3,2,9]<.05,"*",ifelse(df_ols[3,2
-,9]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,9],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Amount of maize seed lost/wasted during last season in kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,10]<.01,"**",ifelse(df_ols[3,2,10]<.05,"*",ifelse(df_ols[3
-,2,10]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,10],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has problem with pests
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,11],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,11]<.01,"**",ifelse(df_ols[3,2,11]<.05,"*",ifelse(df_ols[3
-,2,11]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,11],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has leak-proof roof
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,12],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,12]<.01,"**",ifelse(df_ols[3,2,12]<.05,"*",ifelse(df_ols[3
-,2,12]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,12],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop received seed related complaint from customer
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,13],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,13]<.01,"**",ifelse(df_ols[3,2,13]<.05,"*",ifelse(df_ols[3
-,2,13]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,13],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,7],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5197,14 +4070,14 @@ Respondent knows how seed should be stored after repackaging
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,14],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,14],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,14],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,14],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,14]<.01,"**",ifelse(df_ols[3,2,14]<.05,"*",ifelse(df_ols[3
 ,2,14]<.1,"+","")))}}$ 
@@ -5218,14 +4091,14 @@ Sexpr{ifelse(df_ols[3,2,14]<.01,"**",ifelse(df_ols[3,2,14]<.05,"*",ifelse(df_ols
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,14],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,14],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,14],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols[2,2,14],digits=2),nsmall=2)})
 \backslash
 
 \backslash
@@ -5238,24 +4111,37 @@ Sexpr{format(round(df_ols[2,2,14],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Shop has trading license by local government
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop's distance to nearest tarmac road (in km)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,15],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,4],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,15],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,4],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols[3,2,15]<.01,"**",ifelse(df_ols[3,2,15]<.05,"*",ifelse(df_ols[3
-,2,15]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols[3,2,4]<.01,"**",ifelse(df_ols[3,2,4]<.05,"*",ifelse(df_ols[3,2
+,4]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5266,14 +4152,14 @@ Sexpr{ifelse(df_ols[3,2,15]<.01,"**",ifelse(df_ols[3,2,15]<.05,"*",ifelse(df_ols
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,15],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,4],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,15],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,4],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5286,21 +4172,479 @@ Sexpr{format(round(df_ols[2,2,15],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Moisture in random seed bag in%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,16],digits=3),nsmall=3)}
+Shop only sells farm inputs
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages[1,21],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,21],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,21]<.01,"**",ifelse(df_ols[3,2,21]<.05,"*",ifelse(df_ols[3
+,2,21]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,21],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,21],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Years since shop establishment
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,6],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,6],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,6]<.01,"**",ifelse(df_ols[3,2,6]<.05,"*",ifelse(df_ols[3,2
+,6]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,6],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,6],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of customers per day
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,5],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,5],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,5]<.01,"**",ifelse(df_ols[3,2,5]<.05,"*",ifelse(df_ols[3,2
+,5]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,5],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,5],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Amount of maize seed sold during last season (in kg)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,9],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,9],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,9]<.01,"**",ifelse(df_ols[3,2,9]<.05,"*",ifelse(df_ols[3,2
+,9]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,9],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,9],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Amount of maize seed lost/wasted during last season (in kg)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,10],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,10],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,10]<.01,"**",ifelse(df_ols[3,2,10]<.05,"*",ifelse(df_ols[3
+,2,10]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,10],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,10],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has problem with pests
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,11],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,11],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,11]<.01,"**",ifelse(df_ols[3,2,11]<.05,"*",ifelse(df_ols[3
+,2,11]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,11],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,11],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop stores maize seed in open containers
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,24],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,24],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,24]<.01,"**",ifelse(df_ols[3,2,24]<.05,"*",ifelse(df_ols[3
+,2,24]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,24],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,24],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop provides seed on credit
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,25],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,25],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,25]<.01,"**",ifelse(df_ols[3,2,25]<.05,"*",ifelse(df_ols[3
+,2,25]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,25],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,25],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop received seed related complaint from customer
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,13],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,13],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,13]<.01,"**",ifelse(df_ols[3,2,13]<.05,"*",ifelse(df_ols[3
+,2,13]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,13],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,13],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Moisture in random seed bag (in percent)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,16],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,16],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,16]<.01,"**",ifelse(df_ols[3,2,16]<.05,"*",ifelse(df_ols[3
 ,2,16]<.1,"+","")))}}$ 
@@ -5314,14 +4658,14 @@ Sexpr{ifelse(df_ols[3,2,16]<.01,"**",ifelse(df_ols[3,2,16]<.05,"*",ifelse(df_ols
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,16],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,16],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,16],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,16],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5334,72 +4678,24 @@ Sexpr{format(round(df_ols[2,2,16],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Random seed bag shows lot number
+Random seed bag shows packaging date
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages[1,17],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages[1,26],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols[1,2,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols[1,2,26],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols[3,2,17]<.01,"**",ifelse(df_ols[3,2,17]<.05,"*",ifelse(df_ols[3
-,2,17]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,17],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,17],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop refunds if problem, according to farmers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,18],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,18],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,18]<.01,"**",ifelse(df_ols[3,2,18]<.05,"*",ifelse(df_ols[3
-,2,18]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols[3,2,26]<.01,"**",ifelse(df_ols[3,2,26]<.05,"*",ifelse(df_ols[3
+,2,26]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5410,110 +4706,14 @@ Sexpr{ifelse(df_ols[3,2,18]<.01,"**",ifelse(df_ols[3,2,18]<.05,"*",ifelse(df_ols
 
 & (
 \backslash
-Sexpr{format(round(df_averages[2,18],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages[2,26],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols[2,2,18],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop gives credit, according to farmers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,19],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,19],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,19]<.01,"**",ifelse(df_ols[3,2,19]<.05,"*",ifelse(df_ols[3
-,2,19]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,19],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,19],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop provides after-sales service, according to farmers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages[1,20],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols[1,2,20],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols[3,2,20]<.01,"**",ifelse(df_ols[3,2,20]<.05,"*",ifelse(df_ols[3
-,2,20]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages[2,20],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols[2,2,20],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols[2,2,26],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5557,7 +4757,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports sample means (and standard deviations below);
-  **, * and + denote significance at the 1, 5 and 10% levels.
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
  area).
 \end_layout
@@ -5605,7 +4805,7 @@ status open
 
 
 \backslash
-small
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -5666,117 +4866,21 @@ cline{2-3}
 
 \begin_layout Plain Layout
 
-Homestead's distance to nearest tarmac road in km
+Household head's age (in years)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,1],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,3],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,1]<.01,"**",ifelse(df_ols_farmer[3,2,1]<.05,"*",ife
-lse(df_ols_farmer[3,2,1]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,1],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Homestead's distance to nearest agro-input shop in km
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,2]<.01,"**",ifelse(df_ols_farmer[3,2,2]<.05,"*",ife
-lse(df_ols_farmer[3,2,2]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer's age in years
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,3],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,3]<.01,"**",ifelse(df_ols_farmer[3,2,3]<.05,"*",ife
 lse(df_ols_farmer[3,2,3]<.1,"+","")))}}$ 
@@ -5790,14 +4894,14 @@ lse(df_ols_farmer[3,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,3],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,3],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,3],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5810,21 +4914,21 @@ Sexpr{format(round(df_ols_farmer[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer is male
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,4],digits=3),nsmall=3)}
+Household head is male
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages_farmer[1,4],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,4],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,4]<.01,"**",ifelse(df_ols_farmer[3,2,4]<.05,"*",ife
 lse(df_ols_farmer[3,2,4]<.1,"+","")))}}$ 
@@ -5838,14 +4942,14 @@ lse(df_ols_farmer[3,2,4]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,4],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,4],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,4],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5858,21 +4962,21 @@ Sexpr{format(round(df_ols_farmer[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer finished primary education
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,5],digits=3),nsmall=3)}
+Household head finished primary education
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages_farmer[1,5],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,5],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,5]<.01,"**",ifelse(df_ols_farmer[3,2,5]<.05,"*",ife
 lse(df_ols_farmer[3,2,5]<.1,"+","")))}}$ 
@@ -5886,14 +4990,14 @@ lse(df_ols_farmer[3,2,5]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,5],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,5],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,5],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5906,21 +5010,131 @@ Sexpr{format(round(df_ols_farmer[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Number of people in household
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Homestead's distance to nearest tarmac road (in km)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,6],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,1],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,6],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,1],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols_farmer[3,2,1]<.01,"**",ifelse(df_ols_farmer[3,2,1]<.05,"*",ife
+lse(df_ols_farmer[3,2,1]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_farmer[2,1],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_farmer[2,2,1],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Homestead's distance to nearest agro-input shop (in km)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[1,2],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,2],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols_farmer[3,2,2]<.01,"**",ifelse(df_ols_farmer[3,2,2]<.05,"*",ife
+lse(df_ols_farmer[3,2,2]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_farmer[2,2],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_farmer[2,2,2],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of people in household (incl.
+ respondent)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[1,6],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,6],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,6]<.01,"**",ifelse(df_ols_farmer[3,2,6]<.05,"*",ife
 lse(df_ols_farmer[3,2,6]<.1,"+","")))}}$ 
@@ -5934,14 +5148,14 @@ lse(df_ols_farmer[3,2,6]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,6],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,6],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,6],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,6],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5961,14 +5175,14 @@ Number of rooms in house
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,7],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,7],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,7],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,7]<.01,"**",ifelse(df_ols_farmer[3,2,7]<.05,"*",ife
 lse(df_ols_farmer[3,2,7]<.1,"+","")))}}$ 
@@ -5982,14 +5196,14 @@ lse(df_ols_farmer[3,2,7]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,7],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,7],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,7],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,7],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6002,21 +5216,34 @@ Sexpr{format(round(df_ols_farmer[2,2,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer's land for crop production in acres
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer's land for crop production (in acres)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,8],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,8],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,8],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,8]<.01,"**",ifelse(df_ols_farmer[3,2,8]<.05,"*",ife
 lse(df_ols_farmer[3,2,8]<.1,"+","")))}}$ 
@@ -6030,14 +5257,171 @@ lse(df_ols_farmer[3,2,8]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,8],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,8],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,8],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,8],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Years since farmer started growing maize
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[1,21],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,21],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols_farmer[3,2,21]<.01,"**",ifelse(df_ols_farmer[3,2,21]<.05,"*",i
+felse(df_ols_farmer[3,2,21]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_farmer[2,21],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_farmer[2,2,21],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Land productivity (in kg/acre) (yield/area)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[1,19],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,19],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols_farmer[3,2,19]<.01,"**",ifelse(df_ols_farmer[3,2,19]<.05,"*",i
+felse(df_ols_farmer[3,2,19]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_farmer[2,19],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_farmer[2,2,19],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer sold maize
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[1,20],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,20],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols_farmer[3,2,20]<.01,"**",ifelse(df_ols_farmer[3,2,20]<.05,"*",i
+felse(df_ols_farmer[3,2,20]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_farmer[2,20],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_farmer[2,2,20],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -6057,14 +5441,14 @@ Farmer used improved maize seed for any field last season
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,9],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,9],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,9],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,9]<.01,"**",ifelse(df_ols_farmer[3,2,9]<.05,"*",ife
 lse(df_ols_farmer[3,2,9]<.1,"+","")))}}$ 
@@ -6078,14 +5462,14 @@ lse(df_ols_farmer[3,2,9]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,9],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,9],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,9],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,9],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6105,14 +5489,14 @@ Farmer bought this seed at agro-input shop
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,10],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,10],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,10],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,10],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,10]<.01,"**",ifelse(df_ols_farmer[3,2,10]<.05,"*",i
 felse(df_ols_farmer[3,2,10]<.1,"+","")))}}$ 
@@ -6126,14 +5510,14 @@ felse(df_ols_farmer[3,2,10]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,10],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,10],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,10],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,10],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6146,21 +5530,21 @@ Sexpr{format(round(df_ols_farmer[2,2,10],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of improved maize seed bought from agro-input shop in kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,11],digits=3),nsmall=3)}
+Amount of improved maize seed bought from agro-input shop (in kg)
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages_farmer[1,11],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,11],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,11]<.01,"**",ifelse(df_ols_farmer[3,2,11]<.05,"*",i
 felse(df_ols_farmer[3,2,11]<.1,"+","")))}}$ 
@@ -6174,14 +5558,14 @@ felse(df_ols_farmer[3,2,11]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,11],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,11],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,11],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,11],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6194,21 +5578,21 @@ Sexpr{format(round(df_ols_farmer[2,2,11],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmers thinks seed at agro-input shop is counterfeit
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,12],digits=3),nsmall=3)}
+Farmers thinks seed at agro-inputs shop is counterfeit
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,12],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages_farmer[1,12],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_farmer[1,2,12],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,12]<.01,"**",ifelse(df_ols_farmer[3,2,12]<.05,"*",i
 felse(df_ols_farmer[3,2,12]<.1,"+","")))}}$ 
@@ -6222,14 +5606,14 @@ felse(df_ols_farmer[3,2,12]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,12],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,12],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,12],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,12],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6242,72 +5626,24 @@ Sexpr{format(round(df_ols_farmer[2,2,12],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Randomly selected maize field was intercropped with beans
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,13],digits=3),nsmall=3)}
+Farmer used DAP/NPK
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,13]<.01,"**",ifelse(df_ols_farmer[3,2,13]<.05,"*",i
-felse(df_ols_farmer[3,2,13]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,13],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer used improved maize seed on this field last season
+Sexpr{format(round(df_averages_farmer[1,22],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,14],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
+Sexpr{format(round(df_ols_farmer[1,2,22],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,14],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,14]<.01,"**",ifelse(df_ols_farmer[3,2,14]<.05,"*",i
-felse(df_ols_farmer[3,2,14]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_farmer[3,2,22]<.01,"**",ifelse(df_ols_farmer[3,2,22]<.05,"*",i
+felse(df_ols_farmer[3,2,22]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -6318,14 +5654,14 @@ felse(df_ols_farmer[3,2,14]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,14],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,22],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,14],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,22],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6338,69 +5674,21 @@ Sexpr{format(round(df_ols_farmer[2,2,14],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer's rating of maize seed planted on this field on quality
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,15],digits=3),nsmall=3)}
+Farmer used organic manure
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,15],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,15]<.01,"**",ifelse(df_ols_farmer[3,2,15]<.05,"*",i
-felse(df_ols_farmer[3,2,15]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,15],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,15],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer applied organic manure on this field
+Sexpr{format(round(df_averages_farmer[1,16],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,16],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,16],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_farmer[3,2,16]<.01,"**",ifelse(df_ols_farmer[3,2,16]<.05,"*",i
 felse(df_ols_farmer[3,2,16]<.1,"+","")))}}$ 
@@ -6414,14 +5702,14 @@ felse(df_ols_farmer[3,2,16]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,16],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,16],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,16],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,16],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6434,72 +5722,24 @@ Sexpr{format(round(df_ols_farmer[2,2,16],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted at correct time on this field
+Farmer's rating of planted maize seed on quality
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_averages_farmer[1,17],digits=3),nsmall=3)}
+Sexpr{format(round(df_averages_farmer[1,15],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_farmer[1,2,15],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,17]<.01,"**",ifelse(df_ols_farmer[3,2,17]<.05,"*",i
-felse(df_ols_farmer[3,2,17]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,17],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,17],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Yield in kg (number of harvested maize bags x kg per bag)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,18],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,18],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,18]<.01,"**",ifelse(df_ols_farmer[3,2,18]<.05,"*",i
-felse(df_ols_farmer[3,2,18]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_farmer[3,2,15]<.01,"**",ifelse(df_ols_farmer[3,2,15]<.05,"*",i
+felse(df_ols_farmer[3,2,15]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -6510,110 +5750,14 @@ felse(df_ols_farmer[3,2,18]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(df_averages_farmer[2,18],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_farmer[2,15],digits=2),nsmall=2)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,18],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Land productivity in kg/acre (yield/area)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,19],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,19],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,19]<.01,"**",ifelse(df_ols_farmer[3,2,19]<.05,"*",i
-felse(df_ols_farmer[3,2,19]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,19],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,19],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer sold maize from this field
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_farmer[1,20],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_farmer[1,2,20],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_farmer[3,2,20]<.01,"**",ifelse(df_ols_farmer[3,2,20]<.05,"*",i
-felse(df_ols_farmer[3,2,20]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_farmer[2,20],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_farmer[2,2,20],digits=3),nsmall=3)}) 
+Sexpr{format(round(df_ols_farmer[2,2,15],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6657,7 +5801,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports sample means (and standard deviations below);
-  **, * and + denote significance at the 1, 5 and 10% level.
+  **, * and + denote significance at the 1, 5 and 10 percent level.
  Reported standard errors are clustered at the level of randomization (catchment
  area).
  
@@ -7329,7 +6473,7 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: First column reports sample means (and standard deviations below);
-  **, * and + denote significance at the 1, 5 and 10% levels.
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
  Reported standard errors are clustered at the level of randomization (catchment
  area).
  
@@ -7444,9 +6588,10 @@ literal "false"
  Instead, we will increase our efforts to find every agro-input dealer at
  endline data collection.
  If a dealer is not found despite this, we will include the question why
- the dealer was not found in the ODK data collection app, and add answer
- options like shop closed, shop relocated, shop sells different products,
- dealer does not want to be interviewed, shop could not be located etc.
+ the dealer was not found in the Open Data Kit (ODK) data collection app,
+ and add answer options like shop closed, shop relocated, shop sells different
+ products, dealer does not want to be interviewed, shop could not be located
+ etc.
  If attrition remains correlated with the clearinghouse treatment at endline,
  we can use this information to check the assumptions mentioned above, and
  to eventually estimate the upper bounds.
@@ -7815,7 +6960,7 @@ cline{2-4}
 
 \begin_layout Plain Layout
 
-Cumulative quantity sold of 4 maize varieties last season in kg$^
+Cumulative quantity sold of 4 maize varieties last season (in kg)$^
 \backslash
 dag$
 \end_layout
@@ -7876,7 +7021,7 @@ Sexpr{format(round(df_ols_D_prim[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Average sales price of 4 maize varieties last season in UGX/kg
+Average sales price of 4 maize varieties last season (in UGX/kg)
 \end_layout
 
 \begin_layout Plain Layout
@@ -7935,8 +7080,8 @@ Sexpr{format(round(df_ols_D_prim[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Seed revenue of 4 maize varieties in mill.
- UGX (IHS)$^
+Seed revenue of 4 maize varieties (in mill.
+ UGX) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -8058,7 +7203,7 @@ Sexpr{format(round(df_ols_D_prim[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Moisture in random seed bag in%$^
+Moisture in random seed bag (in percent)$^
 \backslash
 dag$
 \end_layout
@@ -8509,7 +7654,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -8819,7 +7964,7 @@ Sexpr{format(round(df_ols_F_prim[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of maize seed farmer bought at shop in kg (IHS)$^
+Amount of maize seed farmer bought at shop (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -9351,7 +8496,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -9879,7 +9024,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -10470,7 +9615,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -10886,7 +10031,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of seed in kg$^
+Amount of seed (in kg)$^
 \backslash
 dag$
 \end_layout
@@ -10948,7 +10093,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Price of seed in UGX/kg$^
+Price of seed (in UGX/kg)$^
 \backslash
 dag$
 \end_layout
@@ -11010,7 +10155,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Cost of seed in UGX (IHS)
+Cost of seed (in UGX) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -11181,7 +10326,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -11388,7 +10533,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -11511,7 +10656,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -11643,7 +10788,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -11850,7 +10995,7 @@ https://forum.getodk.org/t/cycle-through-records-from-pulled-data/32997 -
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "C:/Users/u0127963/Desktop/PhD/Seed_systems_project/Study design/seed_systems_pap"
+bibfiles "../../Study design/seed_systems_pap"
 options "IFPRI_Style"
 
 \end_inset
@@ -12623,7 +11768,7 @@ cline{2-4}
 
 \begin_layout Plain Layout
 
-Amount carried over from previous season in kg (IHS)$^
+Amount carried over from previous season (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -12685,7 +11830,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount bought by shop from provider in kg (IHS)$^
+Amount bought by shop from provider (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -12747,7 +11892,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Cost in UGX/kg$^
+Cost (in UGX/kg)$^
 \backslash
 dag$
 \end_layout
@@ -12809,7 +11954,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity sold in kg (IHS)$^
+Quantity sold (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -12871,7 +12016,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price in UGX/kg (IHS)
+Sales price (in UGX/kg) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -12931,7 +12076,7 @@ Sexpr{format(round(df_ols_D_secL10H[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount lost/wasted in kg (IHS)
+Amount lost/wasted (in kg) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -13162,7 +12307,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -13271,7 +12416,7 @@ cline{2-4}
 
 \begin_layout Plain Layout
 
-Amount carried over from previous season in kg (IHS)$^
+Amount carried over from previous season (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -13333,7 +12478,7 @@ Sexpr{format(round(df_ols_D_secL5[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount bought by shop from provider in kg (IHS)$^
+Amount bought by shop from provider (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -13395,7 +12540,7 @@ Sexpr{format(round(df_ols_D_secL5[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Cost in UGX/kg$^
+Cost (in UGX/kg)$^
 \backslash
 dag$
 \end_layout
@@ -13457,7 +12602,7 @@ Sexpr{format(round(df_ols_D_secL5[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Quantity sold in kg (IHS)$^
+Quantity sold (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -13519,7 +12664,7 @@ Sexpr{format(round(df_ols_D_secL5[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Sales price in UGX/kg (IHS)
+Sales price (in UGX/kg) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -13579,7 +12724,7 @@ Sexpr{format(round(df_ols_D_secL5[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount lost/wasted in kg (IHS)
+Amount lost/wasted (in kg) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -13810,7 +12955,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -14406,7 +13551,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -14869,7 +14014,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -15399,7 +14544,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -15509,7 +14654,7 @@ cline{2-4}
 
 \begin_layout Plain Layout
 
-Production last season in kg
+Production last season (in kg)
 \end_layout
 
 \begin_layout Plain Layout
@@ -15569,7 +14714,7 @@ Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Yield in kg/acre (production/area)$^
+Yield (in kg/acre) (production/area)$^
 \backslash
 dag$
 \end_layout
@@ -15751,7 +14896,7 @@ Sexpr{format(round(df_ols_F_nobase[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of maize sold in kg (IHS)$^
+Amount of maize sold (in kg) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -15813,7 +14958,7 @@ Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Revenue in UGX (IHS)$^
+Revenue (in UGX) (IHS)$^
 \backslash
 dag$
 \end_layout
@@ -15875,7 +15020,7 @@ Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount kept as seed in kg (IHS)
+Amount kept as seed (in kg) (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -16046,7 +15191,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
@@ -16441,7 +15586,7 @@ Note: 1st column reports sample means and standard deviations below in brackets;
   2nd column reports differences between treatment and control groups and
  standard errors below in brackets; they are clustered at the level of randomiza
 tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10% levels; $^
+ at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
 \end_layout
