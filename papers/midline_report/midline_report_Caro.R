@@ -809,8 +809,8 @@ for (i in 1:length(variables_farmer)) {
 library(clubSandwich)
 library(knitr)
 
-df_averages <- array(NA,dim=c(2,25))
-df_ols <- array(NA,dim=c(3,3,25))
+df_averages <- array(NA,dim=c(2,50))
+df_ols <- array(NA,dim=c(3,3,50))
 
 #Bjorn's variable: amount of sold hybird/OPV maize seed during last season in kg
 sel <- c("maize.owner.agree.long10h.q25", "maize.owner.agree.longe7h.q37", "maize.owner.agree.longe5.q50", "maize.owner.agree.longe4.q62")
@@ -835,7 +835,13 @@ balance_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished
                     ,"maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
                     ,"maize.owner.agree.inspection.q115","reading","lot"
                     ,"refunds"
-                    ,"gives_credit","after_sales_service")
+                    ,"gives_credit","after_sales_service"
+                    ,"maize.owner.agree.q5"
+                    ,"maize.owner.agree.q7"
+                    ,"maize.owner.agree.ownership"
+                    ,"maize.owner.agree.temp.q80"
+                    ,"q93_bin"
+                    ,"visible_packdate")
 
 for (i in 1:length(balance_dealer)){
   df_averages[1,i] <- sum(baseline_dealers[balance_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))
@@ -873,15 +879,17 @@ trainingtreatment_CA_level <- data.frame(aggregate(treatments_shop_level$trainin
 names(trainingtreatment_CA_level) <- c("catchID","training")
 baseline_farmers <- merge(baseline_farmers, trainingtreatment_CA_level, by.x="catchID", by.y="catchID")
 
-df_averages_farmer <- array(NA,dim=c(2,20))
-df_ols_farmer <- array(NA,dim=c(3,3,20))
+df_averages_farmer <- array(NA,dim=c(2,50))
+df_ols_farmer <- array(NA,dim=c(3,3,50))
 
 ###loop###
 balance_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
                     ,"Check2.check.maize.q18","Check2.check.maize.q20","Check2.check.maize.q22","Check2.check.maize.q25a"
                     ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30a.1"
                     ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
-                    ,"landproductivity","Check2.check.maize.q53")
+                    ,"landproductivity","Check2.check.maize.q53"
+                    ,"yearsmaize"
+                    ,"Check2.check.maize.q43")
 
 for (i in 1:length(balance_farmer)){
   df_averages_farmer[1,i] <- sum(baseline_farmers[balance_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[balance_farmer[i]])))
