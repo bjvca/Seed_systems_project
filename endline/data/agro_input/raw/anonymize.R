@@ -7,6 +7,8 @@ path <- getwd()
 path <- strsplit(path,"data/agro_input/raw")[[1]]
 
 dealer_endline <- read.csv("latest_dealer.csv")
+dealer_endline$shop_ID[dealer_endline$X_uuid =="a78f6870-29b4-4e29-8820-aa2daf8ba8d0"] <- "AD_306"
+dealer_endline$clearing[dealer_endline$X_uuid =="a78f6870-29b4-4e29-8820-aa2daf8ba8d0"] <- FALSE
 
 ##visualize progress
 dealer_base <- read.csv(paste(path,"/questionnaires/agro_input/to_upload_endline_shops.csv",sep=""))
@@ -16,6 +18,7 @@ pal <- colorFactor(c("red", "green"),dealer_base$done)
 m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=dealer_base, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 2, color=~pal(done), popup = ~as.character(shop_ID) )   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
 saveWidget(m, file="endline_progress.html") 
 ### merge in moisture measurements
+write.csv(dealer_base[dealer_base$done==FALSE,],"remnants.csv")
 
 moisture <- read.csv("latest_moisture.csv")
 
@@ -34,7 +37,11 @@ moisture$barcode[moisture$id=="AD 205 33"] <- 573
 moisture$barcode[moisture$id=="AD 18456"] <- 511
 moisture$barcode[moisture$id=="AD 84 27"] <- 679
 moisture$barcode[moisture$id=="AD 205 33"] <- 572
+moisture$barcode[moisture$id=="AD 22327"] <- 829
+moisture$barcode[moisture$id=="AD 27 20"] <- 595
+moisture$barcode[moisture$id=="AD 138 30"] <- 353
 
+sum(duplicated(moisture$barcode))
 #These have data in the moisture dataset, but not (yet) in dealer_endline
 # moisture$barcode[!(moisture$barcode %in% dealer_endline$check.owner.agree.barcode)]
 # 678 765 514 608 605 611 602 761 573
@@ -62,7 +69,7 @@ dealer_endline$check.owner.agree.longe7H.q38[is.na(dealer_endline$check.owner.ag
 
 #sum 
 dealer_endline$kg_improved <- dealer_endline$check.owner.agree.longe5.q50 + dealer_endline$check.owner.agree.longe4.q62 + dealer_endline$check.owner.agree.long10h.q25 + dealer_endline$check.owner.agree.longe7H.q38
-
+dealer_endline$kg_improved[dealer_endline$kg_improved> 15000] <- NA 
 summary(lm(kg_improved~clearing ,data=dealer_endline))
 
 to_drop <- c( "enumerator", "district", "sub","parish","village", "hh_namex","hh_name",   "shed", "phone1", "phone2", "phone3","lat","long","check.q1" , "check.q1a","check.q1b","check.owner.consent", "check.owner.agree.respondent",  "check.q2",
