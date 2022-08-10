@@ -996,6 +996,17 @@ for (i in 1:length(attrition_dealer)){
   df_ols_attritionD[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_attritionD[3,3,i] <- summary(ols)$coefficients[4,4]}
 
+#Chi-squared test p-value instead of p-value from regression?
+
+table(baseline_dealers$attrition_ind_D,baseline_dealers$clearing)
+chisq.test(table(baseline_dealers$attrition_ind_D,baseline_dealers$clearing))
+#p-value = 0.0036
+
+prop.test(table(baseline_dealers$clearing,baseline_dealers$attrition_ind_D==1))
+#p-value = 0.0036
+
+#but doesn't account for multiple hypothesis testing
+
 ################################################################################################################################################
 
 ###########################
