@@ -10,23 +10,20 @@ dealer_endline <- read.csv("latest_dealer.csv")
 dealer_endline$shop_ID[dealer_endline$X_uuid =="a78f6870-29b4-4e29-8820-aa2daf8ba8d0"] <- "AD_306"
 dealer_endline$clearing[dealer_endline$X_uuid =="a78f6870-29b4-4e29-8820-aa2daf8ba8d0"] <- FALSE
 
-##visualize progress
-dealer_base <- read.csv(paste(path,"/questionnaires/agro_input/to_upload_endline_shops.csv",sep=""))
-dealer_base$done <- FALSE
-dealer_base$done[(dealer_base$shop_ID %in% (names(table(dealer_endline$shop_ID))))] <- TRUE
-pal <- colorFactor(c("red", "green"),dealer_base$done)
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=dealer_base, lng=~maize.owner.agree._gps_longitude, lat=~maize.owner.agree._gps_latitude,radius= 2, color=~pal(done), popup = ~as.character(shop_ID) )   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
-saveWidget(m, file="endline_progress.html") 
-### merge in moisture measurements
-write.csv(dealer_base[dealer_base$done==FALSE,],"remnants.csv")
 
+###AD_39, AD_37  is duplicate, delete one instance - the other two 304 and 126 was one empty and one filled - empties deleted
+dealer_endline <- dealer_endline[!(dealer_endline$X_uuid =="64cc523c-6816-48f5-929b-26e36944e744"),]
+dealer_endline <- dealer_endline[!(dealer_endline$X_uuid =="0324c34f-78ff-47ef-9662-fda926fd44c1"),]
+dealer_endline <- dealer_endline[!(dealer_endline$X_uuid =="89fafe9d-71ae-44d5-83f4-931040cffcae"),]
+dealer_endline <- dealer_endline[!(dealer_endline$X_uuid =="f606e946-80c7-4abb-bbb8-ac1251ba5a8c"),]
+
+### read data from moisture measuremment
 moisture <- read.csv("latest_moisture.csv")
 
-
-moisture$age <- difftime(strptime("20.07.2022", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
-
+moisture$age <- difftime(strptime("10.08.2022", format = "%d.%m.%Y"),strptime(moisture$date_pack,format="%Y-%m-%d"),units="days")
 moisture$age <- as.numeric(as.character(moisture$age))
 dealer_endline$check.owner.agree.barcode <- as.numeric(as.character(dealer_endline$check.owner.agree.barcode))
+dealer_endline$check.owner.agree.barcode[dealer_endline$X_uuid =="8569f346-5431-4be1-b9ed-057e761e9b2c"] <- 898989
 moisture$barcode <- as.numeric(as.character(moisture$barcode))
 
 ##manually fix here to make sure all moisture measurements are used!
@@ -40,16 +37,8 @@ moisture$barcode[moisture$id=="AD 205 33"] <- 572
 moisture$barcode[moisture$id=="AD 22327"] <- 829
 moisture$barcode[moisture$id=="AD 27 20"] <- 595
 moisture$barcode[moisture$id=="AD 138 30"] <- 353
-
-sum(duplicated(moisture$barcode))
-#These have data in the moisture dataset, but not (yet) in dealer_endline
-# moisture$barcode[!(moisture$barcode %in% dealer_endline$check.owner.agree.barcode)]
-# 678 765 514 608 605 611 602 761 573
-# moisture$id[!(moisture$barcode %in% dealer_endline$check.owner.agree.barcode)]
-# "AD2340"     "AD-31452"   "AD 2642"    "AD 70 19"   " AD 250 16" "AD 160 30"  "AD 347 22"  "AD 14029"  
-
-
-dealer_endline[dealer_endline$shop_ID=="AD_250",]
+moisture$barcode[moisture$id=="AD 86 27"] <- 3288124
+moisture$barcode[moisture$id=="AD 187 24"] <- 898989
 
 moisture <- moisture[c("barcode","id","reading","exp","date_pack","origin","cert","lot","verif","variety","other_var","company","age")]
 
