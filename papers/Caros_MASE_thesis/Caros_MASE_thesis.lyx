@@ -605,9 +605,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-As Ugandan farmers can hardly assess the quality of maize seed prior to
- purchase, we hypothesize that agro-input dealers exploit this information
- asymmetry, and that their malpractices lead to poor seed quality.
+As Ugandan farmers can hardly assess the quality of maize seed, we hypothesize
+ that agro-input dealers exploit this information asymmetry, and that their
+ malpractices lead to poor seed quality.
  In a context relatively similar to ours, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1224,7 +1224,7 @@ Once we determined the minimum number of catchment areas (and corresponding
  randomization happens at the catchment area level.
  While this may reduce power somewhat, it does not bias impact estimates.
  We iterate over different candidate sample sizes of farmers per dealer.
- The resulting sample in each iterations is used to run a number of simulations
+ The resulting sample in each iteration is used to run a number of simulations
  of the experiment.
  We again determine how often, out of the total number of simulations, we
  were able to detect the effect at the 5% significance level, which will
@@ -3296,21 +3296,11 @@ path2 <- getwd()
 
 \begin_layout Plain Layout
 
-path2 <- strsplit(path2,"/Caros_MASE_thesis")[[1]]
-\end_layout
-
-\begin_layout Plain Layout
-
-path2 <- paste(path2,"midline_report",sep="/")
-\end_layout
-
-\begin_layout Plain Layout
-
 source(paste(path2,
 \begin_inset Quotes eld
 \end_inset
 
-midline_report_Caro.R
+MASE_thesis.R
 \begin_inset Quotes erd
 \end_inset
 
@@ -9307,7 +9297,7 @@ noprefix "false"
  maize seed than specialized shops in the control group, whereas we previously
  did not find any treatment effect on primary outcomes at dealer level.
  Revenue could have increased because the clearinghouse's effect on efforts
- and services is larger for this subset of dealers.
+ and services is larger for this subset of dealers, according to farmers.
  For these specialized shops, the treatment also reduced the shelf-life
  of stored seed significantly.
  A seed bag's shelf-life is an important indication of its quality.
