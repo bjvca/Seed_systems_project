@@ -90,56 +90,14 @@ knitr
 
 \begin_body
 
-\begin_layout Title
-\begin_inset Preview
-
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-author{Caroline Miehe
-\backslash
-thanks{LICOS, KU Leuven - corresponding author: caroline.miehe@kuleuven.be},
-\end_layout
-
-\begin_layout Plain Layout
-
-Bjorn Van Campenhout
-\backslash
-thanks{Development Strategy and Governance Division, IFPRI},
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Robert Sparrow
-\backslash
-thanks{Development Economics Group, Wageningen University and Research},
-\end_layout
-
-\begin_layout Plain Layout
-
-David Spielman
-\backslash
-thanks{Development Strategy and Governance Division, IFPRI}}
-\end_layout
+\begin_inset External
+	template PDFPages
+	filename titlepage.pdf
 
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-Quality constraints to agricultural technology adoption: Can an information
- clearinghouse save the Ugandan market for seed?
 \end_layout
 
 \begin_layout Abstract
@@ -161,7 +119,10 @@ d information clearinghouse similar to yelp.com in the market for seed, meaning
  There are some indications that these two mechanisms eventually lead to
  better maize seed quality but endline data has to be analyzed before we
  can draw conclusions.
-\end_layout
+\series bold
+
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Abstract
 
@@ -178,6 +139,11 @@ keywords:
 JEL codes:
 \series default
  O13; Q12; Q16; D82; D83
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2256,55 +2222,7 @@ Combining outcomes in indices is a common strategy against over-rejection
 status collapsed
 
 \begin_layout Plain Layout
-An alternative strategy to deal with multiple comparisons is to adjust the
- significance levels according to family-wise error rates.
- Here individual coefficients are considered to be part of a family of n
- hypotheses.
- The family-wise error rate is the probability of at least one type I error
- in this family.
- We can maintain the family-wise error rate at some level alpha like 0.05
- by adjusting the p-values used to test each individual null hypothesis
- in the family 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "multiple"
-literal "false"
-
-\end_inset
-
-.
- The simplest of these methods is the Bonferroni adjustment, where alpha/n
- are used as critical values.
- For instance, if one would like to test 20 hypotheses, the cutoff p-value
- for testing each individual outcome would be less than 0.0025 so that the
- family-wise error rate remains at the 0.05 level.
- The downside of this method is that it assumes that outcomes are independent,
- rendering it too conservative when outcomes are correlated.
- That is why we adjust while accounting for correlation, an approach used
- by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "sankoh1997some"
-literal "false"
-
-\end_inset
-
- and later by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "aker2012zap"
-literal "false"
-
-\end_inset
-
-.
- In this procedure the adjusted p-value depends on the number of outcomes
- being tested, the unadjusted p-value for an outcome, and the mean correlation
- among the other outcomes.
- If outcomes are independent, then the procedure is equal to the Bonferroni
- adjustment.
- If the outcomes are perfectly correlated, the adjusted p-value is equivalent
- to the unadjusted p-value.
+deleted important note here
 \end_layout
 
 \end_inset
@@ -12106,11 +12024,43 @@ EOS?
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
 bibfiles "../../Study design/seed_systems_pap"
 options "IFPRI_Style"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
 
 \end_inset
 
@@ -12237,6 +12187,22 @@ literal "false"
  that they are harmed by our intervention.
  We regressed all seed quality attributes on the gender dummy and added
  the resulting coefficients to the initial ratings of female dealers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -12398,6 +12364,22 @@ Production from this field last season is not included because it is included
  because we did not ask these questions at baseline.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 More results
 \begin_inset CommandInset label
@@ -12411,6 +12393,7 @@ name "More results"
 
 \begin_layout Standard
 \begin_inset Float table
+placement h
 wide false
 sideways false
 status collapsed
@@ -15942,14 +15925,30 @@ dag$ indicates that the variable is included in the overall index.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16285,6 +16284,16 @@ dag$ indicates that the variable is included in the overall index.
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename Eindpagina.pdf
 
 \end_inset
 
