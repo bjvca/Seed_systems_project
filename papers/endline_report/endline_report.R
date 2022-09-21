@@ -1,10 +1,5 @@
 rm(list=ls())
 
-# #if midline report ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/midline_report")
-# path <- getwd()
-# path <- strsplit(path,"/papers/midline_report")[[1]]
-
-#if Caros_MASE_thesis ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/Caros_MASE_thesis")
 path <- getwd()
 path <- strsplit(path,"/papers/endline_report")[[1]]
 
@@ -12,6 +7,7 @@ baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseli
 
 baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"))
 midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"))
+endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"))
 
 #merge in more data
 
@@ -112,6 +108,89 @@ midline_rating_dyads_aggr_D = subset(midline_rating_dyads_aggr_D, select = c("Gr
 
 baseline_dealers <- merge(baseline_dealers,midline_rating_dyads_aggr_D,by.x="shop_ID",by.y="Group.1",all.x=TRUE)
 
+#ENDLINE
+
+#farmers
+endline_rating_dyads <- read.csv(paste(path,"/endline/data/farmer/public/endline_rating_dyads.csv",sep="/"))
+
+endline_rating_dyads[endline_rating_dyads=="n/a"] <- NA
+endline_rating_dyads[endline_rating_dyads==98] <- NA
+
+endline_rating_dyads$end_bought_last_season <- ifelse(endline_rating_dyads$bought_last_season=="Yes",1,0)
+
+names(endline_rating_dyads)[names(endline_rating_dyads) == "general_rating"] <- "end_general_rating" #because same name in bl and ml
+names(endline_rating_dyads)[names(endline_rating_dyads) == "location_rating"] <- "end_location_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "price_rating"] <- "end_price_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "quality_rating"] <- "end_quality_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "stock_rating"] <- "end_stock_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "reputation_rating"] <- "end_reputation_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_quality_general_rating"] <- "end_seed_quality_general_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_yield_rating"] <- "end_seed_yield_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_drought_rating"] <- "end_seed_drought_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_disease_rating"] <- "end_seed_disease_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_maturing_rating"] <- "end_seed_maturing_rating"
+names(endline_rating_dyads)[names(endline_rating_dyads) == "seed_germinate_rating"] <- "end_seed_germinate_rating"
+
+endline_rating_dyads$end_knows_dealer <- ifelse(endline_rating_dyads$knows_dealer=="Yes",1,0)
+endline_rating_dyads$end_bought_at_dealer <- ifelse(endline_rating_dyads$bought_at_dealer=="Yes",1,0)
+endline_rating_dyads$end_customer_years <- 2022 - as.numeric(as.character(substr(endline_rating_dyads$duration_customer,start=1,stop=4))) #endline data collection in 2022
+endline_rating_dyads$end_knows_other_customer <- ifelse(endline_rating_dyads$knows_other_customer=="Yes",1,0)
+endline_rating_dyads$end_refunds <- ifelse(endline_rating_dyads$refunds=="Yes",1,0)
+endline_rating_dyads$end_gives_credit <- ifelse(endline_rating_dyads$gives_credit=="Yes",1,0)
+endline_rating_dyads$end_gives_advice <- ifelse(endline_rating_dyads$gives_advice=="Yes",1,0)
+endline_rating_dyads$end_delivers <- ifelse(endline_rating_dyads$delivers=="Yes",1,0)
+endline_rating_dyads$end_after_sales_service <- ifelse(endline_rating_dyads$after_sales_service=="Yes",1,0)
+endline_rating_dyads$end_payment_mehtods <- ifelse(endline_rating_dyads$payment_mehtods=="Yes",1,0)
+endline_rating_dyads$end_small_quant <- ifelse(endline_rating_dyads$small_quant=="Yes",1,0)
+
+as_numeric <- c("end_bought_last_season","end_general_rating","end_location_rating","end_price_rating","end_quality_rating"
+                ,"end_stock_rating","end_reputation_rating","end_seed_quality_general_rating","end_seed_yield_rating"
+                ,"end_seed_drought_rating","end_seed_disease_rating","end_seed_maturing_rating"
+                ,"end_seed_germinate_rating"
+                ,"end_knows_dealer","end_bought_at_dealer"
+                ,"end_customer_years","end_knows_other_customer"
+                ,"end_refunds","end_gives_credit"
+                ,"end_gives_advice","end_delivers"
+                ,"end_after_sales_service","end_payment_mehtods"
+                ,"end_small_quant")
+endline_rating_dyads[as_numeric] <- lapply(endline_rating_dyads[as_numeric],function(x)as.numeric(as.character(x)))
+
+endline_rating_dyads_aggr_F <- aggregate(endline_rating_dyads,by=list(endline_rating_dyads$farmer_ID),FUN="mean",na.rm=T)
+
+endline_rating_dyads_aggr_F = subset(endline_rating_dyads_aggr_F, select = c(Group.1,end_bought_last_season,end_general_rating
+                                                                             ,end_location_rating,end_price_rating,end_quality_rating
+                                                                             ,end_stock_rating,end_reputation_rating
+                                                                             ,end_seed_quality_general_rating,end_seed_yield_rating
+                                                                             ,end_seed_drought_rating,end_seed_disease_rating
+                                                                             ,end_seed_maturing_rating,end_seed_germinate_rating
+                                                                             ,end_knows_dealer,end_bought_at_dealer
+                                                                             ,end_customer_years,end_knows_other_customer
+                                                                             ,end_refunds,end_gives_credit
+                                                                             ,end_gives_advice,end_delivers
+                                                                             ,end_after_sales_service,end_payment_mehtods
+                                                                             ,end_small_quant))
+
+baseline_farmers <- merge(baseline_farmers,endline_rating_dyads_aggr_F,by.x="farmer_ID",by.y="Group.1",all.x=TRUE)
+endline_farmers <- merge(endline_rating_dyads_aggr_F,endline_farmers,by.x="Group.1",by.y="farmer_ID",all=TRUE)
+
+#dealers
+endline_rating_dyads_aggr_D <- aggregate(endline_rating_dyads,by=list(endline_rating_dyads$shop_ID),FUN="mean",na.rm=T)
+endline_rating_dyads_aggr_D = subset(endline_rating_dyads_aggr_D, select = c(Group.1,end_bought_last_season,end_general_rating
+                                                                             ,end_location_rating,end_price_rating,end_quality_rating
+                                                                             ,end_stock_rating,end_reputation_rating
+                                                                             ,end_seed_quality_general_rating,end_seed_yield_rating
+                                                                             ,end_seed_drought_rating,end_seed_disease_rating
+                                                                             ,end_seed_maturing_rating,end_seed_germinate_rating
+                                                                             ,end_knows_dealer,end_bought_at_dealer
+                                                                             ,end_customer_years,end_knows_other_customer
+                                                                             ,end_refunds,end_gives_credit
+                                                                             ,end_gives_advice,end_delivers
+                                                                             ,end_after_sales_service,end_payment_mehtods
+                                                                             ,end_small_quant))
+
+dealer_endline <- read.csv(paste(path,"/endline/data/agro_input/public/dealer_endline.csv",sep="/"))
+baseline_dealers <- merge(baseline_dealers,endline_rating_dyads_aggr_D,by.x="shop_ID",by.y="Group.1",all.x=TRUE)
+endline_dealers <- merge(endline_rating_dyads_aggr_D,dealer_endline,by.x="Group.1",by.y="shop_ID",all=TRUE)
 
 ###
 #B# SERVICES (CH treatment farmers were asked during baseline, CH control farmers were asked during CH rating dissemination)
@@ -208,6 +287,9 @@ midline_dealer_services_dyads_aggr_F = subset(midline_dealer_services_dyads_aggr
                                                                                                ,mid_small_quant))
 
 midline_farmers <- merge(midline_dealer_services_dyads_aggr_F,midline_farmers,by.x="Group.1",by.y="farmer_ID",all=TRUE)
+
+#ENDLINE: see above
+
 
 ###################################################
 #####DESCRIPTIVE STATISTICS + DATA EXPLORATION#####
