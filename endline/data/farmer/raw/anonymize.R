@@ -9,13 +9,56 @@ farmer_endline <- read.csv("latest.csv", stringsAsFactors=FALSE )
 ### get baseline data to show progress
 farmer_baseline <- read.csv("/home/bjvca/data/projects/Seed_systems_project/endline/questionnaires/farmer/to_upload_endline_farmers.csv", stringsAsFactors=FALSE )
 
-farmer_baseline$done <- FALSE
-farmer_baseline$done[farmer_baseline$farmer_ID %in% names(table(farmer_endline$farmer_ID))] <- TRUE
-farmer_baseline$gps_latitude <- as.numeric(as.character(farmer_baseline$gps_latitude))
-farmer_baseline$gps_longitude  <- as.numeric(as.character(farmer_baseline$gps_longitude))
-pal <- colorFactor(c("red", "green"),farmer_baseline$done)
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=farmer_baseline, lng=~gps_longitude, lat=~gps_latitude,radius= 2, color=~pal(done), popup = ~as.character(farmer_ID) )   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
-saveWidget(m, file="farmer_endline_progress.html") 
+# farmer_baseline$done <- FALSE
+# farmer_baseline$done[farmer_baseline$farmer_ID %in% names(table(farmer_endline$farmer_ID))] <- TRUE
+# farmer_baseline$gps_latitude <- as.numeric(as.character(farmer_baseline$gps_latitude))
+# farmer_baseline$gps_longitude  <- as.numeric(as.character(farmer_baseline$gps_longitude))
+# pal <- colorFactor(c("red", "green"),farmer_baseline$done)
+# m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=farmer_baseline, lng=~gps_longitude, lat=~gps_latitude,radius= 2, color=~pal(done), popup = ~as.character(farmer_ID) )   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+# saveWidget(m, file="farmer_endline_progress.html") 
+
+###BELOW: this code was used to investigate duplicate
+# sum(duplicated(farmer_endline$farmer_ID))
+# vil <- farmer_endline[farmer_endline$farmer_ID == "F_2794",c("village")][1]
+# 
+# test <- farmer_endline[farmer_endline$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","farmer_ID")]
+# names(test) <- c("lat","long", "ID")
+# m_m <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+# 
+# ##get data from baseline
+# path <- getwd()
+# path <- strsplit(path, "endline/data/farmer/raw")[[1]]
+# farmers <- read.csv(paste(path,"baseline/data/farmer/raw/baseline_farmers_all_raw.csv",sep="/"))
+# 
+# test <- farmers[farmers$village == vil,c("Check2.check.maize._gps_latitude", "Check2.check.maize._gps_longitude","farmer_ID")]
+# names(test) <- c("lat","long", "ID")
+# m_b <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+# 
+# ###to get uu_IDs 
+# test <- farmer_endline[farmer_endline$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","X_uuid")]
+# names(test) <- c("lat","long", "uu_ID")
+# m_id <-  leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=test, lng=~as.numeric(as.character(long)), lat=~as.numeric(as.character(lat)),radius= 8, popup = ~as.character(uu_ID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography')) 
+# 
+# test <- farmer_endline[farmer_endline$village == vil,c("check.maize._gps_latitude", "check.maize._gps_longitude","farmer_ID")]
+# names(test) <- c("lat","long", "ID")
+
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="0170de85-c942-4668-a041-0f395f497a68"] <-  "F_2824"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="eedf1b6c-3975-462e-b1f3-8d49f4015f8d"] <-  "F_889"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="95729b52-4da3-4236-88c7-b53e4091ec3a"] <-  "F_2361"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="e973ae78-cade-42d0-991a-594c6815d6c5"] <-  "F_3049"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="a5f1e4ce-f201-41a5-b27c-dc797be27276"] <-  "F_507"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="d147f2a9-e40f-4238-a4ea-e7be1ce74dd5"] <-  "F_2300"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="b60bdd5a-f9c6-4b00-a9e0-d829afe56f5f"] <-  "F_2871"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="ab93e6cd-2453-4bec-9234-9fdf5497b8ca"] <-  "F_948"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="c68ed48f-35ad-493e-aa69-169d195ea461"] <-  "F_722"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="8551ef7b-63bf-4288-9bc7-cc477da16eb9"] <-  "F_2094"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="b82ad5bd-2309-4961-9dfa-bf2a58d2419e"] <-  "F_851"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="8550ec51-c908-453a-8e6d-6d5d3c497294"] <-  "F_2080"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="243c33cd-7ceb-4623-97d3-eb0db639fda1"] <-  "F_1219"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="f0dee6c0-3c0b-400f-a877-64970db5412c"] <-  "F_3015"
+farmer_endline$farmer_ID[farmer_endline$X_uuid=="cf014ac9-55d1-4e55-b798-4a17e196fd95"] <-  "F_2795"
+
+farmer_endline <- subset(farmer_endline, !(X_uuid %in% c("684aae20-ebd1-444b-8d8f-2244f4f2ceb8")))
 
 #also remove district, subcounty and village here -- we will use the encoded versions from this from the baseline data
 to_drop <- c("start","end","deviceid","simserial","phonenumber","subscriberid","enumerator", "date","district","sub","village","hh_name","enumerator_base","phone1","phone2","farmer_name","q1","lat","long","chess","new_phone","q3")             
