@@ -1377,17 +1377,21 @@ baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agre
 baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
 baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
 
-baseline_dealers$mid_maize.owner.agree.q20 <- baseline_dealers$check.owner.agree.q20 #x
-baseline_dealers$mid_maize.owner.agree.q20<-ifelse(baseline_dealers$mid_maize.owner.agree.q20=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.q20 <- NA
+baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="Yes"] <- 1
+baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="No"] <- 0
 
-baseline_dealers$mid_maize.owner.agree.q32 <- baseline_dealers$check.owner.agree.q32 #x
-baseline_dealers$mid_maize.owner.agree.q32<-ifelse(baseline_dealers$mid_maize.owner.agree.q32=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.q32 <- NA
+baseline_dealers$mid_maize.owner.agree.q32[baseline_dealers$check.owner.agree.q32=="Yes"] <- 1
+baseline_dealers$mid_maize.owner.agree.q32[baseline_dealers$check.owner.agree.q32=="No"] <- 0
 
-baseline_dealers$mid_maize.owner.agree.q45 <- baseline_dealers$check.owner.agree.q45 #x
-baseline_dealers$mid_maize.owner.agree.q45<-ifelse(baseline_dealers$mid_maize.owner.agree.q45=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.q45 <- NA
+baseline_dealers$mid_maize.owner.agree.q45[baseline_dealers$check.owner.agree.q45=="Yes"] <- 1
+baseline_dealers$mid_maize.owner.agree.q45[baseline_dealers$check.owner.agree.q45=="No"] <- 0
 
-baseline_dealers$mid_maize.owner.agree.q57 <- baseline_dealers$check.owner.agree.q57 #x
-baseline_dealers$mid_maize.owner.agree.q57<-ifelse(baseline_dealers$mid_maize.owner.agree.q57=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.q57 <- NA
+baseline_dealers$mid_maize.owner.agree.q57[baseline_dealers$check.owner.agree.q57=="Yes"] <- 1
+baseline_dealers$mid_maize.owner.agree.q57[baseline_dealers$check.owner.agree.q57=="No"] <- 0
 
 baseline_dealers$mid_maize.owner.agree.long10h.q25 <-baseline_dealers$check.owner.agree.long10h.q25 #x
 baseline_dealers$mid_maize.owner.agree.long10h.q25[baseline_dealers$mid_maize.owner.agree.long10h.q25=="n/a"] <- NA #x
@@ -1459,8 +1463,6 @@ baseline_dealers$mid_av_salesprices <- rowMeans(baseline_dealers[c("mid_maize.ow
                                                                    ,"mid_maize.owner.agree.longe4.q63")],na.rm = T) #x
 baseline_dealers <- trim("mid_av_salesprices",baseline_dealers,trim_perc=.02) #x
 
-###here
-
 #3. Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated maize variety
 baseline_dealers$revenue_long10h.q25 <- (baseline_dealers$maize.owner.agree.long10h.q25*baseline_dealers$maize.owner.agree.long10h.q26)
 baseline_dealers$revenue_long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
@@ -1482,9 +1484,6 @@ baseline_dealers$revenue <- ihs(baseline_dealers$revenue)
 
 baseline_dealers <- trim("revenue",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q25 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q25))
-baseline_dealers$mid_maize.owner.agree.long10h.q26 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q26))
-
 baseline_dealers$mid_revenue_long10h.q25 <- (baseline_dealers$mid_maize.owner.agree.long10h.q25*baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
 baseline_dealers$mid_revenue_long10h.q25[baseline_dealers$mid_maize.owner.agree.q20=="0"] <- 0 #x
 
@@ -1500,16 +1499,16 @@ baseline_dealers$mid_revenue_longe4[baseline_dealers$mid_maize.owner.agree.q57==
 baseline_dealers$mid_revenue <- (baseline_dealers$mid_revenue_long10h.q25+baseline_dealers$mid_revenue_longe7h
                              +baseline_dealers$mid_revenue_longe5+baseline_dealers$mid_revenue_longe4) #x
 baseline_dealers$mid_revenue <- baseline_dealers$mid_revenue/1000000 #x
-#baseline_dealers$mid_revenue <- ihs(baseline_dealers$mid_revenue) #x
+baseline_dealers$mid_revenue <- ihs(baseline_dealers$mid_revenue) #x
 
-#baseline_dealers <- trim("mid_revenue",baseline_dealers,trim_perc=.02) #x
+baseline_dealers <- trim("mid_revenue",baseline_dealers,trim_perc=.02) #x
 
 #4. Number of customers who bought maize seed on average day at beginning of last season
 baseline_dealers$maize.owner.agree.q7[baseline_dealers$maize.owner.agree.q7==999] <- NA
 baseline_dealers$maize.owner.agree.q7 <- ihs(baseline_dealers$maize.owner.agree.q7)
 baseline_dealers <- trim("maize.owner.agree.q7",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.q7 <- baseline_dealers$owner.agree.q7 #x
+baseline_dealers$mid_maize.owner.agree.q7 <- baseline_dealers$check.owner.agree.q7 #x
 baseline_dealers$mid_maize.owner.agree.q7[baseline_dealers$mid_maize.owner.agree.q7==999] <- NA #x
 baseline_dealers$mid_maize.owner.agree.q7 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.q7)) #x
 baseline_dealers$mid_maize.owner.agree.q7 <- ihs(baseline_dealers$mid_maize.owner.agree.q7) #x
@@ -1518,57 +1517,67 @@ baseline_dealers <- trim("mid_maize.owner.agree.q7",baseline_dealers,trim_perc=.
 #5. Moisture content of random seed bag
 baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_reading <- baseline_dealers$reading_mid #x
-baseline_dealers$mid_reading_unadj <- baseline_dealers$reading_mid #x
+baseline_dealers$mid_reading <- baseline_dealers$reading_end #x
+baseline_dealers$mid_reading_unadj <- baseline_dealers$reading_end #x
 baseline_dealers$mid_reading <- as.numeric(as.character(baseline_dealers$mid_reading)) #x
 baseline_dealers <- trim("mid_reading",baseline_dealers,trim_perc=.02) #x
 
 #6. Index of capital-intensive seed handling and storage practices observed by enumerator
 ###Anderson, 2008: https://are.berkeley.edu/~mlanderson/pdf/Anderson%202008a.pdf p. 1485
 #Is the roof leak-proof? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q72 <- baseline_dealers$owner.agree.temp.q72 #x
-baseline_dealers$mid_maize.owner.agree.temp.q72 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q72=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.temp.q72 <- NA
+baseline_dealers$mid_maize.owner.agree.temp.q72[baseline_dealers$check.owner.agree.temp.q72=="Yes"]<-1
+baseline_dealers$mid_maize.owner.agree.temp.q72[baseline_dealers$check.owner.agree.temp.q72=="No"]<-0
 
 #Is the roof insulated to keep heat out? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q73 <- baseline_dealers$owner.agree.temp.q73 #x
-baseline_dealers$mid_maize.owner.agree.temp.q73 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q73=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.temp.q73 <- NA
+baseline_dealers$mid_maize.owner.agree.temp.q73[baseline_dealers$check.owner.agree.temp.q73=="Yes"]<-1
+baseline_dealers$mid_maize.owner.agree.temp.q73[baseline_dealers$check.owner.agree.temp.q73=="No"]<-0
 
 #Are the walls insulated to keep the heat out? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q74 <- baseline_dealers$owner.agree.temp.q74 #x
-baseline_dealers$mid_maize.owner.agree.temp.q74 <- ifelse(baseline_dealers$mid_maize.owner.agree.temp.q74=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.temp.q74 <- NA
+baseline_dealers$mid_maize.owner.agree.temp.q74[baseline_dealers$check.owner.agree.temp.q74=="Yes"]<-1
+baseline_dealers$mid_maize.owner.agree.temp.q74[baseline_dealers$check.owner.agree.temp.q74=="No"]<-0
 
 #Is the area ventilated? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q75 <- baseline_dealers$owner.agree.temp.q75 #x
-baseline_dealers$mid_maize.owner.agree.temp.q75<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q75=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.temp.q75 <- NA
+baseline_dealers$mid_maize.owner.agree.temp.q75[baseline_dealers$check.owner.agree.temp.q75=="Yes"]<-1
+baseline_dealers$mid_maize.owner.agree.temp.q75[baseline_dealers$check.owner.agree.temp.q75=="No"]<-0
 
 #Do you see any official certificates displayed in the shop (e.g. inspection, trainings, registration with association)? yes=good
-baseline_dealers$mid_maize.owner.agree.temp.q81 <- baseline_dealers$owner.agree.temp.q81 #x
-baseline_dealers$mid_maize.owner.agree.temp.q81<-ifelse(baseline_dealers$mid_maize.owner.agree.temp.q81=="Yes",1,0) #x
+baseline_dealers$mid_maize.owner.agree.temp.q81 <- NA
+baseline_dealers$mid_maize.owner.agree.temp.q81[baseline_dealers$check.owner.agree.temp.q81=="Yes"]<-1
+baseline_dealers$mid_maize.owner.agree.temp.q81[baseline_dealers$check.owner.agree.temp.q81=="No"]<-0
 
 #What do you do with seed that have exceeded shelf live (expired)? yes=good
 #(a This has never happened/b Return to supplier/c Sell at discount/d Given away/e Thrown away/f sell at normal price/g mix with other seed/96 Other)
-baseline_dealers$mid_maize.owner.agree.q83.a<-baseline_dealers$owner.agree.q83.a #x
-baseline_dealers$mid_maize.owner.agree.q83.b<-baseline_dealers$owner.agree.q83.b #x
-baseline_dealers$mid_maize.owner.agree.q83.c<-baseline_dealers$owner.agree.q83.c #x
-baseline_dealers$mid_maize.owner.agree.q83.d<-baseline_dealers$owner.agree.q83.d #x
-baseline_dealers$mid_maize.owner.agree.q83.e<-baseline_dealers$owner.agree.q83.e #x
-baseline_dealers$mid_maize.owner.agree.q83.f<-baseline_dealers$owner.agree.q83.f #x
-baseline_dealers$mid_maize.owner.agree.q83.g<-baseline_dealers$owner.agree.q83.g #x
-baseline_dealers$mid_maize.owner.agree.q83.96<-baseline_dealers$owner.agree.q83.96 #x
+baseline_dealers$mid_maize.owner.agree.q83.a<-baseline_dealers$check.owner.agree.q83.a #x
+baseline_dealers$mid_maize.owner.agree.q83.b<-baseline_dealers$check.owner.agree.q83.b #x
+baseline_dealers$mid_maize.owner.agree.q83.c<-baseline_dealers$check.owner.agree.q83.c #x
+baseline_dealers$mid_maize.owner.agree.q83.d<-baseline_dealers$check.owner.agree.q83.d #x
+baseline_dealers$mid_maize.owner.agree.q83.e<-baseline_dealers$check.owner.agree.q83.e #x
+baseline_dealers$mid_maize.owner.agree.q83.f<-baseline_dealers$check.owner.agree.q83.f #x
+baseline_dealers$mid_maize.owner.agree.q83.g<-baseline_dealers$check.owner.agree.q83.g #x
+baseline_dealers$mid_maize.owner.agree.q83.96<-baseline_dealers$check.owner.agree.q83.96 #x
 
-baseline_dealers$goodpractice_expired2 <- 1
-baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.96==1] <- NA
-baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.c==1] <- 0
-baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.d==1] <- 0
-baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.f==1] <- 0
-baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.g==1] <- 0
+baseline_dealers$goodpractice_expired2 <- NA
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.a==1] <- 1 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.b==1] <- 1 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.e==1] <- 1 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.c==1] <- 0 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.d==1] <- 0 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.f==1] <- 0 #x
+baseline_dealers$goodpractice_expired2[baseline_dealers$maize.owner.agree.q83.g==1] <- 0 #x
 
-baseline_dealers$mid_goodpractice_expired2 <- 1 #x
-baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.96=="True"] <- NA #x
+baseline_dealers$mid_goodpractice_expired2 <- NA
+baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.a=="True"] <- 1 #x
+baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.b=="True"] <- 1 #x
+baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.e=="True"] <- 1 #x
 baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.c=="True"] <- 0 #x
 baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.d=="True"] <- 0 #x
 baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.f=="True"] <- 0 #x
 baseline_dealers$mid_goodpractice_expired2[baseline_dealers$mid_maize.owner.agree.q83.g=="True"] <- 0 #x
+
 
 ###2. Demean and divide outcomes by control group standard deviation (normalizes outcomes to be on comparable scale)
 #https://github.com/cdsamii/make_index/blob/master/r/index_comparison.R
@@ -1623,6 +1632,8 @@ baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #x
 
 index_practices_cap_base <- icwIndex(xmat=variables_practices_cap_base)
 baseline_dealers$index_practices_cap_base <- index_practices_cap_base$index
+
+###here
 
 #7. Index of labor-intensive seed handling and storage practices observed by enumerator
 #Are seed stored in a dedicated area, away from other merchandize? yes=good
