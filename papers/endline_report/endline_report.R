@@ -1754,26 +1754,30 @@ baseline_dealers$mid_maize.owner.agree.q97.b[baseline_dealers$mid_maize.owner.ag
 baseline_dealers$mid_maize.owner.agree.q97.b<-ifelse(baseline_dealers$mid_maize.owner.agree.q97.b=="True",1,0) #x
 
 variables_efforts_mid <- cbind(baseline_dealers$mid_alwaysexplains,baseline_dealers$mid_alwaysrecom,baseline_dealers$mid_extension
-                               ,baseline_dealers$mid_maize.owner.agree.q88,baseline_dealers$mid_q89_bin,baseline_dealers$mid_q93_bin
-                               ,baseline_dealers$mid_maize.owner.agree.q96,baseline_dealers$mid_maize.owner.agree.q97.b) #x
+                               ,baseline_dealers$mid_maize.owner.agree.q88,baseline_dealers$mid_q93_bin
+                               ,baseline_dealers$mid_maize.owner.agree.q96,baseline_dealers$mid_maize.owner.agree.q97.b
+                               ) #x
 variables_efforts_base <- cbind(baseline_dealers$alwaysexplains,baseline_dealers$alwaysrecom,baseline_dealers$extension
-                                ,baseline_dealers$maize.owner.agree.q88,baseline_dealers$q89_bin,baseline_dealers$q93_bin
-                                ,baseline_dealers$maize.owner.agree.q96,baseline_dealers$maize.owner.agree.q97.b)
+                                ,baseline_dealers$maize.owner.agree.q88,baseline_dealers$q93_bin
+                                ,baseline_dealers$maize.owner.agree.q96,baseline_dealers$maize.owner.agree.q97.b
+                                )
 
-index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,revcols = c(7)) #x
+index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,revcols = c(6)) #x
 baseline_dealers$index_efforts_mid <- index_efforts_mid$index #x
 
-index_efforts_base <- icwIndex(xmat=variables_efforts_base,revcols = c(7))
+index_efforts_base <- icwIndex(xmat=variables_efforts_base,revcols = c(6))
 baseline_dealers$index_efforts_base <- index_efforts_base$index
 
 #10. Overall index of primary agro-input dealer outcome variables
 
 variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
                                            ,baseline_dealers$mid_maize.owner.agree.q7
-                                           ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid)
+                                           ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
+                                           ,baseline_dealers$index_efforts_mid)
 variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$revenue
                                             ,baseline_dealers$maize.owner.agree.q7
-                                            ,baseline_dealers$index_practices_cap_base,baseline_dealers$index_practices_lab_base)
+                                            ,baseline_dealers$index_practices_cap_base,baseline_dealers$index_practices_lab_base
+                                            ,baseline_dealers$index_efforts_base)
 
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid) #x
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index #x
@@ -1834,10 +1838,10 @@ index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = 
 baseline_dealers$index_practices_all_baseT <- index_practices_all_base$index
 
 #9.
-index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$training_control,revcols = c(7))
+index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$training_control,revcols = c(6))
 baseline_dealers$index_efforts_midT <- index_efforts_mid$index
 
-index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$training_control,revcols = c(7))
+index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$training_control,revcols = c(6))
 baseline_dealers$index_efforts_baseT <- index_efforts_base$index
 
 #10.
@@ -1894,10 +1898,10 @@ index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = 
 baseline_dealers$index_practices_all_baseC <- index_practices_all_base$index
 
 #9.
-index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$clearing_control,revcols = c(7))
+index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$clearing_control,revcols = c(6))
 baseline_dealers$index_efforts_midC <- index_efforts_mid$index
 
-index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$clearing_control,revcols = c(7))
+index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$clearing_control,revcols = c(6))
 baseline_dealers$index_efforts_baseC <- index_efforts_base$index
 
 #10.
@@ -1954,10 +1958,10 @@ index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = 
 baseline_dealers$index_practices_all_baseF <- index_practices_all_base$index
 
 #9.
-index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$farmer_control,revcols = c(7))
+index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$farmer_control,revcols = c(6))
 baseline_dealers$index_efforts_midF <- index_efforts_mid$index
 
-index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$farmer_control,revcols = c(7))
+index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dealers$farmer_control,revcols = c(6))
 baseline_dealers$index_efforts_baseF <- index_efforts_base$index
 
 #10.
@@ -3816,7 +3820,7 @@ baseline_dealers$index_ratings_mid <- index_ratings_mid$index
 variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
                                            ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
                                            ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
-                                           ,baseline_dealers$index_ratings_mid)
+                                           ,baseline_dealers$index_ratings_mid,baseline_dealers$index_efforts_mid)
 
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid, revcols = c(4)) #x
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index #x
