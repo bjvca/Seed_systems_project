@@ -2073,7 +2073,7 @@ for (i in 1:length(results_dealer_prim_J)){
 
 
 
-###here
+#xxxD
 
 #############################################################################################################################################################################
 ##### 3 ANALYSIS: Agro-input dealer - Secondary: outcomes with baseline######################################################################################################
@@ -3976,17 +3976,15 @@ baseline_farmers$large_catchID <- ifelse(baseline_farmers$catchID==3|baseline_fa
 # |baseline_farmers$catchID==64
 #baseline_farmers=subset(baseline_farmers,large_catchID=="0")
 
-
-
 baseline_farmers[baseline_farmers==999] <- NA
 #baseline_farmers[baseline_farmers==96] <- NA
-baseline_farmers[, 4:270][baseline_farmers[, 4:270] == 96] <- NA #columns 4-246 only
+baseline_farmers[, 4:372][baseline_farmers[, 4:372] == 96] <- NA #columns 4-372 only
 #baseline_farmers[baseline_farmers==98] <- NA
-baseline_farmers[, 4:270][baseline_farmers[, 4:270] == 98] <- NA
+baseline_farmers[, 4:372][baseline_farmers[, 4:372] == 98] <- NA
 baseline_farmers[baseline_farmers=="n/a"] <- NA
 
 #1. Q25a. Did you use any quality maize seed like **OPV or hybrid in **seed  the second season of **2020 (entoigo 2020)** for any of your plots?
-baseline_farmers$mid_Check2.check.maize.q25a <- baseline_farmers$check.maize.q25a
+baseline_farmers$mid_Check2.check.maize.q25a <- baseline_farmers$CHECK.MAIZE.Q25A
 baseline_farmers$mid_Check2.check.maize.q25a<-ifelse(baseline_farmers$mid_Check2.check.maize.q25a=="Yes",1,0)
 
 #2. q25b. Where did you obtain the maize seed used in the second season of **2020 (entoigo 2020)** on any of your plots?
@@ -3994,28 +3992,27 @@ baseline_farmers$agro <- ifelse(baseline_farmers$Check2.check.maize.q25b=="d",1,
 baseline_farmers$agro[is.na(baseline_farmers$Check2.check.maize.q25b)] <- NA
 baseline_farmers$agro[baseline_farmers$Check2.check.maize.q25a==0] = 0
 
-baseline_farmers$mid_agro <- ifelse(baseline_farmers$check.maize.q25b=="d",1,0)
-baseline_farmers$mid_agro[is.na(baseline_farmers$check.maize.q25b)] <- NA
-baseline_farmers$mid_agro[baseline_farmers$check.maize.q25a=="No"] = 0
+baseline_farmers$mid_agro <- ifelse(baseline_farmers$CHECK.MAIZE.Q25B=="d",1,0)
+baseline_farmers$mid_agro[is.na(baseline_farmers$CHECK.MAIZE.Q25B)] <- NA
+baseline_farmers$mid_agro[baseline_farmers$CHECK.MAIZE.Q25A=="No"] = 0
 
 #3. Q25d. How much quality maize seed (hybrid or OPV) did you buy from an input dealer in the second agricultural season of 2020? Record amount in **KG**
-baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
-baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
-
+#baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
+#baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 
 #email to Bjorn (08/04) about farmer q25d
 
-baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$check.maize.q25d
+baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$CHECK.MAIZE.Q25D
 baseline_farmers$mid_Check2.check.maize.q25d <- as.numeric((as.character(baseline_farmers$mid_Check2.check.maize.q25d)))
-baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
-baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
+#baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
 baseline_farmers <- trim("mid_Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
+#baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
 
 #4. services
-variables_servicesF_mid <- cbind(baseline_farmers$mid_refunds,baseline_farmers$mid_gives_credit,baseline_farmers$mid_gives_advice
-                                 ,baseline_farmers$mid_delivers,baseline_farmers$mid_after_sales_service,baseline_farmers$mid_payment_mehtods
-                                 ,baseline_farmers$mid_small_quant)
+variables_servicesF_mid <- cbind(baseline_farmers$end_refunds,baseline_farmers$end_gives_credit,baseline_farmers$end_gives_advice
+                                 ,baseline_farmers$end_delivers,baseline_farmers$end_after_sales_service,baseline_farmers$end_payment_mehtods
+                                 ,baseline_farmers$end_small_quant)
 variables_servicesF_base <- cbind(baseline_farmers$refunds,baseline_farmers$gives_credit,baseline_farmers$gives_advice
                                  ,baseline_farmers$delivers,baseline_farmers$after_sales_service,baseline_farmers$payment_mehtods
                                  ,baseline_farmers$small_quant)
@@ -4032,26 +4029,28 @@ baseline_farmers$correct_q40 <- 0
 baseline_farmers$correct_q40[baseline_farmers$Check2.check.maize.q40=="b"] <- 1
 baseline_farmers$correct_q40[baseline_farmers$Check2.check.maize.q40=="c"] <- 1
 
-baseline_farmers$mid_Check2.check.maize.q40 <- baseline_farmers$check.maize.q40
+baseline_farmers$mid_Check2.check.maize.q40 <- baseline_farmers$CHECK.MAIZE.Q40
 baseline_farmers$mid_correct_q40 <- 0
 baseline_farmers$mid_correct_q40[baseline_farmers$mid_Check2.check.maize.q40=="b"] <- 1
 baseline_farmers$mid_correct_q40[baseline_farmers$mid_Check2.check.maize.q40=="c"] <- 1
+baseline_farmers$mid_correct_q40[baseline_farmers$attrition_ind_F_end==1] <- NA
 
 #q41 (Wilber: The same applies to q41.)
 baseline_farmers$correct_q41 <- ifelse(baseline_farmers$Check2.check.maize.q41=="1",1,0)
 baseline_farmers$correct_q41[baseline_farmers$Check2.check.maize.q41=="2"] <- 1
 
-baseline_farmers$mid_Check2.check.maize.q41 <- baseline_farmers$check.maize.q41
+baseline_farmers$mid_Check2.check.maize.q41 <- baseline_farmers$CHECK.MAIZE.Q41
 baseline_farmers$mid_Check2.check.maize.q41 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q41))
 baseline_farmers$mid_correct_q41 <- ifelse(baseline_farmers$mid_Check2.check.maize.q41=="1",1,0)
 baseline_farmers$mid_correct_q41[baseline_farmers$mid_Check2.check.maize.q41=="2"] <- 1
+baseline_farmers$mid_correct_q41[baseline_farmers$attrition_ind_F_end==1] <- NA
 
 #q42
 baseline_farmers$correct_q42 <- NA
 baseline_farmers$correct_q42[baseline_farmers$Check2.check.maize.q42=="1"] <- 1
 baseline_farmers$correct_q42[baseline_farmers$Check2.check.maize.q42=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q42 <- baseline_farmers$check.maize.q42
+baseline_farmers$mid_Check2.check.maize.q42 <- baseline_farmers$CHECK.MAIZE.Q42
 baseline_farmers$mid_Check2.check.maize.q42<-ifelse(baseline_farmers$mid_Check2.check.maize.q42=="Yes",1,0)
 baseline_farmers$mid_correct_q42 <- NA
 baseline_farmers$mid_correct_q42[baseline_farmers$mid_Check2.check.maize.q42=="1"] <- 1
@@ -4062,7 +4061,7 @@ baseline_farmers$correct_q43 <- NA
 baseline_farmers$correct_q43[baseline_farmers$Check2.check.maize.q43=="1"] <- 1
 baseline_farmers$correct_q43[baseline_farmers$Check2.check.maize.q43=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q43 <- baseline_farmers$check.maize.q43
+baseline_farmers$mid_Check2.check.maize.q43 <- baseline_farmers$CHECK.MAIZE.Q43
 baseline_farmers$mid_Check2.check.maize.q43<-ifelse(baseline_farmers$mid_Check2.check.maize.q43=="Yes",1,0)
 baseline_farmers$mid_correct_q43 <- NA
 baseline_farmers$mid_correct_q43[baseline_farmers$mid_Check2.check.maize.q43=="1"] <- 1
@@ -4073,7 +4072,7 @@ baseline_farmers$correct_q44 <- NA
 baseline_farmers$correct_q44[baseline_farmers$Check2.check.maize.q44=="1"] <- 1
 baseline_farmers$correct_q44[baseline_farmers$Check2.check.maize.q44=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q44 <- baseline_farmers$check.maize.q44
+baseline_farmers$mid_Check2.check.maize.q44 <- baseline_farmers$CHECK.MAIZE.Q44
 baseline_farmers$mid_Check2.check.maize.q44<-ifelse(baseline_farmers$mid_Check2.check.maize.q44=="Yes",1,0)
 baseline_farmers$mid_Check2.check.maize.q44 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q44))
 baseline_farmers$mid_correct_q44 <- NA
@@ -4084,7 +4083,7 @@ baseline_farmers$mid_correct_q44[baseline_farmers$mid_Check2.check.maize.q44=="0
 baseline_farmers$correct_q45[baseline_farmers$Check2.check.maize.q45>=3] <- 1
 baseline_farmers$correct_q45[baseline_farmers$Check2.check.maize.q45<3] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q45 <- baseline_farmers$check.maize.q45
+baseline_farmers$mid_Check2.check.maize.q45 <- baseline_farmers$CHECK.MAIZE.Q45
 baseline_farmers$mid_Check2.check.maize.q45 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q45))
 baseline_farmers$mid_correct_q45[baseline_farmers$mid_Check2.check.maize.q45>=3] <- 1
 baseline_farmers$mid_correct_q45[baseline_farmers$mid_Check2.check.maize.q45<3] <- 0
@@ -4093,7 +4092,7 @@ baseline_farmers$mid_correct_q45[baseline_farmers$mid_Check2.check.maize.q45<3] 
 baseline_farmers$correct_q46 <- (baseline_farmers$Check2.check.maize.q46 <= 20)
 baseline_farmers$correct_q46<-ifelse(baseline_farmers$correct_q46=="TRUE",1,0)
 
-baseline_farmers$mid_Check2.check.maize.q46 <- baseline_farmers$check.maize.q46
+baseline_farmers$mid_Check2.check.maize.q46 <- baseline_farmers$CHECK.MAIZE.Q46
 baseline_farmers$mid_Check2.check.maize.q46 <- (as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q46)))
 baseline_farmers$mid_correct_q46 <- (baseline_farmers$mid_Check2.check.maize.q46 <= 20)
 baseline_farmers$mid_correct_q46<-ifelse(baseline_farmers$mid_correct_q46=="TRUE",1,0)
@@ -4103,7 +4102,7 @@ baseline_farmers$correct_q47 <- NA
 baseline_farmers$correct_q47[baseline_farmers$Check2.check.maize.q47=="1"] <- 1
 baseline_farmers$correct_q47[baseline_farmers$Check2.check.maize.q47=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q47 <- baseline_farmers$check.maize.q47
+baseline_farmers$mid_Check2.check.maize.q47 <- baseline_farmers$CHECK.MAIZE.Q47
 baseline_farmers$mid_Check2.check.maize.q47<-ifelse(baseline_farmers$mid_Check2.check.maize.q47=="Yes",1,0)
 baseline_farmers$mid_correct_q47 <- NA
 baseline_farmers$mid_correct_q47[baseline_farmers$mid_Check2.check.maize.q47=="1"] <- 1
@@ -4113,17 +4112,16 @@ baseline_farmers$mid_correct_q47[baseline_farmers$mid_Check2.check.maize.q47=="0
 baseline_farmers$correct_q48 <- ifelse(baseline_farmers$Check2.check.maize.q48=="2",1,0)
 baseline_farmers$correct_q48[is.na(baseline_farmers$Check2.check.maize.q48)] <- NA
 
-baseline_farmers$mid_Check2.check.maize.q48 <- baseline_farmers$check.maize.q48
+baseline_farmers$mid_Check2.check.maize.q48 <- baseline_farmers$CHECK.MAIZE.Q48
 baseline_farmers$mid_correct_q48 <- ifelse(baseline_farmers$mid_Check2.check.maize.q48=="2",1,0)
 baseline_farmers$mid_correct_q48[is.na(baseline_farmers$mid_Check2.check.maize.q48)] <- NA
-
 
 #q49
 baseline_farmers$correct_q49 <- NA
 baseline_farmers$correct_q49[baseline_farmers$Check2.check.maize.q49=="1"] <- 1
 baseline_farmers$correct_q49[baseline_farmers$Check2.check.maize.q49=="0"] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q49 <- baseline_farmers$check.maize.q49
+baseline_farmers$mid_Check2.check.maize.q49 <- baseline_farmers$CHECK.MAIZE.Q49
 baseline_farmers$mid_Check2.check.maize.q49<-ifelse(baseline_farmers$mid_Check2.check.maize.q49=="Yes",1,0)
 baseline_farmers$mid_correct_q49 <- NA
 baseline_farmers$mid_correct_q49[baseline_farmers$mid_Check2.check.maize.q49=="1"] <- 1
@@ -4145,25 +4143,24 @@ index_practices_base <- icwIndex(xmat=variables_practices_base)
 baseline_farmers$index_practices_base <- index_practices_base$index
 
 #Q25h. Do you think that maize seed that you can buy at agro-input dealer is counterfeit/adulterated? NEW ANSWER OPTION
-baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$check.maize.q25h
+baseline_farmers$mid_Check2.check.maize.q25h <- baseline_farmers$CHECK.MAIZE.Q25H
 baseline_farmers$mid_Check2.check.maize.q25h<-ifelse(baseline_farmers$mid_Check2.check.maize.q25h=="Yes",1,0)
 
 #farmer saved
-baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$check.maize.q31
+baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$CHECK.MAIZE.Q31
 baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Check2.check.maize.q31=="Land_Races",1,0)
+baseline_farmers$mid_Land_Races[is.na(baseline_farmers$mid_Check2.check.maize.q31)]<-NA
 
 #6. overall index
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_mid
-                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+                                    ,baseline_farmers$mid_Land_Races,baseline_farmers$index_practices_mid)
 variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
-                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_base
-                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
+                                     ,baseline_farmers$Land_Races,baseline_farmers$index_practices_base)
 
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(3))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
-index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
+index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base,revcols = c(3))
 baseline_farmers$index_overallprimF_base <- index_overallprimF_base$index
 
 ################################################################################################################################################################################
@@ -4209,10 +4206,10 @@ index_practices_baseT <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseT <- index_practices_baseT$index
 
 #6.
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(5,6))
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(3))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
 
-index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(5,6))
+index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(3))
 baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index
 
 df_ols_F_prim <- array(NA,dim=c(3,3,11))
@@ -4256,10 +4253,10 @@ index_practices_baseC <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseC <- index_practices_baseC$index
 
 #6.
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(3))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 
-index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
+index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(3))
 baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
@@ -4301,10 +4298,10 @@ index_practices_baseF <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseF <- index_practices_baseF$index
 
 #6.
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(3))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 
-index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
+index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(3))
 baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
@@ -4349,268 +4346,7 @@ for (i in 1:length(results_farmer_prim_J)){
   df_ols_F_prim_J[3,2,i] <- adjust_p(df_ols_F_prim[3,2,i],df_farmer_primC,i)
   df_ols_F_prim_J[3,3,i] <- adjust_p(df_ols_F_prim[3,3,i],df_farmer_primF,i)}
 
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
-##### 8H ANALYSIS: Farmer - Primary#############################################################################################################################################
-##### Heterogeneity analyses: More competitive catchment areas #################################################################################################################
-################################################################################################################################################################################
-
-#2: Larger catchment areas
-baseline_farmers$small_catchID <- ifelse(baseline_farmers$catchID==16|baseline_farmers$catchID==18|baseline_farmers$catchID==19|
-                                           baseline_farmers$catchID==33|baseline_farmers$catchID==34|baseline_farmers$catchID==36|
-                                           baseline_farmers$catchID==42|baseline_farmers$catchID==45|baseline_farmers$catchID==46|
-                                           baseline_farmers$catchID==48|baseline_farmers$catchID==53|baseline_farmers$catchID==63|
-                                           baseline_farmers$catchID==65|baseline_farmers$catchID==66|baseline_farmers$catchID==67|
-                                           baseline_farmers$catchID==73|baseline_farmers$catchID==79|baseline_farmers$catchID==80|
-                                           baseline_farmers$catchID==87|baseline_farmers$catchID==89|baseline_farmers$catchID==90|
-                                           baseline_farmers$catchID==91|baseline_farmers$catchID==92|baseline_farmers$catchID==93|
-                                           baseline_farmers$catchID==95|baseline_farmers$catchID==98|baseline_farmers$catchID==101|
-                                           baseline_farmers$catchID==103|baseline_farmers$catchID==106|baseline_farmers$catchID==107|
-                                           baseline_farmers$catchID==108|baseline_farmers$catchID==109|baseline_farmers$catchID==110|
-                                           baseline_farmers$catchID==112|baseline_farmers$catchID==116|baseline_farmers$catchID==118|
-                                           baseline_farmers$catchID==120|baseline_farmers$catchID==121|baseline_farmers$catchID==122|
-                                           baseline_farmers$catchID==124|baseline_farmers$catchID==125|baseline_farmers$catchID==126|
-                                           baseline_farmers$catchID==127|baseline_farmers$catchID==128|baseline_farmers$catchID==129|
-                                           baseline_farmers$catchID==130,1,0)
-
-baseline_farmers_save=baseline_farmers
-baseline_farmers=subset(baseline_farmers,small_catchID=="0")
-
-variables_servicesF_mid <- cbind(baseline_farmers$mid_refunds,baseline_farmers$mid_gives_credit,baseline_farmers$mid_gives_advice
-                                 ,baseline_farmers$mid_delivers,baseline_farmers$mid_after_sales_service,baseline_farmers$mid_payment_mehtods
-                                 ,baseline_farmers$mid_small_quant)
-variables_servicesF_base <- cbind(baseline_farmers$refunds,baseline_farmers$gives_credit,baseline_farmers$gives_advice
-                                  ,baseline_farmers$delivers,baseline_farmers$after_sales_service,baseline_farmers$payment_mehtods
-                                  ,baseline_farmers$small_quant)
-
-index_servicesF_mid <- icwIndex(xmat=variables_servicesF_mid)
-baseline_farmers$index_servicesF_mid <- index_servicesF_mid$index
-
-index_servicesF_base <- icwIndex(xmat=variables_servicesF_base)
-baseline_farmers$index_servicesF_base <- index_servicesF_base$index
-
-variables_practices_mid <- cbind(baseline_farmers$mid_correct_q40,baseline_farmers$mid_correct_q41,baseline_farmers$mid_correct_q42
-                                 ,baseline_farmers$mid_correct_q43,baseline_farmers$mid_correct_q44,baseline_farmers$mid_correct_q45
-                                 ,baseline_farmers$mid_correct_q46,baseline_farmers$mid_correct_q47,baseline_farmers$mid_correct_q48
-                                 ,baseline_farmers$mid_correct_q49)
-variables_practices_base <- cbind(baseline_farmers$correct_q40,baseline_farmers$correct_q41,baseline_farmers$correct_q42
-                                  ,baseline_farmers$correct_q43,baseline_farmers$correct_q44,baseline_farmers$correct_q45
-                                  ,baseline_farmers$correct_q46,baseline_farmers$correct_q47,baseline_farmers$correct_q48
-                                  ,baseline_farmers$correct_q49)
-
-index_practices_mid <- icwIndex(xmat=variables_practices_mid)
-baseline_farmers$index_practices_mid <- index_practices_mid$index
-
-index_practices_base <- icwIndex(xmat=variables_practices_base)
-baseline_farmers$index_practices_base <- index_practices_base$index
-
-variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_mid
-                                    ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
-                                     ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_base
-                                     ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
-
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
-baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
-
-index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
-baseline_farmers$index_overallprimF_base <- index_overallprimF_base$index
-
-################################################################################################################################################################################
-
-###
-#1#
-###
-
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_mid","index_practices_mid","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_mid")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_base","index_practices_base","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_base")
-
-df_means_F_prim_het2 <- array(NA,dim=c(3,8))
-
-for (i in 1:length(results_farmer_prim)){
-  df_means_F_prim_het2[1,i] <- sum(baseline_farmers[results_farmer_prim[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]])))
-  df_means_F_prim_het2[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim[i]], na.rm=T))
-  df_means_F_prim_het2[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))}
-
-###
-#2#
-###
-
-baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
-baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
-
-#4.
-index_servicesF_midT <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_servicesF_midT <- index_servicesF_midT$index
-
-index_servicesF_baseT <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_servicesF_baseT <- index_servicesF_baseT$index
-
-#5.
-index_practices_midT <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_practices_midT <- index_practices_midT$index
-
-index_practices_baseT <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_practices_baseT <- index_practices_baseT$index
-
-#6.
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
-
-index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index
-
-df_ols_F_prim_het2 <- array(NA,dim=c(3,3,11))
-
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midT","index_practices_midT","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midT")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseT","index_practices_baseT","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseT")
-
-for (i in 1:length(results_farmer_prim)){
-  ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  df_ols_F_prim_het2[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
-  df_ols_F_prim_het2[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
-  df_ols_F_prim_het2[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
-
-###
-#3#
-###
-
-baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
-baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
-
-#4.
-index_servicesF_midC <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_servicesF_midC <- index_servicesF_midC$index
-
-index_servicesF_baseC <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_servicesF_baseC <- index_servicesF_baseC$index
-
-#5.
-index_practices_midC <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_practices_midC <- index_practices_midC$index
-
-index_practices_baseC <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_practices_baseC <- index_practices_baseC$index
-
-#6.
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
-
-index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index
-
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midC","index_practices_midC","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midC")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseC","index_practices_baseC","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseC")
-
-for (i in 1:length(results_farmer_prim)){
-  ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  df_ols_F_prim_het2[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
-  df_ols_F_prim_het2[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols_F_prim_het2[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
-
-###
-#4#
-###
-
-baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
-baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
-
-#4.
-index_servicesF_midF <- icwIndex(xmat=variables_servicesF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_servicesF_midF <- index_servicesF_midF$index
-
-index_servicesF_baseF <- icwIndex(xmat=variables_servicesF_base,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_servicesF_baseF <- index_servicesF_baseF$index
-
-#5.
-index_practices_midF <- icwIndex(xmat=variables_practices_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_practices_midF <- index_practices_midF$index
-
-index_practices_baseF <- icwIndex(xmat=variables_practices_base,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_practices_baseF <- index_practices_baseF$index
-
-#6.
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
-
-index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
-baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index
-
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midF","index_practices_midF","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midF")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseF","index_practices_baseF","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseF")
-
-for (i in 1:length(results_farmer_prim)){
-  ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_prim_het2[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_prim_het2[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_prim_het2[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midT
-                              ,baseline_farmers$index_practices_midT,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primC <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midC
-                              ,baseline_farmers$index_practices_midC,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primF <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midF
-                              ,baseline_farmers$index_practices_midF,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-#no overall index
-
-df_ols_F_prim_het2_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_prim_J <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                           ,"index_servicesF_mid","index_practices_midF","mid_Check2.check.maize.q25h"
-                           ,"mid_Land_Races")
-#no overall index
-
-for (i in 1:length(results_farmer_prim_J)){
-  df_ols_F_prim_het2_J[3,1,i] <- adjust_p(df_ols_F_prim_het2[3,1,i],df_farmer_primT,i)
-  df_ols_F_prim_het2_J[3,2,i] <- adjust_p(df_ols_F_prim_het2[3,2,i],df_farmer_primC,i)
-  df_ols_F_prim_het2_J[3,3,i] <- adjust_p(df_ols_F_prim_het2[3,3,i],df_farmer_primF,i)}
-
-baseline_farmers=baseline_farmers_save
-
-
+#xxxF
 
 
 
@@ -5487,27 +5223,13 @@ for (i in 1:length(results_farmer_sec_yieldetc_J)){
 ##### 9 ANALYSIS: Farmer - Primary and secondary: outcomes without baseline#####################################################################################################
 ################################################################################################################################################################################
 
-#1. index of seed quality perception: average ratings of maize seed of all input dealers in catchment area (q68, q69 aggregated at household level)
-
-nrowF <- nrow(baseline_farmers)
-
-baseline_farmers$mid_seed_quality_general_rating=sample(na.omit(baseline_farmers$seed_quality_general_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_quality_general_rating <- as.numeric(as.character(baseline_farmers$mid_seed_quality_general_rating))
-
-baseline_farmers$mid_seed_yield_rating=sample(na.omit(baseline_farmers$seed_yield_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_yield_rating <- as.numeric(as.character(baseline_farmers$mid_seed_yield_rating))
-
-baseline_farmers$mid_seed_drought_rating=sample(na.omit(baseline_farmers$seed_drought_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_drought_rating <- as.numeric(as.character(baseline_farmers$mid_seed_drought_rating))
-
-baseline_farmers$mid_seed_disease_rating=sample(na.omit(baseline_farmers$seed_disease_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_disease_rating <- as.numeric(as.character(baseline_farmers$mid_seed_disease_rating))
-
-baseline_farmers$mid_seed_maturing_rating=sample(na.omit(baseline_farmers$seed_maturing_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_maturing_rating <- as.numeric(as.character(baseline_farmers$mid_seed_maturing_rating))
-
-baseline_farmers$mid_seed_germinate_rating=sample(na.omit(baseline_farmers$seed_germinate_rating),nrowF,replace = T)
-baseline_farmers$mid_seed_germinate_rating <- as.numeric(as.character(baseline_farmers$mid_seed_germinate_rating))
+#1. index of seed quality perception: average ratings of maize seed of all input dealers in catchment area (q68, q69 aggregated at household level) OK!
+baseline_farmers$mid_seed_quality_general_rating=baseline_farmers$end_seed_quality_general_rating
+baseline_farmers$mid_seed_yield_rating=baseline_farmers$end_seed_yield_rating
+baseline_farmers$mid_seed_drought_rating=baseline_farmers$end_seed_drought_rating
+baseline_farmers$mid_seed_disease_rating=baseline_farmers$end_seed_disease_rating
+baseline_farmers$mid_seed_maturing_rating=baseline_farmers$end_seed_maturing_rating
+baseline_farmers$mid_seed_germinate_rating=baseline_farmers$end_seed_germinate_rating
 
 variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating,baseline_farmers$mid_seed_yield_rating
                                 ,baseline_farmers$mid_seed_drought_rating,baseline_farmers$mid_seed_disease_rating
@@ -5516,24 +5238,17 @@ variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
 baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index
 
-#2. Shop ratings
-baseline_farmers$mid_general_rating=sample(na.omit(baseline_farmers$general_rating),nrowF,replace = T)
-baseline_farmers$mid_general_rating <- as.numeric(as.character(baseline_farmers$mid_general_rating))
+# baseline_farmers$index_ratingsF_mid <- rowMeans(baseline_farmers[c("mid_seed_quality_general_rating","mid_seed_yield_rating",
+#                                                                     "mid_seed_drought_rating","mid_seed_disease_rating",
+#                                                                     "mid_seed_maturing_rating","mid_seed_germinate_rating")],na.rm = T)
 
-baseline_farmers$mid_location_rating=sample(na.omit(baseline_farmers$location_rating),nrowF,replace = T)
-baseline_farmers$mid_location_rating <- as.numeric(as.character(baseline_farmers$mid_location_rating))
-
-baseline_farmers$mid_price_rating=sample(na.omit(baseline_farmers$price_rating),nrowF,replace = T)
-baseline_farmers$mid_price_rating <- as.numeric(as.character(baseline_farmers$mid_price_rating))
-
-baseline_farmers$mid_quality_rating=sample(na.omit(baseline_farmers$quality_rating),nrowF,replace = T)
-baseline_farmers$mid_quality_rating <- as.numeric(as.character(baseline_farmers$mid_quality_rating))
-
-baseline_farmers$mid_stock_rating=sample(na.omit(baseline_farmers$stock_rating),nrowF,replace = T)
-baseline_farmers$mid_stock_rating <- as.numeric(as.character(baseline_farmers$mid_stock_rating))
-
-baseline_farmers$mid_reputation_rating=sample(na.omit(baseline_farmers$reputation_rating),nrowF,replace = T)
-baseline_farmers$mid_reputation_rating <- as.numeric(as.character(baseline_farmers$mid_reputation_rating))
+#2. Shop ratings OK!
+baseline_farmers$mid_general_rating=baseline_farmers$end_general_rating
+baseline_farmers$mid_location_rating=baseline_farmers$end_location_rating
+baseline_farmers$mid_price_rating=baseline_farmers$end_price_rating
+baseline_farmers$mid_quality_rating=baseline_farmers$end_quality_rating
+baseline_farmers$mid_stock_rating=baseline_farmers$end_stock_rating
+baseline_farmers$mid_reputation_rating=baseline_farmers$end_reputation_rating
 
 variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline_farmers$mid_location_rating
                                     ,baseline_farmers$mid_price_rating,baseline_farmers$mid_quality_rating
@@ -5542,9 +5257,11 @@ variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid)
 baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index
 
-#3. switching
-baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$check.maize.q25i=="2",1,0)
-baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$check.maize.q25i)] <- 0
+#3. switching OK!
+baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$CHECK.MAIZE.Q25I=="2",1,0)
+#baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="3"]<-NA
+baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$CHECK.MAIZE.Q25I)] <- 0
+baseline_farmers$mid_farmerswitched[baseline_farmers$attrition_ind_F_end==1] <- NA
 
 #4. Did you harvest as much maize from this **${plot_select_name}** plot in the second season (entoigo) of 2020 (including maize that was consumed) as you expected?
 baseline_farmers$mid_Check2.check.maize.q51a <- baseline_farmers$check.maize.q51a
@@ -5577,6 +5294,8 @@ baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="h
 baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="i"] <- NA
 
 #6. skill questions
+nrowF <- nrow(baseline_farmers)
+
 baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
 #placeholder #to do endline (mind: T, CH, F have different indices)
 
@@ -5593,12 +5312,11 @@ baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc
 
 #new overallprimF index because of mid_farmerswitched
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched
-                                    ,baseline_farmers$index_practices_mid,baseline_farmers$mid_Check2.check.maize.q25h
-                                    ,baseline_farmers$mid_Land_Races)
-#                                   ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid) #to do after endline (also: add (+) sign to tables)
+                                    ,baseline_farmers$mid_farmerswitched,baseline_farmers$mid_Land_Races
+                                    ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid
+                                    ,baseline_farmers$index_practices_mid)
 
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(6,7))
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(4))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
 #new overallsecF index because of mid_knows_dealer & index_skillsF_mid
@@ -5648,12 +5366,14 @@ baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
 
+#baseline_farmers$index_ratingsF_midT <- baseline_farmers$index_ratingsF_mid
+
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(6,7))
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
 
 #new overallsecF
@@ -5688,12 +5408,14 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
 
+#baseline_farmers$index_ratingsF_midC <- baseline_farmers$index_ratingsF_mid
+
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(6,7))
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 
 #new overallsecF
@@ -5728,12 +5450,14 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
 
+#baseline_farmers$index_ratingsF_midF <- baseline_farmers$index_ratingsF_mid
+
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(6,7))
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 
 #new overallsecF
@@ -5757,203 +5481,6 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-
-
-
-
-
-
-
-
-################################################################################################################################################################################
-##### 9H ANALYSIS: Farmer - Primary and secondary: outcomes without baseline#####################################################################################################
-##### Heterogeneity analyses: More competitive catchment areas
-################################################################################################################################################################################
-
-baseline_farmers_save=baseline_farmers
-baseline_farmers=subset(baseline_farmers,small_catchID=="0")
-
-variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating,baseline_farmers$mid_seed_yield_rating
-                                ,baseline_farmers$mid_seed_drought_rating,baseline_farmers$mid_seed_disease_rating
-                                ,baseline_farmers$mid_seed_maturing_rating,baseline_farmers$mid_seed_germinate_rating)
-
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
-baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index
-
-variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline_farmers$mid_location_rating
-                                    ,baseline_farmers$mid_price_rating,baseline_farmers$mid_quality_rating
-                                    ,baseline_farmers$mid_stock_rating,baseline_farmers$mid_reputation_rating)
-
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid)
-baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index
-
-variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched
-                                    ,baseline_farmers$index_practices_mid,baseline_farmers$mid_Check2.check.maize.q25h
-                                    ,baseline_farmers$mid_Land_Races)
-#                                   ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid) #to do after endline (also: add (+) sign to tables)
-
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(6,7))
-baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
-
-variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-                                   ,baseline_farmers$mid_knows_dealer)
-# ,baseline_farmers$mid_bought_last_season,index_skillsF_mid) #to do endline
-
-index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
-baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
-
-variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
-                                        ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
-                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56)
-
-index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
-baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
-
-################################################################################################################################################################################
-
-###
-#1#
-###
-
-results_farmer_nobase <- c("index_ratingsF_mid","index_ratingsshopF_mid","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_mid","index_overallsecF_mid","index_overallsec_plotF_mid"
-                           ,"index_overall_seedonplot_mid","index_overall_yieldetc_mid","mid_Check2.check.maize.q56")
-
-df_means_F_nobase_het2 <- array(NA,dim=c(3,12))
-
-for (i in 1:length(results_farmer_nobase)){
-  df_means_F_nobase_het2[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
-  df_means_F_nobase_het2[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
-  df_means_F_nobase_het2[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
-
-###
-#2#
-###
-
-df_ols_F_nobase_het2 <- array(NA,dim=c(3,3,12))
-
-baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
-baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
-
-#new overallprimF
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(6,7))
-baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
-
-#new overallsecF
-index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$training_control)
-baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
-
-#new overall_yieldetc
-index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
-baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
-
-results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT"
-                           ,"index_overall_seedonplot_midT","index_overall_yieldetc_midT","mid_Check2.check.maize.q56")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  df_ols_F_nobase_het2[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
-  df_ols_F_nobase_het2[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
-  df_ols_F_nobase_het2[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
-
-###
-#3#
-###
-
-baseline_farmers$clearing_control[baseline_farmers$clearing==0] <- TRUE
-baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
-
-#new overallprimF
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(6,7))
-baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
-
-#new overallsecF
-index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$clearing_control)
-baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
-
-#new overall_yieldetc
-index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
-baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
-
-results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC"
-                           ,"index_overall_seedonplot_midC","index_overall_yieldetc_midC","mid_Check2.check.maize.q56")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  df_ols_F_nobase_het2[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
-  df_ols_F_nobase_het2[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols_F_nobase_het2[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
-
-###
-#4#
-###
-
-baseline_farmers$farmer_control[baseline_farmers$farmer==0] <- TRUE
-baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
-
-#1.
-index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
-
-#2.
-index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
-
-#new overallprimF
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(6,7))
-baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
-
-#new overallsecF
-index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid,sgroup = baseline_farmers$farmer_control)
-baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
-
-#new overall_yieldetc
-index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
-baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
-
-results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_midF","index_overallsecF_midF","index_overallsec_plotF_midF"
-                           ,"index_overall_seedonplot_midF","index_overall_yieldetc_midF","mid_Check2.check.maize.q56")
-
-for (i in 1:length(results_farmer_nobase)){
-  ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
-
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_nobase_het2[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_nobase_het2[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_nobase_het2[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-baseline_farmers=baseline_farmers_save
-
 
 
 
