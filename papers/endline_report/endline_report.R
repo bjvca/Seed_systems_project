@@ -10,6 +10,7 @@ midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv"
 endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"))
 
 library(dplyr)
+library(Jmisc)
 endline_farmers <- rename_with(endline_farmers,toupper)
 
 baseline_farmers <- merge(baseline_farmers,endline_farmers,by.x="farmer_ID",by.y="FARMER_ID",all.x=TRUE)
@@ -1791,14 +1792,21 @@ baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_bas
 #1#
 ###
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
-                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid"
-                         ,"index_overall_prim_dealer_mid")
+results_dealer_prim <- c("mid_quantitysold"                #1
+                         ,"mid_av_salesprices"             #2
+                         ,"mid_revenue"                    #3
+                         ,"mid_maize.owner.agree.q7"       #4
+                         ,"index_practices_cap_mid"        #5
+                         ,"index_practices_lab_mid"        #6
+                         ,"index_practices_all_mid"        #7
+                         ,"index_efforts_mid"              #8 
+                         ,"index_overall_prim_dealer_mid") #9
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","reading","index_practices_cap_base"
+                              ,"maize.owner.agree.q7","index_practices_cap_base"
                               ,"index_practices_lab_base","index_practices_all_base","index_efforts_base"
                               ,"index_overall_prim_dealer_base")
+
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)as.numeric(as.character(x)))
 
 df_means_D_prim <- array(NA,dim=c(3,10))
 
@@ -1852,17 +1860,23 @@ index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_ba
 baseline_dealers$index_overall_prim_dealer_baseT <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midT"
+                         ,"mid_maize.owner.agree.q7","index_practices_cap_midT"
                          ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
                          ,"index_overall_prim_dealer_midT")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","reading","index_practices_cap_baseT"
+                              ,"maize.owner.agree.q7","index_practices_cap_baseT"
                               ,"index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT"
                               ,"index_overall_prim_dealer_baseT")
 
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
+
+baseline_dealers$training_demeaned <- baseline_dealers$training - mean(baseline_dealers$training,na.rm = T)
+baseline_dealers$clearing_demeaned <- baseline_dealers$clearing - mean(baseline_dealers$clearing,na.rm = T)
+baseline_dealers$farmer_demeaned <- baseline_dealers$farmer - mean(baseline_dealers$farmer,na.rm = T)
+
 for (i in 1:length(results_dealer_prim)){
-  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
-  #ols <-  lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
+  #ols <-  lm(as.formula(paste(results_dealer_prim[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -1912,17 +1926,19 @@ index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_ba
 baseline_dealers$index_overall_prim_dealer_baseC <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midC"
+                         ,"mid_maize.owner.agree.q7","index_practices_cap_midC"
                          ,"index_practices_lab_midC","index_practices_all_midC","index_efforts_midC"
                          ,"index_overall_prim_dealer_midC")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","reading","index_practices_cap_baseC"
+                              ,"maize.owner.agree.q7","index_practices_cap_baseC"
                               ,"index_practices_lab_baseC","index_practices_all_baseC","index_efforts_baseC"
                               ,"index_overall_prim_dealer_baseC")
 
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_prim)){
-  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_prim[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -1972,17 +1988,19 @@ index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_ba
 baseline_dealers$index_overall_prim_dealer_baseF <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","mid_reading","index_practices_cap_midF"
+                         ,"mid_maize.owner.agree.q7","index_practices_cap_midF"
                          ,"index_practices_lab_midF","index_practices_all_midF","index_efforts_midF"
                          ,"index_overall_prim_dealer_midF")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","reading","index_practices_cap_baseF"
+                              ,"maize.owner.agree.q7","index_practices_cap_baseF"
                               ,"index_practices_lab_baseF","index_practices_all_baseF","index_efforts_baseF"
                               ,"index_overall_prim_dealer_baseF")
 
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_prim)){
-  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_prim_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -1996,7 +2014,7 @@ for (i in 1:length(results_dealer_prim)){
 # #need mean correlation among outcomes other than outcome k (r_.k)
 # #--> outcomes other than outcome k
 # df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
-#                              ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
+#                              ,baseline_dealers$mid_maize.owner.agree.q7
 #                              ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
 #                              ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
 # #no baseline_dealers$mid_av_salesprices
@@ -2037,15 +2055,15 @@ adjust_p <- function(pval,df_outcome,outcome_k=1) {
 }
 
 df_dealer_primT <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midT
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midT
                              ,baseline_dealers$index_practices_lab_midT,baseline_dealers$index_practices_all_midT
                              ,baseline_dealers$index_efforts_midT)
 df_dealer_primC <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midC
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midC
                              ,baseline_dealers$index_practices_lab_midC,baseline_dealers$index_practices_all_midC
                              ,baseline_dealers$index_efforts_midC)
 df_dealer_primF <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading,baseline_dealers$index_practices_cap_midF
+                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midF
                              ,baseline_dealers$index_practices_lab_midF,baseline_dealers$index_practices_all_midF
                              ,baseline_dealers$index_efforts_midF)
 #no index_overall_prim_dealer_midF
@@ -2055,7 +2073,7 @@ adjust_p(0.03,df_dealer_primT,9)
 
 df_ols_D_prim_J <- array(NA,dim=c(3,3,10))
 
-results_dealer_prim_J <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","mid_reading","index_practices_cap_mid"
+results_dealer_prim_J <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","index_practices_cap_mid"
                          ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid")
 #no index_overall_prim_dealer_midF
 
@@ -3868,7 +3886,7 @@ results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT"
                                ,"index_overall_off_midT","mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_nobase[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3899,7 +3917,7 @@ results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC"
                                ,"index_overall_off_midC","mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_nobase[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3930,7 +3948,7 @@ results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF"
                                ,"index_overall_off_midF","mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
-  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -4221,6 +4239,8 @@ results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.ch
 results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
                               ,"index_servicesF_baseT","index_practices_baseT","Check2.check.maize.q25h"
                               ,"Land_Races","index_overallprimF_baseT")
+
+results_farmer_prim_base <- 
 
 for (i in 1:length(results_farmer_prim)){
   ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
