@@ -1378,6 +1378,12 @@ baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agre
 baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
 baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
 
+baseline_dealers$check.owner.agree.long10h.q25[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe7H.q38[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe5.q50[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe4.q62[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$kg_improved[baseline_dealers$attrition_ind_D_end==1] <- NA
+
 baseline_dealers$mid_maize.owner.agree.q20 <- NA
 baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="Yes"] <- 1
 baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="No"] <- 0
@@ -1806,7 +1812,7 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
                               ,"index_practices_lab_base","index_practices_all_base","index_efforts_base"
                               ,"index_overall_prim_dealer_base")
 
-baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)as.numeric(as.character(x)))
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
 
 df_means_D_prim <- array(NA,dim=c(3,10))
 
@@ -4195,6 +4201,8 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.mai
                               ,"index_servicesF_base","index_practices_base","Check2.check.maize.q25h"
                               ,"Land_Races","index_overallprimF_base")
 
+baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
+
 df_means_F_prim <- array(NA,dim=c(3,8))
 
 for (i in 1:length(results_farmer_prim)){
@@ -4240,7 +4248,11 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.mai
                               ,"index_servicesF_baseT","index_practices_baseT","Check2.check.maize.q25h"
                               ,"Land_Races","index_overallprimF_baseT")
 
-results_farmer_prim_base <- 
+baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
+
+baseline_farmers$training_demeaned <- baseline_farmers$training - mean(baseline_farmers$training,na.rm = T)
+baseline_farmers$clearing_demeaned <- baseline_farmers$clearing - mean(baseline_farmers$clearing,na.rm = T)
+baseline_farmers$farmer_demeaned <- baseline_farmers$farmer - mean(baseline_farmers$farmer,na.rm = T)
 
 for (i in 1:length(results_farmer_prim)){
   ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training*clearing*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
