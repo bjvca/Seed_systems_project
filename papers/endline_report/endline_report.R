@@ -1814,12 +1814,14 @@ results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
 
 baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
 
-df_means_D_prim <- array(NA,dim=c(3,10))
+df_means_D_prim <- array(NA,dim=c(5,10))
 
 for (i in 1:length(results_dealer_prim)){
   df_means_D_prim[1,i] <- sum(baseline_dealers[results_dealer_prim[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]])))
   df_means_D_prim[2,i] <- sqrt(var(baseline_dealers[results_dealer_prim[i]], na.rm=T))
-  df_means_D_prim[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]]))-sum(is.na(baseline_dealers[results_dealer_prim_base[i]]))+sum(is.na(baseline_dealers[results_dealer_prim[i]])&is.na(baseline_dealers[results_dealer_prim_base[i]]))}
+  df_means_D_prim[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]]))-sum(is.na(baseline_dealers[results_dealer_prim_base[i]]))+sum(is.na(baseline_dealers[results_dealer_prim[i]])&is.na(baseline_dealers[results_dealer_prim_base[i]]))
+  df_means_D_prim[4,i] <- min(baseline_dealers[results_dealer_prim[i]], na.rm=T)
+  df_means_D_prim[5,i] <- max(baseline_dealers[results_dealer_prim[i]], na.rm=T)}
 
 df_ols_D_prim <- array(NA,dim=c(3,3,10))
 
@@ -3859,12 +3861,14 @@ results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid"
                                ,"index_overall_prim_dealer_mid","index_overallsec_mid"
                                ,"index_overall_off_mid","mid_reading")
 
-df_means_D_sec_nobase <- array(NA,dim=c(3,10))
+df_means_D_sec_nobase <- array(NA,dim=c(5,10))
 
 for (i in 1:length(results_dealer_sec_nobase)){
   df_means_D_sec_nobase[1,i] <- sum(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]])))
   df_means_D_sec_nobase[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T))
-  df_means_D_sec_nobase[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]]))}
+  df_means_D_sec_nobase[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]]))
+  df_means_D_sec_nobase[4,i] <- min(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)
+  df_means_D_sec_nobase[5,i] <- max(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)}
 
 ###
 #2#
@@ -4214,12 +4218,14 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.mai
 
 baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
-df_means_F_prim <- array(NA,dim=c(3,8))
+df_means_F_prim <- array(NA,dim=c(5,8))
 
 for (i in 1:length(results_farmer_prim)){
   df_means_F_prim[1,i] <- sum(baseline_farmers[results_farmer_prim[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]])))
   df_means_F_prim[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim[i]], na.rm=T))
-  df_means_F_prim[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))}
+  df_means_F_prim[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))
+  df_means_F_prim[4,i] <- min(baseline_farmers[results_farmer_prim[i]], na.rm=T)
+  df_means_F_prim[5,i] <- max(baseline_farmers[results_farmer_prim[i]], na.rm=T)}
 
 ###
 #2#
@@ -5414,12 +5420,14 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"index_overall_yieldetc_mid"   #11
                            ,"mid_Check2.check.maize.q56")  #12
 
-df_means_F_nobase <- array(NA,dim=c(3,12))
+df_means_F_nobase <- array(NA,dim=c(5,12))
 
 for (i in 1:length(results_farmer_nobase)){
   df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
   df_means_F_nobase[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
-  df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
+  df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))
+  df_means_F_nobase[4,i] <- min(baseline_farmers[results_farmer_nobase[i]], na.rm=T)
+  df_means_F_nobase[5,i] <- max(baseline_farmers[results_farmer_nobase[i]], na.rm=T)}
 
 ###
 #2#
