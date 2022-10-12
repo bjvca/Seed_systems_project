@@ -10011,7 +10011,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11394,10 +11394,10 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: 1st column reports sample means and standard deviations below in brackets;
-  2nd column reports differences between treatment and control groups and
- standard errors below in brackets; they are clustered at the level of randomiza
-tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10 percent levels; $^
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
  Larger indices indicate more desirable outcomes.
@@ -11509,7 +11509,7 @@ Sexpr{format(round(df_means_D_sec_nobase[5,2],digits=2),nsmall=2)} at endline.
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12535,10 +12535,10 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: 1st column reports sample means and standard deviations below in brackets;
-  2nd column reports differences between treatment and control groups and
- standard errors below in brackets; they are clustered at the level of randomiza
-tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10 percent levels; $^
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
  Larger indices indicate more desirable outcomes.
@@ -12794,7 +12794,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Index of dealer's motivation and satisfaction
+Index of dealer's motivation and satisfaction$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12898,8 +12898,7 @@ Sexpr{format(round(df_ols_D_sec_nobase[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's self-ratings on location, price, product quality, stock,
- reputation
+Index of dealer's self-ratings$^2$
 \end_layout
 
 \begin_layout Plain Layout
@@ -13000,7 +12999,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's efforts and services according to farmers
+Index of dealer's efforts and services according to farmers$^3$
 \end_layout
 
 \begin_layout Plain Layout
@@ -13101,7 +13100,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's knowledge about seed storage
+Index of dealer's knowledge about seed storage$^4$
 \end_layout
 
 \begin_layout Plain Layout
@@ -13202,7 +13201,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of dealer's knowledge about seed
+Index of dealer's knowledge about seed$^5$
 \end_layout
 
 \begin_layout Plain Layout
@@ -13333,12 +13332,102 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the overall index.
+ Larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of dealer's motivation and satisfaction contains 3 variables:
+ whether dealer sees him-/ herself working as agro-input dealer in future,
+ would recommend working as dealer, how happy dealer feels when he/ she
+ comes to work.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_D_sec_nobase[4,1],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_D_sec_nobase[5,1],digits=2),nsmall=2)} at endline.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The index of dealer's self-ratings contains 5 ratings: location, price,
+ product quality, stock, reputation.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_D_sec[4,8],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_D_sec[5,8],digits=2),nsmall=2)} at endline.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^3$The index of dealer's efforts and services according to farmers contains
+ 7 variables: whether shop offers refund/insurance, credit, training/advice,
+ delivery, after-sales service, accepts different payment methods, sells
+ small quantities.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_D_sec[4,5],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_D_sec[5,5],digits=2),nsmall=2)} at endline.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^4$The index of dealer's knowledge about seed storage contains 5 variables:
+ whether dealer knows how long seed can be carried over, how seed should
+ be stored after repackaging, what the min.
+ distance between floor and seed is, how seed should be stored in store
+ room, whether seed should be repackaged.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_D_sec[4,6],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_D_sec[5,6],digits=2),nsmall=2)} at endline.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^5$The index of dealer's knowledge about seed contains 4 variables: whether
+ dealer knows which seed variety to recommend if farmer complains about
+ poor soil, if farmer complains about little rain, if farmer is late for
+ planting, what to tell clients about yield benefits of hybrid seed.
+  This index ranges from 
+\backslash
+Sexpr{format(round(df_means_D_sec[4,7],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_D_sec[5,7],digits=2),nsmall=2)} at endline.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -13394,7 +13483,7 @@ ted maize varieties which are both included in the index.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -13478,7 +13567,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Number of maize varieties in stock last season (incl.
+Number of maize varieties in stock (incl.
  hybrids, OPV, landraces)
 \end_layout
 
@@ -13582,7 +13671,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,1],digits=3),nsmall=3)})
 
 Number of 
 \backslash
-textbf{hybrid} maize varieties in stock last season$^
+textbf{hybrid} maize varieties in stock$^
 \backslash
 dag$
 \end_layout
@@ -13687,7 +13776,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,2],digits=3),nsmall=3)})
 
 Number of 
 \backslash
-textbf{open-pollinated} maize varieties in stock last season$^
+textbf{open-pollinated} maize varieties in stock$^
 \backslash
 dag$
 \end_layout
@@ -14141,15 +14230,18 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index.
+ Larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -14251,7 +14343,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Number of maize varieties in stock last season (incl.
+Number of maize varieties in stock (incl.
  hybrids, OPV, landraces)
 \end_layout
 
@@ -14358,7 +14450,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,1],digits=3),nsmall=3)})
 
 Number of 
 \backslash
-textbf{hybrid} maize varieties in stock last season$^
+textbf{hybrid} maize varieties in stock$^
 \backslash
 dag$
 \end_layout
@@ -14466,7 +14558,7 @@ Sexpr{format(round(df_ols_D_sec[2,3,2],digits=3),nsmall=3)})
 
 Number of 
 \backslash
-textbf{open-pollinated} maize varieties in stock last season$^
+textbf{open-pollinated} maize varieties in stock$^
 \backslash
 dag$
 \end_layout
@@ -14706,15 +14798,18 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index.
+ Larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -21888,7 +21983,7 @@ nobs of index of services of shops nearby according to farmers: midline
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -23266,10 +23361,10 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: 1st column reports sample means and standard deviations below in brackets;
-  2nd column reports differences between treatment and control groups and
- standard errors below in brackets; they are clustered at the level of randomiza
-tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10 percent levels; $^
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
  Larger indices indicate more desirable outcomes.
@@ -24336,10 +24431,10 @@ scriptsize
 \begin_layout Plain Layout
 
 Note: 1st column reports sample means and standard deviations below in brackets;
-  2nd column reports differences between treatment and control groups and
- standard errors below in brackets; they are clustered at the level of randomiza
-tion; 3rd column reports number of observations; **, * and + denote significance
- at the 1, 5 and 10 percent levels; $^
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index.
  Larger indices indicate more desirable outcomes.
