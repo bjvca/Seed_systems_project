@@ -1,12 +1,12 @@
 rm(list=ls())
 
-# #if midline report ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/midline_report")
-# path <- getwd()
-# path <- strsplit(path,"/papers/midline_report")[[1]]
-
-#if Caros_MASE_thesis ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/Caros_MASE_thesis")
+#if midline report ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/midline_report")
 path <- getwd()
-path <- strsplit(path,"/papers/Caros_MASE_thesis")[[1]]
+path <- strsplit(path,"/papers/midline_report")[[1]]
+
+# #if Caros_MASE_thesis ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/Caros_MASE_thesis")
+# path <- getwd()
+# path <- strsplit(path,"/papers/Caros_MASE_thesis")[[1]]
 
 baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"))
 
@@ -2647,7 +2647,7 @@ baseline_dealers <- trim("maize.owner.agree.long10h.q30",baseline_dealers,trim_p
 
 baseline_dealers$mid_maize.owner.agree.long10h.q30 <- baseline_dealers$owner.agree.long10h.q30 #x
 baseline_dealers$mid_maize.owner.agree.long10h.q30 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q30))
-baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q29=="No"] <- 0
+baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q29=="0"] <- 0
 baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q30=="1"] <- 21.74 #Everyday: 21.74 working days per month
 baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q30=="2"] <- 4.34524 #once a week: 4,34524 weeks in a month
 baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q30=="3"] <- 1 #Once a month
