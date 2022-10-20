@@ -2647,6 +2647,7 @@ baseline_dealers$maize.owner.agree.long10h.q30[baseline_dealers$maize.owner.agre
 baseline_dealers$maize.owner.agree.long10h.q30[baseline_dealers$maize.owner.agree.long10h.q30=="5"] <- 0 #Never
 baseline_dealers$maize.owner.agree.long10h.q30[baseline_dealers$maize.owner.agree.long10h.q30=="6"] <- NA #Never
 baseline_dealers <- trim("maize.owner.agree.long10h.q30",baseline_dealers,trim_perc=.02)
+baseline_dealers$maize.owner.agree.long10h.q30 <- ihs(baseline_dealers$maize.owner.agree.long10h.q30) #x
 
 baseline_dealers$mid_maize.owner.agree.long10h.q30 <- baseline_dealers$check.owner.agree.long10h.q30 #x
 baseline_dealers$mid_maize.owner.agree.long10h.q30 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q30))
@@ -2658,6 +2659,7 @@ baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.ow
 baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q30=="5"] <- 0 #Never
 baseline_dealers$mid_maize.owner.agree.long10h.q30[baseline_dealers$mid_maize.owner.agree.long10h.q30=="6"] <- NA #Never
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q30",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.long10h.q30 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q30) #x
 
 #11. Overall index of secondary Longe10H agro-input dealer outcome variables
 variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.long10h.q21,baseline_dealers$mid_maize.owner.agree.long10h.q22
@@ -3018,9 +3020,6 @@ baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,tri
 baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
 
 #7. Q52. How much of Longe 5 was lost/wasted the second season of 2020 (kg)
-
-#xxxD
-
 baseline_dealers$sold3_condition <- baseline_dealers$maize.owner.agree.longe5.q47_unadj+baseline_dealers$maize.owner.agree.longe5.q46_unadj-baseline_dealers$maize.owner.agree.longe5.q50_unadj
 baseline_dealers$q52_isnot_asked <- 0
 baseline_dealers$q52_isnot_asked[baseline_dealers$sold3_condition<=0]<-1
@@ -3028,27 +3027,27 @@ baseline_dealers$q52_isnot_asked[baseline_dealers$sold3_condition<=0]<-1
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree.longe5.q52=="n/a"] <- NA
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
 baseline_dealers$maize.owner.agree.longe5.q52[baseline_dealers$q52_isnot_asked==1] <- 0
-baseline_dealers$maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$maize.owner.agree.longe5.q52)
 baseline_dealers <- trim("maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02)
+baseline_dealers$maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$maize.owner.agree.longe5.q52)
 
 baseline_dealers$mid_sold3_condition <- baseline_dealers$mid_maize.owner.agree.longe5.q47_unadj+baseline_dealers$mid_maize.owner.agree.longe5.q46_unadj-baseline_dealers$mid_maize.owner.agree.longe5.q50_unadj
 baseline_dealers$mid_q52_isnot_asked <- 0
 baseline_dealers$mid_q52_isnot_asked[baseline_dealers$mid_sold3_condition<=0]<-1
 
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- baseline_dealers$owner.agree.longe5.q52 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- baseline_dealers$check.owner.agree.longe5.q52 #x
 #baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52=="n/a"] <- 0 #x
 baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.longe5.q52==999] <- NA #x
 baseline_dealers$mid_maize.owner.agree.longe5.q52 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q52)) #x
 baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_maize.owner.agree.q45=="0"] <- 0 #x
 baseline_dealers$mid_maize.owner.agree.longe5.q52[baseline_dealers$mid_q52_isnot_asked==1] <- 0
-baseline_dealers$mid_maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q52) #x
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q52",baseline_dealers,trim_perc=.02) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q52 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q52) #x
 
 #8. Q54. Did you ever run out of this Longe 5 during the second season of 2020?
 baseline_dealers$maize.owner.agree.longe5.q54[baseline_dealers$maize.owner.agree.longe5.q54=="n/a"] <- NA
 baseline_dealers$maize.owner.agree.longe5.q54 <- ifelse(baseline_dealers$maize.owner.agree.longe5.q54=="Yes",1,0)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q54 <- baseline_dealers$owner.agree.longe5.q54 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q54 <- baseline_dealers$check.owner.agree.longe5.q54 #x
 baseline_dealers$mid_maize.owner.agree.longe5.q54[baseline_dealers$mid_maize.owner.agree.longe5.q54=="n/a"] <- NA #x
 baseline_dealers$mid_maize.owner.agree.longe5.q54 <- ifelse(baseline_dealers$mid_maize.owner.agree.longe5.q54=="Yes",1,0) #x
 
@@ -3062,8 +3061,9 @@ baseline_dealers$maize.owner.agree.longe5.q55[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q55[baseline_dealers$maize.owner.agree.longe5.q55=="5"] <- 0 #Never
 baseline_dealers$maize.owner.agree.longe5.q55[baseline_dealers$maize.owner.agree.longe5.q55=="6"] <- NA #Never
 baseline_dealers <- trim("maize.owner.agree.longe5.q55",baseline_dealers,trim_perc=.02)
+baseline_dealers$maize.owner.agree.longe5.q55 <- ihs(baseline_dealers$maize.owner.agree.longe5.q55) #x
 
-baseline_dealers$mid_maize.owner.agree.longe5.q55 <- baseline_dealers$owner.agree.longe5.q55 #x
+baseline_dealers$mid_maize.owner.agree.longe5.q55 <- baseline_dealers$check.owner.agree.longe5.q55 #x
 baseline_dealers$mid_maize.owner.agree.longe5.q55 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q55))
 baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q54=="0"] <- 0
 baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q55=="1"] <- 21.74 #Everyday: 21.74 working days per month
@@ -3073,12 +3073,15 @@ baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.own
 baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q55=="5"] <- 0 #Never
 baseline_dealers$mid_maize.owner.agree.longe5.q55[baseline_dealers$mid_maize.owner.agree.longe5.q55=="6"] <- NA #Never
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q55",baseline_dealers,trim_perc=.02)
+baseline_dealers$mid_maize.owner.agree.longe5.q55 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q55) #x
 
 #11. Overall index of secondary Longe5 agro-input dealer outcome variables
-variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46,baseline_dealers$mid_maize.owner.agree.longe5.q47,baseline_dealers$mid_maize.owner.agree.longe5.q49
-                                        ,baseline_dealers$mid_maize.owner.agree.longe5.q50) #x
-variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46,baseline_dealers$maize.owner.agree.longe5.q47,baseline_dealers$maize.owner.agree.longe5.q49
-                                         ,baseline_dealers$maize.owner.agree.longe5.q50)
+variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q47,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q50) #x
+variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46,
+                                       baseline_dealers$maize.owner.agree.longe5.q47,
+                                       baseline_dealers$maize.owner.agree.longe5.q50)
 
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1)) #x
 baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
@@ -3092,13 +3095,25 @@ baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index
 #1#
 ###
 
-results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
-                            ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
-                            ,"mid_maize.owner.agree.longe5.q55","index_overall_Longe5_mid")
+results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46", #1
+                          "mid_maize.owner.agree.longe5.q47", #2
+                          "mid_maize.owner.agree.longe5.q49", #3
+                          "mid_maize.owner.agree.longe5.q50", #4
+                          "mid_maize.owner.agree.longe5.q51", #5
+                          "mid_maize.owner.agree.longe5.q52", #6
+                          "mid_maize.owner.agree.longe5.q55", #7
+                          "index_overall_Longe5_mid")         #8
 
-results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree.longe5.q47","maize.owner.agree.longe5.q49"
-                                 ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
-                                 ,"maize.owner.agree.longe5.q55","index_overall_Longe5_base")
+results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46",
+                               "maize.owner.agree.longe5.q47",
+                               "maize.owner.agree.longe5.q49",
+                               "maize.owner.agree.longe5.q50",
+                               "maize.owner.agree.longe5.q51",
+                               "maize.owner.agree.longe5.q52",
+                               "maize.owner.agree.longe5.q55",
+                               "index_overall_Longe5_base")
+
+baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
 df_means_D_secL5 <- array(NA,dim=c(3,11))
 
@@ -3131,9 +3146,11 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree
                                  ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
                                  ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseT")
 
+baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_secL5)){
-  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_secL5[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3162,9 +3179,11 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree
                                  ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
                                  ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseC")
 
+baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_secL5)){
-  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_secL5[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3193,16 +3212,17 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree
                                  ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
                                  ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseF")
 
+baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_secL5)){
-  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_secL5[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_secL5[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
   df_ols_D_secL5[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_D_secL5[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_secL5[3,3,i] <- summary(ols)$coefficients[4,4]}
-
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_dealer_secL5T <- data.frame(baseline_dealers$mid_maize.owner.agree.longe5.q46
@@ -3242,7 +3262,15 @@ for (i in 1:length(results_dealer_secL5_J)){
 ##### 5B ANALYSIS: Agro-input dealer - Secondary: Longe 5, not controlling for baseline ###########################################################################
 ###################################################################################################################################################################
 
-################################################################################################################################################################################
+#11. Overall index of secondary Longe5 agro-input dealer outcome variables
+variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q47,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q50,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q52,
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q55) #x
+
+index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1,4,5)) #x
+baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
 
 ###
 #1#
@@ -3261,13 +3289,20 @@ for (i in 1:length(results_dealer_secL5_B)){
 #2#
 ###
 
+baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
+baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
+
+#11.
+index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$training_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midT <- index_overall_Longe5_mid$index
+
 df_ols_D_secL5_B <- array(NA,dim=c(3,3,11))
 
 results_dealer_secL5_B <- c("index_overall_Longe5_midT")
 
 for (i in 1:length(results_dealer_secL5_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_secL5_B[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3278,11 +3313,18 @@ for (i in 1:length(results_dealer_secL5_B)){
 #3#
 ###
 
+baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+
+#11.
+index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midC <- index_overall_Longe5_mid$index
+
 results_dealer_secL5_B <- c("index_overall_Longe5_midC")
 
 for (i in 1:length(results_dealer_secL5_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_secL5_B[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3293,11 +3335,18 @@ for (i in 1:length(results_dealer_secL5_B)){
 #4#
 ###
 
+baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
+baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
+
+#11.
+index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$farmer_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midF <- index_overall_Longe5_mid$index
+
 results_dealer_secL5_B <- c("index_overall_Longe5_midF")
 
 for (i in 1:length(results_dealer_secL5_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_secL5_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -3321,44 +3370,53 @@ baseline_dealers=baseline_dealers_save
 ###################################################################################################################################################################
 
 #1. Q114. Is this business registered as a seed dealer with UNADA (Uganda National Agro-input Dealers Association?
-baseline_dealers$mid_maize.owner.agree.inspection.q114 <- baseline_dealers$owner.agree.inspection.q114 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q114 <- baseline_dealers$check.owner.agree.inspection.q114 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q114[baseline_dealers$mid_maize.owner.agree.inspection.q114=="n/a"] <- NA
 baseline_dealers$mid_maize.owner.agree.inspection.q114[baseline_dealers$mid_maize.owner.agree.inspection.q114==98] <- NA #here because binary #x
 baseline_dealers$mid_maize.owner.agree.inspection.q114<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q114) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q114<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q114=="Yes",1,0) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q114 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q114)) #x
 
 #2. Q115. Does this business have a trading license issued by local government?
-baseline_dealers$mid_maize.owner.agree.inspection.q115 <- baseline_dealers$owner.agree.inspection.q115 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q115 <- baseline_dealers$check.owner.agree.inspection.q115 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q115[baseline_dealers$mid_maize.owner.agree.inspection.q115=="n/a"] <- NA
 baseline_dealers$mid_maize.owner.agree.inspection.q115[baseline_dealers$mid_maize.owner.agree.inspection.q115==98] <- NA #here because binary #x
 baseline_dealers$mid_maize.owner.agree.inspection.q115<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q115) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q115<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q115=="Yes",1,0) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q115 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q115)) #x
 
 #3. Q116. Is this business a member of any other professional association?
-baseline_dealers$mid_maize.owner.agree.inspection.q116 <- baseline_dealers$owner.agree.inspection.q116 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q116 <- baseline_dealers$check.owner.agree.inspection.q116 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q116[baseline_dealers$mid_maize.owner.agree.inspection.q116=="n/a"] <- NA
 baseline_dealers$mid_maize.owner.agree.inspection.q116[baseline_dealers$mid_maize.owner.agree.inspection.q116==98] <- NA #here because binary #x
 baseline_dealers$mid_maize.owner.agree.inspection.q116<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q116) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q116<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q116=="Yes",1,0) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q116 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q116)) #x
 
 #4. Q117. How often were you inspected by DAO/MAAIF or UNADA last year (indicate 0 if no inspection happened).
-baseline_dealers$maize.owner.agree.inspection.q117 <- ihs(baseline_dealers$maize.owner.agree.inspection.q117)
+baseline_dealers$maize.owner.agree.inspection.q117[baseline_dealers$maize.owner.agree.inspection.q117==999] <- NA
+baseline_dealers$maize.owner.agree.inspection.q117 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.inspection.q117))
 baseline_dealers <- trim("maize.owner.agree.inspection.q117",baseline_dealers,trim_perc=.02)
+baseline_dealers$maize.owner.agree.inspection.q117 <- ihs(baseline_dealers$maize.owner.agree.inspection.q117)
 
-baseline_dealers$mid_maize.owner.agree.inspection.q117 <- baseline_dealers$owner.agree.inspection.q117 #x
-baseline_dealers$mid_maize.owner.agree.inspection.q117 <- ihs(baseline_dealers$mid_maize.owner.agree.inspection.q117) #x
+baseline_dealers$mid_maize.owner.agree.inspection.q117 <- baseline_dealers$check.owner.agree.inspection.q117 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q117 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q117))
+baseline_dealers$mid_maize.owner.agree.inspection.q117[baseline_dealers$mid_maize.owner.agree.inspection.q117==999] <- NA
 baseline_dealers <- trim("mid_maize.owner.agree.inspection.q117",baseline_dealers,trim_perc=.02) #x
+baseline_dealers$mid_maize.owner.agree.inspection.q117 <- ihs(baseline_dealers$mid_maize.owner.agree.inspection.q117) #x
 
 #5. Q118. Have you ever received a warning as a result of inspection if something was not up to standard?
-baseline_dealers$mid_maize.owner.agree.inspection.q118 <- baseline_dealers$owner.agree.inspection.q118 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q118 <- baseline_dealers$check.owner.agree.inspection.q118 #x
 baseline_dealers$mid_maize.owner.agree.inspection.q118[baseline_dealers$mid_maize.owner.agree.inspection.q118==98] <- NA #x
+baseline_dealers$mid_maize.owner.agree.inspection.q118[baseline_dealers$mid_maize.owner.agree.inspection.q118=="n/a"] <- NA #x
 baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q118) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q118<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q118=="Yes",1,0) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q118<-as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q118)) #x
 
 #6. Q119. Has some of your produce ever been confiscated after inspection?
-baseline_dealers$mid_maize.owner.agree.inspection.q119 <- baseline_dealers$owner.agree.inspection.q119 #x
+baseline_dealers$mid_maize.owner.agree.inspection.q119 <- baseline_dealers$check.owner.agree.inspection.q119 #x
 baseline_dealers$mid_maize.owner.agree.inspection.q119[baseline_dealers$mid_maize.owner.agree.inspection.q119==98] <- NA #x
+baseline_dealers$mid_maize.owner.agree.inspection.q119[baseline_dealers$mid_maize.owner.agree.inspection.q119=="n/a"] <- NA #x
 baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.character(baseline_dealers$mid_maize.owner.agree.inspection.q119) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q119<-ifelse(baseline_dealers$mid_maize.owner.agree.inspection.q119=="Yes",1,0) #x
 baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.inspection.q119)) #x
@@ -3383,13 +3441,23 @@ baseline_dealers$index_overall_off_base <- index_overall_off_base$index
 #1#
 ###
 
-results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
-                            ,"index_overall_off_mid")
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114", #1
+                            "mid_maize.owner.agree.inspection.q115", #2
+                            "mid_maize.owner.agree.inspection.q116", #3
+                            "mid_maize.owner.agree.inspection.q117", #4
+                            "mid_maize.owner.agree.inspection.q118", #5
+                            "mid_maize.owner.agree.inspection.q119", #6
+                            "index_overall_off_mid")                 #7
 
-results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
-                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
-                                 ,"index_overall_off_base")
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114",
+                                 "maize.owner.agree.inspection.q115",
+                                 "maize.owner.agree.inspection.q116",
+                                 "maize.owner.agree.inspection.q117",
+                                 "maize.owner.agree.inspection.q118",
+                                 "maize.owner.agree.inspection.q119",
+                                 "index_overall_off_base")
+
+baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
 
 df_means_D_sec_off <- array(NA,dim=c(3,11))
 
@@ -3422,9 +3490,11 @@ results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owne
                                  ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseT")
 
+baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_sec_off)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_off[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3453,9 +3523,11 @@ results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owne
                                  ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseC")
 
+baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_sec_off)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_off[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3484,9 +3556,11 @@ results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owne
                                  ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseF")
 
+baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_dealer_sec_off)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(paste(results_dealer_sec_off[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_sec_off_base[i],sep="+")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(results_dealer_sec_off[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -3497,8 +3571,7 @@ for (i in 1:length(results_dealer_sec_off)){
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_dealer_sec_offT <- data.frame(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
                                  ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q117
-                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q118,baseline_dealers$mid_maize.owner.agree.inspection.q119
-                                 )
+                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q118,baseline_dealers$mid_maize.owner.agree.inspection.q119)
 df_dealer_sec_offC <- df_dealer_sec_offT
 df_dealer_sec_offF <- df_dealer_sec_offT
 #no overall index
@@ -3507,8 +3580,7 @@ df_ols_D_sec_off_J <- array(NA,dim=c(3,3,11))
 
 results_dealer_sec_off_J <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115"
                             ,"mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
-                            )
+                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119")
 #no overall index
 
 for (i in 1:length(results_dealer_sec_off_J)){
