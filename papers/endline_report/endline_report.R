@@ -3608,7 +3608,7 @@ baseline_dealers=subset(baseline_dealers,!is.na(baseline_dealers$mid_reading_una
 #"age_mid" "exp_mid" "lot_mid" "cert_mid" "date_mid" "verif_mid" "origin_mid" "company_mid" "reading" "variety_mid" "date_pack_mid" "other_var_mid"
 
 #1. Random seed bag shows expiry date
-baseline_dealers$mid_exp <- baseline_dealers$exp_mid #x
+baseline_dealers$mid_exp <- baseline_dealers$exp_end #x
 baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,0) #x
 
 # sum(is.na(midline_dealers$exp) & !is.na(midline_dealers$reading))
@@ -3616,11 +3616,11 @@ baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,
 # meaning that if a seed bag was purchased, there was always an expiry date.
 
 #2. Random seed bag shows packaging date
-baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_mid #x
+baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_end #x
 baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
 
 #3. Days since packaging date/expiry date minus 6 months
-baseline_dealers$mid_date <- baseline_dealers$date_mid #x
+baseline_dealers$mid_date <- baseline_dealers$date_end #x
 baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
 baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
 
@@ -3641,19 +3641,22 @@ baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$
 baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
 baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
 
+#Q4. Is the seed in the original bag without any signs of damage?
+baseline_dealers$mid_origin <- baseline_dealers$origin_end
+baseline_dealers$mid_origin<-ifelse(baseline_dealers$mid_origin=="Yes",1,0)
+
 #4. Random seed bag shows lot number
-baseline_dealers$mid_lot <- baseline_dealers$lot_mid
+baseline_dealers$mid_lot <- baseline_dealers$lot_end
 baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
 
 #5. Overall index
-variables_overall_bag_mid <- cbind(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot) #x
-#no baseline_dealers$mid_visible_expdate because all same value (1)
-variables_overall_bag_base <- cbind(baseline_dealers$visible_packdate,baseline_dealers$shelflife_Caro,baseline_dealers$lot)
+variables_overall_bag_mid <- cbind(baseline_dealers$mid_reading,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_origin,baseline_dealers$mid_lot) #x
+variables_overall_bag_base <- cbind(baseline_dealers$reading,baseline_dealers$visible_packdate,baseline_dealers$shelflife_Caro,baseline_dealers$origin,baseline_dealers$lot)
 
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,revcols = c(2)) #x
+index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,revcols = c(1,3)) #x
 baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
 
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(2))
+index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(1,3))
 baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
 ################################################################################################################################################################################
@@ -3662,16 +3665,24 @@ baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 #1#
 ###
 
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_mid","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_mid")
 
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_base","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_base")
+
+baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 df_means_D_sec_bag <- array(NA,dim=c(3,11))
+
+# for (i in 1:length(results_dealer_sec_bag)){
+#   df_means_D_sec_bag[1,i] <- sum(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])))
+#   df_means_D_sec_bag[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T))
+#   df_means_D_sec_bag[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])&is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))}
 
 for (i in 1:length(results_dealer_sec_bag)){
   df_means_D_sec_bag[1,i] <- sum(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])))
   df_means_D_sec_bag[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T))
-  df_means_D_sec_bag[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])&is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))}
+  df_means_D_sec_bag[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))}
+
 
 ###
 #2#
@@ -3681,21 +3692,23 @@ baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
 baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 
 #5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$training_control,revcols = c(2))
+index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$training_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_midT <- index_overall_bag_mid$index
 
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$training_control,revcols = c(2))
+index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$training_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 
 df_ols_D_sec_bag <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midT","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midT")
 
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseT","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT")
+
+baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_bag[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3710,19 +3723,21 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
 baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 
 #5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$clearing_control,revcols = c(2))
+index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
 
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(2))
+index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midC","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midC")
 
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseC","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseC")
+
+baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_bag[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3737,19 +3752,21 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
 baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 
 #5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$farmer_control,revcols = c(2))
+index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$farmer_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_midF <- index_overall_bag_mid$index
 
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control,revcols = c(2))
+index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midF","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midF")
 
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseF","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseF")
+
+baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -3758,14 +3775,14 @@ for (i in 1:length(results_dealer_sec_bag)){
   df_ols_D_sec_bag[3,3,i] <- summary(ols)$coefficients[4,4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot)
+df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_reading,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_origin,baseline_dealers$mid_lot)
 df_dealer_sec_bagC <- df_dealer_sec_bagT
 df_dealer_sec_bagF <- df_dealer_sec_bagT
 #no overall index
 
 df_ols_D_sec_bag_J <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag_J <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot")
+results_dealer_sec_bag_J <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot")
 #no overall index
 
 for (i in 1:length(results_dealer_sec_bag_J)){
@@ -3785,8 +3802,6 @@ for (i in 1:length(results_dealer_sec_bag_J)){
 ###################################################################################################################################################################
 ##### 7B ANALYSIS: Agro-input dealer - Secondary: 11. seed bag, not controlling for baseline ######################################################################
 ###################################################################################################################################################################
-
-################################################################################################################################################################################
 
 ###
 #1#
@@ -3810,8 +3825,8 @@ df_ols_D_sec_bag_B <- array(NA,dim=c(3,3,11))
 results_dealer_sec_bag_B <- c("index_overall_bag_midT")
 
 for (i in 1:length(results_dealer_sec_bag_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_bag_B[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -3825,8 +3840,8 @@ for (i in 1:length(results_dealer_sec_bag_B)){
 results_dealer_sec_bag_B <- c("index_overall_bag_midC")
 
 for (i in 1:length(results_dealer_sec_bag_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   df_ols_D_sec_bag_B[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -3840,158 +3855,14 @@ for (i in 1:length(results_dealer_sec_bag_B)){
 results_dealer_sec_bag_B <- c("index_overall_bag_midF")
 
 for (i in 1:length(results_dealer_sec_bag_B)){
-  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
-  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
+  #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
+  ols <- lm(as.formula(paste(results_dealer_sec_bag_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
   df_ols_D_sec_bag_B[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_D_sec_bag_B[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_sec_bag_B[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-
-
-
-
-
-
-
-
-
-###################################################################################################################################################################
-##### 7H ANALYSIS: Agro-input dealer - Secondary: 11. seed bag ####################################################################################################
-##### Heterogeneity analyses: Shops that were rated
-###################################################################################################################################################################
-
-baseline_dealers=subset(baseline_dealers,notrated=="0")
-
-variables_overall_bag_mid <- cbind(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot) #x
-variables_overall_bag_base <- cbind(baseline_dealers$visible_packdate,baseline_dealers$shelflife_Caro,baseline_dealers$lot)
-
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,revcols = c(2)) #x
-baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
-
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(2))
-baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
-
-################################################################################################################################################################################
-
-###
-#1#
-###
-
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_mid","mid_visible_expdate")
-
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_base","visible_expdate")
-
-df_means_D_sec_bag_het3 <- array(NA,dim=c(3,11))
-
-for (i in 1:length(results_dealer_sec_bag)){
-  df_means_D_sec_bag_het3[1,i] <- sum(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])))
-  df_means_D_sec_bag_het3[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T))
-  df_means_D_sec_bag_het3[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])&is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))}
-
-###
-#2#
-###
-
-baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
-baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
-
-#5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$training_control,revcols = c(2))
-baseline_dealers$index_overall_bag_midT <- index_overall_bag_mid$index
-
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$training_control,revcols = c(2))
-baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
-
-df_ols_D_sec_bag_het3 <- array(NA,dim=c(3,3,11))
-
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midT","mid_visible_expdate")
-
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseT","visible_expdate")
-
-for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-
-  df_ols_D_sec_bag_het3[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
-  df_ols_D_sec_bag_het3[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
-  df_ols_D_sec_bag_het3[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
-
-###
-#3#
-###
-
-baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
-baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
-
-#5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$clearing_control,revcols = c(2))
-baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
-
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(2))
-baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
-
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midC","mid_visible_expdate")
-
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseC","visible_expdate")
-
-for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-
-  df_ols_D_sec_bag_het3[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
-  df_ols_D_sec_bag_het3[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols_D_sec_bag_het3[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
-
-###
-#4#
-###
-
-baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
-baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
-
-#5.
-index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$farmer_control,revcols = c(2))
-baseline_dealers$index_overall_bag_midF <- index_overall_bag_mid$index
-
-index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control,revcols = c(2))
-baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
-
-results_dealer_sec_bag <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot","index_overall_bag_midF","mid_visible_expdate")
-
-results_dealer_sec_bag_base <- c("visible_packdate","shelflife_Caro","lot","index_overall_bag_baseF","visible_expdate")
-
-for (i in 1:length(results_dealer_sec_bag)){
-  ols <- lm(as.formula(paste(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~"),results_dealer_sec_bag_base[i],sep="+")),data=baseline_dealers)
-  #ols <- lm(as.formula(paste(results_dealer_sec_bag[i],"training*clearing*farmer",sep="~")),data=baseline_dealers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
-
-  #farmer video treatment at village/shop level so no clustering needed
-  df_ols_D_sec_bag_het3[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_D_sec_bag_het3[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_D_sec_bag_het3[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_lot)
-df_dealer_sec_bagC <- df_dealer_sec_bagT
-df_dealer_sec_bagF <- df_dealer_sec_bagT
-#no overall index
-
-df_ols_D_sec_bag_het3_J <- array(NA,dim=c(3,3,11))
-
-results_dealer_sec_bag_J <- c("mid_visible_packdate","mid_shelflife_Caro","mid_lot")
-#no overall index
-
-for (i in 1:length(results_dealer_sec_bag_J)){
-  df_ols_D_sec_bag_het3_J[3,1,i] <- adjust_p(df_ols_D_sec_bag_het3[3,1,i],df_dealer_sec_bagT,i)
-  df_ols_D_sec_bag_het3_J[3,2,i] <- adjust_p(df_ols_D_sec_bag_het3[3,2,i],df_dealer_sec_bagC,i)
-  df_ols_D_sec_bag_het3_J[3,3,i] <- adjust_p(df_ols_D_sec_bag_het3[3,3,i],df_dealer_sec_bagF,i)}
-
-baseline_dealers=baseline_dealers_save
 
 
 
