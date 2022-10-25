@@ -3,11 +3,11 @@ rm(list=ls())
 path <- getwd()
 path <- strsplit(path,"/papers/endline_report")[[1]]
 
-baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"))
+baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"), stringsAsFactors=TRUE)
 
-baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"))
-midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"))
-endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"))
+baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_farmers.csv",sep="/"), stringsAsFactors=TRUE)
+midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"), stringsAsFactors=TRUE)
+endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"), stringsAsFactors=TRUE)
 
 library(dplyr)
 library(Jmisc)
@@ -24,7 +24,7 @@ baseline_farmers <- merge(baseline_farmers,endline_farmers,by.x="farmer_ID",by.y
 #BASELINE
 
 #farmers
-rating_dyads <- read.csv(paste(path,"/baseline/data/farmer/public/rating_dyads.csv",sep="/"))
+rating_dyads <- read.csv(paste(path,"/baseline/data/farmer/public/rating_dyads.csv",sep="/"), stringsAsFactors=TRUE)
 rating_dyads[rating_dyads=="n/a"] <- NA
 rating_dyads[rating_dyads==98] <- NA
 
@@ -67,7 +67,7 @@ baseline_dealers$germination <- baseline_dealers$seed_germinate_rating
 #MIDLINE
 
 #farmers
-midline_rating_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_rating_dyads.csv",sep="/"))
+midline_rating_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_rating_dyads.csv",sep="/"), stringsAsFactors=TRUE)
 
 midline_rating_dyads[midline_rating_dyads=="n/a"] <- NA
 midline_rating_dyads[midline_rating_dyads==98] <- NA
@@ -117,7 +117,7 @@ baseline_dealers <- merge(baseline_dealers,midline_rating_dyads_aggr_D,by.x="sho
 #ENDLINE
 
 #farmers
-endline_rating_dyads <- read.csv(paste(path,"/endline/data/farmer/public/endline_rating_dyads.csv",sep="/"))
+endline_rating_dyads <- read.csv(paste(path,"/endline/data/farmer/public/endline_rating_dyads.csv",sep="/"), stringsAsFactors=TRUE)
 
 endline_rating_dyads[endline_rating_dyads=="n/a"] <- NA
 endline_rating_dyads[endline_rating_dyads==98] <- NA
@@ -193,7 +193,7 @@ endline_rating_dyads_aggr_D = subset(endline_rating_dyads_aggr_D, select = c(Gro
                                                                              ,end_after_sales_service,end_payment_mehtods
                                                                              ,end_small_quant))
 
-dealer_endline <- read.csv(paste(path,"/endline/data/agro_input/public/dealer_endline.csv",sep="/"))
+dealer_endline <- read.csv(paste(path,"/endline/data/agro_input/public/dealer_endline.csv",sep="/"), stringsAsFactors=TRUE)
 
 names(dealer_endline)[names(dealer_endline) == "age"] <- "age_end" #because same name in bl and ml
 names(dealer_endline)[names(dealer_endline) == "exp"] <- "exp_end"
@@ -218,7 +218,7 @@ endline_dealers <- merge(endline_rating_dyads_aggr_D,dealer_endline,by.x="Group.
 ###
 
 #BASELINE
-dealer_services_dyads <- read.csv(paste(path,"/Study design/treatments/info_clearing/farmer/data/public/dealer_services_dyads.csv",sep="/"))
+dealer_services_dyads <- read.csv(paste(path,"/Study design/treatments/info_clearing/farmer/data/public/dealer_services_dyads.csv",sep="/"), stringsAsFactors=TRUE)
 
 dealer_services_dyads[dealer_services_dyads=="n/a"] <- NA
 dealer_services_dyads[dealer_services_dyads==98] <- NA
@@ -261,7 +261,7 @@ dealer_services_dyads_aggr_F = dealer_services_dyads_aggr_F[c("Group.1","knows_d
 baseline_farmers <- merge(baseline_farmers, dealer_services_dyads_aggr_F, by.x="farmer_ID", by.y="Group.1", all.x = TRUE)
 
 #MIDLINE
-midline_dealer_services_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_dealer_services_dyads.csv",sep="/"))
+midline_dealer_services_dyads <- read.csv(paste(path,"/midline/data/farmer/public/midline_dealer_services_dyads.csv",sep="/"), stringsAsFactors=TRUE)
 
 midline_dealer_services_dyads[midline_dealer_services_dyads=="n/a"] <- NA
 midline_dealer_services_dyads[midline_dealer_services_dyads==98] <- NA
@@ -295,7 +295,7 @@ midline_dealer_services_dyads_aggr_D = subset(midline_dealer_services_dyads_aggr
                                                                                                ,mid_after_sales_service,mid_payment_mehtods
                                                                                                ,mid_small_quant))
 
-midline_dealers <- read.csv(paste(path,"/midline/data/agro_input/public/midline_dealer.csv",sep="/"))
+midline_dealers <- read.csv(paste(path,"/midline/data/agro_input/public/midline_dealer.csv",sep="/"), stringsAsFactors=TRUE)
 
 names(midline_dealers)[names(midline_dealers) == "age"] <- "age_mid" #because same name in bl and ml
 names(midline_dealers)[names(midline_dealers) == "exp"] <- "exp_mid"
@@ -1362,7 +1362,7 @@ baseline_dealers$large_catchID <- ifelse(baseline_dealers$catchID==3|baseline_de
 #baseline_dealers=subset(baseline_dealers,large_catchID=="0")
 
 #4:
-reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
+reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"), stringsAsFactors=TRUE)
 reviews_seed = reviews_seed[c("catchID","shop_ID","score_corrected")]
 baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
 baseline_dealers$notrated <- ifelse(is.na(baseline_dealers$score_corrected)&baseline_dealers$clearing==1,1,0)
@@ -5937,7 +5937,7 @@ baseline_dealers$say_that_attended_training[baseline_dealers$training==0] <- 0
 
 #1.b training according to our attendance list
 #insert above analysis but after sign
-training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";")
+training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";", stringsAsFactors=TRUE)
 training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
 baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
 baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
