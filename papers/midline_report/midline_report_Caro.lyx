@@ -56,11 +56,9 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine biblatex-natbib
+\cite_engine natbib
 \cite_engine_type authoryear
-\biblio_style plainnat
-\biblatex_bibstyle authoryear
-\biblatex_citestyle authoryear
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -30193,6 +30191,7 @@ dag$ indicates that the variable was included in the overall index.
 LatexCommand bibtex
 btprint "btPrintCited"
 bibfiles "../../Study design/seed_systems_pap"
+options "../../Study design/IFPRI_Style"
 
 \end_inset
 
