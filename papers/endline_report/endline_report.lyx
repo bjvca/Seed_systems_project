@@ -134,7 +134,7 @@ thanks{LICOS Centre for Institutions and Economic Performance, KULeuven,
 \end_inset
 
 Demand and supply factors constraining the emergence and sustainability
- of an efficient seed system: A mock report
+ of an efficient seed system: Endline report
 \end_layout
 
 \begin_layout Abstract
@@ -142,25 +142,17 @@ Agricultural technology remains under-adopted among smallholder farmers
  in Sub-Saharan Africa.
  We investigate how the quality of an agricultural technology—improved maize
  seed—affects its adoption.
- We test three hypotheses that will be tested in a series of randomized
- controlled trials among agro-input dealers and smallholder farmers in Uganda.
- This document is essentially a (somewhat bare bone) mock report, where
- the entire analysis has been run on simulated data before the start of
- (midline) data collection.
- Mock reports serve to tie the hands of the researcher, reducing degrees
- of freedom in the choice of what specifications to run and what variables
- to include when testing hypotheses.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "humphreys2013fishing"
-literal "false"
-
-\end_inset
-
- argue that (comprehensive but nonbinding) mock reports such as this one
- can reduce intentionally or unintentionally fishing, thereby making science
- more reliable body of published research.
+ We test three hypotheses using a randomized controlled trials among agro-input
+ dealers and smallholder farmers in Uganda.
+ In a first hypothesis, quality issues that constrain uptake are caused
+ by information inefficiencies at the level of agro-input dealers, who are
+ assumed to lack knowledge about proper storage and handling.
+ A second hypothesis conjectures that information asymmetries similar to
+ the lemons problem constrain technology adoption.
+ We also test a more behavioral explanation, whereby we assume that farmers
+ face difficulties in learning about the new technology.
+ In this report, we present results obtained from the endline survey that
+ was collected two agricultural seasons after the interventions took place.
 \end_layout
 
 \begin_layout Abstract
@@ -172,64 +164,122 @@ n, input quality, agricultural technology adoption
 JEL codes: O13; Q12; Q16; D82; D83
 \end_layout
 
-\begin_layout Section*
-The study
+\begin_layout Section
+Introduction
 \end_layout
 
 \begin_layout Standard
-The study for which this document provides a mock report was designed to
- addresses quality considerations about the technology (improved seed) as
- a particular constraint to adoption, a topic that has received considerable
+One of the most effective ways to increase agricultural productivity is
+ through the adoption of improved agricultural technologies and practices.
+ These include mechanization, but the Green Revolution has demonstrated
+ that the largest gains can be expected from improved inputs such as inorganic
+ fertilizers and high yielding cultivars.
+ However, technology adoption remains lower than projected, particularly
+ among the poor in sub-Saharan Africa 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gollin2005technology"
+literal "true"
+
+\end_inset
+
+.
+ As a result, differences in yields between sub-Saharan Africa and areas
+ that experienced a green revolution have nearly doubled since 1961 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "doi:10.1146/annurev-resource-100517-023202"
+literal "true"
+
+\end_inset
+
+.
+ To reduce this yield gap, it is important to identify the drivers of, and
+ constraints to, technology adoption.
+\end_layout
+
+\begin_layout Standard
+There are various reasons why some people adopt now technologies while other
+ stick to what they have been doing for ages.
+ Key constraints to technology upgrading include poor access to information
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ashraf2009finding"
+literal "true"
+
+\end_inset
+
+, procrastination and time-inconsistent preferences 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "duflo2011nudging"
+literal "true"
+
+\end_inset
+
+, heterogeneity in the net benefits to the technology due to high transaction
+ costs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "suri2011selection"
+literal "true"
+
+\end_inset
+
+, the lack of access to insurance 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karlan2014agricultural"
+literal "true"
+
+\end_inset
+
+, and learning failures 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hanna2014learning"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In this study, we investigate quality related considerations about the technolog
+y as a particular constraint to adoption, a topic that has received considerable
  attention recently 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "MICHELSON2021102579,bold2017lemon"
+key "bold2017lemon,MICHELSON2021102579"
 literal "false"
 
 \end_inset
 
 .
- In the study, we specifically explore (perceived) quality of improved maize
- seed as a constraint to its adoption among a sample of smallholder maize
- farmers in Uganda.
- Maize is an important crop in Uganda, both for home consumption and as
- a source of income.
- Yet, the uptake of improved maize seed by smallholder farmers to improve
- its yields remains persistently low, despite their higher yield potential
- compared to traditional seed varieties.
- Studies have advanced several factors explaining smallholder’s limited
- adoption of improved inputs in Uganda, and of improved maize seed in particular.
- These have included farmers’ beliefs that the inputs are of poor quality—counte
-rfeited, adulterated, or otherwise non-performant 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
-literal "false"
-
-\end_inset
-
-.
- Our study will test interventions aimed at identifying the relative importance
- of potential sources of these (perceived) quality issues at different levels
- for agricultural technology adoption.
- It will bring to light the cognitive, economic, and behavioral aspects
- that underlie under-adoption of these technologies.
+ Indeed, as the quality of a technology (like improved seed or fertilizer)
+ is not readily observable and can only be (imperfectly) inferred ex post,
+ inconsistent quality will lead to lower adoption.
+ Our study tests three hypotheses to assess the relative importance of potential
+ sources of these (perceived) quality issues with improved maize seed varieties
+ at both the agro-input dealer level and the farmer level.
+ 
 \end_layout
 
 \begin_layout Standard
-In the study, we test three hypotheses through a series of randomized controlled
- trials among agro-input dealers and smallholder farmers in Uganda.
- In a first hypothesis, quality concerns that constrain uptake are caused
- by information inefficiencies at the level of the agro-input dealer, who
- is assumed to lack knowledge about proper storage and handling.
- An intensive training program is expected to increase improved maize seed
- quality and subsequent adoption by farmers.
- A second hypothesis conjectures that information asymmetry between seller
- and buyer with respect to the quality of seed – a classic lemons technology
- – leads to under-adoption.
- We implement a crowd-sourced information clearinghouse similar to yelp.com
- to test this hypothesis.
- This hypothesis targets the interaction between farmers and input dealers.
+In a first hypothesis, quality concerns that constrain uptake are caused
+ by information inefficiencies at the level of the agro-input dealers, who
+ are assumed to lack knowledge about proper storage and handling.
+ To test this hypothesis, we implement and intensive training program that
+ is expected to lead to improved maize seed quality sold by agro-input dealers,
+ in turn increasing adoption by farmers.
+ A second hypothesis conjectures that information asymmetries between seller
+ and buyer with respect to the quality of seed—a classic lemons technology—leads
+ to under-adoption.
+ To test this hypothesis, we implement a crowd-sourced information clearinghouse
+ similar to yelp.com.
  A third hypothesis targets farmers directly, as sub-optimal adoption is
  assumed to be caused by learning failures: Farmers might attribute disappointin
 g outcomes to poor input quality, while in reality many input dimensions
@@ -237,15 +287,745 @@ g outcomes to poor input quality, while in reality many input dimensions
  outcomes.
  An ICT-mediated information campaign that stresses the importance of paying
  attention to all input dimensions is implemented to test this hypothesis.
- For detailed information about the study, we refer to the associated pre-analys
-is plan of the study that can be found on the AEA RCT registry (
-\begin_inset CommandInset href
-LatexCommand href
-target "https://www.socialscienceregistry.org/trials/6361"
+\end_layout
+
+\begin_layout Standard
+This report documents impact at endline, after two full agricultural seasons
+ had passed since the intervention.
+ A similar report was written at the time of midline data collection, looking
+ at impact after one agricultural season.
+ Both reports closely follow a mock report, that was prepared after baseline
+ data was collected, and well as a pre-analysis plan, that was created at
+ the time the study was conceptualized and designed.
+\end_layout
+
+\begin_layout Standard
+We find that XXX.
+\end_layout
+
+\begin_layout Standard
+We start by outlining the research questions and hypotheses we will test.
+ This is done using a field experiment that is presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experimental-design"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-).
+.
+ The interventions that are used to test the hypotheses are explained in
+ the next section.
+\end_layout
+
+\begin_layout Section
+Research Questions and Hypotheses
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Research-Questions-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seed quality issues, or the perception thereof, may arise at different stages
+ in the seed supply chain.
+ Poor seed quality may occur as a result of input dealer practices.
+ This may be unintentional, for example as a result of poor handling and
+ storage practices the agro-input dealer is unaware of, or intentional,
+ for instance by mixing poor quality seed with good quality seed to cut
+ costs.
+ The problem may also be situated at the level of the smallholder farmer.
+ For instance, a farmer may lack confidence in the input dealer or his/her
+ products, and the nature of the input may make it impossible for the farmer
+ to assess the quality.
+ It may also be that the farmer wrongly attributes poor outcomes caused
+ by factors other than seed quality to seed quality.
+ 
+\end_layout
+
+\begin_layout Standard
+We test potential reasons for low uptake of improved maize seed.
+ One has its origins at the agro-input dealer level and is cognitive in
+ nature.
+ A second reason is situated at the interaction between agro-input dealer
+ and farmer and tests a classic economic explanation.
+ A third potential reason is behavioral and happens in the farm.
+ We discuss each research hypothesis in detail below.
+\end_layout
+
+\begin_layout Subsubsection*
+H1: Seed is of poor quality due to poor handling and storage at the input
+ dealer level.
+\end_layout
+
+\begin_layout Standard
+Lack of information is pervasive in developing countries and often leads
+ to sub-optimal outcomes for the rural poor.
+ As a result, a simple piece of information can make a big difference 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "duflo2011poor"
+literal "true"
+
+\end_inset
+
+.
+ Also in the context of agricultural technology adoption among smallholders,
+ informational inefficiencies have been documented, and governments around
+ the world invest in public agricultural advisory services to increase productiv
+ity in the sector 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/wbro/lkh013"
+literal "false"
+
+\end_inset
+
+.
+ Various studies look at knowledge gaps at the farmer level and the consequences
+ on outcomes like technology adoption and production.
+ For example, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1002/ajae.12089"
+literal "true"
+
+\end_inset
+
+ show that maize farmers in Uganda appear to benefit from information on
+ available technologies and recommended agronomic practices.
+ While the need for policies and interventions that strengthen input marketing
+ capacity and infrastructure has been acknowledged decades ago 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "TRIPP2001147"
+literal "false"
+
+\end_inset
+
+, we find few examples of studies that look at knowledge gaps at the input
+ dealer level.
+\end_layout
+
+\begin_layout Standard
+The first hypothesis asserts that poor handling and storage at the level
+ of the input dealer may lead to poor seed quality, in turn reducing the
+ profitability of seeds at the farmer level, resulting in low adoption.
+ There is indeed some evidence of input quality reduction at this level.
+ In a comprehensive study of the seed supply chain in Uganda, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "BARRIGA2020104928"
+literal "true"
+
+\end_inset
+
+ document various issues related to handling and storage that may reduce
+ the quality of the input.
+ For example, farmers often need smaller quantities than what is in the
+ standard bags, and input dealers thus often repackage in smaller bags in
+ sub-optimal environments.
+ Poor rotation of seed stock and storage in open bags in moist conditions
+ or in direct sunlight also reduce seed quality.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+H2: Seed is of poor quality due to intentional adulteration at the input
+ dealer level.
+\end_layout
+
+\begin_layout Standard
+The second hypothesis focuses on the information asymmetry between seed
+ sellers and seed buyers.
+ As argued in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "false"
+
+\end_inset
+
+, the market for seed in Uganda appears similar to the market for used cars
+ as described in 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "george1970market"
+literal "false"
+
+\end_inset
+
+’s classic study 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "george1970market"
+literal "true"
+
+\end_inset
+
+.
+ In such a market, the quality of goods can degrade in cases where the quality
+ is known by the seller, but not (yet) by the buyer.
+ This problem can be solved by reducing information asymmetries between
+ the two parties.
+ 
+\end_layout
+
+\begin_layout Standard
+While Uganda does regulate seed quality through seed certification processes
+ and standards, this mechanism provides farmers with a relatively weak and
+ unreliable indication of quality.
+ Alternative mechanisms such as electronic verification systems have also
+ been experimented with, but the cost of implementation has proven challenging,
+ and they depend on the reliability of the underlying seed certification
+ system.
+\end_layout
+
+\begin_layout Standard
+An explanation based on asymmetric information implicitly assumes that agro-inpu
+t dealers are aware of the quality of the product they sell.
+ Information asymmetry also means agro-input dealers can compromise on quality
+ to cut costs.
+ In Uganda, there are some indications that adulteration happens at some
+ point in the seed value chain.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "true"
+
+\end_inset
+
+ find that hybrid maize seed contains less than 50% authentic seed, while
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1080/00220388.2018.1464143"
+literal "false"
+
+\end_inset
+
+ find that nearly one in three bottles of herbicide contains less than 75%
+ of the labeled concentration of the active ingredient.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+H3: Seed is of good quality but farmers are unable to adequately learn about
+ this quality.
+\end_layout
+
+\begin_layout Standard
+In the context of new agricultural technology, production functions are
+ not known.
+ Farmers learn from own experience 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "foster1995learning"
+literal "true"
+
+\end_inset
+
+ as well as from observing the experience of others 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/aer.100.1.35"
+literal "true"
+
+\end_inset
+
+.
+ Learning involves an iterative process of forming and updating beliefs
+ about yield or profit distributions.
+ Many researchers have addressed how individuals process information and
+ update beliefs when making repeated decisions 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g."
+key "camerer1999experience"
+literal "true"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1111/agec.12123"
+literal "true"
+
+\end_inset
+
+ analyze how learning heuristics vary across farmers and how they affect
+ technology adoption decisions.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gars2019can"
+literal "true"
+
+\end_inset
+
+ test whether farmers’ learning heterogeneity is a barrier to adoption.
+ They find that even though Bayesian learning is well suited to learn about
+ hybrid rice, it is also more cognitively demanding, such that only 25 percent
+ of farmers can be characterized as pure Bayesian learners while 40 percent
+ rely on first impressions.
+ Present-biased learning and relying on first impressions is likely to hinder
+ technology adoption.
+\end_layout
+
+\begin_layout Standard
+Erroneous perceptions and false beliefs at the farmer level may complicate
+ learning and affect technology uptake.
+ For instance, high yielding varieties may be less resistant to particular
+ pests and diseases or to droughts than local maize varieties that farmers
+ in a particular area selected themselves over the course of centuries
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Is this documented somewhere? Do we have references? During the maize study,
+ Fiona, one of my RAs at the time, planted the hybrid the we promoted in
+ her garden.
+ She said she got much bigger maize cobs than her neighbour who used landraces,
+ but that here maize suffered from fall army worm invasion while the neighbour
+ had less issues.
+\end_layout
+
+\end_inset
+
+.
+ Therefore, additional inputs such as pesticides, insecticides and irrigation
+ may be needed to bring the seed to its full potential.
+ Worse, farmers they may think that improved seed is a guarantee for higher
+ yield and reduce management and use of other inputs.
+ This may lead to disappointing yields, and farmers may erroneously attribute
+ these low returns to poor input quality, which may lead to dis-adoption.
+ The problem may thus be rooted in negative experiences which conflate low
+ product quality with incorrect management practices and can be characterized
+ as a learning failure.
+ Consistent with this, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "MICHELSON2021102579"
+literal "true"
+
+\end_inset
+
+ find that fertilizers in Tanzania meet the requisite quality standards
+ even though Tanzanian farmers persistently believe that the fertilizer
+ they purchase from the market is adulterated.
+\end_layout
+
+\begin_layout Standard
+In the present context, we hypothesize that there exists a particular learning
+ constraint of interest.
+ Because farmers must make decisions on a variety of input dimensions that
+ interact in the production function - the time of planting, the amount
+ and timing of water, the choice of technology, additional inputs such as
+ fertilizer or pesticides and insecticides - they cannot easily learn about
+ the quality of seed from their own or others’ experience.
+ A key remedy to this learning problem is information, but the availability
+ of such information alone does not automatically guarantee learning.
+ Limited attention to particular input dimension may necessitate interventions
+ that highlight previously unattended-to relationships in the data 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "allen2011interaction,hanna2014learning,beaman2014minding"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Interventions
+\end_layout
+
+\begin_layout Standard
+To test the three hypotheses outlined in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Research-Questions-and"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+I1: Input dealer training on seed handling and storage
+\end_layout
+
+\begin_layout Standard
+To test this hypothesis, an information treatment that consists of an intensive
+ input dealer training to increase input dealer skills regarding seed handling
+ and storage was implemented.
+ This is expected to improve seed quality, in turn reducing risk and increasing
+ profitability at the level of the farmers.
+ This will lead to more farmers adopting improved seed.
+ It is important to note that this hypothesis implicitly assumes that the
+ dealer is not aware of the fact that he or she sells poor quality seed.
+ In other words, sales of poor quality seed is not intentional.
+\end_layout
+
+\begin_layout Subsubsection*
+I2: Information clearinghouse
+\end_layout
+
+\begin_layout Standard
+To reduce information asymmetry, we test a decentralized information clearinghou
+se that is based on crowd-sourced information and works through reputational
+ mechanisms, much like yelp.com or tripadvisor.com.
+ 
+\end_layout
+
+\begin_layout Standard
+Information clearinghouse mechanisms have been studied to some extent, but
+ mostly to address market price information asymmetry between smallholder
+ farmers and middlemen.
+ Assuming that middlemen are better informed about prevailing prices in
+ the market than farmers, theory suggests that providing farmers with price
+ information increases their bargaining power.
+ However, evidence is mixed: while 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/25760218"
+literal "false"
+
+\end_inset
+
+ finds that internet kiosks that provided wholesale price information significan
+tly increased soy prices in India, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "fafchamps2012impact"
+literal "false"
+
+\end_inset
+
+ do not find a statistically significant effect of market information delivered
+ to farmers' mobile phones by a commercial service called Reuters Market
+ Light (RML) in a neighboring state.
+ 
+\end_layout
+
+\begin_layout Standard
+A clearinghouse that relies on crowd-sourced ratings may be more effective
+ to increase seed quality in the market.
+ While prices can generally be observed reasonably easy, assessing an experience
+ good such as seed is much harder.
+ At the time of purchase, visual seed inspection is limited to seed purity
+ and the presence of mold.
+ Germination can only be assessed after planting.
+ Some seed may also be more susceptible to pests and diseases, so the overall
+ quality of seed can only be judged after harvest.
+ Aggregation of the experience of many users may thus be a particular powerful
+ way to reveal the quality of the product.
+\end_layout
+
+\begin_layout Standard
+The study by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "true"
+
+\end_inset
+
+, who set up a rating system for public veterinary services in Pakistan,
+ is probably the closest to ours.
+ They find that farmers who use the clearinghouse enjoy a 25 percent higher
+ success rate of artificial insemination.
+ Their research suggests that this is mostly due to increased veterinarian
+ effort, as few farmers seem to be switching from veterinaries that receive
+ poor ratings to veterinaries that receive good ratings.
+\end_layout
+
+\begin_layout Standard
+An information clearinghouse intervention may work through different impact
+ pathways.
+ First, farmers that do not buy improved seed may start buying when they
+ see that the quality of the input dealer in their vicinity is better than
+ expected (eg.
+ above average).
+ Furthermore, farmers may switch from low rated input dealers to higher
+ rated input dealers.
+ In addition, the clearinghouse could raise the input dealer's effort as
+ he/she wants to improve his/her ratings.
+\end_layout
+
+\begin_layout Standard
+A crowd-sourced information clearinghouse can be an important institutional
+ innovation to solve the problem of asymmetric information in the market
+ for agricultural inputs.
+ It may be preferable to alternative strategies such as regulating quality
+ due to its likely lower cost, self-sustaining nature and scaleability,
+ and helps to overcome problems such as insufficient public investment in
+ regulatory systems, regulatory enforcement, and market surveillance.I3:
+ Addressing learning failures at the farmer level.
+\end_layout
+
+\begin_layout Subsubsection*
+I3: Addressing learning failures at the farmer level
+\end_layout
+
+\begin_layout Standard
+This intervention will rely on short, visually appealing videos, shown to
+ the farmers on tablet computers.
+ Video's featuring role models have been found effective in changing people's
+ behaviour in a range of applications 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "riley2017role,doi:10.1002/ajae.12089,vandevelde2018spoiler,10.1093/wber/lhv014"
+literal "false"
+
+\end_inset
+
+.
+ A script will be written and a professional video producer will be engaged.
+ A treatment and a control video will be produced, both show best seed managemen
+t practices.
+ The only difference is one piece of information, namely that this seed
+ management is especially important when using improved seed.
+\end_layout
+
+\begin_layout Section
+Experimental design
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experimental-design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To test the three hypotheses, we will implement three interventions that
+ are combined in a field experiment where various treatment and control
+ groups are randomly assigned to either a treatment or control condition.
+ The randomized control trial (RCT) takes the form of a 
+\begin_inset Formula $2^{3}$
+\end_inset
+
+ factorial design, with each intervention corresponding to one hypothesis.
+ To test the first hypothesis, a random sub-sample of input dealers will
+ receive training on proper seed handling and storage.
+ To test the second hypothesis, a rating system will be set up among a random
+ sub-sample catchment areas of input dealers, and farmer and input dealers
+ will receive feedback on the ratings before the start of the planting season.
+ To test the third hypothesis, a video that points out the importance of
+ combining improved seed with other inputs and careful crop management will
+ be shown to a random subset of villages.
+ The treatments are further elaborated in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Interventions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Impact will be judged by looking at outcomes both at the input dealer level
+ (eg.
+ investments in seed storage infrastructure, quantity of seed sold,...) as
+ well as at the farmer level (eg.
+ likelihood that farmer adopted improved seed, maize yields,...).
+\end_layout
+
+\begin_layout Standard
+Factorial designs allow recycling of treated units in the orthogonal factor
+ to be used as controls.
+ As such, to estimate main effects, less observations are needed than would
+ be the case in parallel designs.
+ The factorial design we will use deviates from commonly used factorial
+ designs in that the experimental unit will differ depending on the factor.
+ For the first two factors, corresponding to the input-dealer training and
+ the information clearinghouse, randomization will happen at the level of
+ the catchment area.
+ For the third factor that address learning failures of farmers, randomization
+ will happen at the level of the village.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The main motivation to randomize at the village level is to eliminate potential
+ spillover effects for the third treatment.
+ However, as we will discuss later, we make sure there is correspondence
+ between villages and input dealers, which would allow us to also look at
+ the impact of the farmer training treatment on outcomes at the input dealer
+ level.
+ However, at that level, spillovers may affect results.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The decision to randomize the first two interventions at the level of the
+ catchment area instead of at the level of the input dealer has two main
+ reasons.
+ Often, input dealers are clustered in markets or trading centers with overlappi
+ng catchment areas.
+ Randomization at the level of the input dealer prompted ethical concerns.
+ For instance, it may be that one dealer gets assigned to the treatment
+ group for the information clearinghouse and receive a good rating, while
+ his/her neighbor gets assigned to the control group of that particular
+ treatment (and does not get rated).
+ Farmers in the vicinity of the two input dealers farmers may be more inclined
+ to switch to the dealer with that received the rating, even though the
+ services of the input dealer in the control group may be the same.
+ While, in this case, the rating would lead to a competitive advantage for
+ the dealer that got the rating, the reverse may be true if the dealer gets
+ a poor rating.
+ Delineating a catchment area based on overlapping areas that are served
+ by the input dealers and randomizing at this level reduces this concern.
+ While this is less of a concern for the first treatment, we were still
+ worried that providing an intense training treatment to one input dealer
+ but not to his or her immediate neighbor may be difficult in practice.
+ So also for this treatment, catchment areas will be targeted.
+\end_layout
+
+\begin_layout Standard
+The second reason why we decided to randomize at the catchment area level
+ is because we also want to measure the effect of the first two treatments
+ at the level of the farmer.
+ For example, if we would randomize the input dealer training at dealer
+ level, one dealer might be trained but his or her neighbor not.
+ If we want to know if the dealer training leads to increased adoption of
+ improved seed among farmers in the vicinity of an input dealer, we need
+ to be able to connect each farmer unambiguously to each input dealer.
+ We avoid this problem by randomizing at the catchment area level because
+ then all dealers within that catchment area received the training (or not)
+ and all farmers within that area are potential customers of only dealers
+ who received the training (or not).
+ A similar argument applies to the second treatment.
+\end_layout
+
+\begin_layout Standard
+The resulting layout, with sample sizes indicated in each treatment cell
+ (obtained through power calculations that can be found in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Power-Analysis-Simulations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The first two interventions are implemented at the catchment area level.
+ A total of 112 catchment areas are included in the study.
+ Half of these are randomly allocated to the first treatment: all input
+ dealers in 56 catchment areas receive the input dealer training, while
+ input dealers in the remaining 56 catchment areas function as the control
+ for this treatment.
+ Data that was collected in three of the study districts indicates that
+ this corresponds to about 160 input dealers in each treatment arm.
+ Orthogonal to the first factor, the second factor is placed, corresponding
+ to the second treatment that is also implemented at the catchment area
+ level.
+ Also here, in half of the 112 catchment areas an information clearinghouse
+ will be implemented, and half of the catchment areas will function as a
+ control for this treatment.
+ However, this will be done in such a way that balance with respect to the
+ first treatment exists in both treatment and control groups for the second
+ treatment.
+ This means that the treatment group of the second treatment will consist
+ of 28 catchment areas that received the first treatment and 28 catchment
+ areas that function as the control for the first treatment.
+ Similarly, for the control catchment areas for the second treatment, half
+ will consist of catchment areas where input dealers received the input
+ dealer training and half of catchment areas where input dealers did not
+ get trained.
+\end_layout
+
+\begin_layout Standard
+While the third treatment is implemented at the level of the village, it
+ is also important to preserve balance in the orthogonal factors.
+ In other words, we need to make sure that an equal number of villages that
+ are assigned to receive a treatment against learning failures are drawn
+ from catchment areas where input dealers received training as from catchment
+ areas where the input dealer training did not take place.
+ Similarly, orthogonality should also be maintained for the second treatment.
+ Therefore, in each of the four treatment cells formed by interacting the
+ first two treatments, 40 villages (347 villages in 130 catchment areas,
+ ie.
+ 2,67 villages per catchment area, so that 14 areas correspond to 37,37
+ villages) will be randomly assigned to the third treatment while another
+ 40 villages will be assigned to the control.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/data/projects/Seed_systems_project/Study design/design.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Design
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Design"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Data
 \end_layout
 
 \begin_layout Standard
