@@ -6073,363 +6073,363 @@ baseline_farmers=baseline_farmers_save
 
 
 
-#OTHER CALCULATIONS
-#OC1. difference in ratings between dealers and farmers
-
-#attention: only CH treated farmers
-
-mean(baseline_dealers$maize.owner.agree.q101,na.rm = T) #4.045977
-mean(baseline_dealers$quality_rating,na.rm = T) #3.759996
-
-t.test(baseline_dealers$maize.owner.agree.q101,baseline_dealers$quality_rating) #p-value < 2.2e-16
-#dealers rate their seed quality better than farmers do
-
-
-
-#OC2. is improved seed worth it?
-mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*kgs/bag)/area in acres
-mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==0],na.rm = T)
-
-589.4402/423.5282 #farmers who adopted had 39.1738% more yield per acre
-
-mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*market value/bag)/area in acres
-mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==0],na.rm = T)
-
-412705.3-298563.5 #farmers who adopted earned 114 141.8 UGX more per acre
-
-baseline_farmers$costforseed_new_untrimmed_peracre <- baseline_farmers$costforseed_new_untrimmed/baseline_farmers$Check2.check.maize.q29
-
-mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==1],na.rm = T) #seed in kg*cost/kg
-mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==0],na.rm = T)
-
-31699.39-1302.27 #farmers who adopted spent 30397.12 UGX more per acre
-
-114141.8/30397.12 #farmers who adopted almost quadrupled (3.75502) their investment
-
-
-
-#OC3. Are the seed quality ratings correlated with other measures of seed quailty?
-
-#attention: only CH treated dealers
-
-# variables_ratingsD <- cbind(baseline_dealers$seed_quality_general_rating,baseline_dealers$seed_yield_rating
-#                             ,baseline_dealers$seed_drought_rating,baseline_dealers$seed_disease_rating
-#                             ,baseline_dealers$seed_maturing_rating,baseline_dealers$seed_germinate_rating)
+# #OTHER CALCULATIONS
+# #OC1. difference in ratings between dealers and farmers
 # 
-# index_ratingsD <- icwIndex(xmat=variables_ratingsD)
-# baseline_dealers$index_ratingsD <- index_ratingsD$index
+# #attention: only CH treated farmers
 # 
-# baseline_dealers$index_ratingsD <- rowMeans(baseline_dealers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+# mean(baseline_dealers$maize.owner.agree.q101,na.rm = T) #4.045977
+# mean(baseline_dealers$quality_rating,na.rm = T) #3.759996
+# 
+# t.test(baseline_dealers$maize.owner.agree.q101,baseline_dealers$quality_rating) #p-value < 2.2e-16
+# #dealers rate their seed quality better than farmers do
+# 
+# 
+# 
+# #OC2. is improved seed worth it?
+# mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*kgs/bag)/area in acres
+# mean(baseline_farmers$landproductivity_untrimmed[baseline_farmers$adoption_onfield==0],na.rm = T)
+# 
+# 589.4402/423.5282 #farmers who adopted had 39.1738% more yield per acre
+# 
+# mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==1],na.rm = T) #(harvested bags*market value/bag)/area in acres
+# mean(baseline_farmers$landproductivity_inUGX[baseline_farmers$adoption_onfield==0],na.rm = T)
+# 
+# 412705.3-298563.5 #farmers who adopted earned 114 141.8 UGX more per acre
+# 
+# baseline_farmers$costforseed_new_untrimmed_peracre <- baseline_farmers$costforseed_new_untrimmed/baseline_farmers$Check2.check.maize.q29
+# 
+# mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==1],na.rm = T) #seed in kg*cost/kg
+# mean(baseline_farmers$costforseed_new_untrimmed_peracre[baseline_farmers$adoption_onfield==0],na.rm = T)
+# 
+# 31699.39-1302.27 #farmers who adopted spent 30397.12 UGX more per acre
+# 
+# 114141.8/30397.12 #farmers who adopted almost quadrupled (3.75502) their investment
+# 
+# 
+# 
+# #OC3. Are the seed quality ratings correlated with other measures of seed quailty?
+# 
+# #attention: only CH treated dealers
+# 
+# # variables_ratingsD <- cbind(baseline_dealers$seed_quality_general_rating,baseline_dealers$seed_yield_rating
+# #                             ,baseline_dealers$seed_drought_rating,baseline_dealers$seed_disease_rating
+# #                             ,baseline_dealers$seed_maturing_rating,baseline_dealers$seed_germinate_rating)
+# # 
+# # index_ratingsD <- icwIndex(xmat=variables_ratingsD)
+# # baseline_dealers$index_ratingsD <- index_ratingsD$index
+# # 
+# # baseline_dealers$index_ratingsD <- rowMeans(baseline_dealers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+# #                                                                ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
+# 
+# #DEALERS
+# # reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
+# # baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
+# 
+# baseline_dealers$index_ratingsD <- baseline_dealers$score_corrected
+# 
+# #Shop only sells farm inputs
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q5,use = "pairwise.complete.obs")
+# #good: positive correlation of 0.12
+# 
+# #Index of labor-intensive seed handling and storage practices observed by enumerator
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_lab_base,use = "pairwise.complete.obs")
+# #neutral: positive correlation of 0.01 (too weak)
+# 
+# #Index of capital-intensive seed handling and storage practices observed by enumerator
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_cap_base,use = "pairwise.complete.obs")
+# #good: positive correlation of 0.13
+# 
+# #Index of all seed handling and storage practices observed by enumerator
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_all_base,use = "pairwise.complete.obs")
+# #neutral: positive correlation of 0.06
+# 
+# #Shop received seed related complaint from customer
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q96,use = "pairwise.complete.obs")
+# #good: negative correlation of -0.12
+# 
+# #Moisture in random seed bag in percent
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$reading,use = "pairwise.complete.obs")
+# #neutral: negative correlation of -0.01
+# 
+# #Random seed bag shows lot number
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$lot,use = "pairwise.complete.obs")
+# #neutral: positive correlation of 0.04
+# 
+# #Random seed bag shows packaging date
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$visible_packdate,use = "pairwise.complete.obs")
+# #neutral: positive correlation 0.08
+# 
+# #Days since packaging date/expiry date minus 6 months
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$shelflife_Caro,use = "pairwise.complete.obs")
+# #bad: positive correlation of 0.01 but should be negative
+# 
+# #Shop received a warning after inspection
+# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
+# #bad: positive correlation of 0.05 but should be negative
+# 
+# summary(regression <- lm(baseline_dealers$index_ratingsD~baseline_dealers$maize.owner.agree.q5
+#                          +baseline_dealers$index_practices_cap_base+baseline_dealers$maize.owner.agree.q96
+#                          +baseline_dealers$lot+baseline_dealers$visible_packdate))
+# 
+# #FARMERS
+# #attention: any seed, not specific seed
+# #Index of farmer's ratings of seed used on randomly selected maize field last season
+# #Yield in kg/acre (production/area)
+# cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
+# #very good: positive correlation of 0.21
+# 
+# summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
+# 
+# 
+# 
+# #OC4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
+# 
+# #attention: only CH treated farmers
+# 
+# # variables_ratingsF <- cbind(rating_dyads$seed_quality_general_rating,rating_dyads$seed_yield_rating
+# #                                 ,rating_dyads$seed_drought_rating,rating_dyads$seed_disease_rating
+# #                                 ,rating_dyads$seed_maturing_rating,rating_dyads$seed_germinate_rating)
+# # 
+# # index_ratingsF <- icwIndex(xmat=variables_ratingsF)
+# # rating_dyads$index_ratingsF <- index_ratingsF$index
+# 
+# #not straightforward to interpret, so:
+# 
+# #at rating_dyads level because baseline_farmers$bought_at_dealer and baseline_farmers$bought_last_season are averages
+# 
+# rating_dyads$index_ratingsF <- rowMeans(rating_dyads[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+#                                                        ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
+# 
+# table(rating_dyads$bought_at_dealer) #3536 No, 807 Yes
+# 
+# mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="Yes"],na.rm = T) #3.390949
+# mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="No"],na.rm = T) #3.478922
+# 
+# summary(regression3 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_at_dealer))
+# #farmers who never bought seed at dealer rate significantly better
+# 
+# rating_dyads$bought_last_season[rating_dyads$bought_at_dealer=="No"] <- 0
+# 
+# table(rating_dyads$bought_last_season) #3990 No, 353 Yes
+# 
+# mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==1],na.rm = T) #3.354545
+# mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==0],na.rm = T) #3.438055
+# 
+# summary(regression4 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_last_season))
+# #farmers who didn't buy seed at dealer last season rate significantly better
+# 
+# # variables_ratingsF <- cbind(baseline_farmers$seed_quality_general_rating,baseline_farmers$seed_yield_rating
+# #                             ,baseline_farmers$seed_drought_rating,baseline_farmers$seed_disease_rating
+# #                             ,baseline_farmers$seed_maturing_rating,baseline_farmers$seed_germinate_rating)
+# # 
+# # index_ratingsF <- icwIndex(xmat=variables_ratingsF)
+# # baseline_farmers$index_ratingsF <- index_ratingsF$index
+# 
+# #not straightforward to interpret, so:
+# 
+# baseline_farmers$index_ratingsF <- rowMeans(baseline_farmers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
 #                                                                ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
-
-#DEALERS
-# reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
-# baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
-
-baseline_dealers$index_ratingsD <- baseline_dealers$score_corrected
-
-#Shop only sells farm inputs
-cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q5,use = "pairwise.complete.obs")
-#good: positive correlation of 0.12
-
-#Index of labor-intensive seed handling and storage practices observed by enumerator
-cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_lab_base,use = "pairwise.complete.obs")
-#neutral: positive correlation of 0.01 (too weak)
-
-#Index of capital-intensive seed handling and storage practices observed by enumerator
-cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_cap_base,use = "pairwise.complete.obs")
-#good: positive correlation of 0.13
-
-#Index of all seed handling and storage practices observed by enumerator
-cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_all_base,use = "pairwise.complete.obs")
-#neutral: positive correlation of 0.06
-
-#Shop received seed related complaint from customer
-cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q96,use = "pairwise.complete.obs")
-#good: negative correlation of -0.12
-
-#Moisture in random seed bag in percent
-cor(baseline_dealers$index_ratingsD,baseline_dealers$reading,use = "pairwise.complete.obs")
-#neutral: negative correlation of -0.01
-
-#Random seed bag shows lot number
-cor(baseline_dealers$index_ratingsD,baseline_dealers$lot,use = "pairwise.complete.obs")
-#neutral: positive correlation of 0.04
-
-#Random seed bag shows packaging date
-cor(baseline_dealers$index_ratingsD,baseline_dealers$visible_packdate,use = "pairwise.complete.obs")
-#neutral: positive correlation 0.08
-
-#Days since packaging date/expiry date minus 6 months
-cor(baseline_dealers$index_ratingsD,baseline_dealers$shelflife_Caro,use = "pairwise.complete.obs")
-#bad: positive correlation of 0.01 but should be negative
-
-#Shop received a warning after inspection
-cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
-#bad: positive correlation of 0.05 but should be negative
-
-summary(regression <- lm(baseline_dealers$index_ratingsD~baseline_dealers$maize.owner.agree.q5
-                         +baseline_dealers$index_practices_cap_base+baseline_dealers$maize.owner.agree.q96
-                         +baseline_dealers$lot+baseline_dealers$visible_packdate))
-
-#FARMERS
-#attention: any seed, not specific seed
-#Index of farmer's ratings of seed used on randomly selected maize field last season
-#Yield in kg/acre (production/area)
-cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
-#very good: positive correlation of 0.21
-
-summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
-
-
-
-#OC4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
-
-#attention: only CH treated farmers
-
-# variables_ratingsF <- cbind(rating_dyads$seed_quality_general_rating,rating_dyads$seed_yield_rating
-#                                 ,rating_dyads$seed_drought_rating,rating_dyads$seed_disease_rating
-#                                 ,rating_dyads$seed_maturing_rating,rating_dyads$seed_germinate_rating)
 # 
-# index_ratingsF <- icwIndex(xmat=variables_ratingsF)
-# rating_dyads$index_ratingsF <- index_ratingsF$index
-
-#not straightforward to interpret, so:
-
-#at rating_dyads level because baseline_farmers$bought_at_dealer and baseline_farmers$bought_last_season are averages
-
-rating_dyads$index_ratingsF <- rowMeans(rating_dyads[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
-                                                       ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
-
-table(rating_dyads$bought_at_dealer) #3536 No, 807 Yes
-
-mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="Yes"],na.rm = T) #3.390949
-mean(rating_dyads$index_ratingsF[rating_dyads$bought_at_dealer=="No"],na.rm = T) #3.478922
-
-summary(regression3 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_at_dealer))
-#farmers who never bought seed at dealer rate significantly better
-
-rating_dyads$bought_last_season[rating_dyads$bought_at_dealer=="No"] <- 0
-
-table(rating_dyads$bought_last_season) #3990 No, 353 Yes
-
-mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==1],na.rm = T) #3.354545
-mean(rating_dyads$index_ratingsF[rating_dyads$bought_last_season==0],na.rm = T) #3.438055
-
-summary(regression4 <- lm(rating_dyads$index_ratingsF~rating_dyads$bought_last_season))
-#farmers who didn't buy seed at dealer last season rate significantly better
-
-# variables_ratingsF <- cbind(baseline_farmers$seed_quality_general_rating,baseline_farmers$seed_yield_rating
-#                             ,baseline_farmers$seed_drought_rating,baseline_farmers$seed_disease_rating
-#                             ,baseline_farmers$seed_maturing_rating,baseline_farmers$seed_germinate_rating)
+# #baseline_farmers$agro==1 if farmer used quality maize seed bought at agro-input shop for any plot last season
+# #attention: ANY agro-input shop
+# mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==1],na.rm = T) #3.371677
+# mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==0],na.rm = T) #3.425568
 # 
-# index_ratingsF <- icwIndex(xmat=variables_ratingsF)
-# baseline_farmers$index_ratingsF <- index_ratingsF$index
-
-#not straightforward to interpret, so:
-
-baseline_farmers$index_ratingsF <- rowMeans(baseline_farmers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
-                                                               ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
-
-#baseline_farmers$agro==1 if farmer used quality maize seed bought at agro-input shop for any plot last season
-#attention: ANY agro-input shop
-mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==1],na.rm = T) #3.371677
-mean(baseline_farmers$index_ratingsF[baseline_farmers$agro==0],na.rm = T) #3.425568
-
-summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$agro))
-#farmers who used quality maize seed bought at agro-input shop rate worse than those who didn't (but not significantly)
-
-mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==1],na.rm = T) #3.377495
-mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==0],na.rm = T) #3.435884
-
-summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$Check2.check.maize.q25a))
-#farmers who adopt rate worse than those who don't (but not significantly)
-
-
-
-#OC5. check yellow questions in "variables farmer" (C:\Users\u0127963\Desktop\PhD\Seed_systems_project_without_Bjorn\report)
-table(baseline_farmers$check.maize.q25f) #clearinghouse control group MIDLINE
-table(baseline_farmers$check.maize.q25fx) #clearinghouse treatment group MIDLINE
-
-#62 farmers didn't buy seed at agro-input shop because it is too far way or in an inconvenient location
-#1024 farmers didn't buy seed at agro-input shop because it is too expensive
-#82 farmers didn't buy seed at agro-input shop because it isn't of good quality
-#15 farmers didn't buy seed at agro-input shop because it is always out of stock/doesn't sell the seed they are looking for
-#8 farmer didn't buy seed at agro-input shop because it sells only in inconvenient quantities
-#1 farmer didn't buy seed at agro-input shop because of other reasons
-#0 farmers didn't buy seed at agro-input shop because shop's SeedAdvisor rating was too low (only for clearinghouse treatment group)
-#=1192
-
-table(baseline_farmers$check.maize.q25f_2)
-table(baseline_farmers$check.maize.q25f_2x)
-
-#315 farmers bought seed at particular agro-input shop because it is close by or in an convenient location
-#70 farmers bought seed at particular agro-input shop because it is not very expensive
-#641 farmers bought seed at particular agro-input shop because seed there is of very good quality
-#87 farmers bought seed at particular agro-input shop because it always has a good stock of seed I am looking for
-#56 farmers bought seed at particular agro-input shop because it sells in convenient quantities
-#14 farmers bought seed at particular agro-input shop because it's SeedAdvisor rating was high
-
-#Q67a. Do you know **${calc_biz}**'s SeedAdvisor rating?
-table(midline_rating_dyads$knows_dealer) #5081 know dealer, 5782 don't
-table(midline_rating_dyads$knows_SA_rating) #67 know rating, 929 don't
-#the next question you had to answer if you answered yes (if q67a=yes: What is  **${calc_biz}**'s SeedAdvisor rating?) might have influenced this answer
-table(midline_rating_dyads$SA_rating)
-
-
-
-#OC6. heterogeneity analysis: only shops which only sell farm inputs (74.1%)
-#paste this before analysis:
-#baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
-#also had to change these 348's to 258's but that won't be necessary at endline:
-#e.g. baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),258,replace = T)
-
-#new effects:
-#CH on transformed seed revenue in mln UGX (IHS)
-#training and CH on transformed quantity of Longe 10H sold last season in kg (IHS)
-#training on overall index Longe 10H
-#CH on shelflife (days since packaging date/expiry date minus 6 months)
-
-
-
-#OC7. attrition: how many (un-)specialized dealers?
-sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==1)
-#31 of 258 (12%) specialized shops left the sample
-sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==0)
-#11 of 90 (12%) un-specialized shops left the sample
-
-summary(regression5 <- lm(baseline_dealers$attrition_ind_D~baseline_dealers$maize.owner.agree.q5))
-#shops which only sell farm inputs are not significantly more/less likely to leave the sample
-
-
-
-#OC8. intended to treat vs. treated
-sum(baseline_dealers$training==1 & baseline_dealers$attrition_ind_D==0)
-#147 dealers who didn't leave sample received training
-sum(baseline_dealers$training==0 & baseline_dealers$attrition_ind_D==0)
-#159 dealers who didn't leave sample didn't receive training
-
-table(baseline_dealers$owner.agree.q11a)
-sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11a=="Yes",na.rm = T)
-#120 of 147 (82%) dealers who were supposed to receive training, say that they were invited to our training
-
-table(baseline_dealers$owner.agree.q11b)
-sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11b=="Yes",na.rm = T)
-#105 of 147 (71%) dealers who were supposed to receive training, say that they attended our training
-
-mean(as.numeric(as.character(baseline_dealers$owner.agree.q11c)),na.rm = T)
-#our training was rated 4.52/5 on average
-
-#CH
-sum(baseline_dealers$clearing==1 & baseline_dealers$attrition_ind_D==0)
-#179 dealers who didn't leave sample received CH
-sum(baseline_dealers$clearing==0 & baseline_dealers$attrition_ind_D==0)
-#127 dealers who didn't leave sample didn't receive CH
-
-table(baseline_dealers$owner.agree.q2a)
-sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2a=="Yes",na.rm = T)
-#124 of 179 dealers (69%) who were supposed to receive certificate say that they did
-
-table(baseline_dealers$owner.agree.q2b)
-sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2b=="Yes",na.rm = T)
-#66 of 179 dealers (37%) who were supposed to receive certificate say that they know their shop's rating
-
-
-
-#OC9. read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluations/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-power
-#"if you have a few clusters that are much larger than the rest, you may want to not include them in the experiment"
-#exclude catchment areas with more than 10 dealers/villages and redo analysis
-table(baseline_dealers$catchID)
-table(baseline_farmers$catchID)
-
+# summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$agro))
+# #farmers who used quality maize seed bought at agro-input shop rate worse than those who didn't (but not significantly)
+# 
+# mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==1],na.rm = T) #3.377495
+# mean(baseline_farmers$index_ratingsF[baseline_farmers$Check2.check.maize.q25a==0],na.rm = T) #3.435884
+# 
+# summary(regression4 <- lm(baseline_farmers$index_ratingsF~baseline_farmers$Check2.check.maize.q25a))
+# #farmers who adopt rate worse than those who don't (but not significantly)
+# 
+# 
+# 
+# #OC5. check yellow questions in "variables farmer" (C:\Users\u0127963\Desktop\PhD\Seed_systems_project_without_Bjorn\report)
+# table(baseline_farmers$check.maize.q25f) #clearinghouse control group MIDLINE
+# table(baseline_farmers$check.maize.q25fx) #clearinghouse treatment group MIDLINE
+# 
+# #62 farmers didn't buy seed at agro-input shop because it is too far way or in an inconvenient location
+# #1024 farmers didn't buy seed at agro-input shop because it is too expensive
+# #82 farmers didn't buy seed at agro-input shop because it isn't of good quality
+# #15 farmers didn't buy seed at agro-input shop because it is always out of stock/doesn't sell the seed they are looking for
+# #8 farmer didn't buy seed at agro-input shop because it sells only in inconvenient quantities
+# #1 farmer didn't buy seed at agro-input shop because of other reasons
+# #0 farmers didn't buy seed at agro-input shop because shop's SeedAdvisor rating was too low (only for clearinghouse treatment group)
+# #=1192
+# 
+# table(baseline_farmers$check.maize.q25f_2)
+# table(baseline_farmers$check.maize.q25f_2x)
+# 
+# #315 farmers bought seed at particular agro-input shop because it is close by or in an convenient location
+# #70 farmers bought seed at particular agro-input shop because it is not very expensive
+# #641 farmers bought seed at particular agro-input shop because seed there is of very good quality
+# #87 farmers bought seed at particular agro-input shop because it always has a good stock of seed I am looking for
+# #56 farmers bought seed at particular agro-input shop because it sells in convenient quantities
+# #14 farmers bought seed at particular agro-input shop because it's SeedAdvisor rating was high
+# 
+# #Q67a. Do you know **${calc_biz}**'s SeedAdvisor rating?
+# table(midline_rating_dyads$knows_dealer) #5081 know dealer, 5782 don't
+# table(midline_rating_dyads$knows_SA_rating) #67 know rating, 929 don't
+# #the next question you had to answer if you answered yes (if q67a=yes: What is  **${calc_biz}**'s SeedAdvisor rating?) might have influenced this answer
+# table(midline_rating_dyads$SA_rating)
+# 
+# 
+# 
+# #OC6. heterogeneity analysis: only shops which only sell farm inputs (74.1%)
 # #paste this before analysis:
-# baseline_dealers$large_catchID <- ifelse(baseline_dealers$catchID==3|baseline_dealers$catchID==32|baseline_dealers$catchID==59,1,0)
-# #|baseline_dealers$catchID==64
-# baseline_dealers=subset(baseline_dealers,large_catchID=="0")
-
-# baseline_farmers$large_catchID <- ifelse(baseline_farmers$catchID==3|baseline_farmers$catchID==32|baseline_farmers$catchID==59,1,0)
-# #|baseline_farmers$catchID==64
-# baseline_farmers=subset(baseline_farmers,large_catchID=="0")
-
-# #then again, change all "sample(na.omit("
-# #nothing interesting happens
-
-
-
-#OC10. different treatment stati
-#1. TRAINING
-#1.a training according to dealers
-baseline_dealers$say_that_attended_training <- NA
-baseline_dealers$say_that_attended_training[baseline_dealers$owner.agree.q11b=="Yes"] <- 1
-baseline_dealers$say_that_attended_training[baseline_dealers$training==0] <- 0
-#unreliable because at least 136 dealers attended the training (I checked their attendance) (here: 105)
-
-#1.b training according to our attendance list
-#insert above analysis but after sign
-training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";", stringsAsFactors = TRUE)
-training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
-baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
-baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
-#baseline_dealers$training <- baseline_dealers$someone_attended
-
-#now significant
-#Average sales price of 4 improved maize varieties last season in UGX/ kg
-#Index of all seed handling and storage practices observed by enumerator
-#Transformed amount of Longe 5 bought by shop from provider last season in kg (IHS)
-#Shop's products were confiscated after inspection
-
-#2. CLEARINGHOUSE
-#general note: too complex because of combination of certificates to dealers, ratings to farmers in person, SMS...
-
-#DEALERS
-#2.D.a first dissemination to dealers
-#2.D.a.1 first dissemination to dealers according to dealers
-baseline_dealers$say_that_certificate <- NA
-baseline_dealers$say_that_certificate[baseline_dealers$owner.agree.q2a=="Yes"] <- 1
-baseline_dealers$say_that_certificate[baseline_dealers$clearing==0] <- 0
-#unreliable because Richard says that 182 (at least 157) dealers received certificate (here: 124)
-
-#2.D.a.2 first dissemination to dealers according to Richard
-#need to ask Richard
-
-#2.D.b second dissemination to dealers
-#2.D.b.1 second dissemination to dealers according to dealers
-#see at endline
-
-#2.D.a.2 second dissemination to dealers according to us
-#everyone in midline_dealers with clearing==1 received certificate (same visit)
-baseline_dealers$received_2nd_ml_certificate <- baseline_dealers$clearing
-baseline_dealers$received_2nd_ml_certificate[baseline_dealers$attrition_ind_D==1 & baseline_dealers$clearing==1] <- NA
-#doesn't make sense for midline analysis because dealers that left midline sample aren't in analysis anyway
-
-#FARMERS
-#2.F.a first dissemination to farmers according to us
-farmer_dissemination_final <- read.csv("C:/Users/u0127963/Dropbox/NWO seed system devt Uganda proposal development/Study design/treatments/info_clearing/farmer/data/farmer_dissemination_final.csv", stringsAsFactors = TRUE) #54 missing
-
-#2.F.b second dissemination to farmers according to us
-#not everyone in midline_farmers with clearing==1 received certificate (not same visit) but good proxy because almost same time (Jan and Feb)
-#midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
-baseline_farmers$received_2nd_ml_rating <- baseline_farmers$clearing
-baseline_farmers$received_2nd_ml_rating[baseline_farmers$attrition_ind_F==1 & baseline_farmers$clearing==1] <- NA
-#doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
-
-#3. VIDEO
-#3.a first video shown
-#video shown during farmer baseline data collection and again during baseline rating dissemination/ service questions --> complete sample
-
-#3.b second video shown
-#we showed the farmer video during midline rating dissemination/ service questions
-#not everyone in midline_farmers with video==1 saw video (not same visit) but good proxy because almost same time (Jan and Feb)
-#midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
-baseline_farmers$watched_video <- baseline_farmers$Check2.check.maize.video_shown
-baseline_farmers$watched_video[baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.video_shown==1] <- NA
-#doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
-
-
-
-#OC11. CR3 to CR0
-#Average sales price of 4 improved maize varieties last season in UGX/ kg
-#Days since packaging date/expiry date minus 6 months
-#Overall index controlling for baseline (secondary outcome variables regarding seed bag)
-
-#Farmer planted local land race maize seed on this field
+# #baseline_dealers=subset(baseline_dealers,maize.owner.agree.q5=="1")
+# #also had to change these 348's to 258's but that won't be necessary at endline:
+# #e.g. baseline_dealers$mid_general=sample(na.omit(baseline_dealers$general),258,replace = T)
+# 
+# #new effects:
+# #CH on transformed seed revenue in mln UGX (IHS)
+# #training and CH on transformed quantity of Longe 10H sold last season in kg (IHS)
+# #training on overall index Longe 10H
+# #CH on shelflife (days since packaging date/expiry date minus 6 months)
+# 
+# 
+# 
+# #OC7. attrition: how many (un-)specialized dealers?
+# sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==1)
+# #31 of 258 (12%) specialized shops left the sample
+# sum(baseline_dealers$attrition_ind_D==1&baseline_dealers$maize.owner.agree.q5==0)
+# #11 of 90 (12%) un-specialized shops left the sample
+# 
+# summary(regression5 <- lm(baseline_dealers$attrition_ind_D~baseline_dealers$maize.owner.agree.q5))
+# #shops which only sell farm inputs are not significantly more/less likely to leave the sample
+# 
+# 
+# 
+# #OC8. intended to treat vs. treated
+# sum(baseline_dealers$training==1 & baseline_dealers$attrition_ind_D==0)
+# #147 dealers who didn't leave sample received training
+# sum(baseline_dealers$training==0 & baseline_dealers$attrition_ind_D==0)
+# #159 dealers who didn't leave sample didn't receive training
+# 
+# table(baseline_dealers$owner.agree.q11a)
+# sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11a=="Yes",na.rm = T)
+# #120 of 147 (82%) dealers who were supposed to receive training, say that they were invited to our training
+# 
+# table(baseline_dealers$owner.agree.q11b)
+# sum(baseline_dealers$training==1 & baseline_dealers$owner.agree.q11b=="Yes",na.rm = T)
+# #105 of 147 (71%) dealers who were supposed to receive training, say that they attended our training
+# 
+# mean(as.numeric(as.character(baseline_dealers$owner.agree.q11c)),na.rm = T)
+# #our training was rated 4.52/5 on average
+# 
+# #CH
+# sum(baseline_dealers$clearing==1 & baseline_dealers$attrition_ind_D==0)
+# #179 dealers who didn't leave sample received CH
+# sum(baseline_dealers$clearing==0 & baseline_dealers$attrition_ind_D==0)
+# #127 dealers who didn't leave sample didn't receive CH
+# 
+# table(baseline_dealers$owner.agree.q2a)
+# sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2a=="Yes",na.rm = T)
+# #124 of 179 dealers (69%) who were supposed to receive certificate say that they did
+# 
+# table(baseline_dealers$owner.agree.q2b)
+# sum(baseline_dealers$clearing==1 & baseline_dealers$owner.agree.q2b=="Yes",na.rm = T)
+# #66 of 179 dealers (37%) who were supposed to receive certificate say that they know their shop's rating
+# 
+# 
+# 
+# #OC9. read Different-sized baskets of fruit: https://blogs.worldbank.org/impactevaluations/different-sized-baskets-fruit-how-unequally-sized-clusters-can-lead-your-power
+# #"if you have a few clusters that are much larger than the rest, you may want to not include them in the experiment"
+# #exclude catchment areas with more than 10 dealers/villages and redo analysis
+# table(baseline_dealers$catchID)
+# table(baseline_farmers$catchID)
+# 
+# # #paste this before analysis:
+# # baseline_dealers$large_catchID <- ifelse(baseline_dealers$catchID==3|baseline_dealers$catchID==32|baseline_dealers$catchID==59,1,0)
+# # #|baseline_dealers$catchID==64
+# # baseline_dealers=subset(baseline_dealers,large_catchID=="0")
+# 
+# # baseline_farmers$large_catchID <- ifelse(baseline_farmers$catchID==3|baseline_farmers$catchID==32|baseline_farmers$catchID==59,1,0)
+# # #|baseline_farmers$catchID==64
+# # baseline_farmers=subset(baseline_farmers,large_catchID=="0")
+# 
+# # #then again, change all "sample(na.omit("
+# # #nothing interesting happens
+# 
+# 
+# 
+# #OC10. different treatment stati
+# #1. TRAINING
+# #1.a training according to dealers
+# baseline_dealers$say_that_attended_training <- NA
+# baseline_dealers$say_that_attended_training[baseline_dealers$owner.agree.q11b=="Yes"] <- 1
+# baseline_dealers$say_that_attended_training[baseline_dealers$training==0] <- 0
+# #unreliable because at least 136 dealers attended the training (I checked their attendance) (here: 105)
+# 
+# #1.b training according to our attendance list
+# #insert above analysis but after sign
+# training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";", stringsAsFactors = TRUE)
+# training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
+# baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
+# baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
+# #baseline_dealers$training <- baseline_dealers$someone_attended
+# 
+# #now significant
+# #Average sales price of 4 improved maize varieties last season in UGX/ kg
+# #Index of all seed handling and storage practices observed by enumerator
+# #Transformed amount of Longe 5 bought by shop from provider last season in kg (IHS)
+# #Shop's products were confiscated after inspection
+# 
+# #2. CLEARINGHOUSE
+# #general note: too complex because of combination of certificates to dealers, ratings to farmers in person, SMS...
+# 
+# #DEALERS
+# #2.D.a first dissemination to dealers
+# #2.D.a.1 first dissemination to dealers according to dealers
+# baseline_dealers$say_that_certificate <- NA
+# baseline_dealers$say_that_certificate[baseline_dealers$owner.agree.q2a=="Yes"] <- 1
+# baseline_dealers$say_that_certificate[baseline_dealers$clearing==0] <- 0
+# #unreliable because Richard says that 182 (at least 157) dealers received certificate (here: 124)
+# 
+# #2.D.a.2 first dissemination to dealers according to Richard
+# #need to ask Richard
+# 
+# #2.D.b second dissemination to dealers
+# #2.D.b.1 second dissemination to dealers according to dealers
+# #see at endline
+# 
+# #2.D.a.2 second dissemination to dealers according to us
+# #everyone in midline_dealers with clearing==1 received certificate (same visit)
+# baseline_dealers$received_2nd_ml_certificate <- baseline_dealers$clearing
+# baseline_dealers$received_2nd_ml_certificate[baseline_dealers$attrition_ind_D==1 & baseline_dealers$clearing==1] <- NA
+# #doesn't make sense for midline analysis because dealers that left midline sample aren't in analysis anyway
+# 
+# #FARMERS
+# #2.F.a first dissemination to farmers according to us
+# farmer_dissemination_final <- read.csv("C:/Users/u0127963/Dropbox/NWO seed system devt Uganda proposal development/Study design/treatments/info_clearing/farmer/data/farmer_dissemination_final.csv", stringsAsFactors = TRUE) #54 missing
+# 
+# #2.F.b second dissemination to farmers according to us
+# #not everyone in midline_farmers with clearing==1 received certificate (not same visit) but good proxy because almost same time (Jan and Feb)
+# #midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
+# baseline_farmers$received_2nd_ml_rating <- baseline_farmers$clearing
+# baseline_farmers$received_2nd_ml_rating[baseline_farmers$attrition_ind_F==1 & baseline_farmers$clearing==1] <- NA
+# #doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
+# 
+# #3. VIDEO
+# #3.a first video shown
+# #video shown during farmer baseline data collection and again during baseline rating dissemination/ service questions --> complete sample
+# 
+# #3.b second video shown
+# #we showed the farmer video during midline rating dissemination/ service questions
+# #not everyone in midline_farmers with video==1 saw video (not same visit) but good proxy because almost same time (Jan and Feb)
+# #midline dissemination dataset would be better here but data is not in dropbox but only on Bjorn's computer
+# baseline_farmers$watched_video <- baseline_farmers$Check2.check.maize.video_shown
+# baseline_farmers$watched_video[baseline_farmers$attrition_ind_F==1 & baseline_farmers$Check2.check.maize.video_shown==1] <- NA
+# #doesn't make sense for midline analysis because farmers that left midline sample aren't in analysis anyway
+# 
+# 
+# 
+# #OC11. CR3 to CR0
+# #Average sales price of 4 improved maize varieties last season in UGX/ kg
+# #Days since packaging date/expiry date minus 6 months
+# #Overall index controlling for baseline (secondary outcome variables regarding seed bag)
+# 
+# #Farmer planted local land race maize seed on this field
