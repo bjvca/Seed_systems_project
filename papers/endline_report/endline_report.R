@@ -5463,20 +5463,26 @@ baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="g
 baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="h"] <- 1
 baseline_farmers$mid_myownfault[baseline_farmers$mid_Check2.check.maize.q51b=="i"] <- NA
 
-#6. skill questions
+#6. skill questions OK!
 baseline_farmers$q58_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q58=="c",1,0)
+baseline_farmers$q58_correct[baseline_farmers$CHECK.MAIZE.Q58=="b"] <- 1 #robustness
+
 baseline_farmers$q59_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q59=="c",1,0)
-baseline_farmers$q60_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q60=="c",1,0)
+
+baseline_farmers$q60_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q60=="d",1,0)
+baseline_farmers$q60_correct[baseline_farmers$CHECK.MAIZE.Q60=="c"] <- 1 #robustness
+
 baseline_farmers$q61_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q61=="c",1,0)
 baseline_farmers$q62_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q62=="c",1,0)
-baseline_farmers$q63_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q63=="a",1,0)
+#baseline_farmers$q63_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q63=="a",1,0) #not in index
+
+variables_skills_mid <- cbind(baseline_farmers$q58_correct,baseline_farmers$q59_correct,baseline_farmers$q60_correct
+                              ,baseline_farmers$q61_correct,baseline_farmers$q62_correct)
+
+index_skillsF_mid <- icwIndex(xmat=variables_skills_mid)
+baseline_farmers$index_skillsF_mid <- index_skillsF_mid$index
 
 #xxxF
-
-nrowF <- nrow(baseline_farmers)
-
-baseline_farmers$index_skillsF_mid=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
-#placeholder #to do endline (mind: T, CH, F have different indices)
 
 #7. Q56. How much did you keep for seed (record in kg)?
 baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
@@ -5489,7 +5495,7 @@ baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc
 
 #XXXXX
 
-#new overallprimF index because of mid_farmerswitched
+#new overallprimF index because of mid_farmerswitched OK!
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
                                     ,baseline_farmers$mid_farmerswitched,baseline_farmers$mid_Land_Races
                                     ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid
@@ -5498,10 +5504,11 @@ variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a
 index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(4))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
-#new overallsecF index because of mid_knows_dealer & index_skillsF_mid
+#new index_overallsecF_mid because mid_bought_last_season & index_skillsF_mid
 variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-                                   ,baseline_farmers$mid_knows_dealer)
-                                   # ,baseline_farmers$mid_bought_last_season,index_skillsF_mid) #to do endline
+                                   ,baseline_farmers$mid_knows_dealer
+                                   ,baseline_farmers$mid_bought_last_season
+                                   ,baseline_farmers$index_skillsF_mid)
 
 index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
 baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
@@ -5534,7 +5541,7 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"mid_Check2.check.maize.q56"   #12
                            ,"mid_bought_last_season")      #13
 
-df_means_F_nobase <- array(NA,dim=c(5,13))
+df_means_F_nobase <- array(NA,dim=c(5,14))
 
 for (i in 1:length(results_farmer_nobase)){
   df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
@@ -5560,6 +5567,10 @@ baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
 
+#skills
+index_skillsF_midT <- icwIndex(xmat=variables_skills_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_skillsF_midT <- index_skillsF_midT$index
+
 #new overallprimF
 index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
@@ -5573,7 +5584,7 @@ index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgro
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
 results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midT"
                            ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT"
                            ,"index_overall_seedonplot_midT","index_overall_yieldetc_midT","mid_Check2.check.maize.q56","mid_bought_last_season")
 
@@ -5600,6 +5611,10 @@ baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
 
+#skills
+index_skillsF_midC <- icwIndex(xmat=variables_skills_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_skillsF_midC <- index_skillsF_midC$index
+
 #new overallprimF
 index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
@@ -5613,7 +5628,7 @@ index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgro
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
 results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midC"
                            ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC"
                            ,"index_overall_seedonplot_midC","index_overall_yieldetc_midC","mid_Check2.check.maize.q56","mid_bought_last_season")
 
@@ -5640,6 +5655,10 @@ baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
 
+#skills
+index_skillsF_midF <- icwIndex(xmat=variables_skills_mid,sgroup = baseline_farmers$farmer_control)
+baseline_farmers$index_skillsF_midF <- index_skillsF_midF$index
+
 #new overallprimF
 index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
@@ -5653,7 +5672,7 @@ index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgro
 baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
 
 results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
+                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midF"
                            ,"index_overallprimF_midF","index_overallsecF_midF","index_overallsec_plotF_midF"
                            ,"index_overall_seedonplot_midF","index_overall_yieldetc_midF","mid_Check2.check.maize.q56","mid_bought_last_season")
 
