@@ -132,33 +132,25 @@ thanks{LICOS Centre for Institutions and Economic Performance, KULeuven,
 \end_inset
 
 Demand and supply factors constraining the emergence and sustainability
- of an efficient seed system: A mock report
+ of an efficient seed system: Midline report
 \end_layout
 
 \begin_layout Abstract
-Agricultural technology remains under-adopted among smallholder farmers
- in Sub-Saharan Africa.
+Agricultural remains under-adopted among smallholder farmers in Sub-Saharan
+ Africa.
  We investigate how the quality of an agricultural technology—improved maize
  seed—affects its adoption.
- We test three hypotheses that will be tested in a series of randomized
- controlled trials among agro-input dealers and smallholder farmers in Uganda.
- This document is essentially a (somewhat bare bone) mock report, where
- the entire analysis has been run on simulated data before the start of
- (midline) data collection.
- Mock reports serve to tie the hands of the researcher, reducing degrees
- of freedom in the choice of what specifications to run and what variables
- to include when testing hypotheses.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "humphreys2013fishing"
-literal "false"
-
-\end_inset
-
- argue that (comprehensive but nonbinding) mock reports such as this one
- can reduce intentionally or unintentionally fishing, thereby making science
- more reliable body of published research.
+ We test three hypotheses using a randomized controlled trials among agro-input
+ dealers and smallholder farmers in Uganda.
+ In a first hypothesis, quality issues that constrain uptake are caused
+ by information inefficiencies at the level of agro-input dealers, who are
+ assumed to lack knowledge about proper storage and handling.
+ A second hypothesis conjectures that information asymmetries similar to
+ the lemons problem constrain technology adoption.
+ We also test a more behavioral explanation, whereby we assume that farmers
+ face difficulties in learning about the new technology.
+ In this report, we present intermediate results using midline data collected
+ one agricultural season after the interventions took place.
 \end_layout
 
 \begin_layout Abstract
@@ -171,63 +163,121 @@ JEL codes: O13; Q12; Q16; D82; D83
 \end_layout
 
 \begin_layout Section*
-The study
+Introduction
 \end_layout
 
 \begin_layout Standard
-The study for which this document provides a mock report was designed to
- addresses quality considerations about the technology (improved seed) as
- a particular constraint to adoption, a topic that has received considerable
+One of the most effective ways to increase agricultural productivity is
+ through the adoption of improved agricultural technologies and practices.
+ These include mechanization, but the Green Revolution has demonstrated
+ that the largest gains can be expected from improved inputs such as inorganic
+ fertilizers and high yielding cultivars.
+ However, technology adoption remains lower than projected, particularly
+ among the poor in sub-Saharan Africa 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gollin2005technology"
+literal "true"
+
+\end_inset
+
+.
+ As a result, differences in yields between sub-Saharan Africa and areas
+ that experienced a green revolution have nearly doubled since 1961 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "doi:10.1146/annurev-resource-100517-023202"
+literal "true"
+
+\end_inset
+
+.
+ To reduce this yield gap, it is important to identify the drivers of, and
+ constraints to, technology adoption.
+\end_layout
+
+\begin_layout Standard
+There are various reasons why some people adopt now technologies while other
+ stick to what they have been doing for ages.
+ Key constraints to technology upgrading include poor access to information
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ashraf2009finding"
+literal "true"
+
+\end_inset
+
+, procrastination and time-inconsistent preferences 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "duflo2011nudging"
+literal "true"
+
+\end_inset
+
+, heterogeneity in the net benefits to the technology due to high transaction
+ costs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "suri2011selection"
+literal "true"
+
+\end_inset
+
+, the lack of access to insurance 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karlan2014agricultural"
+literal "true"
+
+\end_inset
+
+, and learning failures 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hanna2014learning"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In this study, we investigate quality related considerations about the technolog
+y as a particular constraint to adoption, a topic that has received considerable
  attention recently 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "MICHELSON2021102579,bold2017lemon"
+key "bold2017lemon,MICHELSON2021102579"
 literal "false"
 
 \end_inset
 
 .
- In the study, we specifically explore (perceived) quality of improved maize
- seed as a constraint to its adoption among a sample of smallholder maize
- farmers in Uganda.
- Maize is an important crop in Uganda, both for home consumption and as
- a source of income.
- Yet, the uptake of improved maize seed by smallholder farmers to improve
- its yields remains persistently low, despite their higher yield potential
- compared to traditional seed varieties.
- Studies have advanced several factors explaining smallholder’s limited
- adoption of improved inputs in Uganda, and of improved maize seed in particular.
- These have included farmers’ beliefs that the inputs are of poor quality—counte
-rfeited, adulterated, or otherwise non-performant 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
-literal "false"
-
-\end_inset
-
-.
- Our study will test interventions aimed at identifying the relative importance
- of potential sources of these (perceived) quality issues at different levels
- for agricultural technology adoption.
- It will bring to light the cognitive, economic, and behavioral aspects
- that underlie under-adoption of these technologies.
+ Indeed, as the quality of a technology (like improved seed or fertilizer)
+ is not readily observable and can only be (imperfectly) inferred ex post,
+ inconsistent quality will lead to lower adoption.
+ Our study tests three hypotheses to assess the relative importance of potential
+ sources of these (perceived) quality issues with improved maize seed varieties
+ at both the agro-input dealer level and the farmer level.
+ 
 \end_layout
 
 \begin_layout Standard
-In the study, we test three hypotheses through a series of randomized controlled
- trials among agro-input dealers and smallholder farmers in Uganda.
- In a first hypothesis, quality concerns that constrain uptake are caused
- by information inefficiencies at the level of the agro-input dealer, who
- is assumed to lack knowledge about proper storage and handling.
- An intensive training program is expected to increase improved maize seed
- quality and subsequent adoption by farmers.
- A second hypothesis conjectures that information asymmetry between seller
- and buyer with respect to the quality of seed – a classic lemons technology
- – leads to under-adoption.
- We implement a crowd-sourced information clearinghouse similar to yelp.com
- to test this hypothesis.
- This hypothesis targets the interaction between farmers and input dealers.
+In a first hypothesis, quality concerns that constrain uptake are caused
+ by information inefficiencies at the level of the agro-input dealers, who
+ are assumed to lack knowledge about proper storage and handling.
+ To test this hypothesis, we implement and intensive training program that
+ is expected to lead to improved maize seed quality sold by agro-input dealers,
+ in turn increasing adoption by farmers.
+ A second hypothesis conjectures that information asymmetries between seller
+ and buyer with respect to the quality of seed—a classic lemons technology—leads
+ to under-adoption.
+ To test this hypothesis, we implement a crowd-sourced information clearinghouse
+ similar to yelp.com.
  A third hypothesis targets farmers directly, as sub-optimal adoption is
  assumed to be caused by learning failures: Farmers might attribute disappointin
 g outcomes to poor input quality, while in reality many input dimensions
@@ -235,15 +285,6 @@ g outcomes to poor input quality, while in reality many input dimensions
  outcomes.
  An ICT-mediated information campaign that stresses the importance of paying
  attention to all input dimensions is implemented to test this hypothesis.
- For detailed information about the study, we refer to the associated pre-analys
-is plan of the study that can be found on the AEA RCT registry (
-\begin_inset CommandInset href
-LatexCommand href
-target "https://www.socialscienceregistry.org/trials/6361"
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Standard
