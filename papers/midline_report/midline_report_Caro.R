@@ -681,6 +681,8 @@ baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 0] <- 0
 
 baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
+baseline_farmers$fourthormore_timeused<-ifelse(baseline_farmers$fourthormore_timeused=="TRUE",1,0)
+
 baseline_farmers$OPVbutfourthormore_timeused <- NA
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==1] <- 1
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==0] <- 0
@@ -4980,6 +4982,7 @@ baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 0] <- 0
 
 baseline_farmers$mid_Check2.check.maize.q34 <- baseline_farmers$check.maize.q34
 baseline_farmers$mid_fourthormore_timeused<-((baseline_farmers$mid_Check2.check.maize.q34=="d")|(baseline_farmers$mid_Check2.check.maize.q34=="e")|(baseline_farmers$mid_Check2.check.maize.q34=="f"))
+baseline_farmers$mid_fourthormore_timeused<-ifelse(baseline_farmers$mid_fourthormore_timeused=="TRUE",1,0)
 
 baseline_farmers$mid_OPVbutfourthormore_timeused <- NA
 baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV==1 & baseline_farmers$mid_farmer_saved_seed==1 & baseline_farmers$mid_fourthormore_timeused==1] <- 1
@@ -5159,11 +5162,11 @@ baseline_farmers$mid_Check2.check.maize.q35i <- baseline_farmers$check.maize.q35
 baseline_farmers$mid_Check2.check.maize.q35j <- baseline_farmers$check.maize.q35j
 
 variables_ratingplot_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q35a,baseline_farmers$mid_Check2.check.maize.q35b,baseline_farmers$mid_Check2.check.maize.q35c,
-                                  baseline_farmers$mid_Check2.check.maize.q35d,baseline_farmers$mid_Check2.check.maize.q35e,baseline_farmers$mid_Check2.check.maize.q35f,
-                                  baseline_farmers$mid_Check2.check.maize.q35h,baseline_farmers$mid_Check2.check.maize.q35i,baseline_farmers$mid_Check2.check.maize.q35j)
+                                  baseline_farmers$mid_Check2.check.maize.q35d,baseline_farmers$mid_Check2.check.maize.q35e
+                                  ,baseline_farmers$mid_Check2.check.maize.q35j)
 variables_ratingplot_base <- cbind(baseline_farmers$Check2.check.maize.q35a,baseline_farmers$Check2.check.maize.q35b,baseline_farmers$Check2.check.maize.q35c,
-                                   baseline_farmers$Check2.check.maize.q35d,baseline_farmers$Check2.check.maize.q35e,baseline_farmers$Check2.check.maize.q35f,
-                                   baseline_farmers$Check2.check.maize.q35h,baseline_farmers$Check2.check.maize.q35i,baseline_farmers$Check2.check.maize.q35j)
+                                   baseline_farmers$Check2.check.maize.q35d,baseline_farmers$Check2.check.maize.q35e
+                                   ,baseline_farmers$Check2.check.maize.q35j)
 
 index_ratingplot_mid <- icwIndex(xmat=variables_ratingplot_mid)
 baseline_farmers$index_ratingplot_mid <- index_ratingplot_mid$index

@@ -26135,7 +26135,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -27454,7 +27454,7 @@ Some outcome variables are not included in the overall index: Whether the
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -29197,8 +29197,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Index of farmer's ratings of seed used on randomly selected maize field
- last season$^
+Index of farmer's seed ratings$^1$$^
 \backslash
 dag$
 \end_layout
@@ -29304,7 +29303,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer was satisfied with quality of seed used on this field last season$^
+Farmer was satisfied with seed quality$^
 \backslash
 dag$
 \end_layout
@@ -29410,7 +29409,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer would use the seed used on this field last season again$^
+Farmer would use seed again$^
 \backslash
 dag$
 \end_layout
@@ -29516,7 +29515,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of seed farmer used on this field last season in kg$^
+Amount of seed farmer used in kg$^
 \backslash
 dag$
 \end_layout
@@ -29622,7 +29621,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Price of seed farmer used on this field last season per kg in UGX$^
+Price of seed in UGX/ kg$^
 \backslash
 dag$
 \end_layout
@@ -29728,8 +29727,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transformed cost of seed farmer used on this field last season in UGX (amount*pr
-ice) (IHS)
+Transformed cost of seed in UGX (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -30058,6 +30056,31 @@ Sexpr{format(round(df_ols_F_nobase[2,3,10],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -30086,15 +30109,29 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's seed ratings contains 6 ratings: general quality,
+ yield, drought tolerance, pest/disease tolerance, time of maturity, germination.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[4,1],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[5,1],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
@@ -30196,8 +30233,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Index of farmer's ratings of seed used on randomly selected maize field
- last season$^
+Index of farmer's seed ratings$^1$$^
 \backslash
 dag$
 \end_layout
@@ -30303,7 +30339,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer was satisfied with quality of seed used on this field last season$^
+Farmer was satisfied with seed quality$^
 \backslash
 dag$
 \end_layout
@@ -30409,7 +30445,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer would use the seed used on this field last season again$^
+Farmer would use seed again$^
 \backslash
 dag$
 \end_layout
@@ -30515,7 +30551,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of seed farmer used on this field last season in kg$^
+Amount of seed farmer used in kg$^
 \backslash
 dag$
 \end_layout
@@ -30621,7 +30657,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Price of seed farmer used on this field last season per kg in UGX$^
+Price of seed in UGX/ kg$^
 \backslash
 dag$
 \end_layout
@@ -30727,8 +30763,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transformed cost of seed farmer used on this field last season in UGX (amount*pr
-ice) (IHS)
+Transformed cost of seed in UGX (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -30834,6 +30869,31 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,6],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -30862,15 +30922,29 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's seed ratings contains 6 ratings: general quality,
+ yield, drought tolerance, pest/disease tolerance, time of maturity, germination.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[4,1],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[5,1],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
