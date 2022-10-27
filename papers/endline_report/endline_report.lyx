@@ -989,7 +989,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/home/bjvca/data/projects/Seed_systems_project/Study design/design.pdf
+	filename ../../Study design/design.pdf
 	lyxscale 50
 	scale 50
 
@@ -26135,7 +26135,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -26964,7 +26964,7 @@ Sexpr{format(round(df_means_F_nobase[5,6],digits=2),nsmall=2)} at endline.
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -27454,7 +27454,7 @@ Some outcome variables are not included in the overall index: Whether the
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -27538,7 +27538,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer planted hybrid maize seed on randomly selected maize field$^
+Farmer planted hybrid seed$^
 \backslash
 dag$
 \end_layout
@@ -27644,7 +27644,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted open-pollinated maize seed on this field$^
+Farmer planted open-pollinated seed$^
 \backslash
 dag$
 \end_layout
@@ -27750,8 +27750,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted farmer saved seed$^
 \backslash
 dag$
 \end_layout
@@ -27857,7 +27856,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted seed bought at agro-input shop$^
 \backslash
 dag$
 \end_layout
@@ -27967,7 +27966,7 @@ Farmer planted hybrid
 \backslash
 textbf{not farmer saved} seed or an OPV (
 \backslash
-textbf{not used too often}) on this field
+textbf{not recycled too often})
 \end_layout
 
 \begin_layout Plain Layout
@@ -28294,6 +28293,23 @@ Sexpr{format(round(df_ols_F_nobase[2,3,9],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -28332,15 +28348,18 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -28357,7 +28376,7 @@ dag$ indicates that the variable was included in the overall index.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -28442,7 +28461,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer planted hybrid maize seed on randomly selected maize field$^
+Farmer planted hybrid seed$^
 \backslash
 dag$
 \end_layout
@@ -28548,7 +28567,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted open-pollinated maize seed on this field$^
+Farmer planted open-pollinated seed$^
 \backslash
 dag$
 \end_layout
@@ -28654,8 +28673,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted farmer saved seed$^
 \backslash
 dag$
 \end_layout
@@ -28761,7 +28779,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted seed bought at agro-input shop$^
 \backslash
 dag$
 \end_layout
@@ -28871,7 +28889,7 @@ Farmer planted hybrid
 \backslash
 textbf{not farmer saved} seed or an OPV (
 \backslash
-textbf{not used too often}) on this field
+textbf{not recycled too often})
 \end_layout
 
 \begin_layout Plain Layout
@@ -28977,6 +28995,31 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,5],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -29005,15 +29048,22 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
