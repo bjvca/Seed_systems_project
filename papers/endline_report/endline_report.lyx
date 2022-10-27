@@ -305,6 +305,8 @@ We find that XXX.
 
 \begin_layout Standard
 We start by outlining the research questions and hypotheses we will test.
+ The interventions that are used to test the hypotheses are explained in
+ the subsequent section.
  This is done using a field experiment that is presented in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -316,8 +318,6 @@ noprefix "false"
 \end_inset
 
 .
- The interventions that are used to test the hypotheses are explained in
- the next section.
 \end_layout
 
 \begin_layout Section
@@ -660,7 +660,8 @@ noprefix "false"
 
 \end_inset
 
-.
+, we designed three corresponding interventions.
+ In this section, we provide more details on the interventions.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -668,9 +669,10 @@ I1: Input dealer training on seed handling and storage
 \end_layout
 
 \begin_layout Standard
-To test this hypothesis, an information treatment that consists of an intensive
- input dealer training to increase input dealer skills regarding seed handling
- and storage was implemented.
+To test if lack of adoption is due to poor seed quality as a result of poor
+ handling and storage at the input dealer level, an intensive input dealer
+ training to increase input dealer skills regarding seed handling and storage
+ was implemented.
  This is expected to improve seed quality, in turn reducing risk and increasing
  profitability at the level of the farmers.
  This will lead to more farmers adopting improved seed.
@@ -679,21 +681,252 @@ To test this hypothesis, an information treatment that consists of an intensive
  In other words, sales of poor quality seed is not intentional.
 \end_layout
 
+\begin_layout Standard
+The trainings were developed based on expert consultations from the Ugandan
+ ministry of agriculture, from the seed sector and from input dealer association
+s in Uganda prior to the experiment.
+ A consultation workshop was organized in Bugiri, as well as a series of
+ semi structured interviews with experts of different institutions and organizat
+ions.
+ This information will then be process and function as our knowledge base
+ for designing training materials.
+\end_layout
+
+\begin_layout Standard
+During the workshop or the semi-structured interviews, the facilitator kept
+ the focus on “seed storage and handling”.
+ First, the problems were identified by determining what input dealers typically
+ do wrong in terms of seed storage and handling, leading to farmers ending
+ up with sub-optimal seed quality.
+ These problems were than ranked according to how badly they affect seed
+ quality and how many agro-input dealers are affected by these problems.
+ In a next step, solutions were associated to each of the problems.
+ The solutions are also ranked in terms of effectiveness and it was discussed
+ if these solutions are in reach of the majority of agro-input dealers.
+\end_layout
+
+\begin_layout Standard
+Based on the information collected, we developed detailed training manuals
+ that the trainers were expected to adhere to.
+ This ensured standardized treatment.
+ We also created visually appealing posters showing the most important best
+ practices that were given to input dealers to mount in their shop.
+ 
+\end_layout
+
+\begin_layout Standard
+The training was implemented by three trainers, one from ISSD, one from
+ UNADA, and one agronomist that was part of the research team.
+ It was organized at a location that was easily reachable for all sampled
+ agro-input dealers within the treated catchment area.
+ For each treated shop, we invited the shop owner and the shop manager.
+ As an additional incentive, we also provided treatment agro-input dealers
+ with a portable seed moisture meter.
+\end_layout
+
+\begin_layout Standard
+The input dealer trainings were organized in May 2021, late enough so that
+ dealers are not busy with selling for the first agricultural season but
+ early enough so that dealers can use the newly trained handling and storage
+ practices on the seeds they buy in June/July 2021, which are going to be
+ purchased by farmers for the second agricultural season that begins in
+ August 2021.
+\end_layout
+
 \begin_layout Subsubsection*
 I2: Information clearinghouse
 \end_layout
 
 \begin_layout Standard
-To reduce information asymmetry, we test a decentralized information clearinghou
-se that is based on crowd-sourced information and works through reputational
- mechanisms, much like yelp.com or tripadvisor.com.
+This classic lemons technology problem can be solved by reducing information
+ asymmetries between the two parties.
+ In Kenya, seed companies have started marketing their seed using novel
+ packaging features to signal product quality and authenticity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gharib2021fear"
+literal "false"
+
+\end_inset
+
+.
+ Uganda does regulate seed quality by means of certifications and standards,
+ but they provide farmers with a relatively weak and unreliable indication
+ of quality.
+ We bought seed bags from agro-input dealers in our sample, and only 8%
+ of them have a certification sticker from an inspection agency.
+ Alternatives such as electronic verification systems have also been experimente
+d with, but the cost of implementation has proven challenging, and they
+ depend on the reliability of the underlying seed certification system.
+\end_layout
+
+\begin_layout Standard
+That is why we test an alternative, decentralized clearinghouse that is
+ based on crowd-sourced information and works through reputational mechanisms,
+ much like yelp.com or tripadvisor.com.
+ Studies in other contexts have shown that new crowd-based sources of pre-purcha
+se information can be particularly useful.
+ For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "reimers2021digitization"
+literal "false"
+
+\end_inset
+
+ compare the impacts of professional critics and Amazon star ratings of
+ books on consumer welfare.
+ The aggregate effect of star ratings on consumer surplus is more than ten
+ times the effect of traditional review outlets.
+\end_layout
+
+\begin_layout Standard
+The information clearinghouse treatment we implement is a fairly complex
+ intervention that required collecting indicators of perceived quality of
+ seed sold by agro-input dealer from farmers.
+ These quality ratings were then used to construct scores to rank agro-input
+ dealers, and these rankings and scores are then provided back to farmers
+ and agro-input dealers in an appealing way.
+ This entire process also happened twice, as we target two full growing
+ cycles.
+\end_layout
+
+\begin_layout Standard
+Prior to the clearinghouse intervention, we collected baseline data of farmers
+ in catchment areas of the input dealers that were enrolled in the study.
+ During this baseline interview, we asked farmers to rate input dealers
+ in their catchment area on a number of characteristics.
+ This was done in the ODK app, which had pre-loaded data on the agro-input
+ dealers such as name, location, and a picture of the store front.
+ Depending on the location of the farmer, the ODK app iterated through all
+ agro-input dealers in the vicinity of the farmer.
+ Furthermore, depending on the treatment status of the agro-input dealer,
+ farmers were also asked to rate the seed the agro-input dealer sold.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It may be argued that asking farmers to rate agro-input dealers in a particular
+ area, you are also making farmers aware of the existence of all agro-input
+ dealers in the area, which may potentially confound the clearinghouse effect.
+ We thus also iterate through the agro-input dealers for control subjects,
+ to make control farmers aware of the existence of agro-input dealers.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To get an idea of the perceptions of the farmers of the products that agro-input
+ dealers sell, we use various questions that farmer should answer on a likert
+ scale.
+ These include whether seed yields are generally as advertised, are drought
+ tolerant as advertised, are pest/disease tolerant as advertised, and if
+ time to maturity is as promised.
+ We also ask to rage seed germination, and the quality of the seed in general.
+ These ratings were translated into words (ok, good, very good, excellent)
+ and stars, so that they are easily understandable for farmers and dealers
+ who are not used to interpreting numbers.
+\end_layout
+
+\begin_layout Standard
+These ratings were then fed back to farmers and agro-input dealers in various
+ forms 
+\shape italic
+\emph on
+before
+\shape default
+\emph default
+ farmers start buying seed for the next agricultural season.
+ To farmers, ratings were disseminated both in-person, as well as through
+ a series of sms messages.
+ During in-person dissemination to farmers, enumerators re-visited all farmers
+ in our sample.
+ We designed a visually appealing dissemination app which cycles through
+ all dealers in the proximity of each farmer and states: "We wanted to let
+ you know that customers from 
+\shape italic
+shop name
+\shape default
+ rate the quality of maize seed sold there as okay/good/very good/excellent!
+ The quality of the maize seed that this agro-input shop sells got a score
+ of 
+\shape italic
+score
+\shape default
+ out of 5!" in treated catchment areas.
+ Then the enumerator showed the stars associated with the score.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+As before, to account for the fact that simply visiting farmers and reminding
+ them about the existence of agro-input dealers may confound the clearing
+ house effect we revisited all farmers in control catchment areas and also
+ cycled through dealers, but simply asked a couple of questions like e.g.
+ "Do you know this 
+\shape italic
+shop name
+\shape default
+?".
+ 
+\end_layout
+
+\end_inset
+
+ For the sms based dissemination, we sent farmers one text message per dealer
+ in their proximity.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Also in control catchment areas, farmers received text messages with the
+ names of dealers in their proximity, so that they were aware of the presence
+ of these dealers.
+\end_layout
+
+\end_inset
+
  
 \end_layout
 
 \begin_layout Standard
-Information clearinghouse mechanisms have been studied to some extent, but
- mostly to address market price information asymmetry between smallholder
- farmers and middlemen.
+Agro-input dealers received their ratings in the form of a report on laminated
+ paper which was delivered to their shops.
+ The front shows a visually appealing certificate with a logo and the shops
+ general rating both in word and in with stars.
+ Enumerators advised shopkeepers to display the ratings in the shop, similar
+ to a "certificate of excellence" of TripAdvisor.
+ An example can be found in the Appendix Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "SeedAdvisor certificate"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The back of the report shows more detailed information.
+ In addition to the dealer's general rating, it shows the dealer's specific
+ ratings (overall quality, yield, drought and disease resistance, speed
+ of maturing, and germination) and the average ratings of other agro-input
+ dealers in the same catchment area in a table, visualized by stars.
+ This shows dealers their relative position in the area and motivate agro-input
+ dealers to perform better on areas where they can improve relative to the
+ immediate competition.
+\end_layout
+
+\begin_layout Standard
+Information clearinghouse mechanisms in developing countries have been studied
+ to some extent, but mostly to address market price information asymmetries
+ between smallholder farmers and middlemen.
  Assuming that middlemen are better informed about prevailing prices in
  the market than farmers, theory suggests that providing farmers with price
  information increases their bargaining power.
@@ -705,8 +938,8 @@ literal "false"
 
 \end_inset
 
- finds that internet kiosks that provided wholesale price information significan
-tly increased soy prices in India, 
+ finds that internet kiosks that provide wholesale price information significant
+ly increase soy prices in India, 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "fafchamps2012impact"
@@ -715,27 +948,21 @@ literal "false"
 \end_inset
 
  do not find a statistically significant effect of market information delivered
- to farmers' mobile phones by a commercial service called Reuters Market
- Light (RML) in a neighboring state.
+ to farmers' mobile phones in a neighboring state.
  
 \end_layout
 
 \begin_layout Standard
 A clearinghouse that relies on crowd-sourced ratings may be more effective
- to increase seed quality in the market.
+ in increasing seed quality in the market.
  While prices can generally be observed reasonably easy, assessing an experience
- good such as seed is much harder.
- At the time of purchase, visual seed inspection is limited to seed purity
- and the presence of mold.
- Germination can only be assessed after planting.
- Some seed may also be more susceptible to pests and diseases, so the overall
- quality of seed can only be judged after harvest.
- Aggregation of the experience of many users may thus be a particular powerful
+ or credence good such as seed is much more difficult.
+ Aggregating the experiences of many users may thus be a particularly powerful
  way to reveal the quality of the product.
 \end_layout
 
 \begin_layout Standard
-The study by 
+A study by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -745,35 +972,78 @@ literal "true"
 
 , who set up a rating system for public veterinary services in Pakistan,
  is probably the closest to ours.
- They find that farmers who use the clearinghouse enjoy a 25 percent higher
- success rate of artificial insemination.
+ They find that farmers who use the clearinghouse enjoy a 25% higher success
+ rate of artificial insemination.
  Their research suggests that this is mostly due to increased veterinarian
  effort, as few farmers seem to be switching from veterinaries that receive
  poor ratings to veterinaries that receive good ratings.
+ In 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "hasanain2019no"
+literal "true"
+
+\end_inset
+
+'s study, veterinaries provide their services directly, without an intermediary.
+ If producers do not sell to customers directly, so that more entities and
+ transactions are involved, there is even more scope for information asymmetries.
+ That is why reducing asymmetric information can be even more important
+ in markets with intermediaries like agro-input dealers.
 \end_layout
 
 \begin_layout Standard
-An information clearinghouse intervention may work through different impact
- pathways.
- First, farmers that do not buy improved seed may start buying when they
- see that the quality of the input dealer in their vicinity is better than
- expected (eg.
- above average).
- Furthermore, farmers may switch from low rated input dealers to higher
- rated input dealers.
- In addition, the clearinghouse could raise the input dealer's effort as
- he/she wants to improve his/her ratings.
+Hence a crowd-sourced information clearinghouse can be an important institutiona
+l innovation to solve the problem of asymmetric information in the market
+ for agricultural inputs and may affect both intentional and non-intentional
+ quality reductions by reducing malpractices at the agro-input dealer level.
+ We hypothesize that it improves smallholder farmers' perception and adoption
+ of agricultural inputs.
+ It may be preferable to alternative strategies due to its likely lower
+ cost, self-sustaining nature and scaleability, and helps to overcome problems
+ such as insufficient public investment in regulatory systems, regulatory
+ enforcement, and market surveillance.
 \end_layout
 
 \begin_layout Standard
-A crowd-sourced information clearinghouse can be an important institutional
- innovation to solve the problem of asymmetric information in the market
- for agricultural inputs.
- It may be preferable to alternative strategies such as regulating quality
- due to its likely lower cost, self-sustaining nature and scaleability,
- and helps to overcome problems such as insufficient public investment in
- regulatory systems, regulatory enforcement, and market surveillance.I3:
- Addressing learning failures at the farmer level.
+An information clearinghouse could work through different impact pathways.
+ First, farmers who did not buy (or who bought only a little) seed before
+ may start adopting (or start adopting more) improved seed when they realize
+ that an agro-input dealer in their vicinity has a better rating than what
+ these farmers expected.
+ The literature indicates that this pathway of improving the perception
+ of quality without actually improving quality could be very relevant.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "MICHELSON2021102579"
+literal "false"
+
+\end_inset
+
+ establish that the nutrient content of fertilizer in Tanzania is good and
+ meets industry standards but that farmers believe that it is adulterated.
+ One would simply need to correct farmers’ beliefs which are inconsistent
+ with the reality to increase adoption.
+ Also 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+ show that farmers in developing countries routinely misperceive input quality
+ and that rectifying this misperception may improve farmers’ investment
+ choices and productivity outcomes.
+ Second, farmers could switch from low rated shops to higher rated shops
+ after learning that their preferred agro-input dealer received a poor rating.
+ Thirdly, farmers may pressure their usual dealers to increase efforts.
+ Fourth, dealers could also start improving on their own (i.e.
+ without the pressure of farmers) after they have learned that their seed
+ is rated poorly and want to improve their products.
+ Lastly, dealers could also increase their efforts after seeing that they
+ were rated well and feel motivated and satisfied due to this reward.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -34119,6 +34389,20 @@ dag$ indicates that the variable was included in the overall index.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+conclusion
+\end_layout
+
+\begin_layout Standard
+A crowd-sourced information clearinghouse can be an important institutional
+ innovation to solve the problem of asymmetric information in the market
+ for agricultural inputs.
+ It may be preferable to alternative strategies such as regulating quality
+ due to its likely lower cost, self-sustaining nature and scaleability,
+ and helps to overcome problems such as insufficient public investment in
+ regulatory systems, regulatory enforcement, and market surveillance.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -34131,6 +34415,62 @@ LatexCommand bibtex
 btprint "btPrintCited"
 bibfiles "/home/bjvca/data/projects/Seed_systems_project/Study design/seed_systems_pap"
 options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/data/projects/Seed_systems_project/papers/endline_report/certificate.pdf
+	scale 31
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SeedAdvisor certificate
+\begin_inset CommandInset label
+LatexCommand label
+name "SeedAdvisor certificate"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
