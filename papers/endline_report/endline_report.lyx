@@ -56,11 +56,9 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine biblatex-natbib
+\cite_engine natbib
 \cite_engine_type authoryear
-\biblio_style plainnat
-\biblatex_bibstyle authoryear
-\biblatex_citestyle authoryear
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -1261,7 +1259,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/bjvca/data/projects/Seed_systems_project/Study design/design.pdf
+	filename ../../Study design/design.pdf
 	lyxscale 50
 	scale 50
 
@@ -25086,6 +25084,31 @@ Sexpr{format(round(df_ols_F_nobase[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -26162,6 +26185,31 @@ Sexpr{format(round(df_ols_F_prim[2,3,7],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -26441,7 +26489,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Number of improved maize varieties the farmer is are aware of$^
+Number of improved maize varieties farmer knows$^
 \backslash
 dag$
 \end_layout
@@ -26647,12 +26695,68 @@ Sexpr{format(round(df_ols_F_sec[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer bought shop's seed last season (only endline)
+Farmer bought particular shop's seed last season$^{(
+\backslash
+dag)}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& & & &
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[1,13],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,1,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,1,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,1,13]<.05,"*",ifelse(df_ols_F_nobase[3,1,13]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_F_nobase[3,2,13]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,3,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,3,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,3,13]<.05,"*",ifelse(df_ols_F_nobase[3,3,13]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[3,13],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -26661,7 +26765,30 @@ Farmer bought shop's seed last season (only endline)
 
 \begin_layout Plain Layout
 
-& & & &
+& (
+\backslash
+Sexpr{format(round(df_means_F_nobase[2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,1,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,3,13],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -26674,12 +26801,68 @@ Farmer bought shop's seed last season (only endline)
 
 \begin_layout Plain Layout
 
-Index of farmer skill questions (only endline)
+Index of farmer's knowledge how to manage improved maize seed$^1$$^{(
+\backslash
+dag)}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& & & &
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,1,6]<.05,"*",ifelse(df_ols_F_nobase[3,1,6]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,2,6]<.05,"*",ifelse(df_ols_F_nobase[3,2,6]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,3,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,3,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,3,6]<.05,"*",ifelse(df_ols_F_nobase[3,3,6]<.1,"+","")))
+}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[3,6],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -26688,10 +26871,37 @@ Index of farmer skill questions (only endline)
 
 \begin_layout Plain Layout
 
-& & & &
+& (
+\backslash
+Sexpr{format(round(df_means_F_nobase[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,3,6],digits=3),nsmall=3)})
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -26721,56 +26931,56 @@ textbf{Overall index controlling for baseline}
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[1,4],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec[1,3],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,1,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,4]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,1,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,1,4]<.05,"*",ifelse(df_ols_F_sec[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,4]<.05,"*",ifelse(df_ols_F_sec[3,2,4]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,1,3]<.05,"*",ifelse(df_ols_F_sec[3,1,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec[1,3,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_F_sec[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_F_sec[3,3,4]<.01,"**"
+Sexpr{ifelse(df_ols_F_sec[3,2,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_F_sec[3,3,4]<.05,"*",ifelse(df_ols_F_sec[3,3,4]<.1,"+","")))}}$
+	,ifelse(df_ols_F_sec[3,2,3]<.05,"*",ifelse(df_ols_F_sec[3,2,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_F_sec[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec[3,3,3]<.05,"*",ifelse(df_ols_F_sec[3,3,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec[3,3],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -26781,28 +26991,28 @@ Sexpr{format(round(df_means_F_sec[3,4],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec[2,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec[2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,1,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,2,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec[2,3,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_F_sec[2,3,3],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -26921,6 +27131,31 @@ Sexpr{format(round(df_ols_F_nobase[2,3,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -26955,15 +27190,34 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's knowledge how to manage improved maize seed contains
+ 5 variables: whether farmers know that when using quality maize seed: 1)
+ good seed handling/management is equally or even more important than when
+ using lower quality seed, that they should 2) weed and remove striga 3)
+ apply the same amount or even more fertilizer, 4) use equally good plots
+ as they would if they'd use lower quality seed, 5) buy both quality seed
+ and fertilizer.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_nobase[4,6],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_nobase[5,6],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
@@ -27064,7 +27318,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Number of improved maize varieties the farmer is are aware of$^
+Number of improved maize varieties farmer knows$^
 \backslash
 dag$
 \end_layout
@@ -27276,7 +27530,9 @@ Sexpr{format(round(df_ols_F_sec[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer bought shop's seed last season (only endline)
+Farmer bought particular shop's seed last season$^{(
+\backslash
+dag)}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -27303,7 +27559,9 @@ Farmer bought shop's seed last season (only endline)
 
 \begin_layout Plain Layout
 
-Index of farmer skill questions (only endline)
+Index of farmer's knowledge how to manage improved maize seed$^1$$^{(
+\backslash
+dag)}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -27318,6 +27576,31 @@ Index of farmer skill questions (only endline)
 \begin_layout Plain Layout
 
 & & & &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
 \backslash
 
 \backslash
@@ -27360,15 +27643,34 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's knowledge how to manage improved maize seed contains
+ 5 variables: whether farmers know that when using quality maize seed: 1)
+ good seed handling/management is equally or even more important than when
+ using lower quality seed, that they should 2) weed and remove striga 3)
+ apply the same amount or even more fertilizer, 4) use equally good plots
+ as they would if they'd use lower quality seed, 5) buy both quality seed
+ and fertilizer.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_nobase[4,6],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_nobase[5,6],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
@@ -27506,7 +27808,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer planted hybrid maize seed on randomly selected maize field$^
+Farmer planted hybrid seed$^
 \backslash
 dag$
 \end_layout
@@ -27612,7 +27914,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted open-pollinated maize seed on this field$^
+Farmer planted open-pollinated seed$^
 \backslash
 dag$
 \end_layout
@@ -27718,8 +28020,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted farmer saved seed$^
 \backslash
 dag$
 \end_layout
@@ -27825,7 +28126,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted seed bought at agro-input shop$^
 \backslash
 dag$
 \end_layout
@@ -27935,7 +28236,7 @@ Farmer planted hybrid
 \backslash
 textbf{not farmer saved} seed or an OPV (
 \backslash
-textbf{not used too often}) on this field
+textbf{not recycled too often})
 \end_layout
 
 \begin_layout Plain Layout
@@ -28262,6 +28563,23 @@ Sexpr{format(round(df_ols_F_nobase[2,3,9],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -28300,15 +28618,18 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -28325,7 +28646,7 @@ dag$ indicates that the variable was included in the overall index.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -28410,7 +28731,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Farmer planted hybrid maize seed on randomly selected maize field$^
+Farmer planted hybrid seed$^
 \backslash
 dag$
 \end_layout
@@ -28516,7 +28837,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted open-pollinated maize seed on this field$^
+Farmer planted open-pollinated seed$^
 \backslash
 dag$
 \end_layout
@@ -28622,8 +28943,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
-ated, local land race)$^
+Farmer planted farmer saved seed$^
 \backslash
 dag$
 \end_layout
@@ -28729,7 +29049,7 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted maize seed bought at agro-input shop on this field$^
+Farmer planted seed bought at agro-input shop$^
 \backslash
 dag$
 \end_layout
@@ -28839,7 +29159,7 @@ Farmer planted hybrid
 \backslash
 textbf{not farmer saved} seed or an OPV (
 \backslash
-textbf{not used too often}) on this field
+textbf{not recycled too often})
 \end_layout
 
 \begin_layout Plain Layout
@@ -28945,6 +29265,31 @@ Sexpr{format(round(df_ols_F_sec_plot[2,3,5],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -28973,15 +29318,22 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -29115,8 +29467,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Index of farmer's ratings of seed used on randomly selected maize field
- last season$^
+Index of farmer's seed ratings$^1$$^
 \backslash
 dag$
 \end_layout
@@ -29222,7 +29573,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer was satisfied with quality of seed used on this field last season$^
+Farmer was satisfied with seed quality$^
 \backslash
 dag$
 \end_layout
@@ -29328,7 +29679,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer would use the seed used on this field last season again$^
+Farmer would use seed again$^
 \backslash
 dag$
 \end_layout
@@ -29434,7 +29785,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of seed farmer used on this field last season in kg$^
+Amount of seed farmer used in kg$^
 \backslash
 dag$
 \end_layout
@@ -29540,7 +29891,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Price of seed farmer used on this field last season per kg in UGX$^
+Price of seed in UGX/ kg$^
 \backslash
 dag$
 \end_layout
@@ -29646,8 +29997,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transformed cost of seed farmer used on this field last season in UGX (amount*pr
-ice) (IHS)
+Transformed cost of seed in UGX (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -29976,6 +30326,31 @@ Sexpr{format(round(df_ols_F_nobase[2,3,10],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -30004,15 +30379,29 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's seed ratings contains 6 ratings: general quality,
+ yield, drought tolerance, pest/disease tolerance, time of maturity, germination.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[4,1],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[5,1],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
@@ -30114,8 +30503,7 @@ cline{2-6}
 
 \begin_layout Plain Layout
 
-Index of farmer's ratings of seed used on randomly selected maize field
- last season$^
+Index of farmer's seed ratings$^1$$^
 \backslash
 dag$
 \end_layout
@@ -30221,7 +30609,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer was satisfied with quality of seed used on this field last season$^
+Farmer was satisfied with seed quality$^
 \backslash
 dag$
 \end_layout
@@ -30327,7 +30715,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer would use the seed used on this field last season again$^
+Farmer would use seed again$^
 \backslash
 dag$
 \end_layout
@@ -30433,7 +30821,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount of seed farmer used on this field last season in kg$^
+Amount of seed farmer used in kg$^
 \backslash
 dag$
 \end_layout
@@ -30539,7 +30927,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Price of seed farmer used on this field last season per kg in UGX$^
+Price of seed in UGX/ kg$^
 \backslash
 dag$
 \end_layout
@@ -30645,8 +31033,7 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transformed cost of seed farmer used on this field last season in UGX (amount*pr
-ice) (IHS)
+Transformed cost of seed in UGX (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -30752,6 +31139,31 @@ Sexpr{format(round(df_ols_F_sec_seed[2,3,6],digits=3),nsmall=3)})
 
 
 \backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of observations & & & & & 3441
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -30780,15 +31192,29 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: First column reports means of the entire sample (control and treatment
- groups: only 12 percent of dealers were not treated, rest was treated somehow)
- and standard deviations below in brackets;  **, * and + denote significance
- at the 1, 5 and 10 percent levels.
- Reported standard errors are clustered at the level of randomization (catchment
- area or village/shop).
- $^
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable was included in the overall index.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's seed ratings contains 6 ratings: general quality,
+ yield, drought tolerance, pest/disease tolerance, time of maturity, germination.
+ This index ranges from 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[4,1],digits=2),nsmall=2)} to 
+\backslash
+Sexpr{format(round(df_means_F_sec_seed[5,1],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \end_inset
@@ -34413,8 +34839,8 @@ A crowd-sourced information clearinghouse can be an important institutional
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "/home/bjvca/data/projects/Seed_systems_project/Study design/seed_systems_pap"
-options "plain"
+bibfiles "../../Study design/seed_systems_pap"
+options "../../Study design/IFPRI_Style"
 
 \end_inset
 
