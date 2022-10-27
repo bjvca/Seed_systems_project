@@ -800,6 +800,7 @@ baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 0] <- 0
 
 baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
+baseline_farmers$fourthormore_timeused<-ifelse(baseline_farmers$fourthormore_timeused=="TRUE",1,0)
 baseline_farmers$OPVbutfourthormore_timeused <- NA
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==1] <- 1
 baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==0] <- 0
@@ -4734,9 +4735,6 @@ for (i in 1:length(results_farmer_sec_J)){
 
 #currently NAs because only two variables
 
-#xxxF
-
-
 
 
 
@@ -4751,7 +4749,7 @@ for (i in 1:length(results_farmer_sec_J)){
 ################################################################################################################################################################################
 
 #1. hybrid
-baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$check.maize.q31
+baseline_farmers$mid_Check2.check.maize.q31 <- baseline_farmers$CHECK.MAIZE.Q31
 baseline_farmers$mid_hybrid<-((baseline_farmers$mid_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$mid_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$mid_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$mid_Check2.check.maize.q31=="Panner")|(baseline_farmers$mid_Check2.check.maize.q31=="Wema")|(baseline_farmers$mid_Check2.check.maize.q31=="KH_series"))
 baseline_farmers$mid_hybrid<-ifelse(baseline_farmers$mid_hybrid=="TRUE",1,0)
 baseline_farmers$mid_hybrid[baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
@@ -4762,7 +4760,7 @@ baseline_farmers$mid_OPV<-ifelse(baseline_farmers$mid_OPV=="TRUE",1,0)
 baseline_farmers$mid_OPV[baseline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"] <- NA
 
 #5. farmer saved
-baseline_farmers$mid_Check2.check.maize.q32 <- baseline_farmers$check.maize.q32
+baseline_farmers$mid_Check2.check.maize.q32 <- baseline_farmers$CHECK.MAIZE.Q32
 baseline_farmers$mid_farmer_saved_seed<-((baseline_farmers$mid_Check2.check.maize.q32=="a")|(baseline_farmers$mid_Check2.check.maize.q32=="b"))
 baseline_farmers$mid_farmer_saved_seed<-ifelse(baseline_farmers$mid_farmer_saved_seed=="TRUE",1,0)
 
@@ -4775,8 +4773,9 @@ baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_
 baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_farmers$mid_farmer_saved_seed == 0] <- 0
 baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 0] <- 0
 
-baseline_farmers$mid_Check2.check.maize.q34 <- baseline_farmers$check.maize.q34
+baseline_farmers$mid_Check2.check.maize.q34 <- baseline_farmers$CHECK.MAIZE.Q34
 baseline_farmers$mid_fourthormore_timeused<-((baseline_farmers$mid_Check2.check.maize.q34=="d")|(baseline_farmers$mid_Check2.check.maize.q34=="e")|(baseline_farmers$mid_Check2.check.maize.q34=="f"))
+baseline_farmers$mid_fourthormore_timeused<-ifelse(baseline_farmers$mid_fourthormore_timeused=="TRUE",1,0)
 
 baseline_farmers$mid_OPVbutfourthormore_timeused <- NA
 baseline_farmers$mid_OPVbutfourthormore_timeused[baseline_farmers$mid_OPV==1 & baseline_farmers$mid_farmer_saved_seed==1 & baseline_farmers$mid_fourthormore_timeused==1] <- 1
@@ -4815,6 +4814,8 @@ results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
 results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
                                   ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_base")
 
+baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
+
 df_means_F_sec_plot <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_farmer_sec_plot)){
@@ -4844,9 +4845,11 @@ results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
 results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
                                   ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseT")
 
+baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
+  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
   df_ols_F_sec_plot[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -4873,9 +4876,11 @@ results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
 results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
                                   ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseC")
 
+baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
+  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
   df_ols_F_sec_plot[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
@@ -4902,9 +4907,11 @@ results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
 results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
                                   ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseF")
 
+baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
+
 for (i in 1:length(results_farmer_sec_plot)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
-  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training*clearing*farmer",sep="~")),data=baseline_farmers)
+  ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
+  #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
@@ -5481,8 +5488,6 @@ variables_skills_mid <- cbind(baseline_farmers$q58_correct,baseline_farmers$q59_
 
 index_skillsF_mid <- icwIndex(xmat=variables_skills_mid)
 baseline_farmers$index_skillsF_mid <- index_skillsF_mid$index
-
-#xxxF
 
 #7. Q56. How much did you keep for seed (record in kg)?
 baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
