@@ -1771,12 +1771,10 @@ baseline_dealers$mid_maize.owner.agree.q97.b<-ifelse(baseline_dealers$mid_maize.
 
 variables_efforts_mid <- cbind(baseline_dealers$mid_alwaysexplains,baseline_dealers$mid_alwaysrecom,baseline_dealers$mid_extension
                                ,baseline_dealers$mid_maize.owner.agree.q88,baseline_dealers$mid_q93_bin
-                               ,baseline_dealers$mid_maize.owner.agree.q96,baseline_dealers$mid_maize.owner.agree.q97.b
-                               ) #x
+                               ,baseline_dealers$mid_maize.owner.agree.q96,baseline_dealers$mid_maize.owner.agree.q97.b) #x
 variables_efforts_base <- cbind(baseline_dealers$alwaysexplains,baseline_dealers$alwaysrecom,baseline_dealers$extension
                                 ,baseline_dealers$maize.owner.agree.q88,baseline_dealers$q93_bin
-                                ,baseline_dealers$maize.owner.agree.q96,baseline_dealers$maize.owner.agree.q97.b
-                                )
+                                ,baseline_dealers$maize.owner.agree.q96,baseline_dealers$maize.owner.agree.q97.b)
 
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,revcols = c(6)) #x
 baseline_dealers$index_efforts_mid <- index_efforts_mid$index #x
@@ -1816,9 +1814,14 @@ results_dealer_prim <- c("mid_quantitysold"                #1
                          ,"index_practices_all_mid"        #7
                          ,"index_efforts_mid"              #8 
                          ,"index_overall_prim_dealer_mid") #9
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","index_practices_cap_base"
-                              ,"index_practices_lab_base","index_practices_all_base","index_efforts_base"
+results_dealer_prim_base <- c("quantitysold"
+                              ,"av_salesprices"
+                              ,"revenue"
+                              ,"maize.owner.agree.q7"
+                              ,"index_practices_cap_base"
+                              ,"index_practices_lab_base"
+                              ,"index_practices_all_base"
+                              ,"index_efforts_base"
                               ,"index_overall_prim_dealer_base")
 
 baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
@@ -1876,13 +1879,23 @@ baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_baseT <- index_overall_prim_dealer_base$index
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","index_practices_cap_midT"
-                         ,"index_practices_lab_midT","index_practices_all_midT","index_efforts_midT"
+results_dealer_prim <- c("mid_quantitysold"
+                         ,"mid_av_salesprices"
+                         ,"mid_revenue"
+                         ,"mid_maize.owner.agree.q7"
+                         ,"index_practices_cap_midT"
+                         ,"index_practices_lab_midT"
+                         ,"index_practices_all_midT"
+                         ,"index_efforts_midT"
                          ,"index_overall_prim_dealer_midT")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","index_practices_cap_baseT"
-                              ,"index_practices_lab_baseT","index_practices_all_baseT","index_efforts_baseT"
+results_dealer_prim_base <- c("quantitysold"
+                              ,"av_salesprices"
+                              ,"revenue"
+                              ,"maize.owner.agree.q7"
+                              ,"index_practices_cap_baseT"
+                              ,"index_practices_lab_baseT"
+                              ,"index_practices_all_baseT"
+                              ,"index_efforts_baseT"
                               ,"index_overall_prim_dealer_baseT")
 
 baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
@@ -1942,13 +1955,23 @@ baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_baseC <- index_overall_prim_dealer_base$index
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","index_practices_cap_midC"
-                         ,"index_practices_lab_midC","index_practices_all_midC","index_efforts_midC"
+results_dealer_prim <- c("mid_quantitysold"
+                         ,"mid_av_salesprices"
+                         ,"mid_revenue"
+                         ,"mid_maize.owner.agree.q7"
+                         ,"index_practices_cap_midC"
+                         ,"index_practices_lab_midC"
+                         ,"index_practices_all_midC"
+                         ,"index_efforts_midC"
                          ,"index_overall_prim_dealer_midC")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","index_practices_cap_baseC"
-                              ,"index_practices_lab_baseC","index_practices_all_baseC","index_efforts_baseC"
+results_dealer_prim_base <- c("quantitysold"
+                              ,"av_salesprices"
+                              ,"revenue"
+                              ,"maize.owner.agree.q7"
+                              ,"index_practices_cap_baseC"
+                              ,"index_practices_lab_baseC"
+                              ,"index_practices_all_baseC"
+                              ,"index_efforts_baseC"
                               ,"index_overall_prim_dealer_baseC")
 
 baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
@@ -2004,13 +2027,23 @@ baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid
 index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_baseF <- index_overall_prim_dealer_base$index
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","index_practices_cap_midF"
-                         ,"index_practices_lab_midF","index_practices_all_midF","index_efforts_midF"
+results_dealer_prim <- c("mid_quantitysold"
+                         ,"mid_av_salesprices"
+                         ,"mid_revenue"
+                         ,"mid_maize.owner.agree.q7"
+                         ,"index_practices_cap_midF"
+                         ,"index_practices_lab_midF"
+                         ,"index_practices_all_midF"
+                         ,"index_efforts_midF"
                          ,"index_overall_prim_dealer_midF")
-results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
-                              ,"maize.owner.agree.q7","index_practices_cap_baseF"
-                              ,"index_practices_lab_baseF","index_practices_all_baseF","index_efforts_baseF"
+results_dealer_prim_base <- c("quantitysold"
+                              ,"av_salesprices"
+                              ,"revenue"
+                              ,"maize.owner.agree.q7"
+                              ,"index_practices_cap_baseF"
+                              ,"index_practices_lab_baseF"
+                              ,"index_practices_all_baseF"
+                              ,"index_efforts_baseF"
                               ,"index_overall_prim_dealer_baseF")
 
 baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
@@ -2288,7 +2321,6 @@ results_dealer_sec <- c("mid_maize.owner.agree.nr_var",          #1
                         "index_knowl_seed_mid",                  #7
                         "index_selfratings_mid",                 #8
                         "index_overallsec_mid")                  #9
-
 results_dealer_sec_base <- c("maize.owner.agree.nr_var",
                              "maize.owner.agree.q19",
                              "maize.owner.agree.q44",
@@ -2354,14 +2386,23 @@ baseline_dealers$index_overallsec_midT <- index_overallsec_mid$index
 index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overallsec_baseT <- index_overallsec_base$index
 
-results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","mid_maize.owner.agree.inspection.q121"
+results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
+                        ,"mid_maize.owner.agree.q19"
+                        ,"mid_maize.owner.agree.q44"
+                        ,"mid_maize.owner.agree.inspection.q121"
                         ,"index_servicesFARM_midT"
-                        ,"index_knowl_store_midT","index_knowl_seed_midT","index_selfratings_midT"
+                        ,"index_knowl_store_midT"
+                        ,"index_knowl_seed_midT"
+                        ,"index_selfratings_midT"
                         ,"index_overallsec_midT")
-
-results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","maize.owner.agree.inspection.q121"
+results_dealer_sec_base <- c("maize.owner.agree.nr_var"
+                             ,"maize.owner.agree.q19"
+                             ,"maize.owner.agree.q44"
+                             ,"maize.owner.agree.inspection.q121"
                              ,"index_servicesFARM_baseT"
-                             ,"index_knowl_store_baseT","index_knowl_seed_baseT","index_selfratings_baseT"
+                             ,"index_knowl_store_baseT"
+                             ,"index_knowl_seed_baseT"
+                             ,"index_selfratings_baseT"
                              ,"index_overallsec_baseT")
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
@@ -2417,14 +2458,23 @@ baseline_dealers$index_overallsec_midC <- index_overallsec_mid$index
 index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overallsec_baseC <- index_overallsec_base$index
 
-results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","mid_maize.owner.agree.inspection.q121"
+results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
+                        ,"mid_maize.owner.agree.q19"
+                        ,"mid_maize.owner.agree.q44"
+                        ,"mid_maize.owner.agree.inspection.q121"
                         ,"index_servicesFARM_midC"
-                        ,"index_knowl_store_midC","index_knowl_seed_midC","index_selfratings_midC"
+                        ,"index_knowl_store_midC"
+                        ,"index_knowl_seed_midC"
+                        ,"index_selfratings_midC"
                         ,"index_overallsec_midC")
-
-results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","maize.owner.agree.inspection.q121"
+results_dealer_sec_base <- c("maize.owner.agree.nr_var"
+                             ,"maize.owner.agree.q19"
+                             ,"maize.owner.agree.q44"
+                             ,"maize.owner.agree.inspection.q121"
                              ,"index_servicesFARM_baseC"
-                             ,"index_knowl_store_baseC","index_knowl_seed_baseC","index_selfratings_baseC"
+                             ,"index_knowl_store_baseC"
+                             ,"index_knowl_seed_baseC"
+                             ,"index_selfratings_baseC"
                              ,"index_overallsec_baseC")
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
@@ -2480,13 +2530,23 @@ baseline_dealers$index_overallsec_midF <- index_overallsec_mid$index
 index_overallsec_base <- icwIndex(xmat=variables_overallsec_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overallsec_baseF <- index_overallsec_base$index
 
-results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","mid_maize.owner.agree.inspection.q121"
+results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
+                        ,"mid_maize.owner.agree.q19"
+                        ,"mid_maize.owner.agree.q44"
+                        ,"mid_maize.owner.agree.inspection.q121"
                         ,"index_servicesFARM_midF"
-                        ,"index_knowl_store_midF","index_knowl_seed_midF","index_selfratings_midF"
+                        ,"index_knowl_store_midF"
+                        ,"index_knowl_seed_midF"
+                        ,"index_selfratings_midF"
                         ,"index_overallsec_midF")
-
-results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","maize.owner.agree.inspection.q121"
-                             ,"index_servicesFARM_baseF","index_knowl_store_baseF","index_knowl_seed_baseF","index_selfratings_baseF"
+results_dealer_sec_base <- c("maize.owner.agree.nr_var"
+                             ,"maize.owner.agree.q19"
+                             ,"maize.owner.agree.q44"
+                             ,"maize.owner.agree.inspection.q121"
+                             ,"index_servicesFARM_baseF"
+                             ,"index_knowl_store_baseF"
+                             ,"index_knowl_seed_baseF"
+                             ,"index_selfratings_baseF"
                              ,"index_overallsec_baseF")
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
@@ -2688,7 +2748,6 @@ results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21", #1
                             "mid_maize.owner.agree.long10h.q27", #6
                             "mid_maize.owner.agree.long10h.q30", #7
                             "index_overall_Longe10H_mid")        #8
-
 results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21",
                                  "maize.owner.agree.long10h.q22",
                                  "maize.owner.agree.long10h.q24",
@@ -2723,13 +2782,22 @@ baseline_dealers$index_overall_Longe10H_baseT <- index_overall_Longe10H_base$ind
 
 df_ols_D_secL10H <- array(NA,dim=c(3,3,11))
 
-results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
-                            ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
-                            ,"mid_maize.owner.agree.long10h.q30","index_overall_Longe10H_midT")
-
-results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21","maize.owner.agree.long10h.q22","maize.owner.agree.long10h.q24"
-                                 ,"maize.owner.agree.long10h.q25","maize.owner.agree.long10h.q26","maize.owner.agree.long10h.q27"
-                                 ,"maize.owner.agree.long10h.q30","index_overall_Longe10H_baseT")
+results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
+                            ,"mid_maize.owner.agree.long10h.q22"
+                            ,"mid_maize.owner.agree.long10h.q24"
+                            ,"mid_maize.owner.agree.long10h.q25"
+                            ,"mid_maize.owner.agree.long10h.q26"
+                            ,"mid_maize.owner.agree.long10h.q27"
+                            ,"mid_maize.owner.agree.long10h.q30"
+                            ,"index_overall_Longe10H_midT")
+results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
+                                 ,"maize.owner.agree.long10h.q22"
+                                 ,"maize.owner.agree.long10h.q24"
+                                 ,"maize.owner.agree.long10h.q25"
+                                 ,"maize.owner.agree.long10h.q26"
+                                 ,"maize.owner.agree.long10h.q27"
+                                 ,"maize.owner.agree.long10h.q30"
+                                 ,"index_overall_Longe10H_baseT")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -2756,13 +2824,22 @@ baseline_dealers$index_overall_Longe10H_midC <- index_overall_Longe10H_mid$index
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base,sgroup = baseline_dealers$clearing_control, revcols = c(1))
 baseline_dealers$index_overall_Longe10H_baseC <- index_overall_Longe10H_base$index
 
-results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
-                            ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
-                            ,"mid_maize.owner.agree.long10h.q30","index_overall_Longe10H_midC")
-
-results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21","maize.owner.agree.long10h.q22","maize.owner.agree.long10h.q24"
-                                 ,"maize.owner.agree.long10h.q25","maize.owner.agree.long10h.q26","maize.owner.agree.long10h.q27"
-                                 ,"maize.owner.agree.long10h.q30","index_overall_Longe10H_baseC")
+results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
+                            ,"mid_maize.owner.agree.long10h.q22"
+                            ,"mid_maize.owner.agree.long10h.q24"
+                            ,"mid_maize.owner.agree.long10h.q25"
+                            ,"mid_maize.owner.agree.long10h.q26"
+                            ,"mid_maize.owner.agree.long10h.q27"
+                            ,"mid_maize.owner.agree.long10h.q30"
+                            ,"index_overall_Longe10H_midC")
+results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
+                                 ,"maize.owner.agree.long10h.q22"
+                                 ,"maize.owner.agree.long10h.q24"
+                                 ,"maize.owner.agree.long10h.q25"
+                                 ,"maize.owner.agree.long10h.q26"
+                                 ,"maize.owner.agree.long10h.q27"
+                                 ,"maize.owner.agree.long10h.q30"
+                                 ,"index_overall_Longe10H_baseC")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -2789,13 +2866,22 @@ baseline_dealers$index_overall_Longe10H_midF <- index_overall_Longe10H_mid$index
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base,sgroup = baseline_dealers$farmer_control, revcols = c(1))
 baseline_dealers$index_overall_Longe10H_baseF <- index_overall_Longe10H_base$index
 
-results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
-                            ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
-                            ,"mid_maize.owner.agree.long10h.q30","index_overall_Longe10H_midF")
-
-results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21","maize.owner.agree.long10h.q22","maize.owner.agree.long10h.q24"
-                                 ,"maize.owner.agree.long10h.q25","maize.owner.agree.long10h.q26","maize.owner.agree.long10h.q27"
-                                 ,"maize.owner.agree.long10h.q30","index_overall_Longe10H_baseF")
+results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
+                            ,"mid_maize.owner.agree.long10h.q22"
+                            ,"mid_maize.owner.agree.long10h.q24"
+                            ,"mid_maize.owner.agree.long10h.q25"
+                            ,"mid_maize.owner.agree.long10h.q26"
+                            ,"mid_maize.owner.agree.long10h.q27"
+                            ,"mid_maize.owner.agree.long10h.q30"
+                            ,"index_overall_Longe10H_midF")
+results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
+                                 ,"maize.owner.agree.long10h.q22"
+                                 ,"maize.owner.agree.long10h.q24"
+                                 ,"maize.owner.agree.long10h.q25"
+                                 ,"maize.owner.agree.long10h.q26"
+                                 ,"maize.owner.agree.long10h.q27"
+                                 ,"maize.owner.agree.long10h.q30"
+                                 ,"index_overall_Longe10H_baseF")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -3104,7 +3190,6 @@ results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46", #1
                           "mid_maize.owner.agree.longe5.q52", #6
                           "mid_maize.owner.agree.longe5.q55", #7
                           "index_overall_Longe5_mid")         #8
-
 results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46",
                                "maize.owner.agree.longe5.q47",
                                "maize.owner.agree.longe5.q49",
@@ -3139,13 +3224,22 @@ baseline_dealers$index_overall_Longe5_baseT <- index_overall_Longe5_base$index
 
 df_ols_D_secL5 <- array(NA,dim=c(3,3,11))
 
-results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
-                            ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
-                            ,"mid_maize.owner.agree.longe5.q55","index_overall_Longe5_midT")
-
-results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree.longe5.q47","maize.owner.agree.longe5.q49"
-                                 ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
-                                 ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseT")
+results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
+                          ,"mid_maize.owner.agree.longe5.q47"
+                          ,"mid_maize.owner.agree.longe5.q49"
+                          ,"mid_maize.owner.agree.longe5.q50"
+                          ,"mid_maize.owner.agree.longe5.q51"
+                          ,"mid_maize.owner.agree.longe5.q52"
+                          ,"mid_maize.owner.agree.longe5.q55"
+                          ,"index_overall_Longe5_midT")
+results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
+                               ,"maize.owner.agree.longe5.q47"
+                               ,"maize.owner.agree.longe5.q49"
+                               ,"maize.owner.agree.longe5.q50"
+                               ,"maize.owner.agree.longe5.q51"
+                               ,"maize.owner.agree.longe5.q52"
+                               ,"maize.owner.agree.longe5.q55"
+                               ,"index_overall_Longe5_baseT")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
@@ -3172,13 +3266,22 @@ baseline_dealers$index_overall_Longe5_midC <- index_overall_Longe5_mid$index
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,sgroup = baseline_dealers$clearing_control,revcols = c(1))
 baseline_dealers$index_overall_Longe5_baseC <- index_overall_Longe5_base$index
 
-results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
-                            ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
-                            ,"mid_maize.owner.agree.longe5.q55","index_overall_Longe5_midC")
-
-results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree.longe5.q47","maize.owner.agree.longe5.q49"
-                                 ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
-                                 ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseC")
+results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
+                          ,"mid_maize.owner.agree.longe5.q47"
+                          ,"mid_maize.owner.agree.longe5.q49"
+                          ,"mid_maize.owner.agree.longe5.q50"
+                          ,"mid_maize.owner.agree.longe5.q51"
+                          ,"mid_maize.owner.agree.longe5.q52"
+                          ,"mid_maize.owner.agree.longe5.q55"
+                          ,"index_overall_Longe5_midC")
+results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
+                               ,"maize.owner.agree.longe5.q47"
+                               ,"maize.owner.agree.longe5.q49"
+                               ,"maize.owner.agree.longe5.q50"
+                               ,"maize.owner.agree.longe5.q51"
+                               ,"maize.owner.agree.longe5.q52"
+                               ,"maize.owner.agree.longe5.q55"
+                               ,"index_overall_Longe5_baseC")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
@@ -3205,13 +3308,22 @@ baseline_dealers$index_overall_Longe5_midF <- index_overall_Longe5_mid$index
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,sgroup = baseline_dealers$farmer_control,revcols = c(1))
 baseline_dealers$index_overall_Longe5_baseF <- index_overall_Longe5_base$index
 
-results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46","mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
-                            ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51","mid_maize.owner.agree.longe5.q52"
-                            ,"mid_maize.owner.agree.longe5.q55","index_overall_Longe5_midF")
-
-results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46","maize.owner.agree.longe5.q47","maize.owner.agree.longe5.q49"
-                                 ,"maize.owner.agree.longe5.q50","maize.owner.agree.longe5.q51","maize.owner.agree.longe5.q52"
-                                 ,"maize.owner.agree.longe5.q55","index_overall_Longe5_baseF")
+results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
+                          ,"mid_maize.owner.agree.longe5.q47"
+                          ,"mid_maize.owner.agree.longe5.q49"
+                          ,"mid_maize.owner.agree.longe5.q50"
+                          ,"mid_maize.owner.agree.longe5.q51"
+                          ,"mid_maize.owner.agree.longe5.q52"
+                          ,"mid_maize.owner.agree.longe5.q55"
+                          ,"index_overall_Longe5_midF")
+results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
+                               ,"maize.owner.agree.longe5.q47"
+                               ,"maize.owner.agree.longe5.q49"
+                               ,"maize.owner.agree.longe5.q50"
+                               ,"maize.owner.agree.longe5.q51"
+                               ,"maize.owner.agree.longe5.q52"
+                               ,"maize.owner.agree.longe5.q55"
+                               ,"index_overall_Longe5_baseF")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
@@ -3449,7 +3561,6 @@ results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114", #1
                             "mid_maize.owner.agree.inspection.q118", #5
                             "mid_maize.owner.agree.inspection.q119", #6
                             "index_overall_off_mid")                 #7
-
 results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114",
                                  "maize.owner.agree.inspection.q115",
                                  "maize.owner.agree.inspection.q116",
@@ -3483,12 +3594,19 @@ baseline_dealers$index_overall_off_baseT <- index_overall_off_base$index
 
 df_ols_D_sec_off <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114"
+                            ,"mid_maize.owner.agree.inspection.q115"
+                            ,"mid_maize.owner.agree.inspection.q116"
+                            ,"mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118"
+                            ,"mid_maize.owner.agree.inspection.q119"
                             ,"index_overall_off_midT")
-
-results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
-                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114"
+                                 ,"maize.owner.agree.inspection.q115"
+                                 ,"maize.owner.agree.inspection.q116"
+                                 ,"maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118"
+                                 ,"maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseT")
 
 baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
@@ -3516,12 +3634,19 @@ baseline_dealers$index_overall_off_midC <- index_overall_off_mid$index
 index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$clearing_control,revcols = c(4,5))
 baseline_dealers$index_overall_off_baseC <- index_overall_off_base$index
 
-results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114"
+                            ,"mid_maize.owner.agree.inspection.q115"
+                            ,"mid_maize.owner.agree.inspection.q116"
+                            ,"mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118"
+                            ,"mid_maize.owner.agree.inspection.q119"
                             ,"index_overall_off_midC")
-
-results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
-                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114"
+                                 ,"maize.owner.agree.inspection.q115"
+                                 ,"maize.owner.agree.inspection.q116"
+                                 ,"maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118"
+                                 ,"maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseC")
 
 baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
@@ -3549,12 +3674,19 @@ baseline_dealers$index_overall_off_midF <- index_overall_off_mid$index
 index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$farmer_control,revcols = c(4,5))
 baseline_dealers$index_overall_off_baseF <- index_overall_off_base$index
 
-results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119"
+results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114"
+                            ,"mid_maize.owner.agree.inspection.q115"
+                            ,"mid_maize.owner.agree.inspection.q116"
+                            ,"mid_maize.owner.agree.inspection.q117"
+                            ,"mid_maize.owner.agree.inspection.q118"
+                            ,"mid_maize.owner.agree.inspection.q119"
                             ,"index_overall_off_midF")
-
-results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114","maize.owner.agree.inspection.q115","maize.owner.agree.inspection.q116","maize.owner.agree.inspection.q117"
-                                 ,"maize.owner.agree.inspection.q118","maize.owner.agree.inspection.q119"
+results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114"
+                                 ,"maize.owner.agree.inspection.q115"
+                                 ,"maize.owner.agree.inspection.q116"
+                                 ,"maize.owner.agree.inspection.q117"
+                                 ,"maize.owner.agree.inspection.q118"
+                                 ,"maize.owner.agree.inspection.q119"
                                  ,"index_overall_off_baseF")
 
 baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
@@ -3666,9 +3798,18 @@ baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 #1#
 ###
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_mid")
-
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_base")
+results_dealer_sec_bag <- c("mid_reading"
+                            ,"mid_visible_packdate"
+                            ,"mid_shelflife_Caro"
+                            ,"mid_origin"
+                            ,"mid_lot"
+                            ,"index_overall_bag_mid")
+results_dealer_sec_bag_base <- c("reading"
+                                 ,"visible_packdate"
+                                 ,"shelflife_Caro"
+                                 ,"origin"
+                                 ,"lot"
+                                 ,"index_overall_bag_base")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3701,9 +3842,18 @@ baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 
 df_ols_D_sec_bag <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midT")
-
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT")
+results_dealer_sec_bag <- c("mid_reading"
+                            ,"mid_visible_packdate"
+                            ,"mid_shelflife_Caro"
+                            ,"mid_origin"
+                            ,"mid_lot"
+                            ,"index_overall_bag_midT")
+results_dealer_sec_bag_base <- c("reading"
+                                 ,"visible_packdate"
+                                 ,"shelflife_Caro"
+                                 ,"origin"
+                                 ,"lot"
+                                 ,"index_overall_bag_baseT")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3730,9 +3880,18 @@ baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midC")
-
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseC")
+results_dealer_sec_bag <- c("mid_reading"
+                            ,"mid_visible_packdate"
+                            ,"mid_shelflife_Caro"
+                            ,"mid_origin"
+                            ,"mid_lot"
+                            ,"index_overall_bag_midC")
+results_dealer_sec_bag_base <- c("reading"
+                                 ,"visible_packdate"
+                                 ,"shelflife_Caro"
+                                 ,"origin"
+                                 ,"lot"
+                                 ,"index_overall_bag_baseC")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3759,9 +3918,18 @@ baseline_dealers$index_overall_bag_midF <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midF")
-
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseF")
+results_dealer_sec_bag <- c("mid_reading"
+                            ,"mid_visible_packdate"
+                            ,"mid_shelflife_Caro"
+                            ,"mid_origin"
+                            ,"mid_lot"
+                            ,"index_overall_bag_midF")
+results_dealer_sec_bag_base <- c("reading"
+                                 ,"visible_packdate"
+                                 ,"shelflife_Caro"
+                                 ,"origin"
+                                 ,"lot"
+                                 ,"index_overall_bag_baseF")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3901,6 +4069,9 @@ baseline_dealers$mid_maize.owner.agree.q9_c[baseline_dealers$mid_maize.owner.agr
 baseline_dealers$mid_maize.owner.agree.q9_d <- baseline_dealers$check.owner.agree.client.q9d #x
 baseline_dealers$mid_maize.owner.agree.q9_d[baseline_dealers$mid_maize.owner.agree.q9_d=="n/a"] <- NA
 
+baseline_dealers$mid_maize.owner.agree.q9_c <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.q9_c))
+baseline_dealers$mid_maize.owner.agree.q9_d <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.q9_d))
+
 variables_motivation_mid <- cbind(baseline_dealers$mid_maize.owner.agree.q9_a
                                   ,baseline_dealers$mid_maize.owner.agree.q9_c,baseline_dealers$mid_maize.owner.agree.q9_d) #x
 
@@ -3973,9 +4144,12 @@ baseline_dealers$index_ratings_midT <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control, revcols = c(4))
 baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT"
-                               ,"index_overall_prim_dealer_midT","index_overallsec_midT"
-                               ,"index_overall_off_midT","mid_reading")
+results_dealer_sec_nobase <- c("index_motivation_midT"
+                               ,"index_ratings_midT"
+                               ,"index_overall_prim_dealer_midT"
+                               ,"index_overallsec_midT"
+                               ,"index_overall_off_midT"
+                               ,"mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -4004,9 +4178,12 @@ baseline_dealers$index_ratings_midC <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control, revcols = c(4))
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC"
-                               ,"index_overall_prim_dealer_midC","index_overallsec_midC"
-                               ,"index_overall_off_midC","mid_reading")
+results_dealer_sec_nobase <- c("index_motivation_midC"
+                               ,"index_ratings_midC"
+                               ,"index_overall_prim_dealer_midC"
+                               ,"index_overallsec_midC"
+                               ,"index_overall_off_midC"
+                               ,"mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -4035,9 +4212,12 @@ baseline_dealers$index_ratings_midF <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control, revcols = c(4))
 baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid$index
 
-results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF"
-                               ,"index_overall_prim_dealer_midF","index_overallsec_midF"
-                               ,"index_overall_off_midF","mid_reading")
+results_dealer_sec_nobase <- c("index_motivation_midF"
+                               ,"index_ratings_midF"
+                               ,"index_overall_prim_dealer_midF"
+                               ,"index_overallsec_midF"
+                               ,"index_overall_off_midF"
+                               ,"mid_reading")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
@@ -4293,12 +4473,14 @@ results_farmer_prim <- c("mid_Check2.check.maize.q25a"  #1
                          ,"mid_Check2.check.maize.q25h" #6
                          ,"mid_Land_Races"              #7
                          ,"index_overallprimF_mid")     #8
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_base","index_practices_base","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_base")
-
-#here
+results_farmer_prim_base <- c("Check2.check.maize.q25a"
+                              ,"agro"
+                              ,"Check2.check.maize.q25d"
+                              ,"index_servicesF_base"
+                              ,"index_practices_base"
+                              ,"Check2.check.maize.q25h"
+                              ,"Land_Races"
+                              ,"index_overallprimF_base")
 
 baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
@@ -4341,13 +4523,22 @@ baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index
 
 df_ols_F_prim <- array(NA,dim=c(3,3,11))
 
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midT","index_practices_midT","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midT")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseT","index_practices_baseT","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseT")
+results_farmer_prim <- c("mid_Check2.check.maize.q25a"
+                         ,"mid_agro"
+                         ,"mid_Check2.check.maize.q25d"
+                         ,"index_servicesF_midT"
+                         ,"index_practices_midT"
+                         ,"mid_Check2.check.maize.q25h"
+                         ,"mid_Land_Races"
+                         ,"index_overallprimF_midT")
+results_farmer_prim_base <- c("Check2.check.maize.q25a"
+                              ,"agro"
+                              ,"Check2.check.maize.q25d"
+                              ,"index_servicesF_baseT"
+                              ,"index_practices_baseT"
+                              ,"Check2.check.maize.q25h"
+                              ,"Land_Races"
+                              ,"index_overallprimF_baseT")
 
 baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
@@ -4392,13 +4583,22 @@ baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index
 
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midC","index_practices_midC","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midC")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseC","index_practices_baseC","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseC")
+results_farmer_prim <- c("mid_Check2.check.maize.q25a"
+                         ,"mid_agro"
+                         ,"mid_Check2.check.maize.q25d"
+                         ,"index_servicesF_midC"
+                         ,"index_practices_midC"
+                         ,"mid_Check2.check.maize.q25h"
+                         ,"mid_Land_Races"
+                         ,"index_overallprimF_midC")
+results_farmer_prim_base <- c("Check2.check.maize.q25a"
+                              ,"agro"
+                              ,"Check2.check.maize.q25d"
+                              ,"index_servicesF_baseC"
+                              ,"index_practices_baseC"
+                              ,"Check2.check.maize.q25h"
+                              ,"Land_Races"
+                              ,"index_overallprimF_baseC")
 
 baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
@@ -4439,13 +4639,22 @@ baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index
 
-results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                         ,"index_servicesF_midF","index_practices_midF","mid_Check2.check.maize.q25h"
-                         ,"mid_Land_Races","index_overallprimF_midF")
-
-results_farmer_prim_base <- c("Check2.check.maize.q25a","agro","Check2.check.maize.q25d"
-                              ,"index_servicesF_baseF","index_practices_baseF","Check2.check.maize.q25h"
-                              ,"Land_Races","index_overallprimF_baseF")
+results_farmer_prim <- c("mid_Check2.check.maize.q25a"
+                         ,"mid_agro"
+                         ,"mid_Check2.check.maize.q25d"
+                         ,"index_servicesF_midF"
+                         ,"index_practices_midF"
+                         ,"mid_Check2.check.maize.q25h"
+                         ,"mid_Land_Races"
+                         ,"index_overallprimF_midF")
+results_farmer_prim_base <- c("Check2.check.maize.q25a"
+                              ,"agro"
+                              ,"Check2.check.maize.q25d"
+                              ,"index_servicesF_baseF"
+                              ,"index_practices_baseF"
+                              ,"Check2.check.maize.q25h"
+                              ,"Land_Races"
+                              ,"index_overallprimF_baseF")
 
 baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
@@ -4614,9 +4823,12 @@ baseline_farmers$index_overallsecF_base <- index_overallsecF_base$index
 #1#
 ###
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_mid")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_base")
+results_farmer_sec <- c("mid_number_known"
+                        ,"mid_knows_dealer"
+                        ,"index_overallsecF_mid")
+results_farmer_sec_base <- c("number_known"
+                             ,"knows_dealer"
+                             ,"index_overallsecF_base")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4643,9 +4855,12 @@ baseline_farmers$index_overallsecF_baseT <- index_overallsecF_baseT$index
 
 df_ols_F_sec <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midT")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseT")
+results_farmer_sec <- c("mid_number_known"
+                        ,"mid_knows_dealer"
+                        ,"index_overallsecF_midT")
+results_farmer_sec_base <- c("number_known"
+                             ,"knows_dealer"
+                             ,"index_overallsecF_baseT")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4672,9 +4887,12 @@ baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 index_overallsecF_baseC <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overallsecF_baseC <- index_overallsecF_baseC$index
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midC")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseC")
+results_farmer_sec <- c("mid_number_known"
+                        ,"mid_knows_dealer"
+                        ,"index_overallsecF_midC")
+results_farmer_sec_base <- c("number_known"
+                             ,"knows_dealer"
+                             ,"index_overallsecF_baseC")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4701,9 +4919,12 @@ baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
 index_overallsecF_baseF <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overallsecF_baseF <- index_overallsecF_baseF$index
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midF")
-
-results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseF")
+results_farmer_sec <- c("mid_number_known"
+                        ,"mid_knows_dealer"
+                        ,"index_overallsecF_midF")
+results_farmer_sec_base <- c("number_known"
+                             ,"knows_dealer"
+                             ,"index_overallsecF_baseF")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4808,11 +5029,18 @@ baseline_farmers$index_overallsec_plotF_base <- index_overallsec_plotF_base$inde
 #1#
 ###
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
-                             ,"mid_Bought_from_agro_input_shop","mid_adoption_onfield","index_overallsec_plotF_mid")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
-                                  ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_base")
+results_farmer_sec_plot <- c("mid_hybrid"
+                             ,"mid_OPV"
+                             ,"mid_farmer_saved_seed"
+                             ,"mid_Bought_from_agro_input_shop"
+                             ,"mid_adoption_onfield"
+                             ,"index_overallsec_plotF_mid")
+results_farmer_sec_plot_base <- c("hybrid"
+                                  ,"OPV"
+                                  ,"farmer_saved_seed"
+                                  ,"Bought_from_agro_input_shop"
+                                  ,"adoption_onfield"
+                                  ,"index_overallsec_plotF_base")
 
 baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
 
@@ -4839,11 +5067,18 @@ baseline_farmers$index_overallsec_plotF_baseT <- index_overallsec_plotF_baseT$in
 
 df_ols_F_sec_plot <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
-                             ,"mid_Bought_from_agro_input_shop","mid_adoption_onfield","index_overallsec_plotF_midT")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
-                                  ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseT")
+results_farmer_sec_plot <- c("mid_hybrid"
+                             ,"mid_OPV"
+                             ,"mid_farmer_saved_seed"
+                             ,"mid_Bought_from_agro_input_shop"
+                             ,"mid_adoption_onfield"
+                             ,"index_overallsec_plotF_midT")
+results_farmer_sec_plot_base <- c("hybrid"
+                                  ,"OPV"
+                                  ,"farmer_saved_seed"
+                                  ,"Bought_from_agro_input_shop"
+                                  ,"adoption_onfield"
+                                  ,"index_overallsec_plotF_baseT")
 
 baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
 
@@ -4870,11 +5105,18 @@ baseline_farmers$index_overallsec_plotF_midC <- index_overallsec_plotF_midC$inde
 index_overallsec_plotF_baseC <- icwIndex(xmat=variables_overallsec_plotF_base,sgroup = baseline_farmers$clearing_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_baseC <- index_overallsec_plotF_baseC$index
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
-                             ,"mid_Bought_from_agro_input_shop","mid_adoption_onfield","index_overallsec_plotF_midC")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
-                                  ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseC")
+results_farmer_sec_plot <- c("mid_hybrid"
+                             ,"mid_OPV"
+                             ,"mid_farmer_saved_seed"
+                             ,"mid_Bought_from_agro_input_shop"
+                             ,"mid_adoption_onfield"
+                             ,"index_overallsec_plotF_midC")
+results_farmer_sec_plot_base <- c("hybrid"
+                                  ,"OPV"
+                                  ,"farmer_saved_seed"
+                                  ,"Bought_from_agro_input_shop"
+                                  ,"adoption_onfield"
+                                  ,"index_overallsec_plotF_baseC")
 
 baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
 
@@ -4901,11 +5143,18 @@ baseline_farmers$index_overallsec_plotF_midF <- index_overallsec_plotF_midF$inde
 index_overallsec_plotF_baseF <- icwIndex(xmat=variables_overallsec_plotF_base,sgroup = baseline_farmers$farmer_control,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_baseF <- index_overallsec_plotF_baseF$index
 
-results_farmer_sec_plot <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed"
-                             ,"mid_Bought_from_agro_input_shop","mid_adoption_onfield","index_overallsec_plotF_midF")
-
-results_farmer_sec_plot_base <- c("hybrid","OPV","farmer_saved_seed"
-                                  ,"Bought_from_agro_input_shop","adoption_onfield","index_overallsec_plotF_baseF")
+results_farmer_sec_plot <- c("mid_hybrid"
+                             ,"mid_OPV"
+                             ,"mid_farmer_saved_seed"
+                             ,"mid_Bought_from_agro_input_shop"
+                             ,"mid_adoption_onfield"
+                             ,"index_overallsec_plotF_midF")
+results_farmer_sec_plot_base <- c("hybrid"
+                                  ,"OPV"
+                                  ,"farmer_saved_seed"
+                                  ,"Bought_from_agro_input_shop"
+                                  ,"adoption_onfield"
+                                  ,"index_overallsec_plotF_baseF")
 
 baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
 
@@ -4951,18 +5200,18 @@ for (i in 1:length(results_farmer_sec_plot_J)){
 ################################################################################################################################################################################
 
 #1. seed on plot rating
-baseline_farmers$mid_Check2.check.maize.q35a <- baseline_farmers$CHECK.MAIZE.Q35A
-baseline_farmers$mid_Check2.check.maize.q35b <- baseline_farmers$CHECK.MAIZE.Q35B
-baseline_farmers$mid_Check2.check.maize.q35c <- baseline_farmers$CHECK.MAIZE.Q35C
-baseline_farmers$mid_Check2.check.maize.q35d <- baseline_farmers$CHECK.MAIZE.Q35D
-baseline_farmers$mid_Check2.check.maize.q35e <- baseline_farmers$CHECK.MAIZE.Q35E
-baseline_farmers$mid_Check2.check.maize.q35f <- baseline_farmers$CHECK.MAIZE.Q35F #no g in endline
-baseline_farmers$mid_Check2.check.maize.q35h <- baseline_farmers$CHECK.MAIZE.Q35H
-baseline_farmers$mid_Check2.check.maize.q35i <- baseline_farmers$CHECK.MAIZE.Q35I
-baseline_farmers$mid_Check2.check.maize.q35j <- baseline_farmers$CHECK.MAIZE.Q35J
+baseline_farmers$mid_Check2.check.maize.q35a <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35A))
+baseline_farmers$mid_Check2.check.maize.q35b <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35B))
+baseline_farmers$mid_Check2.check.maize.q35c <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35C))
+baseline_farmers$mid_Check2.check.maize.q35d <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35D))
+baseline_farmers$mid_Check2.check.maize.q35e <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35E))
+baseline_farmers$mid_Check2.check.maize.q35f <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35F)) #no g in endline
+baseline_farmers$mid_Check2.check.maize.q35h <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35H))
+baseline_farmers$mid_Check2.check.maize.q35i <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35I))
+baseline_farmers$mid_Check2.check.maize.q35j <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q35J))
 
 variables_ratingplot_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q35a,baseline_farmers$mid_Check2.check.maize.q35b,baseline_farmers$mid_Check2.check.maize.q35c,
-                                  baseline_farmers$mid_Check2.check.maize.q35d,baseline_farmers$mid_Check2.check.maize.q35e, #f had more NAs
+                                  baseline_farmers$mid_Check2.check.maize.q35d,baseline_farmers$mid_Check2.check.maize.q35e,
                                   baseline_farmers$mid_Check2.check.maize.q35j)
 variables_ratingplot_base <- cbind(baseline_farmers$Check2.check.maize.q35a,baseline_farmers$Check2.check.maize.q35b,baseline_farmers$Check2.check.maize.q35c,
                                    baseline_farmers$Check2.check.maize.q35d,baseline_farmers$Check2.check.maize.q35e,
@@ -5032,12 +5281,19 @@ baseline_farmers$index_overall_seedonplot_base <- index_overall_seedonplot_base$
 #1#
 ###
 
-results_farmer_sec_seed <- c("index_ratingplot_mid","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
-                             ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
+results_farmer_sec_seed <- c("index_ratingplot_mid"
+                             ,"mid_Check2.check.maize.q36"
+                             ,"mid_Check2.check.maize.q37"
+                             ,"mid_Check2.check.maize.q38"
+                             ,"mid_Check2.check.maize.q39"
+                             ,"mid_costforseed_new"
                              ,"index_overall_seedonplot_mid")
-
-results_farmer_sec_seed_base <- c("index_ratingplot_base","Check2.check.maize.q36","Check2.check.maize.q37"
-                                  ,"Check2.check.maize.q38","Check2.check.maize.q39","costforseed_new"
+results_farmer_sec_seed_base <- c("index_ratingplot_base"
+                                  ,"Check2.check.maize.q36"
+                                  ,"Check2.check.maize.q37"
+                                  ,"Check2.check.maize.q38"
+                                  ,"Check2.check.maize.q39"
+                                  ,"costforseed_new"
                                   ,"index_overall_seedonplot_base")
 
 baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
@@ -5074,12 +5330,19 @@ baseline_farmers$index_overall_seedonplot_baseT <- index_overall_seedonplot_base
 
 df_ols_F_sec_seed <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_seed <- c("index_ratingplot_midT","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
-                             ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
+results_farmer_sec_seed <- c("index_ratingplot_midT"
+                             ,"mid_Check2.check.maize.q36"
+                             ,"mid_Check2.check.maize.q37"
+                             ,"mid_Check2.check.maize.q38"
+                             ,"mid_Check2.check.maize.q39"
+                             ,"mid_costforseed_new"
                              ,"index_overall_seedonplot_midT")
-
-results_farmer_sec_seed_base <- c("index_ratingplot_baseT","Check2.check.maize.q36","Check2.check.maize.q37"
-                                  ,"Check2.check.maize.q38","Check2.check.maize.q39","costforseed_new"
+results_farmer_sec_seed_base <- c("index_ratingplot_baseT"
+                                  ,"Check2.check.maize.q36"
+                                  ,"Check2.check.maize.q37"
+                                  ,"Check2.check.maize.q38"
+                                  ,"Check2.check.maize.q39"
+                                  ,"costforseed_new"
                                   ,"index_overall_seedonplot_baseT")
 
 baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
@@ -5114,13 +5377,20 @@ baseline_farmers$index_overall_seedonplot_midC <- index_overall_seedonplot_midC$
 index_overall_seedonplot_baseC <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_baseC <- index_overall_seedonplot_baseC$index
 
-results_farmer_sec_seed <- c("index_ratingplot_midC","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
-                             ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
+results_farmer_sec_seed <- c("index_ratingplot_midC"
+                             ,"mid_Check2.check.maize.q36"
+                             ,"mid_Check2.check.maize.q37"
+                             ,"mid_Check2.check.maize.q38"
+                             ,"mid_Check2.check.maize.q39"
+                             ,"mid_costforseed_new"
                              ,"index_overall_seedonplot_midC")
-
-results_farmer_sec_seed_base <- c("index_ratingplot_baseC","Check2.check.maize.q36","Check2.check.maize.q37"
-                                  ,"Check2.check.maize.q38","Check2.check.maize.q39","costforseed_new",
-                                  "index_overall_seedonplot_baseC")
+results_farmer_sec_seed_base <- c("index_ratingplot_baseC"
+                                  ,"Check2.check.maize.q36"
+                                  ,"Check2.check.maize.q37"
+                                  ,"Check2.check.maize.q38"
+                                  ,"Check2.check.maize.q39"
+                                  ,"costforseed_new"
+                                  ,"index_overall_seedonplot_baseC")
 
 baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
 
@@ -5154,12 +5424,19 @@ baseline_farmers$index_overall_seedonplot_midF <- index_overall_seedonplot_midF$
 index_overall_seedonplot_baseF <- icwIndex(xmat=variables_overall_seedonplot_base,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_baseF <- index_overall_seedonplot_baseF$index
 
-results_farmer_sec_seed <- c("index_ratingplot_midF","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
-                             ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new"
+results_farmer_sec_seed <- c("index_ratingplot_midF"
+                             ,"mid_Check2.check.maize.q36"
+                             ,"mid_Check2.check.maize.q37"
+                             ,"mid_Check2.check.maize.q38"
+                             ,"mid_Check2.check.maize.q39"
+                             ,"mid_costforseed_new"
                              ,"index_overall_seedonplot_midF")
-
-results_farmer_sec_seed_base <- c("index_ratingplot_baseF","Check2.check.maize.q36","Check2.check.maize.q37"
-                                  ,"Check2.check.maize.q38","Check2.check.maize.q39","costforseed_new"
+results_farmer_sec_seed_base <- c("index_ratingplot_baseF"
+                                  ,"Check2.check.maize.q36"
+                                  ,"Check2.check.maize.q37"
+                                  ,"Check2.check.maize.q38"
+                                  ,"Check2.check.maize.q39"
+                                  ,"costforseed_new"
                                   ,"index_overall_seedonplot_baseF")
 
 baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
@@ -5275,11 +5552,16 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 #1#
 ###
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_mid")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_base")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg"
+                                 ,"mid_landproductivity"
+                                 ,"mid_soldinkg"
+                                 ,"mid_revenueUGX"
+                                 ,"index_overall_yieldetc_mid")
+results_farmer_sec_yieldetc_base <- c("yield_inkg"
+                                      ,"landproductivity"
+                                      ,"soldinkg"
+                                      ,"revenueUGX"
+                                      ,"index_overall_yieldetc_base")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5308,11 +5590,16 @@ baseline_farmers$index_overall_yieldetc_baseT <- index_overall_yieldetc_baseT$in
 
 df_ols_F_sec_yieldetc <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midT")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseT")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg"
+                                 ,"mid_landproductivity"
+                                 ,"mid_soldinkg"
+                                 ,"mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midT")
+results_farmer_sec_yieldetc_base <- c("yield_inkg"
+                                      ,"landproductivity"
+                                      ,"soldinkg"
+                                      ,"revenueUGX"
+                                      ,"index_overall_yieldetc_baseT")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5339,11 +5626,16 @@ baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$inde
 index_overall_yieldetc_baseC <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$index
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midC")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseC")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg"
+                                 ,"mid_landproductivity"
+                                 ,"mid_soldinkg"
+                                 ,"mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midC")
+results_farmer_sec_yieldetc_base <- c("yield_inkg"
+                                      ,"landproductivity"
+                                      ,"soldinkg"
+                                      ,"revenueUGX"
+                                      ,"index_overall_yieldetc_baseC")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5370,11 +5662,16 @@ baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$inde
 index_overall_yieldetc_baseF <- icwIndex(xmat=variables_overall_yieldetc_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$index
 
-results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midF")
-
-results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseF")
+results_farmer_sec_yieldetc <- c("mid_yield_inkg"
+                                 ,"mid_landproductivity"
+                                 ,"mid_soldinkg"
+                                 ,"mid_revenueUGX"
+                                 ,"index_overall_yieldetc_midF")
+results_farmer_sec_yieldetc_base <- c("yield_inkg"
+                                      ,"landproductivity"
+                                      ,"soldinkg"
+                                      ,"revenueUGX"
+                                      ,"index_overall_yieldetc_baseF")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5608,10 +5905,19 @@ baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
 index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
-results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midT"
-                           ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT"
-                           ,"index_overall_seedonplot_midT","index_overall_yieldetc_midT","mid_Check2.check.maize.q56","mid_bought_last_season")
+results_farmer_nobase <- c("index_ratingsF_midT"
+                           ,"index_ratingsshopF_midT"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_midT"
+                           ,"index_overallprimF_midT"
+                           ,"index_overallsecF_midT"
+                           ,"index_overallsec_plotF_midT"
+                           ,"index_overall_seedonplot_midT"
+                           ,"index_overall_yieldetc_midT"
+                           ,"mid_Check2.check.maize.q56"
+                           ,"mid_bought_last_season")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_farmers)
@@ -5652,10 +5958,19 @@ baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
-results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midC"
-                           ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC"
-                           ,"index_overall_seedonplot_midC","index_overall_yieldetc_midC","mid_Check2.check.maize.q56","mid_bought_last_season")
+results_farmer_nobase <- c("index_ratingsF_midC"
+                           ,"index_ratingsshopF_midC"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_midC"
+                           ,"index_overallprimF_midC"
+                           ,"index_overallsecF_midC"
+                           ,"index_overallsec_plotF_midC"
+                           ,"index_overall_seedonplot_midC"
+                           ,"index_overall_yieldetc_midC"
+                           ,"mid_Check2.check.maize.q56"
+                           ,"mid_bought_last_season")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers)
@@ -5696,10 +6011,19 @@ baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
 index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
 baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
 
-results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_midF"
-                           ,"index_overallprimF_midF","index_overallsecF_midF","index_overallsec_plotF_midF"
-                           ,"index_overall_seedonplot_midF","index_overall_yieldetc_midF","mid_Check2.check.maize.q56","mid_bought_last_season")
+results_farmer_nobase <- c("index_ratingsF_midF"
+                           ,"index_ratingsshopF_midF"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_midF"
+                           ,"index_overallprimF_midF"
+                           ,"index_overallsecF_midF"
+                           ,"index_overallsec_plotF_midF"
+                           ,"index_overall_seedonplot_midF"
+                           ,"index_overall_yieldetc_midF"
+                           ,"mid_Check2.check.maize.q56"
+                           ,"mid_bought_last_season")
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
