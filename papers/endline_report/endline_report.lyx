@@ -138,17 +138,21 @@ Demand and supply factors constraining the emergence and sustainability
 \begin_layout Abstract
 Agricultural technology remains under-adopted among smallholder farmers
  in Sub-Saharan Africa.
- We investigate how the quality of an agricultural technology—improved maize
- seed—affects its adoption.
- We test three hypotheses using a randomized controlled trials among agro-input
- dealers and smallholder farmers in Uganda.
+ We investigate how the variation in (perceptions of) the quality of an
+ agricultural technology—improved maize seed—affects its adoption.
+ Using a randomized controlled trials among agro-input dealers and smallholder
+ farmers in Uganda, we test three hypotheses.
  In a first hypothesis, quality issues that constrain uptake are caused
- by information inefficiencies at the level of agro-input dealers, who are
- assumed to lack knowledge about proper storage and handling.
+ by knowledge gaps at the level of agro-input dealers; a training on proper
+ storage and handling of seed at the agro-input dealer level is expected
+ to increase adoption on the farm.
  A second hypothesis conjectures that information asymmetries similar to
  the lemons problem constrain technology adoption.
- We also test a more behavioral explanation, whereby we assume that farmers
- face difficulties in learning about the new technology.
+ We test this hypothesis by setting up an information clearing house that
+ relies on crowd-sourcing to make hidden features of the technology visible
+ to both agro-input dealers and farmers.
+ We also test a behavioral explanation, whereby we assume that farmers attributi
+ng poor outcomes to the wrong causes.
  In this report, we present results obtained from the endline survey that
  was collected two agricultural seasons after the interventions took place.
 \end_layout
@@ -197,13 +201,13 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-There are various reasons why some people adopt now technologies while other
+There are various reasons why some people adopt new technologies while other
  stick to what they have been doing for ages.
  Key constraints to technology upgrading include poor access to information
  
 \begin_inset CommandInset citation
 LatexCommand citep
-key "ashraf2009finding"
+key "campenhout2021role,ashraf2009finding"
 literal "true"
 
 \end_inset
@@ -258,18 +262,20 @@ literal "false"
 
 .
  Indeed, as the quality of a technology (like improved seed or fertilizer)
- is not readily observable and can only be (imperfectly) inferred ex post,
- inconsistent quality will lead to lower adoption.
+ is not readily observable and can only be (imperfectly) inferred ex-post,
+ inconsistent quality will lead to lower adoption than would be the case
+ if quality would be consistent and/or perfectly observable.
  Our study tests three hypotheses to assess the relative importance of potential
- sources of these (perceived) quality issues with improved maize seed varieties
- at both the agro-input dealer level and the farmer level.
- 
+ sources of these (perceived) quality issues.
+ We do this using a field experiment that involves agro-input dealers and
+ smallholder farmers in Uganda, where the focus is on improved maize seed.
 \end_layout
 
 \begin_layout Standard
-In a first hypothesis, quality concerns that constrain uptake are caused
- by information inefficiencies at the level of the agro-input dealers, who
- are assumed to lack knowledge about proper storage and handling.
+In a first hypothesis, quality concerns that constrain uptake of the technology
+ are caused by knowledge gaps at the level of the agro-input dealers, who
+ are assumed to lack awareness and skills related to proper storage and
+ handling of improved agro-inputs.
  To test this hypothesis, we implement and intensive training program that
  is expected to lead to improved maize seed quality sold by agro-input dealers,
  in turn increasing adoption by farmers.
@@ -277,18 +283,24 @@ In a first hypothesis, quality concerns that constrain uptake are caused
  and buyer with respect to the quality of seed—a classic lemons technology—leads
  to under-adoption.
  To test this hypothesis, we implement a crowd-sourced information clearinghouse
- similar to yelp.com.
+ similar to yelp.com, where we ask farmers about their experience with agro-input
+ dealers, aggregate this data into rankings and feed this data back to both
+ farmer and agro-input dealers.
  A third hypothesis targets farmers directly, as sub-optimal adoption is
- assumed to be caused by learning failures: Farmers might attribute disappointin
-g outcomes to poor input quality, while in reality many input dimensions
- like the time of planting, weeding and fertilizer application co-determine
- outcomes.
- An ICT-mediated information campaign that stresses the importance of paying
- attention to all input dimensions is implemented to test this hypothesis.
+ assumed to be caused by a particular type of learning failures: As farmers
+ have to pay more for improved seed, this may also lead to altered expectations
+ and behavior.
+ In particular, we argue that farmers may expect too much from seed and
+ as a result exert less effort than they normally would, use less complementary
+ inputs, and plant the improved seed on sub-optimal plots.
+ Disappointing outcomes may then be attributed to poor input quality.
+ An ICT-mediated information campaign that stresses that even when using
+ improved seed is is important to pay attention to all input dimensions
+ is implemented to test this hypothesis.
 \end_layout
 
 \begin_layout Standard
-This report documents impact at endline, after two full agricultural seasons
+This report documents impact at endline after two full agricultural seasons
  had passed since the intervention.
  A similar report was written at the time of midline data collection, looking
  at impact after one agricultural season.
@@ -302,10 +314,10 @@ We find that XXX.
 \end_layout
 
 \begin_layout Standard
-We start by outlining the research questions and hypotheses we will test.
- The interventions that are used to test the hypotheses are explained in
+The report starts with an outline of the research questions and hypotheses.
+ The interventions that were used to test the hypotheses are explained in
  the subsequent section.
- This is done using a field experiment that is presented in Section 
+ This was done using a field experiment that is presented in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Experimental-design"
@@ -316,6 +328,10 @@ noprefix "false"
 \end_inset
 
 .
+ Next, there is a section on data, that presents characteristics of farmers
+ and agro-input dealers are baseline, demonstrates balance between treatment
+ groups, and looks at attrition.
+ We then present the results from the impact analysis of the endline data.
 \end_layout
 
 \begin_layout Section
@@ -333,32 +349,35 @@ name "sec:Research-Questions-and"
 Seed quality issues, or the perception thereof, may arise at different stages
  in the seed supply chain.
  Poor seed quality may occur as a result of input dealer practices.
- This may be unintentional, for example as a result of poor handling and
- storage practices the agro-input dealer is unaware of, or intentional,
- for instance by mixing poor quality seed with good quality seed to cut
- costs.
+ This may be unintentional when the agro-input dealers is unaware of propper
+ handling and storage practices, or intentional if the agro-input dealer
+ tries to reduce cost by for example mixing poor quality seed with good
+ quality seed.
  The problem may also be situated at the level of the smallholder farmer.
  For instance, a farmer may lack confidence in the input dealer or his/her
- products, and the nature of the input may make it impossible for the farmer
- to assess the quality.
+ products, and the nature of the input may make it difficult for the farmer
+ to objectively assess quality.
  It may also be that the farmer wrongly attributes poor outcomes caused
  by factors other than seed quality to seed quality.
  
 \end_layout
 
 \begin_layout Standard
-We test potential reasons for low uptake of improved maize seed.
+We test potential quality related reasons for low uptake of improved maize
+ seed.
  One has its origins at the agro-input dealer level and is cognitive in
  nature.
  A second reason is situated at the interaction between agro-input dealer
  and farmer and tests a classic economic explanation.
  A third potential reason is behavioral and happens in the farm.
  We discuss each research hypothesis in detail below.
+ In the next section we present the interventions that we will use to test
+ these hypotheses.
 \end_layout
 
 \begin_layout Subsubsection*
 H1: Seed is of poor quality due to poor handling and storage at the input
- dealer level.
+ dealer level
 \end_layout
 
 \begin_layout Standard
@@ -374,9 +393,8 @@ literal "true"
 
 .
  Also in the context of agricultural technology adoption among smallholders,
- informational inefficiencies have been documented, and governments around
- the world invest in public agricultural advisory services to increase productiv
-ity in the sector 
+ knowledge gaps have been identified as a key constraint, and governments
+ around the world invest in public agricultural advisory services 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/wbro/lkh013"
@@ -385,18 +403,6 @@ literal "false"
 \end_inset
 
 .
- Various studies look at knowledge gaps at the farmer level and the consequences
- on outcomes like technology adoption and production.
- For example, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "doi:10.1002/ajae.12089"
-literal "true"
-
-\end_inset
-
- show that maize farmers in Uganda appear to benefit from information on
- available technologies and recommended agronomic practices.
  While the need for policies and interventions that strengthen input marketing
  capacity and infrastructure has been acknowledged decades ago 
 \begin_inset CommandInset citation
@@ -434,8 +440,8 @@ literal "true"
 \end_layout
 
 \begin_layout Subsubsection*
-H2: Seed is of poor quality due to intentional adulteration at the input
- dealer level.
+H2: Mismatch between seed quality delivered by agro-input dealers and seed
+ quality perceived by farmers
 \end_layout
 
 \begin_layout Standard
@@ -475,20 +481,10 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-While Uganda does regulate seed quality through seed certification processes
- and standards, this mechanism provides farmers with a relatively weak and
- unreliable indication of quality.
- Alternative mechanisms such as electronic verification systems have also
- been experimented with, but the cost of implementation has proven challenging,
- and they depend on the reliability of the underlying seed certification
- system.
-\end_layout
-
-\begin_layout Standard
-An explanation based on asymmetric information implicitly assumes that agro-inpu
-t dealers are aware of the quality of the product they sell.
- Information asymmetry also means agro-input dealers can compromise on quality
- to cut costs.
+Information asymmetry implies that agro-input dealers are better informed
+ about the quality of the products they sell than the farmers they sell
+ to.
+ This means agro-input dealers can compromise on quality to cut costs.
  In Uganda, there are some indications that adulteration happens at some
  point in the seed value chain.
  
@@ -514,8 +510,8 @@ literal "false"
 \end_layout
 
 \begin_layout Subsubsection*
-H3: Seed is of good quality but farmers are unable to adequately learn about
- this quality.
+H3: Seed is of good quality but have inflated expectations and face learning
+ challenges
 \end_layout
 
 \begin_layout Standard
@@ -602,7 +598,7 @@ Is this documented somewhere? Do we have references? During the maize study,
  Therefore, additional inputs such as pesticides, insecticides and irrigation
  may be needed to bring the seed to its full potential.
  Worse, farmers they may think that improved seed is a guarantee for higher
- yield and reduce management and use of other inputs.
+ yield, leading them to reduce management and use of other inputs.
  This may lead to disappointing yields, and farmers may erroneously attribute
  these low returns to poor input quality, which may lead to dis-adoption.
  The problem may thus be rooted in negative experiences which conflate low
@@ -621,28 +617,6 @@ literal "true"
  they purchase from the market is adulterated.
 \end_layout
 
-\begin_layout Standard
-In the present context, we hypothesize that there exists a particular learning
- constraint of interest.
- Because farmers must make decisions on a variety of input dimensions that
- interact in the production function - the time of planting, the amount
- and timing of water, the choice of technology, additional inputs such as
- fertilizer or pesticides and insecticides - they cannot easily learn about
- the quality of seed from their own or others’ experience.
- A key remedy to this learning problem is information, but the availability
- of such information alone does not automatically guarantee learning.
- Limited attention to particular input dimension may necessitate interventions
- that highlight previously unattended-to relationships in the data 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "allen2011interaction,hanna2014learning,beaman2014minding"
-literal "true"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
 Interventions
 \end_layout
@@ -659,11 +633,11 @@ noprefix "false"
 \end_inset
 
 , we designed three corresponding interventions.
- In this section, we provide more details on the interventions.
+ In this section, we provide more details on these interventions.
 \end_layout
 
 \begin_layout Subsubsection*
-I1: Input dealer training on seed handling and storage
+I1: Input dealer training on proper seed handling and storage
 \end_layout
 
 \begin_layout Standard
@@ -673,7 +647,8 @@ To test if lack of adoption is due to poor seed quality as a result of poor
  was implemented.
  This is expected to improve seed quality, in turn reducing risk and increasing
  profitability at the level of the farmers.
- This will lead to more farmers adopting improved seed.
+ This will lead to more farmers adopting improved seed and agro-input dealer
+ to sell more improved seed.
  It is important to note that this hypothesis implicitly assumes that the
  dealer is not aware of the fact that he or she sells poor quality seed.
  In other words, sales of poor quality seed is not intentional.
@@ -686,49 +661,47 @@ s in Uganda prior to the experiment.
  A consultation workshop was organized in Bugiri, as well as a series of
  semi structured interviews with experts of different institutions and organizat
 ions.
- This information will then be process and function as our knowledge base
- for designing training materials.
-\end_layout
-
-\begin_layout Standard
-During the workshop or the semi-structured interviews, the facilitator kept
- the focus on “seed storage and handling”.
- First, the problems were identified by determining what input dealers typically
- do wrong in terms of seed storage and handling, leading to farmers ending
+ During the workshop or the semi-structured interviews, the facilitator
+ kept the focus on “seed storage and handling”.
+ First, problems were identified by determining what input dealers typically
+ do wrong in terms of seed storage and handling, leading farmers to end
  up with sub-optimal seed quality.
- These problems were than ranked according to how badly they affect seed
+ These problems were then ranked according to how badly they affect seed
  quality and how many agro-input dealers are affected by these problems.
  In a next step, solutions were associated to each of the problems.
- The solutions are also ranked in terms of effectiveness and it was discussed
- if these solutions are in reach of the majority of agro-input dealers.
+ The solutions were also ranked in terms of effectiveness and it was discussed
+ if these solutions would be within reach of the majority of agro-input
+ dealers.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This led to the exclusion of capital intensive investments such as air condition
+ers or freezers to preserve quality.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Based on the information collected, we developed detailed training manuals
- that the trainers were expected to adhere to.
+ that the trainers were instructed to adhere to.
  This ensured standardized treatment.
  We also created visually appealing posters showing the most important best
  practices that were given to input dealers to mount in their shop.
- 
-\end_layout
-
-\begin_layout Standard
-The training was implemented by three trainers, one from ISSD, one from
+ The training was implemented by three trainers, one from ISSD, one from
  UNADA, and one agronomist that was part of the research team.
  It was organized at a location that was easily reachable for all sampled
  agro-input dealers within the treated catchment area.
  For each treated shop, we invited the shop owner and the shop manager.
  As an additional incentive, we also provided treatment agro-input dealers
  with a portable seed moisture meter.
-\end_layout
-
-\begin_layout Standard
-The input dealer trainings were organized in May 2021, late enough so that
- dealers are not busy with selling for the first agricultural season but
- early enough so that dealers can use the newly trained handling and storage
- practices on the seeds they buy in June/July 2021, which are going to be
- purchased by farmers for the second agricultural season that begins in
- August 2021.
+ The input dealer trainings were organized in May 2021, such that dealers
+ can use the handling and storage practices for seeds they buy in June/July
+ 2021, which are going to be purchased by farmers for the second agricultural
+ season that begins in August 2021.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -751,15 +724,16 @@ literal "false"
  Uganda does regulate seed quality by means of certifications and standards,
  but they provide farmers with a relatively weak and unreliable indication
  of quality.
- We bought seed bags from agro-input dealers in our sample, and only 8%
- of them have a certification sticker from an inspection agency.
+ For instance, during baseline data collection, we purchased seed bags from
+ agro-input dealers in our sample, and only 8% of them had a certification
+ sticker from an inspection agency.
  Alternatives such as electronic verification systems have also been experimente
 d with, but the cost of implementation has proven challenging, and they
  depend on the reliability of the underlying seed certification system.
 \end_layout
 
 \begin_layout Standard
-That is why we test an alternative, decentralized clearinghouse that is
+In our study, we test an alternative, decentralized clearinghouse that is
  based on crowd-sourced information and works through reputational mechanisms,
  much like yelp.com or tripadvisor.com.
  Studies in other contexts have shown that new crowd-based sources of pre-purcha
@@ -783,15 +757,13 @@ The information clearinghouse treatment we implement is a fairly complex
  intervention that required collecting indicators of perceived quality of
  seed sold by agro-input dealer from farmers.
  These quality ratings were then used to construct scores to rank agro-input
- dealers, and these rankings and scores are then provided back to farmers
+ dealers, and these rankings and scores were then provided back to farmers
  and agro-input dealers in an appealing way.
  This entire process also happened twice, as we target two full growing
  cycles.
-\end_layout
-
-\begin_layout Standard
-Prior to the clearinghouse intervention, we collected baseline data of farmers
- in catchment areas of the input dealers that were enrolled in the study.
+ In particular, prior to the clearinghouse intervention, we collected baseline
+ data of farmers in catchment areas of the input dealers that were enrolled
+ in the study.
  During this baseline interview, we asked farmers to rate input dealers
  in their catchment area on a number of characteristics.
  This was done in the ODK app, which had pre-loaded data on the agro-input
@@ -804,11 +776,13 @@ Prior to the clearinghouse intervention, we collected baseline data of farmers
 status collapsed
 
 \begin_layout Plain Layout
-It may be argued that asking farmers to rate agro-input dealers in a particular
- area, you are also making farmers aware of the existence of all agro-input
- dealers in the area, which may potentially confound the clearinghouse effect.
+It may be argued that by asking farmers to rate agro-input dealers in a
+ particular area, you are also making farmers aware of the existence of
+ all agro-input dealers in the area, and this awareness effect may potentially
+ confound the clearinghouse effect.
  We thus also iterate through the agro-input dealers for control subjects,
- to make control farmers aware of the existence of agro-input dealers.
+ to make control farmers similarly aware of the existence of agro-input
+ dealers in their vincinity.
 \end_layout
 
 \end_inset
@@ -817,20 +791,20 @@ It may be argued that asking farmers to rate agro-input dealers in a particular
 \end_layout
 
 \begin_layout Standard
-To get an idea of the perceptions of the farmers of the products that agro-input
- dealers sell, we use various questions that farmer should answer on a likert
- scale.
- These include whether seed yields are generally as advertised, are drought
+To construct the rankings of agro-input dealers, we used various questions
+ that farmers were expected to answer on a likert scale.
+ These included whether seed yields are generally as advertised, are drought
  tolerant as advertised, are pest/disease tolerant as advertised, and if
  time to maturity is as promised.
- We also ask to rage seed germination, and the quality of the seed in general.
+ We also asked to rate seed germination, and the quality of the seed in
+ general.
  These ratings were translated into words (ok, good, very good, excellent)
  and stars, so that they are easily understandable for farmers and dealers
  who are not used to interpreting numbers.
 \end_layout
 
 \begin_layout Standard
-These ratings were then fed back to farmers and agro-input dealers in various
+The ratings were then fed back to farmers and agro-input dealers in various
  forms 
 \shape italic
 \emph on
@@ -842,9 +816,10 @@ before
  a series of sms messages.
  During in-person dissemination to farmers, enumerators re-visited all farmers
  in our sample.
- We designed a visually appealing dissemination app which cycles through
- all dealers in the proximity of each farmer and states: "We wanted to let
- you know that customers from 
+ We designed a visually appealing dissemination app which was shown to farmers
+ on tablet computers which cycled through all dealers in the proximity of
+ each farmer (again showing picture of store front etc.) and stated: "We
+ wanted to let you know that customers from 
 \shape italic
 shop name
 \shape default
@@ -855,14 +830,14 @@ shop name
 score
 \shape default
  out of 5!" in treated catchment areas.
- Then the enumerator showed the stars associated with the score.
+ The app also showed the stars associated with the score.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 As before, to account for the fact that simply visiting farmers and reminding
  them about the existence of agro-input dealers may confound the clearing
- house effect we revisited all farmers in control catchment areas and also
+ house effect, we revisited all farmers in control catchment areas and also
  cycled through dealers, but simply asked a couple of questions like e.g.
  "Do you know this 
 \shape italic
@@ -875,7 +850,7 @@ shop name
 \end_inset
 
  For the sms based dissemination, we sent farmers one text message per dealer
- in their proximity.
+ in their proximity with similar information.
 \begin_inset Foot
 status collapsed
 
@@ -894,10 +869,11 @@ Also in control catchment areas, farmers received text messages with the
 Agro-input dealers received their ratings in the form of a report on laminated
  paper which was delivered to their shops.
  The front shows a visually appealing certificate with a logo and the shops
- general rating both in word and in with stars.
+ general rating both in word and in stars.
  Enumerators advised shopkeepers to display the ratings in the shop, similar
  to a "certificate of excellence" of TripAdvisor.
- An example can be found in the Appendix Figure 
+ An example of the front of a report can be found in the Appendix Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "SeedAdvisor certificate"
@@ -908,17 +884,14 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The back of the report shows more detailed information.
+ The back of the report shows more detailed information.
  In addition to the dealer's general rating, it shows the dealer's specific
- ratings (overall quality, yield, drought and disease resistance, speed
- of maturing, and germination) and the average ratings of other agro-input
- dealers in the same catchment area in a table, visualized by stars.
- This shows dealers their relative position in the area and motivate agro-input
- dealers to perform better on areas where they can improve relative to the
- immediate competition.
+ ratings (overall quality, yield, drought and disease resistance, time to
+ mature, and germination) and the average ratings of other agro-input dealers
+ in the same catchment area in a table and visualized by stars.
+ This shows dealers their relative position in the area and is expected
+ to motivate agro-input dealers to perform better on areas where they can
+ improve relative to the immediate competition.
 \end_layout
 
 \begin_layout Standard
@@ -928,7 +901,7 @@ Information clearinghouse mechanisms in developing countries have been studied
  Assuming that middlemen are better informed about prevailing prices in
  the market than farmers, theory suggests that providing farmers with price
  information increases their bargaining power.
- However, evidence is mixed: while 
+ However, evidence on their effectiveness is mixed: while 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.2307/25760218"
@@ -937,7 +910,7 @@ literal "false"
 \end_inset
 
  finds that internet kiosks that provide wholesale price information significant
-ly increase soy prices in India, 
+ly increased soy prices in India, 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "fafchamps2012impact"
@@ -947,20 +920,7 @@ literal "false"
 
  do not find a statistically significant effect of market information delivered
  to farmers' mobile phones in a neighboring state.
- 
-\end_layout
-
-\begin_layout Standard
-A clearinghouse that relies on crowd-sourced ratings may be more effective
- in increasing seed quality in the market.
- While prices can generally be observed reasonably easy, assessing an experience
- or credence good such as seed is much more difficult.
- Aggregating the experiences of many users may thus be a particularly powerful
- way to reveal the quality of the product.
-\end_layout
-
-\begin_layout Standard
-A study by 
+ A study by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -968,39 +928,14 @@ literal "true"
 
 \end_inset
 
-, who set up a rating system for public veterinary services in Pakistan,
+, who set up a rating system for public veterinary services in Pakistan
  is probably the closest to ours.
  They find that farmers who use the clearinghouse enjoy a 25% higher success
  rate of artificial insemination.
  Their research suggests that this is mostly due to increased veterinarian
  effort, as few farmers seem to be switching from veterinaries that receive
  poor ratings to veterinaries that receive good ratings.
- In 
-\begin_inset CommandInset citation
-LatexCommand citeauthor
-key "hasanain2019no"
-literal "true"
-
-\end_inset
-
-'s study, veterinaries provide their services directly, without an intermediary.
- If producers do not sell to customers directly, so that more entities and
- transactions are involved, there is even more scope for information asymmetries.
- That is why reducing asymmetric information can be even more important
- in markets with intermediaries like agro-input dealers.
-\end_layout
-
-\begin_layout Standard
-Hence a crowd-sourced information clearinghouse can be an important institutiona
-l innovation to solve the problem of asymmetric information in the market
- for agricultural inputs and may affect both intentional and non-intentional
- quality reductions by reducing malpractices at the agro-input dealer level.
- We hypothesize that it improves smallholder farmers' perception and adoption
- of agricultural inputs.
- It may be preferable to alternative strategies due to its likely lower
- cost, self-sustaining nature and scaleability, and helps to overcome problems
- such as insufficient public investment in regulatory systems, regulatory
- enforcement, and market surveillance.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1049,23 +984,38 @@ I3: Addressing learning failures at the farmer level
 \end_layout
 
 \begin_layout Standard
-This intervention will rely on short, visually appealing videos, shown to
- the farmers on tablet computers.
+The intervention that was used to test the learning failure hypothesis was
+ built around short, visually appealing videos, shown to the farmers on
+ tablet computers.
  Video's featuring role models have been found effective in changing people's
  behaviour in a range of applications 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "riley2017role,doi:10.1002/ajae.12089,vandevelde2018spoiler,10.1093/wber/lhv014"
+key "riley2019role,doi:10.1002/ajae.12089,vandevelde2018spoiler,10.1093/wber/lhv014"
 literal "false"
 
 \end_inset
 
 .
- A script will be written and a professional video producer will be engaged.
- A treatment and a control video will be produced, both show best seed managemen
-t practices.
- The only difference is one piece of information, namely that this seed
- management is especially important when using improved seed.
+ Similar to how the content for the input dealer seed storage and handling
+ training was determined, we consulted experts from the Ugandan ministry
+ of agriculture, from the seed sector and from input dealer associations
+ in Uganda prior to the experiment.
+ Also here, a consultative workshop and semi structured interviews were
+ organized with experts of different institutions and organizations.
+ 
+\end_layout
+
+\begin_layout Standard
+Based on the information obtained from these consultations, we developed
+ a video that shows what complementary inputs and practices are important
+ to create an enabling environment for improved seed to flourish.
+ A treatment and a control version of the video was produced.
+ The only difference between the treatment and the control video is that
+ in the treatment video, after each complementary input or practice that
+ is shown, the actor stresses that these inputs or practices are particularly
+ important if improved seed varieties are used.
+ The videos were shown to farmers individually on tablet computers.
 \end_layout
 
 \begin_layout Section
@@ -1080,34 +1030,24 @@ name "sec:Experimental-design"
 \end_layout
 
 \begin_layout Standard
-To test the three hypotheses, we will implement three interventions that
- are combined in a field experiment where various treatment and control
- groups are randomly assigned to either a treatment or control condition.
+To test the three hypotheses, the three interventions are combined in a
+ field experiment where various treatment and control groups are randomly
+ assigned to either a treatment or control condition.
  The randomized control trial (RCT) takes the form of a 
 \begin_inset Formula $2^{3}$
 \end_inset
 
  factorial design, with each intervention corresponding to one hypothesis.
- To test the first hypothesis, a random sub-sample of input dealers will
- receive training on proper seed handling and storage.
- To test the second hypothesis, a rating system will be set up among a random
- sub-sample catchment areas of input dealers, and farmer and input dealers
- will receive feedback on the ratings before the start of the planting season.
+ To test the first hypothesis, a random sub-sample of input dealers received
+ training on proper seed handling and storage.
+ To test the second hypothesis, an information clearing house was set up
+ among a random sub-sample catchment areas of input dealers, and farmer
+ and input dealers will receive feedback on the ratings before the start
+ of the planting season.
  To test the third hypothesis, a video that points out the importance of
  combining improved seed with other inputs and careful crop management will
  be shown to a random subset of villages.
- The treatments are further elaborated in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Interventions"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Impact will be judged by looking at outcomes both at the input dealer level
+ Impact is judged by looking at outcomes both at the input dealer level
  (eg.
  investments in seed storage infrastructure, quantity of seed sold,...) as
  well as at the farmer level (eg.
@@ -1141,63 +1081,12 @@ The main motivation to randomize at the village level is to eliminate potential
 
 \end_inset
 
-.
-\end_layout
 
-\begin_layout Standard
-The decision to randomize the first two interventions at the level of the
- catchment area instead of at the level of the input dealer has two main
- reasons.
- Often, input dealers are clustered in markets or trading centers with overlappi
-ng catchment areas.
- Randomization at the level of the input dealer prompted ethical concerns.
- For instance, it may be that one dealer gets assigned to the treatment
- group for the information clearinghouse and receive a good rating, while
- his/her neighbor gets assigned to the control group of that particular
- treatment (and does not get rated).
- Farmers in the vicinity of the two input dealers farmers may be more inclined
- to switch to the dealer with that received the rating, even though the
- services of the input dealer in the control group may be the same.
- While, in this case, the rating would lead to a competitive advantage for
- the dealer that got the rating, the reverse may be true if the dealer gets
- a poor rating.
- Delineating a catchment area based on overlapping areas that are served
- by the input dealers and randomizing at this level reduces this concern.
- While this is less of a concern for the first treatment, we were still
- worried that providing an intense training treatment to one input dealer
- but not to his or her immediate neighbor may be difficult in practice.
- So also for this treatment, catchment areas will be targeted.
-\end_layout
-
-\begin_layout Standard
-The second reason why we decided to randomize at the catchment area level
- is because we also want to measure the effect of the first two treatments
- at the level of the farmer.
- For example, if we would randomize the input dealer training at dealer
- level, one dealer might be trained but his or her neighbor not.
- If we want to know if the dealer training leads to increased adoption of
- improved seed among farmers in the vicinity of an input dealer, we need
- to be able to connect each farmer unambiguously to each input dealer.
- We avoid this problem by randomizing at the catchment area level because
- then all dealers within that catchment area received the training (or not)
- and all farmers within that area are potential customers of only dealers
- who received the training (or not).
- A similar argument applies to the second treatment.
 \end_layout
 
 \begin_layout Standard
 The resulting layout, with sample sizes indicated in each treatment cell
- (obtained through power calculations that can be found in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Power-Analysis-Simulations"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) is illustrated in Figure 
+ is illustrated in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Design"
@@ -1254,7 +1143,7 @@ While the third treatment is implemented at the level of the village, it
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
