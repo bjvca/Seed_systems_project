@@ -1187,10 +1187,12 @@ baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.own
 
 baseline_dealers$quantitysold <- baseline_dealers$maize.owner.agree.long10h.q25+baseline_dealers$maize.owner.agree.longe7h.q37+baseline_dealers$maize.owner.agree.longe5.q50+baseline_dealers$maize.owner.agree.longe4.q62
 baseline_dealers <- trim("quantitysold",baseline_dealers,trim_perc=.02)
+baseline_dealers$quantitysold <- ihs(baseline_dealers$quantitysold)
 
 baseline_dealers$mid_quantitysold <- baseline_dealers$mid_maize.owner.agree.long10h.q25+baseline_dealers$mid_maize.owner.agree.longe7h.q37+baseline_dealers$mid_maize.owner.agree.longe5.q50+baseline_dealers$mid_maize.owner.agree.longe4.q62 #x
 
 baseline_dealers <- trim("mid_quantitysold",baseline_dealers,trim_perc=.02) #x
+baseline_dealers$mid_quantitysold <- ihs(baseline_dealers$mid_quantitysold)
 
 #2. Sales prices of a hybrid and an open-pollinated maize variety at beginning of last season in UGX per kg
 baseline_dealers$maize.owner.agree.long10h.q26[baseline_dealers$maize.owner.agree.long10h.q26=="n/a"]<-NA
@@ -1528,12 +1530,10 @@ baseline_dealers$index_efforts_base <- index_efforts_base$index
 
 variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
                                            ,baseline_dealers$mid_maize.owner.agree.q7
-                                           ,baseline_dealers$mid_reading
                                            ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
                                            ,baseline_dealers$index_efforts_mid) #x
 variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$revenue
                                             ,baseline_dealers$maize.owner.agree.q7
-                                            ,baseline_dealers$reading
                                             ,baseline_dealers$index_practices_cap_base,baseline_dealers$index_practices_lab_base
                                             ,baseline_dealers$index_efforts_base)
 
@@ -1544,10 +1544,10 @@ variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseli
 ###
 
 #10.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid, revcols = c(4)) #x
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid) #x
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index #x
 
-index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base, revcols = c(4))
+index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base)
 baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_base$index
 
 
@@ -1607,10 +1607,10 @@ index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dea
 baseline_dealers$index_efforts_baseT <- index_efforts_base$index
 
 #10.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid$index
 
-index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$training_control, revcols = c(4))
+index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_baseT <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
@@ -1673,10 +1673,10 @@ index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dea
 baseline_dealers$index_efforts_baseC <- index_efforts_base$index
 
 #10.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
-index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$clearing_control, revcols = c(4))
+index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_baseC <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
@@ -1735,10 +1735,10 @@ index_efforts_base <- icwIndex(xmat=variables_efforts_base,sgroup = baseline_dea
 baseline_dealers$index_efforts_baseF <- index_efforts_base$index
 
 #10.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid$index
 
-index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$farmer_control, revcols = c(4))
+index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_baseF <- index_overall_prim_dealer_base$index
 
 results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
