@@ -140,10 +140,10 @@ Demand and supply factors constraining the emergence and sustainability
 
 \begin_layout Abstract
 Agricultural technology remains under-adopted among smallholder farmers
- in Sub-Saharan Africa.
+ in sub-Saharan Africa.
  We investigate how the variation in (perceptions of) the quality of an
  agricultural technology—improved maize seed—affects its adoption.
- Using a randomized controlled trials among agro-input dealers and smallholder
+ Using a randomized control trial among agro-input dealers and smallholder
  farmers in Uganda, we test three hypotheses.
  In a first hypothesis, quality issues that constrain uptake are caused
  by knowledge gaps at the level of agro-input dealers; a training on proper
@@ -151,13 +151,13 @@ Agricultural technology remains under-adopted among smallholder farmers
  to increase adoption on the farm.
  A second hypothesis conjectures that information asymmetries similar to
  the lemons problem constrain technology adoption.
- We test this hypothesis by setting up an information clearing house that
- relies on crowd-sourcing to make hidden features of the technology visible
+ We test this hypothesis by setting up an information clearinghouse that
+ relies on crowdsourcing to make hidden features of the technology visible
  to both agro-input dealers and farmers.
  We also test a behavioral explanation, whereby we assume that farmers attribute
  poor outcomes to the wrong causes.
  In this report, we present results obtained from the endline survey that
- was collected two agricultural seasons after the interventions took place.
+ was collected two agricultural seasons after the start of the project.
 \end_layout
 
 \begin_layout Abstract
@@ -279,7 +279,7 @@ In a first hypothesis, quality concerns that constrain uptake of the technology
  are caused by knowledge gaps at the level of the agro-input dealers, who
  are assumed to lack awareness and skills related to proper storage and
  handling of improved agro-inputs.
- To test this hypothesis, we implement and intensive training program that
+ To test this hypothesis, we implement an intensive training program that
  is expected to lead to improved maize seed quality sold by agro-input dealers,
  in turn increasing adoption by farmers.
  A second hypothesis conjectures that information asymmetries between seller
@@ -290,21 +290,21 @@ In a first hypothesis, quality concerns that constrain uptake of the technology
  dealers, aggregate this data into rankings and feed this data back to both
  farmer and agro-input dealers.
  A third hypothesis targets farmers directly, as sub-optimal adoption is
- assumed to be caused by a particular type of learning failures: As farmers
+ assumed to be caused by a particular type of learning failure: As farmers
  have to pay more for improved seed, this may also lead to altered expectations
  and behavior.
  In particular, we argue that farmers may expect too much from seed and
  as a result exert less effort than they normally would, use less complementary
  inputs, and plant the improved seed on sub-optimal plots.
  Disappointing outcomes may then be attributed to poor input quality.
- An ICT-mediated information campaign that stresses that even when using
- improved seed is is important to pay attention to all input dimensions
+ An ICT-mediated information campaign that stresses that it is important
+ to pay attention to all input dimensions even when using improved seed
  is implemented to test this hypothesis.
 \end_layout
 
 \begin_layout Standard
 This report documents impact at endline after two full agricultural seasons
- had passed since the intervention.
+ had passed since the start of the project.
  A similar report was written at the time of midline data collection, looking
  at impact after one agricultural season.
  Both reports closely follow a mock report, that was prepared after baseline
@@ -314,16 +314,16 @@ This report documents impact at endline after two full agricultural seasons
 status open
 
 \begin_layout Plain Layout
-This document was written using the open source lyx/Latex typesetting software.
+This document was written using the open source LyX/Latex typesetting software.
  The analysis is contained in an R script called 
 \begin_inset Quotes eld
 \end_inset
 
-mock_report.R
+endline_report.R
 \begin_inset Quotes erd
 \end_inset
 
-, which is run from within lyx/latex using the 
+, which is run from within LyX/latex using the 
 \begin_inset CommandInset href
 LatexCommand href
 name "knitr engine"
@@ -355,14 +355,14 @@ target "https://github.com/bjvca/Seed_systems_project"
 \end_layout
 
 \begin_layout Standard
-We find that when reducing asymmetric information through an info clearing
- house, shops get more customers, provide more effort and extend more and
- better services to customers.
+We find that when reducing asymmetric information through an information
+ clearinghouse, shops get more customers, provide more effort and extend
+ more and better services to customers.
  Shops also seem more open to certification and are actively seeking inspection.
- More farmers use quality seed and they are more likely to use seed from
- agro-input dealer.
- Finally we find that farmers that are exposed to the information clearing
- house treatment report higher production and higher productivity.
+ More farmers use quality seed, and they are more likely to use seed from
+ agro-input dealer.s Finally, we find that farmers that are exposed to the
+ information clearinghouse treatment report higher production and higher
+ productivity.
  There is no indication that agro-input dealers intentionally sell low quality
  seed - a training to improve quality does not further increase quality.
  
@@ -384,13 +384,13 @@ noprefix "false"
 
 .
  Next, there is a section on data, that presents characteristics of farmers
- and agro-input dealers are baseline, demonstrates balance between treatment
+ and agro-input dealers at baseline, demonstrates balance between treatment
  groups, and looks at attrition.
  We then present the results from the impact analysis of the endline data.
 \end_layout
 
 \begin_layout Section
-Research Questions and Hypotheses
+Research questions and hypotheses
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Research-Questions-and"
@@ -404,9 +404,9 @@ name "sec:Research-Questions-and"
 Seed quality issues, or the perception thereof, may arise at different stages
  in the seed supply chain.
  Poor seed quality may occur as a result of input dealer practices.
- This may be unintentional when the agro-input dealers is unaware of proper
+ This may be unintentional when the agro-input dealer is unaware of proper
  handling and storage practices, or intentional if the agro-input dealer
- tries to reduce cost by for example mixing poor quality seed with good
+ tries to reduce cost by for example mixing poor-quality seed with good
  quality seed.
  The problem may also be situated at the level of the smallholder farmer.
  For instance, a farmer may lack confidence in the input dealer or his/her
@@ -565,8 +565,8 @@ literal "false"
 \end_layout
 
 \begin_layout Subsubsection*
-H3: Seed is of good quality but have inflated expectations and face learning
- challenges
+H3: Seed is of good quality but farmers have inflated expectations and face
+ learning challenges
 \end_layout
 
 \begin_layout Standard
@@ -642,7 +642,7 @@ status collapsed
 Is this documented somewhere? Do we have references? During the maize study,
  Fiona, one of my RAs at the time, planted the hybrid the we promoted in
  her garden.
- She said she got much bigger maize cobs than her neighbour who used landraces,
+ She said she got much bigger maize cobs than her neighbor who used landraces,
  but that here maize suffered from fall army worm invasion while the neighbour
  had less issues.
 \end_layout
@@ -724,9 +724,8 @@ ions.
  These problems were then ranked according to how badly they affect seed
  quality and how many agro-input dealers are affected by these problems.
  In a next step, solutions were associated to each of the problems.
- The solutions were also ranked in terms of effectiveness and it was discussed
- if these solutions would be within reach of the majority of agro-input
- dealers.
+ The solutions were also ranked in terms of effectiveness, and it was discussed
+ if these solutions would be within reach of most agro-input dealers.
 \begin_inset Foot
 status collapsed
 
@@ -746,8 +745,10 @@ Based on the information collected, we developed detailed training manuals
  This ensured standardized treatment.
  We also created visually appealing posters showing the most important best
  practices that were given to input dealers to mount in their shop.
- The training was implemented by three trainers, one from ISSD, one from
- UNADA, and one agronomist that was part of the research team.
+ The training was implemented by three trainers, one from Integrated Seed
+ and Sector Development (ISSD), one from Uganda National Agro-Input and
+ Dealers' Association (UNADA), and one agronomist that was part of the research
+ team.
  It was organized at a location that was easily reachable for all sampled
  agro-input dealers within the treated catchment area.
  For each treated shop, we invited the shop owner and the shop manager.
@@ -821,8 +822,9 @@ The information clearinghouse treatment we implement is a fairly complex
  in the study.
  During this baseline interview, we asked farmers to rate input dealers
  in their catchment area on a number of characteristics.
- This was done in the ODK app, which had pre-loaded data on the agro-input
- dealers such as name, location, and a picture of the store front.
+ This was done in the Open Data Kit (ODK) app, which had pre-loaded data
+ on the agro-input dealers such as name, location, and a picture of the
+ store front.
  Depending on the location of the farmer, the ODK app iterated through all
  agro-input dealers in the vicinity of the farmer.
  Furthermore, depending on the treatment status of the agro-input dealer,
@@ -837,7 +839,7 @@ It may be argued that by asking farmers to rate agro-input dealers in a
  confound the clearinghouse effect.
  We thus also iterate through the agro-input dealers for control subjects,
  to make control farmers similarly aware of the existence of agro-input
- dealers in their vincinity.
+ dealers in their vicinity.
 \end_layout
 
 \end_inset
@@ -847,13 +849,13 @@ It may be argued that by asking farmers to rate agro-input dealers in a
 
 \begin_layout Standard
 To construct the rankings of agro-input dealers, we used various questions
- that farmers were expected to answer on a likert scale.
+ that farmers were expected to answer on a Likert scale.
  These included whether seed yields are generally as advertised, are drought
  tolerant as advertised, are pest/disease tolerant as advertised, and if
  time to maturity is as promised.
  We also asked to rate seed germination, and the quality of the seed in
  general.
- These ratings were translated into words (ok, good, very good, excellent)
+ These ratings were translated into words (OK, good, very good, excellent)
  and stars, so that they are easily understandable for farmers and dealers
  who are not used to interpreting numbers.
 \end_layout
@@ -868,7 +870,7 @@ before
 \emph default
  farmers start buying seed for the next agricultural season.
  To farmers, ratings were disseminated both in-person, as well as through
- a series of sms messages.
+ a series of Short Message Service (SMS) messages.
  During in-person dissemination to farmers, enumerators re-visited all farmers
  in our sample.
  We designed a visually appealing dissemination app which was shown to farmers
@@ -891,9 +893,9 @@ status collapsed
 
 \begin_layout Plain Layout
 As before, to account for the fact that simply visiting farmers and reminding
- them about the existence of agro-input dealers may confound the clearing
- house effect, we revisited all farmers in control catchment areas and also
- cycled through dealers, but simply asked a couple of questions like e.g.
+ them about the existence of agro-input dealers may confound the clearinghouse
+ effect, we revisited all farmers in control catchment areas and also cycled
+ through dealers, but simply asked a couple of questions like e.g.
  "Do you know this 
 \shape italic
 shop name
@@ -904,7 +906,7 @@ shop name
 
 \end_inset
 
- For the sms based dissemination, we sent farmers one text message per dealer
+ For the SMS based dissemination, we sent farmers one text message per dealer
  in their proximity with similar information.
 \begin_inset Foot
 status collapsed
@@ -1043,7 +1045,7 @@ The intervention that was used to test the learning failure hypothesis was
  built around short, visually appealing videos, shown to the farmers on
  tablet computers.
  Video's featuring role models have been found effective in changing people's
- behaviour in a range of applications 
+ behavior in a range of applications 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "riley2019role,doi:10.1002/ajae.12089,vandevelde2018spoiler,10.1093/wber/lhv014"
@@ -1162,7 +1164,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1210,7 +1212,7 @@ Even though the third treatment was implemented at the level of the village,
  Similarly, orthogonality should also be maintained for the second treatment.
  Therefore, in each of the four treatment cells formed by interacting the
  first two treatments, 40 villages (347 villages in 130 catchment areas,
- ie.
+ i.e.
  2,67 villages per catchment area, so that 14 areas correspond to 37,37
  villages) will be randomly assigned to the third treatment while another
  40 villages will be assigned to the control.
@@ -1279,11 +1281,11 @@ We measure the outcomes of interest before and after the intervention, so
 \end_layout
 
 \begin_layout Subsection
-Descriptive statistics and orthogonality tests
+Descriptive statistics
 \end_layout
 
 \begin_layout Standard
-In this section, we provides descriptive statistics and orthogonality tests
+In this section, we provide descriptive statistics and orthogonality tests
  for the baseline data.
  
 \end_layout
@@ -1306,8 +1308,8 @@ noprefix "false"
 , with standard deviations in brackets below the means.
  For example, we see that the average respondent that was interviewed in
  the shop, usually the shop manager, is about 32 years old.
- In 60 percent of the cases, the person interviews was male.
- The average shop received about 41 customers on a give day and sold 911
+ In 60 percent of the cases, the interviewed person was male.
+ The average shop received about 41 customers on a given day and sold 911
  kilograms of maize seed in the season preceding the baseline survey.
  We see that 65 percent of shops reported that they had problems with pests
  such as mice and rats.
@@ -2117,7 +2119,7 @@ noprefix "false"
 
 \end_inset
 
-, we test balance at the level of the agro input dealer for selected variables;
+, we test balance at the level of the agro-input dealer for selected variables;
  the full balance table for agro-input dealers as it was pre-registered
  can be found in the appendix (see Appendix Table 
 \begin_inset CommandInset ref
@@ -2167,7 +2169,7 @@ While random attrition only reduces statistical power, attrition which is
  We focus on limiting attrition during data collection because it is difficult
  to solve ex post.
  That is why we recorded the respondents' full names, primary and secondary
- telephone numbers, and enumerators captured the locations ie.
+ telephone numbers, and enumerators captured the locations i.e.
  the GPS coordinates of the interviews.
  We collected this information for every participant during baseline data
  collection.
@@ -2437,7 +2439,7 @@ noprefix "false"
  to track 3441 of the 3470 original farmers.
  The table also shows if attrition is related to the treatment.
  There is some indication that attrition is lower in the group of agro-input
- dealers that were exposed to the treatment group.
+ dealers that were exposed to the treatment.
  
 \end_layout
 
@@ -2483,7 +2485,7 @@ Primary outcomes
 \end_layout
 
 \begin_layout Standard
-Primary outcomes at the dealer level are are reported in Table 
+Primary outcomes at the dealer level are reported in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_dealer_prim"
@@ -2520,7 +2522,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3933,8 +3935,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -4040,17 +4044,17 @@ Sexpr{format(round(df_means_D_sec_nobase[5,2],digits=2),nsmall=2)} at endline.
 \end_layout
 
 \begin_layout Standard
-Looking at the primary outcome indices, we see that the clearing house intervent
-ion significantly increased outcomes at the agro-input dealer level.
+Looking at the primary outcome indices, we see that the clearinghouse interventi
+on significantly increased outcomes at the agro-input dealer level.
  The effect is driven by a substantial increase in the number of customers
  that agro-input shops attract and by an increase in the index that measures
  the dealer's effort and services (this index is composed of 7 variables:
  whether shop offers explanations, complementary input recommendations,
  extension/training, discounts for larger quantities, credit, did not receive
  seed related customer complaint, accepts mobile money).
- Futhermore, all other treatment effects go in the right direction, and
+ Furthermore, all other treatment effects go in the right direction, and
  some are close to the significance threshold.
- For instance, we see that agro-input shops in the clearing house treatment
+ For instance, we see that agro-input shops in the clearinghouse treatment
  group apply more of the proper seed storage and handling practices, have
  lower moisture levels in randomly sampled seed bags and sell more improved
  seed varieties.
@@ -4069,7 +4073,7 @@ Results are more puzzling for the agro-input dealer training.
 \begin_layout Standard
 Finally, primary outcomes of agro-input dealers with clients that received
  the video to make salient the fact that improved seed varieties also need
- complementary inputs were not different from agro input dealers with clients
+ complementary inputs were not different from agro-input dealers with clients
  who did not receive this intervention.
  This is not so surprising—we would have expected most of the effects to
  manifest itself at the farmer level.
@@ -4772,8 +4776,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -4876,12 +4882,12 @@ Sexpr{format(round(df_means_D_sec[5,7],digits=2),nsmall=2)} at endline.
 
 \begin_layout Standard
 Apart from a positive impact on dealer's knowledge about seed storage and
- handling from the clearing house treatment, we do not find a lot of effects.
+ handling from the clearinghouse treatment, we do not find a lot of effects.
  A first index that proxies dealer's motivation and satisfaction (and is
- composed3 variables: whether dealer sees him-/ herself working as agro-input
- dealer in future, would recommend working as dealer, how happy dealer feels
- when he/ she comes to work) remains constant among treatment groups.
- A second index that reflect self ratings of agro-input dealers is similarly
+ composed of 3 variables: whether dealer sees him-/ herself working as agro-inpu
+t dealer in future, would recommend working as dealer, how happy dealer
+ feels when he/ she comes to work) remains constant among treatment groups.
+ A second index that reflect self-ratings of agro-input dealers is similarly
  unaffected by the three treatments.
  While the primary index on that measures the dealer's effort and services
  was based on what dealers reported, we also asked farmers what serviced
@@ -4892,7 +4898,7 @@ Apart from a positive impact on dealer's knowledge about seed storage and
 \end_layout
 
 \begin_layout Standard
-The index of dealer's knowledge about seed storage and handling, and index
+The index of dealer's knowledge about seed storage and handling, an index
  that is composed of 5 variables (whether dealer knows how long seed can
  be carried over, how seed should be stored after repackaging, what the
  minimum distance between floor and seed should be, how seed should be stored
@@ -4900,8 +4906,8 @@ The index of dealer's knowledge about seed storage and handling, and index
  Looking at the individual variables we find that for some storage and handling
  practices, baseline knowledge is already fairly high.
  Somewhat surprisingly, we do not find that knowledge is significantly affected
- by the training that we provided, but does increase due the the information
- clearing house.
+ by the training that we provided, but does increase due the information
+ clearinghouse.
  This seems to suggest that if agro-input dealers are provided with the
  right incentive, they actively seek out information.
  However, merely providing the information to agro-input dealers does not
@@ -4923,7 +4929,7 @@ noprefix "false"
 
 \end_inset
 
- looks at farmer level outcomes related to a popular hybrid maize seed,
+ looks at dealer level outcomes related to a popular hybrid maize seed,
  while Appendix Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4942,7 +4948,7 @@ Results for Longe 10H are generally consistent with findings in the table
  of primary outcomes, albeit somewhat less convincing due to smaller sample
  size.
  Most importantly, we find a significant and positive overall effect of
- the clearing house treatment as judged by the indices.
+ the clearinghouse treatment as judged by the indices.
  This is driven by increased sales of hybrid seed by treated agro-input
  dealers and a reduced number of stockouts, for which both coefficient estimates
  are just above the significance threshold.
@@ -6067,8 +6073,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -6135,8 +6143,8 @@ noprefix "false"
 
 \end_inset
 
- looks at farmer level outcomes related to a popular OPV maize seed (Longe
- 5), while Appendix Table 
+ looks at farmer level outcomes related to a popular open-pollinated variety
+ (OPV) (Longe 5), while Appendix Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_dealer_sec_L5_adj"
@@ -6152,7 +6160,7 @@ noprefix "false"
 \begin_layout Standard
 Results for Longe 5 are again consistent with the primary outcomes and with
  Longe 10H.
- We find a significant positive effect of the clearing house treatment if
+ We find a significant positive effect of the clearinghouse treatment if
  we control for baseline outcomes.
  We find that this result is primarily driven by increased sales of Longe
  5.
@@ -7276,8 +7284,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -7317,11 +7327,10 @@ noprefix "false"
 \end_inset
 
  providing results adjusted for multiple comparisons).
- We find that the information clearing house treatment has a positive impact
+ We find that the information clearinghouse treatment has a positive impact
  on an index that aims to capture registration and quality control.
  This seems to be driven by an almost 12 percentage point increase in the
- likelihood that the agro-input dealers is registered with the Uganda National
- Agro-input Dealer Association (UNADA).
+ likelihood that the agro-input dealer is registered with UNADA.
  The treatment also seems to crowd-in inspections in the previous year.
  This may be due to the increase in registration.
  Alternatively, agro-input dealers may want to signal to consumers that
@@ -8349,8 +8358,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -8390,7 +8401,7 @@ noprefix "false"
 \end_inset
 
 ) provides comparisons.
- Results are again strongest for the clearing house treatment, even though
+ Results are again strongest for the clearinghouse treatment, even though
  we do not find significant effects.
  For instance, we find moisture levels to be lower in a random seed bag.
  We suspect that the small sample size may make it difficult to detect a
@@ -9194,8 +9205,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -9244,13 +9257,13 @@ noprefix "false"
 
  that adjusts for multiple comparisons).
  We do not find any significant effect on the number of different seed in
- stock, even though the coefficient estimate for the clearing house treatment
+ stock, even though the coefficient estimate for the clearinghouse treatment
  is consistently positive.
  We do find a significant effect on the likelihood of owning a moisture
  meter for agro-input dealers that were allocated to the agro-input dealer
  training.
  This is not surprising since agro-input dealers that attended the training
- were given such as device.
+ were given such a device.
 \end_layout
 
 \begin_layout Standard
@@ -10035,8 +10048,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -11513,8 +11528,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -11635,11 +11652,11 @@ Sexpr{format(round(df_means_F_prim[3,6],digits=0),nsmall=0)} farmers answered
 \end_layout
 
 \begin_layout Standard
-Looking at the index, we see that the information clearing house has a positive
+Looking at the index, we see that the information clearinghouse has a positive
  impact at the farmer level as well, even though the effect is just not
  significant if we control for the index value at baseline.
  Looking at the individual primary outcomes, we find that farmers that were
- exposed to the clearing house treatment are 4.2 percentage points more likely
+ exposed to the clearinghouse treatment are 4.2 percentage points more likely
  to use improved seed on at least one of their plots.
  Many of the other primary outcomes go in the expected direction.
  One important outcome is related to the perceptions of maize seed quality
@@ -11701,7 +11718,7 @@ noprefix "false"
 \end_inset
 
 ).
- We find that farmers that were exposed to the information clearing house
+ We find that farmers that were exposed to the information clearinghouse
  are more likely to have planted seed that was bought at an agro-input shop.
  Most of the other variables also go into the expected direction (less use
  of farmer saved seed and more use of hybrid seed), but estimates are not
@@ -12619,8 +12636,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -12638,8 +12657,8 @@ dag$ indicates that the variable is included in the overall index; larger
 \end_layout
 
 \begin_layout Standard
-We also go more into detail with respect the the seed that was used on the
- randomly selected field (Tables 
+We also go more into detail with respect the seed that was used on the randomly
+ selected field (Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_farmer_sec: plot seed"
@@ -13671,8 +13690,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -13723,8 +13744,8 @@ noprefix "false"
 \end_inset
 
  in the Appendix).
- We find that, judged by the index, the clearing house treatment had a significa
-nt and positive impact on this family of outcomes.
+ We find that, judged by the index, the clearinghouse treatment had a significan
+t and positive impact on this family of outcomes.
  This is drive by a significant increase of production and an equally large
  increase in productivity (suggesting the increase in production is due
  to an increase in the intensive margin).
@@ -14852,8 +14873,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -14882,7 +14905,7 @@ noprefix "false"
 
 \end_inset
 
- (and and corresponding Appendix Table 
+ (and corresponding Appendix Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_farmer_sec-1"
@@ -14900,7 +14923,7 @@ noprefix "false"
  across.
  To avoid priming, these questions were only asked during endline data collectio
 n.
- As expected we find that farmers that were exposed to the video have also
+ As expected, we find that farmers that were exposed to the video have also
  more aware that supplementary inputs and good agronomic practices are equally
  if not more important when using good quality seed.
  We also find that farmers that were exposed to this intervention know slightly
@@ -14915,15 +14938,15 @@ t dealer the farmer i) knows and ii) knows and bought seed from in the previous
  season.
  We see that farmers on average bought seed last season from one out of
  four agro-input dealers in their catchment area and that this share is
- significantly higher in areas where the information clearing house was
- implemented.
+ significantly higher in areas where the information clearinghouse was implement
+ed.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15714,8 +15737,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -15753,8 +15778,8 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-In this report, we provide tables for all pre-registered outcome for a study
- on 
+In this report, we provide tables for all pre-registered outcomes for a
+ study on 
 \begin_inset Quotes eld
 \end_inset
 
@@ -15771,12 +15796,12 @@ Demand and supply factors constraining the emergence and sustainability
  It aims to test three hypotheses.
  First, it tests if seed is of poor quality due to poor handling and storage
  at the input dealer level.
- To test this hypothesis, a random subsample of agro-input dealers was exposed
- to an intensive training on proper seed handling and storage.
+ To test this hypothesis, a random sub-sample of agro-input dealers was
+ exposed to an intensive training on proper seed handling and storage.
  A second hypothesis tests for asymmetric information resulting in a mismatch
  between seed quality delivered by agro-input dealers and seed quality perceived
  by farmers.
- To test this hypothesis we set up an information clearing house similar
+ To test this hypothesis, we set up an information clearinghouse similar
  to yelp.com or trustpilot.com.
  Finally, we test if farmers suffer from learning constraints and inflated
  expectations about improved seed varieties.
@@ -15785,31 +15810,31 @@ Demand and supply factors constraining the emergence and sustainability
 \end_layout
 
 \begin_layout Standard
-We find significant impact of the information clearing house on virtually
+We find significant impact of the information clearinghouse on virtually
  all important variables along the impact pathway.
- We see that agro-input dealers that are exposed to the information clearing
- house have more customers and provide more effort and services.
- The are also more knowledgeable about proper storing and handling techniques.
+ We see that agro-input dealers that are exposed to the information clearinghous
+e have more customers and provide more effort and services.
+ They are also more knowledgeable about proper storing and handling techniques.
  The effects are mirrored at the level of individual seeds sold by agro-input
  dealers, with fewer stock-outs and less wastage, and higher quantities
  sold of both hybrid and open pollinated seed varieties.
- We also find that agro input dealers that are exposed to customer scrutiny
+ We also find that agro-input dealers that are exposed to customer scrutiny
  become more likely to register with professional organizations and seem
  to actively seek inspections to signal quality.
 \end_layout
 
 \begin_layout Standard
-Results at farmer level are consistent with results a the agro-input dealer
+Results at farmer level are consistent with results at the agro-input dealer
  level.
  Here we find that farmers are more likely to use quality seed if they live
- in locations where the information clearing house was implemented.
+ in locations where the information clearinghouse was implemented.
  There are also indications that farmers rate seed sold by agro-input dealers
- in their vicinity higher if the information clearing house was implemented.
+ in their vicinity higher if the information clearinghouse was implemented.
  Zooming in on plots, the likelihood that farmers use improved seed from
- agro-input dealers on a random plot is also higher in the clearing house
+ agro-input dealers on a random plot is also higher in the clearinghouse
  treatment arm.
  Finally, we also find effects on productivity, with farmers in where the
- information clearing house was implemented reporting a 10 percent increase
+ information clearinghouse was implemented reporting a 10 percent increase
  in maize yields.
 \end_layout
 
@@ -15865,7 +15890,7 @@ clearpage % ensure all floats are processed
 
 
 \backslash
-processdelayedfloats 
+processdelayedfloats
 \end_layout
 
 \begin_layout Plain Layout
@@ -15962,7 +15987,7 @@ name "sec:Appendix_A"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -25605,8 +25630,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -26601,8 +26628,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -27554,8 +27583,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -28363,8 +28394,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -29062,8 +29095,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -29663,8 +29698,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -30656,8 +30693,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -31464,8 +31503,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -32267,8 +32308,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -32957,8 +33000,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -33395,8 +33440,10 @@ Note: 1st column reports sample means and standard deviations below in brackets;
  of randomization; 5th column reports number of observations; **, * and
  + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes.
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
 \backslash
 
 \backslash
