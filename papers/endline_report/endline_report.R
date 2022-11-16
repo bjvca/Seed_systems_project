@@ -4200,6 +4200,8 @@ for (i in 1:length(results_dealer_sec_bag_B)){
   df_ols_D_sec_bag_B[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_sec_bag_B[3,3,i] <- summary(ols)$coefficients[4,4]}
 
+baseline_dealers=baseline_dealers_save
+
 
 
 
