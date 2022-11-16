@@ -148,11 +148,12 @@ Agricultural technologies remain under-adopted among smallholder farmers
  We investigate how the quality of an agricultural input affects its adoption.
  As the sellers of maize seed have more information about its quality than
  the buyers, we hypothesize that this information asymmetry leads to poor
- seed quality offered by agro-input dealers, resulting in under-adoption
+ seed quality offered by some agro-input dealers, resulting in under-adoption
  by farmers.
- To overcome this classic lemons technology problem, we implement a crowd-source
-d information clearinghouse similar to yelp.com in the market for seed, meaning
- that we collect and disseminate farmers' ratings of seed quality.
+ To overcome this classic lemons technology problem which hurts seed buyers
+ and sellers, we implement a crowd-sourced information clearinghouse similar
+ to yelp.com in the market for seed, meaning that we collect and disseminate
+ farmers' ratings of seed quality.
  This intervention is tested in a randomized controlled trial among 350
  agro-input dealers and 3500 smallholder maize farmers in Uganda.
  Midline data shows that dealers increase their efforts and improve their
@@ -354,10 +355,12 @@ literal "true"
  In such a market where sellers have more information about the quality
  of the good than buyers, there is no incentive for vendors to sell good
  products and average quality can degrade.
- That is why recent studies claim that smallholder adoption of agricultural
- inputs, and of improved maize seed in Uganda in particular, is limited
- by farmers’ beliefs that the inputs are of poor quality - counterfeited,
- adulterated, or otherwise not performing 
+ Note that both, buyers and sellers, suffer from the resulting poor average
+ quality in the market.
+ In line with this economic theory, recent studies claim that smallholder
+ adoption of agricultural inputs, and of improved maize seed in Uganda in
+ particular, is limited by farmers’ beliefs that the inputs are of poor
+ quality - counterfeited, adulterated, or otherwise not performing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
@@ -381,11 +384,17 @@ To assess the importance of this potential constraint to agricultural technology
  between seller and buyer by making the quality of maize seed observable.
  We implement a decentralized information clearinghouse that is based on
  crowd-sourced ratings and works through reputational mechanisms, much like
- yelp.com or tripadvisor.com, in the market for seed.
- This means that we aggregate the experiences of many users by collecting
- the ratings of smallholder farmers to reveal the quality of maize seed
- sold by each agro-input dealer.
- Then we disseminate these ratings back to farmers and dealers.
+ yelp.com or tripadvisor.com.
+ Introducing a clearinghouse in the Ugandan market for seed means that we
+ aggregate the experiences of many users to reveal the quality of maize
+ seed sold by each agro-input dealer.
+ This implies that we ask smallholder farmers to rate dealers in their proximity
+ on a number of seed quality characteristics.
+ Then we disseminate these average dealer ratings back to farmers and dealers.
+ We inform farmers about the ratings when we visit them again, and by sending
+ them text messages.
+ Dealers are informed about their ratings by means of certificates which
+ we deliver to their shops.
  The treatment targets the interaction between farmers and dealers who sell
  improved seed and play a crucial role because they form a key link between
  seed producers and users.
@@ -603,45 +612,11 @@ name "subsection: The problem"
 \end_layout
 
 \begin_layout Standard
-The ability of smallholders to infer maize seed quality is severely limited.
- It is impossible to accurately determine quality on the basis of visual
- examination before purchase, as farmers can only visually inspect seed
- purity and the presence of mold.
- But also after using the seed, farmers can hardly assess quality because
- there are so many factors at play in agricultural production.
- If they experience a disappointing harvest, they cannot safely conclude
- that the seed material was poor because it could have also been poor soil,
- insufficient, late or too much rain, or own mismanagement like late planting
- or insufficient weeding.
- Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
- inputs, rather than to other possible causes.
- Learning about the true quality becomes more difficult when this misattribution
- is present (Hoel et al., 2021).
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "tjernstrom2021learning"
-literal "false"
-
-\end_inset
-
- agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
- about the returns to inputs.
- Also 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- find that farmers in developing countries routinely misperceive input quality.
-\end_layout
-
-\begin_layout Standard
-As Ugandan farmers can hardly assess the quality of maize seed prior to
- purchase, we hypothesize that agro-input dealers exploit this information
- asymmetry, and that their malpractices lead to poor seed quality.
+The ability of smallholder farmers to assess the quality of maize seed before
+ purchase is severely limited, as they can only visually examine seed purity
+ and the presence of mold.
+ That is why we hypothesize that some agro-input dealers exploit this informatio
+n asymmetry, and that their malpractices lead to poor seed quality.
  In a context relatively similar to ours, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -786,8 +761,8 @@ The potential solution
 \end_layout
 
 \begin_layout Standard
-This classic lemons technology problem can be solved by reducing information
- asymmetries between the two parties.
+This classic lemons technology problem which hurts seed buyers and sellers
+ can be solved by reducing information asymmetries between the two parties.
  In Kenya, seed companies have started marketing their seed using novel
  packaging features to signal product quality and authenticity 
 \begin_inset CommandInset citation
@@ -861,7 +836,7 @@ literal "false"
 A clearinghouse that relies on crowd-sourced ratings may be more effective
  in increasing seed quality in the market.
  While prices can generally be observed reasonably easy, assessing an experience
- or credence good such as seed is much more difficult.
+ good such as seed is much more difficult.
  Aggregating the experiences of many users may thus be a particularly powerful
  way to reveal the quality of the product.
 \end_layout
@@ -1034,55 +1009,25 @@ name "figure: Theory of change"
 
 \end_layout
 
-\begin_layout Subsection
-Maize seed as an experience or credence good
+\begin_layout Section
+Robert's model
 \end_layout
 
 \begin_layout Standard
-If farmers could observe the quality of seed perfectly after using it once,
- i.e.
- after one agricultural season, there would be no need for a clearinghouse
- as Ugandan farmers plant maize twice a year and could infer relatively
- fast which agro-input dealer provides good quality.
- If farmers could not observe the quality of maize seed at all, also not
- after adopting it, there would also be no use of a clearinghouse, as their
- ratings would be useless.
-\end_layout
-
-\begin_layout Standard
-While farmers’ ability to infer seed quality is limited as described above
- in subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsection: The problem"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, they can infer maize seed quality to some extend.
- Shortly after planting, farmers can observe germination rates, i.e.
- the proportion of seeds that germinate, and later how fast the seed matures.
- Some seed may also be more susceptible to pests and diseases, while other
- seed may be particularly tolerant in terms of drought.
- After harvest, the farmer can observe the yield.
- All these attributes of seed quality can be judged to some extent after
- one agricultural season.
-\end_layout
-
-\begin_layout Standard
-In conclusion, improved maize seed lies somewhere on the continuum between
- experience goods and credence goods.
- While a farmer cannot safely infer quality from only his or her experience,
- the aggregation of the experiences of many users may be a powerful way
- to reveal the quality of the product.
- Even if a farmer observes impressive yield and correctly infers that the
- quality of the seed they used is good, he or she perceives this as only
- one source, as only one observation.
- The extension literature shows that a smallholder is more likely to trust
- that information if it comes from more than one source, e.g.
+One could argue that Ugandan farmers can infer relatively fast which agro-input
+ dealers provide good quality because they plant maize twice a year.
+ However, these farmers might not trust their own judgement of quality even
+ after using and experiencing the seed material.
+ If farmers observe impressive yield and correctly infer that the quality
+ of the seed they used is good, they perceive this as only one source, as
+ only one observation.
+ On the other hand, the aggregation of the experiences of many users may
+ be a powerful way to reveal the quality of the product in a more trustworthy
+ way.
+ The extension literature shows that smallholders are more likely to trust
+ information if it comes from more than one source, e.g.
  from a clearinghouse rating that is computed based on multiple opinions.
+ 
 \begin_inset Note Note
 status collapsed
 
@@ -5908,6 +5853,33 @@ Farmer
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Bjorn: During midline we see an increase in the likelihood that farmers
+ switch from agro-input dealers by 4.1 percentage points.
+ In the endline this is only 2.6 percent (and not significant anymore).
+ This suggests that even a single round of ratings may have long run effects
+ (or something like that )? Caro: But at endline farmers had been treated
+ twice, so the 2.6 isn't only the long run effect of the 1st treatment but
+ also the short term effect on the 2nd treatment, so treating them again
+ doesn’t seem to affect farmers' behavior that much.
+ This could be because: a) farmers start realizing that the ratings are
+ "random" and cannot be trusted i.e.
+ Travis' argument that farmers can actually not judge seed quality b) farmers
+ have already switched to better dealers at midline, so they are already
+ choosing the best dealers in their neighborhood i.e.
+ there's little room for better choices.
+ Bjorn: When I was talking about the long run effect, I was not referring
+ to the 2.6, but to all the other improvements to only appear after season
+ 2 like the increase in productivity.
+ So I think it is definitely b.
+ 
+\end_layout
+
+\end_inset
+
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6140,7 +6112,24 @@ We also collect information related to
 memberships, licenses, and inspections
 \shape default
 .
- The clearinghouse could lead dealers to voluntarily expose themselves to
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Who inspects? • agricultural inspectors at MAAIF • due to understaffing
+ at MAAIF, district agricultural officials (under MAAIF?) • UNADA inspects
+ mainly their members
+\end_layout
+
+\begin_layout Plain Layout
+Certificate after inspection? • Leo: some sort of compliance or non-compliance
+ report
+\end_layout
+
+\end_inset
+
+The clearinghouse could lead dealers to voluntarily expose themselves to
  increased scrutiny to signal farmers that they deliver quality products.
  That is why we ask whether the shop is a member of Uganda National Agro-Input
  Dealers' Association (UNADA) or any other professional association, whether
@@ -7000,7 +6989,7 @@ scriptsize
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7530,11 +7519,69 @@ e lower bounds for the true effect as attrition bias is negative and the
 \end_layout
 
 \begin_layout Standard
-Because the objective of the clearinghouse is to make maize seed quality
- observable, its functioning could be endangered if farmers' ratings do
- not actually measure seed quality but e.g.
+The objective of the clearinghouse is to make maize seed quality observable,
+ so that its functioning would be endangered if farmers' ratings do not
+ actually measure seed quality but e.g.
  the personal relationship between a farmer and a dealer.
- That is why we test whether the ratings are correlated with seed quality.
+ Some could even argue that farmers cannot assess the quality of maize seed
+ at all, not even after using it, because there are so many factors at play
+ in agricultural production: if farmers experience a disappointing harvest,
+ they cannot safely conclude that the seed material was poor because it
+ could have also been poor soil, insufficient, late or too much rain, or
+ own mismanagement like late planting or insufficient weeding.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
+ inputs, rather than to other possible causes.
+ Learning about the true quality becomes more difficult when this misattribution
+ is present (Hoel et al., 2021).
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "tjernstrom2021learning"
+literal "false"
+
+\end_inset
+
+ agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
+ about the returns to inputs.
+ Also 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+ find that farmers in developing countries routinely misperceive input quality.
+\end_layout
+
+\end_inset
+
+ Maize seed would then be a credence good instead of an experience good
+ and clearinghouse ratings of farmers would be useless.
+ Even though farmers and dealers might still change their behaviour in the
+ short run because they expect the clearinghouse to work, this effect would
+ fade out as soon as both actors learn that the ratings are unreliable.
+\end_layout
+
+\begin_layout Standard
+We argue that farmers’ ability to infer maize seed quality is indeed not
+ perfect but they can assess it to some extend.
+ Shortly after planting, farmers can observe germination rates, i.e.
+ the proportion of seeds that germinate, and later how fast the seed matures.
+ Some seed may also be more susceptible to pests and diseases, while other
+ seed may be particularly tolerant in terms of drought.
+ After harvest, the farmer can observe the yield.
+ All these attributes of seed quality can be judged to some extent after
+ one agricultural season.
+\end_layout
+
+\begin_layout Standard
+To support our claim, we test whether the ratings are correlated with seed
+ quality.
  Even though objectively measuring seed quality is challenging and DNA fingerpri
 nting is the only reliable way to detect varietal purity, we were able to
  check whether ratings are correlated with other objective indications of
