@@ -4200,6 +4200,8 @@ for (i in 1:length(results_dealer_sec_bag_B)){
   df_ols_D_sec_bag_B[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_D_sec_bag_B[3,3,i] <- summary(ols)$coefficients[4,4]}
 
+baseline_dealers=baseline_dealers_save
+
 
 
 
@@ -6243,81 +6245,210 @@ for (i in 1:length(results_farmer_nobase)){
 # 
 # 
 # 
-# #OC3. Are the seed quality ratings correlated with other measures of seed quailty?
-# 
-# #attention: only CH treated dealers
-# 
-# # variables_ratingsD <- cbind(baseline_dealers$seed_quality_general_rating,baseline_dealers$seed_yield_rating
-# #                             ,baseline_dealers$seed_drought_rating,baseline_dealers$seed_disease_rating
-# #                             ,baseline_dealers$seed_maturing_rating,baseline_dealers$seed_germinate_rating)
-# #
-# # index_ratingsD <- icwIndex(xmat=variables_ratingsD)
-# # baseline_dealers$index_ratingsD <- index_ratingsD$index
-# #
-# # baseline_dealers$index_ratingsD <- rowMeans(baseline_dealers[c("seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
-# #                                                                ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm = T)
-# 
-# #DEALERS
-# # reviews_seed <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"))
-# # baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
-# 
-# baseline_dealers$index_ratingsD <- baseline_dealers$score_corrected
-# 
-# #Shop only sells farm inputs
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q5,use = "pairwise.complete.obs")
-# #good: positive correlation of 0.12
-# 
-# #Index of labor-intensive seed handling and storage practices observed by enumerator
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_lab_base,use = "pairwise.complete.obs")
-# #neutral: positive correlation of 0.01 (too weak)
-# 
-# #Index of capital-intensive seed handling and storage practices observed by enumerator
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_cap_base,use = "pairwise.complete.obs")
-# #good: positive correlation of 0.13
-# 
-# #Index of all seed handling and storage practices observed by enumerator
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$index_practices_all_base,use = "pairwise.complete.obs")
-# #neutral: positive correlation of 0.06
-# 
-# #Shop received seed related complaint from customer
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.q96,use = "pairwise.complete.obs")
-# #good: negative correlation of -0.12
-# 
-# #Moisture in random seed bag in percent
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$reading,use = "pairwise.complete.obs")
-# #neutral: negative correlation of -0.01
-# 
-# #Random seed bag shows lot number
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$lot,use = "pairwise.complete.obs")
-# #neutral: positive correlation of 0.04
-# 
-# #Random seed bag shows packaging date
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$visible_packdate,use = "pairwise.complete.obs")
-# #neutral: positive correlation 0.08
-# 
-# #Days since packaging date/expiry date minus 6 months
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$shelflife_Caro,use = "pairwise.complete.obs")
-# #bad: positive correlation of 0.01 but should be negative
-# 
-# #Shop received a warning after inspection
-# cor(baseline_dealers$index_ratingsD,baseline_dealers$maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
-# #bad: positive correlation of 0.05 but should be negative
-# 
-# summary(regression <- lm(baseline_dealers$index_ratingsD~baseline_dealers$maize.owner.agree.q5
-#                          +baseline_dealers$index_practices_cap_base+baseline_dealers$maize.owner.agree.q96
-#                          +baseline_dealers$lot+baseline_dealers$visible_packdate))
-# 
-# #FARMERS
-# #attention: any seed, not specific seed
-# #Index of farmer's ratings of seed used on randomly selected maize field last season
-# #Yield in kg/acre (production/area)
-# cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
-# #very good: positive correlation of 0.21
-# 
-# summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
-# 
-# 
-# 
+
+#OC3. Are the seed quality ratings correlated with other measures of seed quailty?
+
+#DEALERS
+
+#mean of ratings
+baseline_dealers$ratings1 <- rowMeans(baseline_dealers[c("end_seed_quality_general_rating","end_seed_yield_rating","end_seed_drought_rating"
+                                                        ,"end_seed_disease_rating","end_seed_maturing_rating","end_seed_germinate_rating")],na.rm = T)
+#index of ratings
+baseline_dealers$ratings2 <- baseline_dealers$index_ratings_mid
+
+#score
+reviews_seed <- read.csv(paste(path,"/endline/data/agro_input/public/reviews_seed.csv",sep="/"))
+baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=)
+baseline_dealers$ratings3 <- baseline_dealers$score #this one
+
+#corrected score
+baseline_dealers$ratings4 <- baseline_dealers$score_corrected.y
+
+
+#1. Shop only sells farm inputs
+###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
+baseline_dealers$check.owner.agree.q5<-ifelse(baseline_dealers$check.owner.agree.q5=="Yes",1,0)
+cor(baseline_dealers$ratings3,baseline_dealers$check.owner.agree.q5,use = "pairwise.complete.obs")
+#ratings1 0.13, ratings2 0.14, ratings3 0.11, ratings4 0.11
+summary(lm(baseline_dealers$ratings3~baseline_dealers$check.owner.agree.q5))
+#0.07+
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+midline_for.cor.ratings.quality <- read.csv(paste(path,"/midline/data/agro_input/public/midline_for.cor.ratings.quality.csv",sep="/"), stringsAsFactors=TRUE)
+baseline_dealers <- merge(baseline_dealers,midline_for.cor.ratings.quality,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
+
+cor(baseline_dealers$ratings3,baseline_dealers$midline_specialized.shop,use = "pairwise.complete.obs")
+#0.05
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_specialized.shop))
+#0.03
+
+
+#2. Index of labor-intensive seed handling and storage practices observed by enumerator
+###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$index_practices_lab_mid,use = "pairwise.complete.obs")
+#ratings1 0.10, ratings2 0.11, ratings3 0.13, ratings4 0.13
+summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_lab_mid))
+#0.09*
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_lab,use = "pairwise.complete.obs")
+#0.02
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_lab))
+#0.01
+
+
+#3. Index of capital-intensive seed handling and storage practices observed by enumerator
+###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$index_practices_cap_mid,use = "pairwise.complete.obs")
+#ratings1 0.13, ratings2 0.14, ratings3 0.15, ratings4 0.15
+summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_cap_mid))
+#0.10*
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_cap,use = "pairwise.complete.obs")
+#0.08
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_cap))
+#0.05
+
+
+#4. Index of all seed handling and storage practices observed by enumerator
+###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$index_practices_all_mid,use = "pairwise.complete.obs")
+#ratings1 0.10, ratings2 0.12, ratings3 0.13, ratings4 0.13
+summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_all_mid))
+#0.11*
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_all,use = "pairwise.complete.obs")
+#0.08
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_all))
+#0.07
+
+
+#5. Shop received seed related complaint from customer
+cor(baseline_dealers$ratings3,baseline_dealers$mid_maize.owner.agree.q96,use = "pairwise.complete.obs")
+#ratings1 -0.07, ratings2 -0.07, ratings3 -0.07, ratings4 -0.07
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_maize.owner.agree.q96))
+#-0.05
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_received.complaint,use = "pairwise.complete.obs")
+#-0.02
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_received.complaint))
+#-0.01
+
+
+#6. Shop received a warning after inspection
+cor(baseline_dealers$ratings1,baseline_dealers$mid_maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
+#ratings1 -0.03, ratings2 -0.02, ratings3 -0.03, ratings4 -0.03
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_maize.owner.agree.inspection.q118))
+#-0.02
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_received.warning,use = "pairwise.complete.obs")
+#0.13
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_received.warning))
+#0.08*
+
+
+#7. Random seed bag shows packaging date
+baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_end #x
+baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
+cor(baseline_dealers$ratings2,baseline_dealers$mid_visible_packdate,use = "pairwise.complete.obs")
+#ratings1 0.05, ratings2 0.03, ratings3 0.03, ratings4 0.03
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_visible_packdate))
+#0.02
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_bag.shows.packaging.date,use = "pairwise.complete.obs")
+#-0.00
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_bag.shows.packaging.date))
+#-0.00
+
+
+#8. Days since packaging date/expiry date minus 6 months
+baseline_dealers$mid_date <- baseline_dealers$date_end #x
+baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
+baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
+baseline_dealers$mid_exp <- as.Date(baseline_dealers$mid_exp) #x
+baseline_dealers$mid_days_since_exp <- baseline_dealers$mid_date - baseline_dealers$mid_exp #x
+baseline_dealers$mid_date_pack <- as.Date(baseline_dealers$mid_date_pack) #x
+baseline_dealers$mid_shelflife <- baseline_dealers$mid_date - baseline_dealers$mid_date_pack #x
+baseline_dealers$mid_date_pack_incltransformedexp <- baseline_dealers$mid_date_pack #x
+baseline_dealers$mid_transformedexp <- baseline_dealers$mid_exp - 183 #6x366/12 #x
+baseline_dealers$mid_date_pack_incltransformedexp[is.na(baseline_dealers$mid_date_pack)]<-baseline_dealers$mid_transformedexp[is.na(baseline_dealers$mid_date_pack)] #x
+baseline_dealers$mid_shelflife_Caro <- baseline_dealers$mid_date - as.Date(baseline_dealers$mid_date_pack_incltransformedexp) #x
+baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- NA #x
+baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro)) #x
+baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
+baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
+cor(baseline_dealers$ratings2,baseline_dealers$mid_shelflife_Caro,use = "pairwise.complete.obs")
+#ratings1 0.06, ratings2 0.07, ratings3 0.05, ratings4 0.05
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_shelflife_Caro))
+#0.00
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_shelflife,use = "pairwise.complete.obs")
+#-0.15
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_shelflife))
+#-0.0004+
+
+
+#Q9. Is the seed in the original bag without any signs of damage?
+baseline_dealers$mid_origin <- baseline_dealers$origin_end
+baseline_dealers$mid_origin<-ifelse(baseline_dealers$mid_origin=="Yes",1,0)
+cor(baseline_dealers$ratings1,baseline_dealers$mid_origin,use = "pairwise.complete.obs")
+#ratings1 0.07, ratings2 0.05, ratings3 0.07, ratings4 0.06
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_origin))
+#0.06
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_original.bag.without.damage,use = "pairwise.complete.obs")
+#-0.07
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_original.bag.without.damage))
+#-0.07
+
+
+#10. Random seed bag shows lot number
+baseline_dealers$mid_lot <- baseline_dealers$lot_end
+baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
+cor(baseline_dealers$ratings3,baseline_dealers$mid_lot,use = "pairwise.complete.obs")
+#ratings1 0.08, ratings2 0.07, ratings3 0.07, ratings4 0.07
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_lot))
+#0.05
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_bag.shows.lotnumber,use = "pairwise.complete.obs")
+#-0.07
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_bag.shows.lotnumber))
+#-0.04
+
+
+#11. Moisture in random seed bag in percent
+cor(baseline_dealers$ratings3,baseline_dealers$mid_reading,use = "pairwise.complete.obs")
+#ratings1 0.06, ratings2 0.05, ratings3 0.07, ratings4 0.07
+summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_reading))
+#0.02
+
+###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
+cor(baseline_dealers$ratings3,baseline_dealers$midline_moisture,use = "pairwise.complete.obs")
+#0.10
+summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_moisture))
+#0.03
+
+
+
+#FARMERS
+#attention: any seed, not specific seed
+#Index of farmer's ratings of seed used on randomly selected maize field last season
+#Yield in kg/acre (production/area)
+cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
+#very good: positive correlation of 0.21
+
+summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
+
+
+
 # #OC4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
 # 
 # #attention: only CH treated farmers

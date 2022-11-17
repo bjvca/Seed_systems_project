@@ -6557,3 +6557,78 @@ baseline_farmers=baseline_farmers_save
 # #Overall index controlling for baseline (secondary outcome variables regarding seed bag)
 # 
 # #Farmer planted local land race maize seed on this field
+
+###create CSV
+baseline_dealers$midline_specialized.shop <- ifelse(baseline_dealers$owner.agree.q5=="Yes",1,0)
+baseline_dealers$midline_practices_lab <- baseline_dealers$index_practices_lab_mid
+baseline_dealers$midline_practices_cap <- baseline_dealers$index_practices_cap_mid
+baseline_dealers$midline_practices_all <- baseline_dealers$index_practices_all_mid
+baseline_dealers$midline_received.complaint <- baseline_dealers$mid_maize.owner.agree.q96
+baseline_dealers$midline_received.warning <- baseline_dealers$mid_maize.owner.agree.inspection.q118
+
+  baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_mid #x
+  baseline_dealers$mid_visible_packdate <- ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
+
+baseline_dealers$midline_bag.shows.packaging.date <- baseline_dealers$mid_visible_packdate
+
+  baseline_dealers$mid_date <- baseline_dealers$date_mid #x
+  baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
+  baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
+
+  baseline_dealers$mid_exp <- as.Date(baseline_dealers$mid_exp) #x
+  baseline_dealers$mid_days_since_exp <- baseline_dealers$mid_date - baseline_dealers$mid_exp #x
+
+  baseline_dealers$mid_date_pack <- as.Date(baseline_dealers$mid_date_pack) #x
+  baseline_dealers$mid_shelflife <- baseline_dealers$mid_date - baseline_dealers$mid_date_pack #x
+
+  baseline_dealers$mid_date_pack_incltransformedexp <- baseline_dealers$mid_date_pack #x
+  baseline_dealers$mid_transformedexp <- baseline_dealers$mid_exp - 183 #6x366/12 #x
+  baseline_dealers$mid_date_pack_incltransformedexp[is.na(baseline_dealers$mid_date_pack)]<-baseline_dealers$mid_transformedexp[is.na(baseline_dealers$mid_date_pack)] #x
+
+  baseline_dealers$mid_shelflife_Caro <- baseline_dealers$mid_date - as.Date(baseline_dealers$mid_date_pack_incltransformedexp) #x
+  baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- NA #x
+  baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro)) #x
+
+  baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
+  baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
+
+baseline_dealers$midline_shelflife <- baseline_dealers$mid_shelflife_Caro
+
+  baseline_dealers$mid_lot <- baseline_dealers$lot_mid
+  baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
+
+baseline_dealers$midline_bag.shows.lotnumber <- baseline_dealers$mid_lot
+
+baseline_dealers$midline_moisture <- baseline_dealers$mid_reading
+
+baseline_dealers$midline_original.bag.without.damage <- ifelse(baseline_dealers$origin_mid=="Yes",1,0)
+
+midline_for.cor.ratings.quality = subset(baseline_dealers, select = c("shop_ID",
+                                                                      "catchID",
+                                                                      "midline_specialized.shop",
+                                                                      "midline_practices_lab",
+                                                                      "midline_practices_cap",
+                                                                      "midline_practices_all",
+                                                                      "midline_received.complaint",
+                                                                      "midline_received.warning",
+                                                                      "midline_bag.shows.packaging.date",
+                                                                      "midline_shelflife",
+                                                                      "midline_bag.shows.lotnumber",
+                                                                      "midline_moisture",
+                                                                      "midline_original.bag.without.damage"))
+
+write.csv(midline_for.cor.ratings.quality,paste(path,"/midline/data/agro_input/public/midline_for.cor.ratings.quality.csv",sep="/"), row.names = T)
+
+# df <- data.frame(baseline_dealers$shop_ID,
+#                  baseline_dealers$catchID,
+#                  baseline_dealers$midline_specialized.shop,
+#                  baseline_dealers$midline_practices_lab,
+#                  baseline_dealers$midline_practices_cap,
+#                  baseline_dealers$midline_practices_all,
+#                  baseline_dealers$midline_received.complaint,
+#                  baseline_dealers$midline_received.warning,
+#                  baseline_dealers$midline_bag.shows.packaging.date,
+#                  baseline_dealers$midline_shelflife,
+#                  baseline_dealers$midline_bag.shows.lotnumber,
+#                  baseline_dealers$midline_moisture,
+#                  baseline_dealers$midline_original.bag.without.damage)
