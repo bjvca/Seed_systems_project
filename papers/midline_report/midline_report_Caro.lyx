@@ -5740,14 +5740,37 @@ dag$ indicates that the variable was included in the overall index.
 \end_layout
 
 \begin_layout Standard
-The tables do not reveal a consistent picture of impact for any of the intervent
-ions.
+The tables reveal that coefficients generally go in the expected direction
+ (higher seed volumes transacted, less losses and stock-outs), but are rarely
+ statistically significant.
  For Longe10H, the only significant result is found for the agro-input dealer
  training, that seems to have reduced the cost at which seed is obtained.
- The training also seemed to have reduced stock-outs of Longe10H, albeit
- not significantly.
- For Longe 5, we again find little effects, except that now agro-input dealers
- in the second and third treatment group buy seed at a lower cost.
+ The training also seemed to have reduced stock-outs of Longe10H by more
+ than 40 percent, albeit not significantly in a statistical sense.
+ For the two other treatments, none of the comparisons are significant.
+\end_layout
+
+\begin_layout Standard
+Results are less consistent for Longe 5.
+ Here, we there is some evidence of a negative impact of the farmer level
+ video on the overall index that also controls for baseline outcomes.
+ This effect seems to be primarily driven by a reduction in the cost at
+ which the agro-input dealer acquires the seed.
+ However, it should be noted that the index is composed of only four variables,
+ though and that the cost of seed is included as a positive outcome in the
+ index, which is debatable.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The reason is that for farmers, we expect that prices may be used to signal
+ quality.
+ However, at the agro-input dealer level, this may be less the case.
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -6875,7 +6898,7 @@ noprefix "false"
 \end_inset
 
  providing results adjusted for multiple comparisons).
- 
+ We do not find any impact of any of the interventions.
 \end_layout
 
 \begin_layout Standard
@@ -7881,7 +7904,7 @@ dag$ indicates that the variable was included in the overall index.
 \end_layout
 
 \begin_layout Standard
-Finally, in each shop, we purchase a random seed bag which is then analyzed.
+In each shop, we also purchase a random seed bag which is then analyzed.
  Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7903,6 +7926,20 @@ noprefix "false"
 \end_inset
 
 ) provides comparisons.
+ Unfortunately, we could not obtain a seed bag in many of the agro-input
+ dealers.
+ This was often due to the fact that they did not have seed in stock at
+ the time of the visit.
+ 
+\end_layout
+
+\begin_layout Standard
+We see that for the information clearing house treatment, the number of
+ days since packaging (or shelf-life) is lower, but not significant.
+ Agro-input dealers that are located in areas where farmers were shown a
+ video that made it more salient that complementary inputs are also necessary
+ when using improved seed also sell seed that is more likely to have a lot
+ number indicated on the bag.
  
 \end_layout
 
@@ -8637,7 +8674,13 @@ noprefix "false"
 \end_inset
 
  that adjusts for multiple comparisons).
- 
+ We find that agro-input dealers that are located in areas where farmers
+ received the farmer level video treatment had less OPVs in stock.
+ We also find a significant effect on the likelihood of owning a moisture
+ meter for agro-input dealers that were allocated to the agro-input dealer
+ training.
+ This is not surprising since agro-input dealers that attended the training
+ were given such a device.
 \end_layout
 
 \begin_layout Standard
@@ -9412,7 +9455,7 @@ dag$ indicates that the variable was included in the overall index.
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Farmer
 \end_layout
 
@@ -9420,12 +9463,14 @@ Farmer
 We now turn to the impact of the interventions at the farmer level.
 \end_layout
 
-\begin_layout Subsubsection*
-Primary
+\begin_layout Subsubsection
+Primary outcomes
 \end_layout
 
 \begin_layout Standard
-We first define a set of key outcomes.
+Just like when we assessed the impact of the intervention at the agro-input
+ dealer level, we define a set of primary outcomes to assess the impact
+ of the different treatments on farmers.
  These are in Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9436,7 +9481,7 @@ noprefix "false"
 
 \end_inset
 
- and 
+; Appendix Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "results_farmer_prim_adj"
@@ -9446,38 +9491,16 @@ noprefix "false"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Some outcome variables are not included in the overall index: The index
- of farmer’s maize seed ratings for shops nearby and the index of farmer’s
- general ratings of shops nearby are not included because the questions
- to compute these indeces are only collected from all farmers at endline
- (at midline, these variables are only collected from clearinghouse treated
- farmers as rating is part of the clearinghouse treatment).
- The index of services of shops nearby according to farmers is not included
- because many observations are missing at baseline.
- After midline data collection, we will check whether as many observations
- are missing and if we have significantly more observations, include the
- outcome using a regression that does not control for the baseline value.
- Whether the farmer switched to a different agro-input shop or not is only
- included in the regression that does not control for the baseline value
- because we did not ask this question at baseline.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-nobs of index of services of shops nearby according to farmers: midline
- index has 2718 NAs, baseline index has 2682 NAs (2242 common NAs) –> 752
- obs.
- if not controlling for baseline, still not useful.
-\end_layout
+ provides a similar table that corrects p-values for multiple hypothesis
+ testing following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "sankoh1997some"
+literal "false"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
