@@ -4179,7 +4179,7 @@ baseline_farmers$mid_agro[is.na(baseline_farmers$check.maize.q25b)] <- NA
 baseline_farmers$mid_agro[baseline_farmers$check.maize.q25a=="No"] = 0
 
 #3. Q25d. How much quality maize seed (hybrid or OPV) did you buy from an input dealer in the second agricultural season of 2020? Record amount in **KG**
-baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
+#baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
 baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
@@ -4188,7 +4188,7 @@ baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.0
 
 baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$check.maize.q25d
 baseline_farmers$mid_Check2.check.maize.q25d <- as.numeric((as.character(baseline_farmers$mid_Check2.check.maize.q25d)))
-baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
+#baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
 baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
 baseline_farmers <- trim("mid_Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
