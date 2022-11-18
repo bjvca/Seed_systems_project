@@ -6246,32 +6246,39 @@ for (i in 1:length(results_farmer_nobase)){
 # 
 # 
 
-#OC3. Are the seed quality ratings correlated with other measures of seed quailty?
+#OC3. Are the seed quality ratings correlated with other measures of seed quality?
 
 #DEALERS
+#a) dependent variables
 
 #score
 reviews_seed <- read.csv(paste(path,"/endline/data/agro_input/public/reviews_seed.csv",sep="/"))
-baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=)
+baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
 baseline_dealers$ratings1 <- baseline_dealers$score #this one
 
-#corrected score
+#score_corrected
 baseline_dealers$ratings2 <- baseline_dealers$score_corrected.y
 
-#mean of ratings
+#ratings mean
 baseline_dealers$ratings3 <- rowMeans(baseline_dealers[c("end_seed_quality_general_rating","end_seed_yield_rating","end_seed_drought_rating"
                                                          ,"end_seed_disease_rating","end_seed_maturing_rating","end_seed_germinate_rating")],na.rm = T)
-#index of ratings
+#ratings index
 baseline_dealers$ratings4 <- baseline_dealers$index_ratings_mid
 
+#b) independent variables
+
+#Shop only sells farm inputs
 baseline_dealers$check.owner.agree.q5<-ifelse(baseline_dealers$check.owner.agree.q5=="Yes",1,0)
 
+#midline quality indicators
 midline_for.cor.ratings.quality <- read.csv(paste(path,"/midline/data/agro_input/public/midline_for.cor.ratings.quality.csv",sep="/"), stringsAsFactors=TRUE)
 baseline_dealers <- merge(baseline_dealers,midline_for.cor.ratings.quality,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
 
+#Random seed bag shows packaging date
 baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_end #x
 baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
 
+#Days since packaging date/expiry date minus 6 months
 baseline_dealers$mid_exp <- baseline_dealers$exp_end #x
 baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,0) #x
 
@@ -6291,9 +6298,11 @@ baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$
 baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
 baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
 
+#Seed is in the original bag without any signs of damage
 baseline_dealers$mid_origin <- baseline_dealers$origin_end
 baseline_dealers$mid_origin<-ifelse(baseline_dealers$mid_origin=="Yes",1,0)
 
+#Random seed bag shows lot number
 baseline_dealers$mid_lot <- baseline_dealers$lot_end
 baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
 
@@ -6301,8 +6310,8 @@ quality_dealer <- c("midline_specialized.shop","midline_practices_lab","midline_
                     ,"midline_received.complaint","midline_received.warning","midline_bag.shows.packaging.date"
                     ,"midline_shelflife","midline_original.bag.without.damage","midline_bag.shows.lotnumber"
                     ,"midline_moisture","check.owner.agree.q5", "index_practices_lab_mid","index_practices_cap_mid","index_practices_all_mid"
-                    ,"mid_maize.owner.agree.q96","mid_maize.owner.agree.inspection.q118","mid_visible_packdate","mid_shelflife_Caro",
-                    "mid_origin","mid_lot","mid_reading")
+                    ,"mid_maize.owner.agree.q96","mid_maize.owner.agree.inspection.q118","mid_visible_packdate","mid_shelflife_Caro"
+                    ,"mid_origin","mid_lot","mid_reading")
 
 df_ols_quality_dealer <- array(NA,dim=c(3,4,22))
 
@@ -6335,16 +6344,31 @@ for (i in 1:length(quality_dealer)){
   df_ols_quality_dealer[3,4,i] <- summary(ols)$coefficients[2,4]}
 
 
+
 #FARMERS
-#attention: any seed, not specific seed
-#Index of farmer's ratings of seed used on randomly selected maize field last season
-#Yield in kg/acre (production/area)
-cor(baseline_farmers$index_ratingplot_base,baseline_farmers$landproductivity,use = "pairwise.complete.obs")
-#very good: positive correlation of 0.21
+#attention: all seed, not only improved seed
 
-summary(regression2 <- lm(baseline_farmers$landproductivity~baseline_farmers$index_ratingplot_base))
+baseline_farmers$yield_endline <- baseline_farmers$mid_landproductivity
+baseline_farmers$plotratings_endline <- baseline_farmers$index_ratingplot_mid
 
+#midline rankings
+midline_for.cor.ratings.quality_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline_for.cor.ratings.quality_farmers.csv",sep="/"), stringsAsFactors=TRUE)
+baseline_farmers <- merge(baseline_farmers,midline_for.cor.ratings.quality_farmers,by.x=c("farmer_ID"),by.y=c("farmer_ID"),all.x=T)
 
+baseline_farmers$plotratings_midline <- baseline_farmers$plotratings_midline
+
+quality_farmer <- c("plotratings_endline","plotratings_midline")
+
+df_ols_quality_farmer <- array(NA,dim=c(3,5))
+
+for (i in 1:length(quality_farmer)){
+  ols <- lm(as.formula(paste("yield_endline",quality_farmer[i],sep="~")), data=baseline_farmers)
+  
+  df_ols_quality_farmer[1,i] <- summary(ols)$coefficients[2,1]
+  df_ols_quality_farmer[2,i] <- summary(ols)$coefficients[2,2]
+  df_ols_quality_farmer[3,i] <- summary(ols)$coefficients[2,4]}
+
+summary(regression2 <- lm(baseline_farmers$yield_endline~baseline_farmers$plotratings_midline))
 
 # #OC4. Do farmers who bought seed rate significantly different than farmers who didn't buy seed?
 # 
