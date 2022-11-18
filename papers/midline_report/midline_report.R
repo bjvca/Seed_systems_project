@@ -845,21 +845,52 @@ balance_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished
                     ,"q93_bin"
                     ,"visible_packdate")
 
+###
+#1#
+###
+
 for (i in 1:length(balance_dealer)){
   df_averages[1,i] <- sum(baseline_dealers[balance_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))
-  df_averages[2,i] <- sqrt(var(baseline_dealers[balance_dealer[i]], na.rm=T))
-  
-  formula1 <- as.formula(paste(balance_dealer[i],paste("training*clearing*farmer"),sep="~"))
+  df_averages[2,i] <- sqrt(var(baseline_dealers[balance_dealer[i]], na.rm=T))}
+
+###
+#2#
+###
+
+baseline_dealers$training_demeaned <- baseline_dealers$training - mean(baseline_dealers$training,na.rm = T)
+baseline_dealers$clearing_demeaned <- baseline_dealers$clearing - mean(baseline_dealers$clearing,na.rm = T)
+baseline_dealers$farmer_demeaned <- baseline_dealers$farmer - mean(baseline_dealers$farmer,na.rm = T)
+
+for (i in 1:length(balance_dealer)){
+  formula1 <- as.formula(paste(balance_dealer[i],paste("training*clearing_demeaned*farmer_demeaned"),sep="~"))
   ols <- lm(formula1, data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   df_ols[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
   df_ols[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
-  df_ols[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  df_ols[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
 
+###
+#3#
+###
+
+for (i in 1:length(balance_dealer)){
+  formula1 <- as.formula(paste(balance_dealer[i],paste("training_demeaned*clearing*farmer_demeaned"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+  
   df_ols[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
   df_ols[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]
+  df_ols[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
+
+###
+#4#
+###
+
+for (i in 1:length(balance_dealer)){
+  formula1 <- as.formula(paste(balance_dealer[i],paste("training_demeaned*clearing_demeaned*farmer"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
   df_ols[1,3,i] <- summary(ols)$coefficients[4,1]
@@ -893,11 +924,28 @@ balance_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.che
                     ,"yearsmaize"
                     ,"Check2.check.maize.q43")
 
+###
+#1#
+###
+
 for (i in 1:length(balance_farmer)){
   df_averages_farmer[1,i] <- sum(baseline_farmers[balance_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[balance_farmer[i]])))
-  df_averages_farmer[2,i] <- sqrt(var(baseline_farmers[balance_farmer[i]], na.rm=T))
-  
-  formula2 <- as.formula(paste(balance_farmer[i],paste("training*Check2.check.maize.clearing*Check2.check.maize.video_shown"),sep="~")) #* because of interactions
+  df_averages_farmer[2,i] <- sqrt(var(baseline_farmers[balance_farmer[i]], na.rm=T))}
+
+###
+#2#
+###
+
+baseline_farmers$training <- baseline_farmers$training
+baseline_farmers$clearing <- baseline_farmers$Check2.check.maize.clearing
+baseline_farmers$farmer <- baseline_farmers$Check2.check.maize.video_shown
+
+baseline_farmers$training_demeaned <- baseline_farmers$training - mean(baseline_farmers$training,na.rm = T)
+baseline_farmers$clearing_demeaned <- baseline_farmers$clearing - mean(baseline_farmers$clearing,na.rm = T)
+baseline_farmers$farmer_demeaned <- baseline_farmers$farmer - mean(baseline_farmers$farmer,na.rm = T)
+
+for (i in 1:length(balance_farmer)){
+  formula2 <- as.formula(paste(balance_farmer[i],paste("training*clearing_demeaned*farmer_demeaned"),sep="~")) #* because of interactions
   ols <- lm(formula2, data=baseline_farmers)
   #vcovCR for cluster-robust variance-covariance matrix
   vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
@@ -905,12 +953,32 @@ for (i in 1:length(balance_farmer)){
   #filling df_ols with training (Estimate, SE, p-val (Satt))
   df_ols_farmer[1,1,i] <- coef_test(ols, vcov_cluster_catchID)$beta[2]
   df_ols_farmer[2,1,i] <- coef_test(ols, vcov_cluster_catchID)$SE[2]
-  df_ols_farmer[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]
+  df_ols_farmer[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]}
+
+###
+#3#
+###
+
+for (i in 1:length(balance_farmer)){
+  formula2 <- as.formula(paste(balance_farmer[i],paste("training_demeaned*clearing*farmer_demeaned"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with CH (Estimate, SE, p-val (Satt))
   df_ols_farmer[1,2,i] <- coef_test(ols, vcov_cluster_catchID)$beta[3]
   df_ols_farmer[2,2,i] <- coef_test(ols, vcov_cluster_catchID)$SE[3]
-  df_ols_farmer[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]
+  df_ols_farmer[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]}
+
+###
+#4#
+###
+
+for (i in 1:length(balance_farmer)){
+  formula2 <- as.formula(paste(balance_farmer[i],paste("training_demeaned*clearing_demeaned*farmer"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with video (Estimate, SE, p-val (Satt))
   #randomization at village level ie. at shop level
@@ -977,21 +1045,48 @@ attrition_dealer <- c("attrition_ind_D")
 df_averages_attritionD <- array(NA,dim=c(2,25))
 df_ols_attritionD <- array(NA,dim=c(3,3,25))
 
+###
+#1#
+###
+
 for (i in 1:length(attrition_dealer)){
   df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
-  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
-  
-  formula1 <- as.formula(paste(attrition_dealer[i],paste("training*clearing*farmer"),sep="~"))
+  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))}
+
+###
+#2#
+###
+
+for (i in 1:length(attrition_dealer)){
+  formula1 <- as.formula(paste(attrition_dealer[i],paste("training*clearing_demeaned*farmer_demeaned"),sep="~"))
   ols <- lm(formula1, data=baseline_dealers)
   vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   df_ols_attritionD[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
   df_ols_attritionD[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
-  df_ols_attritionD[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  df_ols_attritionD[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
+
+###
+#3#
+###
+
+for (i in 1:length(attrition_dealer)){
+  formula1 <- as.formula(paste(attrition_dealer[i],paste("training_demeaned*clearing*farmer_demeaned"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   df_ols_attritionD[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
   df_ols_attritionD[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
-  df_ols_attritionD[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]
+  df_ols_attritionD[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
+
+###
+#4#
+###
+
+for (i in 1:length(attrition_dealer)){
+  formula1 <- as.formula(paste(attrition_dealer[i],paste("training_demeaned*clearing_demeaned*farmer"),sep="~"))
+  ols <- lm(formula1, data=baseline_dealers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
   df_ols_attritionD[1,3,i] <- summary(ols)$coefficients[4,1]
@@ -1053,11 +1148,20 @@ df_ols_attritionF <- array(NA,dim=c(3,3,25))
 
 attrition_farmer <- c("attrition_ind_F")
 
+###
+#1#
+###
+
 for (i in 1:length(attrition_farmer)){
   df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
-  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
-  
-  formula2 <- as.formula(paste(attrition_farmer[i],paste("training*Check2.check.maize.clearing*Check2.check.maize.video_shown"),sep="~")) #* because of interactions
+  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))}
+
+###
+#2#
+###
+
+for (i in 1:length(attrition_farmer)){
+  formula2 <- as.formula(paste(attrition_farmer[i],paste("training*clearing_demeaned*farmer_demeaned"),sep="~")) #* because of interactions
   ols <- lm(formula2, data=baseline_farmers)
   #vcovCR for cluster-robust variance-covariance matrix
   vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
@@ -1065,12 +1169,32 @@ for (i in 1:length(attrition_farmer)){
   #filling df_ols with training (Estimate, SE, p-val (Satt))
   df_ols_attritionF[1,1,i] <- coef_test(ols, vcov_cluster_catchID)$beta[2]
   df_ols_attritionF[2,1,i] <- coef_test(ols, vcov_cluster_catchID)$SE[2]
-  df_ols_attritionF[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]
+  df_ols_attritionF[3,1,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[2]}
+
+###
+#3#
+###
+
+for (i in 1:length(attrition_farmer)){
+  formula2 <- as.formula(paste(attrition_farmer[i],paste("training_demeaned*clearing*farmer_demeaned"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with CH (Estimate, SE, p-val (Satt))
   df_ols_attritionF[1,2,i] <- coef_test(ols, vcov_cluster_catchID)$beta[3]
   df_ols_attritionF[2,2,i] <- coef_test(ols, vcov_cluster_catchID)$SE[3]
-  df_ols_attritionF[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]
+  df_ols_attritionF[3,2,i] <- coef_test(ols, vcov_cluster_catchID)$p_Satt[3]}
+
+###
+#4#
+###
+
+for (i in 1:length(attrition_farmer)){
+  formula2 <- as.formula(paste(attrition_farmer[i],paste("training_demeaned*clearing_demeaned*farmer"),sep="~")) #* because of interactions
+  ols <- lm(formula2, data=baseline_farmers)
+  #vcovCR for cluster-robust variance-covariance matrix
+  vcov_cluster_catchID <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
   
   #filling df_ols with video (Estimate, SE, p-val (Satt))
   #randomization at village level ie. at shop level
@@ -1079,13 +1203,6 @@ for (i in 1:length(attrition_farmer)){
   df_ols_attritionF[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_attritionF[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_attritionF[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
-
-
-
-
-
-
-
 
 
 
