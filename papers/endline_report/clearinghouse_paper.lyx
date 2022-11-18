@@ -8094,13 +8094,13 @@ Correlating ratings & quality indicators once and for all
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Correlating ratings & quality indicators once and for all
+Correlating ratings & quality indicators once and for all - dealer level
 \end_layout
 
 \end_inset
@@ -8145,7 +8145,7 @@ hline
 \backslash
 multicolumn{4}{c}{
 \backslash
-textit{dependent variables (endline)}} 
+textit{dependent variables (endline):}} 
 \backslash
 
 \backslash
@@ -8160,7 +8160,7 @@ textit{dependent variables (endline)}}
 
 & score & score{
 \backslash
-_}corrected & ratings mean & ratings index 
+_}corrected & mean of ratings & index of ratings 
 \backslash
 
 \backslash
@@ -8180,22 +8180,9 @@ cline{2-5}
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 {
 \backslash
-textit{independent variables}} &&&& 
+textit{independent variables:}} &&&& 
 \backslash
 
 \backslash
@@ -9458,6 +9445,190 @@ Sexpr{format(round(df_ols_quality_dealer[1,4,22],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_quality_dealer[3,4,22]<.01,"**",ifelse(df_ols_quality_dealer[
 3,4,22]<.05,"*",ifelse(df_ols_quality_dealer[3,4,22]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Correlating ratings & quality indicators once and for all - farmer level
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& {
+\backslash
+textit{dependent variable:}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Yield in kg/acre on random field
+\backslash
+textsubscript{endline} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-2}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+textit{independent variables:}} &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's ratings of seed used on random field
+\backslash
+textsubscript{midline}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_quality_farmer[1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_quality_farmer[3,1]<.01,"**",ifelse(df_ols_quality_farmer[3,1
+]<.05,"*",ifelse(df_ols_quality_farmer[3,1]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's ratings of seed used on random field
+\backslash
+textsubscript{endline}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_quality_farmer[1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_quality_farmer[3,2]<.01,"**",ifelse(df_ols_quality_farmer[3,2
+]<.05,"*",ifelse(df_ols_quality_farmer[3,2]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
