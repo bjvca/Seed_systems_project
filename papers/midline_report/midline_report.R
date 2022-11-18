@@ -4517,6 +4517,16 @@ for (i in 1:length(results_farmer_prim)){
   df_ols_F_prim[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_F_prim[3,3,i] <- summary(ols)$coefficients[4,4]}
 
+#transformation because otherwise no correlation between agro and q25d possible:
+baseline_farmers$Check2.check.maize.q25d_save <- baseline_farmers$Check2.check.maize.q25d
+baseline_farmers$mid_Check2.check.maize.q25d_save <- baseline_farmers$mid_Check2.check.maize.q25d
+
+baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
+baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
+
+baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
+baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
+
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
                                  ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midT
@@ -4540,6 +4550,10 @@ for (i in 1:length(results_farmer_prim_J)){
   df_ols_F_prim_J[3,1,i] <- adjust_p(df_ols_F_prim[3,1,i],df_farmer_primT,i)
   df_ols_F_prim_J[3,2,i] <- adjust_p(df_ols_F_prim[3,2,i],df_farmer_primC,i)
   df_ols_F_prim_J[3,3,i] <- adjust_p(df_ols_F_prim[3,3,i],df_farmer_primF,i)}
+
+baseline_farmers$Check2.check.maize.q25d <- baseline_farmers$Check2.check.maize.q25d_save
+baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$mid_Check2.check.maize.q25d_save
+
 
 
 
