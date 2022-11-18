@@ -6702,6 +6702,9 @@ baseline_dealers$midline_received.warning <- baseline_dealers$mid_maize.owner.ag
 
 baseline_dealers$midline_bag.shows.packaging.date <- baseline_dealers$mid_visible_packdate
 
+baseline_dealers$mid_exp <- baseline_dealers$exp_mid #x
+baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,0) #x
+
   baseline_dealers$mid_date <- baseline_dealers$date_mid #x
   baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
   baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x

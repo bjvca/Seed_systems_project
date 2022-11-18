@@ -6250,123 +6250,31 @@ for (i in 1:length(results_farmer_nobase)){
 
 #DEALERS
 
-#mean of ratings
-baseline_dealers$ratings1 <- rowMeans(baseline_dealers[c("end_seed_quality_general_rating","end_seed_yield_rating","end_seed_drought_rating"
-                                                        ,"end_seed_disease_rating","end_seed_maturing_rating","end_seed_germinate_rating")],na.rm = T)
-#index of ratings
-baseline_dealers$ratings2 <- baseline_dealers$index_ratings_mid
-
 #score
 reviews_seed <- read.csv(paste(path,"/endline/data/agro_input/public/reviews_seed.csv",sep="/"))
 baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=)
-baseline_dealers$ratings3 <- baseline_dealers$score #this one
+baseline_dealers$ratings1 <- baseline_dealers$score #this one
 
 #corrected score
-baseline_dealers$ratings4 <- baseline_dealers$score_corrected.y
+baseline_dealers$ratings2 <- baseline_dealers$score_corrected.y
 
+#mean of ratings
+baseline_dealers$ratings3 <- rowMeans(baseline_dealers[c("end_seed_quality_general_rating","end_seed_yield_rating","end_seed_drought_rating"
+                                                         ,"end_seed_disease_rating","end_seed_maturing_rating","end_seed_germinate_rating")],na.rm = T)
+#index of ratings
+baseline_dealers$ratings4 <- baseline_dealers$index_ratings_mid
 
-#1. Shop only sells farm inputs
-###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
 baseline_dealers$check.owner.agree.q5<-ifelse(baseline_dealers$check.owner.agree.q5=="Yes",1,0)
-cor(baseline_dealers$ratings3,baseline_dealers$check.owner.agree.q5,use = "pairwise.complete.obs")
-#ratings1 0.13, ratings2 0.14, ratings3 0.11, ratings4 0.11
-summary(lm(baseline_dealers$ratings3~baseline_dealers$check.owner.agree.q5))
-#0.07+
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
 midline_for.cor.ratings.quality <- read.csv(paste(path,"/midline/data/agro_input/public/midline_for.cor.ratings.quality.csv",sep="/"), stringsAsFactors=TRUE)
 baseline_dealers <- merge(baseline_dealers,midline_for.cor.ratings.quality,by.x=c("catchID","shop_ID"),by.y=c("catchID","shop_ID"),all.x=T)
 
-cor(baseline_dealers$ratings3,baseline_dealers$midline_specialized.shop,use = "pairwise.complete.obs")
-#0.05
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_specialized.shop))
-#0.03
-
-
-#2. Index of labor-intensive seed handling and storage practices observed by enumerator
-###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$index_practices_lab_mid,use = "pairwise.complete.obs")
-#ratings1 0.10, ratings2 0.11, ratings3 0.13, ratings4 0.13
-summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_lab_mid))
-#0.09*
-
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_lab,use = "pairwise.complete.obs")
-#0.02
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_lab))
-#0.01
-
-
-#3. Index of capital-intensive seed handling and storage practices observed by enumerator
-###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$index_practices_cap_mid,use = "pairwise.complete.obs")
-#ratings1 0.13, ratings2 0.14, ratings3 0.15, ratings4 0.15
-summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_cap_mid))
-#0.10*
-
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_cap,use = "pairwise.complete.obs")
-#0.08
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_cap))
-#0.05
-
-
-#4. Index of all seed handling and storage practices observed by enumerator
-###CORRELATING ENDLINE RATINGS WITH ENDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$index_practices_all_mid,use = "pairwise.complete.obs")
-#ratings1 0.10, ratings2 0.12, ratings3 0.13, ratings4 0.13
-summary(lm(baseline_dealers$ratings3~baseline_dealers$index_practices_all_mid))
-#0.11*
-
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_practices_all,use = "pairwise.complete.obs")
-#0.08
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_practices_all))
-#0.07
-
-
-#5. Shop received seed related complaint from customer
-cor(baseline_dealers$ratings3,baseline_dealers$mid_maize.owner.agree.q96,use = "pairwise.complete.obs")
-#ratings1 -0.07, ratings2 -0.07, ratings3 -0.07, ratings4 -0.07
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_maize.owner.agree.q96))
-#-0.05
-
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_received.complaint,use = "pairwise.complete.obs")
-#-0.02
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_received.complaint))
-#-0.01
-
-
-#6. Shop received a warning after inspection
-cor(baseline_dealers$ratings1,baseline_dealers$mid_maize.owner.agree.inspection.q118,use = "pairwise.complete.obs")
-#ratings1 -0.03, ratings2 -0.02, ratings3 -0.03, ratings4 -0.03
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_maize.owner.agree.inspection.q118))
-#-0.02
-
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_received.warning,use = "pairwise.complete.obs")
-#0.13
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_received.warning))
-#0.08*
-
-
-#7. Random seed bag shows packaging date
 baseline_dealers$mid_date_pack <- baseline_dealers$date_pack_end #x
 baseline_dealers$mid_visible_packdate<-ifelse(baseline_dealers$mid_date_pack=="n/a",0,1) #x
-cor(baseline_dealers$ratings2,baseline_dealers$mid_visible_packdate,use = "pairwise.complete.obs")
-#ratings1 0.05, ratings2 0.03, ratings3 0.03, ratings4 0.03
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_visible_packdate))
-#0.02
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_bag.shows.packaging.date,use = "pairwise.complete.obs")
-#-0.00
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_bag.shows.packaging.date))
-#-0.00
+baseline_dealers$mid_exp <- baseline_dealers$exp_end #x
+baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,0) #x
 
-
-#8. Days since packaging date/expiry date minus 6 months
 baseline_dealers$mid_date <- baseline_dealers$date_end #x
 baseline_dealers$mid_date[baseline_dealers$mid_date=="n/a"] <- NA #x
 baseline_dealers$mid_date <- as.Date(baseline_dealers$mid_date) #x
@@ -6382,60 +6290,49 @@ baseline_dealers$mid_shelflife_Caro[baseline_dealers$mid_shelflife_Caro < 0] <- 
 baseline_dealers$mid_shelflife_Caro <- as.numeric(as.character(baseline_dealers$mid_shelflife_Caro)) #x
 baseline_dealers <- trim("mid_shelflife_Caro",baseline_dealers,trim_perc=.02) #x
 baseline_dealers <- trim("shelflife_Caro",baseline_dealers,trim_perc=.02)
-cor(baseline_dealers$ratings2,baseline_dealers$mid_shelflife_Caro,use = "pairwise.complete.obs")
-#ratings1 0.06, ratings2 0.07, ratings3 0.05, ratings4 0.05
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_shelflife_Caro))
-#0.00
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_shelflife,use = "pairwise.complete.obs")
-#-0.15
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_shelflife))
-#-0.0004+
-
-
-#Q9. Is the seed in the original bag without any signs of damage?
 baseline_dealers$mid_origin <- baseline_dealers$origin_end
 baseline_dealers$mid_origin<-ifelse(baseline_dealers$mid_origin=="Yes",1,0)
-cor(baseline_dealers$ratings1,baseline_dealers$mid_origin,use = "pairwise.complete.obs")
-#ratings1 0.07, ratings2 0.05, ratings3 0.07, ratings4 0.06
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_origin))
-#0.06
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_original.bag.without.damage,use = "pairwise.complete.obs")
-#-0.07
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_original.bag.without.damage))
-#-0.07
-
-
-#10. Random seed bag shows lot number
 baseline_dealers$mid_lot <- baseline_dealers$lot_end
 baseline_dealers$mid_lot<-ifelse(baseline_dealers$mid_lot=="Yes",1,0)
-cor(baseline_dealers$ratings3,baseline_dealers$mid_lot,use = "pairwise.complete.obs")
-#ratings1 0.08, ratings2 0.07, ratings3 0.07, ratings4 0.07
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_lot))
-#0.05
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_bag.shows.lotnumber,use = "pairwise.complete.obs")
-#-0.07
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_bag.shows.lotnumber))
-#-0.04
+quality_dealer <- c("midline_specialized.shop","midline_practices_lab","midline_practices_cap","midline_practices_all"
+                    ,"midline_received.complaint","midline_received.warning","midline_bag.shows.packaging.date"
+                    ,"midline_shelflife","midline_original.bag.without.damage","midline_bag.shows.lotnumber"
+                    ,"midline_moisture","check.owner.agree.q5", "index_practices_lab_mid","index_practices_cap_mid","index_practices_all_mid"
+                    ,"mid_maize.owner.agree.q96","mid_maize.owner.agree.inspection.q118","mid_visible_packdate","mid_shelflife_Caro",
+                    "mid_origin","mid_lot","mid_reading")
 
+df_ols_quality_dealer <- array(NA,dim=c(3,4,22))
 
-#11. Moisture in random seed bag in percent
-cor(baseline_dealers$ratings3,baseline_dealers$mid_reading,use = "pairwise.complete.obs")
-#ratings1 0.06, ratings2 0.05, ratings3 0.07, ratings4 0.07
-summary(lm(baseline_dealers$ratings3~baseline_dealers$mid_reading))
-#0.02
+for (i in 1:length(quality_dealer)){
+  ols <- lm(as.formula(paste("ratings1",quality_dealer[i],sep="~")), data=baseline_dealers)
+  
+  df_ols_quality_dealer[1,1,i] <- summary(ols)$coefficients[2,1]
+  df_ols_quality_dealer[2,1,i] <- summary(ols)$coefficients[2,2]
+  df_ols_quality_dealer[3,1,i] <- summary(ols)$coefficients[2,4]}
 
-###CORRELATING ENDLINE RATINGS WITH MIDLINE QUALITY
-cor(baseline_dealers$ratings3,baseline_dealers$midline_moisture,use = "pairwise.complete.obs")
-#0.10
-summary(lm(baseline_dealers$ratings3~baseline_dealers$midline_moisture))
-#0.03
+for (i in 1:length(quality_dealer)){
+  ols <- lm(as.formula(paste("ratings2",quality_dealer[i],sep="~")), data=baseline_dealers)
+  
+  df_ols_quality_dealer[1,2,i] <- summary(ols)$coefficients[2,1]
+  df_ols_quality_dealer[2,2,i] <- summary(ols)$coefficients[2,2]
+  df_ols_quality_dealer[3,2,i] <- summary(ols)$coefficients[2,4]}
 
+for (i in 1:length(quality_dealer)){
+  ols <- lm(as.formula(paste("ratings3",quality_dealer[i],sep="~")), data=baseline_dealers)
+  
+  df_ols_quality_dealer[1,3,i] <- summary(ols)$coefficients[2,1]
+  df_ols_quality_dealer[2,3,i] <- summary(ols)$coefficients[2,2]
+  df_ols_quality_dealer[3,3,i] <- summary(ols)$coefficients[2,4]}
+
+for (i in 1:length(quality_dealer)){
+  ols <- lm(as.formula(paste("ratings4",quality_dealer[i],sep="~")), data=baseline_dealers)
+  
+  df_ols_quality_dealer[1,4,i] <- summary(ols)$coefficients[2,1]
+  df_ols_quality_dealer[2,4,i] <- summary(ols)$coefficients[2,2]
+  df_ols_quality_dealer[3,4,i] <- summary(ols)$coefficients[2,4]}
 
 
 #FARMERS
