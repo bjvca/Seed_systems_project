@@ -6766,3 +6766,10 @@ write.csv(midline_for.cor.ratings.quality,paste(path,"/midline/data/agro_input/p
 #                  baseline_dealers$midline_bag.shows.lotnumber,
 #                  baseline_dealers$midline_moisture,
 #                  baseline_dealers$midline_original.bag.without.damage)
+
+baseline_farmers$plotratings_midline <- baseline_farmers$index_ratingplot_mid
+
+midline_for.cor.ratings.quality_farmers = subset(baseline_farmers, select = c("farmer_ID",
+                                                                      "plotratings_midline"))
+
+write.csv(midline_for.cor.ratings.quality_farmers,paste(path,"/midline/data/farmer/public/midline_for.cor.ratings.quality_farmers.csv",sep="/"), row.names = T)
