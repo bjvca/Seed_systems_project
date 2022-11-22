@@ -4627,12 +4627,12 @@ baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_fa
 for (i in 1:length(results_farmer_prim)){
   ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_prim[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_prim[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_prim[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_prim[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_prim[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_prim[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #transformation because otherwise no correlation between agro and q25d possible:
 baseline_farmers$Check2.check.maize.q25d_save <- baseline_farmers$Check2.check.maize.q25d
@@ -4908,12 +4908,12 @@ baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_fa
 for (i in 1:length(results_farmer_prim)){
   ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_prim[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_prim_het2[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_prim_het2[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_prim_het2[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_prim_het2[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_prim_het2[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_prim_het2[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
@@ -5145,12 +5145,12 @@ baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_far
 for (i in 1:length(results_farmer_sec)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_sec_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_sec[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_sec[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_sec[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_sec[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_secT <- data.frame(baseline_farmers$mid_number_known,baseline_farmers$mid_knows_dealer)
@@ -5347,12 +5347,12 @@ baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[result
 for (i in 1:length(results_farmer_sec_plot)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_plot[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_sec_plot_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_sec_plot[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec_plot[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec_plot[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec_plot[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_sec_plot[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_sec_plot[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_sec_plot[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
@@ -5601,12 +5601,12 @@ baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[result
 for (i in 1:length(results_farmer_sec_seed)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_seed[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_sec_seed_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_sec_seed[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec_seed[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec_seed[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec_seed[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_sec_seed[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_sec_seed[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_sec_seed[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_seedT <- data.frame(baseline_farmers$index_ratingplot_midT,baseline_farmers$mid_Check2.check.maize.q36
@@ -5813,12 +5813,12 @@ baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[re
 for (i in 1:length(results_farmer_sec_yieldetc)){
   ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
   #ols <- lm(as.formula(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_sec_yieldetc[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_sec_yieldetc[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_sec_yieldetc[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_sec_yieldetc[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_sec_yieldetc[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_sec_yieldetc[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #Aker, Boumnijel, McClelland, Tierney (2012)
 df_farmer_sec_yieldetcT <- data.frame(baseline_farmers$mid_yield_inkg,baseline_farmers$mid_landproductivity
@@ -6115,12 +6115,12 @@ results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
 
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_nobase[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_nobase[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_nobase[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_nobase[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_nobase[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_nobase[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 
 
@@ -6309,12 +6309,12 @@ results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR3")
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR3")
   
   #farmer video treatment at village/shop level so no clustering needed
-  df_ols_F_nobase_het2[1,3,i] <- summary(ols)$coefficients[4,1]
-  df_ols_F_nobase_het2[2,3,i] <- summary(ols)$coefficients[4,2]
-  df_ols_F_nobase_het2[3,3,i] <- summary(ols)$coefficients[4,4]}
+  df_ols_F_nobase_het2[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_F_nobase_het2[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_F_nobase_het2[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 baseline_farmers=baseline_farmers_save
 
