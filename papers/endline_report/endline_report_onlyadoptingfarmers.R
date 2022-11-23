@@ -5966,7 +5966,7 @@ baseline_farmers$q60_correct[baseline_farmers$CHECK.MAIZE.Q60=="c"] <- 1 #robust
 
 baseline_farmers$q61_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q61=="c",1,0)
 baseline_farmers$q62_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q62=="c",1,0)
-#baseline_farmers$q63_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q63=="a",1,0) #not in index
+baseline_farmers$q63_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q63=="a",1,0) #not in index
 
 variables_skills_mid <- cbind(baseline_farmers$q58_correct,baseline_farmers$q59_correct,baseline_farmers$q60_correct
                               ,baseline_farmers$q61_correct,baseline_farmers$q62_correct)
@@ -6203,6 +6203,100 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
 #OK!
+
+
+
+
+
+
+
+
+
+#skill questions
+
+###
+#1#
+###
+
+results_skills <- c("q58_correct"         #1
+                    ,"q59_correct"        #2
+                    ,"q60_correct"        #3
+                    ,"q61_correct"        #4
+                    ,"q62_correct"        #5
+                    ,"q63_correct"        #6
+                    ,"index_skillsF_mid") #7
+
+df_means_skills <- array(NA,dim=c(5,14))
+
+for (i in 1:length(results_skills)){
+  df_means_skills[1,i] <- sum(baseline_farmers[results_skills[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_skills[i]])))
+  df_means_skills[2,i] <- sqrt(var(baseline_farmers[results_skills[i]], na.rm=T))
+  df_means_skills[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_skills[i]]))
+  df_means_skills[4,i] <- min(baseline_farmers[results_skills[i]], na.rm=T)
+  df_means_skills[5,i] <- max(baseline_farmers[results_skills[i]], na.rm=T)}
+
+###
+#2#
+###
+
+df_ols_skills <- array(NA,dim=c(3,3,13))
+
+results_skills <- c("q58_correct"         #1
+                    ,"q59_correct"        #2
+                    ,"q60_correct"        #3
+                    ,"q61_correct"        #4
+                    ,"q62_correct"        #5
+                    ,"q63_correct"        #6
+                    ,"index_skillsF_midT")
+
+for (i in 1:length(results_skills)){
+  ols <- lm(as.formula(paste(results_skills[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_farmers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  
+  df_ols_skills[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  df_ols_skills[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  df_ols_skills[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]}
+
+###
+#3#
+###
+
+results_skills <- c("q58_correct"         #1
+                    ,"q59_correct"        #2
+                    ,"q60_correct"        #3
+                    ,"q61_correct"        #4
+                    ,"q62_correct"        #5
+                    ,"q63_correct"        #6
+                    ,"index_skillsF_midC")
+
+for (i in 1:length(results_skills)){
+  ols <- lm(as.formula(paste(results_skills[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers)
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  
+  df_ols_skills[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
+  df_ols_skills[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
+  df_ols_skills[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
+
+###
+#4#
+###
+
+results_skills <- c("q58_correct"         #1
+                    ,"q59_correct"        #2
+                    ,"q60_correct"        #3
+                    ,"q61_correct"        #4
+                    ,"q62_correct"        #5
+                    ,"q63_correct"        #6
+                    ,"index_skillsF_midF")
+
+for (i in 1:length(results_skills)){
+  ols <- lm(as.formula(paste(results_skills[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_farmers)
+  vcov_cluster_shop <- vcovCR(ols,cluster=baseline_farmers$shop_ID,type="CR0")
+  
+  df_ols_skills[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
+  df_ols_skills[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
+  df_ols_skills[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
 
 
 
