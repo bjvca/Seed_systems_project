@@ -1,0 +1,920 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{Caroline Miehe
+\backslash
+thanks{LICOS, KU Leuven},
+\end_layout
+
+\begin_layout Plain Layout
+
+Bjorn Van Campenhout
+\backslash
+thanks{Development Strategy and Governance Division, IFPRI - corresponding
+ author: bjorn.vancampenhout@cgiar.org},
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Robert Sparrow
+\backslash
+thanks{Development Economics Group, Wageningen University and Research},
+\end_layout
+
+\begin_layout Plain Layout
+
+David Spielman
+\backslash
+thanks{Development Strategy and Governance Division, IFPRI}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Learning failures in technology adoption
+\end_layout
+
+\begin_layout Standard
+Modern commercial inputs are often marketed as miracle seed.
+ As a result, farmers 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Encouraging farmers to adopt new technologies is difficult for various reasons.
+ One particularly important reason for the slow rate of adoption is related
+ to uncertainty about a new product or practice.
+ Often the results, for instance in terms of additional yield or cost savings,
+ are not clear a-priori.
+ Even after the technology has been tried out, it is often difficult to
+ isolate the impact of the technology form all other factors that may affect
+ outcomes.
+ 
+\end_layout
+
+\begin_layout Standard
+Decisions are made on the basis of perceptions and expectations.
+ There are often informed by agro-input dealers and seed producers that
+ want to sell as much as possible, and therefore have an incentive to exaggerate.
+ Farmers also learn for peers.
+ 
+\end_layout
+
+\begin_layout Standard
+As a result, farmers may have inflated expectations of the inputs they use.
+ For instance, they may assume that inorganic fertilizer leads to lasting
+ improvement of the soil.
+ Or they may think that the improved seed they bought does not need fertilizer,
+ since it is improved and they already paid a substantial sum for it.
+ 
+\end_layout
+
+\begin_layout Standard
+In the end, farmers observe yields that are lower than expected.
+ However, as there are many stochastic factors influence production, including
+ the weather, it is hard to attribute harvest outcomes to any specific input
+ 
+\end_layout
+
+\begin_layout Standard
+Given the above, one would expect that farmers that use improved seed would
+ use less fertilizer and other inputs than farmers that use landraces.
+ However, in observational data, this relationship may be obscured by selection
+ bias, whereby farmers that use improved seed differ in many other aspects
+ from farmers that do not use improved seed.
+ For instance, farmers that use improved seed may be more likely to use
+ more fertilizer in general.
+\end_layout
+
+\begin_layout Section
+Related literature
+\end_layout
+
+\begin_layout Section
+The experiment
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<standard_beginning, echo=F, warning=F, message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path2,
+\begin_inset Quotes eld
+\end_inset
+
+midline_learning_failures.R
+\begin_inset Quotes erd
+\end_inset
+
+,sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+df_ols_F_sec_plot_mid <- df_ols_F_sec_plot
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path2,
+\begin_inset Quotes eld
+\end_inset
+
+endline_learning_failures.R
+\begin_inset Quotes erd
+\end_inset
+
+,sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+df_ols_F_sec_plot_end <- df_ols_F_sec_plot
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Balance table
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+results on adoption
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Farmer, secondary outcome
+ variables: adoption on randomly selected maize field
+\begin_inset CommandInset label
+LatexCommand label
+name "results_farmer_sec: plot adoption"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& control &  midline & endline & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & mean &  &  &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted hybrid maize seed on randomly selected maize field$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_mid[3,3,1]<.05,"*",ifelse(df_ols_F_sec_plot_mid[3,3,1]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_end[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_end[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_end[3,3,1]<.05,"*",ifelse(df_ols_F_sec_plot_end[3,3,1]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[3,1],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[2,3,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_end[2,3,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted open-pollinated maize seed on this field$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[1,3,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_mid[3,3,2]<.05,"*",ifelse(df_ols_F_sec_plot_mid[3,3,2]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[2,3,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted farmer saved maize seed on this field (can be hybrid, open-pollin
+ated, local land race)$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_mid[3,3,3]<.05,"*",ifelse(df_ols_F_sec_plot_mid[3,3,3]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[2,3,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted maize seed bought at agro-input shop on this field$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_mid[3,3,4]<.05,"*",ifelse(df_ols_F_sec_plot_mid[3,3,4]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[3,4],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[2,3,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted hybrid 
+\backslash
+textbf{not farmer saved} seed or an OPV (
+\backslash
+textbf{not used too often}) on this field
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[1,3,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_plot_mid[3,3,5]<.05,"*",ifelse(df_ols_F_sec_plot_mid[3,3,5]
+<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[3,5],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_F_sec_plot[2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_plot_mid[2,3,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+results on complementary inputs
+\end_layout
+
+\begin_layout Standard
+results on learning
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+With the heterogeneity analysis it seems there is now a nice story for the
+ learning failure paper:
+\end_layout
+
+\begin_layout Standard
+- for the entire sample, there seems to be a negative effect on quality
+ seed adoption and an increase in use of landraces (disadoption), but it
+ is not significant because there are also many farmers that do not use
+ improved seed to begin with; for them the information is not very relevant.
+ Indeed.
+\end_layout
+
+\begin_layout Standard
+- if we restrict the sample to adopters, we clearly see that our video scares
+ a large share of adopters back into landraces at midline.
+\end_layout
+
+\begin_layout Standard
+- for the adopter we do see a positive effect on yield and expectations
+ on yield [it’s not really expectations for the coming season but expectations
+ that were met in the last season, we asked: Did you harvest as much maize
+ from this plot last season as you expected?, so more yield makes it more
+ likely that this question is answered with “yes”] at midline.
+ It is important to note that there is no increase in production [there
+ is a small increase but it’s not significant?], but rather a decrease in
+ crop area.
+ This is consistent with a story where at least part of the farmers that
+ used improved seed and thought if it as miracle seed abandon this and reduce
+ maize growing.
+ Positive effect on yield at midline also because dis-adoption cannot have
+ an effect, yet.
+\end_layout
+
+\begin_layout Standard
+- at endline there is no effect anymore.
+ This seems to suggest that our information is like a one time shock and
+ farmer move to a new equilibrium.
+ 
+\end_layout
+
+\begin_layout Standard
+At endline, there’s no effect on adoption anymore but the reduced adoption
+ at midline has a negative effect on the overall index of the yield etc.
+ outcomes for farmers who used to adopt (if we don’t control for baseline)
+ but also for the entire sample (if we control for baseline).
+\end_layout
+
+\end_body
+\end_document
