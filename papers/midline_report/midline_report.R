@@ -6773,3 +6773,9 @@ midline_for.cor.ratings.quality_farmers = subset(baseline_farmers, select = c("f
                                                                       "plotratings_midline"))
 
 write.csv(midline_for.cor.ratings.quality_farmers,paste(path,"/midline/data/farmer/public/midline_for.cor.ratings.quality_farmers.csv",sep="/"), row.names = T)
+
+### saving results in matrices for papers
+df_ols_F_sec_plot_mid <- df_ols_F_sec_plot 
+df_means_F_sec_plot_mid <- df_means_F_sec_plot
+save(df_ols_F_sec_plot_mid, file=paste(path,"papers/midline_report/output/df_ols_F_sec_plot_mid.Rdata",sep="/"))
+save(df_means_F_sec_plot_mid, file=paste(path,"papers/midline_report/output/df_means_F_sec_plot_mid.Rdata",sep="/"))
