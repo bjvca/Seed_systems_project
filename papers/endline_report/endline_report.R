@@ -6715,6 +6715,6 @@ summary(regression2 <- lm(baseline_farmers$yield_endline~baseline_farmers$plotra
 # #Days since packaging date/expiry date minus 6 months
 # #Overall index controlling for baseline (secondary outcome variables regarding seed bag)
 # 
-### saving results in matrices for papers
-df_ols_F_sec_plot_end <- df_ols_F_sec_plot 
-save(df_ols_F_sec_plot_end, file=paste(path,"papers/endline_report/output/df_ols_F_sec_plot_end.Rdata",sep="/"))
+# ### saving results in matrices for papers
+# df_ols_F_sec_plot_end <- df_ols_F_sec_plot 
+# save(df_ols_F_sec_plot_end, file=paste(path,"papers/endline_report/output/df_ols_F_sec_plot_end.Rdata",sep="/"))
