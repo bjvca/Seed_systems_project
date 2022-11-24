@@ -215,15 +215,25 @@ path2 <- getwd()
 
 \begin_layout Plain Layout
 
-source(paste(path2,
-\begin_inset Quotes eld
-\end_inset
+path2 <- strsplit(path2,"/learning_failures")[[1]]
+\end_layout
 
-midline_learning_failures.R
+\begin_layout Plain Layout
+
+print(path2)
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-,sep=
+midline_report/output/df_ols_F_sec_plot_mid.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
 \begin_inset Quotes erd
 \end_inset
 
@@ -236,25 +246,15 @@ midline_learning_failures.R
 
 \begin_layout Plain Layout
 
-df_ols_F_sec_plot_mid <- df_ols_F_sec_plot
-\end_layout
-
-\begin_layout Plain Layout
-
-path2 <- getwd()
-\end_layout
-
-\begin_layout Plain Layout
-
-source(paste(path2,
-\begin_inset Quotes eld
-\end_inset
-
-endline_learning_failures.R
+load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-,sep=
+endline_report/output/df_ols_F_sec_plot_end.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
 \begin_inset Quotes erd
 \end_inset
 
@@ -267,7 +267,23 @@ endline_learning_failures.R
 
 \begin_layout Plain Layout
 
-df_ols_F_sec_plot_end <- df_ols_F_sec_plot
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+midline_report/output/df_ols_F_sec_plot_mid.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
 \end_layout
 
 \begin_layout Plain Layout
@@ -296,7 +312,7 @@ results on adoption
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -860,8 +876,607 @@ dag)}$ indicates that the variable is included in the overall index not
 results on complementary inputs
 \end_layout
 
+\begin_layout Subsection
+impact on knowledge
+\end_layout
+
 \begin_layout Standard
-results on learning
+To investigate impact pathways, we included questions that were specifically
+ designed to test if farmers were able to pick up the subtle messages hidden
+ in the treatment video.
+ For instance, we started with a general question, asking if farmers think
+ good seed handling and farmer management like weeding and applying fertilizer
+ is less, equally, or more important when using quality maize seed like
+ OPV or hybrid seed, as compared to when using other lower quality seed.
+ We see from table X that 
+\end_layout
+
+\begin_layout Standard
+Please indicate what applies for weeding including removing striga (Kayongo)
+ when you are using hybrid seeds.
+ Q60: Please indicate what applies for fertilizer application when you are
+ using hybrid seeds.
+ Q61: Which plots or gardens is best suited to plant your improved seed?
+ Q62: How to invest your money? Q63: If you want to be a successful farmer,
+ what is the best spacing and number of seeds per hill you should use for
+ your maize? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control group
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows that good seed management is equally/more important when using
+ quality seed$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,1]<.05,"*",ifelse(df_ols_skills[3,3,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,1],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows he/she should weed and remove striga when using quality seed$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,2]<.05,"*",ifelse(df_ols_skills[3,3,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,2],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows he/she should apply the same amount/more fertilizer when using
+ quality seed$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,3]<.05,"*",ifelse(df_ols_skills[3,3,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,3],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows he/she should use equally good plots when using quality seed$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,4]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,4]<.05,"*",ifelse(df_ols_skills[3,3,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,4],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,4],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows he/she should buy both quality seed and fertilizer$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,5]<.05,"*",ifelse(df_ols_skills[3,3,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,5],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,5],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer knows the best spacing and number of seeds per hill
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,6]<.05,"*",ifelse(df_ols_skills[3,3,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,6],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's knowledge how to manage quality maize seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_skills[1,3,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_skills[3,3,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_skills[3,3,7]<.05,"*",ifelse(df_ols_skills[3,3,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_skills[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_skills[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_skills[2,3,7],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd column reports differences between treatment and control groups and
+ standard errors below in brackets; they are clustered at the level of randomiza
+tion; 3rd column reports number of observations; **, * and + denote significance
+ at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the index; larger indices
+ indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
