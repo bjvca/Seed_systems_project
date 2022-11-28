@@ -1017,7 +1017,7 @@ centering
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ToC_CH.pdf
+	filename ../endline_report/ToC_CH.pdf
 	scale 80
 
 \end_inset
@@ -1375,11 +1375,11 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename timeline_new_new_CH only.pdf
+	filename ../endline_report/timeline_new_new_CH only.pdf
 	scale 40
 
 \end_inset
@@ -1879,7 +1879,7 @@ centering
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename certificate.pdf
+	filename ../endline_report/certificate.pdf
 	scale 31
 
 \end_inset
@@ -2028,6 +2028,21 @@ For continuous variables, trimmed values are used to reduce the influence
  Outcomes for which 95% of observations have the same value within the relevant
  sample are omitted from the analysis and not included in any indicators
  or hypothesis tests.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Cluster-robust variance-covariance matrix: is the original form of the sandwich
+ estimator (Liang & Zeger, 1986), which does not make any small-sample correctio
+n.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3223,6 +3238,16 @@ status open
 \begin_layout Plain Layout
 
 path2 <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- strsplit(path2,"/clearinghouse_training_paper")[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+path2 <- paste(path2,"endline_report",sep="/")
 \end_layout
 
 \begin_layout Plain Layout
@@ -4504,10 +4529,10 @@ Sexpr{format(round(df_averages_farmer[1,3],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,3],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,3],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,3]<.01,"**",ifelse(df_ols_farmer[3,2,3]<.05,"*",ife
-lse(df_ols_farmer[3,2,3]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,3]<.01,"**",ifelse(df_ols_end_farmer[3,2,3]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,3]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4525,7 +4550,7 @@ Sexpr{format(round(df_averages_farmer[2,3],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,3],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,3],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4552,10 +4577,10 @@ Sexpr{format(round(df_averages_farmer[1,4],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,4],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,4],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,4]<.01,"**",ifelse(df_ols_farmer[3,2,4]<.05,"*",ife
-lse(df_ols_farmer[3,2,4]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,4]<.01,"**",ifelse(df_ols_end_farmer[3,2,4]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,4]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4573,7 +4598,7 @@ Sexpr{format(round(df_averages_farmer[2,4],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,4],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,4],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4600,10 +4625,10 @@ Sexpr{format(round(df_averages_farmer[1,5],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,5],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,5],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,5]<.01,"**",ifelse(df_ols_farmer[3,2,5]<.05,"*",ife
-lse(df_ols_farmer[3,2,5]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,5]<.01,"**",ifelse(df_ols_end_farmer[3,2,5]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,5]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4621,7 +4646,7 @@ Sexpr{format(round(df_averages_farmer[2,5],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,5],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,5],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4661,10 +4686,10 @@ Sexpr{format(round(df_averages_farmer[1,1],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,1],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,1],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,1]<.01,"**",ifelse(df_ols_farmer[3,2,1]<.05,"*",ife
-lse(df_ols_farmer[3,2,1]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,1]<.01,"**",ifelse(df_ols_end_farmer[3,2,1]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,1]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4682,7 +4707,7 @@ Sexpr{format(round(df_averages_farmer[2,1],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,1],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,1],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4709,10 +4734,10 @@ Sexpr{format(round(df_averages_farmer[1,2],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,2],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,2],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,2]<.01,"**",ifelse(df_ols_farmer[3,2,2]<.05,"*",ife
-lse(df_ols_farmer[3,2,2]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,2]<.01,"**",ifelse(df_ols_end_farmer[3,2,2]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,2]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4730,7 +4755,7 @@ Sexpr{format(round(df_averages_farmer[2,2],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,2],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,2],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4758,10 +4783,10 @@ Sexpr{format(round(df_averages_farmer[1,6],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,6],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,6],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,6]<.01,"**",ifelse(df_ols_farmer[3,2,6]<.05,"*",ife
-lse(df_ols_farmer[3,2,6]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,6]<.01,"**",ifelse(df_ols_end_farmer[3,2,6]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,6]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4779,7 +4804,7 @@ Sexpr{format(round(df_averages_farmer[2,6],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,6],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,6],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4806,10 +4831,10 @@ Sexpr{format(round(df_averages_farmer[1,7],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,7],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,7],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,7]<.01,"**",ifelse(df_ols_farmer[3,2,7]<.05,"*",ife
-lse(df_ols_farmer[3,2,7]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,7]<.01,"**",ifelse(df_ols_end_farmer[3,2,7]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,7]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4827,7 +4852,7 @@ Sexpr{format(round(df_averages_farmer[2,7],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,7],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,7],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4867,10 +4892,10 @@ Sexpr{format(round(df_averages_farmer[1,8],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,8],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,8],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,8]<.01,"**",ifelse(df_ols_farmer[3,2,8]<.05,"*",ife
-lse(df_ols_farmer[3,2,8]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,8]<.01,"**",ifelse(df_ols_end_farmer[3,2,8]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,8]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4888,7 +4913,7 @@ Sexpr{format(round(df_averages_farmer[2,8],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,8],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,8],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4915,10 +4940,10 @@ Sexpr{format(round(df_averages_farmer[1,21],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,21],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,21],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,21]<.01,"**",ifelse(df_ols_farmer[3,2,21]<.05,"*",i
-felse(df_ols_farmer[3,2,21]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,21]<.01,"**",ifelse(df_ols_end_farmer[3,2,21]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,21]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4936,7 +4961,7 @@ Sexpr{format(round(df_averages_farmer[2,21],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,21],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,21],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -4963,10 +4988,10 @@ Sexpr{format(round(df_averages_farmer[1,19],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,19],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,19],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,19]<.01,"**",ifelse(df_ols_farmer[3,2,19]<.05,"*",i
-felse(df_ols_farmer[3,2,19]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,19]<.01,"**",ifelse(df_ols_end_farmer[3,2,19]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,19]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -4984,7 +5009,7 @@ Sexpr{format(round(df_averages_farmer[2,19],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,19],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,19],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5011,10 +5036,10 @@ Sexpr{format(round(df_averages_farmer[1,20],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,20],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,20],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,20]<.01,"**",ifelse(df_ols_farmer[3,2,20]<.05,"*",i
-felse(df_ols_farmer[3,2,20]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,20]<.01,"**",ifelse(df_ols_end_farmer[3,2,20]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,20]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5032,7 +5057,7 @@ Sexpr{format(round(df_averages_farmer[2,20],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,20],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,20],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5072,10 +5097,10 @@ Sexpr{format(round(df_averages_farmer[1,9],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,9],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,9],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,9]<.01,"**",ifelse(df_ols_farmer[3,2,9]<.05,"*",ife
-lse(df_ols_farmer[3,2,9]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,9]<.01,"**",ifelse(df_ols_end_farmer[3,2,9]<.05
+,"*",ifelse(df_ols_end_farmer[3,2,9]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5093,7 +5118,7 @@ Sexpr{format(round(df_averages_farmer[2,9],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,9],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,9],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5120,10 +5145,10 @@ Sexpr{format(round(df_averages_farmer[1,10],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,10],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,10],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,10]<.01,"**",ifelse(df_ols_farmer[3,2,10]<.05,"*",i
-felse(df_ols_farmer[3,2,10]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,10]<.01,"**",ifelse(df_ols_end_farmer[3,2,10]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,10]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5141,7 +5166,7 @@ Sexpr{format(round(df_averages_farmer[2,10],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,10],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,10],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5168,10 +5193,10 @@ Sexpr{format(round(df_averages_farmer[1,11],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,11],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,11],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,11]<.01,"**",ifelse(df_ols_farmer[3,2,11]<.05,"*",i
-felse(df_ols_farmer[3,2,11]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,11]<.01,"**",ifelse(df_ols_end_farmer[3,2,11]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,11]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5189,7 +5214,7 @@ Sexpr{format(round(df_averages_farmer[2,11],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,11],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,11],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5216,10 +5241,10 @@ Sexpr{format(round(df_averages_farmer[1,12],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,12],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,12],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,12]<.01,"**",ifelse(df_ols_farmer[3,2,12]<.05,"*",i
-felse(df_ols_farmer[3,2,12]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,12]<.01,"**",ifelse(df_ols_end_farmer[3,2,12]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,12]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5237,7 +5262,7 @@ Sexpr{format(round(df_averages_farmer[2,12],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,12],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,12],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5264,10 +5289,10 @@ Sexpr{format(round(df_averages_farmer[1,22],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,22],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,22],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,22]<.01,"**",ifelse(df_ols_farmer[3,2,22]<.05,"*",i
-felse(df_ols_farmer[3,2,22]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,22]<.01,"**",ifelse(df_ols_end_farmer[3,2,22]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,22]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5285,7 +5310,7 @@ Sexpr{format(round(df_averages_farmer[2,22],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,22],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,22],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5312,10 +5337,10 @@ Sexpr{format(round(df_averages_farmer[1,16],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,16],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,16],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,16]<.01,"**",ifelse(df_ols_farmer[3,2,16]<.05,"*",i
-felse(df_ols_farmer[3,2,16]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,16]<.01,"**",ifelse(df_ols_end_farmer[3,2,16]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,16]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5333,7 +5358,7 @@ Sexpr{format(round(df_averages_farmer[2,16],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,16],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,16],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -5360,10 +5385,10 @@ Sexpr{format(round(df_averages_farmer[1,15],digits=2),nsmall=2)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_farmer[1,2,15],digits=2),nsmall=2)}$^{
+Sexpr{format(round(df_ols_end_farmer[1,2,15],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_farmer[3,2,15]<.01,"**",ifelse(df_ols_farmer[3,2,15]<.05,"*",i
-felse(df_ols_farmer[3,2,15]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,15]<.01,"**",ifelse(df_ols_end_farmer[3,2,15]<.
+05,"*",ifelse(df_ols_end_farmer[3,2,15]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -5381,7 +5406,7 @@ Sexpr{format(round(df_averages_farmer[2,15],digits=2),nsmall=2)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_farmer[2,2,15],digits=2),nsmall=2)}) 
+Sexpr{format(round(df_ols_end_farmer[2,2,15],digits=2),nsmall=2)}) 
 \backslash
 
 \backslash
@@ -6578,7 +6603,7 @@ Sexpr{format(round(perc_lostD_control_CH,digits=2),nsmall=0)}
 
 Significant difference? (p-value) & & 
 \backslash
-Sexpr{format(round(df_ols_attritionD[3,2,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_ols_end_attritionD[3,2,1],digits=2),nsmall=2)} & 
 \backslash
 
 \backslash
@@ -6723,7 +6748,7 @@ Significant difference? (p-value) & &
 
 
 \backslash
-Sexpr{format(round(df_ols_attritionF[3,2,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_ols_end_attritionF[3,2,1],digits=2),nsmall=2)} & 
 \backslash
 
 \backslash
@@ -6992,7 +7017,8 @@ Sexpr{format(round(perc_lostD_control_CH_end,digits=2),nsmall=0)}
 
 Significant difference? (p-value) & & 
 \backslash
-Sexpr{format(round(df_ols_attritionD_end[3,2,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_ols_end_attritionD_end[3,2,1],digits=2),nsmall=2)}
+ & 
 \backslash
 
 \backslash
@@ -7137,7 +7163,8 @@ Significant difference? (p-value) & &
 
 
 \backslash
-Sexpr{format(round(df_ols_attritionF_end[3,2,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(df_ols_end_attritionF_end[3,2,1],digits=2),nsmall=2)}
+ & 
 \backslash
 
 \backslash
@@ -8159,40 +8186,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,1]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,1]<.05,"*",ifelse(df_ols_quality_dealer[3,1,1]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,1]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,1]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,1]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,1]<.05,"*",ifelse(df_ols_quality_dealer[3,2,1]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,1]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,1]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,1]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,1]<.05,"*",ifelse(df_ols_quality_dealer[3,3,1]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,1]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,1]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,1]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,1]<.05,"*",ifelse(df_ols_quality_dealer[3,4,1]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,1]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,1]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,1]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8214,40 +8242,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,2],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,2]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,2]<.05,"*",ifelse(df_ols_quality_dealer[3,1,2]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,2]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,2]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,2]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,2]<.05,"*",ifelse(df_ols_quality_dealer[3,2,2]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,2]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,2]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,2],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,2]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,2]<.05,"*",ifelse(df_ols_quality_dealer[3,3,2]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,2]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,2]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,2],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,2]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,2]<.05,"*",ifelse(df_ols_quality_dealer[3,4,2]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,2]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,2]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,2]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8269,40 +8298,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,3]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,3]<.05,"*",ifelse(df_ols_quality_dealer[3,1,3]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,3]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,3]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,3]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,3]<.05,"*",ifelse(df_ols_quality_dealer[3,2,3]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,3]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,3]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,3]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,3]<.05,"*",ifelse(df_ols_quality_dealer[3,3,3]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,3]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,3]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,3]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,3]<.05,"*",ifelse(df_ols_quality_dealer[3,4,3]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,3]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,3]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,3]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8324,40 +8354,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,4]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,4]<.05,"*",ifelse(df_ols_quality_dealer[3,1,4]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,4]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,4]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,4]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,4]<.05,"*",ifelse(df_ols_quality_dealer[3,2,4]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,4]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,4]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,4]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,4]<.05,"*",ifelse(df_ols_quality_dealer[3,3,4]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,4]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,4]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,4],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,4],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,4]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,4]<.05,"*",ifelse(df_ols_quality_dealer[3,4,4]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,4]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,4]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,4]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8379,40 +8410,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,5],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,5]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,5]<.05,"*",ifelse(df_ols_quality_dealer[3,1,5]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,5]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,5]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,5]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,5]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,5]<.05,"*",ifelse(df_ols_quality_dealer[3,2,5]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,5]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,5]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,5]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,5],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,5]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,5]<.05,"*",ifelse(df_ols_quality_dealer[3,3,5]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,5]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,5]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,5]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,5],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,5]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,5]<.05,"*",ifelse(df_ols_quality_dealer[3,4,5]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,5]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,5]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,5]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8434,40 +8466,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,6],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,6]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,6]<.05,"*",ifelse(df_ols_quality_dealer[3,1,6]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,6]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,6]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,6],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,6]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,6]<.05,"*",ifelse(df_ols_quality_dealer[3,2,6]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,6]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,6]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,6],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,6]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,6]<.05,"*",ifelse(df_ols_quality_dealer[3,3,6]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,6]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,6]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,6],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,6],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,6]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,6]<.05,"*",ifelse(df_ols_quality_dealer[3,4,6]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,6]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,6]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,6]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8502,40 +8535,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,7],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,7]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,7]<.05,"*",ifelse(df_ols_quality_dealer[3,1,7]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,7]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,7]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,7],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,7]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,7]<.05,"*",ifelse(df_ols_quality_dealer[3,2,7]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,7]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,7]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,7],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,7]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,7]<.05,"*",ifelse(df_ols_quality_dealer[3,3,7]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,7]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,7]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,7],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,7],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,7]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,7]<.05,"*",ifelse(df_ols_quality_dealer[3,4,7]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,7]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,7]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,7]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8557,40 +8591,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,8],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,8]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,8]<.05,"*",ifelse(df_ols_quality_dealer[3,1,8]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,8]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,8]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,8]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,8],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,8]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,8]<.05,"*",ifelse(df_ols_quality_dealer[3,2,8]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,8]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,8]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,8]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,8],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,8]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,8]<.05,"*",ifelse(df_ols_quality_dealer[3,3,8]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,8]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,8]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,8]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,8],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,8],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,8]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,8]<.05,"*",ifelse(df_ols_quality_dealer[3,4,8]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,8]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,8]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,8]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8612,40 +8647,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,9],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,9]<.01,"**",ifelse(df_ols_quality_dealer[3
-,1,9]<.05,"*",ifelse(df_ols_quality_dealer[3,1,9]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,9]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,1,9]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,9]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,9],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,9]<.01,"**",ifelse(df_ols_quality_dealer[3
-,2,9]<.05,"*",ifelse(df_ols_quality_dealer[3,2,9]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,9]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,2,9]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,9]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,9],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,9]<.01,"**",ifelse(df_ols_quality_dealer[3
-,3,9]<.05,"*",ifelse(df_ols_quality_dealer[3,3,9]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,9]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,3,9]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,9]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,9],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,9]<.01,"**",ifelse(df_ols_quality_dealer[3
-,4,9]<.05,"*",ifelse(df_ols_quality_dealer[3,4,9]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,9]<.01,"**",ifelse(df_ols_end_quality_
+dealer[3,4,9]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,9]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8667,40 +8703,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,10],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,10]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,10]<.05,"*",ifelse(df_ols_quality_dealer[3,1,10]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,10]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,10]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,10]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,10],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,10]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,10]<.05,"*",ifelse(df_ols_quality_dealer[3,2,10]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,10]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,10]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,10]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,10],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,10]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,10]<.05,"*",ifelse(df_ols_quality_dealer[3,3,10]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,10]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,10]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,10]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,10],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,10],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,10]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,10]<.05,"*",ifelse(df_ols_quality_dealer[3,4,10]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,10]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,10]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,10]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8722,40 +8759,41 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,11]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,11]<.05,"*",ifelse(df_ols_quality_dealer[3,1,11]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,11]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,11]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,11]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,11]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,11]<.05,"*",ifelse(df_ols_quality_dealer[3,2,11]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,11]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,11]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,11]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,11]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,11]<.05,"*",ifelse(df_ols_quality_dealer[3,3,11]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,11]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,11]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,11]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,11],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,11],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,11]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,11]<.05,"*",ifelse(df_ols_quality_dealer[3,4,11]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,11]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,11]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,11]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8790,40 +8828,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,12],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,12],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,12]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,12]<.05,"*",ifelse(df_ols_quality_dealer[3,1,12]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,12]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,12]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,12],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,12],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,12]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,12]<.05,"*",ifelse(df_ols_quality_dealer[3,2,12]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,12]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,12]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,12],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,12],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,12]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,12]<.05,"*",ifelse(df_ols_quality_dealer[3,3,12]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,12]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,12]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,12],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,12],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,12]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,12]<.05,"*",ifelse(df_ols_quality_dealer[3,4,12]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,12]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,12]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8845,40 +8884,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,13],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,13],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,13]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,13]<.05,"*",ifelse(df_ols_quality_dealer[3,1,13]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,13]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,13]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,13],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,13],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,13]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,13]<.05,"*",ifelse(df_ols_quality_dealer[3,2,13]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,13]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,13]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,13],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,13],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,13]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,13]<.05,"*",ifelse(df_ols_quality_dealer[3,3,13]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,13]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,13]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,13],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,13],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,13]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,13]<.05,"*",ifelse(df_ols_quality_dealer[3,4,13]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,13]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,13]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8900,40 +8940,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,14],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,14],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,14]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,14]<.05,"*",ifelse(df_ols_quality_dealer[3,1,14]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,14]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,14]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,14],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,14],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,14]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,14]<.05,"*",ifelse(df_ols_quality_dealer[3,2,14]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,14]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,14]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,14],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,14],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,14]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,14]<.05,"*",ifelse(df_ols_quality_dealer[3,3,14]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,14]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,14]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,14],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,14],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,14]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,14]<.05,"*",ifelse(df_ols_quality_dealer[3,4,14]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,14]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,14]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -8955,40 +8996,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,15],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,15],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,15]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,15]<.05,"*",ifelse(df_ols_quality_dealer[3,1,15]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,15]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,15]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,15],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,15],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,15]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,15]<.05,"*",ifelse(df_ols_quality_dealer[3,2,15]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,15]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,15]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,15],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,15],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,15]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,15]<.05,"*",ifelse(df_ols_quality_dealer[3,3,15]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,15]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,15]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,15],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,15],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,15]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,15]<.05,"*",ifelse(df_ols_quality_dealer[3,4,15]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,15]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,15]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9010,40 +9052,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,16],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,16]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,16]<.05,"*",ifelse(df_ols_quality_dealer[3,1,16]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,16]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,16]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,16],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,16]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,16]<.05,"*",ifelse(df_ols_quality_dealer[3,2,16]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,16]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,16]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,16],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,16]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,16]<.05,"*",ifelse(df_ols_quality_dealer[3,3,16]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,16]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,16]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,16],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,16],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,16]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,16]<.05,"*",ifelse(df_ols_quality_dealer[3,4,16]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,16]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,16]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9065,40 +9108,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,17],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,17]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,17]<.05,"*",ifelse(df_ols_quality_dealer[3,1,17]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,17]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,17]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,17],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,17]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,17]<.05,"*",ifelse(df_ols_quality_dealer[3,2,17]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,17]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,17]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,17],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,17]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,17]<.05,"*",ifelse(df_ols_quality_dealer[3,3,17]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,17]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,17]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,17],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,17],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,17]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,17]<.05,"*",ifelse(df_ols_quality_dealer[3,4,17]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,17]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,17]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9133,40 +9177,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,18],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,18],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,18]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,18]<.05,"*",ifelse(df_ols_quality_dealer[3,1,18]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,18]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,18]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,18]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,18],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,18],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,18]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,18]<.05,"*",ifelse(df_ols_quality_dealer[3,2,18]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,18]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,18]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,18]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,18],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,18],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,18]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,18]<.05,"*",ifelse(df_ols_quality_dealer[3,3,18]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,18]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,18]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,18]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,18],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,18],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,18]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,18]<.05,"*",ifelse(df_ols_quality_dealer[3,4,18]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,18]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,18]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,18]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9188,40 +9233,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,19],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,19],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,19]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,19]<.05,"*",ifelse(df_ols_quality_dealer[3,1,19]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,19]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,19]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,19]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,19],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,19],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,19]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,19]<.05,"*",ifelse(df_ols_quality_dealer[3,2,19]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,19]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,19]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,19]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,19],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,19],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,19]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,19]<.05,"*",ifelse(df_ols_quality_dealer[3,3,19]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,19]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,19]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,19]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,19],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,19],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,19]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,19]<.05,"*",ifelse(df_ols_quality_dealer[3,4,19]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,19]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,19]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,19]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9243,40 +9289,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,20],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,20],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,20]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,20]<.05,"*",ifelse(df_ols_quality_dealer[3,1,20]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,20]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,20]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,20]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,20],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,20],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,20]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,20]<.05,"*",ifelse(df_ols_quality_dealer[3,2,20]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,20]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,20]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,20]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,20],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,20],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,20]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,20]<.05,"*",ifelse(df_ols_quality_dealer[3,3,20]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,20]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,20]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,20]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,20],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,20],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,20]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,20]<.05,"*",ifelse(df_ols_quality_dealer[3,4,20]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,20]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,20]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,20]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9298,40 +9345,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,21],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,21],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,21]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,21]<.05,"*",ifelse(df_ols_quality_dealer[3,1,21]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,21]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,21]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,21]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,21],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,21],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,21]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,21]<.05,"*",ifelse(df_ols_quality_dealer[3,2,21]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,21]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,21]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,21]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,21],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,21],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,21]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,21]<.05,"*",ifelse(df_ols_quality_dealer[3,3,21]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,21]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,21]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,21]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,21],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,21],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,21]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,21]<.05,"*",ifelse(df_ols_quality_dealer[3,4,21]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,21]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,21]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,21]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9353,40 +9401,41 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,1,22],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,1,22],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,1,22]<.01,"**",ifelse(df_ols_quality_dealer[
-3,1,22]<.05,"*",ifelse(df_ols_quality_dealer[3,1,22]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,1,22]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,1,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,1,22]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,2,22],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,2,22],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,2,22]<.01,"**",ifelse(df_ols_quality_dealer[
-3,2,22]<.05,"*",ifelse(df_ols_quality_dealer[3,2,22]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,2,22]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,2,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,2,22]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,3,22],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,3,22],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,3,22]<.01,"**",ifelse(df_ols_quality_dealer[
-3,3,22]<.05,"*",ifelse(df_ols_quality_dealer[3,3,22]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_end_quality_dealer[3,3,22]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,3,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,3,22]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_dealer[1,4,22],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,22],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_dealer[3,4,22]<.01,"**",ifelse(df_ols_quality_dealer[
-3,4,22]<.05,"*",ifelse(df_ols_quality_dealer[3,4,22]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,22]<.01,"**",ifelse(df_ols_end_quality
+_dealer[3,4,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,22]<.1,"+","")))}}$
+ 
 \backslash
 
 \backslash
@@ -9552,10 +9601,10 @@ textsubscript{midline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_farmer[1,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_farmer[1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_farmer[3,1]<.01,"**",ifelse(df_ols_quality_farmer[3,1
-]<.05,"*",ifelse(df_ols_quality_farmer[3,1]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_farmer[3,1]<.01,"**",ifelse(df_ols_end_quality_fa
+rmer[3,1]<.05,"*",ifelse(df_ols_end_quality_farmer[3,1]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
@@ -9577,10 +9626,10 @@ textsubscript{endline}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_quality_farmer[1,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_quality_farmer[1,2],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_quality_farmer[3,2]<.01,"**",ifelse(df_ols_quality_farmer[3,2
-]<.05,"*",ifelse(df_ols_quality_farmer[3,2]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_quality_farmer[3,2]<.01,"**",ifelse(df_ols_end_quality_fa
+rmer[3,2]<.05,"*",ifelse(df_ols_end_quality_farmer[3,2]<.1,"+","")))}}$ 
 \backslash
 
 \backslash
