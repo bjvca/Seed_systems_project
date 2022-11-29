@@ -229,6 +229,27 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
+midline_report/output/df_means_F_sec_plot_mid.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
 midline_report/output/df_ols_F_sec_plot_mid.Rdata
 \begin_inset Quotes erd
 \end_inset
@@ -267,11 +288,15 @@ endline_report/output/df_ols_F_sec_plot_end.Rdata
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-midline_report/output/df_ols_F_sec_plot_mid.Rdata
+midline_report/output/df_means_F_sec_plot_mid.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -405,7 +430,7 @@ dag$
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[1,1],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec_plot_mid[1,1],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -446,7 +471,7 @@ Sexpr{ifelse(df_ols_F_sec_plot_end[3,3,1]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[3,1],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_F_sec_plot_mid[3,1],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -457,7 +482,7 @@ Sexpr{format(round(df_means_F_sec_plot[3,1],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[2,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec_plot_mid[2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -498,7 +523,7 @@ dag$
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[1,2],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec_plot_mid[1,2],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -525,7 +550,7 @@ Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,2]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[3,2],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_F_sec_plot_mid[3,2],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -536,7 +561,7 @@ Sexpr{format(round(df_means_F_sec_plot[3,2],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[2,2],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec_plot_mid[2,2],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -576,7 +601,7 @@ dag$
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[1,3],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec_plot_mid[1,3],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -603,7 +628,7 @@ Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,3]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[3,3],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_F_sec_plot_mid[3,3],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -614,7 +639,7 @@ Sexpr{format(round(df_means_F_sec_plot[3,3],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[2,3],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec_plot_mid[2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -653,7 +678,7 @@ dag$
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[1,4],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec_plot_mid[1,4],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -680,7 +705,7 @@ Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,4]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[3,4],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_F_sec_plot_mid[3,4],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -691,7 +716,7 @@ Sexpr{format(round(df_means_F_sec_plot[3,4],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[2,4],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec_plot_mid[2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -732,7 +757,7 @@ textbf{not used too often}) on this field
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[1,5],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_F_sec_plot_mid[1,5],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -759,7 +784,7 @@ Sexpr{ifelse(df_ols_F_sec_plot_mid[3,3,5]<.01,"**"
 
 & 
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[3,5],digits=0),nsmall=0)}
+Sexpr{format(round(df_means_F_sec_plot_mid[3,5],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -770,7 +795,7 @@ Sexpr{format(round(df_means_F_sec_plot[3,5],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_F_sec_plot[2,5],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_F_sec_plot_mid[2,5],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -906,7 +931,7 @@ Please indicate what applies for weeding including removing striga (Kayongo)
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

@@ -1333,11 +1333,21 @@ path <- getwd()
 
 \begin_layout Plain Layout
 
+path <- strsplit(path,"/papers/endline_report")[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+setwd(path)
+\end_layout
+
+\begin_layout Plain Layout
+
 source(paste(path,
 \begin_inset Quotes eld
 \end_inset
 
-endline_report.R
+/papers/endline_report/endline_report.R
 \begin_inset Quotes erd
 \end_inset
 
@@ -13936,7 +13946,7 @@ t and positive impact on this family of outcomes.
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

@@ -3237,26 +3237,30 @@ status open
 
 \begin_layout Plain Layout
 
-path2 <- getwd()
 \end_layout
 
 \begin_layout Plain Layout
 
-path2 <- strsplit(path2,"/clearinghouse_training_paper")[[1]]
+path <- getwd()
 \end_layout
 
 \begin_layout Plain Layout
 
-path2 <- paste(path2,"endline_report",sep="/")
+path <- strsplit(path,"/papers/clearinghouse_training_paper")[[1]]
 \end_layout
 
 \begin_layout Plain Layout
 
-source(paste(path2,
+setwd(path)
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path,
 \begin_inset Quotes eld
 \end_inset
 
-endline_report.R
+/papers/endline_report/endline_report.R
 \begin_inset Quotes erd
 \end_inset
 
@@ -3269,6 +3273,10 @@ endline_report.R
 \end_inset
 
 ))
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
