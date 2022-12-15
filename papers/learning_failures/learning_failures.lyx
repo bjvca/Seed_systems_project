@@ -46,9 +46,9 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -129,16 +129,63 @@ thanks{Development Strategy and Governance Division, IFPRI}}
 
 \end_inset
 
-Learning failures in technology adoption
+Miracle Seed: Biased Expectations and Technology adoption
 \end_layout
 
 \begin_layout Standard
-Modern commercial inputs are often marketed as miracle seed.
- As a result, farmers 
+Modern commercial inputs are often marketed as the solution 
 \end_layout
 
 \begin_layout Section
 Introduction
+\end_layout
+
+\begin_layout Standard
+To feed a growing population in a sustainable way, farmers throughout the
+ developing world will have to grow more food on less land.
+ To achieve this objective, much is expected from new technologies, especially
+ higher yielding cultivars.
+ At the same time, due to the climate crisis, agricultural production will
+ become, more challenging.
+ Also here, seed varieties that are selected to be be resilient against
+ heat and drought are thought to be at least part of the solution.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, the adoption of such technologies is lagging in areas where
+ it has the largest potential.
+ Recent trends in agricultural productivity in Africa reflects how technological
+ progress in agriculture has stagnated on the continent 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/jep.36.1.33"
+literal "false"
+
+\end_inset
+
+.
+ This general stagnation hides significant heterogeneity.
+ At the micro level, we often observe disadoption, where farmers choose
+ to switch back to technologies they have been used for ages.
+ Panel data also shows that it is often difficult to categorize farmers
+ as adopter, with some farmers only adopting a particular technology at
+ a single point in time, and others moving in and out of adoption.
+\end_layout
+
+\begin_layout Standard
+There are many reasons why farmers do not move into a state of consistent
+ adoption.
+ Becuase they are unable to judget the quality.
+ Less access when supply chains are interacted.
+ Shocks.
+ Seed that does not meet their needs.
+ 
+\end_layout
+
+\begin_layout Standard
+Inflated expectations.
+ They pay a price.
+ Paying money == substite not complement.
 \end_layout
 
 \begin_layout Standard
@@ -188,7 +235,105 @@ Given the above, one would expect that farmers that use improved seed would
 \end_layout
 
 \begin_layout Section
-Related literature
+Model and Predictions
+\end_layout
+
+\begin_layout Standard
+In line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "suri2011selection"
+literal "false"
+
+\end_inset
+
+, we assume that farmers are risk-neutral and chooses a seed type (Hybrid
+ or local landrace) to maximize profits per area of land.
+ In particular, they compare the maximized profit function 
+\begin_inset Formula $\pi_{it}^{*^{H}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi_{it}^{*^{L}}$
+\end_inset
+
+, which in turn are defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\pi_{it}^{H}=p_{t}Y_{it}^{H}-b_{t}s_{it}-\sum w_{t}X_{it}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\pi_{it}^{L}=p_{t}Y_{it}^{L}-\sum w_{t}X_{it}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We assume that consumers do not differentiate between maize obtained from
+ hybrid or local seed and so the price at which output is valued is ...
+\end_layout
+
+\begin_layout Standard
+In our model, we assume that farmers consider hybrid seed as miracle seed
+ in that 
+\end_layout
+
+\begin_layout Standard
+Farmer chooses to adopt is 
+\begin_inset Formula $\pi_{it}^{*^{H}}>\pi_{it}^{*^{L}}$
+\end_inset
+
+ or
+\end_layout
+
+\begin_layout Standard
+The model leads to a cluster of prediction:
+\end_layout
+
+\begin_layout Enumerate
+Disadopting farmers use less inputs than farmers that consistently adopt.
+ This only holds for the control group, because in the treatment group,
+ the treatment may affect adoption.
+\end_layout
+
+\begin_layout Enumerate
+Farmers that were treated that use seed at baseline are more likely to disadopt
+ (and this effect is larger for farmers that do not use inputs at baseline).
+\end_layout
+
+\begin_layout Enumerate
+Farmers that were treated that do not adopt at baseline are more likely
+ to adopt at midline than control farmers.
+\end_layout
+
+\begin_layout Enumerate
+Treated farmers that disadopt at midline are more likely to adopt at endline
+ (suggestive as treatment may have affected comparison group) (or scare
+ them away forever)
+\end_layout
+
+\begin_layout Enumerate
+Treated farmers that adopt at baseline, disadopt at midline and adopt at
+ endline use more inputs at endline than at baseline.
+\end_layout
+
+\begin_layout Enumerate
+Treated farmers that adopt at baseline, disadopt at midline have more knowledge
+ than control (suggestive as treatment may have affected comparison group)
 \end_layout
 
 \begin_layout Section
@@ -229,7 +374,7 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-midline_report/output/df_means_F_sec_plot_mid.Rdata
+learning_failures/code/output/df_means_F_sec_plot_mid.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -250,53 +395,7 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-endline_report/output/df_means_end_F_sec_plot.Rdata
-\begin_inset Quotes erd
-\end_inset
-
-, sep=
-\begin_inset Quotes erd
-\end_inset
-
-/
-\begin_inset Quotes erd
-\end_inset
-
-))
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-load(paste(path2,
-\begin_inset Quotes erd
-\end_inset
-
-midline_report/output/df_ols_F_sec_plot_mid.Rdata
-\begin_inset Quotes erd
-\end_inset
-
-, sep=
-\begin_inset Quotes erd
-\end_inset
-
-/
-\begin_inset Quotes erd
-\end_inset
-
-))
-\end_layout
-
-\begin_layout Plain Layout
-
-load(paste(path2,
-\begin_inset Quotes erd
-\end_inset
-
-endline_report/output/df_ols_end_F_sec_plot.Rdata
+learning_failures/code/output/df_means_end_F_sec_plot.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -321,7 +420,7 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-endline_report/output/df_ols_end_skills.Rdata
+learning_failures/code/output/df_ols_F_sec_plot_mid.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -342,7 +441,53 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
-endline_report/output/df_means_end_skills.Rdata
+learning_failures/code/output/df_ols_end_F_sec_plot.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/df_ols_end_skills.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/df_means_end_skills.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -391,7 +536,7 @@ results on adoption
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1596,6 +1741,18 @@ At endline, there’s no effect on adoption anymore but the reduced adoption
  at midline has a negative effect on the overall index of the yield etc.
  outcomes for farmers who used to adopt (if we don’t control for baseline)
  but also for the entire sample (if we control for baseline).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "miracle_seed"
+options "IFPRI_Style"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
