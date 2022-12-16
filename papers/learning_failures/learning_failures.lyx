@@ -33,7 +33,17 @@ knitr
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=black, urlcolor=black, citecolor=black, pdfstartview={FitH}, hyperfootnotes=false, unicode=true"
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -91,17 +101,12 @@ status open
 
 
 \backslash
-author{Caroline Miehe
-\backslash
-thanks{LICOS, KU Leuven},
-\end_layout
-
-\begin_layout Plain Layout
-
-Bjorn Van Campenhout
+author{Bjorn Van Campenhout
 \backslash
 thanks{Development Strategy and Governance Division, IFPRI - corresponding
- author: bjorn.vancampenhout@cgiar.org},
+ author: bjorn.vancampenhout@cgiar.org}, Caroline Miehe
+\backslash
+thanks{LICOS, KU Leuven},
 \backslash
 
 \backslash
@@ -133,7 +138,34 @@ Miracle Seed: Biased Expectations and Technology adoption
 \end_layout
 
 \begin_layout Standard
-Modern commercial inputs are often marketed as the solution 
+Farmers that try out commercial agricultural technologies, such as improved
+ seed obtained from agro-input dealers, may hold unrealistic expectations
+ about this technology.
+ The fact that they paid a significant price for certain traits of the technolog
+y, such as higher yield or resistance against certain parasitic weeds, may
+ lead them to invest less in complementary inputs, such as fertilizer or
+ herbicides.
+ Subsequent disappointment about the performance of the technology may then
+ be attributed to the technology itself instead of to a reduce used of complemen
+tary inputs, resulting in dis-adoption.
+ We provide a simple model of technology adoption and derive a cluster of
+ predictions.
+ To test these predictions, we set up a field experiment among 3,500 maize
+ farmers in Uganda, where a treatment group gets explicit information on
+ the importance of combining improved technologies.
+ We find some evidence that our message scares away farmers from commercial
+ seed back to local land-races.
+ The results suggest that extension workers, and industry in particular,
+ should focus on technology adoption as a package of complementary inputs
+ and efforts, instead of trying to market a single technology.
+\end_layout
+
+\begin_layout Standard
+JEL codes: O33, D84, Q16
+\end_layout
+
+\begin_layout Standard
+Keywords: expectations, learning, technology adoption, Uganda
 \end_layout
 
 \begin_layout Section
@@ -142,13 +174,38 @@ Introduction
 
 \begin_layout Standard
 To feed a growing population in a sustainable way, farmers throughout the
- developing world will have to grow more food on less land.
+ developing world will have to grow more food on less land 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "garnett2013sustainable,tilman2011global"
+literal "false"
+
+\end_inset
+
+.
  To achieve this objective, much is expected from new technologies, especially
- higher yielding cultivars.
+ higher yielding cultivars 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "evenson2003assessing"
+literal "false"
+
+\end_inset
+
+.
  At the same time, due to the climate crisis, agricultural production will
  become, more challenging.
- Also here, seed varieties that are selected to be be resilient against
- heat and drought are thought to be at least part of the solution.
+ Also in this context, seed varieties that are selected to be be resilient
+ against heat and drought are thought to be at least part of the solution
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "LYBBERT2012114"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -164,74 +221,135 @@ literal "false"
 \end_inset
 
 .
- This general stagnation hides significant heterogeneity.
- At the micro level, we often observe disadoption, where farmers choose
- to switch back to technologies they have been used for ages.
- Panel data also shows that it is often difficult to categorize farmers
- as adopter, with some farmers only adopting a particular technology at
- a single point in time, and others moving in and out of adoption.
+ Underlying this general stagnation is significant heterogeneity.
+ For instance, at the micro level, we often observe disadoption, where farmers
+ choose to switch back to technologies they have been used for ages after
+ trying out a new technology once or twice.
 \end_layout
 
 \begin_layout Standard
 There are many reasons why farmers do not move into a state of consistent
  adoption.
- Becuase they are unable to judget the quality.
- Less access when supply chains are interacted.
- Shocks.
- Seed that does not meet their needs.
+ One obvious reason why farmers stop using an input is because the inputs
+ were simply not available.
+ Farmers may also have learned over time that a particular technology is
+ not suitable for them or does not meet their expectations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "CUSTODIO201619"
+literal "false"
+
+\end_inset
+
+.
+ Heterogeneity in the quality of the input, coupled with the fact that it
+ is often hard to judge the quality of the input ex-ante, may also result
+ in disadoption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/qje/qjx009"
+literal "false"
+
+\end_inset
+
+.
+ Farmers that are faced with credit constraints or face additional risk
+ may also change adoption behavior 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karlan2014agricultural"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this paper, we consider the possibility that farmers hold inflated expectatio
+ns of inputs as an explanation for inconsistent adoption.
+ These inflated expectations have their origin in the fact that generally,
+ monetary outlays are necessary for improved technologies, and farmers may
+ consider this as a signal that modern inputs are substitutes for other
+ investments they would typically make.
+ In reality, however, for improved technologies to reach full potential,
+ equal or even additional complementary investments are necessary.
+ Furthermore, commercial inputs—seed in particular—are often marketed with
+ a focus on particular traits, such as drought resistance or tolerance against
+ certain pests or diseases.
+ As a result, farmers may not feel the need to irrigate or engage in weeding,
+ resulting in lower yields than advertised.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Overt he years, we uncovered many anecdotes in a variety of context that
+ point to this explanation.
+ For instance, many farmers use (inorganic) fertilizer once and assume this
+ will lead to lasting improves of their soil fertility; however, these fertilize
+r need to be applied for each cropping cycle to be effective.
+ In the context of seed, extension officers often complain that farmers
+ consider the trial seed packs they provide as some kind of 
+\begin_inset Quotes eld
+\end_inset
+
+miracle seed
+\begin_inset Quotes erd
+\end_inset
+
+ that they think they can just broadcast on their least fertile plots without
+ further managment and still get exceptional harvests.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inflated expectations about the performance of improved technologies may
+ have lasting impacts on adoption if farmers attribute poor outcomes to
+ the technology, instead of to the reduced use of complementary inputs.
+ This learning failure is understandable: as many factors simultaneously
+ affect yields, learning about the causal impact of a new technology from
+ a single use instance is hard.
+\end_layout
+
+\begin_layout Standard
+In this paper, we present a simple model of technology adoption that incorporate
+s the above ideas.
+ In this model, farmers compare expected returns of an improved technology
+ to business as usual.
+ The new technology comes at a cost, while the traditional technology does
+ not.
+ Both technologies, though, require complementary inputs and effort that
+ directly affect productivity, yet for farmers that experiment with the
+ new technology, the new technology is considered a substitute for (some
+ of the) other imputs.
  
 \end_layout
 
 \begin_layout Standard
-Inflated expectations.
- They pay a price.
- Paying money == substite not complement.
+The model leads to a cluster of predictions that we test using a field experimen
+t among maize farmers in eastern Uganda that attempts to correct the perception
+ that the improved technology is a substitute for other inputs and effort.
+ In particular, we show farmers a standard video on the use of improved
+ agro-inputs and recommended management practices for maize growing.
+ In a treatment group we essentially show the same video, except that in
+ certain parts, eg when the use of inorganic fertilizers is demonstrated
+ of when weeding is explaned, we highlight that when using improved seed
+ varies, it is still important to also use these additional inputs or perform
+ these management practices.
 \end_layout
 
 \begin_layout Standard
-Encouraging farmers to adopt new technologies is difficult for various reasons.
- One particularly important reason for the slow rate of adoption is related
- to uncertainty about a new product or practice.
- Often the results, for instance in terms of additional yield or cost savings,
- are not clear a-priori.
- Even after the technology has been tried out, it is often difficult to
- isolate the impact of the technology form all other factors that may affect
- outcomes.
+We find that farmers in the treatment group that adopt at baseline reduce
+ the use of improved seed varieties.
  
 \end_layout
 
 \begin_layout Standard
-Decisions are made on the basis of perceptions and expectations.
- There are often informed by agro-input dealers and seed producers that
- want to sell as much as possible, and therefore have an incentive to exaggerate.
- Farmers also learn for peers.
- 
-\end_layout
-
-\begin_layout Standard
-As a result, farmers may have inflated expectations of the inputs they use.
- For instance, they may assume that inorganic fertilizer leads to lasting
- improvement of the soil.
- Or they may think that the improved seed they bought does not need fertilizer,
- since it is improved and they already paid a substantial sum for it.
- 
-\end_layout
-
-\begin_layout Standard
-In the end, farmers observe yields that are lower than expected.
- However, as there are many stochastic factors influence production, including
- the weather, it is hard to attribute harvest outcomes to any specific input
- 
-\end_layout
-
-\begin_layout Standard
-Given the above, one would expect that farmers that use improved seed would
- use less fertilizer and other inputs than farmers that use landraces.
- However, in observational data, this relationship may be obscured by selection
- bias, whereby farmers that use improved seed differ in many other aspects
- from farmers that do not use improved seed.
- For instance, farmers that use improved seed may be more likely to use
- more fertilizer in general.
+The remainder of the article is organized as follows.
 \end_layout
 
 \begin_layout Section
@@ -305,7 +423,8 @@ The model leads to a cluster of prediction:
 \end_layout
 
 \begin_layout Enumerate
-Disadopting farmers use less inputs than farmers that consistently adopt.
+Disadopting farmers use less inputs than farmers that consistently adopt,
+ because they disadopt due to disappointment.
  This only holds for the control group, because in the treatment group,
  the treatment may affect adoption.
 \end_layout
@@ -318,12 +437,8 @@ Farmers that were treated that use seed at baseline are more likely to disadopt
 \begin_layout Enumerate
 Farmers that were treated that do not adopt at baseline are more likely
  to adopt at midline than control farmers.
-\end_layout
-
-\begin_layout Enumerate
-Treated farmers that disadopt at midline are more likely to adopt at endline
- (suggestive as treatment may have affected comparison group) (or scare
- them away forever)
+ Some farmers will have adopted in the past and were disappointed, but now
+ they have learned and will adopt again.
 \end_layout
 
 \begin_layout Enumerate
@@ -338,6 +453,109 @@ Treated farmers that adopt at baseline, disadopt at midline have more knowledge
 
 \begin_layout Section
 The experiment
+\end_layout
+
+\begin_layout Subsection
+Study population and sample
+\end_layout
+
+\begin_layout Subsection
+The treatment
+\end_layout
+
+\begin_layout Standard
+This treatment was implemented using short, engaging videos, shown to the
+ farmers on tablet computers.
+ Video's featuring role models have been found effective in changing people's
+ behaviour in a range of applications 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "van2021information,10.1162/rest_a_01153,bernard2015will"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Based on extensive interviews with experts, we developed a script that served
+ as a basis for a video about best practices in maize cultivation.
+ The video starts off with a couple (man and woman) in a healthy maize field
+ inspecting their crops.
+ The man narrates that they have been farmers for over ten years but that
+ their maize fields have not always been this productive.
+ He recounts how they used to struggle to feed their children, but that
+ over time, they learned how to grow more maize.
+ The secret of their success, they continue, lies in the adoption of improved
+ technologies and best practices, such as the use of organic fertilizer,
+ and optimal plant spacing and seed rates.
+ Furthermore, they argue that the use of improved seed and fertilizer also
+ contributed significantly to increased production.
+ They conclude this introduction by stating that they are proud to be succesful
+ farmers that can feed their families and even has some marketable surplus
+ that they can sell on the market.
+ The viewer is then invited to become a successful farmer as well by paying
+ close attention as the role model farmers explain in detail the most important
+ inputs and practices that changed their lives.
+\end_layout
+
+\begin_layout Standard
+After this introduction, a poorly managed maize field is shown.
+ Maize growth is stunted because of striga, a parasitic weed that feeds
+ on the roots of maize plants.
+ It is explained that this was how their garden looked in the past, when
+ they thought weeding was a waste of time, improved seed was too expensive,
+ and soil does not need fertilizer.
+ But after a particularly bad season, they suffered and decided things needed
+ to change.
+ It is then shown how crop residues and animal dung is used to make organic
+ manure, and how this is applied to the field.
+ It is advised to start field preparations early, as timely planting (immediatel
+y after the first rains) is very important to get good yields.
+ The focus then shifts to row planting, where the recommended spacing of
+ one foot between plants and 2.5 feet between rows is shown.
+ The role model farmers also mention the expected increase in yield from
+ row planting.
+ At this stage, it is also recommended to add organic fertilizer (Di-ammonium
+ Phosphate).
+ It is then shown that one seed of a common hybrid seed is place in each
+ hill.
+ 
+\end_layout
+
+\begin_layout Standard
+The treatment was implemented in the form of two different versions of the
+ video.
+ 
+\end_layout
+
+\begin_layout Standard
+The treatment was thus in a way extremely light touch.
+ 
+\end_layout
+
+\begin_layout Standard
+The treatment video is about 12 minutes long and can be found 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://vimeo.com/781882930"
+literal "false"
+
+\end_inset
+
+.
+ The control video is about 8 minutes long and can be found 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://vimeo.com/781882803"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1741,6 +1959,21 @@ At endline, there’s no effect on adoption anymore but the reduced adoption
  at midline has a negative effect on the overall index of the yield etc.
  outcomes for farmers who used to adopt (if we don’t control for baseline)
  but also for the entire sample (if we control for baseline).
+\end_layout
+
+\begin_layout Standard
+Policy implications: Policy makers should highlight the complementary of
+ modern inputs.
+ If not, their efforts risk to be short lived.
+ Or worse, perceptions of poor seed may crowd out the market.
+ There is also a role for industry.
+ Agro-input dealers want to sell as much as they can of what they produce.
+ As such, they have an incentive to highlight particular traits of the technolog
+y they use.
+ Furthermore, they may not be tempted to actively promote the use of complementa
+ry inputs if they are produced by companies that target the same customers
+ as they do.
+ In both cases, short term benefits may lead to long run losses.
 \end_layout
 
 \begin_layout Standard
