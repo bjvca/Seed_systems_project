@@ -1256,6 +1256,17 @@ baseline_dealers <- merge(baseline_dealers,reviews_seed,by.x=c("catchID","shop_I
 baseline_dealers$notrated <- ifelse(is.na(baseline_dealers$score_corrected)&baseline_dealers$clearing==1,1,0)
 #baseline_dealers=subset(baseline_dealers,notrated=="0")
 
+# #5:
+# #of course this won't open for you Bjorn but I may not store this CSV in GitHub folder because it contains private info
+# training_attendance <- read.csv("C:/Users/u0127963/Desktop/PhD/Seed_systems_project_without_Bjorn/1st intervention (dealer training)/attendance/training_attendance.csv", sep=";")
+# training_attendance$shop_ID <- training_attendance$ï..shop_ID
+# training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
+# baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
+# baseline_dealers$someone_attended[baseline_dealers$someone_attended==0] <- NA
+# baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
+# baseline_dealers$training <- baseline_dealers$someone_attended
+
+
 
 
 
