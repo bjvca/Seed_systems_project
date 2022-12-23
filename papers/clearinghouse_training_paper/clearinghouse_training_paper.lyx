@@ -481,11 +481,11 @@ The results show that the training does not have a clear positive impact
  seed at midline and at endline.
  As a result, their yield at endline exceeds the one of control dealers
  significantly.
- Hence, a clearinghouse clearly improves the Ugandan market for maize seed.
- This proves that the quality of seed is an important constraint to its
- adoption.
- Heterogeneity analysis suggests that the clearinghouse works mainly through
- rectifying the misperceptions of farmers who did initially not adopt.
+ Hence, a clearinghouse clearly improves the Ugandan market for maize seed
+ by improving quality in the eyes of farmers and by rectifying the misperception
+s of non-adopters.
+ All this proves that the quality of seed is an important constraint to
+ its adoption.
 \end_layout
 
 \begin_layout Standard
@@ -870,7 +870,7 @@ Potential solutions
 \end_layout
 
 \begin_layout Standard
-If a lack of dealer knowledge leads to deteriorations in maize seed quality,
+If a lack of dealer knowledge leads to deterioration in maize seed quality,
  an 
 \shape italic
 agro-input dealer training
@@ -1387,7 +1387,7 @@ Once we determined the minimum number of catchment areas (and corresponding
 
  Power simulations with previously collected data
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 We use data from 78 agro-input dealers and 1,529 smallholder farmers in
@@ -1618,7 +1618,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1715,7 +1715,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2213,6 +2213,17 @@ Empirical strategy
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Methodology"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Bjorn: please explain how we now control for the averages only (new way
+ of estimating)
+\end_layout
 
 \end_inset
 
@@ -3519,30 +3530,21 @@ status open
 
 \begin_layout Plain Layout
 
+pathA <- getwd()
 \end_layout
 
 \begin_layout Plain Layout
 
-path <- getwd()
+setwd(pathA)
 \end_layout
 
 \begin_layout Plain Layout
 
-path <- strsplit(path,"/papers/clearinghouse_training_paper")[[1]]
-\end_layout
-
-\begin_layout Plain Layout
-
-setwd(path)
-\end_layout
-
-\begin_layout Plain Layout
-
-source(paste(path,
+source(paste(pathA,
 \begin_inset Quotes eld
 \end_inset
 
-/papers/endline_report/endline_report.R
+/endline_report_CH_training.R
 \begin_inset Quotes erd
 \end_inset
 
@@ -3555,6 +3557,159 @@ source(paste(path,
 \end_inset
 
 ))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pathB <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+pathB <- strsplit(pathB,"/clearinghouse_training_paper")[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+print(pathB)
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_averages_attritionD.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_averages_attritionF.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_ols_attritionD.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_ols_attritionF.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_means_D_sec.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(pathB,
+\begin_inset Quotes erd
+\end_inset
+
+clearinghouse_training_paper/output_CH_training/df_ols_D_sec.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -6138,10 +6293,10 @@ literal "false"
 
  and added it to the AEA registry before midline data was collected.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Mock reports serve to tie the hands of researchers, reducing the freedom
+Mock reports serve to tie the hands of researchers, reducing their freedom
  in choosing which specifications and variables to select when testing hypothese
 s.
  
@@ -6243,7 +6398,7 @@ noprefix "false"
 \end_inset
 
 , which are related to general quality, yield, drought, pest and disease
- tolerance, germination, time of maturity, and germination.
+ tolerance, time of maturity, and germination.
  Farmers were asked to provide these ratings, circling through all dealers
  in the relevant catchment area.
  Then the ratings are aggregated at shop level (as one shop is rated by
@@ -6445,7 +6600,7 @@ Bjorn: When I was talking about the long run effect, I was not referring
 \end_inset
 
 Table H reports the effects of the interventions on a set of key outcomes
- at the smallholder farmer level.
+ at the smallholder level.
 \end_layout
 
 \begin_layout Itemize
@@ -6655,6 +6810,17 @@ An explanation could be that dealers who only sell inputs and equipment
 
 \begin_layout Subsubsection*
 More competitive catchment areas
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Do the smallest or the largest catchment areas drive the results? Also,
+ does this change over time?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6696,6 +6862,16 @@ In conclusion, the impact of the clearinghouse seems stronger for shops
 Farmers who adopted at baseline
 \end_layout
 
+\begin_layout Subsubsection*
+Dealers with good rating (vs.
+ dealers with poor rating) in CA
+\end_layout
+
+\begin_layout Standard
+More vs.
+ less customers? Do farmers switch for better seed?
+\end_layout
+
 \begin_layout Section
 Threat to validity
 \begin_inset CommandInset label
@@ -6704,16 +6880,14 @@ name "section: Threat to validity"
 
 \end_inset
 
- [here]
+
 \end_layout
 
 \begin_layout Standard
-When we revisited agro-input dealers and farmers for midline data collection,
- we were not able to find all respondents.
- Table 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "attrition"
+reference "tab:Survey-attrition"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6722,853 +6896,12 @@ noprefix "false"
 
  reports attrition levels in the treatment and comparison groups.
  Despite our efforts to minimize attrition, we failed to collect data from
- 2% of farmers and 12% of dealers who were part of the original sample.
- We also test if non-response is related to the clearinghouse treatment
- status.
- To be more precise, we regress the likelihood of leaving the sample on
- the treatment indicator and report the p-values in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "attrition"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We find that control dealers are significantly more likely to leave the
- sample.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Midline attrition levels in treatment and control groups
-\begin_inset CommandInset label
-LatexCommand label
-name "attrition"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& all & clearing  & control 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & house &  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of dealers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Total number of dealers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Percentage of dealers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD_clearing,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD_control_CH,digits=2),nsmall=0)}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Significant difference? (p-value) & & 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD[3,2,1],digits=2),nsmall=2)} & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of farmers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Total number of farmers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Percentage of farmers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF_clearing,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF_control_CH,digits=2),nsmall=0)}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Significant difference? (p-value) & &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(df_ols_end_attritionF[3,2,1],digits=2),nsmall=2)} & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Endline attrition levels in treatment and control groups
-\begin_inset CommandInset label
-LatexCommand label
-name "attrition-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& all & clearing  & control 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & house &  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of dealers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD_end,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD_clearing_end,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostD_control_CH_end,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Total number of dealers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allD_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Percentage of dealers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD_end,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD_clearing_end,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostD_control_CH_end,digits=2),nsmall=0)}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Significant difference? (p-value) & & 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[3,2,1],digits=2),nsmall=2)}
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of farmers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF_end,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF_clearing_end,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_lostF_control_CH_end,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Total number of farmers
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF_clearing,digits=3),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(number_allF_control_CH,digits=3),nsmall=0)} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Percentage of farmers who left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF_end,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF_clearing_end,digits=2),nsmall=0)}
-\backslash
-%
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(perc_lostF_control_CH_end,digits=2),nsmall=0)}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Significant difference? (p-value) & &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[3,2,1],digits=2),nsmall=2)}
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ 12% of dealers and 2% of farmers at midline, and from 14% of dealers and
+ 1% of farmers at endline.
+ To test if non-response is related to one of the treatments, we regress
+ the likelihood of leaving the sample on the treatment indicators.
+ We find that clearinghouse treated dealers are significantly less likely
+ to leave the sample.
 \end_layout
 
 \begin_layout Standard
@@ -7616,688 +6949,37 @@ literal "false"
 \end_inset
 
 .
- One could exploit statistical techniques to estimate 
+ We refrain from estimating 
 \shape italic
 upper
 \shape default
- bounds which are robust to non-random attrition, e.g.
- the non-parametric approaches by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.2307/145818"
-literal "false"
-
-\end_inset
-
- or 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERt0277"
-literal "false"
-
-\end_inset
-
-.
- However, we refrain from doing so at this point because our ordinary estimates
- are lower bounds for the true effect and therefore the most conservative
- estimates.
- If, after increasing our efforts to find every dealer during endline data
- collection, attrition remains correlated with the treatment status, we
- will estimate the upper bounds.
-\end_layout
-
-\begin_layout Section
-Discussion
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Discussion"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When farmers were asked why they bought maize seed at a particular agro-input
- shop, a couple of clearinghouse treated farmers named the shop's high SeedAdvis
-or rating as the most important reason during the midline interview.
- Also the results of our analyses show that several outcome variables change
- in response to the clearinghouse treatment, and behave the way the theory
- of change in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure: Theory of change CH"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- predicted.
- These changes, even though often not robust to multiple hypothesis testing,
- can be interpreted as first indications of an impact.
- Note that the reported unadjusted estimates are likely to be rather conservativ
-e lower bounds for the true effect as attrition bias is negative and the
- treatment effect is positive.
- Also note that at this point in time, ratings have been disseminated only
- once, and that changing farmer and dealer behavior is likely to take some
- time.
- If the clearinghouse triggers farmers to choose better dealers and dealers
- to increase their efforts, so that farmers purchase better seed, then it
- still takes another agricultural season for farmers to have better experiences,
- perceive seed to be better and ultimately increase improved maize seed
- adoption.
- Endline data will show whether the clearinghouse has a substantial impact.
-\end_layout
-
-\begin_layout Standard
-The objective of the clearinghouse is to make maize seed quality observable,
- so that its functioning would be endangered if farmers' ratings do not
- actually measure seed quality but e.g.
- the personal relationship between a farmer and a dealer.
- Some could even argue that farmers cannot assess the quality of maize seed
- at all, not even after using it, because there are so many factors at play
- in agricultural production: if farmers experience a disappointing harvest,
- they cannot safely conclude that the seed material was poor because it
- could have also been poor soil, insufficient, late or too much rain, or
- own mismanagement like late planting or insufficient weeding.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
- inputs, rather than to other possible causes.
- Learning about the true quality becomes more difficult when this misattribution
- is present (Hoel et al., 2021).
+ bounds which are robust to non-random attrition (e.g.
  
 \begin_inset CommandInset citation
-LatexCommand citet
-key "tjernstrom2021learning"
+LatexCommand citealp
+key "10.2307/145818,NBERt0277"
 literal "false"
 
 \end_inset
 
- agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
- about the returns to inputs.
- Also 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- find that farmers in developing countries routinely misperceive input quality.
-\end_layout
-
-\end_inset
-
- Maize seed would then be a credence good instead of an experience good
- and clearinghouse ratings of farmers would be useless.
- Even though farmers and dealers might still change their behaviour in the
- short run because they expect the clearinghouse to work, this effect would
- fade out as soon as both actors learn that the ratings are unreliable.
-\end_layout
-
-\begin_layout Standard
-We argue that farmers’ ability to infer maize seed quality is indeed not
- perfect but they can assess it to some extent.
- Shortly after planting, farmers can observe germination rates, i.e.
- the proportion of seeds that germinate, and later how fast the seed matures.
- Some seed may also be more susceptible to pests and diseases, while other
- seed may be particularly tolerant in terms of drought.
- After harvest, the farmer can observe the yield.
- All these attributes of seed quality can be judged to some extent after
- one agricultural season.
-\end_layout
-
-\begin_layout Standard
-To support our claim, we test whether the ratings are correlated with seed
- quality.
- Even though objectively measuring seed quality is challenging and DNA fingerpri
-nting is the only reliable way to detect varietal purity, we were able to
- check whether ratings are correlated with other objective indications of
- seed quality.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Note that this was only done for treated shops because control shops had
- not been rated at baseline, yet.
-\end_layout
-
-\end_inset
-
- We find that specialized agro-input shops which only sell farm inputs have
- higher ratings.
- Dealers who did not receive any customer complaint about seed they sold
- since last season have higher ratings than dealers who did.
- Furthermore, farmers did not only rate the seed of agro-input shops but
- also the seed they used on a randomly selected maize field, using the same
- questions.
- We find that an index of these seed ratings is positively correlated with
- farmers' yield.
- All this shows that the clearinghouse ratings do measure maize seed quality
- to some extent.
-\end_layout
-
-\begin_layout Standard
-Some could also argue that the clearinghouse is unlikely to work in areas
- with only one agro-input dealer who faces no competition
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-In our sample, 46 of 130 catchment areas or 35 percent have only one dealer.
-\end_layout
-
-\end_inset
-
-, as farmers could not switch to better dealers and dealers would have no
- incentive to improve their services and increase their efforts.
- However, the clearinghouse will still work if dealers are not fully aware
- of their lack of competiton or if they fear that farmers switch to dealers
- in a different area and for example go to a nearby town to buy seed.
- Even if farmers are strictly unable to switch and dealers are fully informed
- about this, the clearinghouse will work.
- If a dealer provides great seed but farmers do not know this, the clearinghouse
- could correct this perception and increase adoption.
- Farmers could also apply social pressure on poorly performing dealers,
- even if they cannot switch to the competition.
- Dealers could also start improving due to their pride if they receive a
- poor rating, or due to increased motivation if they receive a good one.
- That is why we argue that a clearinghouse will also work in areas without
- dealer competition.
- [please do not delete paragraph if you don't like it, Jo requested this]
-\end_layout
-
-\begin_layout Standard
-Another danger to the functioning of the clearinghouse could be agro-input
- dealers who start to influence ratings in a dishonest manner, e.g.
- by faking ratings or by bribing farmers.
- Note that during this trial, rating and rated participants were connected
- by asking dealers where their customers come from, and collecting ratings
- from ten random farmers in that village.
- Dealers would need to understand our experimental design in order to know
- which farmer they would need to influence.
- That is why it is almost impossible that dealers cheat during this trial.
- However, if the clearinghouse intervention would be scaled up, these kind
- of challenges would need to be addressed.
- However, the objective of this paper is to test whether a prediction of
- the theory occurs in practice, namely whether making seed quality observable
- improves quality and ultimately adoption, and not to provide a policy intervent
-ion, sophisticated enough to be applied without further considerations.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-policy implications?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Conclusion
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Conclusion"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hence a crowd-sourced information clearinghouse can be an important institutiona
-l innovation to solve the problem of asymmetric information in the market
- for agricultural inputs.
- It may be preferable to alternative strategies due to its likely lower
- cost, self-sustaining nature and scaleability, and helps to overcome problems
- such as insufficient public investment in regulatory systems, regulatory
- enforcement, and market surveillance.
-\end_layout
-
-\begin_layout Standard
-Even though agricultural technologies like high yielding seed varieties
- and fertilizers are seen as the key to agricultural productivity, the adoption
- by smallholders remains persistently low in sub-Saharan Africa, which hinders
- poverty alleviation at the individual and aggregate level.
- We study a particular constraint to technology adoption: the perceived
- quality of agricultural inputs like improved maize seed.
- We hypothesize that the intentional and unintentional malpractices of agro-inpu
-t dealers lead to poor seed quality, resulting in under-adoption by farmers.
-\end_layout
-
-\begin_layout Standard
-To assess the importance of this potential constraint to agricultural technology
- adoption, we test an intervention which reduces the information asymmetry
- between seller and buyer by making the quality of maize seed observable.
- To this end, we implement an information clearinghouse that is based on
- crowd-sourced ratings in the market for seed.
- This clearinghouse is tested in a randomized controlled trial among 350
- agro-input dealers and 3500 smallholder maize farmers in Uganda.
-\end_layout
-
-\begin_layout Standard
-The analysis of midline data shows first indications of an impact.
- Heterogeneity analysis suggests that the information clearinghouse works
- better for agro-input dealers who only sell farm inputs and who were actually
- rated by farmers.
- The intervention also has a larger effect in areas with more competition.
- However, endline data has to be analyzed before we can draw final conclusions.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-questions for future research?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Abstract
-CH midline:
-\end_layout
-
-\begin_layout Abstract
-+Transformed seed revenue in mln UGX: quantities sold * sales prices of
- 4 maize varieties (IHS)
-\end_layout
-
-\begin_layout Abstract
-+Index of labor-intensive seed handling and storage practices observed by
- enumerator GONE
-\end_layout
-
-\begin_layout Abstract
-+Index of dealer’s efforts and services according to farmers
-\end_layout
-
-\begin_layout Abstract
-+Index of dealer’s knowledge about seed storage GONE
-\end_layout
-
-\begin_layout Abstract
--Cost of Longe 5 per kg last season in UGXy
-\end_layout
-
-\begin_layout Abstract
-F
-\end_layout
-
-\begin_layout Abstract
-+Farmer used quality maize seed for any plot last season
-\end_layout
-
-\begin_layout Abstract
-+Farmer used quality maize seed bought at agro-input shop for any plot last
- season
-\end_layout
-
-\begin_layout Abstract
-+Index of services of shops nearby according to farmers (perception of services
- and efforts)4
-\end_layout
-
-\begin_layout Abstract
-+Farmer switched to different agro-input shop (no baseline)(y)
-\end_layout
-
-\begin_layout Abstract
--Farmer planted farmer saved maize seed on this field (can be hybrid, open-polli
-nated, local land race)
-\end_layout
-
-\begin_layout Abstract
-+Farmer planted maize seed bought at agro-input shop on this fieldy
-\end_layout
-
-\begin_layout Abstract
-+Price of seed farmer used on this field last season per kg in UGX
-\end_layout
-
-\begin_layout Abstract
-+Transformed cost of seed farmer used on this field last season in UGX (amount*p
-rice)
-\end_layout
-
-\begin_layout Abstract
--Farmer harvested as much maize as expected from this field last season
- (no baseline)
-\end_layout
-
-\begin_layout Abstract
--Transformed amount kept as seed in kg (IHS) (no baseline
-\end_layout
-
-\begin_layout Abstract
-...
-\end_layout
-
-\begin_layout Abstract
-CH endline:
-\end_layout
-
-\begin_layout Abstract
-+Transformed number of customers who bought maize seed per day last season
- (IHS)y
-\end_layout
-
-\begin_layout Abstract
-+Index of dealer’s efforts and services
-\end_layout
-
-\begin_layout Abstract
-+Index of dealer’s knowledge about seed storage
-\end_layout
-
-\begin_layout Abstract
--Transformed number of times per month shop ran out of Longe 10H (IHS) GONE
-\end_layout
-
-\begin_layout Abstract
-+Shop is registered with UNADA
-\end_layout
-
-\begin_layout Abstract
-+Transformed number of inspections by DAO/MAAIF/UNADA last year (IHS)
-\end_layout
-
-\begin_layout Abstract
-F
-\end_layout
-
-\begin_layout Abstract
-+Farmer used quality maize seed for any ploty
-\end_layout
-
-\begin_layout Abstract
-+Index of farmer’s maize seed ratings for shops nearby (product quality
- perception)
-\end_layout
-
-\begin_layout Abstract
-+Index of services of shops nearby according to farmers (effort perception)
-\end_layout
-
-\begin_layout Abstract
-+Farmer switched to different agro-input shop
-\end_layout
-
-\begin_layout Abstract
-+Farmer planted seed bought at agro-input shopy
-\end_layout
-
-\begin_layout Abstract
-+Transformed cost of seed in UGX (IHS)
-\end_layout
-
-\begin_layout Abstract
-+Production in kg
-\end_layout
-
-\begin_layout Abstract
-+Yield in kg/acre
-\end_layout
-
-\begin_layout Abstract
-+Farmer harvested as much maize as expected
-\end_layout
-
-\begin_layout Abstract
-+Farmer bought particular shop’s seed last season(y)
-\end_layout
-
-\begin_layout Abstract
-...
-\end_layout
-
-\begin_layout Abstract
-training midline:
-\end_layout
-
-\begin_layout Abstract
--Average sales price of 4 improved maize varieties last season in UGX/ kg
-\end_layout
-
-\begin_layout Abstract
--neg: Index of dealer’s efforts and services according to farmers
-\end_layout
-
-\begin_layout Abstract
--Cost of Longe 10H per kg last season in UGX
-\end_layout
-
-\begin_layout Abstract
--Number of times per month shop ran out of Longe 10H last season GONE
-\end_layout
-
-\begin_layout Abstract
-+pos: Shop has equipment to monitor seed moisture
-\end_layout
-
-\begin_layout Abstract
-F
-\end_layout
-
-\begin_layout Abstract
-+pos: Transformed amount of quality maize seed farmer bought at agro-input
- shop last season in kg
-\end_layout
-
-\begin_layout Abstract
--neg: Index of services of shops nearby according to farmers (perception
- of services and efforts)
-\end_layout
-
-\begin_layout Abstract
-...
-\end_layout
-
-\begin_layout Abstract
-training endline:
-\end_layout
-
-\begin_layout Abstract
--neg: Transformed quantity sold of 4 improved maize varieties last season
- in kg (IHS)y
-\end_layout
-
-\begin_layout Abstract
--neg: Transformed revenue from 4 improved maize varieties in mln UGX (IHS)y
-\end_layout
-
-\begin_layout Abstract
--neg: Transformed number of customers who bought maize seed per day last
- season (IHS)y GONE
-\end_layout
-
-\begin_layout Abstract
--pos: Transformed amount of Longe 10H lost/wasted in kg (IHS) GONE
-\end_layout
-
-\begin_layout Abstract
-+neg: Days since packaging date/expiry date minus 6 months GONE
-\end_layout
-
-\begin_layout Abstract
--neg: Random seed bag shows lot number 
-\end_layout
-
-\begin_layout Abstract
-+pos: Shop has equipment to monitor seed moisture
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-btprint "btPrintCited"
-bibfiles "../../Study design/seed_systems_pap"
-options "../../Study design/IFPRI_Style"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\start_of_appendix
-Appendix
-\end_layout
-
-\begin_layout Subsection
-Details about rating computations
-\begin_inset CommandInset label
-LatexCommand label
-name "sec: Details about rating computations"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-What to do if a treated dealer does not receive a single rating?
-\end_layout
-
-\begin_layout Standard
-If a shop in a treated catchment area is not rated by a single farmer, e.g.
- because no farmer in our sample knows him or her, we could fill in the
- catchment area mean as his or her rating.
- However, this is not as innocent as it seems because it is likely that
- the lack of ratings is not random.
- Poor quality dealers have less customers, so their likelihood to get rated
- is lower.
- Giving them average catchment area ratings inflates the ratings of these
- low quality dealers.
- Instead, we simply told farmers that we do not have information about this
- shop (implicitly informing the farmer that it exists).
- 16 of 193 treated dealers were not rated by a single farmer in the first
- round.
-\end_layout
-
-\begin_layout Paragraph*
-Should more ratings lead to better ratings?
-\end_layout
-
-\begin_layout Standard
-Some shops were not rated by any smallholder in the first round, while others
- were rated by up to 22 smallholders.
- If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is
- rated by 1 farmer and gets rating 3,6, we treat dealer B as the better
- dealer.
- Even though receiving many (few) ratings can be related to good (poor)
- quality (the lack of ratings could be nonrandom, see previous paragraph),
- there could be other reasons why dealers are rated by many (few) farmers.
- Furthermore, giving higher ratings to better-known dealers could harm new
- dealers entering the market and dealers who are discriminated, e.g.
- due to their gender.
- Also on TripAdvisor, having more reviews than a rival hotel does not lead
- to a better rating.
-\end_layout
-
-\begin_layout Paragraph*
-Should ratings depend on catchment area dealer performance?
-\end_layout
-
-\begin_layout Standard
-The following examples show that ratings should not depend on catchment
- area averages.
- In an area with poor quality dealers in which one dealer is a bit better
- than the rest but still poor, we do not want this dealer to be rated well
- (i.e.
- expose farmers to poor quality dealers).
- Similarly, in an area with good dealers in which one dealer is a bit worse
- than the rest but still good, we do not want this dealer to be rated poorly
- (which would be unfair towards him or her).
- On the other hand, less than 9% of shops received a rating below 3 out
- of 5, so we would throw away valuable data if we would only disseminate
- good scores without any variation.
- Therefore, we take the distribution of ratings into account by using quintiles.
- Consequently, less dealers receive rating 4 or 5, more dealers receive
- rating 1 or 2.
- This could strengthen the effect of the treatment on dealer effort.
- If dealers get ratings 1 or 2 instead of 4 or 5, they could feel more inclined
- to improve their scores.
- Consequently, also the effect on seed quality itself could be larger.
- However, the clearinghouse should also have a signaling effect, which might
- be weaker if more dealers are rated 1 or 2 instead of 4 or 5 (dealers would
- seem to be of worse quality to farmers).
- Therefore, we chose words with a positive connotation as the quintile names
- for rating dissemination.
- As most dealers received a good or very good rating before taking the distribut
-ion into account, we ensure that even a 2 is still communicated as "good"
- to farmers to not weaken the signaling effect.
- That is why the first quintile is translated to "okay" and gets one star,
- the second one is named "good" and receives two stars, the third quintile
- is "very good" and gets three stars, the fourth and fifth one are "excellent"
- and awarded with four and five stars.
- This way of considering the distribution of the original ratings when choosing
- the names also helps us to disseminate ratings as truthfully, purely and
- as closely to reality as possible.
-\end_layout
-
-\begin_layout Paragraph*
-Are female dealers rated worse than male dealers?
-\end_layout
-
-\begin_layout Standard
-Because we found significant differences between the ratings of female (41%
- of dealers) and male agro-input dealers (59% of dealers) after controlling
- for some potentially confounding variables like education and for several
- indications of quality, we have no reason to believe that these differences
- in perception can be explained by differences in real quality.
- Instead, it is likely that women are perceived to be worse due to discriminatio
-n 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "De2022"
-literal "false"
-
-\end_inset
-
-, so that we adjusted the ratings of female dealers accordingly to prevent
- that they are harmed by our intervention.
- We regressed all seed quality attributes on the gender dummy and added
- the resulting coefficients to the initial ratings of female dealers.
-\end_layout
-
-\begin_layout Subsection
-Details about rating dissemination
-\begin_inset CommandInset label
-LatexCommand label
-name "A.2 Details about rating dissemination"
-
-\end_inset
-
-
+) because our ordinary estimates are lower bounds for the true effect and
+ therefore the most conservative estimates.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
-sideways false
+sideways true
 status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Text messages to disseminate ratings to farmers 
+Survey attrition
 \begin_inset CommandInset label
 LatexCommand label
-name "SMS"
+name "tab:Survey-attrition"
 
 \end_inset
 
@@ -8324,7 +7006,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{ll}
+begin{tabular}{rccccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8342,40 +7024,16 @@ hline
 
 \begin_layout Plain Layout
 
+& mean & dealer & clearing & farmer & number of 
 \end_layout
 
 \begin_layout Plain Layout
 
-treatment SMS & Hello from AgroAdvisor!
-\backslash
 
 \backslash
 
-\end_layout
-
-\begin_layout Plain Layout
-
-& Did you know that customers from 
 \backslash
-emph{shop name}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& rate the quality of maize seed sold there
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& as okay/good/very good/excellent?
+ & & training & house & video & observations 
 \backslash
 
 \backslash
@@ -8386,21 +7044,50 @@ emph{shop name}
 
 
 \backslash
-cline{1-2}
+cline{2-6}
 \end_layout
 
 \begin_layout Plain Layout
-
-control SMS & Hello from AgroAdvisor!
-\backslash
-
-\backslash
 
 \end_layout
 
 \begin_layout Plain Layout
 
-& Did you know that you can get quality
+Agro-input dealer left the sample & 
+\backslash
+Sexpr{format(round(df_averages_attritionD[1,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,1,1]<.01,"**",ifelse(df_ols_attritionD[3,1,1]<.05
+,"*",ifelse(df_ols_attritionD[3,1,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05
+,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,3,1],digits=3),nsmall=3)} $^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,3,1]<.01,"**",ifelse(df_ols_attritionD[3,3,1]<.05
+,"*",ifelse(df_ols_attritionD[3,3,1]<.1,"+","")))}}$ & 348 
+\backslash
+
+\backslash
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(df_averages_attritionD[2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,3,1],digits=3),nsmall=3)})
 \backslash
 
 \backslash
@@ -8409,25 +7096,48 @@ control SMS & Hello from AgroAdvisor!
 
 \begin_layout Plain Layout
 
-& maize seed in your area
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
-& from 
+Farmer left the sample & 
 \backslash
-emph{shop name}?
+Sexpr{format(round(df_averages_attritionF[1,1],digits=3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,1,1]<.01,"**",ifelse(df_ols_attritionF[3,1,1]<.05
+,"*",ifelse(df_ols_attritionF[3,1,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,2,1]<.01,"**",ifelse(df_ols_attritionF[3,2,1]<.05
+,"*",ifelse(df_ols_attritionF[3,2,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,3,1],digits=3),nsmall=3)} $^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,3,1]<.01,"**",ifelse(df_ols_attritionF[3,3,1]<.05
+,"*",ifelse(df_ols_attritionF[3,3,1]<.1,"+","")))}}$ & 3470 
 \backslash
 
 \backslash
-
+ &
 \end_layout
 
 \begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -8458,6 +7168,21 @@ end{tabular}
 end{center}
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports sample means (and standard deviations below);
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+\end_layout
+
 \end_inset
 
 
@@ -8466,12 +7191,233 @@ end{center}
 \end_inset
 
 
-\begin_inset Note Note
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Survey attrition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-I would prefer table A.1 (distinguish between tables in paper and tables
- in appendix)
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & number of 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & observations 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-input dealer left the sample & 
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
+nD_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,1,1]<.1,"+","")))}}$
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
+nD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,3,1],digits=3),nsmall=3)}
+ $^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,3,1]<.01,"**",ifelse(df_ols_end_attritio
+nD_end[3,3,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,3,1]<.1,"+","")))}}$
+ & 348 
+\backslash
+
+\backslash
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,1,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer left the sample & 
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[1,1],digits=3),nsmall=3)}
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
+nF_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,1,1]<.1,"+","")))}}$
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
+nF_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,2,1]<.1,"+","")))}}$
+ & 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,3,1],digits=3),nsmall=3)}
+ $^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,3,1]<.01,"**",ifelse(df_ols_end_attritio
+nF_end[3,3,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,3,1]<.1,"+","")))}}$
+ & 3470 
+\backslash
+
+\backslash
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,1,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,2,1],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,3,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column reports sample means (and standard deviations below);
+  **, * and + denote significance at the 1, 5 and 10 percent levels.
+ Reported standard errors are clustered at the level of randomization (catchment
+ area or village/shop).
+ 
 \end_layout
 
 \end_inset
@@ -8479,38 +7425,71 @@ I would prefer table A.1 (distinguish between tables in paper and tables
 
 \end_layout
 
-\begin_layout Subsection
-Explanations for not including variables in overall indices
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Discussion
 \begin_inset CommandInset label
 LatexCommand label
-name "Explanations for not including variables in overall indeces"
+name "section: Discussion"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Paragraph
-Primary outcomes at dealer level
+\begin_layout Subsubsection*
+Why does the agro-input dealer training not work?
 \end_layout
 
 \begin_layout Standard
-The average sales price of 4 improved maize varieties last season is not
- included because the impact of the treatments on this outcome is ambiguous
- (increased adoption could e.g.
- increase demand and hence prices but dealers could also lower prices to
- be more customer friendly).
- The index of all seed handling and storage practices is not included because
- it is a function of the index of capital-intensive practices and the index
- of labor-intensive practices, which are both included in the index.
+To improve agro-input dealer behavior and seed quality, the training has
+ to increase their knowledge about seed storage, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "figure: Theory of change training"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Dealers cannot handle seed correctly if they do not know how to do so.
+ However, the dealer knowledge indices in Table B do not seem to be significantl
+y affected by this treatment.
+ That is why we zoom in and compare dealers' knowledge at baseline in September
+ and October 2020 with their knowledge at midline in January and February
+ 2022 after being trained in May 2021.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ATE on agro-input dealer's knowledge about seed storage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that the training has no measurable effect on the individual knowledge
+ questions even though it addressed these topics specifically and knowledge
+ was not surprisingly high at baseline.
+ Dealers do not learn or do not remember what they have learned during the
+ training, despite receiving a poster which illustrates the most important
+ practices to hang in their store.
+ We conclude that providing dealers with information about seed handling
+ and storage does not work as long as dealers do not have an incentive to
+ learn.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-The index of shop’s maize seed ratings by farmers is not included because
- the questions to compute this index are only collected for all dealers
- at endline (at midline, these variables are only collected for clearinghouse
- treated farmers as rating is part of the clearinghouse treatment).
+Can we exploit the factorial design to learn more? Some dealers are trained
+ and have an incentive (T+CH - 1,1) while other are trained without incentives
+ (T - 1,0).
 \end_layout
 
 \end_inset
@@ -8518,139 +7497,2128 @@ The index of shop’s maize seed ratings by farmers is not included because
 
 \end_layout
 
-\begin_layout Paragraph
-Primary outcomes at farmer level
-\end_layout
-
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset Float table
+wide false
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
-The index of farmer’s maize seed ratings for shops nearby and the index
- of farmer’s general ratings for shops nearby are not included because the
- questions to compute these indexes are only collected from all farmers
- at endline (at midline, these variables are only collected from clearinghouse
- treated farmers as rating is part of the clearinghouse treatment).
-\end_layout
-
-\end_inset
-
-The index of services of shops nearby according to farmers is not included
- because the regression with the overall index controls for the baseline
- value and many observations of this service index are missing at baseline.
- Whether the farmer switched to a different agro-input shop or not was not
- asked at baseline, and is not included for the same reason.
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at dealer level: Longe 10H and Longe 5
-\end_layout
-
-\begin_layout Standard
-The transformed sales price of Longe 10H per kg at beginning of last season
- (IHS) is not included because the impact of the treatments on this outcome
- is ambiguous (increased adoption could e.g.
- increase demand and hence prices but dealers could also lower prices to
- be more customer friendly).
- The transformed amount of Longe 10H lost or wasted last season (IHS) is
- not included because many observations are missing at baseline.
- The number of times the shop ran out of Longe 10H last season is not included
- because the impact of the treatments on this outcome is ambiguous (increased
- adoption could e.g.
- increase demand and hence this number but dealers could also take better
- care of stock to be more customer friendly, hence decrease it).
- Furthermore, this number mostly depends on parameters further up the value
- chain.
- These explanations are also relevant for outcomes related to Longe 5.
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at dealer level: Memberships, licenses, and inspections
-\end_layout
-
-\begin_layout Standard
-The transformed number of times the shop was inspected by DAO, MAAIF or
- UNADA last year (IHS) is not included because the impact of the treatment
- on this outcome is ambiguous (e.g.
- more dealers could ask to be inspected to receive a certificate and signal
- quality which would increase the number but the treatments could also improve
- quality which could make inspections less necessary and common).
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at dealer level: Other
-\end_layout
-
-\begin_layout Standard
-The number of maize varieties in stock last season is not included because
- it is a function of the number of hybrid varieties and the number of open-polli
-nated varieties which are both included in the index.
-\begin_inset Note Note
-status collapsed
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Whether the shop has equipment to monitor seed moisture or not is also not
- included because we provide dealers with this equipment as part of another
- treatment in the factorial design.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at farmer level: Adoption on randomly selected maize
- field
-\end_layout
-
-\begin_layout Standard
-Whether the farmer planted hybrid or open-pollinated seed on this field
- is not included because it is a function of whether the farmer planted
- hybrid maize seed and whether the farmer planted open-pollinated maize
- seed, which are both included in the index.
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at farmer level: Seed used on randomly selected maize
- field
-\end_layout
-
-\begin_layout Standard
-The transformed cost of seed farmer used on this field last season is not
- included because it is a function of the amount of seed and the price of
- seed, which are both included in the index.
-\end_layout
-
-\begin_layout Paragraph
-Secondary outcomes at farmer level: Production and disposal on randomly
- selected maize field
-\end_layout
-
-\begin_layout Standard
-Production from this field last season is not included because it is included
- in the yield, which is included in the index.
- Whether the farmer harvested as much maize as expected from this field
- last season and whether he or she did not harvest as much maize as expected
- due to own mismanagement and the transformed amount kept as seed are only
- included in the regressions that do not control for the baseline values
- because we did not ask these questions at baseline.
-\end_layout
-
-\begin_layout Subsection
-More results
+ATE on agro-input dealer's knowledge about seed storage
 \begin_inset CommandInset label
 LatexCommand label
-name "More results"
+name "ATE on agro-input dealer's knowledge about seed storage"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
-Correlating ratings & quality indicators once and for all
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows...
+ &&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...how long seed can be carried over
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,10],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,10]<.05,"*",ifelse(df_ols_D_sec[3,1,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,10],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,10],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...how seed should be stored after repackaging
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,11],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,11]<.05,"*",ifelse(df_ols_D_sec[3,1,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,11],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,11],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...min.
+ distance between seed and floor
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,12],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,12]<.05,"*",ifelse(df_ols_D_sec[3,1,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,12],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,12],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...how seed should be stored in storeroom
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,13],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,13]<.05,"*",ifelse(df_ols_D_sec[3,1,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,13],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,13],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...whether seed should be repackaged
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,14],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,14]<.05,"*",ifelse(df_ols_D_sec[3,1,14]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,14],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,14],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Index of dealer's knowledge about seed storage}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,6]<.05,"*",ifelse(df_ols_D_sec[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,6],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd column reports differences between treatment and control groups and
+ standard errors below in brackets; they are clustered at the level of randomiza
+tion; 3rd column reports number of observations; **, * and + denote significance
+ at the 1, 5 and 10 percent levels; larger indices indicate more desirable
+ outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+larger table: 
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences between treatment and control groups - Agro-input dealer's knowledge
+ about seed and storage
+\begin_inset CommandInset label
+LatexCommand label
+name "results_dealer_sec_ind-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & dealer & clearing & farmer & nobs
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & & training & house & video & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows how long seed can be carried over
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,10],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,10]<.05,"*",ifelse(df_ols_D_sec[3,1,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,10]<.05,"*",ifelse(df_ols_D_sec[3,2,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,10]<.05,"*",ifelse(df_ols_D_sec[3,3,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,10],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,10],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows how seed should be stored after repackaging
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,11],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,11]<.05,"*",ifelse(df_ols_D_sec[3,1,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,11]<.05,"*",ifelse(df_ols_D_sec[3,2,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,11]<.05,"*",ifelse(df_ols_D_sec[3,3,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,11],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,11],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows what the min.
+ distance between floor and seed is
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,12],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,12]<.05,"*",ifelse(df_ols_D_sec[3,1,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,12]<.05,"*",ifelse(df_ols_D_sec[3,2,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,12]<.05,"*",ifelse(df_ols_D_sec[3,3,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,12],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,12],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows how seed should be stored in storeroom
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,13],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,13]<.05,"*",ifelse(df_ols_D_sec[3,1,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,13]<.05,"*",ifelse(df_ols_D_sec[3,2,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,13]<.05,"*",ifelse(df_ols_D_sec[3,3,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,13],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,13],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows whether seed should be repackaged
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,14],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,14]<.05,"*",ifelse(df_ols_D_sec[3,1,14]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,14]<.05,"*",ifelse(df_ols_D_sec[3,2,14]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,14]<.05,"*",ifelse(df_ols_D_sec[3,3,14]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,14],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,14],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of dealer's knowledge about seed storage$^4$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,6]<.05,"*",ifelse(df_ols_D_sec[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,6]<.05,"*",ifelse(df_ols_D_sec[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,6]<.05,"*",ifelse(df_ols_D_sec[3,3,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,6],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,6],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&&&&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows which seed variety to recommend if farmer complains about poor
+ soil
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,15],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,15]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,15]<.05,"*",ifelse(df_ols_D_sec[3,1,15]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,15]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,15]<.05,"*",ifelse(df_ols_D_sec[3,2,15]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,15]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,15]<.05,"*",ifelse(df_ols_D_sec[3,3,15]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,15],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,15],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,15],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,15],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,15],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows what to tell clients about yield benefits of hybrid seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,16],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,16]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,16]<.05,"*",ifelse(df_ols_D_sec[3,1,16]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,16]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,16]<.05,"*",ifelse(df_ols_D_sec[3,2,16]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,16]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,16]<.05,"*",ifelse(df_ols_D_sec[3,3,16]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,16],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,16],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,16],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,16],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,16],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows which seed variety to recommend if farmer complains about little
+ rain
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,17],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,17],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,17]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,17]<.05,"*",ifelse(df_ols_D_sec[3,1,17]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,17],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,17]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,17]<.05,"*",ifelse(df_ols_D_sec[3,2,17]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,17],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,17]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,17]<.05,"*",ifelse(df_ols_D_sec[3,3,17]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,17],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,17],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,17],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,17],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,17],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Dealer knows which seed variety to recommend if farmer is late for planting
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,18],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,18],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,18]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,18]<.05,"*",ifelse(df_ols_D_sec[3,1,18]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,18],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,18]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,18]<.05,"*",ifelse(df_ols_D_sec[3,2,18]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,18],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,18]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,18]<.05,"*",ifelse(df_ols_D_sec[3,3,18]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,18],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,18],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,18],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,18],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,18],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of dealer's knowledge about seed$^5$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,1,7]<.05,"*",ifelse(df_ols_D_sec[3,1,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,2,7]<.05,"*",ifelse(df_ols_D_sec[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec[1,3,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec[3,3,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec[3,3,7]<.05,"*",ifelse(df_ols_D_sec[3,3,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_D_sec[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec[2,3,7],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means and standard deviations below in brackets;
+  2nd-4th column reports differences between treatment and control groups
+ and standard errors below in brackets; they are clustered at the level
+ of randomization; 5th column reports number of observations; **, * and
+ + denote significance at the 1, 5 and 10 percent levels; $^
+\backslash
+dag$ indicates that the variable is included in the overall index; $^{(
+\backslash
+dag)}$ indicates that the variable is included in the overall index not
+ controlling for baseline; larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of dealer's motivation and satisfaction contains 3 variables:
+ whether dealer sees him-/ herself working as agro-input dealer in future,
+ would recommend working as dealer, how happy dealer feels when he/ she
+ comes to work.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The index of dealer's self-ratings contains 5 ratings: location, price,
+ product quality, stock, reputation.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^3$The index of dealer's efforts and services according to farmers contains
+ 7 variables: whether shop offers refund/insurance, credit, training/advice,
+ delivery, after-sales service, accepts different payment methods, sells
+ small quantities.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^4$The index of dealer's knowledge about seed storage contains 5 variables:
+ whether dealer knows how long seed can be carried over, how seed should
+ be stored after repackaging, what the min.
+ distance between floor and seed is, how seed should be stored in storeroom,
+ whether seed should be repackaged.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^5$The index of dealer's knowledge about seed contains 4 variables: whether
+ dealer knows which seed variety to recommend if farmer complains about
+ poor soil, if farmer complains about little rain, if farmer is late for
+ planting, what to tell clients about yield benefits of hybrid seed.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+FYI: also almost no sign.
+ impact on knowledge if I use the attendance list indicator instead of the
+ random treatment assignment as treatment indicator (least conservative
+ estimate because of selection), see this screenshot:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ATE_dealer_knowledge_attendance_indicator.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Why does the information clearinghouse work?
+\end_layout
+
+\begin_layout Standard
+The clearinghouse is a unique intervention because it solves a variety of
+ potentially interlinked problems simultaneously.
+ If the quality of maize seed at agro-input shops is good, it corrects farmers'
+ misperceptions.
+ If the quality of maize seed is poor, it provides farmers with information
+ about where to find better seed and dealers with an incentive to change
+ their behavior.
+ Our results in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "section: Results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show that all 3 impact pathways play a role.
+ We find evidence of farmers switching to different shops, the behavior
+ of dealers is also affected as we see significant effects on several measures
+ of their efforts and services, and the clearinghouse improves smallholders'
+ perceptions of the maize seed at shops nearby.
+ Clearly, both actors take the ratings serious.
+ Hereafter we attempt to disentangle the different impact pathways and investiga
+te what exactly is going on.
+\end_layout
+
+\begin_layout Standard
+We demonstrate that the intervention affects several measures of adoption
+ already at midline.
+ If we assume that changing dealer behavior and farmers noticing this change
+ takes some time, rectifying incorrect perceptions of smallholders must
+ have played an important role in increasing their adoption.
+ Also note that the average agro-input shop was rated 3.4 out of 5 at baseline
+ which indicates that seed quality was not so poor to begin with.
+ We interpret this as support for the hypothesis that the quality of maize
+ seed at some shops in our sample is sufficient but non-adopting farmers
+ misperceive it.
+ This is in line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "MICHELSON2021102579"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+ who establish that input quality is good but that farmers’ beliefs are
+ often incorrect, so that one simply needs to rectify this misperception
+ to increase adoption.
+ The information clearinghouse provides an innovative way to do so.
+\end_layout
+
+\begin_layout Standard
+In addition, the clearinghouse works through the other impact channels simultane
+ously.
+ At endline, when all farmers rated all dealers, we find that smallholders
+ perceive and rate seed at clearinghouse treated dealers better.
+ The rectifying incorrect perceptions argument made above does not explain
+ why seed at treated shops received higher ratings.
+ Clearly something else has changed due to the clearinghouse.
+ It would be straightforward to assume that farmers perceive seed at treated
+ shops to be better because the clearinghouse has improved seed quality.
+ Unfortunately, we cannot verify this because are not able to objectively
+ measure seed quality as DNA fingerprinting is the only reliable way to
+ detect varietal purity.
+ That is why we cannot confidently conclude that farmers' perceptions of
+ seed improve because treated dealers improve seed quality by handling seed
+ better.
+ Instead, there could be other variables at play, farmers could for example
+ rate seed at treated dealers better because these dealers decide to provide
+ advice and recommendations in response to the clearinghouse, which is surely
+ useful but has no impact on the actual quality of maize seed.
+ Even though we cannot conclude that the clearinghouse improved maize seed
+ quality, it did so in the eyes of smallholder farmers, which is what counts
+ after all.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A clearinghouse could improve quality by providing an incentive against
+ a lack of care/ motivation to seek knowledge (unintentional mishandling
+ of seed) and adulteration (intentional) by dealers.
+ If we combine H1 and H2, can we get an idea of the magnitude of intentional
+ adulteration? Intuitively, if we know that knowledge intervention is responsibl
+e for a increase in adoption of 15 percentage points, and we find that the
+ information clearinghouse increases adoption by 20 percent, can we claim
+ that adulteration reduces adoption by 5 percentage points? Can we get a
+ better estimate if we exploit the factorial design (that is, some input
+ dealers that are exposed to the clearinghouse will also get the training,
+ so we could argue that they have to know that they are cheating)? Clearinghouse
++training vs.
+ clearinghouse+no training.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Potential threats to the functioning of the information clearinghouse
+\end_layout
+
+\begin_layout Paragraph*
+Farmers cannot assess maize seed quality
+\end_layout
+
+\begin_layout Standard
+The objective of the clearinghouse is to make maize seed quality observable,
+ so that its functioning would be endangered if farmers' ratings do not
+ actually measure quality but e.g.
+ the personal relationship between a farmer and a dealer.
+ Some could even argue that farmers cannot assess the quality of maize seed
+ at all, even not after using it, because there are so many factors at play
+ in agricultural production: if farmers experience a disappointing harvest,
+ they cannot safely conclude that the seed material was poor because it
+ could have also been poor soil, insufficient, late or too much rain, or
+ own mismanagement like late planting or insufficient weeding.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
+ inputs, rather than to other possible causes.
+ Learning about the true quality becomes more difficult when this misattribution
+ is present (Hoel et al., 2021).
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "tjernstrom2021learning"
+literal "false"
+
+\end_inset
+
+ agree that sub-Saharan Africa's soil heterogeneity hampers farmer learning
+ about the returns to inputs.
+\end_layout
+
+\end_inset
+
+ Maize seed would then be a credence good instead of an experience good
+ and clearinghouse ratings of farmers would be useless.
+ Even though farmers and dealers might still change their behavior in the
+ short run because they expect the clearinghouse to work, this effect would
+ fade out as soon as both actors learn that the ratings are unreliable.
+\end_layout
+
+\begin_layout Standard
+We argue that farmers’ ability to infer maize seed quality is indeed not
+ perfect but they can assess it to some extent.
+ Shortly after planting, farmers can observe germination rates, i.e.
+ the proportion of seeds that germinate, and later how fast the seed matures.
+ Some seed may also be more susceptible to pests and diseases, while other
+ seed may be particularly tolerant in terms of drought.
+ After harvest, the farmer can observe the yield.
+ All these attributes of seed quality can be judged to some extent after
+ one agricultural season.
+\end_layout
+
+\begin_layout Standard
+To support our claim, we test if the ratings are correlated with objective
+ indications of seed quality.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Note that this was only done for treated shops because control shops had
+ not been rated at baseline, yet.
+\end_layout
+
+\end_inset
+
+ We find that specialized agro-input shops which only sell farm inputs have
+ higher ratings.
+ Dealers who did not receive any customer complaint about seed they sold
+ since last season have higher ratings than dealers who did.
+ Furthermore, farmers did not only rate the seed of agro-input shops but
+ also the seed they used on a randomly selected maize field, using the same
+ questions.
+ We find that an index of these seed ratings is positively correlated with
+ farmers' yield.
+ All this shows that the clearinghouse ratings do measure maize seed quality
+ to some extent.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I suggest to delete this paragraph because it proves nothing: specialized
+ shops and shops without customer complaints are rated better, but much
+ more than seed quality could explain this, e.g.
+ specialized shops have more capital on average and "fancier shops" and
+ farmers rate fancy looking shops better, or farmers discriminate some dealers
+ due to their gender or ethnic group or ...
+ and therefore complain more and rate worse, without seed quality being
+ related to gender or ethnic group.
+ And of course farmers with high yields rate their seed better, also if
+ that high yield can be attributes to good management or perfect rainfall
+ instead of seed quality.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10227,6 +11195,512 @@ rmer[3,2]<.05,"*",ifelse(df_ols_end_quality_farmer[3,2]<.1,"+","")))}}$
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Some dealers face no competition
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Please do not delete paragraph if you don't like it, Jo requested this.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some could also argue that the clearinghouse is unlikely to work in areas
+ with only one agro-input dealer who faces no competition
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In our sample, 46 of 130 catchment areas (35%) are served by only one dealer.
+\end_layout
+
+\end_inset
+
+, as farmers could not switch to better dealers and dealers would have no
+ incentive to improve their services and increase their efforts.
+ However, the clearinghouse will still work if dealers are not fully aware
+ of their lack of competition or if they fear that farmers switch to dealers
+ in a different area and for example go to a nearby town to buy seed.
+ Even if farmers are strictly unable to switch and dealers are fully informed
+ about this, the clearinghouse will work.
+ If a dealer provides great seed but farmers do not know this, the clearinghouse
+ could correct this perception and increase adoption.
+ Farmers could also apply social pressure on poorly performing dealers,
+ even if they cannot switch to the competition.
+ Dealers could also start improving due to their pride if they receive a
+ poor rating, or due to increased motivation if they receive a good one.
+ That is why we argue that a clearinghouse will also work in areas without
+ dealer competition.
+\end_layout
+
+\begin_layout Paragraph*
+Some dealers will cheat
+\end_layout
+
+\begin_layout Standard
+Another danger to the functioning of the clearinghouse could be agro-input
+ dealers who start to influence ratings in a dishonest manner, e.g.
+ by faking ratings or by bribing farmers.
+ Note that during this trial, rating and rated participants were connected
+ by asking dealers where their customers come from, and collecting ratings
+ from ten random farmers in that village.
+ Dealers would need to understand our experimental design in order to know
+ which farmer they would need to influence, so that it is almost impossible
+ that they cheat during this trial.
+ However, if the clearinghouse intervention would be scaled up, these kind
+ of challenges would need to be addressed.
+ However, the objective of this paper is to test whether a prediction of
+ the theory occurs in practice, namely whether making seed quality observable
+ improves adoption, and not to provide a policy intervention, sophisticated
+ enough to be applied without further considerations.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "section: Conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Even though agricultural technologies like high yielding seed varieties
+ and fertilizers are seen as the key to agricultural productivity, the adoption
+ by smallholders remains persistently low in sub-Saharan Africa, which hinders
+ poverty alleviation at the individual and aggregate level.
+ We study a particular constraint to technology adoption: the perceived
+ quality of agricultural inputs like improved maize seed.
+ We hypothesize that seed quality deteriorates because agro-input dealers
+ lack knowledge and incentives.
+ Alternatively, quality could be sufficient but farmers misperceive it.
+\end_layout
+
+\begin_layout Standard
+To assess the importance of this potential constraint to agricultural technology
+ adoption, we test two interventions in the market for seed.
+ A training informs agro-input dealers about correct seed handling and storage
+ practices.
+ An information clearinghouse based on crowd-sourced ratings reduces the
+ information asymmetry between seller and buyer by making the quality of
+ maize seed observable.
+ Both interventions are tested in an RCT among 350 agro-input dealers and
+ 3500 smallholder maize farmers in Uganda.
+\end_layout
+
+\begin_layout Standard
+The results of our analyses show that training dealers does not work as
+ long as they do not have an incentive to learn.
+ However, the clearinghouse clearly improves the Ugandan market for maize
+ seed as sellers and buyers behave in the way the theory of change in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "figure: Theory of change CH"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ predicted.
+ It improves maize seed quality at agro-input shops in the eyes of the farmers,
+ and increases adoption.
+\end_layout
+
+\begin_layout Standard
+Hence a crowd-sourced information clearinghouse can be an important institutiona
+l innovation to solve the problem of asymmetric information in the market
+ for agricultural inputs.
+ It may be preferable to alternative strategies due to its likely lower
+ cost, self-sustaining nature and scaleability, and helps to overcome problems
+ such as insufficient public investment in regulatory systems, regulatory
+ enforcement, and market surveillance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+questions for future research?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+policy implications?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "../../Study design/seed_systems_pap"
+options "../../Study design/IFPRI_Style"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Subsection
+Details about rating computations
+\begin_inset CommandInset label
+LatexCommand label
+name "sec: Details about rating computations"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I would prefer table A.1 (distinguish between tables in paper and tables
+ in appendix)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+What to do if a treated dealer does not receive a single rating?
+\end_layout
+
+\begin_layout Standard
+If a shop in a treated catchment area is not rated by a single farmer, e.g.
+ because no farmer in our sample knows him or her, we could fill in the
+ catchment area mean as his or her rating.
+ However, this is not as innocent as it seems because it is likely that
+ the lack of ratings is not random.
+ Poor quality dealers have less customers, so their likelihood to get rated
+ is lower.
+ Giving them average catchment area ratings inflates the ratings of these
+ low quality dealers.
+ Instead, we simply told farmers that we do not have information about this
+ shop (implicitly informing the farmer that it exists).
+ 16 of 193 treated dealers were not rated by a single farmer in the first
+ round.
+\end_layout
+
+\begin_layout Paragraph*
+Should more ratings lead to better ratings?
+\end_layout
+
+\begin_layout Standard
+Some shops were not rated by any smallholder in the first round, while others
+ were rated by up to 22 smallholders.
+ If dealer A is rated by 10 farmers and gets rating 3,5 and dealer B is
+ rated by 1 farmer and gets rating 3,6, we treat dealer B as the better
+ dealer.
+ Even though receiving many (few) ratings can be related to good (poor)
+ quality (the lack of ratings could be nonrandom, see previous paragraph),
+ there could be other reasons why dealers are rated by many (few) farmers.
+ Furthermore, giving higher ratings to better-known dealers could harm new
+ dealers entering the market and dealers who are discriminated, e.g.
+ due to their gender.
+ Also on TripAdvisor, having more reviews than a rival hotel does not lead
+ to a better rating.
+\end_layout
+
+\begin_layout Paragraph*
+Should ratings depend on catchment area dealer performance?
+\end_layout
+
+\begin_layout Standard
+The following examples show that ratings should not depend on catchment
+ area averages.
+ In an area with poor quality dealers in which one dealer is a bit better
+ than the rest but still poor, we do not want this dealer to be rated well
+ (i.e.
+ expose farmers to poor quality dealers).
+ Similarly, in an area with good dealers in which one dealer is a bit worse
+ than the rest but still good, we do not want this dealer to be rated poorly
+ (which would be unfair towards him or her).
+ On the other hand, less than 9% of shops received a rating below 3 out
+ of 5, so we would throw away valuable data if we would only disseminate
+ good scores without any variation.
+ Therefore, we take the distribution of ratings into account by using quintiles.
+ Consequently, less dealers receive rating 4 or 5, more dealers receive
+ rating 1 or 2.
+ This could strengthen the effect of the treatment on dealer effort.
+ If dealers get ratings 1 or 2 instead of 4 or 5, they could feel more inclined
+ to improve their scores.
+ Consequently, also the effect on seed quality itself could be larger.
+ However, the clearinghouse should also have a signaling effect, which might
+ be weaker if more dealers are rated 1 or 2 instead of 4 or 5 (dealers would
+ seem to be of worse quality to farmers).
+ Therefore, we chose words with a positive connotation as the quintile names
+ for rating dissemination.
+ As most dealers received a good or very good rating before taking the distribut
+ion into account, we ensure that even a 2 is still communicated as "good"
+ to farmers to not weaken the signaling effect.
+ That is why the first quintile is translated to "okay" and gets one star,
+ the second one is named "good" and receives two stars, the third quintile
+ is "very good" and gets three stars, the fourth and fifth one are "excellent"
+ and awarded with four and five stars.
+ This way of considering the distribution of the original ratings when choosing
+ the names also helps us to disseminate ratings as truthfully, purely and
+ as closely to reality as possible.
+\end_layout
+
+\begin_layout Paragraph*
+Are female dealers rated worse than male dealers?
+\end_layout
+
+\begin_layout Standard
+Because we found significant differences between the ratings of female (41%
+ of dealers) and male agro-input dealers (59% of dealers) after controlling
+ for some potentially confounding variables like education and for several
+ indications of quality, we have no reason to believe that these differences
+ in perception can be explained by differences in real quality.
+ Instead, it is likely that women are perceived to be worse due to discriminatio
+n 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "De2022"
+literal "false"
+
+\end_inset
+
+, so that we adjusted the ratings of female dealers accordingly to prevent
+ that they are harmed by our intervention.
+ We regressed all seed quality attributes on the gender dummy and added
+ the resulting coefficients to the initial ratings of female dealers.
+\end_layout
+
+\begin_layout Subsection
+Details about rating dissemination
+\begin_inset CommandInset label
+LatexCommand label
+name "A.2 Details about rating dissemination"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+How to make the table appear only after the headline?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Text messages to disseminate ratings to farmers 
+\begin_inset CommandInset label
+LatexCommand label
+name "SMS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{ll}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+treatment SMS & Hello from AgroAdvisor!
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Did you know that customers from 
+\backslash
+emph{shop name}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& rate the quality of maize seed sold there
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& as okay/good/very good/excellent?
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{1-2}
+\end_layout
+
+\begin_layout Plain Layout
+
+control SMS & Hello from AgroAdvisor!
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Did you know that you can get quality
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& maize seed in your area
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& from 
+\backslash
+emph{shop name}?
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
