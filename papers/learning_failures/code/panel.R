@@ -274,8 +274,13 @@ endline_farmers$q60_correct <- ifelse(endline_farmers$check.maize.q60%in%c("c","
 endline_farmers$check.maize.q61[endline_farmers$check.maize.q61=="n/a"] <- NA
 endline_farmers$q61_correct <- ifelse(endline_farmers$check.maize.q61=="c",1,0)
 
-# baseline_farmers$q62_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q62=="c",1,0)
-# baseline_farmers$q63_correct <- ifelse(baseline_farmers$CHECK.MAIZE.Q63=="a",1,0) #not in index
+endline_farmers$check.maize.q62[endline_farmers$check.maize.q62=="n/a"] <- NA
+endline_farmers$q62_correct <- ifelse(endline_farmers$check.maize.q62=="c",1,0)
+
+
+endline_farmers$check.maize.q63[endline_farmers$check.maize.q63=="n/a"] <- NA
+endline_farmers$q63_correct <- ifelse(endline_farmers$check.maize.q63=="a",1,0)
+
 
 #now make a panel
 
@@ -532,12 +537,13 @@ xmat_base <- cbind(all$adoption_onfield,all$Land_Races,all$farmer_saved_seed,all
 index_base <- icwIndex(xmat=xmat_base,revcols = c(2,3))
 all$index_base <- index_base$index
 
-mean_base <-  array(NA,dim=c(3,2,5))
+all_nt <- subset(all, treatment=FALSE)
+mean_base <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes
 outcomes <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
 for (i in 1:length(outcomes)) {
-  mean_base[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
-  mean_base[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_base[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_base[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
@@ -545,6 +551,7 @@ for (i in 1:length(outcomes)) {
   mean_base[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
   mean_base[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   mean_base[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mean_base[4,2,i] <- nobs(ols)
 }
 
 
@@ -554,7 +561,7 @@ xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_Land_Races,all$mid_farmer_sav
 index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2,3))
 all$index_mid <- index_mid$index
 
-mid_adoption <-  array(NA,dim=c(3,2,5))
+mid_adoption <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
 outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
 for (i in 1:length(outcomes)) {
@@ -566,6 +573,7 @@ coef_test(ols, vcov_cluster)
 mid_adoption[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
 mid_adoption[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+mid_adoption[4,1,i] <- nobs(ols)
 
 ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
 vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
@@ -573,13 +581,14 @@ coef_test(ols, vcov_cluster)
 mid_adoption[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
 mid_adoption[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+mid_adoption[4,2,i] <- nobs(ols)
 }
 
 xmat_end <- cbind(all$end_adoption_onfield,all$end_Land_Races,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
 index_end <- icwIndex(xmat=xmat_end,revcols = c(2,3))
 all$index_end <- index_end$index
 
-end_adoption <-  array(NA,dim=c(3,2,5))
+end_adoption <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
 outcomes <- c("end_adoption_onfield","end_Land_Races","end_farmer_saved_seed","end_Bought_from_agro_input_shop","index_end")
 for (i in 1:length(outcomes)) {
@@ -591,19 +600,78 @@ for (i in 1:length(outcomes)) {
   end_adoption[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
   end_adoption[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
   end_adoption[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
-  
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$mid_adoption_onfield==1,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$mid_adoption_onfield==1,]$shop_ID,type="CR0")
+  end_adoption[4,1,i] <- nobs(ols)
+    
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   end_adoption[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
   end_adoption[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   end_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  end_adoption[4,2,i] <- nobs(ols) 
 }
 
 
 
 save(mid_adoption, file=paste(path,"papers/learning_failures/code/output/mid_adoption.Rdata",sep="/")) 
 save(end_adoption, file=paste(path,"papers/learning_failures/code/output/end_adoption.Rdata",sep="/")) 
+
+#### knowledge
+
+all <- merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield")],endline_farmers[c("farmer_ID","q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct")], by="farmer_ID")
+##demean orthogonal treatments
+all$clearing <- all$clearing - mean(all$clearing)
+all$training <- all$training - mean(all$training)
+
+
+xmat_end <- cbind(all$q58_correct,all$q59_correct,all$q60_correct,all$q61_correct,all$q62_correct)
+index_end <- icwIndex(xmat=xmat_end)
+all$index_end <- index_end$index
+
+all_nt <- subset(all, treatment=FALSE)
+mean_know <-  array(NA,dim=c(4,2,7))
+#loop here over outcomes
+outcomes <- c("q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct","index_end")
+for (i in 1:length(outcomes)) {
+  mean_know[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_know[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mean_know[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mean_know[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mean_know[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mean_know[4,2,i] <- nobs(ols)
+}
+
+
+
+end_knowledge <-  array(NA,dim=c(4,2,7))
+#loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
+outcomes <- c("q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct","index_end")
+for (i in 1:length(outcomes)) {
+  
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  end_knowledge[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  end_knowledge[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  end_knowledge[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  end_knowledge[4,1,i] <- nobs(ols)
+  
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  end_knowledge[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  end_knowledge[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  end_knowledge[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  end_knowledge[4,2,i] <- nobs(ols) 
+}
+
+save(mean_know, file=paste(path,"papers/learning_failures/code/output/mean_know.Rdata",sep="/")) 
+save(end_knowledge, file=paste(path,"papers/learning_failures/code/output/end_knowledge.Rdata",sep="/")) 
 
 
 ols <- lm(mid_adoption_onfield~treatment*clearing*training,data=all[all$adoption_onfield==1,])
