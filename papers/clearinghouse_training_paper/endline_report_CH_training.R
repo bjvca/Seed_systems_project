@@ -1995,16 +1995,16 @@ results_dealer_prim_base <- c("quantitysold"
                               ,"index_efforts_base"
                               ,"index_overall_prim_dealer_base")
 
-baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_D_prim <- array(NA,dim=c(5,10))
 
 for (i in 1:length(results_dealer_prim)){
-  df_means_end_D_prim[1,i] <- sum(baseline_dealers[results_dealer_prim[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]])))
-  df_means_end_D_prim[2,i] <- sqrt(var(baseline_dealers[results_dealer_prim[i]], na.rm=T))
+  df_means_end_D_prim[1,i] <- sum(baseline_dealers[results_dealer_prim_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim_base[i]])))
+  df_means_end_D_prim[2,i] <- sqrt(var(baseline_dealers[results_dealer_prim_base[i]], na.rm=T))
   df_means_end_D_prim[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_prim[i]]))-sum(is.na(baseline_dealers[results_dealer_prim_base[i]]))+sum(is.na(baseline_dealers[results_dealer_prim[i]])&is.na(baseline_dealers[results_dealer_prim_base[i]]))
   df_means_end_D_prim[4,i] <- min(baseline_dealers[results_dealer_prim[i]], na.rm=T)
   df_means_end_D_prim[5,i] <- max(baseline_dealers[results_dealer_prim[i]], na.rm=T)}
+
+baseline_dealers[results_dealer_prim_base] <- lapply(baseline_dealers[results_dealer_prim_base],function(x)x - mean(x,na.rm = T))
 
 df_ols_end_D_prim <- array(NA,dim=c(3,3,10))
 
@@ -2502,16 +2502,16 @@ results_dealer_sec_base <- c("maize.owner.agree.nr_var",
                              "index_selfratings_base",
                              "index_overallsec_base")
 
-baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_D_sec <- array(NA,dim=c(5,12))
 
 for (i in 1:length(results_dealer_sec)){
-  df_means_end_D_sec[1,i] <- sum(baseline_dealers[results_dealer_sec[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec[i]])))
-  df_means_end_D_sec[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec[i]], na.rm=T))
+  df_means_end_D_sec[1,i] <- sum(baseline_dealers[results_dealer_sec_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_base[i]])))
+  df_means_end_D_sec[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_base[i]], na.rm=T))
   df_means_end_D_sec[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec[i]])&is.na(baseline_dealers[results_dealer_sec_base[i]]))
   df_means_end_D_sec[4,i] <- min(baseline_dealers[results_dealer_sec[i]], na.rm=T)
   df_means_end_D_sec[5,i] <- max(baseline_dealers[results_dealer_sec[i]], na.rm=T)}
+
+baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -2928,14 +2928,14 @@ results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21",
                                  "maize.owner.agree.long10h.q30",
                                  "index_overall_Longe10H_base")
 
-baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_D_secL10H <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_dealer_secL10H)){
-  df_means_end_D_secL10H[1,i] <- sum(baseline_dealers[results_dealer_secL10H[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H[i]])))
-  df_means_end_D_secL10H[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL10H[i]], na.rm=T))
+  df_means_end_D_secL10H[1,i] <- sum(baseline_dealers[results_dealer_secL10H_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H_base[i]])))
+  df_means_end_D_secL10H[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL10H_base[i]], na.rm=T))
   df_means_end_D_secL10H[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H[i]]))-sum(is.na(baseline_dealers[results_dealer_secL10H_base[i]]))+sum(is.na(baseline_dealers[results_dealer_secL10H[i]])&is.na(baseline_dealers[results_dealer_secL10H_base[i]]))}
+
+baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -4265,14 +4265,31 @@ variables_ratings_mid <- cbind(baseline_dealers$mid_general,baseline_dealers$mid
 index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
 baseline_dealers$index_ratings_mid <- index_ratings_mid$index
 
+#index at baseline for half of the sample to have mean
+variables_ratings_base <- cbind(baseline_dealers$general,baseline_dealers$yield,baseline_dealers$drought_resistent
+                           ,baseline_dealers$disease_resistent,baseline_dealers$early_maturing,baseline_dealers$germination)
+
+index_ratings_base <- icwIndex(xmat=variables_ratings_base)
+baseline_dealers$index_ratings_base <- index_ratings_base$index
+
 #3. new index_overall_prim_dealer_mid incl. ratings OK!
 variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
-                                           ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_reading
+                                           ,baseline_dealers$mid_maize.owner.agree.q7
                                            ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
-                                           ,baseline_dealers$index_ratings_mid,baseline_dealers$index_efforts_mid)
+                                           ,baseline_dealers$index_efforts_mid) #no baseline_dealers$index_ratings_mid because impossible at midline and notation has to be consistent
+#no moisture (reading) because too little observations at midline and notation has to be consistent
 
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid, revcols = c(4)) #x
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid) #x
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index #x
+
+#also for baseline so that mean
+variables_overall_prim_dealer_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$revenue
+                                           ,baseline_dealers$maize.owner.agree.q7
+                                           ,baseline_dealers$index_practices_cap_base,baseline_dealers$index_practices_lab_base
+                                           ,baseline_dealers$index_efforts_base)
+
+index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_base) #x
+baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_base$index #x
 
 ################################################################################################################################################################################
 
@@ -4296,6 +4313,15 @@ for (i in 1:length(results_dealer_sec_nobase)){
   df_means_end_D_sec_nobase[4,i] <- min(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)
   df_means_end_D_sec_nobase[5,i] <- max(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)}
 
+df_means_end_D_sec_nobase[1,6] <- mean(baseline_dealers$reading,na.rm = T)
+df_means_end_D_sec_nobase[2,6] <- sd(baseline_dealers$reading,na.rm = T)
+
+df_means_end_D_sec_nobase[1,2] <- mean(baseline_dealers$index_ratings_base,na.rm = T)
+df_means_end_D_sec_nobase[2,2] <- sd(baseline_dealers$index_ratings_base,na.rm = T)
+
+df_means_end_D_sec_nobase[1,3] <- mean(baseline_dealers$index_overall_prim_dealer_base,na.rm = T)
+df_means_end_D_sec_nobase[2,3] <- sd(baseline_dealers$index_overall_prim_dealer_base,na.rm = T)
+
 ###
 #2#
 ###
@@ -4314,7 +4340,7 @@ index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_deale
 baseline_dealers$index_ratings_midT <- index_ratings_mid$index
 
 #3.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid$index
 
 results_dealer_sec_nobase <- c("index_motivation_midT"
@@ -4348,7 +4374,7 @@ index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_deale
 baseline_dealers$index_ratings_midC <- index_ratings_mid$index
 
 #3.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
 results_dealer_sec_nobase <- c("index_motivation_midC"
@@ -4382,7 +4408,7 @@ index_ratings_mid <- icwIndex(xmat=variables_ratings_mid,sgroup = baseline_deale
 baseline_dealers$index_ratings_midF <- index_ratings_mid$index
 
 #3.
-index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control, revcols = c(4))
+index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid$index
 
 results_dealer_sec_nobase <- c("index_motivation_midF"
