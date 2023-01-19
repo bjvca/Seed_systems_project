@@ -3109,8 +3109,18 @@ variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.l
                                         baseline_dealers$mid_maize.owner.agree.long10h.q27,
                                         baseline_dealers$mid_maize.owner.agree.long10h.q30)
 
+variables_overall_Longe10H_base <- cbind(baseline_dealers$maize.owner.agree.long10h.q21,
+                                        baseline_dealers$maize.owner.agree.long10h.q22,
+                                        baseline_dealers$maize.owner.agree.long10h.q25,
+                                        baseline_dealers$maize.owner.agree.long10h.q27,
+                                        baseline_dealers$maize.owner.agree.long10h.q30)
+
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid, revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe10H_mid <- index_overall_Longe10H_mid$index #x
+
+index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base, revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe10H_base <- index_overall_Longe10H_base$index #baseline index for mean
+
 
 ################################################################################################################################################################################
 
@@ -3126,6 +3136,9 @@ for (i in 1:length(results_dealer_secL10H_B)){
   df_means_end_D_secL10H_B[1,i] <- sum(baseline_dealers[results_dealer_secL10H_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H_B[i]])))
   df_means_end_D_secL10H_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL10H_B[i]], na.rm=T))
   df_means_end_D_secL10H_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL10H_B[i]]))}
+
+df_means_end_D_secL10H_B[1,1] <- mean(baseline_dealers$index_overall_Longe10H_base,na.rm = T)
+df_means_end_D_secL10H_B[2,1] <- sd(baseline_dealers$index_overall_Longe10H_base,na.rm = T)
 
 ###
 #2#
