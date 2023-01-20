@@ -3383,14 +3383,14 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46",
                                "maize.owner.agree.longe5.q55",
                                "index_overall_Longe5_base")
 
-baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_D_secL5 <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_dealer_secL5)){
-  df_means_end_D_secL5[1,i] <- sum(baseline_dealers[results_dealer_secL5[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5[i]])))
-  df_means_end_D_secL5[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5[i]], na.rm=T))
+  df_means_end_D_secL5[1,i] <- sum(baseline_dealers[results_dealer_secL5_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_base[i]])))
+  df_means_end_D_secL5[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5_base[i]], na.rm=T))
   df_means_end_D_secL5[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5[i]]))-sum(is.na(baseline_dealers[results_dealer_secL5_base[i]]))+sum(is.na(baseline_dealers[results_dealer_secL5[i]])&is.na(baseline_dealers[results_dealer_secL5_base[i]]))}
+
+baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -3569,6 +3569,17 @@ variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.lon
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
 
+variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46,
+                                      baseline_dealers$maize.owner.agree.longe5.q47,
+                                      baseline_dealers$maize.owner.agree.longe5.q50,
+                                      baseline_dealers$maize.owner.agree.longe5.q52,
+                                      baseline_dealers$maize.owner.agree.longe5.q55) #x
+
+index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,revcols = c(1,4,5)) #x
+baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index #x
+
+#to get mean
+
 ###
 #1#
 ###
@@ -3581,6 +3592,9 @@ for (i in 1:length(results_dealer_secL5_B)){
   df_means_end_D_secL5_B[1,i] <- sum(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]])))
   df_means_end_D_secL5_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_secL5_B[i]], na.rm=T))
   df_means_end_D_secL5_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_secL5_B[i]]))}
+
+df_means_end_D_secL5_B[1,1] <- mean(baseline_dealers$index_overall_Longe5_base,na.rm = T)
+df_means_end_D_secL5_B[2,1] <- sd(baseline_dealers$index_overall_Longe5_base,na.rm = T)
 
 ###
 #2#
