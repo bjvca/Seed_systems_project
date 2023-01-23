@@ -1702,6 +1702,7 @@ baseline_dealers$mid_maize.owner.agree.q7 <- ihs(baseline_dealers$mid_maize.owne
 
 #5. Moisture content of random seed bag: now not controlling for baseline
 baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.02)
+baseline_dealers$reading_save <- baseline_dealers$reading
 
 baseline_dealers$mid_reading <- baseline_dealers$reading_end #x
 baseline_dealers$mid_reading_unadj <- baseline_dealers$reading_end #x
@@ -3604,6 +3605,8 @@ baseline_dealers$index_overall_off_mid <- index_overall_off_mid$index #x
 index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,revcols = c(4,5))
 baseline_dealers$index_overall_off_base <- index_overall_off_base$index
 
+baseline_dealers$index_overall_off_base_save <- baseline_dealers$index_overall_off_base
+
 ################################################################################################################################################################################
 
 ###
@@ -3625,14 +3628,14 @@ results_dealer_sec_off_base <- c("maize.owner.agree.inspection.q114",
                                  "maize.owner.agree.inspection.q119",
                                  "index_overall_off_base")
 
-baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_D_sec_off <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_dealer_sec_off)){
-  df_means_end_D_sec_off[1,i] <- sum(baseline_dealers[results_dealer_sec_off[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_off[i]])))
-  df_means_end_D_sec_off[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_off[i]], na.rm=T))
+  df_means_end_D_sec_off[1,i] <- sum(baseline_dealers[results_dealer_sec_off_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_off_base[i]])))
+  df_means_end_D_sec_off[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_off_base[i]], na.rm=T))
   df_means_end_D_sec_off[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_off[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_off_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_off[i]])&is.na(baseline_dealers[results_dealer_sec_off_base[i]]))}
+
+baseline_dealers[results_dealer_sec_off_base] <- lapply(baseline_dealers[results_dealer_sec_off_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -4162,14 +4165,18 @@ for (i in 1:length(results_dealer_sec_nobase)){
   df_means_end_D_sec_nobase[4,i] <- min(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)
   df_means_end_D_sec_nobase[5,i] <- max(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)}
 
-df_means_end_D_sec_nobase[1,6] <- mean(baseline_dealers$reading,na.rm = T)
-df_means_end_D_sec_nobase[2,6] <- sd(baseline_dealers$reading,na.rm = T)
+df_means_end_D_sec_nobase[1,6] <- mean(baseline_dealers$reading_save,na.rm = T) #because lapply 
+df_means_end_D_sec_nobase[2,6] <- sd(baseline_dealers$reading_save,na.rm = T)
 
 df_means_end_D_sec_nobase[1,2] <- mean(baseline_dealers$index_ratings_base,na.rm = T)
 df_means_end_D_sec_nobase[2,2] <- sd(baseline_dealers$index_ratings_base,na.rm = T)
 
 df_means_end_D_sec_nobase[1,3] <- mean(baseline_dealers$index_overall_prim_dealer_base,na.rm = T)
 df_means_end_D_sec_nobase[2,3] <- sd(baseline_dealers$index_overall_prim_dealer_base,na.rm = T)
+
+df_means_end_D_sec_nobase[1,5] <- mean(baseline_dealers$index_overall_off_base_save,na.rm = T)
+df_means_end_D_sec_nobase[2,5] <- sd(baseline_dealers$index_overall_off_base_save,na.rm = T)
+
 
 ###
 #2#

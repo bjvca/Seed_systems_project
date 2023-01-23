@@ -3153,10 +3153,10 @@ baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.numeric(as.character(
 #8. Overall index of secondary OFFICIAL agro-input dealer outcome variables
 variables_overall_off_mid <- cbind(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
                                    ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q118
-                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q119) #x
+                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q119,baseline_dealers$mid_maize.owner.agree.inspection.q117) #x
 variables_overall_off_base <- cbind(baseline_dealers$maize.owner.agree.inspection.q114,baseline_dealers$maize.owner.agree.inspection.q115
                                     ,baseline_dealers$maize.owner.agree.inspection.q116,baseline_dealers$maize.owner.agree.inspection.q118
-                                    ,baseline_dealers$maize.owner.agree.inspection.q119)
+                                    ,baseline_dealers$maize.owner.agree.inspection.q119,baseline_dealers$maize.owner.agree.inspection.q117)
 
 index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,revcols = c(4,5)) #x
 baseline_dealers$index_overall_off_mid <- index_overall_off_mid$index #x
