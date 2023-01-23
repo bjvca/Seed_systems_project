@@ -2229,80 +2229,6 @@ for (i in 1:length(results_dealer_prim)){
   df_ols_end_D_prim[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_prim[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-
-# ###Caro's cumbersome solution for baseline_dealers$mid_av_salesprices:
-# #need mean correlation among outcomes other than outcome k (r_.k)
-# #--> outcomes other than outcome k
-# df_dealer_prim <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
-#                              ,baseline_dealers$mid_maize.owner.agree.q7
-#                              ,baseline_dealers$index_practices_cap_midF,baseline_dealers$index_practices_lab_midF
-#                              ,baseline_dealers$index_practices_all_midF,baseline_dealers$index_efforts_midF)
-# #no baseline_dealers$mid_av_salesprices
-# #no baseline_dealers$index_overall_prim_dealer_midF
-#
-# #need mean correlation among outcomes other than outcome k (r_.k)
-# #--> correlation among outcomes other than outcome k
-# df_cor_dealer_prim <- cor(df_dealer_prim,use = "pairwise.complete.obs")
-#
-# #need mean correlation among outcomes other than outcome k (r_.k)
-# #--> mean correlation among outcomes other than outcome k
-# r_.k = (df_cor_dealer_prim[1,2]+df_cor_dealer_prim[1,3]+df_cor_dealer_prim[1,4]+df_cor_dealer_prim[1,5]+df_cor_dealer_prim[1,6]+df_cor_dealer_prim[1,7]
-#         +df_cor_dealer_prim[1,8]+df_cor_dealer_prim[2,3]+df_cor_dealer_prim[2,4]+df_cor_dealer_prim[2,5]+df_cor_dealer_prim[2,6]+df_cor_dealer_prim[2,7]
-#         +df_cor_dealer_prim[2,8]+df_cor_dealer_prim[3,4]+df_cor_dealer_prim[3,5]+df_cor_dealer_prim[3,6]+df_cor_dealer_prim[3,7]+df_cor_dealer_prim[3,8]
-#         +df_cor_dealer_prim[4,5]+df_cor_dealer_prim[4,6]+df_cor_dealer_prim[4,7]+df_cor_dealer_prim[4,8]+df_cor_dealer_prim[5,6]+df_cor_dealer_prim[5,7]
-#         +df_cor_dealer_prim[5,8]+df_cor_dealer_prim[6,7]+df_cor_dealer_prim[6,8]+df_cor_dealer_prim[7,8])/28
-#
-# #use formula
-# M = 9
-# g_k = M^(1-r_.k)
-#
-# p_k_T = df_ols_end_D_prim[3,1,2] #training
-# p_k_CH = df_ols_end_D_prim[3,2,2] #CH
-# p_k_F = df_ols_end_D_prim[3,3,2] #video
-#
-# padj_midquantitysold_T = 1-(1-p_k_T)^g_k
-# padj_midquantitysold_CH = 1-(1-p_k_CH)^g_k
-# padj_midquantitysold_F = 1-(1-p_k_F)^g_k
-
-###Bjorn's function
-adjust_p <- function(pval,df_outcome,outcome_k=1) {
-  ## takes as input: pval (eg.0.231), the outcomes in the family (as a data.frame), the rank of the variable pval is for (default is the first in the df)
-  if (outcome_k>0 & outcome_k<=dim(df_outcome)[2]) {
-    cor_mat <- cor(df_outcome,use = "pairwise.complete.obs")[-outcome_k,-outcome_k]
-    mean_cor_mat <- mean(cor_mat[lower.tri(cor_mat)])
-    return(1-(1-pval)^(dim(df_outcome)[2]^(1-mean_cor_mat)))
-  }
-}
-
-df_dealer_primT <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midT
-                             ,baseline_dealers$index_practices_lab_midT,baseline_dealers$index_practices_all_midT
-                             ,baseline_dealers$index_efforts_midT)
-df_dealer_primC <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midC
-                             ,baseline_dealers$index_practices_lab_midC,baseline_dealers$index_practices_all_midC
-                             ,baseline_dealers$index_efforts_midC)
-df_dealer_primF <- data.frame(baseline_dealers$mid_quantitysold,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_revenue
-                             ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$index_practices_cap_midF
-                             ,baseline_dealers$index_practices_lab_midF,baseline_dealers$index_practices_all_midF
-                             ,baseline_dealers$index_efforts_midF)
-#no index_overall_prim_dealer_midF
-
-#example
-adjust_p(0.03,df_dealer_primT,9)
-
-df_ols_end_D_prim_J <- array(NA,dim=c(3,3,10))
-
-results_dealer_prim_J <- c("mid_quantitysold","mid_av_salesprices","mid_revenue","mid_maize.owner.agree.q7","index_practices_cap_mid"
-                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid")
-#no index_overall_prim_dealer_midF
-
-for (i in 1:length(results_dealer_prim_J)){
-  df_ols_end_D_prim_J[3,1,i] <- adjust_p(df_ols_end_D_prim[3,1,i],df_dealer_primT,i)
-  df_ols_end_D_prim_J[3,2,i] <- adjust_p(df_ols_end_D_prim[3,2,i],df_dealer_primC,i)
-  df_ols_end_D_prim_J[3,3,i] <- adjust_p(df_ols_end_D_prim[3,3,i],df_dealer_primF,i)}
-
 
 
 
@@ -2732,25 +2658,6 @@ for (i in 1:length(results_dealer_sec)){
   df_ols_end_D_sec[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_sec[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-
-df_dealer_secT <- data.frame(baseline_dealers$mid_maize.owner.agree.nr_var,baseline_dealers$mid_maize.owner.agree.q19
-                             ,baseline_dealers$mid_maize.owner.agree.q44,baseline_dealers$mid_maize.owner.agree.inspection.q121)
-df_dealer_secC <- df_dealer_secT
-df_dealer_secF <- df_dealer_secT
-#no overall index
-#all the same here
-
-df_ols_end_D_sec_J <- array(NA,dim=c(3,3,10))
-
-results_dealer_sec_J <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","mid_maize.owner.agree.inspection.q121")
-#no overall index
-
-for (i in 1:length(results_dealer_sec_J)){
-  df_ols_end_D_sec_J[3,1,i] <- adjust_p(df_ols_end_D_sec[3,1,i],df_dealer_secT,i)
-  df_ols_end_D_sec_J[3,2,i] <- adjust_p(df_ols_end_D_sec[3,2,i],df_dealer_secC,i)
-  df_ols_end_D_sec_J[3,3,i] <- adjust_p(df_ols_end_D_sec[3,3,i],df_dealer_secF,i)}
-
 
 
 
@@ -3065,30 +2972,6 @@ for (i in 1:length(results_dealer_secL10H)){
   df_ols_end_D_secL10H[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_end_D_secL10H[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_secL10H[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-
-df_dealer_secL10HT <- data.frame(baseline_dealers$mid_maize.owner.agree.long10h.q21,baseline_dealers$mid_maize.owner.agree.long10h.q22
-                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q24,baseline_dealers$mid_maize.owner.agree.long10h.q25
-                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q26,baseline_dealers$mid_maize.owner.agree.long10h.q27
-                                 ,baseline_dealers$mid_maize.owner.agree.long10h.q30
-                                 )
-df_dealer_secL10HC <- df_dealer_secL10HT
-df_dealer_secL10HF <- df_dealer_secL10HT
-#no overall index
-#all the same here
-
-df_ols_end_D_secL10H_J <- array(NA,dim=c(3,3,10))
-
-results_dealer_secL10H_J <- c("mid_maize.owner.agree.long10h.q21","mid_maize.owner.agree.long10h.q22","mid_maize.owner.agree.long10h.q24"
-                            ,"mid_maize.owner.agree.long10h.q25","mid_maize.owner.agree.long10h.q26","mid_maize.owner.agree.long10h.q27"
-                            ,"mid_maize.owner.agree.long10h.q30")
-#no overall index
-
-for (i in 1:length(results_dealer_secL10H_J)){
-  df_ols_end_D_secL10H_J[3,1,i] <- adjust_p(df_ols_end_D_secL10H[3,1,i],df_dealer_secL10HT,i)
-  df_ols_end_D_secL10H_J[3,2,i] <- adjust_p(df_ols_end_D_secL10H[3,2,i],df_dealer_secL10HC,i)
-  df_ols_end_D_secL10H_J[3,3,i] <- adjust_p(df_ols_end_D_secL10H[3,3,i],df_dealer_secL10HF,i)}
 
 
 
@@ -3521,31 +3404,6 @@ for (i in 1:length(results_dealer_secL5)){
   df_ols_end_D_secL5[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_secL5[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_secL5T <- data.frame(baseline_dealers$mid_maize.owner.agree.longe5.q46
-                               ,baseline_dealers$mid_maize.owner.agree.longe5.q47,baseline_dealers$mid_maize.owner.agree.longe5.q49
-                                ,baseline_dealers$mid_maize.owner.agree.longe5.q50,baseline_dealers$mid_maize.owner.agree.longe5.q51
-                                ,baseline_dealers$mid_maize.owner.agree.longe5.q52
-                                ,baseline_dealers$mid_maize.owner.agree.longe5.q55)
-
-df_dealer_secL5C <- df_dealer_secL5T
-df_dealer_secL5F <- df_dealer_secL5T
-#no overall index
-
-df_ols_end_D_secL5_J <- array(NA,dim=c(3,3,11))
-
-results_dealer_secL5_J <- c("mid_maize.owner.agree.longe5.q46"
-                            ,"mid_maize.owner.agree.longe5.q47","mid_maize.owner.agree.longe5.q49"
-                            ,"mid_maize.owner.agree.longe5.q50","mid_maize.owner.agree.longe5.q51"
-                            ,"mid_maize.owner.agree.longe5.q52"
-                            ,"mid_maize.owner.agree.longe5.q55")
-#no overall index
-
-for (i in 1:length(results_dealer_secL5_J)){
-  df_ols_end_D_secL5_J[3,1,i] <- adjust_p(df_ols_end_D_secL5[3,1,i],df_dealer_secL5T,i)
-  df_ols_end_D_secL5_J[3,2,i] <- adjust_p(df_ols_end_D_secL5[3,2,i],df_dealer_secL5C,i)
-  df_ols_end_D_secL5_J[3,3,i] <- adjust_p(df_ols_end_D_secL5[3,3,i],df_dealer_secL5F,i)}
-
 
 
 
@@ -3899,26 +3757,6 @@ for (i in 1:length(results_dealer_sec_off)){
   df_ols_end_D_sec_off[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_sec_off[3,3,i] <- summary(ols)$coefficients[4,4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_sec_offT <- data.frame(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
-                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q117
-                                 ,baseline_dealers$mid_maize.owner.agree.inspection.q118,baseline_dealers$mid_maize.owner.agree.inspection.q119)
-df_dealer_sec_offC <- df_dealer_sec_offT
-df_dealer_sec_offF <- df_dealer_sec_offT
-#no overall index
-
-df_ols_end_D_sec_off_J <- array(NA,dim=c(3,3,11))
-
-results_dealer_sec_off_J <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115"
-                            ,"mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
-                            ,"mid_maize.owner.agree.inspection.q118","mid_maize.owner.agree.inspection.q119")
-#no overall index
-
-for (i in 1:length(results_dealer_sec_off_J)){
-  df_ols_end_D_sec_off_J[3,1,i] <- adjust_p(df_ols_end_D_sec_off[3,1,i],df_dealer_sec_offT,i)
-  df_ols_end_D_sec_off_J[3,2,i] <- adjust_p(df_ols_end_D_sec_off[3,2,i],df_dealer_sec_offC,i)
-  df_ols_end_D_sec_off_J[3,3,i] <- adjust_p(df_ols_end_D_sec_off[3,3,i],df_dealer_sec_offF,i)}
-
 
 
 
@@ -4140,22 +3978,6 @@ for (i in 1:length(results_dealer_sec_bag)){
   df_ols_end_D_sec_bag[1,3,i] <- summary(ols)$coefficients[4,1]
   df_ols_end_D_sec_bag[2,3,i] <- summary(ols)$coefficients[4,2]
   df_ols_end_D_sec_bag[3,3,i] <- summary(ols)$coefficients[4,4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_dealer_sec_bagT <- data.frame(baseline_dealers$mid_reading,baseline_dealers$mid_visible_packdate,baseline_dealers$mid_shelflife_Caro,baseline_dealers$mid_origin,baseline_dealers$mid_lot)
-df_dealer_sec_bagC <- df_dealer_sec_bagT
-df_dealer_sec_bagF <- df_dealer_sec_bagT
-#no overall index
-
-df_ols_end_D_sec_bag_J <- array(NA,dim=c(3,3,11))
-
-results_dealer_sec_bag_J <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot")
-#no overall index
-
-for (i in 1:length(results_dealer_sec_bag_J)){
-  df_ols_end_D_sec_bag_J[3,1,i] <- adjust_p(df_ols_end_D_sec_bag[3,1,i],df_dealer_sec_bagT,i)
-  df_ols_end_D_sec_bag_J[3,2,i] <- adjust_p(df_ols_end_D_sec_bag[3,2,i],df_dealer_sec_bagC,i)
-  df_ols_end_D_sec_bag_J[3,3,i] <- adjust_p(df_ols_end_D_sec_bag[3,3,i],df_dealer_sec_bagF,i)}
 
 
 
@@ -4891,43 +4713,6 @@ for (i in 1:length(results_farmer_prim)){
   df_ols_end_F_prim[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_F_prim[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
-#transformation because otherwise no correlation between agro and q25d possible:
-baseline_farmers$Check2.check.maize.q25d_save <- baseline_farmers$Check2.check.maize.q25d
-baseline_farmers$mid_Check2.check.maize.q25d_save <- baseline_farmers$mid_Check2.check.maize.q25d
-
-baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
-baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
-
-baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
-baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_primT <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midT
-                                 ,baseline_farmers$index_practices_midT,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primC <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midC
-                              ,baseline_farmers$index_practices_midC,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-df_farmer_primF <- data.frame(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                              ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_servicesF_midF
-                              ,baseline_farmers$index_practices_midF,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
-#no overall index
-
-df_ols_end_F_prim_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_prim_J <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
-                           ,"index_servicesF_mid","index_practices_midF","mid_Check2.check.maize.q25h"
-                           ,"mid_Land_Races")
-#no overall index
-
-for (i in 1:length(results_farmer_prim_J)){
-  df_ols_end_F_prim_J[3,1,i] <- adjust_p(df_ols_end_F_prim[3,1,i],df_farmer_primT,i)
-  df_ols_end_F_prim_J[3,2,i] <- adjust_p(df_ols_end_F_prim[3,2,i],df_farmer_primC,i)
-  df_ols_end_F_prim_J[3,3,i] <- adjust_p(df_ols_end_F_prim[3,3,i],df_farmer_primF,i)}
-
-baseline_farmers$Check2.check.maize.q25d <- baseline_farmers$Check2.check.maize.q25d_save
-baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$mid_Check2.check.maize.q25d_save
-
 
 
 
@@ -5161,24 +4946,6 @@ for (i in 1:length(results_farmer_sec)){
   df_ols_end_F_sec[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_F_sec[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_secT <- data.frame(baseline_farmers$mid_number_known,baseline_farmers$mid_knows_dealer)
-df_farmer_secC <- df_farmer_secT
-df_farmer_secF <- df_farmer_secT
-#no overall index
-
-df_ols_end_F_sec_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_J <- c("mid_number_known","mid_knows_dealer")
-#no overall index
-
-for (i in 1:length(results_farmer_sec_J)){
-  df_ols_end_F_sec_J[3,1,i] <- adjust_p(df_ols_end_F_sec[3,1,i],df_farmer_secT,i)
-  df_ols_end_F_sec_J[3,2,i] <- adjust_p(df_ols_end_F_sec[3,2,i],df_farmer_secC,i)
-  df_ols_end_F_sec_J[3,3,i] <- adjust_p(df_ols_end_F_sec[3,3,i],df_farmer_secF,i)}
-
-#currently NAs because only two variables
-
 
 
 
@@ -5390,24 +5157,6 @@ for (i in 1:length(results_farmer_sec_plot)){
   df_ols_end_F_sec_plot[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_end_F_sec_plot[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_F_sec_plot[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_sec_plotT <- data.frame(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
-                                 ,baseline_farmers$mid_farmer_saved_seed
-                                 ,baseline_farmers$mid_Bought_from_agro_input_shop,baseline_farmers$mid_adoption_onfield)
-df_farmer_sec_plotC <- df_farmer_sec_plotT
-df_farmer_sec_plotF <- df_farmer_sec_plotT
-#no overall index
-
-df_ols_end_F_sec_plot_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_plot_J <- c("mid_hybrid","mid_OPV","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop","mid_adoption_onfield")
-#no overall index
-
-for (i in 1:length(results_farmer_sec_plot_J)){
-  df_ols_end_F_sec_plot_J[3,1,i] <- adjust_p(df_ols_end_F_sec_plot[3,1,i],df_farmer_sec_plotT,i)
-  df_ols_end_F_sec_plot_J[3,2,i] <- adjust_p(df_ols_end_F_sec_plot[3,2,i],df_farmer_sec_plotC,i)
-  df_ols_end_F_sec_plot_J[3,3,i] <- adjust_p(df_ols_end_F_sec_plot[3,3,i],df_farmer_sec_plotF,i)}
 
 
 
@@ -5674,29 +5423,6 @@ for (i in 1:length(results_farmer_sec_seed)){
   df_ols_end_F_sec_seed[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_F_sec_seed[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_sec_seedT <- data.frame(baseline_farmers$index_ratingplot_midT,baseline_farmers$mid_Check2.check.maize.q36
-                                  ,baseline_farmers$mid_Check2.check.maize.q37,baseline_farmers$mid_Check2.check.maize.q38
-                                  ,baseline_farmers$mid_Check2.check.maize.q39,baseline_farmers$mid_costforseed_new)
-df_farmer_sec_seedC <- data.frame(baseline_farmers$index_ratingplot_midC,baseline_farmers$mid_Check2.check.maize.q36
-                                  ,baseline_farmers$mid_Check2.check.maize.q37,baseline_farmers$mid_Check2.check.maize.q38
-                                  ,baseline_farmers$mid_Check2.check.maize.q39,baseline_farmers$mid_costforseed_new)
-df_farmer_sec_seedF <- data.frame(baseline_farmers$index_ratingplot_midF,baseline_farmers$mid_Check2.check.maize.q36
-                                  ,baseline_farmers$mid_Check2.check.maize.q37,baseline_farmers$mid_Check2.check.maize.q38
-                                  ,baseline_farmers$mid_Check2.check.maize.q39,baseline_farmers$mid_costforseed_new)
-#no overall index
-
-df_ols_end_F_sec_seed_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_seed_J <- c("index_ratingplot_mid","mid_Check2.check.maize.q36","mid_Check2.check.maize.q37"
-                               ,"mid_Check2.check.maize.q38","mid_Check2.check.maize.q39","mid_costforseed_new")
-#no overall index
-
-for (i in 1:length(results_farmer_sec_seed_J)){
-  df_ols_end_F_sec_seed_J[3,1,i] <- adjust_p(df_ols_end_F_sec_seed[3,1,i],df_farmer_sec_seedT,i)
-  df_ols_end_F_sec_seed_J[3,2,i] <- adjust_p(df_ols_end_F_sec_seed[3,2,i],df_farmer_sec_seedC,i)
-  df_ols_end_F_sec_seed_J[3,3,i] <- adjust_p(df_ols_end_F_sec_seed[3,3,i],df_farmer_sec_seedF,i)}
-
 
 
 
@@ -5907,24 +5633,6 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   df_ols_end_F_sec_yieldetc[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_end_F_sec_yieldetc[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_F_sec_yieldetc[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
-
-#Aker, Boumnijel, McClelland, Tierney (2012)
-df_farmer_sec_yieldetcT <- data.frame(baseline_farmers$mid_yield_inkg,baseline_farmers$mid_landproductivity
-                                      ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX)
-df_farmer_sec_yieldetcC <- df_farmer_sec_yieldetcT
-df_farmer_sec_yieldetcF <- df_farmer_sec_yieldetcT
-#no overall index
-
-df_ols_end_F_sec_yieldetc_J <- array(NA,dim=c(3,3,11))
-
-results_farmer_sec_yieldetc_J <- c("mid_yield_inkg","mid_landproductivity"
-                                   ,"mid_soldinkg","mid_revenueUGX")
-#no overall index
-
-for (i in 1:length(results_farmer_sec_yieldetc_J)){
-  df_ols_end_F_sec_yieldetc_J[3,1,i] <- adjust_p(df_ols_end_F_sec_yieldetc[3,1,i],df_farmer_sec_yieldetcT,i)
-  df_ols_end_F_sec_yieldetc_J[3,2,i] <- adjust_p(df_ols_end_F_sec_yieldetc[3,2,i],df_farmer_sec_yieldetcC,i)
-  df_ols_end_F_sec_yieldetc_J[3,3,i] <- adjust_p(df_ols_end_F_sec_yieldetc[3,3,i],df_farmer_sec_yieldetcF,i)}
 
 
 
