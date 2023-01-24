@@ -230,7 +230,7 @@ literal "false"
 .
  Underlying this general stagnation is significant heterogeneity.
  For instance, at the micro level, we often observe disadoption, where farmers
- choose to switch back to technologies they have been used for ages after
+ choose to switch back to technologies they have been using for ages after
  trying out a new technology once or twice 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -286,6 +286,18 @@ literal "false"
 \end_inset
 
 .
+ In the longer run, general equilibrium due to the fact that more farmers
+ use the new technology will also increase supply and reduce prices, leading
+ farmers with higher marginal cost to exit 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cochrane1958farm"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -338,7 +350,7 @@ miracle seed
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 This could be two impact pathways really: inflated expectations and reduced
@@ -387,7 +399,7 @@ s the above ideas.
 \begin_layout Standard
 The model leads to a cluster of predictions that we test using a field experimen
 t among maize farmers in eastern Uganda.
- At the heart of the field experiment is a light touch information intervention
+ At the heart of the field experiment is a light-touch information intervention
  that attempts to correct the perception that the improved technology is
  a substitute for other inputs and effort.
  In particular, we show farmers a short, engaging video on the use of improved
@@ -400,8 +412,8 @@ d of when weeding is explained—we highlight that when using improved seed
 \end_layout
 
 \begin_layout Standard
-We find that farmers in the treatment group that adopt at baseline reduce
- the use of improved seed varieties.
+We start by testing if farmers are We find that farmers in the treatment
+ group that adopt at baseline reduce the use of improved seed varieties.
  
 \end_layout
 
@@ -667,6 +679,24 @@ The experiment
 Study population and sample
 \end_layout
 
+\begin_layout Standard
+The field experiment was implemented in eastern Uganda, an area know for
+ its maize production.
+ Maize is considered both a food and cash crop in that area.
+ As a matter of fact, much of the maize that is used as food aid in Sudan
+ is sourced from here.
+ As this study was part of a larger study that involved seed supply chains,
+ smallhoder farmers were drawn from the catchment areas of agro input dealers.
+ As such, farmers should have reasonable access to improved seed varieties.
+\end_layout
+
+\begin_layout Standard
+Baseline data was collected from dealers in September and October 2020 and
+ from farmers in April 2021.
+ Midline data was collected in January and February 2022, and endline data
+ was collected in July and August 2022.
+\end_layout
+
 \begin_layout Subsection
 The treatment
 \end_layout
@@ -735,7 +765,10 @@ y after the first rains) is very important to get good yields.
 \begin_layout Standard
 The treatment was implemented in the form of two different versions of the
  video.
- 
+ The control video is essentially the video as described above.
+ In the treatment video, we added subtle messages that recommended practices
+ and inputs that feature in the video are particularly important when the
+ farmer uses improved seed varieties.
 \end_layout
 
 \begin_layout Standard
@@ -841,6 +874,48 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
+learning_failures/code/output/mean_expectations.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mean_pract.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
 learning_failures/code/output/mid_adoption.Rdata
 \begin_inset Quotes erd
 \end_inset
@@ -884,6 +959,90 @@ load(paste(path2,
 \end_inset
 
 learning_failures/code/output/end_knowledge.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mid_practices.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/end_practices.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mid_expectations.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/end_expectations.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -1036,41 +1195,46 @@ We first test if farmers were able to pick up the subtle messages hidden
  in the treatment video.
  This was done through as small quiz where farmers need to select the response
  that they feel is most appropriate from a set of alternative answers that
- were read to them.
+ were read to them by the enumerators.
  The quiz was only implemented at endline because we were wary of priming.
 \end_layout
 
 \begin_layout Standard
 We start with a general question, asking if farmers think recommended cultivatio
 n practices like weeding and application of fertilizer is less, equally,
- or more important when using quality maize seed like OPV or hybrid seed,
- compared to when using other lower quality seed.
- We than have a slightly more specific and less direct question, asking
- the farmer to indicate what applies for weeding when they are using hybrid
- seeds.
- The options are: 1) You do not need to weed and remove striga because all
- hybrid seed varieties are treated to resist weed infestation; 2) You do
- not need to weed and remove striga in the first four weeks because hybrid
- seed is better at competing for sun, nutrients and water than normal seed;
- 3) You need to weed and remove striga just as you would with normal seed
- because any maize seed does not compete well for sunlight, water and nutrients.
- We have a similar question for fertilizer application when you are using
- hybrid seeds.
+ or more important when using quality maize seed like OPV or hybrid seed.
+ 
+\end_layout
+
+\begin_layout Standard
+This is followed up by a more specific question, asking the farmer to indicate
+ what applies for weeding when they are using hybrid seed.
+ The options from wihc the farmer can choose are: 1) You do not need to
+ weed and remove striga because all hybrid seed varieties are treated to
+ resist weed infestation; 2) You do not need to weed and remove striga in
+ the first four weeks because hybrid seed is better at competing for sun,
+ nutrients and water than normal seed; 3) You need to weed and remove striga
+ just as you would with normal seed because maize seed does not compete
+ well for sunlight, water and nutrients.
+ 
+\end_layout
+
+\begin_layout Standard
+We have a similar question for fertilizer application when hybrid seeds
+ are used.
  The options here are that 1) You do not need to use inorganic fertilizer
  because you already bought seed.
  2) You can use less fertilizer than you normally would since improved maize
  seed grows faster 3) You need to use the amount of fertilizer that you
  would with normal seed because also improved seed varieties need nutrition;
- 4) You should use more fertilizer than you would normally use because improved
- maize seed needs it.
- Here 3 and 4 are counted as correct answers.
+ 4) You should use more fertilizer than you would normally use.
 \end_layout
 
 \begin_layout Standard
 We then have a question that checks if farmers use sub-optimal plots by
- asking which plots are best suited to plant your improved seed.
+ asking which plots are best suited to plant improved seed on.
  The options here are 1) that it is best to save improved seed for poor
- plots, as these needs less nutrients; 2) that is best to use your improved
+ plots, as these need less nutrients; 2) that is best to use your improved
  seed for plots that are furthest away from the home, as improved seed need
  less care than normal seed; and 3) that the decision on what plot to plant
  improved seed should not be affected by the seed.
@@ -1080,7 +1244,7 @@ We then have a question that checks if farmers use sub-optimal plots by
 \begin_layout Standard
 Another question tests if farmers think it is better to combine or put all
  eggs in one basket.
- The question simply asks how to best invest money.
+ The question simply asks how to best invest money in agriculture.
  The options are that 1) It is best to invest all your money in seed, because
  poor seed quality is the main cause of low yields; 2) It is best to invest
  all your money in fertilizer, because poor soil is the main cause of low
@@ -1116,38 +1280,18 @@ noprefix "false"
  The first column in the table (1) provides the mean in the control group
  (and standard deviations in brackets below), mainly to get an idea of the
  effect size of the intervention.
- We see that for most questions, knowledge is already high: 88 percent of
- farmers in the control knows that recommended cultivation practices like
- weeding and application of fertilizer is also important when using improved
- seed.
+ We see that knowledge is already high: 88 percent of farmers in the control
+ farmers know that recommended cultivation practices like weeding and applicatio
+n of fertilizer is also important when using improved seed.
  The only outcome where there is still significant scope for improvement
  appears to be the control question.
- 
-\end_layout
-
-\begin_layout Standard
-The second column (2) shows the estimated difference between treatment and
- control at endline.
- We see that for all outcomes, knowledge as measure by the quiz has increased,
- except for the control question.
- Unfortunately, after adjusting standard errors for clustering at the village
- level, none of the differences is statistically significant at conventional
- levels.
- This may be due to the fact that ex post it turned out that many of the
- farmers are able to indicate the correct response.
- At the same time, we think it is interesting to note that all coefficient
- estimates are going in the same direction.
- Furthermore, even though farmers may possess the knowledge, there is still
- a difference between knowing and actually doing.
- We suspect that our intervention does not only increase knowledge but also
- nudges farmer to practice what they know.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1599,14 +1743,8 @@ scriptsize
 
 Note: First column (1) reports control group means (and standard deviations
  below); second column (2) reports difference between treatment and control
- farmers for outcome measured at baseline; third column (3) reports difference
- between treatment and control for outcomes at midline;  fourth column (4)
- reports difference between treatment and control for outcomes at midline
- for farmers that adopt at baseline; fifth column (5) reports difference
- between treatment and control for outcomes at endline;  sixth column (6)
- reports difference between treatment and control for outcomes at endline
- for farmers that adopt at baseline; **, * and + denote significance at
- the 1, 5 and 10 percent levels.
+ for outcomes at endline;  third column (3) reports difference between treatment
+ and control for outcomes at endline for farmers that adopt at baseline.
  Standard errors are clustered at the village level.
  
 \end_layout
@@ -1619,6 +1757,53 @@ Note: First column (1) reports control group means (and standard deviations
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The second column (2) shows the estimated difference between treatment and
+ control at endline, while the third column (3) shows the estimated difference
+ between treatment and control at endline, but only for the subset of farmers
+ that report to be adopting improved seed varieties at baseline.
+ We look at treatment heterogeneity at this level because the treatment
+ is likely not relevant to all farmers: some farmers may not adopt because
+ of other reasons than the ones we conjecture.
+ For instance, they may simply not have access to seed, or access to credit
+ may be the primary constraint.
+\end_layout
+
+\begin_layout Standard
+We see that for all outcomes, knowledge, as measure by the quiz, has increased
+ for most of the relevant questions, except for the control question.
+ For instance, the share of farmers that knows complementary inputs and
+ practices are at least as important when using improved seed increased
+ from 88 percent to 90.2 percent.
+ Furthermore, the share of farmers that recommends investing in different
+ inputs (as opposed to investing all their money in only one input), increases
+ from 75 percent to to 77.2 percent.
+ If we only consider farmers that adopted at baseline, the increase over
+ the control amounts to almost 5 percentage points.
+ Unfortunately, after adjusting standard errors for clustering at the village
+ level, none of the differences is statistically significant at conventional
+ levels.
+ This may be due to the fact that ex-post it turned out that many of the
+ farmers are able to indicate the correct response, and hence there is little
+ scope for further improvement.
+ At the same time, we note that all coefficient estimates are going in the
+ same direction.
+ Furthermore, even though farmers may possess the knowledge, there is still
+ a difference between knowing and actually doing.
+ We suspect that our intervention does not only increase knowledge but also
+ nudges farmer to practice what they know.
+ Such aspirations effects are common when engaging videos featuring role
+ models are used 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "riley2019role,bernard2015will"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1704,33 +1889,10 @@ As the index involves standardization, the average is zero.
 \end_layout
 
 \begin_layout Standard
-The differences in the fourth column are for all farmers.
- However, the treatment is likely not relevant to all farmers: some farmers
- may not adopt because of other reasons than the ones we conjecture.
- For instance, they may simply not have access to seed, or access to credit
- may be the primary constraint.
- In the fourth column, we thus restrict the sample to only those farmers
- that adopted in at baseline to investigate heterogeneous response to the
- treatment.
- We do indeed see effects become stronger if we restrict attention to this
- subgroup.
-\end_layout
-
-\begin_layout Standard
-The fifth column shows the difference between treatment and control at endline,
- after households received treatment a second time, while the sixth column
- repeats this analysis but only for farmers who report adopting at baseline.
- At endline, differences between treatment and control seemed to have disappeare
-d, suggesting that the disadoption effect is only temporary.
- This seems to suggest that farmers have moved to a new equilibrium where
- they are now more likely to become always adopters.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2287,12 +2449,60 @@ Note: First column (1) reports control group means (and standard deviations
 
 \end_layout
 
+\begin_layout Standard
+The differences in the fourth column are for all farmers, while the fifth
+ column restricts the sample to only farmers that adopted at baseline.
+ We do indeed see effects become stronger if we restrict attention to this
+ subgroup.
+\end_layout
+
+\begin_layout Standard
+The fifth column shows the difference between treatment and control at endline,
+ after households received treatment a second time, while the sixth column
+ repeats this analysis but only for farmers who report adopting at baseline.
+ At endline, differences between treatment and control seemed to have disappeare
+d, suggesting that the disadoption effect is only temporary.
+ This seems to suggest that farmers have moved to a new equilibrium where
+ they are now more likely to become always adopters.
+\end_layout
+
 \begin_layout Subsection
 Causal mechanisms
 \end_layout
 
 \begin_layout Subsubsection
 substitution
+\end_layout
+
+\begin_layout Standard
+In this section we look at input use and cultivation practices.
+\end_layout
+
+\begin_layout Standard
+A first outcome is an indicator for single-stand row-planting.
+ Row planing is an important management practice that can lead to significant
+ yield gains.
+ Row planting means that space is used optimally.
+ However, row planting increases workload, hence farmers often engage in
+ broadcasting.
+ Row planting is also more d
+\end_layout
+
+\begin_layout Standard
+A second outcome is the recommendation to reduce seed rate.
+ Farmers often plant more seed than necessary because they fear that seed
+ may not germinate.
+ However, using more than 2 seeds per hill leads to stunted maize growth
+ due to competition for light and nutrients.
+ At the same time, planting less seed may increase the workload, as farmers
+ may need to engage in gap filling after one week.
+ 
+\end_layout
+
+\begin_layout Standard
+Farmers in the treatment group use more inputs than farmers in the control
+ group.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2318,25 +2528,6 @@ To test hypothesis 2 (disadopters use less complementary inputs and cultivation
 \end_layout
 
 \begin_layout Standard
-single-stand row-planting - row planing is an important management practice
- that can lead to significant yield gains.
- Row planting means that space is used optimally.
- However, row planting increases workload, hence farmers often engage in
- broadcasting.
- Row planting is also more d
-\end_layout
-
-\begin_layout Standard
-reduced seed rate - farmers often plant more seed than necessary because
- they fear that seed may not germinate.
- However, using more than 2 seeds leads to stunted maize growth due to competiti
-on.
- At the same time, planting less seed may increase the workload, as farmers
- may need to engage in gap filling after one week.
- 
-\end_layout
-
-\begin_layout Standard
 Fertilizer use - it is recommended to use a good mix of different fertilizer.
  Organic manure is important for the structure of the soil.
  DAP needs to be applied before planting, and urea should be used as top
@@ -2347,8 +2538,1447 @@ Fertilizer use - it is recommended to use a good mix of different fertilizer.
 Pesticide use - Fall Army Worm
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Treatment effects on input use
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Treatment-effects-inputs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4) & (5) & (6) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-7}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+row planting & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,1],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,1]<.01,"**",ifelse(mean_pract[3,2,1]<.05,"*",ifelse(me
+an_pract[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,1]<.01,"**",ifelse(mid_practices[3,1,1]<.05,"*",ife
+lse(mid_practices[3,1,1]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,1]<.01,"**",ifelse(mid_practices[3,2,1]<.05,"*",ife
+lse(mid_practices[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,1]<.01,"**",ifelse(end_practices[3,1,1]<.05,"*",ife
+lse(end_practices[3,1,1]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,1]<.01,"**",ifelse(end_practices[3,2,1]<.05,"*",ife
+lse(end_practices[3,2,1]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,1],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,1],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+seed rate & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,2],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,2]<.01,"**",ifelse(mean_pract[3,2,2]<.05,"*",ifelse(me
+an_pract[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,2]<.01,"**",ifelse(mid_practices[3,1,2]<.05,"*",ife
+lse(mid_practices[3,1,2]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,2]<.01,"**",ifelse(mid_practices[3,2,2]<.05,"*",ife
+lse(mid_practices[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,2]<.01,"**",ifelse(end_practices[3,1,2]<.05,"*",ife
+lse(end_practices[3,1,2]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,2]<.01,"**",ifelse(end_practices[3,2,2]<.05,"*",ife
+lse(end_practices[3,2,2]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,2],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+organic use & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,3],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,3]<.01,"**",ifelse(mean_pract[3,2,3]<.05,"*",ifelse(me
+an_pract[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,3]<.01,"**",ifelse(mid_practices[3,1,3]<.05,"*",ife
+lse(mid_practices[3,1,3]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,3]<.01,"**",ifelse(mid_practices[3,2,3]<.05,"*",ife
+lse(mid_practices[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,3]<.01,"**",ifelse(end_practices[3,1,3]<.05,"*",ife
+lse(end_practices[3,1,3]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,3]<.01,"**",ifelse(end_practices[3,2,3]<.05,"*",ife
+lse(end_practices[3,2,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,3],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,3],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+DAP use & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,4],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,4]<.01,"**",ifelse(mean_pract[3,2,4]<.05,"*",ifelse(me
+an_pract[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,4]<.01,"**",ifelse(mid_practices[3,1,4]<.05,"*",ife
+lse(mid_practices[3,1,4]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,4]<.01,"**",ifelse(mid_practices[3,2,4]<.05,"*",ife
+lse(mid_practices[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,4]<.01,"**",ifelse(end_practices[3,1,4]<.05,"*",ife
+lse(end_practices[3,1,4]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,4]<.01,"**",ifelse(end_practices[3,2,4]<.05,"*",ife
+lse(end_practices[3,2,4]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,4],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,4],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Urea use & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,5],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,5]<.01,"**",ifelse(mean_pract[3,2,5]<.05,"*",ifelse(me
+an_pract[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,5]<.01,"**",ifelse(mid_practices[3,1,5]<.05,"*",ife
+lse(mid_practices[3,1,5]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,5]<.01,"**",ifelse(mid_practices[3,2,5]<.05,"*",ife
+lse(mid_practices[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,5]<.01,"**",ifelse(end_practices[3,1,5]<.05,"*",ife
+lse(end_practices[3,1,5]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,5]<.01,"**",ifelse(end_practices[3,2,5]<.05,"*",ife
+lse(end_practices[3,2,5]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,5],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,5],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+times weeding & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,6],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,6]<.01,"**",ifelse(mean_pract[3,2,6]<.05,"*",ifelse(me
+an_pract[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,6]<.01,"**",ifelse(mid_practices[3,1,6]<.05,"*",ife
+lse(mid_practices[3,1,6]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,6]<.01,"**",ifelse(mid_practices[3,2,6]<.05,"*",ife
+lse(mid_practices[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,6]<.01,"**",ifelse(end_practices[3,1,6]<.05,"*",ife
+lse(end_practices[3,1,6]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,6]<.01,"**",ifelse(end_practices[3,2,6]<.05,"*",ife
+lse(end_practices[3,2,6]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,6],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,6],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,6],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,6],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,6],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,6],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pesticide use & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,7],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,7]<.01,"**",ifelse(mean_pract[3,2,7]<.05,"*",ifelse(me
+an_pract[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,7]<.01,"**",ifelse(mid_practices[3,1,7]<.05,"*",ife
+lse(mid_practices[3,1,7]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,7]<.01,"**",ifelse(mid_practices[3,2,7]<.05,"*",ife
+lse(mid_practices[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,7]<.01,"**",ifelse(end_practices[3,1,7]<.05,"*",ife
+lse(end_practices[3,1,7]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,7]<.01,"**",ifelse(end_practices[3,2,7]<.05,"*",ife
+lse(end_practices[3,2,7]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,7],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,7],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,7],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,7],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,7],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,7],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+resowing & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,8],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,8]<.01,"**",ifelse(mean_pract[3,2,8]<.05,"*",ifelse(me
+an_pract[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,8]<.01,"**",ifelse(mid_practices[3,1,8]<.05,"*",ife
+lse(mid_practices[3,1,8]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,8]<.01,"**",ifelse(mid_practices[3,2,8]<.05,"*",ife
+lse(mid_practices[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,8]<.01,"**",ifelse(end_practices[3,1,8]<.05,"*",ife
+lse(end_practices[3,1,8]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,8]<.01,"**",ifelse(end_practices[3,2,8]<.05,"*",ife
+lse(end_practices[3,2,8]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,8],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,8],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,8],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,8],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,8],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,8],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+index & 
+\backslash
+Sexpr{format(round(mean_pract[1,1,9],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_pract[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_pract[3,2,9]<.01,"**",ifelse(mean_pract[3,2,9]<.05,"*",ifelse(me
+an_pract[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_practices[1,1,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,1,9]<.01,"**",ifelse(mid_practices[3,1,9]<.05,"*",ife
+lse(mid_practices[3,1,9]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_practices[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_practices[3,2,9]<.01,"**",ifelse(mid_practices[3,2,9]<.05,"*",ife
+lse(mid_practices[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_practices[1,1,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,1,9]<.01,"**",ifelse(end_practices[3,1,9]<.05,"*",ife
+lse(end_practices[3,1,9]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_practices[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_practices[3,2,9]<.01,"**",ifelse(end_practices[3,2,9]<.05,"*",ife
+lse(end_practices[3,2,9]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,1,9],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_pract[2,2,9],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,1,9],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_practices[2,2,9],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,1,9],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_practices[2,2,9],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+nobs & 
+\backslash
+Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(mid_practices[4,1,1],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(mid_practices[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(end_practices[4,1,1],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(end_practices[4,2,1],digits=0),nsmall=0)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column (1) reports control group means (and standard deviations
+ below); second column (2) reports difference between treatment and control
+ farmers for outcome measured at baseline; third column (3) reports difference
+ between treatment and control for outcomes at midline;  fourth column (4)
+ reports difference between treatment and control for outcomes at midline
+ for farmers that adopt at baseline; fifth column (5) reports difference
+ between treatment and control for outcomes at endline;  sixth column (6)
+ reports difference between treatment and control for outcomes at endline
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels.
+ Standard errors are clustered at the village level.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 expectations
+\end_layout
+
+\begin_layout Standard
+We did not ask if expectations were met at baseline.
+ Instead, we simply assess baseline by comparing expected quantities.
+ (Q57.
+ How many bags of maize do you expect to harvest from this **${plot_select_name}
+** plot (including maize that will be consumed) in the **next season** (i.e.
+ the second agricultural season 2021?))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Treatment effects on input use
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Treatment-effects-expect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4) & (5) & (6) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-7}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+yield as expected & 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,1],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,1]<.01,"**",ifelse(mean_expectations[3,2,1]<.05
+,"*",ifelse(mean_expectations[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,1]<.01,"**",ifelse(mid_expectations[3,1,1]<.05,"
+*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,1]<.01,"**",ifelse(mid_expectations[3,2,1]<.05,"
+*",ifelse(mid_expectations[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_expectations[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,1,1]<.01,"**",ifelse(end_expectations[3,1,1]<.05,"
+*",ifelse(end_expectations[3,1,1]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_expectations[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,2,1]<.01,"**",ifelse(end_expectations[3,2,1]<.05,"
+*",ifelse(end_expectations[3,2,1]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,1],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,1,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,2,1],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+own fault &  & 
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,2]<.01,"**",ifelse(mid_expectations[3,1,2]<.05,"
+*",ifelse(mid_expectations[3,1,2]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,2]<.01,"**",ifelse(mid_expectations[3,2,2]<.05,"
+*",ifelse(mid_expectations[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_expectations[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,1,2]<.01,"**",ifelse(end_expectations[3,1,2]<.05,"
+*",ifelse(end_expectations[3,1,2]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_expectations[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,2,2]<.01,"**",ifelse(end_expectations[3,2,2]<.05,"
+*",ifelse(end_expectations[3,2,2]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & & (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+production & 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,2],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,2]<.01,"**",ifelse(mean_expectations[3,2,2]<.05
+,"*",ifelse(mean_expectations[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,3]<.01,"**",ifelse(mid_expectations[3,1,3]<.05,"
+*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,3]<.01,"**",ifelse(mid_expectations[3,2,3]<.05,"
+*",ifelse(mid_expectations[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_expectations[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,1,3]<.01,"**",ifelse(end_expectations[3,1,3]<.05,"
+*",ifelse(end_expectations[3,1,3]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,2,3]<.01,"**",ifelse(end_expectations[3,2,3]<.05,"
+*",ifelse(end_expectations[3,2,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,2],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,1,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,2,3],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+yield & 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,3],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,3]<.01,"**",ifelse(mean_expectations[3,2,3]<.05
+,"*",ifelse(mean_expectations[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,4]<.01,"**",ifelse(mid_expectations[3,1,4]<.05,"
+*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,4]<.01,"**",ifelse(mid_expectations[3,2,4]<.05,"
+*",ifelse(mid_expectations[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_expectations[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,1,4]<.01,"**",ifelse(end_expectations[3,1,4]<.05,"
+*",ifelse(end_expectations[3,1,4]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,2,4]<.01,"**",ifelse(end_expectations[3,2,4]<.05,"
+*",ifelse(end_expectations[3,2,4]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,3],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,3],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,1,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,2,4],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+index & 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,4],digits=2),nsmall=2)} & 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,4]<.01,"**",ifelse(mean_expectations[3,2,4]<.05
+,"*",ifelse(mean_expectations[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,5]<.01,"**",ifelse(mid_expectations[3,1,5]<.05,"
+*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$   & 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,5]<.01,"**",ifelse(mid_expectations[3,2,5]<.05,"
+*",ifelse(mid_expectations[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+Sexpr{format(round(end_expectations[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,1,5]<.01,"**",ifelse(end_expectations[3,1,5]<.05,"
+*",ifelse(end_expectations[3,1,5]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(end_expectations[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(end_expectations[3,2,5]<.01,"**",ifelse(end_expectations[3,2,5]<.05,"
+*",ifelse(end_expectations[3,2,5]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,4],digits=2),nsmall=2)}) & (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,1,5],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(end_expectations[2,2,5],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+nobs & 
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)} &  
+\backslash
+Sexpr{format(round(end_expectations[4,1,1],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(end_expectations[4,2,1],digits=0),nsmall=0)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: First column (1) reports control group means (and standard deviations
+ below); second column (2) reports difference between treatment and control
+ farmers for outcome measured at baseline; third column (3) reports difference
+ between treatment and control for outcomes at midline;  fourth column (4)
+ reports difference between treatment and control for outcomes at midline
+ for farmers that adopt at baseline; fifth column (5) reports difference
+ between treatment and control for outcomes at endline;  sixth column (6)
+ reports difference between treatment and control for outcomes at endline
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels.
+ Standard errors are clustered at the village level.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2389,7 +4019,7 @@ literal "false"
  an income effect in the sense that money that is not used to buy seed can
  now be used to buy other inputs.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset citation
@@ -2414,6 +4044,29 @@ literal "false"
  is made, farmers have take into account the additional cost of seed and
  the fact that expensive complementary inputs will need to be purchased,
  leading to disadoption.
+\end_layout
+
+\begin_layout Standard
+We first test if farmers pick up the subtle messages that lie at the heart
+ of our light touch information treatment.
+ To do so, we subject farmers to a multiple choice quiz.
+ While we do not find average treatment effects that differ significantly
+ from zero, we do see that all coefficients are positive.
+ The lack of statistical significance may be due to the already high knowledge
+ at baseline.
+ Furthermore, we also suspect a substantial aspirations effect from the
+ treatment.
+\end_layout
+
+\begin_layout Standard
+Turning to the main outcome—behavior related to seed use—we find that in
+ the season immediately following the treatment, treated farmers are less
+ likely to use improved seed obtained from agro-input dealers and revert
+ back to farmer saved landraces.
+ In line with our expectations, this switching back to landraces is only
+ short lived: in the next season, there is no difference between treatment
+ and control groups anymore.
+ 
 \end_layout
 
 \begin_layout Standard
