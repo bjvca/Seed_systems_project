@@ -2405,6 +2405,8 @@ baseline_dealers$index_overallsec_mid <- index_overallsec_mid$index #x
 index_overallsec_base <- icwIndex(xmat=variables_overallsec_base)
 baseline_dealers$index_overallsec_base <- index_overallsec_base$index #baseline index
 
+baseline_dealers$index_overallsec_base_save <- baseline_dealers$index_overallsec_base
+
 ################################################################################################################################################################################
 
 ###
@@ -4183,6 +4185,9 @@ df_means_end_D_sec_nobase[2,3] <- sd(baseline_dealers$index_overall_prim_dealer_
 
 df_means_end_D_sec_nobase[1,5] <- mean(baseline_dealers$index_overall_off_base_save,na.rm = T)
 df_means_end_D_sec_nobase[2,5] <- sd(baseline_dealers$index_overall_off_base_save,na.rm = T)
+
+df_means_end_D_sec_nobase[1,4] <- mean(baseline_dealers$index_overallsec_base_save,na.rm = T)
+df_means_end_D_sec_nobase[2,4] <- sd(baseline_dealers$index_overallsec_base_save,na.rm = T)
 
 
 ###
