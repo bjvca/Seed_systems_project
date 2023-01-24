@@ -1706,6 +1706,7 @@ baseline_dealers$reading_save <- baseline_dealers$reading
 
 baseline_dealers$mid_reading <- baseline_dealers$reading_end #x
 baseline_dealers$mid_reading_unadj <- baseline_dealers$reading_end #x
+
 baseline_dealers$mid_reading <- as.numeric(as.character(baseline_dealers$mid_reading)) #x
 baseline_dealers <- trim("mid_reading",baseline_dealers,trim_perc=.02) #x
 
@@ -3779,6 +3780,8 @@ baseline_dealers=subset(baseline_dealers,!is.na(baseline_dealers$mid_reading_una
 #midline names:
 #"age_mid" "exp_mid" "lot_mid" "cert_mid" "date_mid" "verif_mid" "origin_mid" "company_mid" "reading" "variety_mid" "date_pack_mid" "other_var_mid"
 
+#mean & sd slightly different between primary table and bag table because here only subset of baseline values.
+
 #1. Random seed bag shows expiry date
 baseline_dealers$mid_exp <- baseline_dealers$exp_end #x
 baseline_dealers$mid_visible_expdate<-ifelse(!is.na(baseline_dealers$mid_exp),1,0) #x
@@ -3831,6 +3834,8 @@ baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(1,3))
 baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
+baseline_dealers$index_overall_bag_base_save <- baseline_dealers$index_overall_bag_base
+
 ################################################################################################################################################################################
 
 ###
@@ -3843,14 +3848,12 @@ results_dealer_sec_bag <- c("mid_reading"
                             ,"mid_origin"
                             ,"mid_lot"
                             ,"index_overall_bag_mid")
-results_dealer_sec_bag_base <- c("reading"
+results_dealer_sec_bag_base <- c("reading_save"
                                  ,"visible_packdate"
                                  ,"shelflife_Caro"
                                  ,"origin"
                                  ,"lot"
                                  ,"index_overall_bag_base")
-
-baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 df_means_end_D_sec_bag <- array(NA,dim=c(3,11))
 
@@ -3860,10 +3863,11 @@ df_means_end_D_sec_bag <- array(NA,dim=c(3,11))
 #   df_means_end_D_sec_bag[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))-sum(is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))+sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])&is.na(baseline_dealers[results_dealer_sec_bag_base[i]]))}
 
 for (i in 1:length(results_dealer_sec_bag)){
-  df_means_end_D_sec_bag[1,i] <- sum(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]])))
-  df_means_end_D_sec_bag[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag[i]], na.rm=T))
+  df_means_end_D_sec_bag[1,i] <- sum(baseline_dealers[results_dealer_sec_bag_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag_base[i]])))
+  df_means_end_D_sec_bag[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag_base[i]], na.rm=T))
   df_means_end_D_sec_bag[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag[i]]))}
 
+baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -4007,6 +4011,9 @@ for (i in 1:length(results_dealer_sec_bag_B)){
   df_means_end_D_sec_bag_B[1,i] <- sum(baseline_dealers[results_dealer_sec_bag_B[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag_B[i]])))
   df_means_end_D_sec_bag_B[2,i] <- sqrt(var(baseline_dealers[results_dealer_sec_bag_B[i]], na.rm=T))
   df_means_end_D_sec_bag_B[3,i] <- nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_bag_B[i]]))}
+
+df_means_end_D_sec_bag_B[1,1] <- mean(baseline_dealers$index_overall_bag_base_save,na.rm=T)
+df_means_end_D_sec_bag_B[2,1] <- sd(baseline_dealers$index_overall_bag_base_save,na.rm=T)
 
 ###
 #2#
