@@ -4669,6 +4669,8 @@ for (i in 1:length(results_farmer_sec_seed)){
   df_means_F_sec_seed[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_seed[i]], na.rm=T))
   df_means_F_sec_seed[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_seed[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_seed_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_seed[i]])&is.na(baseline_farmers[results_farmer_sec_seed_base[i]]))}
 
+save(df_means_F_sec_seed,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_sec_seed.Rdata",sep="/"))
+
 ###
 #2#
 ###
@@ -4791,6 +4793,8 @@ for (i in 1:length(results_farmer_sec_seed)){
   df_ols_F_sec_seed[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_sec_seed[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_sec_seed[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_sec_seed,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_sec_seed.Rdata",sep="/"))
 
 
 

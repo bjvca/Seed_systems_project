@@ -5268,6 +5268,8 @@ baseline_farmers$index_overall_seedonplot_mid <- index_overall_seedonplot_mid$in
 index_overall_seedonplot_base <- icwIndex(xmat=variables_overall_seedonplot_base,revcols = c(4))
 baseline_farmers$index_overall_seedonplot_base <- index_overall_seedonplot_base$index
 
+baseline_farmers$index_overall_seedonplot_base_save <- baseline_farmers$index_overall_seedonplot_base
+
 ################################################################################################################################################################################
 
 ###
@@ -5289,16 +5291,16 @@ results_farmer_sec_seed_base <- c("index_ratingplot_base"
                                   ,"costforseed_new"
                                   ,"index_overall_seedonplot_base")
 
-baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_F_sec_seed <- array(NA,dim=c(5,11))
 
 for (i in 1:length(results_farmer_sec_seed)){
-  df_means_end_F_sec_seed[1,i] <- sum(baseline_farmers[results_farmer_sec_seed[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_seed[i]])))
-  df_means_end_F_sec_seed[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_seed[i]], na.rm=T))
+  df_means_end_F_sec_seed[1,i] <- sum(baseline_farmers[results_farmer_sec_seed_base[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_seed_base[i]])))
+  df_means_end_F_sec_seed[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_seed_base[i]], na.rm=T))
   df_means_end_F_sec_seed[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_seed[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_seed_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_seed[i]])&is.na(baseline_farmers[results_farmer_sec_seed_base[i]]))
   df_means_end_F_sec_seed[4,i] <- min(baseline_farmers[results_farmer_sec_seed[i]], na.rm=T)
   df_means_end_F_sec_seed[5,i] <- max(baseline_farmers[results_farmer_sec_seed[i]], na.rm=T)}
+
+baseline_farmers[results_farmer_sec_seed_base] <- lapply(baseline_farmers[results_farmer_sec_seed_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -5850,6 +5852,8 @@ df_means_end_F_nobase[2,2] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm 
 df_means_end_F_nobase[1,9] <- mean(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
 df_means_end_F_nobase[2,9] <- sd(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
 
+df_means_end_F_nobase[1,10] <- mean(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
+df_means_end_F_nobase[2,10] <- sd(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
 
 ###
 #2#
