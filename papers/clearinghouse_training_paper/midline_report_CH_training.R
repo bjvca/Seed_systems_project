@@ -3817,7 +3817,7 @@ baseline_farmers$mid_agro[baseline_farmers$check.maize.q25a=="No"] = 0
 
 #3. Q25d. How much quality maize seed (hybrid or OPV) did you buy from an input dealer in the second agricultural season of 2020? Record amount in **KG**
 #baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
-baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
+#baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
@@ -3826,7 +3826,7 @@ baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.0
 baseline_farmers$mid_Check2.check.maize.q25d <- baseline_farmers$check.maize.q25d
 baseline_farmers$mid_Check2.check.maize.q25d <- as.numeric((as.character(baseline_farmers$mid_Check2.check.maize.q25d)))
 #baseline_farmers$mid_Check2.check.maize.q25d[baseline_farmers$mid_agro==0] = 0
-baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
+#baseline_farmers$mid_Check2.check.maize.q25d <- ihs(baseline_farmers$mid_Check2.check.maize.q25d)
 baseline_farmers <- trim("mid_Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
 #4. services
@@ -3971,16 +3971,16 @@ baseline_farmers$mid_Land_Races<-ifelse(baseline_farmers$mid_Check2.check.maize.
 
 #6. overall index
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                 ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$index_practices_mid
-                                 ,baseline_farmers$mid_Check2.check.maize.q25h,baseline_farmers$mid_Land_Races)
+                                 ,baseline_farmers$index_practices_mid
+                                 ,baseline_farmers$mid_Land_Races)
 variables_overallprimF_base <- cbind(baseline_farmers$Check2.check.maize.q25a,baseline_farmers$agro
-                                  ,baseline_farmers$Check2.check.maize.q25d,baseline_farmers$index_practices_base
-                                  ,baseline_farmers$Check2.check.maize.q25h,baseline_farmers$Land_Races)
+                                  ,baseline_farmers$index_practices_base
+                                  ,baseline_farmers$Land_Races)
 
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5,6))
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(4))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
-index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base,revcols = c(5,6))
+index_overallprimF_base <- icwIndex(xmat=variables_overallprimF_base,revcols = c(4))
 baseline_farmers$index_overallprimF_base <- index_overallprimF_base$index
 
 ################################################################################################################################################################################
@@ -4006,6 +4006,8 @@ for (i in 1:length(results_farmer_prim)){
   df_means_F_prim[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim[i]], na.rm=T))
   df_means_F_prim[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))}
 
+save(df_means_F_prim,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_prim.Rdata",sep="/"))
+
 ###
 #2#
 ###
@@ -4028,10 +4030,10 @@ index_practices_baseT <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseT <- index_practices_baseT$index
 
 #6.
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(5,6))
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
 
-index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(5,6))
+index_overallprimF_baseT <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$training_control,revcols = c(4))
 baseline_farmers$index_overallprimF_baseT <- index_overallprimF_baseT$index
 
 df_ols_F_prim <- array(NA,dim=c(3,3,11))
@@ -4081,10 +4083,10 @@ index_practices_baseC <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseC <- index_practices_baseC$index
 
 #6.
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 
-index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(5,6))
+index_overallprimF_baseC <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$clearing_control,revcols = c(4))
 baseline_farmers$index_overallprimF_baseC <- index_overallprimF_baseC$index
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
@@ -4128,10 +4130,10 @@ index_practices_baseF <- icwIndex(xmat=variables_practices_base,sgroup = baselin
 baseline_farmers$index_practices_baseF <- index_practices_baseF$index
 
 #6.
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 
-index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(5,6))
+index_overallprimF_baseF <- icwIndex(xmat=variables_overallprimF_base,sgroup = baseline_farmers$farmer_control,revcols = c(4))
 baseline_farmers$index_overallprimF_baseF <- index_overallprimF_baseF$index
 
 results_farmer_prim <- c("mid_Check2.check.maize.q25a","mid_agro","mid_Check2.check.maize.q25d"
@@ -4153,6 +4155,9 @@ for (i in 1:length(results_farmer_prim)){
   df_ols_F_prim[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_prim[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_prim[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_prim,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_prim.Rdata",sep="/"))
+
 
 
 
@@ -5091,12 +5096,12 @@ baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc
 
 #new overallprimF index because of mid_farmerswitched
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
-                                    ,baseline_farmers$mid_Check2.check.maize.q25d,baseline_farmers$mid_farmerswitched
-                                    ,baseline_farmers$index_practices_mid,baseline_farmers$mid_Check2.check.maize.q25h
+                                    ,baseline_farmers$mid_farmerswitched
+                                    ,baseline_farmers$index_practices_mid
                                     ,baseline_farmers$mid_Land_Races)
 #                                   ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid) #to do after endline (also: add (+) sign to tables)
 
-index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(6,7))
+index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(5))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
 #new overallsecF index because of mid_knows_dealer & index_skillsF_mid
@@ -5133,6 +5138,8 @@ for (i in 1:length(results_farmer_nobase)){
   df_means_F_nobase[2,i] <- sqrt(var(baseline_farmers[results_farmer_nobase[i]], na.rm=T))
   df_means_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))}
 
+save(df_means_F_nobase,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_nobase.Rdata",sep="/"))
+
 ###
 #2#
 ###
@@ -5151,7 +5158,7 @@ index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = base
 baseline_farmers$index_ratingsshopF_midT <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(6,7))
+index_overallprimF_midT <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$training_control,revcols = c(5))
 baseline_farmers$index_overallprimF_midT <- index_overallprimF_midT$index
 
 #new overallsecF
@@ -5191,7 +5198,7 @@ index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = base
 baseline_farmers$index_ratingsshopF_midC <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(6,7))
+index_overallprimF_midC <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$clearing_control,revcols = c(5))
 baseline_farmers$index_overallprimF_midC <- index_overallprimF_midC$index
 
 #new overallsecF
@@ -5231,7 +5238,7 @@ index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = base
 baseline_farmers$index_ratingsshopF_midF <- index_ratingsshopF_mid$index
 
 #new overallprimF
-index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(6,7))
+index_overallprimF_midF <- icwIndex(xmat=variables_overallprimF_mid,sgroup = baseline_farmers$farmer_control,revcols = c(5))
 baseline_farmers$index_overallprimF_midF <- index_overallprimF_midF$index
 
 #new overallsecF
@@ -5255,6 +5262,9 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_nobase[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_nobase[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_nobase,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_nobase.Rdata",sep="/"))
+
 
 
 

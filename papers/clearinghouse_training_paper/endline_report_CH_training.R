@@ -4550,16 +4550,16 @@ results_farmer_prim_base <- c("Check2.check.maize.q25a"
                               ,"Land_Races"
                               ,"index_overallprimF_base")
 
-baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_F_prim <- array(NA,dim=c(5,8))
 
 for (i in 1:length(results_farmer_prim)){
-  df_means_end_F_prim[1,i] <- sum(baseline_farmers[results_farmer_prim[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]])))
-  df_means_end_F_prim[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim[i]], na.rm=T))
+  df_means_end_F_prim[1,i] <- sum(baseline_farmers[results_farmer_prim_base[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim_base[i]])))
+  df_means_end_F_prim[2,i] <- sqrt(var(baseline_farmers[results_farmer_prim_base[i]], na.rm=T))
   df_means_end_F_prim[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_prim[i]]))-sum(is.na(baseline_farmers[results_farmer_prim_base[i]]))+sum(is.na(baseline_farmers[results_farmer_prim[i]])&is.na(baseline_farmers[results_farmer_prim_base[i]]))
   df_means_end_F_prim[4,i] <- min(baseline_farmers[results_farmer_prim[i]], na.rm=T)
   df_means_end_F_prim[5,i] <- max(baseline_farmers[results_farmer_prim[i]], na.rm=T)}
+
+baseline_farmers[results_farmer_prim_base] <- lapply(baseline_farmers[results_farmer_prim_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -5681,6 +5681,14 @@ variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
 baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index
 
+#for mean:
+variables_ratingsF_base <- cbind(baseline_farmers$seed_quality_general_rating,baseline_farmers$seed_yield_rating
+                                ,baseline_farmers$seed_drought_rating,baseline_farmers$seed_disease_rating
+                                ,baseline_farmers$seed_maturing_rating,baseline_farmers$seed_germinate_rating)
+
+index_ratingsF_base <- icwIndex(xmat=variables_ratingsF_base)
+baseline_farmers$index_ratingsF_base <- index_ratingsF_base$index
+
 # baseline_farmers$index_ratingsF_mid <- rowMeans(baseline_farmers[c("mid_seed_quality_general_rating","mid_seed_yield_rating",
 #                                                                     "mid_seed_drought_rating","mid_seed_disease_rating",
 #                                                                     "mid_seed_maturing_rating","mid_seed_germinate_rating")],na.rm = T)
@@ -5699,6 +5707,15 @@ variables_ratingsshopF_mid <- cbind(baseline_farmers$mid_general_rating,baseline
 
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid)
 baseline_farmers$index_ratingsshopF_mid <- index_ratingsshopF_mid$index
+
+#for mean:
+variables_ratingsshopF_base <- cbind(baseline_farmers$general_rating,baseline_farmers$location_rating
+                                    ,baseline_farmers$price_rating,baseline_farmers$quality_rating
+                                    ,baseline_farmers$stock_rating,baseline_farmers$reputation_rating)
+
+index_ratingsshopF_base <- icwIndex(xmat=variables_ratingsshopF_base)
+baseline_farmers$index_ratingsshopF_base <- index_ratingsshopF_base$index
+
 
 #3. switching OK!
 baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$CHECK.MAIZE.Q25I=="2",1,0)
@@ -5770,8 +5787,8 @@ baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.c
 #new overallprimF index because of mid_farmerswitched OK!
 variables_overallprimF_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25a,baseline_farmers$mid_agro
                                     ,baseline_farmers$mid_farmerswitched,baseline_farmers$mid_Land_Races
-                                    ,baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid
-                                    ,baseline_farmers$index_practices_mid)
+                                    ,baseline_farmers$index_practices_mid) #no baseline_farmers$index_ratingsF_mid,baseline_farmers$index_ratingsshopF_mid bc. not possible at midline and notation has to be consistent
+
 
 index_overallprimF_mid <- icwIndex(xmat=variables_overallprimF_mid,revcols = c(4))
 baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
@@ -5821,6 +5838,12 @@ for (i in 1:length(results_farmer_nobase)){
   df_means_end_F_nobase[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]]))
   df_means_end_F_nobase[4,i] <- min(baseline_farmers[results_farmer_nobase[i]], na.rm=T)
   df_means_end_F_nobase[5,i] <- max(baseline_farmers[results_farmer_nobase[i]], na.rm=T)}
+
+df_means_end_F_nobase[1,1] <- mean(baseline_farmers$index_ratingsF_base,na.rm = T)
+df_means_end_F_nobase[2,1] <- sd(baseline_farmers$index_ratingsF_base,na.rm = T)
+
+df_means_end_F_nobase[1,2] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
+df_means_end_F_nobase[2,2] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 
 ###
 #2#
