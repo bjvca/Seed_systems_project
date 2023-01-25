@@ -5032,6 +5032,8 @@ baseline_farmers$index_overallsec_plotF_mid <- index_overallsec_plotF_mid$index
 index_overallsec_plotF_base <- icwIndex(xmat=variables_overallsec_plotF_base,revcols = c(3))
 baseline_farmers$index_overallsec_plotF_base <- index_overallsec_plotF_base$index
 
+baseline_farmers$index_overallsec_plotF_base_save <- baseline_farmers$index_overallsec_plotF_base
+
 ################################################################################################################################################################################
 
 ###
@@ -5051,14 +5053,14 @@ results_farmer_sec_plot_base <- c("hybrid"
                                   ,"adoption_onfield"
                                   ,"index_overallsec_plotF_base")
 
-baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_F_sec_plot <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_farmer_sec_plot)){
-  df_means_end_F_sec_plot[1,i] <- sum(baseline_farmers[results_farmer_sec_plot[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot[i]])))
-  df_means_end_F_sec_plot[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_plot[i]], na.rm=T))
+  df_means_end_F_sec_plot[1,i] <- sum(baseline_farmers[results_farmer_sec_plot_base[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot_base[i]])))
+  df_means_end_F_sec_plot[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_plot_base[i]], na.rm=T))
   df_means_end_F_sec_plot[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_plot[i]])&is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))}
+
+baseline_farmers[results_farmer_sec_plot_base] <- lapply(baseline_farmers[results_farmer_sec_plot_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -5844,6 +5846,10 @@ df_means_end_F_nobase[2,1] <- sd(baseline_farmers$index_ratingsF_base,na.rm = T)
 
 df_means_end_F_nobase[1,2] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 df_means_end_F_nobase[2,2] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
+
+df_means_end_F_nobase[1,9] <- mean(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
+df_means_end_F_nobase[2,9] <- sd(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
+
 
 ###
 #2#

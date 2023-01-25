@@ -4456,6 +4456,8 @@ for (i in 1:length(results_farmer_sec_plot)){
   df_means_F_sec_plot[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_plot[i]], na.rm=T))
   df_means_F_sec_plot[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_plot[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_plot[i]])&is.na(baseline_farmers[results_farmer_sec_plot_base[i]]))}
 
+save(df_means_F_sec_plot,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_sec_plot.Rdata",sep="/"))
+
 ###
 #2#
 ###
@@ -4551,6 +4553,8 @@ for (i in 1:length(results_farmer_sec_plot)){
   df_ols_F_sec_plot[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_sec_plot[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_sec_plot[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_sec_plot,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_sec_plot.Rdata",sep="/"))
 
 
 
@@ -5720,9 +5724,3 @@ midline_for.cor.ratings.quality_farmers = subset(baseline_farmers, select = c("f
                                                                       "plotratings_midline"))
 
 write.csv(midline_for.cor.ratings.quality_farmers,paste(path,"/midline/data/farmer/public/midline_for.cor.ratings.quality_farmers.csv",sep="/"), row.names = T)
-
-### saving results in matrices for papers
-df_ols_F_sec_plot_mid <- df_ols_F_sec_plot 
-df_means_F_sec_plot_mid <- df_means_F_sec_plot
-save(df_ols_F_sec_plot_mid, file=paste(path,"papers/midline_report/output/df_ols_F_sec_plot_mid.Rdata",sep="/"))
-save(df_means_F_sec_plot_mid, file=paste(path,"papers/midline_report/output/df_means_F_sec_plot_mid.Rdata",sep="/"))
