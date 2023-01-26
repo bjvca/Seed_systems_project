@@ -4889,6 +4889,8 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   df_means_F_sec_yieldetc[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_yieldetc[i]], na.rm=T))
   df_means_F_sec_yieldetc[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_yieldetc[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_yieldetc_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec_yieldetc[i]])&is.na(baseline_farmers[results_farmer_sec_yieldetc_base[i]]))}
 
+save(df_means_F_sec_yieldetc,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_sec_yieldetc.Rdata",sep="/"))
+
 ###
 #2#
 ###
@@ -4984,6 +4986,8 @@ for (i in 1:length(results_farmer_sec_yieldetc)){
   df_ols_F_sec_yieldetc[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_sec_yieldetc[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_sec_yieldetc[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_sec_yieldetc,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_sec_yieldetc.Rdata",sep="/"))
 
 
 
@@ -5121,11 +5125,11 @@ index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
 baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
 
 #CREATE NEW INDEX BECAUSE 3 MORE VARIABLES
-variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity,baseline_farmers$mid_Check2.check.maize.q51a
-                                        ,baseline_farmers$mid_Check2.check.maize.q51b,baseline_farmers$mid_soldinkg
+variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
+                                        ,baseline_farmers$mid_soldinkg
                                         ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_Check2.check.maize.q56)
 
-index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(3,6))
+index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid,revcols=c(4))
 baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
 
 ################################################################################################################################################################################
@@ -5174,7 +5178,7 @@ index_overallsecF_midT <- icwIndex(xmat=variables_overallsecF_mid,sgroup = basel
 baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
 
 #new overall_yieldetc
-index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(3,6))
+index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control,revcols=c(4))
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
 results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
@@ -5214,7 +5218,7 @@ index_overallsecF_midC <- icwIndex(xmat=variables_overallsecF_mid,sgroup = basel
 baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 
 #new overall_yieldetc
-index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(3,6))
+index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control,revcols=c(4))
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
 results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
@@ -5254,7 +5258,7 @@ index_overallsecF_midF <- icwIndex(xmat=variables_overallsecF_mid,sgroup = basel
 baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
 
 #new overall_yieldetc
-index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(3,6))
+index_overall_yieldetc_midF <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$farmer_control,revcols=c(4))
 baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$index
 
 results_farmer_nobase <- c("index_ratingsF_midF","index_ratingsshopF_midF","mid_farmerswitched"
