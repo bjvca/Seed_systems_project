@@ -140,7 +140,7 @@ thanks{Development Strategy and Governance Division, IFPRI}}
 
 \end_inset
 
-Miracle Seed: Biased Expectations, Complementary Input Use and the Dynamics
+Miracle Seed: Biased Expectations, Complementary Input Use, and the Dynamics
  of Smallholder Technology Adoption
 \end_layout
 
@@ -1182,6 +1182,14 @@ name "fig:Dynamics-of-seed"
 
 \end_layout
 
+\begin_layout Standard
+Furthermore, at baseline, we find that a significant share of farmer that
+ adopted according to the above definition seem to be disappointed.
+ Almost 30 percent of farmers indicate that were not satisfied with quality
+ of the planting material (seed) that you used; One in four indicates that
+ they will not use the seed in the future.
+\end_layout
+
 \begin_layout Section
 Results
 \end_layout
@@ -1892,7 +1900,7 @@ As the index involves standardization, the average is zero.
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2480,14 +2488,16 @@ Causal mechanisms
 \end_layout
 
 \begin_layout Subsubsection
-substitution
+complementary inputs use and cultivation practices
 \end_layout
 
 \begin_layout Standard
-In this section we look at input use and cultivation practices.
- The effect on complementary inputs and practices is not clear a-priori.
- As the intervention advocates the use of complementary inputs and practices,
- one may expect that adopters increase use.
+The effect of making farmers aware that improved seed needs the same complementa
+ry inputs and effort than normal seed on the actual use of complementary
+ inputs and practices is not clear a-priori.
+ On the one hand, the intervention advocates for the use of complementary
+ inputs and practices, and so one may expect that adopters increase use
+ in the future as they adjust their practices to this new knowledge.
  However, we see that the first order response of the average farmer is
  to reduce the use of improved seed, which may offset the increased use
  of complementary inputs, at least in the short run.
@@ -2531,44 +2541,24 @@ The next three outcomes look at fertilizer use.
 \end_layout
 
 \begin_layout Standard
-Weeding and pesticide use 
+Weeding should be done within one week of planting and as often as possible.
+ Official recommendations are to weed at least three times.
+ Furthermore, invasive insects such as fall armyworm (Spodoptera frugiperda)
+ or maize stalk borer (Busseola fusca) can severely reduce yields.
+ Pesticides, including insecticides, are widely available in agro-input
+ shops under commercial names such as Rocket,, Lalafos and Dudu acelamectin,
+ and used buy many farmers.
+ Again, while weeding requires labour that can potentially be supplied by
+ household members, pesticides comes at a pecuniary cost.
 \end_layout
 
 \begin_layout Standard
-Finally, we also look at differences in resowing
-\end_layout
-
-\begin_layout Standard
-If this is due to the fact that farmers are constrained, then the disadoption
- effect should be highest for farmers that do not use a lot of inputs at
- baseline.
- In other words, we want to isolate the always adopters from the disadopters
-\end_layout
-
-\begin_layout Standard
-Iresults on complementary inputs
-\end_layout
-
-\begin_layout Standard
-Hypothesis 2:
-\end_layout
-
-\begin_layout Standard
-To test hypothesis 2 (disadopters use less complementary inputs and cultivation
- practices always adopters), we start by simply comparing fertilizer use
- at baseline between disadopters and always adopters'.
- Results are in Table
-\end_layout
-
-\begin_layout Standard
-Fertilizer use - it is recommended to use a good mix of different fertilizer.
- Organic manure is important for the structure of the soil.
- DAP needs to be applied before planting, and urea should be used as top
- dressing.
-\end_layout
-
-\begin_layout Standard
-Pesticide use - Fall Army Worm
+Finally, we also look at differences in resowing or gap-filling.
+ This involves revisiting the field after about one week and inspecting
+ hills for seed germination.
+ When a seed did not germinate, new seeds are planted in that location.
+ Gap-filling, seed rate and row planting are thus likely correlated.
+ We also combine all outcomes into an overall index of practices.
 \end_layout
 
 \begin_layout Standard
@@ -2661,7 +2651,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-row planting & 
+Row planting & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,1],digits=2),nsmall=2)} & 
 \backslash
@@ -2741,7 +2731,7 @@ Sexpr{format(round(end_practices[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-seed rate & 
+Reduced seed rate & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,2],digits=2),nsmall=2)} & 
 \backslash
@@ -2817,7 +2807,7 @@ Sexpr{format(round(end_practices[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-organic use & 
+Organic fertilizer & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,3],digits=2),nsmall=2)} & 
 \backslash
@@ -2977,7 +2967,7 @@ Sexpr{format(round(end_practices[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Urea use & 
+Urea application & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,5],digits=2),nsmall=2)} & 
 \backslash
@@ -3057,7 +3047,7 @@ Sexpr{format(round(end_practices[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-times weeding & 
+Nr of times weeding & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,6],digits=2),nsmall=2)} & 
 \backslash
@@ -3133,7 +3123,7 @@ Sexpr{format(round(end_practices[2,2,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-pesticide use & 
+Pesticide use & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,7],digits=2),nsmall=2)} & 
 \backslash
@@ -3209,7 +3199,7 @@ Sexpr{format(round(end_practices[2,2,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-resowing & 
+Resowing & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,8],digits=2),nsmall=2)} & 
 \backslash
@@ -3285,7 +3275,11 @@ Sexpr{format(round(end_practices[2,2,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-index & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Inputs and Practices Index & 
 \backslash
 Sexpr{format(round(mean_pract[1,1,9],digits=2),nsmall=2)} & 
 \backslash
@@ -3447,24 +3441,111 @@ Note: First column (1) reports control group means (and standard deviations
 
 \end_layout
 
-\begin_layout Subsubsection
-expectations
+\begin_layout Standard
+Results are in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects-inputs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ As in previous tables, the first two columns show control group means and
+ orthogonality tests for outcomes before the treatment.
+ Interestingly, we find some imbalance on the number of times that farmers
+ report to have been weeding the randomly selected plot and the likelihood
+ that farmers resow after one week.
+ Note that the imbalance is in different directions, which makes it less
+ likely that the imbalance is due to structural difference between treatment
+ and control group, but should be attributed to chance.
 \end_layout
 
 \begin_layout Standard
-We did not ask if expectations were met at baseline.
- Instead, we simply assess baseline by comparing expected quantities.
- (Q57.
- How many bags of maize do you expect to harvest from this **${plot_select_name}
-** plot (including maize that will be consumed) in the **next season** (i.e.
- the second agricultural season 2021?))
+At midline, column (3) shows that farmers do not use more inputs or put
+ in more effort; on the contrary (and especially if we only consider a subset
+ of farmers that adopted at baseline in column (4)) farmers appear to be
+ less likely to engage in row planting and less likely to use DAP.
+ However, according to the index, there is no overall effect of the intervention
+ on input use and recommended cultivation practices at midline.
+\end_layout
+
+\begin_layout Standard
+After a second season (when the negative effect on improved seed use for
+ treated farmers has disappears — see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) we also do not find that a consistent increase in input use.
+\end_layout
+
+\begin_layout Standard
+The above results may indicate that farmers' response to the treatment is
+ limited to decisions related to seed.
+ However, it may also be that we lack power as a result to heterogeneous
+ treatment effects.
+ For instance, our theoretical model predicts a positive effect at endline
+ only for farmers that adopt at baseline, disadopt at midline and are responsive
+ to the treatment (that is, they are not already aware of the importance
+ of using improved seed, which is likely the case for always adopters).
+ Unfortunately, we can not isolate these farmers as their response in at
+ midline may be influenced by the treatment leading to endogeneity problems.
+\end_layout
+
+\begin_layout Subsubsection
+expectations and outcomes
+\end_layout
+
+\begin_layout Standard
+Another key mechanism in the model is related to expectations.
+ In this section, we see if the treatment had an impact on farmers expectations.
+ Furthermore, we look at actual outcomes in terms of production and yield.
+\end_layout
+
+\begin_layout Standard
+To measure expectations, we simply asked farmers if they harvested as much
+ maize from the plot as what they expected expected.
+ We also measure production on the randomly selected plot.
+ We look at total production, but also at productivity by dividing production
+ of the plot by the size of the plot.
+ 
+\end_layout
+
+\begin_layout Standard
+Results are reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects-expect"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We again report control group means and baseline balance in the first 2
+ columns.
+ At baseline, we did not ask if expectations were met on the randomly selected
+ plot.
+ Therefore we report the average in the control group at midline and we
+ do not test for baseline balance.
+ Note that a large majority of farmers indicated that they harvested less
+ than expected.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3552,12 +3633,7 @@ cline{2-7}
 
 yield as expected & 
 \backslash
-Sexpr{format(round(mean_expectations[1,1,1],digits=2),nsmall=2)} & 
-\backslash
-Sexpr{format(round(mean_expectations[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mean_expectations[3,2,1]<.01,"**",ifelse(mean_expectations[3,2,1]<.05
-,"*",ifelse(mean_expectations[3,2,1]<.1,"+","")))}}$
+Sexpr{0.15} &
 \end_layout
 
 \begin_layout Plain Layout
@@ -3598,9 +3674,7 @@ Sexpr{ifelse(end_expectations[3,2,1]<.01,"**",ifelse(end_expectations[3,2,1]<.05
 
 & (
 \backslash
-Sexpr{format(round(mean_expectations[2,1,1],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,1],digits=3),nsmall=3)}) & (
+Sexpr{0.36}) & & (
 \backslash
 Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)}) & (
 \backslash
@@ -3609,75 +3683,6 @@ Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)}) & (
 Sexpr{format(round(end_expectations[2,1,1],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_expectations[2,2,1],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-own fault &  & 
-\end_layout
-
-\begin_layout Plain Layout
-
- & 
-\backslash
-Sexpr{format(round(mid_expectations[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,1,2]<.01,"**",ifelse(mid_expectations[3,1,2]<.05,"
-*",ifelse(mid_expectations[3,1,2]<.1,"+","")))}}$   & 
-\backslash
-Sexpr{format(round(mid_expectations[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,2,2]<.01,"**",ifelse(mid_expectations[3,2,2]<.05,"
-*",ifelse(mid_expectations[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
- & 
-\backslash
-Sexpr{format(round(end_expectations[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,1,2]<.01,"**",ifelse(end_expectations[3,1,2]<.05,"
-*",ifelse(end_expectations[3,1,2]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_expectations[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,2,2]<.01,"**",ifelse(end_expectations[3,2,2]<.05,"
-*",ifelse(end_expectations[3,2,2]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & & (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,2,2],digits=3),nsmall=3)}) 
 \backslash
 
 \backslash
@@ -4014,8 +4019,106 @@ Note: First column (1) reports control group means (and standard deviations
 
 \end_layout
 
+\begin_layout Standard
+Column (3) shows that in the treatment group, a significantly higher share
+ of farmers than in the control group say that what they produced was also
+ what they expected.
+ This is even more so for the subset of farmers that adopted at baseline
+ (column (4)).
+ At endline, there is no difference between treatment and control anymore
+ (columns (5) and (6)).
+ This pattern suggests that a subset of farmers indeed started out with
+ inflated expectations, and this was corrected after they learned that improved
+ seed is not miracle seed.
+\end_layout
+
+\begin_layout Standard
+Finally, the table shows that the average control group farmer cultivates
+ about 470 kg on the random plot.
+ The random plot seems to be on average slightly larger than one acre, such
+ that productivity is about 440 kg per acre.
+ The intervention does not seem to have any impact on production of productivity.
+\end_layout
+
 \begin_layout Section
 Conclusion
+\end_layout
+
+\begin_layout Standard
+This paper is motivated by qualitative evidence that some farmers appear
+ to maintain high expectations from improved technologies.
+ The fact that a price needs to be paid for modern commercial inputs such
+ as improved seed varieties or inorganic fertilizers competes with other
+ (complementary) agricultural inputs.
+ Furthermore, modern inputs are generally thought to be improved in one
+ or more dimensions (eg seed that is treated against certain types of weed),
+ and so farmers may reduce inputs (like herbicides) and efforts (like manual
+ weeding).
+ If farmers then incorrectly attribute disappointing outcomes to the technology
+ itself rather than improper use, this could lead to a pattern where farmers
+ who try out a new technology switch back to local seed in the next season.
+\end_layout
+
+\begin_layout Standard
+In a sample of maize smallholder farmers in Uganda, we indeed see substantial
+ disadoption over time.
+ Furthermore, a large majority of farmers indicate that they expected higher
+ yields from their plots.
+ At baseline, more than 30 percent of adopters are not satisfied with the
+ seed and one in four indicates they will use a different seed in the future.
+\end_layout
+
+\begin_layout Standard
+To credibly test the hypothesis that farmers think of improved seed varieties
+ are 
+\begin_inset Quotes eld
+\end_inset
+
+miracle seed
+\begin_inset Quotes erd
+\end_inset
+
+, set up a field experiment around an engaging video on recommended cultivation
+ practices for maize growing that was shown to farmers before the planting
+ season at the time when farmer select the seed that they will use.
+ Two versions of the video were produced: one control video and one treatment
+ video.
+ The treatment video was essentially the same video as the control video,
+ expect that in the treatment video, after each practice or input that was
+ shown, it was explicitly mentioned that this is 
+\begin_inset Quotes eld
+\end_inset
+
+also important when you are using improved seed varieties such as hybrid
+ seed or OPVs
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We then randomly allocate treatment and control to villages, where a set
+ of farmers are then shown the video.
+\end_layout
+
+\begin_layout Standard
+We first test if farmers pick up the subtle messages that lie at the heart
+ of our light touch information treatment.
+ To do so, we subject farmers to a multiple choice quiz.
+ While we do not find average treatment effects that differ significantly
+ from zero, we do see that all coefficients are positive.
+ The lack of statistical significance may be due to the already high knowledge
+ at baseline.
+ However, even when most farmers already possess the knowledge, the treatment
+ may still serve to make this knowledge more salient.
+\end_layout
+
+\begin_layout Standard
+Turning to the main outcome—behavior related to seed use—we find that in
+ the season immediately following the treatment, treated farmers are less
+ likely to use improved seed obtained from agro-input dealers and revert
+ back to farmer saved landraces.
+ In line with our expectations, this switching back to landraces is only
+ short lived: in the next season, there is no difference between treatment
+ and control groups anymore.
 \end_layout
 
 \begin_layout Standard
@@ -4029,9 +4132,6 @@ literal "false"
 \end_inset
 
 .
- In this paper, we propose a theory that leads to the opposite prediction:
- farmers that pay for improved technologies consider these as substitutes
- for other modern inputs and cultivation practices.
  The reason for these opposite effects may be due to the fact that 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -4080,34 +4180,15 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We first test if farmers pick up the subtle messages that lie at the heart
- of our light touch information treatment.
- To do so, we subject farmers to a multiple choice quiz.
- While we do not find average treatment effects that differ significantly
- from zero, we do see that all coefficients are positive.
- The lack of statistical significance may be due to the already high knowledge
- at baseline.
- Furthermore, we also suspect a substantial aspirations effect from the
- treatment.
-\end_layout
+\begin_inset Note Note
+status open
 
-\begin_layout Standard
-Turning to the main outcome—behavior related to seed use—we find that in
- the season immediately following the treatment, treated farmers are less
- likely to use improved seed obtained from agro-input dealers and revert
- back to farmer saved landraces.
- In line with our expectations, this switching back to landraces is only
- short lived: in the next season, there is no difference between treatment
- and control groups anymore.
- 
-\end_layout
-
-\begin_layout Standard
+\begin_layout Plain Layout
 With the heterogeneity analysis it seems there is now a nice story for the
  learning failure paper:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 - for the entire sample, there seems to be a negative effect on quality
  seed adoption and an increase in use of landraces (disadoption), but it
  is not significant because there are also many farmers that do not use
@@ -4115,12 +4196,12 @@ With the heterogeneity analysis it seems there is now a nice story for the
  Indeed.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 - if we restrict the sample to adopters, we clearly see that our video scares
  a large share of adopters back into landraces at midline.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 - for the adopter we do see a positive effect on yield and expectations
  on yield [it’s not really expectations for the coming season but expectations
  that were met in the last season, we asked: Did you harvest as much maize
@@ -4136,18 +4217,23 @@ With the heterogeneity analysis it seems there is now a nice story for the
  an effect, yet.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 - at endline there is no effect anymore.
  This seems to suggest that our information is like a one time shock and
  farmer move to a new equilibrium.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 At endline, there’s no effect on adoption anymore but the reduced adoption
  at midline has a negative effect on the overall index of the yield etc.
  outcomes for farmers who used to adopt (if we don’t control for baseline)
  but also for the entire sample (if we control for baseline).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

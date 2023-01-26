@@ -933,7 +933,7 @@ for (i in 1:length(outcomes)) {
   mean_expectations[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mean_expectations[4,2,i] <- nobs(ols)
 }
-xmat_mid <- cbind(all$mid_expectations_met, all$mid_myownfault, all$mid_yield_inkg, all$mid_landproductivity)
+xmat_mid <- cbind(all$mid_expectations_met,all$mid_yield_inkg, all$mid_landproductivity)
 index_mid <- icwIndex(xmat=xmat_mid)
 all$index_mid <- index_mid$index
 
@@ -962,7 +962,7 @@ for (i in 1:length(outcomes)) {
   
   }
 
-xmat_end <- cbind(all$end_expectations_met, all$end_myownfault, all$end_yield_inkg, all$end_landproductivity)
+xmat_end <- cbind(all$end_expectations_met, all$end_yield_inkg, all$end_landproductivity)
 index_end <- icwIndex(xmat=xmat_end)
 all$index_end <- index_end$index
 
