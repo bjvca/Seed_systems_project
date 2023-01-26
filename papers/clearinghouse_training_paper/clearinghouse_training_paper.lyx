@@ -6954,11 +6954,32 @@ name "section: Results"
 \begin_layout Standard
 This section presents results on the impact of the training intervention
  and the clearinghouse intervention.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on primary dealer outcomes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on secondary farmer outcomes: Other"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ test Differences between the two treatment groups and the control group.
  We investigate a set of primary outcomes and various secondary outcomes
  to explore the effects in detail, to identify steps along the causal chain
  and understand the mechanisms at work.
  As agro-input dealers and farmers could benefit from the interventions,
- we will assess changes in outcomes at both levels.
+ we will assess changes in outcomes at both levels in separate subsections.
  Note that all outcome variables have been registered in a pre-analysis
  plan which can be found in the 
 \begin_inset CommandInset href
@@ -7047,61 +7068,7 @@ I already typed out descriptions of the indices which can be used when we
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-The index of capital-intensive practices contains shop attributes which
- come along with an investment.
- Examples of these attributes are the quality of the roof, walls, and ventilatio
-n of the shop, and if there is any official inspection, training or registration
- certificate displayed in the store.
- All this was observed by our enumerators who inspected the area where seed
- was stored.
- But also how expired seed is usually handled, e.g.
- is it sold, thrown away or mixed with other seed, is included in this index.
-\end_layout
-
-\begin_layout Itemize
-On the other hand, the index of labor-intensive seed handling consists of
- practices that are not expensive or even for free.
- Examples include whether seed is stored in a dedicated area, on an appropriate
- surface and in an appropriate light, or in open bags or containers.
- Other variables like the cleanness and professionality of the shop, and
- whether there are problems with rats, insects or other pests also contribute
- to this index.
-\end_layout
-
-\begin_layout Itemize
-The index of all seed handling practices contains both sets of variables.
-\end_layout
-
-\begin_layout Itemize
-The index of efforts and services measures a range of outcomes related to
- the customer friendliness of the shop, e.g.
- whether the dealer offers explanations, recommendations, extension or training,
- discounts, credit, different payment modalities and a question related
- to customers complaints.
-\end_layout
-
-\begin_layout Itemize
-The index of maize seed ratings contains the answers to the questions in
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "questions"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, which are related to general quality, yield, drought, pest and disease
- tolerance, time of maturity, and germination.
- Farmers were asked to provide these ratings, circling through all dealers
- in the relevant catchment area.
- Then the ratings are aggregated at shop level (as one shop is rated by
- multiple farmers), and the index is computed.
+ 
 \begin_inset Foot
 status collapsed
 
@@ -7125,7 +7092,100 @@ name "repeated footnote"
 
 \end_inset
 
+ Looking at the average treatment effects on primary agro-input dealer outcomes
+ at midline, the overall index is larger among information clearinghouse
+ treated dealers (column three) but neither the dealer training (column
+ two) nor the clearinghouse affected this index significantly.
+ In fact, considering variables individually suggests a negative impact
+ of the training on the average sales price of improved maize varieties.
+ On the other hand, there is some evidence that the clearinghouse impacted
+ the individual pre-registered outcomes positively.
+ For instance, we see that dealers in the treatment group sold more maize
+ seed at a higher price and therefore report significantly larger revenues.
+\end_layout
 
+\begin_layout Standard
+At endline, the clearinghouse intervention significantly increased primary
+ outcomes at the agro-input dealer level as measured by the overall index.
+ The effect is driven by a substantial increase in the number of maize seed
+ customers that shops attract per day and by an increase in the index that
+ measures the dealer’s efforts and services.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The index of efforts and services measures a range of outcomes related to
+ the customer friendliness of the shop, e.g.
+ whether the dealer offers explanations, recommendations, extension or training,
+ discounts, credit, different payment modalities and a question related
+ to customers complaints.
+\end_layout
+
+\end_inset
+
+ Furthermore, all other effects go in the expected direction, and some are
+ close to the significance threshold.
+ For instance, we see that agro-input shops in the clearinghouse treatment
+ group apply more of the proper seed storage and handling practices,
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The index of capital-intensive practices contains shop attributes which
+ come along with an investment.
+ Examples of these attributes are the quality of the roof, walls, and ventilatio
+n of the shop, and if there is any official inspection, training or registration
+ certificate displayed in the store.
+ All this was observed by our enumerators who inspected the area where seed
+ was stored.
+ But also how expired seed is usually handled, e.g.
+ is it sold, thrown away or mixed with other seed, is included in this index.
+ On the other hand, the index of labor-intensive seed handling consists
+ of practices that are not expensive or even for free.
+ Examples include whether seed is stored in a dedicated area, on an appropriate
+ surface and in an appropriate light, or in open bags or containers.
+ Other variables like the cleanness and professionality of the shop, and
+ whether there are problems with rats, insects or other pests also contribute
+ to this index.
+ The index of all seed handling practices contains both sets of variables.
+\end_layout
+
+\end_inset
+
+ have lower moisture levels in randomly sampled seed bags, sell more maize
+ seed, and are rated better by farmers.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The index of maize seed ratings contains the answers to the questions in
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "questions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which are related to general quality, yield, drought, pest and disease
+ tolerance, time of maturity, and germination.
+ Farmers were asked to provide these ratings, circling through all dealers
+ in the relevant catchment area.
+ Then the ratings are aggregated at shop level (as one shop is rated by
+ multiple farmers), and the index is computed.
+\end_layout
+
+\end_inset
+
+ Results are more puzzling for the dealer training.
+ Here, we find that dealers that were exposed to the training actually sell
+ and earn less.
+ We also do not find that dealers that received the training use more of
+ the proper seed storage and handling practices that they were taught.
+ The index of primary outcomes confirms that the dealer training had no
+ statistically significant impact.
 \end_layout
 
 \begin_layout Standard
@@ -8636,7 +8696,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8772,21 +8832,21 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,9],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 textbf{Overall index not controlling for baseline}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_end_D_sec_nobase[1,3],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -8795,13 +8855,13 @@ Sexpr{ifelse(df_ols_D_sec_nobase[3,1,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,3]<.1,"
-+","")))}}$
+%	,ifelse(df_ols_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,3]<.1,
+"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -8810,20 +8870,20 @@ Sexpr{ifelse(df_ols_D_sec_nobase[3,2,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,3]<.1,"
-+","")))}}$
+%	,ifelse(df_ols_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,3]<.1,
+"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_D_sec_nobase[3,3],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -8832,13 +8892,13 @@ Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_end_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-1,3]<.1,"+","")))}}$
+%	,ifelse(df_ols_end_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3
+,1,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -8847,13 +8907,13 @@ Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,3]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_end_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-2,3]<.1,"+","")))}}$
+%	,ifelse(df_ols_end_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3
+,2,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_end_D_sec_nobase[3,3],digits=0),nsmall=0)}
 \backslash
@@ -8864,40 +8924,40 @@ Sexpr{format(round(df_means_end_D_sec_nobase[3,3],digits=0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_means_end_D_sec_nobase[2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_D_sec_nobase[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_D_sec_nobase[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-&
+%&
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,3],digits=3),nsmall=3)})
  & 
@@ -9085,40 +9145,9 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Itemize
-An index of motivation and satisfaction summarizes if dealers see themselves
- working as dealers in the future, how likely they are to recommend their
- profession, or how happy they feel when they come to work.
-\end_layout
-
-\begin_layout Itemize
-For the index of self-ratings, dealers were asked to rate themselves on
- location, price, product quality, stock, and reputation.
-\end_layout
-
-\begin_layout Itemize
-For the index of efforts and services, farmers were asked if a shop nearby
- offers refund or insurance if there is a problem, credit, training or advice
- on how to use seed, delivery, after-sales service, if it accepts different
- payment methods and sells small quantities.
- Here the answers are aggregated at dealer level and then the index is computed.
- 
-\end_layout
-
-\begin_layout Itemize
-To investigate changes in skill and knowledge, we construct two more indices.
- The index of knowledge particularly related to seed storage is based on
- answers to questions about seed viability, repackaging, and the optimal
- location to store seed.
-\end_layout
-
-\begin_layout Itemize
-For the index of knowledge about seed, dealers were asked about the yield
- benefits of improved maize seed and which variety they would recommend
- if a farmer needs fast maturing seed or complains about poor soil or little
- rain.
+ .
+ These variables are not further adjusted for multiple hypothesis testing
+ by means of an overall index because they are all indices.
 \end_layout
 
 \begin_layout Standard
@@ -10082,13 +10111,111 @@ $^5$The index of dealer's knowledge about seed contains 4 variables: whether
 \end_layout
 
 \begin_layout Standard
+A first index which proxies dealer's motivation and satisfaction
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+An index of motivation and satisfaction summarizes if dealers see themselves
+ working as dealers in the future, how likely they are to recommend their
+ profession, or how happy they feel when they come to work.
+\end_layout
+
+\end_inset
+
+remains constant among treatment groups.
+ A second index which reflects self-ratings of agro-input dealers is similarly
+ unaffected by the two treatments.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For the index of self-ratings, dealers were asked to rate themselves on
+ location, price, product quality, stock, and reputation.
+\end_layout
+
+\end_inset
+
+ While the index of dealer’s efforts and services among the primary outcomes
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on primary dealer outcomes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ was based on what dealers reported, we also asked farmers which services
+ the dealers offer.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For the index of efforts and services, farmers were asked if a shop nearby
+ offers refund or insurance if there is a problem, credit, training or advice
+ on how to use seed, delivery, after-sales service, if it accepts different
+ payment methods and sells small quantities.
+ Here the answers are aggregated at dealer level and then the index is computed.
+\end_layout
+
+\end_inset
+
+ We find convincing evidence that the information clearinghouse increases
+ farmers' perceptions about dealers' efforts and services at midline.
+ Surprisingly, we find that the dealer training seems to have the opposite
+ effect.
+ To investigate changes in skill and knowledge, we construct two more indices.
+ For the index of dealer's knowledge about seed storage and handling
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The index of knowledge particularly related to seed storage is based on
+ answers to questions about seed viability, repackaging, and the optimal
+ location to store seed.
+\end_layout
+
+\end_inset
+
+ and a similar index for knowledge related to seed
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For the index of knowledge about seed, dealers were asked about the yield
+ benefits of improved maize seed and which variety they would recommend
+ if a farmer needs fast maturing seed or complains about poor soil or little
+ rain.
+\end_layout
+
+\end_inset
+
+, the difference between treatment and control groups is not significantly
+ different from zero at midline.
+ This could be because baseline knowledge is already fairly high for some
+ individual storage and handling variables.
+ At endline however, we find a positive impact on dealer's knowledge about
+ seed handling.
+ Somewhat surprisingly, we do not find that knowledge is significantly affected
+ by the training that we provided, but does increase due the clearinghouse.
+ This seems to suggest that if agro-input dealers are provided with the
+ right incentive, they actively seek out information.
+ However, merely providing the information to agro-input dealers does not
+ further increase their knowledge.
+\end_layout
+
+\begin_layout Standard
 We also consider outcomes associated with particular seed types.
+ Because agro-input dealers often do not stock all seed types, sample sizes
+ are smaller here.
  The next set of variables deals with 
 \shape italic
 Longe 10H
 \shape default
 , a popular hybrid maize variety in the area.
- The results can be found in Table 
+ At midline, table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on secondary dealer outcomes: Longe 10H"
@@ -10098,7 +10225,24 @@ noprefix "false"
 
 \end_inset
 
-.
+ reveal that the only significant result is found for the agro-input dealer
+ training, which seems to have reduced the cost at which seed was obtained
+ and stock-outs, measured as the number of times per month a shop ran out
+ of Longe10H.
+ For the clearinghouse treatment, many coefficients go in the expected direction
+ but none of the comparisons is significant.
+\end_layout
+
+\begin_layout Standard
+At endline however, the results regarding Longe 10H are generally consistent
+ with the findings for primary dealer outcomes, albeit less convincing due
+ to the smaller sample size.
+ Most importantly, we find a significant and positive overall effect of
+ the clearinghouse treatment as judged by the overall index.
+ This is driven by increased sales and decreased stock-outs by treated dealers,
+ for which both coefficient estimates are just above the significance threshold.
+ For the agro-input dealer training, we do not find an overall effect at
+ endline.
 \end_layout
 
 \begin_layout Standard
@@ -11205,7 +11349,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -11367,21 +11511,21 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,8],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 textbf{Overall index not controlling for baseline}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[1,1],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11390,13 +11534,13 @@ Sexpr{ifelse(df_ols_D_secL10H_B[3,1,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,1,1]<.1,"+"
-,"")))}}$
+%	,ifelse(df_ols_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,1,1]<.1,"+
+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11405,20 +11549,20 @@ Sexpr{ifelse(df_ols_D_secL10H_B[3,2,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+"
-,"")))}}$
+%	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+
+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_D_secL10H_B[3,1],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11427,13 +11571,13 @@ Sexpr{ifelse(df_ols_end_D_secL10H_B[3,1,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_end_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,1,
-1]<.1,"+","")))}}$
+%	,ifelse(df_ols_end_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,1
+,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11442,13 +11586,13 @@ Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,
-1]<.1,"+","")))}}$
+%	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2
+,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-& 
+%& 
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[3,1],digits=0),nsmall=0)}
 \backslash
@@ -11459,40 +11603,40 @@ Sexpr{format(round(df_means_end_D_secL10H_B[3,1],digits=0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-&
+%&
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+%& (
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,1],digits=3),nsmall=3)}) &
  
@@ -11612,7 +11756,7 @@ noprefix "false"
 
 \end_inset
 
- shows that ...
+ shows that the treatments do not affect these variables significantly.
 \end_layout
 
 \begin_layout Standard
@@ -13090,7 +13234,7 @@ We also collect information about
 \shape italic
 memberships, licenses, and inspections
 \shape default
-.
+, which are outcomes related to quality control.
  For example, clearinghouse treated dealers could voluntarily expose themselves
  to increased scrutiny to signal farmers that they offer products of good
  quality.
@@ -13126,6 +13270,21 @@ Certificate after inspection? • Leo: some sort of compliance or non-compliance
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We do not find any impact of the interventions at midline.
+ At endline, we measure a positive impact of the information clearinghouse
+ on the overall index.
+ This result is driven by an almost 12 percentage point increase in the
+ likelihood that the agro-input shop is registered with UNADA.
+ The clearinghouse also crowds-in shop inspections in the previous year,
+ perhaps due to increased registrations, licenses, and memberships of shops
+ in the treatment group.
+ Alternatively, agro-input dealers could actively seek inspections to signal
+ costumers that they provide quality.
+ The agro-input dealer training did not affect this set of outcome variables
+ at endline.
 \end_layout
 
 \begin_layout Standard
@@ -14457,9 +14616,10 @@ Furthermore, enumerators purchased a randomly selected
 \shape italic
 bag of maize seed
 \shape default
-, so that we could note a number of features and measure moisture.
- Mind that they were not able to buy seed in every shop and that the comparisons
- are made under the condition that a bag was bought.
+ in each shop, so that we could note a number of features and measure moisture.
+ Mind that they were not able to obtain a bag in every shop because they
+ were out of stock at the time of the visit and that the comparisons are
+ made under the condition that a bag was bought.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14470,7 +14630,8 @@ noprefix "false"
 
 \end_inset
 
- provides the results.
+ shows that we do not find significant effects.
+ The small sample size could possibly explain that.
 \end_layout
 
 \begin_layout Standard
@@ -15558,11 +15719,17 @@ noprefix "false"
 
 \end_inset
 
- reports the treatment effects on a family of 
+ reports the treatment effects on 
 \shape italic
 other
 \shape default
  secondary outcomes.
+ We find a significant effect on the likelihood of owning a seed moisture
+ meter for agro-input dealers that were allocated to the training at mid-
+ and endline.
+ This is not surprising since dealers that attended the training were given
+ such a device.
+ The overall index is not affected by any of the treatments at mid- or endline.
 \end_layout
 
 \begin_layout Standard
@@ -16735,7 +16902,7 @@ The index of farmer’s practices on a randomly selected maize field contains
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -21257,7 +21424,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -22464,7 +22631,17 @@ Finally, we report the results regarding a family of
 \shape italic
 other
 \shape default
- secondary outcomes in Table L.
+ secondary outcomes in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on secondary farmer outcomes: Other"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -22488,7 +22665,7 @@ These questions are only asked in the endline questionnaire to avoid priming
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -22497,7 +22674,7 @@ status open
 Effects on secondary farmer outcomes: Other
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on primary dealer outcomes-2"
+name "Effects on secondary farmer outcomes: Other"
 
 \end_inset
 
@@ -22730,7 +22907,7 @@ Sexpr{format(round(df_ols_end_F_sec[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Farmer knows particular shop in neighborhood$^
+Farmer knows particular shop nearby$^
 \backslash
 dag$
 \end_layout
@@ -23482,10 +23659,6 @@ $^1$The index of farmer's knowledge how to manage improved maize seed contains
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
