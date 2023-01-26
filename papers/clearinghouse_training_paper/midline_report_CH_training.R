@@ -4265,9 +4265,9 @@ baseline_farmers$index_overallsecF_base <- index_overallsecF_base$index
 #1#
 ###
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_mid")
+results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_mid")
 
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_base")
+results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_base")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4277,6 +4277,8 @@ for (i in 1:length(results_farmer_sec)){
   df_means_F_sec[1,i] <- sum(baseline_farmers[results_farmer_sec[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]])))
   df_means_F_sec[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec[i]], na.rm=T))
   df_means_F_sec[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec[i]])&is.na(baseline_farmers[results_farmer_sec_base[i]]))}
+
+save(df_means_F_sec,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_means_F_sec.Rdata",sep="/"))
 
 ###
 #2#
@@ -4294,9 +4296,9 @@ baseline_farmers$index_overallsecF_baseT <- index_overallsecF_baseT$index
 
 df_ols_F_sec <- array(NA,dim=c(3,3,11))
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midT")
+results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midT")
 
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseT")
+results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseT")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4323,9 +4325,9 @@ baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 index_overallsecF_baseC <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overallsecF_baseC <- index_overallsecF_baseC$index
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midC")
+results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midC")
 
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseC")
+results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseC")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4352,9 +4354,9 @@ baseline_farmers$index_overallsecF_midF <- index_overallsecF_midF$index
 index_overallsecF_baseF <- icwIndex(xmat=variables_overallsecF_base,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_overallsecF_baseF <- index_overallsecF_baseF$index
 
-results_farmer_sec <- c("mid_number_known","mid_knows_dealer","mid_bought_last_season","index_overallsecF_midF")
+results_farmer_sec <- c("mid_number_known","mid_knows_dealer","index_overallsecF_midF")
 
-results_farmer_sec_base <- c("number_known","knows_dealer","bought_last_season","index_overallsecF_baseF")
+results_farmer_sec_base <- c("number_known","knows_dealer","index_overallsecF_baseF")
 
 baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4367,6 +4369,8 @@ for (i in 1:length(results_farmer_sec)){
   df_ols_F_sec[1,3,i] <- coef_test(ols, vcov_cluster_shop)$beta[4]
   df_ols_F_sec[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_F_sec[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
+
+save(df_ols_F_sec,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_sec.Rdata",sep="/"))
 
 
 

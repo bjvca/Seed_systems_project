@@ -4844,6 +4844,8 @@ baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
 index_overallsecF_base <- icwIndex(xmat=variables_overallsecF_base)
 baseline_farmers$index_overallsecF_base <- index_overallsecF_base$index
 
+baseline_farmers$index_overallsecF_base_save <- baseline_farmers$index_overallsecF_base
+
 ################################################################################################################################################################################
 
 ###
@@ -4857,14 +4859,14 @@ results_farmer_sec_base <- c("number_known"
                              ,"knows_dealer"
                              ,"index_overallsecF_base")
 
-baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
-
 df_means_end_F_sec <- array(NA,dim=c(3,11))
 
 for (i in 1:length(results_farmer_sec)){
-  df_means_end_F_sec[1,i] <- sum(baseline_farmers[results_farmer_sec[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]])))
-  df_means_end_F_sec[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec[i]], na.rm=T))
+  df_means_end_F_sec[1,i] <- sum(baseline_farmers[results_farmer_sec_base[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec_base[i]])))
+  df_means_end_F_sec[2,i] <- sqrt(var(baseline_farmers[results_farmer_sec_base[i]], na.rm=T))
   df_means_end_F_sec[3,i] <- nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_sec[i]]))-sum(is.na(baseline_farmers[results_farmer_sec_base[i]]))+sum(is.na(baseline_farmers[results_farmer_sec[i]])&is.na(baseline_farmers[results_farmer_sec_base[i]]))}
+
+baseline_farmers[results_farmer_sec_base] <- lapply(baseline_farmers[results_farmer_sec_base],function(x)x - mean(x,na.rm = T))
 
 ###
 #2#
@@ -5799,9 +5801,7 @@ baseline_farmers$index_overallprimF_mid <- index_overallprimF_mid$index
 
 #new index_overallsecF_mid because mid_bought_last_season & index_skillsF_mid OK!
 variables_overallsecF_mid <- cbind(baseline_farmers$mid_number_known
-                                   ,baseline_farmers$mid_knows_dealer
-                                   ,baseline_farmers$mid_bought_last_season
-                                   ,baseline_farmers$index_skillsF_mid)
+                                   ,baseline_farmers$mid_knows_dealer)
 
 index_overallsecF_mid <- icwIndex(xmat=variables_overallsecF_mid)
 baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
@@ -5869,6 +5869,13 @@ df_means_end_F_nobase[2,12] <- sd(baseline_farmers$Check2.check.maize.q56,na.rm 
 
 df_means_end_F_nobase[1,11] <- mean(baseline_farmers$index_overall_yieldetc_base,na.rm = T)
 df_means_end_F_nobase[2,11] <- sd(baseline_farmers$index_overall_yieldetc_base,na.rm = T)
+
+df_means_end_F_nobase[1,13] <- mean(baseline_farmers$bought_last_season,na.rm = T)
+df_means_end_F_nobase[2,13] <- sd(baseline_farmers$bought_last_season,na.rm = T)
+
+df_means_end_F_nobase[1,8] <- mean(baseline_farmers$index_overallsecF_base_save,na.rm = T)
+df_means_end_F_nobase[2,8] <- sd(baseline_farmers$index_overallsecF_base_save,na.rm = T)
+
 
 ###
 #2#
