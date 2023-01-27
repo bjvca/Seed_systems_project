@@ -6974,12 +6974,40 @@ noprefix "false"
 
 \end_inset
 
- test Differences between the two treatment groups and the control group.
+ test differences between the two treatment groups and the control group.
  We investigate a set of primary outcomes and various secondary outcomes
  to explore the effects in detail, to identify steps along the causal chain
  and understand the mechanisms at work.
  As agro-input dealers and farmers could benefit from the interventions,
  we will assess changes in outcomes at both levels in separate subsections.
+ We account for multiple hypothesis testing by aggregating different outcomes
+ within each domain into summary indices, following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We do not control for the baseline values of the Overall indices in these
+ regressions because this would imply having the result only for dealers
+ and farmers who have no missing value for any of the variables in these
+ indices at mid-/endline (so that the mid-/endline Overall index is defined)
+ 
+\shape italic
+and
+\shape default
+ at baseline (so that the baseline Overall index is defined) which would
+ have consequences in terms of observations and statistical power.
+\end_layout
+
+\end_inset
+
  Note that all outcome variables have been registered in a pre-analysis
  plan which can be found in the 
 \begin_inset CommandInset href
@@ -7003,7 +7031,7 @@ literal "false"
 
  and added it to the AEA registry before midline data was collected.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Mock reports serve to tie the hands of researchers, reducing their freedom
@@ -7042,7 +7070,9 @@ Impact on agro-input dealers
 \end_layout
 
 \begin_layout Subsubsection*
-Primary outcome variables
+Primary outcome variables$^{(
+\backslash
+dag)}$
 \end_layout
 
 \begin_layout Standard
@@ -8703,79 +8733,81 @@ textbf{Overall index}
 
 & 
 \backslash
-Sexpr{format(round(df_means_end_D_prim[1,9],digits=3),nsmall=3)}
+Sexpr{format(round(df_means_end_D_sec_nobase[1,3],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_D_prim[1,1,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_D_prim[3,1,9]<.01,"**"
+Sexpr{ifelse(df_ols_D_sec_nobase[3,1,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_D_prim[3,1,9]<.05,"*",ifelse(df_ols_D_prim[3,1,9]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,2,9]<.05,"*",ifelse(df_ols_D_prim[3,2,9]<.1,"+","")))}}$
+	,ifelse(df_ols_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,3]<.1,"
++","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_D_prim[3,9],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,3]<.1,"
++","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_end_D_prim[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_prim[3,1,9]<.05,"*",ifelse(df_ols_end_D_prim[3,1,9]<.1,"+","
-")))}}$
+Sexpr{format(round(df_means_D_sec_nobase[3,3],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_end_D_prim[1,2,9],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,2,9]<.01,"**"
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,3]<.01,"**"
 \end_layout
 
 \begin_layout Plain Layout
 
-	,ifelse(df_ols_end_D_prim[3,2,9]<.05,"*",ifelse(df_ols_end_D_prim[3,2,9]<.1,"+","
-")))}}$
+	,ifelse(df_ols_end_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
+1,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_means_end_D_prim[3,9],digits=0),nsmall=0)}
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
+2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_nobase[3,3],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -8786,21 +8818,21 @@ Sexpr{format(round(df_means_end_D_prim[3,9],digits=0),nsmall=0)}
 
 & (
 \backslash
-Sexpr{format(round(df_means_end_D_prim[2,9],digits=3),nsmall=3)})
+Sexpr{format(round(df_means_end_D_sec_nobase[2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,1,9],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_sec_nobase[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_D_prim[2,2,9],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -8812,152 +8844,12 @@ Sexpr{format(round(df_ols_D_prim[2,2,9],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_end_D_prim[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[2,2,9],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%
-\backslash
-textbf{Overall index not controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-%	,ifelse(df_ols_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,3]<.1,
-"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-%	,ifelse(df_ols_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,3]<.1,
-"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-%	,ifelse(df_ols_end_D_sec_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3
-,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-%	,ifelse(df_ols_end_D_sec_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3
-,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-%& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-%& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-%& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-%&
-\end_layout
-
-\begin_layout Plain Layout
-
-%& (
-\backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,3],digits=3),nsmall=3)})
  & 
@@ -9035,11 +8927,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -10027,11 +9917,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -10093,7 +9981,6 @@ $^5$The index of dealer's knowledge about seed contains 4 variables: whether
  dealer knows which seed variety to recommend if farmer complains about
  poor soil, if farmer complains about little rain, if farmer is late for
  planting, what to tell clients about yield benefits of hybrid seed.
- 
 \backslash
 
 \backslash
@@ -11055,9 +10942,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,5],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
- amount lost/wasted in kg (IHS)$^{(
+ amount lost/wasted in kg (IHS)$^{
 \backslash
-dag)}$
+dag}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11196,9 +11083,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,6],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
- number of times per month shop ran out (IHS)$^{(
+ number of times per month shop ran out (IHS)$^{
 \backslash
-dag)}$
+dag}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11347,146 +11234,6 @@ cline{2-8}
 
 \begin_layout Plain Layout
 
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_secL10H[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,1,8]<.05,"*",ifelse(df_ols_D_secL10H[3,1,8]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL10H[3,2,8]<.05,"*",ifelse(df_ols_D_secL10H[3,2,8]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL10H[3,8],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL10H[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_secL10H[3,1,8]<.05,"*",ifelse(df_ols_end_D_secL10H[3,1,8]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL10H[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_secL10H[3,2,8]<.05,"*",ifelse(df_ols_end_D_secL10H[3,2,8]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_secL10H[3,8],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_secL10H[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H[2,2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H[2,2,8],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 %df_means_D_prim --> df_means_D_secL10H_B
 \end_layout
 
@@ -11511,21 +11258,21 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,8],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-%
+
 \backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[1,1],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11534,13 +11281,13 @@ Sexpr{ifelse(df_ols_D_secL10H_B[3,1,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-%	,ifelse(df_ols_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,1,1]<.1,"+
-","")))}}$
+	,ifelse(df_ols_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,1,1]<.1,"+"
+,"")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11549,20 +11296,20 @@ Sexpr{ifelse(df_ols_D_secL10H_B[3,2,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-%	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+
-","")))}}$
+	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+"
+,"")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_means_D_secL10H_B[3,1],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11571,13 +11318,13 @@ Sexpr{ifelse(df_ols_end_D_secL10H_B[3,1,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-%	,ifelse(df_ols_end_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,1
-,1]<.1,"+","")))}}$
+	,ifelse(df_ols_end_D_secL10H_B[3,1,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,1,
+1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -11586,13 +11333,13 @@ Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,1]<.01,"**"
 
 \begin_layout Plain Layout
 
-%	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2
-,1]<.1,"+","")))}}$
+	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,
+1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
-%& 
+& 
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[3,1],digits=0),nsmall=0)}
 \backslash
@@ -11603,40 +11350,40 @@ Sexpr{format(round(df_means_end_D_secL10H_B[3,1],digits=0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_means_end_D_secL10H_B[2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_ols_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-%&
+&
 \end_layout
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
-%& (
+& (
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,1],digits=3),nsmall=3)}) &
  
@@ -11713,11 +11460,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -11728,6 +11473,10 @@ dag)}$ indicates that the variable is included in the overall index not
 
 $^1$The comparisons were only made for shops which had Longe 10H in stock
  at mid- or endline.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -12569,9 +12318,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,5],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
- amount lost/wasted in kg (IHS)$^{(
+ amount lost/wasted in kg (IHS)$^{
 \backslash
-dag)}$
+dag}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12710,9 +12459,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,6],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
- number of times per month shop ran out (IHS)$^{(
+ number of times per month shop ran out (IHS)$^{
 \backslash
-dag)}$
+dag}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -12863,147 +12612,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_secL5[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,1,8]<.05,"*",ifelse(df_ols_D_secL5[3,1,8]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_secL5[3,2,8]<.05,"*",ifelse(df_ols_D_secL5[3,2,8]<.1,"+","")))}}
-$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_secL5[3,8],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL5[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_secL5[3,1,8]<.05,"*",ifelse(df_ols_end_D_secL5[3,1,8]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL5[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_secL5[3,2,8]<.05,"*",ifelse(df_ols_end_D_secL5[3,2,8]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_secL5[3,8],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_secL5[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5[2,2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5[2,2,8],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -13202,11 +12811,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -13215,8 +12822,12 @@ dag)}$ indicates that the variable is included in the overall index not
 
 \begin_layout Plain Layout
 
-$^1$The comparisons were only made for shops which had Longe 5 in stock
+$^2$The comparisons were only made for shops which had Longe 5 in stock
  at mid- or endline.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -14249,147 +13860,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,7],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,7]<.05,"*",ifelse(df_ols_D_sec_off[3,1,7]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,7]<.05,"*",ifelse(df_ols_D_sec_off[3,2,7]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,7],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,7]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,7]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,7]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,7]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,7],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,7],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -14590,11 +14061,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -14638,7 +14107,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15455,7 +14924,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index not controlling for baseline}$^2$
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -15606,7 +15075,7 @@ cline{2-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.$^3$ & & & & 179 & & & 265
+ number of obs.$^2$ & & & & 179 & & & 265
 \backslash
 
 \backslash
@@ -15655,11 +15124,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -15678,20 +15145,12 @@ $^1$Days since the packaging date or days since the expiry date minus 6
 
 \begin_layout Plain Layout
 
-$^2$We do not control for the baseline values of the outcome variables here
- because only 144 of the 179 dealers who had seed at midline also had seed
- at baseline and only 183 of the 265 dealers who had seed at endline also
- had seed at baseline.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
 $^3$The comparisons were only made for shops in which the enumerator was
  able to buy a bag of maize seed at mid- or endline.
+ Also, we do not control for the baseline values of the outcome variables
+ in the entire table because only 144 of the 179 dealers who had seed at
+ midline also had seed at baseline and only 183 of the 265 dealers who had
+ seed at endline also had seed at baseline.
 \backslash
 
 \backslash
@@ -16401,145 +15860,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,9],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,9]<.05,"*",ifelse(df_ols_D_sec[3,1,9]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,9]<.05,"*",ifelse(df_ols_D_sec[3,2,9]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,9],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,9]<.05,"*",ifelse(df_ols_end_D_sec[3,1,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,9]<.05,"*",ifelse(df_ols_end_D_sec[3,2,9]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,9],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,9],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -16744,11 +16065,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -17802,9 +17121,9 @@ Sexpr{format(round(df_ols_end_F_prim[2,2,4],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Farmer switched to different agro-input shop$^4$$^{(
+Farmer switched to different agro-input shop$^4$$^{
 \backslash
-dag)}$
+dag}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -18367,145 +17686,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_prim[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_prim[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_prim[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_prim[3,1,8]<.05,"*",ifelse(df_ols_F_prim[3,1,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_prim[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_prim[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_prim[3,2,8]<.05,"*",ifelse(df_ols_F_prim[3,2,8]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_prim[3,8],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_prim[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_prim[3,1,8]<.05,"*",ifelse(df_ols_end_F_prim[3,1,8]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_prim[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_prim[3,2,8]<.05,"*",ifelse(df_ols_end_F_prim[3,2,8]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_prim[3,8],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_prim[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_prim[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_prim[2,2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[2,2,8],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}$^6$
+textbf{Overall index$^6$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -18705,11 +17886,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -19657,148 +18836,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_plot[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot[3,1,6]<.05,"*",ifelse(df_ols_F_sec_plot[3,1,6]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_plot[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_plot[3,2,6]<.05,"*",ifelse(df_ols_F_sec_plot[3,2,6]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_plot[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_plot[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_plot[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_plot[3,1,6]<.05,"*",ifelse(df_ols_end_F_sec_plot[3,1,6]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_plot[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_plot[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_plot[3,2,6]<.05,"*",ifelse(df_ols_end_F_sec_plot[3,2,6]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_plot[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_plot[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_plot[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_plot[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_plot[2,2,6],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -19998,11 +19036,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -20014,6 +19050,10 @@ dag)}$ indicates that the variable is included in the overall index not
 $^1$For this variable, only seed which was not farmer-saved counted as hybrid
  seed and only seed which was not recycled too often counted as open-pollinated
  seed.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -21011,148 +20051,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,7],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,7]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,7]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,7]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,7]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,7],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,7]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,7]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,7]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,7]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,7],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,7],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -21352,11 +20251,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
@@ -22107,9 +21004,7 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)})
 \begin_layout Plain Layout
 
 Transf.
- amount kept as seed in kg (IHS)$^{(
-\backslash
-dag)}$
+ amount kept as seed in kg (IHS)
 \end_layout
 
 \begin_layout Plain Layout
@@ -22260,148 +21155,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_yieldetc[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,5]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,2,5]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,2,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_yieldetc[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,5]<.05,"*",ifelse(df_ols_end_F_sec_yieldet
-c[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,2,5]<.05,"*",ifelse(df_ols_end_F_sec_yieldet
-c[3,2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_yieldetc[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_yieldetc[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,5],digits=3),nsmall=3)})
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -22601,18 +21355,12 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -23282,145 +22030,7 @@ cline{2-8}
 
 
 \backslash
-textbf{Overall index controlling for baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,1,3]<.05,"*",ifelse(df_ols_F_sec[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,3]<.05,"*",ifelse(df_ols_F_sec[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,1,3]<.05,"*",ifelse(df_ols_end_F_sec[3,1,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,2,3]<.05,"*",ifelse(df_ols_end_F_sec[3,2,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index not controlling for baseline}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -23558,10 +22168,6 @@ Sexpr{format(round(df_ols_end_F_nobase[2,2,8],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 cline{2-8}
@@ -23624,11 +22230,9 @@ Note: 1st column reports baseline means and standard deviations below in
  at the level of randomization; 4th and 7th column reports number of observation
 s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
-dag$ indicates that the variable is included in the overall index; $^{(
-\backslash
-dag)}$ indicates that the variable is included in the overall index not
- controlling for baseline; larger indices indicate more desirable outcomes;
- IHS stands for Inverse Hyperbolic Sine.
+dag$ indicates that the variable is included in the overall index; larger
+ indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
+ Sine.
 \backslash
 
 \backslash
