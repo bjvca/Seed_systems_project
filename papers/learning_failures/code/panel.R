@@ -827,12 +827,20 @@ for (i in 1:length(outcomes)) {
   end_practices[4,1,i] <- nobs(ols)
   
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
-  coef_test(ols, vcov_cluster)
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 ,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster) 
   end_practices[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
   end_practices[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   end_practices[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_practices[4,2,i] <- nobs(ols) 
+  
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1 & all$mid_adoption_onfield==0 &  all$end_adoption_onfield==1 ,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & all$mid_adoption_onfield==0 &  all$end_adoption_onfield==1,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster) 
+  end_practices[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  end_practices[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  end_practices[3,3,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  end_practices[4,3,i] <- nobs(ols) 
   
   
 }
@@ -988,12 +996,15 @@ for (i in 1:length(outcomes)) {
   end_expectations[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_expectations[4,2,i] <- nobs(ols) 
   
+  
+  
 }
 save(mean_expectations, file=paste(path,"papers/learning_failures/code/output/mean_expectations.Rdata",sep="/")) 
 save(mid_expectations, file=paste(path,"papers/learning_failures/code/output/mid_expectations.Rdata",sep="/")) 
 save(end_expectations, file=paste(path,"papers/learning_failures/code/output/end_expectations.Rdata",sep="/")) 
 
 #
-
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield","Check2.check.maize.q36","Check2.check.maize.q37" )],midline_farmers[c("farmer_ID","mid_adoption_onfield")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity")])
+##demean orthogonal treatments
 
 
