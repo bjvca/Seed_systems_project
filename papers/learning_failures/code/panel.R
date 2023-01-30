@@ -810,7 +810,7 @@ xmat_end <- cbind(all$end_correct_spacing, all$end_correct_seed_rate, all$end_or
 index_end <- icwIndex(xmat=xmat_end)
 all$index_end <- index_end$index
 
-end_practices <-  array(NA,dim=c(4,2,9))
+end_practices <-  array(NA,dim=c(4,3,9))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
 outcomes <- c("end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","index_end")
 outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base")
