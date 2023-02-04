@@ -748,7 +748,7 @@ literal "false"
 Finally, our treatment comes in the form of short and engaging videos.
  There is a large literature that shows video can be in important vehicle
  for changing behavior in a variety of settings.
-  
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ferrara2012soap"
@@ -792,7 +792,17 @@ Theoretical model
 \end_layout
 
 \begin_layout Standard
-In line with 
+The farmers are solving an intertemporal problem, allocating resources at
+ 
+\emph on
+t
+\emph default
+ in order to get maximal profit in 
+\emph on
+t+1
+\emph default
+.
+ In line with 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "suri2011selection"
@@ -802,7 +812,7 @@ literal "false"
 
 , we assume that farmers are risk-neutral and chooses a seed type (Hybrid
  or local landrace) to maximize profits per area of land.
- In particular, they compare the maximized profit function of hyrids 
+ In particular, they compare the expected profit functions of hyrids 
 \begin_inset Formula $\pi_{it}^{*^{H}}$
 \end_inset
 
@@ -816,7 +826,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\pi_{it}^{H}=p_{t}Y_{it}^{H}-b_{t}s_{it}-\sum w_{t}X_{it}
+E\left(\pi_{it+1}^{H}\right)=E\left(p_{t}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum w_{t}X_{it}
 \end{equation}
 
 \end_inset
@@ -827,7 +837,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\pi_{it}^{L}=p_{t}Y_{it}^{L}-\sum w_{t}X_{it}
+E\left(\pi_{it}^{L}\right)=E\left(p_{t}Y_{it}^{L}\right)-\sum w_{t}X_{it}
 \end{equation}
 
 \end_inset
@@ -836,14 +846,19 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We assume that consumers do not differentiate between maize obtained from
- hybrid or local seed and so the price at which output is valued is the
- same 
-\begin_inset Formula $\left(p_{t}\right)$
+wiht 
+\emph on
+E
+\emph default
+ the expectations operator and we assume that consumers do not differentiate
+ between maize obtained from hybrid or local seed and so the expected price
+ at which output is valued is the same for both seed types 
+\begin_inset Formula $\left(E\left(p_{t}\right)\right)$
 \end_inset
 
 .
- Landraces are assumed to be free, while seed are procured at a cost 
+ Landraces are assumed to be free, while hybrid seeds are procured at a
+ cost 
 \begin_inset Formula $b_{t}$
 \end_inset
 
@@ -861,13 +876,18 @@ We assume that consumers do not differentiate between maize obtained from
 \end_layout
 
 \begin_layout Standard
-Farmers are facing a full income constrained:
+Farmers adopt hybrid seed if it is more profitable than using landraces,
+ or 
+\begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it}^{L}\right)$
+\end_inset
+
+ or:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p_{t}Y_{it}^{H}+p_{t}Y_{it}^{L}>\sum w_{t}X_{it}+\sum w_{t}X_{it}+b_{t}s_{it}
+\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{p_{t}}X_{it}^{*}\right)-\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{p_{t}}X_{it}^{*}\right)>\frac{b_{t}}{p_{t}}s_{it}^{*}\label{eq:three}
 \end{equation}
 
 \end_inset
@@ -876,29 +896,142 @@ p_{t}Y_{it}^{H}+p_{t}Y_{it}^{L}>\sum w_{t}X_{it}+\sum w_{t}X_{it}+b_{t}s_{it}
 \end_layout
 
 \begin_layout Standard
-In our model, we assume that farmers consider hybrid seed as miracle seed
- in that 
+where we normalize by output price.
+ 
 \end_layout
 
 \begin_layout Standard
-Farmer chooses to adopt is 
-\begin_inset Formula $\pi_{it}^{*^{H}}>\pi_{it}^{*^{L}}$
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- or
+ shows that adoption decisions based on profits depend fundamentally on
+ yield comparisons.
+ In in both cases, yield is a function of inputs used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{it}^{H}=Y_{it}^{H}\left(X_{it}^{H}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{it}^{L}=Y_{it}^{L}\left(X_{it}^{L}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and this relationship is assumed to be positive with increasing returns
+ to scale.
+ We assume 
+\begin_inset Formula $\frac{dY_{it}^{H}}{dX_{it}}>0$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{dY_{it}^{L}}{dX_{it}}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{dY_{it}^{H}}{dX_{it}}\geqq\frac{dY_{it}^{L}}{dX_{it}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Input complementary
+\end_layout
+
+\begin_layout Standard
+We assume that 
+\begin_inset Formula $Y_{it}^{H}>Y_{it}^{L}$
+\end_inset
+
+, but only if 
+\begin_inset Formula $X_{it}^{H}=X_{it}^{L}=X_{it}$
+\end_inset
+
+.
+ However, there may be reasons why farmers reduce input use when they use
+ hybrid seed.
+ For instance, if farmers face a budget constrained, then inputs will be
+ reduced, resulting in lower yields:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{it}^{H}=Y_{it}^{H}\left(X_{it}-\frac{b_{t}s_{it}}{w_{t}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The decision to adopt will depend on the difference in yield between hybrid
+ and local seed, relative prices of the inputs, and yield response of inputs.
+\end_layout
+
+\begin_layout Subsection
+Farmer expectations
+\end_layout
+
+\begin_layout Standard
+We introduce farmer heterogeneity into the model by assuming that at least
+ some farmer are not aware of the relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+, with results in disappointing outcomes when 
+\begin_inset Formula $Y_{it+1}^{H}<E\left(Y_{it}^{H}\right)$
+\end_inset
+
+.
+ This will lead to farmers not adopting in the future.
+ 
+\end_layout
+
+\begin_layout Subsection
+Model predictions
 \end_layout
 
 \begin_layout Standard
 The model leads to different farmer types based on their dynamic profile
  and knowledge.
- First, you have a group of farmers that are knowledgeable about the interaction
- effect between improved seed and complementary inputs, and as a result
- have expectations that match production outcomes.
+ First, there will be a group of farmers that are knowledgeable about the
+ interaction effect between improved seed and complementary inputs, and
+ as a result have expectations that match production outcomes.
  For at least part of these farmers, the marginal cost of adoption is lower
  than the marginal return, and as a result they adopt and always adoption
  strategy.
  For subset of these farmers, the marginal cost of adoption is higher than
  the marginal return, and so they will never adopt.
+ Providing information about the complementary between improved seed and
+ inputs will have no effect on these farmers.
 \end_layout
 
 \begin_layout Standard
@@ -907,13 +1040,15 @@ A next subset of farmers does not have knowledgeable about the interaction
  A subset of these farmers does not adopt because their marginal cost of
  adoption exceeds the marginal return.
  For some of these farmers, provision of this information will change expectatio
-ns and so this may change marginal cost and marginal benefit comparisions,
- so some may start adopting in the future (while others )
+ns and so this may change marginal cost and marginal benefit comparisons,
+ so some may start adopting in the future (while others will not).
+ 
 \end_layout
 
 \begin_layout Standard
-A second subgroup are farmers that not knowledgeable about the interaction
- effect between improved seed and complementary inputs and so their 
+A second subgroup are farmers that is not knowledgeable about the interaction
+ effect between improved seed and complementary inputs and in addition their
+ expected return to 
 \end_layout
 
 \begin_layout Standard
@@ -948,7 +1083,7 @@ The experiment
 \end_layout
 
 \begin_layout Subsection
-Study population and sample
+Study population
 \end_layout
 
 \begin_layout Standard
@@ -958,7 +1093,7 @@ The field experiment was implemented in eastern Uganda, an area know for
  As a matter of fact, much of the maize that is used as food aid in Sudan
  is sourced from here.
  As this study was part of a larger study that involved seed supply chains,
- smallhoder farmers were drawn from the catchment areas of agro input dealers.
+ smallholder farmers were drawn from the catchment areas of agro input dealers.
  As such, farmers should have reasonable access to improved seed varieties.
 \end_layout
 
@@ -1027,11 +1162,26 @@ y after the first rains) is very important to get good yields.
  one foot between plants and 2.5 feet between rows is shown.
  The role model farmers also mention the expected increase in yield from
  row planting.
- At this stage, it is also recommended to add organic fertilizer (Di-ammonium
+ At this stage, it is also recommended to add inorganic fertilizer (Di-ammonium
  Phosphate).
  It is then shown that one seed of a common hybrid seed is place in each
  hill.
- 
+\end_layout
+
+\begin_layout Standard
+The video then proceeds by recommending resowing of hills where seed did
+ not germinate after ten to 12 days to keep optimal plant density.
+ The actor in the video then notes that weeding is especially important
+ in the first 40 days as maize does not compete well for light and nutrients.
+ It is recommended to start a first round of weeding 18 to 20 days after
+ planting.
+ It is also mentioned that at this stage, removal of striga is very important
+ as the weed has reached the roots of the maize plant yet and damage can
+ still be avoided.
+ A second round of weeding is recommended 2 to 3 weeks later.
+ Four weeks after planting, when maize is knee high, it is demonstrated
+ how another type of inorganic fertilizer (Urea) is applied as top dressing.
+ Around the tasseling stage, a final round of weeding is recommended.
 \end_layout
 
 \begin_layout Standard
@@ -1041,15 +1191,7 @@ The treatment was implemented in the form of two different versions of the
  In the treatment video, we added subtle messages that recommended practices
  and inputs that feature in the video are particularly important when the
  farmer uses improved seed varieties.
-\end_layout
-
-\begin_layout Standard
-The treatment was thus in a way extremely light touch.
- 
-\end_layout
-
-\begin_layout Standard
-The treatment video is about 12 minutes long and can be found 
+ The treatment video is about 12 minutes long and can be found 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -1340,7 +1482,16 @@ learning_failures/code/output/end_expectations.Rdata
 \end_layout
 
 \begin_layout Standard
-Confining attention to farmers that were interviewed at all survey rounds,
+Our sample consists smallholder maize farmers who live in the catchment
+ areas of at least one or more agro-input dealers.
+ We started by listing all agro-input shops in 11 districts in southeastern
+ Uganda, which roughly corresponds to the Busoga kingdom, an exercise that
+ let to about 350 agro-input dealers.
+ We then asked these agro-input dealers about the locations of their customers.
+ Enumerators were then instructed to randomly sample ten households that
+ grow maize in these locations.
+ Consequently, about 3500 smallholder maize farmers were sampled.
+ Confining attention to farmers that were interviewed at all survey rounds,
  we remain with a balanced panel of 3,400 farmers.
  
 \end_layout
@@ -4339,8 +4490,6 @@ This paper is motivated by qualitative evidence that some farmers appear
  disadoption over time.
  Furthermore, a large majority of farmers indicate that they expected higher
  yields from their plots.
- At baseline, more than 30 percent of adopters are not satisfied with the
- seed and one in four indicates they will use a different seed in the future.
 \end_layout
 
 \begin_layout Standard
@@ -4353,8 +4502,8 @@ miracle seed
 \begin_inset Quotes erd
 \end_inset
 
-, set up a field experiment around an engaging video on recommended cultivation
- practices for maize growing that was shown to farmers before the planting
+, we set up a field experiment around an engaging video on recommended cultivati
+on practices for maize growing that was shown to farmers before the planting
  season at the time when farmer select the seed that they will use.
  Two versions of the video were produced: one control video and one treatment
  video.
@@ -4370,8 +4519,8 @@ also important when you are using improved seed varieties such as hybrid
 \end_inset
 
 .
- We then randomly allocate treatment and control to villages, where a set
- of farmers are then shown the video.
+ We then randomly allocate treatment and control status to villages, where
+ a set of farmers are then shown the corresponding video.
  We revisited farmers in treatment and control villages a first time after
  one season and a second time after a second agricultural season to test
  if there were differences farmer knowledge, seed use, complementary input
@@ -4383,9 +4532,10 @@ We first test if farmers pick up the subtle messages that lie at the heart
  of our light touch information treatment.
  To do so, we subject farmers to a multiple choice quiz.
  While we do not find average treatment effects that differ significantly
- from zero, we do see that all coefficients are positive.
- The lack of statistical significance may be due to the already high knowledge
- at baseline.
+ from zero, we do see that all coefficients are going into the expected
+ direction.
+ We suspect that the lack of statistical significance may be due to the
+ already high knowledge at baseline.
  However, even when most farmers already possess the knowledge, the treatment
  may still serve to make this knowledge more salient.
 \end_layout
@@ -4402,17 +4552,14 @@ Turning to the main outcome—behavior related to seed use—we find that in
 
 \begin_layout Standard
 To see if the main impact pathway is through the budget constraint, we look
- complementary input use.
+ at complementary input use.
  We find little evidence that the intervention increased input use or the
  use of recommended practices.
  If anything, we actually see that at midline, the use of inputs in the
  treatment group is lower than in the control.
  However, if we restrict the sample to farmers that disadopt at midline
- and adopt again at endline, we do see an increase in input use.
-\end_layout
-
-\begin_layout Standard
-Another intermediate outcome is related to expectations.
+ and adopt again at endline, we do see an increase in input use at endline.
+ Another intermediate outcome is related to expectations.
  We find that farmers that received the treatment are more likely to report
  at midline that what they harvested in in line with what they expected.
 \end_layout
@@ -4477,75 +4624,23 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Our study also fits into the increasing number of studies that cast doubt
- on the suggestion that bayesian learning via sequential adoption can be
- a successful strategy for smallholder farmers in the long run 
+Our study casts doubt on the suggestion that bayesian learning via sequential
+ adoption can be a successful strategy for smallholder farmers in the long
+ run 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.2307/1242825,https://doi.org/10.1111/agec.12124,https://doi.org/10.1111/agec.12123"
+key "10.2307/1242825,https://doi.org/10.1111/agec.12124"
 literal "false"
 
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-With the heterogeneity analysis it seems there is now a nice story for the
- learning failure paper:
-\end_layout
-
-\begin_layout Plain Layout
-- for the entire sample, there seems to be a negative effect on quality
- seed adoption and an increase in use of landraces (disadoption), but it
- is not significant because there are also many farmers that do not use
- improved seed to begin with; for them the information is not very relevant.
- Indeed.
-\end_layout
-
-\begin_layout Plain Layout
-- if we restrict the sample to adopters, we clearly see that our video scares
- a large share of adopters back into landraces at midline.
-\end_layout
-
-\begin_layout Plain Layout
-- for the adopter we do see a positive effect on yield and expectations
- on yield [it’s not really expectations for the coming season but expectations
- that were met in the last season, we asked: Did you harvest as much maize
- from this plot last season as you expected?, so more yield makes it more
- likely that this question is answered with “yes”] at midline.
- It is important to note that there is no increase in production [there
- is a small increase but it’s not significant?], but rather a decrease in
- crop area.
- This is consistent with a story where at least part of the farmers that
- used improved seed and thought if it as miracle seed abandon this and reduce
- maize growing.
- Positive effect on yield at midline also because dis-adoption cannot have
- an effect, yet.
-\end_layout
-
-\begin_layout Plain Layout
-- at endline there is no effect anymore.
- This seems to suggest that our information is like a one time shock and
- farmer move to a new equilibrium.
- 
-\end_layout
-
-\begin_layout Plain Layout
-At endline, there’s no effect on adoption anymore but the reduced adoption
- at midline has a negative effect on the overall index of the yield etc.
- outcomes for farmers who used to adopt (if we don’t control for baseline)
- but also for the entire sample (if we control for baseline).
-\end_layout
-
-\end_inset
-
-
+ If important interaction effects between different inputs are present,
+ it is unlikely that farmers can try out all possible combinations of inputs
+ to learn about these interactions.
+ Furthermore, if farmers can not learn about the interactions, expectations
+ may be incorrect, leading to sub-optimal adoption patterns, further complicatin
+g learning.
 \end_layout
 
 \begin_layout Standard
