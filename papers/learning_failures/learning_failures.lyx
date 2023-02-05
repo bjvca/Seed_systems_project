@@ -788,7 +788,7 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-Theoretical model
+Theoretical framework
 \end_layout
 
 \begin_layout Standard
@@ -913,24 +913,13 @@ noprefix "false"
 
  shows that adoption decisions based on profits depend fundamentally on
  yield comparisons.
- In in both cases, yield is a function of inputs used:
+ Yield for landraces is a function of inputs used:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{H}=Y_{it}^{H}\left(X_{it}^{H}\right)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-Y_{it}^{L}=Y_{it}^{L}\left(X_{it}^{L}\right)
+Y_{it}^{L}=Y_{it}\left(X_{it}^{L}\right)
 \end{equation}
 
 \end_inset
@@ -942,44 +931,31 @@ Y_{it}^{L}=Y_{it}^{L}\left(X_{it}^{L}\right)
 and this relationship is assumed to be positive with increasing returns
  to scale.
  We assume 
-\begin_inset Formula $\frac{dY_{it}^{H}}{dX_{it}}>0$
-\end_inset
-
-, 
-\begin_inset Formula $\frac{dY_{it}^{L}}{dX_{it}}>0$
+\begin_inset Formula $\frac{dY_{it}}{dX_{it}}>0$
 \end_inset
 
  and 
-\begin_inset Formula $\frac{dY_{it}^{H}}{dX_{it}}\geqq\frac{dY_{it}^{L}}{dX_{it}}$
+\begin_inset Formula $\frac{d^{2}Y_{it}}{dX_{it}^{2}}>0$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Subsection
-Input complementary
-\end_layout
-
-\begin_layout Standard
-We assume that 
-\begin_inset Formula $Y_{it}^{H}>Y_{it}^{L}$
-\end_inset
-
-, but only if 
-\begin_inset Formula $X_{it}^{H}=X_{it}^{L}=X_{it}$
+ Yield for hybrid seed follows a similar function as landraces, but also
+ adds a positive and constant seed premium 
+\begin_inset Formula $(A>0)$
 \end_inset
 
 .
- However, there may be reasons why farmers reduce input use when they use
- hybrid seed.
- For instance, if farmers face a budget constrained, then inputs will be
- reduced, resulting in lower yields:
+ However, the seed premium only applies when 
+\begin_inset Formula $X_{it}^{H}\geq X_{it}^{L}$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{H}=Y_{it}^{H}\left(X_{it}-\frac{b_{t}s_{it}}{w_{t}}\right)
+Y_{it}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\right)\label{eq:truerel}
 \end{equation}
 
 \end_inset
@@ -988,17 +964,37 @@ Y_{it}^{H}=Y_{it}^{H}\left(X_{it}-\frac{b_{t}s_{it}}{w_{t}}\right)
 \end_layout
 
 \begin_layout Standard
-The decision to adopt will depend on the difference in yield between hybrid
- and local seed, relative prices of the inputs, and yield response of inputs.
-\end_layout
-
-\begin_layout Subsection
-Farmer expectations
+However, there may be reasons why farmers reduce input use when they use
+ hybrid seed.
+ For instance, if farmers face a budget constrained, then inputs will be
+ reduced by the cost of seed, resulting in lower yields:
 \end_layout
 
 \begin_layout Standard
-We introduce farmer heterogeneity into the model by assuming that at least
- some farmer are not aware of the relationship between 
+\begin_inset Formula 
+\begin{equation}
+Y_{it}^{H}=Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When farmers would be able to, at least on average, predict the future,
+ such that 
+\begin_inset Formula $E\left(Y_{it+1}\right)=Y_{t+1}+\varepsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\sim N(0,\sigma)$
+\end_inset
+
+, the decision to adopt will depend on the difference in yield between hybrid
+ and local seed, relative prices of the inputs, and yield response of inputs.
+ We introduce farmer heterogeneity into the model by assuming that at least
+ some farmer are not aware of the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
 
@@ -1006,76 +1002,211 @@ We introduce farmer heterogeneity into the model by assuming that at least
 \begin_inset Formula $X_{it}$
 \end_inset
 
-, with results in disappointing outcomes when 
-\begin_inset Formula $Y_{it+1}^{H}<E\left(Y_{it}^{H}\right)$
+, but instead believe that 
+\begin_inset Formula $E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{L}\right)$
 \end_inset
 
 .
- This will lead to farmers not adopting in the future.
- 
+ The credit constrained farmer's expected yield will then be:
 \end_layout
 
-\begin_layout Subsection
-Model predictions
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)\label{eq:miracle}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and as a result, the farmer will adopt too much.
+\end_layout
+
+\begin_layout Standard
+The model in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is restricted to decision making related to one season.
+ However, farmers need to make these decisions each year, and farmers will
+ use information gained from past experience to form expectations.
+ Farmers who are not aware of the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ and overadopt will be disappointed once outcomes are revealed.
+ Farmers may be unable to learn about the complex relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ from limited experiential data.
+ Instead, they may simply reduce their expectations of the seed markup,
+ in the limit setting 
+\begin_inset Formula $E(A)=0$
+\end_inset
+
+, leading the farmer to disadopt in the future.
 \end_layout
 
 \begin_layout Standard
 The model leads to different farmer types based on their dynamic profile
  and knowledge.
  First, there will be a group of farmers that are knowledgeable about the
- interaction effect between improved seed and complementary inputs, and
- as a result have expectations that match production outcomes.
+ true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:truerel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and as a result have expectations that match production outcomes.
  For at least part of these farmers, the marginal cost of adoption is lower
- than the marginal return, and as a result they adopt and always adoption
- strategy.
- For subset of these farmers, the marginal cost of adoption is higher than
- the marginal return, and so they will never adopt.
+ than the expected marginal return in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and as a result they adopt and 
+\begin_inset Quotes eld
+\end_inset
+
+always adoption
+\begin_inset Quotes erd
+\end_inset
+
+ strategy, while for another subset of these farmers, the marginal cost
+ of adoption is higher than the expected marginal return, and so they will
+ never adopt.
  Providing information about the complementary between improved seed and
  inputs will have no effect on these farmers.
 \end_layout
 
 \begin_layout Standard
 A next subset of farmers does not have knowledgeable about the interaction
- effect.
- A subset of these farmers does not adopt because their marginal cost of
- adoption exceeds the marginal return.
- For some of these farmers, provision of this information will change expectatio
-ns and so this may change marginal cost and marginal benefit comparisons,
- so some may start adopting in the future (while others will not).
+ effect, but instead believe that there is always a seed premium (equation
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:miracle"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ A subset of these farmers does not adopt because their marginal cost of
+ adoption exceeds the expected marginal returns.
+ Providing information to these farmers may lead them to reconsider conditional
+ on this new information.
+ Another subset of these farmers does adopt because their marginal cost
+ of adoption is lower than the expected marginal returns.
+ Providing information to these farmers may lead them to disadopt in the
+ short run conditional on this new information.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+While both subgroups likely respond to provision of new information, in
+ this paper we are mainly concerned with the second group and consider farmers
+ that adopt at baseline as an important group when looking at treatment
+ heterogeneity.
+ This is because this group already show interest in adoption.
+ In the former group, we suspected that the treatment effect will likely
+ be attenuated by a large group of 
+\begin_inset Quotes eld
+\end_inset
+
+never adopters
+\begin_inset Quotes erd
+\end_inset
+
+, and indeed when running the analysis for this subgroups we did not find
+ significant effects.
+ This analysis is available from the authors on request.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-A second subgroup are farmers that is not knowledgeable about the interaction
- effect between improved seed and complementary inputs and in addition their
- expected return to 
-\end_layout
-
-\begin_layout Standard
-The model leads to the following predictions:
+The model leads to the following testable predictions:
 \end_layout
 
 \begin_layout Enumerate
 Farmers that acquire new information related to the interaction effects
  between improved seed varieties and complementary inputs disadopt in the
- next season.
- This effect will especially be important for farmers that just started
- adoption (as opposed to the always adopter)
+ next season as the expected marginal return reduces ceteris paribus.
+ The effect will be larger for farmers that adopt at baseline since this
+ removes 
+\begin_inset Quotes eld
+\end_inset
+
+never adopters
+\begin_inset Quotes erd
+\end_inset
+
+ from the sample.
 \end_layout
 
 \begin_layout Enumerate
 Farmer that acquire new information related to the interaction effects between
  improved seed varieties and complementary inputs use more complementary
  inputs and provide more effort.
- This effect will be especially important for farmers that adopted but 
+ This effect will be especially important for farmers that adopted at baseline
+ but disadopted at mideline.
+ 
 \end_layout
 
 \begin_layout Enumerate
 Farmers that acquire new information related to the interaction effects
  between improved seed varieties and complementary inputs adapt their expectatio
 ns.
- This effect will especially be important for farmers that adopted baseline
- 
+ The effect will be larger for farmers that adopt at baseline since this
+ removes 
+\begin_inset Quotes eld
+\end_inset
+
+never adopters
+\begin_inset Quotes erd
+\end_inset
+
+ from the sample.
 \end_layout
 
 \begin_layout Section
