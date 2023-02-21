@@ -1949,6 +1949,10 @@ save(df_ols_D_prim,file=paste(path,"papers/clearinghouse_training_paper/output_C
 ##### Heterogeneity analyses ###################################################################################################################################################
 ################################################################################################################################################################################
 
+#note: Depending on where in the R code I insert baseline_...=subset(baseline_...,...),
+#trimming is done on sub-sample or not which can change results slightly.
+#Also remember to change code not controlling for baseline if necessary.
+
 baseline_dealers_save <- baseline_dealers
 
 #2: More competitive catchment areas
@@ -4086,6 +4090,10 @@ save(df_ols_D_sec_nobase,file=paste(path,"papers/clearinghouse_training_paper/ou
 ##### Heterogeneity analyses ###################################################################################################################################################
 ################################################################################################################################################################################
 
+#note: Depending on where in the R code I insert baseline_...=subset(baseline_...,...),
+#trimming is done on sub-sample or not which can change results slightly.
+#Also remember to change code not controlling for baseline if necessary.
+
 baseline_dealers_save <- baseline_dealers
 
 #2: More competitive catchment areas
@@ -4638,6 +4646,10 @@ save(df_ols_F_prim,file=paste(path,"papers/clearinghouse_training_paper/output_C
 ##### 8H ANALYSIS: Farmer - Primary##############################################################################################################################################
 ##### Heterogeneity analyses ###################################################################################################################################################
 ################################################################################################################################################################################
+
+#note: Depending on where in the R code I insert baseline_...=subset(baseline_...,...),
+#trimming is done on sub-sample or not which can change results slightly.
+#Also remember to change code not controlling for baseline if necessary.
 
 baseline_farmers_save <- baseline_farmers
 
@@ -5996,6 +6008,10 @@ save(df_ols_F_nobase,file=paste(path,"papers/clearinghouse_training_paper/output
 ##### 9H ANALYSIS: Farmer - Primary and secondary: outcomes without baseline#####################################################################################################
 ##### Heterogeneity analyses ###################################################################################################################################################
 ################################################################################################################################################################################
+
+#note: Depending on where in the R code I insert baseline_...=subset(baseline_...,...),
+#trimming is done on sub-sample or not which can change results slightly.
+#Also remember to change code not controlling for baseline if necessary.
 
 baseline_farmers_save <- baseline_farmers
 
