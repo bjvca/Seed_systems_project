@@ -7185,7 +7185,7 @@ baseline_farmers <- baseline_farmers_save
 
 
 
-#skill questions
+#skill questions FARMERS
 
 ###
 #1#
@@ -7687,12 +7687,3 @@ summary(regression2 <- lm(baseline_farmers$yield_endline~baseline_farmers$plotra
 # #Average sales price of 4 improved maize varieties last season in UGX/ kg
 # #Days since packaging date/expiry date minus 6 months
 # #Overall index controlling for baseline (secondary outcome variables regarding seed bag)
-# 
-# ### saving results in matrices for papers
-
-save( df_ols_end_F_sec_plot, file=paste(path,"papers/endline_report/output/df_ols_end_F_sec_plot.Rdata",sep="/"))
-save( df_means_end_F_sec_plot, file=paste(path,"papers/endline_report/output/df_means_end_F_sec_plot.Rdata",sep="/"))
-save( df_ols_end_skills, file=paste(path,"papers/endline_report/output/df_ols_end_skills.Rdata",sep="/"))
-save( df_means_end_skills, file=paste(path,"papers/endline_report/output/df_means_end_skills.Rdata",sep="/"))
-
-

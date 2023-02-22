@@ -1,5 +1,7 @@
 rm(list=ls())
 
+set.seed(100896)
+
 #if midline report ("C:/Users/u0127963/Desktop/PhD/Seed_systems_project/papers/midline_report")
 path <- getwd()
 path <- strsplit(path,"/papers/clearinghouse_training_paper")[[1]]
