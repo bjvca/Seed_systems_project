@@ -175,28 +175,19 @@ or: "Quality constraints to agricultural technology adoption: Do Ugandan
 \end_layout
 
 \begin_layout Abstract
-Agricultural technology remains under-adopted among smallholder farmers
- in sub-Saharan Africa.
- We investigate how the (perceived) quality of an agricultural input affects
- its adoption by means of two interventions.
- Firstly, agro-input dealers could lack knowledge how to handle and store
- maize seed, leading to poor average quality in seed shops.
- A dealer training is expected to improve seed quality and subsequently
- adoption on the farm.
- Secondly, as the sellers of maize seed have more information about its
- quality than the buyers, we hypothesize that this information asymmetry
- leads to poor seed quality offered by some dealers.
- To overcome this classic lemon technology problem, we implement a crowd-sourced
- information clearinghouse like yelp.com, meaning that we collect and disseminate
- farmers' ratings of seed quality to make it more observable to dealers
- and farmers.
- Both interventions are tested in a randomized control trial among 350 agro-inpu
-t dealers and 3500 smallholder farmers in Uganda.
- We find that a clearinghouse which solves the information asymmetry between
- sellers and buyers clearly improves the Ugandan market for maize seed.
- On the other hand, the dealer training does not have a positive impact
- on seed dealers or their customers, indicating that providing dealers with
- information does not work as long as they do not have an incentive to learn.
+We test two hypothesis on how (perceived) quality of agricultural inputs
+ affect adoption.
+ First, poor quality is caused by agro-input dealers’ lack of knowledge
+ on proper handling and storage; a training is expected to improve input
+ quality and subsequent adoption.
+ Second, information asymmetry crowds out the market for quality inputs—a
+ classic lemons problem.
+ Here, we implement an information clearinghouse based on crowd-sourced
+ reviews similar to yelp.com.
+ Both hypotheses are tested in a randomized control trial for the case of
+ improved maize seed varieties in Uganda.
+ We find positive effects for the information clearing house, but not for
+ the training.
 \end_layout
 
 \begin_layout Abstract
@@ -204,9 +195,9 @@ t dealers and 3500 smallholder farmers in Uganda.
 \series bold
 Keywords:
 \series default
- agricultural technology adoption, agricultural input quality, seed systems,
- agro-input dealers, information (asymmetries), perceptions, learning (failures)
-, information clearinghouse
+ agricultural technology adoption, agricultural input quality, agro-input
+ dealers, knowledge, information asymmetry, perceptions, information clearinghou
+se
 \end_layout
 
 \begin_layout Abstract
@@ -260,12 +251,34 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Smallholder farmers in sub-Saharan Africa do not sufficiently adopt agricultural
- technologies like high yielding seed varieties and fertilizers, even though
- these inputs are seen as the key to agricultural productivity 
+Over the next few decades, farmers in sub-Saharan Africa will need to produce
+ more food on less land and under increasingly difficult climatic conditions
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "de2016agricultural"
+key "tilman2011global"
+literal "false"
+
+\end_inset
+
+.
+ The use of climate-smart agricultural practices and improved inputs such
+ as higher-yielding and drought-tolerant crop varieties are thought to be
+ at least part of the solution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "evenson2003assessing"
+literal "false"
+
+\end_inset
+
+.
+ Unfortunately, there is concern that the use of improved inputs and technologie
+s across the region seems to be stagnating—or at least advancing at a slower
+ pace than required 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/jep.36.1.33"
 literal "false"
 
 \end_inset
@@ -282,37 +295,12 @@ literal "true"
 \end_inset
 
 .
- Experts argue that the substantial growth in yields in these countries
- can largely be explained by increased technology adoption whereas the stagnatio
-n of yields in sub-Saharan Africa can mostly be explained by low adoption
  
-\begin_inset CommandInset citation
-LatexCommand citep
-key "morris2007fertilizer"
-literal "false"
-
-\end_inset
-
-.
- At the individual level, farmers who do not adopt miss out on increased
- yields and farm profits 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "suri2011selection"
-literal "false"
-
-\end_inset
-
-, and potentially on a way out of poverty and a better life.
- Also at the aggregate level, the lag in adoption has high costs in terms
- of economic development and human welfare and is holding back the reduction
- of rural food insecurity and poverty.
- That is why it is important to identify the drivers of and constraints
- to agricultural technology adoption.
 \end_layout
 
 \begin_layout Standard
-Several key constraints including poor access to information 
+Several key constraints have been rigorously tested in the last decade.
+ This includes poor access to information 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
@@ -345,21 +333,12 @@ literal "true"
 
 \end_inset
 
-, and learning 
+, and opportunities and challenges related to learning about a new technology
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "foster1995learning,10.1257/aer.100.1.35,hanna2014learning"
+key "10.1257/aer.100.1.35,hanna2014learning"
 literal "true"
-
-\end_inset
-
- have been investigated.
- However, several important questions have not yet been answered and there
- is much we still do not understand 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Suri2022"
-literal "false"
 
 \end_inset
 
@@ -367,13 +346,25 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-A set of pressing questions deals with the perceived quality of agricultural
- inputs.
- Because this quality is difficult to observe, information asymmetries between
- sellers and buyers characterize the markets for seed and fertilizer.
- Recent studies established that smallholders' adoption is constrained by
- their belief that inputs are of poor quality.
- While some demonstrate that input quality is low 
+More recently, issues related to input quality as a constraint to widespread
+ adoption have emerged.
+ In a widely cited article, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "false"
+
+\end_inset
+
+ argue that because quality is often difficult to assess by the farmers
+ from simple visual inspection, information asymmetries between sellers
+ and buyers characterize the markets for seed and fertilizer, crowding out
+ the market for quality seed.
+ However, it is not clear if these quality issues are due to agro-input
+ dealers intentionally adulterating inputs, or if this is simply because
+ they lack knowledge and skills to preserve quality.
+ Furthermore, it is not clear if these quality issues are real: While some
+ studies argue that input quality is indeed lacking 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
@@ -381,8 +372,7 @@ literal "false"
 
 \end_inset
 
-, others argue that input quality is sufficient but farmers misperceive
- it 
+, others argue that farmers' perceptions may be to blame 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,wossen2022misperceiving"
@@ -394,69 +384,32 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We attempt to disentangle these hypotheses by means of a field experiment
- in the Ugandan market for improved maize seed.
- Improved maize seed varieties, i.e.
- high-yielding cultivars like open-pollinated and hybrid varieties, are
- an interesting case to analyze because maize is an important crop in Uganda,
- both for home consumption and as a source of income.
- Yet, the adoption of improved maize seed by smallholder farmers remains
- low.
- If the quality of this seed is low, deterioration is likely to have happened
- at the level of agro-input dealers who sell seed to farmers and therefore
- form a key link between seed producers and users.
- They could lack knowledge and unintentionally mistreat seed.
- Informing them about seed handling and storage could improve seed quality
- and subsequently adoption, so we implement an extensive dealer training.
- Alternatively, agro-input dealers could lack incentives to offer good quality.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "bold2017lemon"
-literal "false"
-
-\end_inset
-
- argue that the Ugandan market for maize seed appears similar to the market
- for used cars in 
-\begin_inset CommandInset citation
-LatexCommand citeauthor
-key "george1970market"
-literal "false"
-
-\end_inset
-
-’s classic study 
-\begin_inset CommandInset citation
-LatexCommand citeyearpar
-key "george1970market"
-literal "true"
-
-\end_inset
-
-.
- In such a market where sellers have more information about the quality
- of the good than buyers, there is no incentive for vendors to sell good
- products and average quality will deteriorate.
- Note that both, buyers and sellers, will suffer from the resulting poor
- average quality in the market.
- To overcome this classic lemon technology problem, we implement an information
- clearinghouse which is based on crowd-sourced ratings and works through
- reputational mechanisms like yelp.com or tripadvisor.com.
- We aggregate the experiences of many users under similar conditions to
- reveal the quality of maize seed sold by each dealer and thus reduce the
- information asymmetry between seller and buyer.
- This could provide dealers with an incentive to offer high quality and
- subsequently increase adoption on the farm.
+We attempt to answer some of these questions by means of a field experiment
+ in the Ugandan market for improved maize seed varieties (high-yielding
+ cultivars like open-pollinated and hybrid varieties).
+ To test if low seed quality is primarily due to poor handling and storage,
+ we organize trainings for a random sub-sample of farmers.
+ Furthermore, we implement an information clearinghouse which is based on
+ crowd-sourced ratings and works through reputational mechanisms like yelp.com
+ or tripadvisor.com.
+ By aggregating the experiences of many users under similar conditions,
+ farmers can learn more about an agro-input dealer and the quality of the
+ products they sell than if they have to rely on own experience only.
+ This allows farmers to switch to the hightes rated input dealers.
+ However, as the ratings are also available to the agro-input dealers, it
+ also provides dealers with an incentive to increase the quality of products
+ and services.
  If the quality of seed in the market is already sufficient, the same clearingho
 use will work by rectifying the misperception of non-adopters.
  Both interventions are tested in a randomized control trial (RCT) among
- 350 agro-input dealers and 3500 smallholder maize farmers in Uganda.
+ 350 agro-input dealers and an associated 3500 smallholder maize farmers
+ in their catchment areas in eastern Uganda over the course of two agricultural
+ seasons.
 \end_layout
 
 \begin_layout Standard
 The results show that the training does not have a clear positive impact
- on dealers or their customers, indicating that providing dealers with informati
+ on dealers or their customers, suggesting that providing dealers with informati
 on does not work as long as they do not have an incentive to learn.
  On the other hand, the information clearinghouse affects both actors positively.
  Treated farmers start switching to different shops.
@@ -468,11 +421,11 @@ on does not work as long as they do not have an incentive to learn.
  and are inspected more often.
  Dealers in the clearinghouse treatment group are more successful: we measure
  a higher revenue at midline and more customers at endline.
- Treated smallholders perceive the quality of maize seed at agro-input shops
- to be better and most importantly, are more likely to adopt improved maize
- seed at midline and at endline.
- As a result, their yield at endline exceeds the one of control dealers
- significantly.
+ Farmers in the treatment group perceive the quality of maize seed at agro-input
+ shops to be better and are more likely to adopt improved maize seed at
+ both midline and endline.
+ As a result, their yield at endline significantly exceeds yields of control
+ farmers.
  Hence, a clearinghouse clearly improves the Ugandan market for maize seed
  by improving quality in the eyes of farmers and by rectifying the misperception
  of non-adopters.
