@@ -987,7 +987,7 @@ hybrid
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E\left(\pi_{it+1}^{H}\right)=E\left(p_{t}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum w_{t}X_{it}
+E\left(\pi_{it+1}^{H}\right)=E\left(p_{t+1}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum w_{t}X_{it}^{H}
 \end{equation}
 
 \end_inset
@@ -998,7 +998,7 @@ E\left(\pi_{it+1}^{H}\right)=E\left(p_{t}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum w_
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E\left(\pi_{it+1}^{L}\right)=E\left(p_{t}Y_{it+1}^{L}\right)-\sum w_{t}X_{it}
+E\left(\pi_{it+1}^{L}\right)=E\left(p_{t+1}Y_{it+1}^{L}\right)-\sum w_{t}X_{it}^{L}
 \end{equation}
 
 \end_inset
@@ -1008,7 +1008,7 @@ where
 E
 \emph default
  is an expectations operator and 
-\begin_inset Formula $\left(E\left(p_{t}\right)\right)$
+\begin_inset Formula $\left(E\left(p_{t+1}\right)\right)$
 \end_inset
 
  is the expected price at which output is valued, assuming that consumers
@@ -1061,7 +1061,7 @@ Farmers adopt hybrid seed if they expect that using it is more profitable
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{p_{t}}X_{it}^{*}\right)-\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{p_{t}}X_{it}^{*}\right)>\frac{b_{t}}{p_{t}}s_{it}^{*}\label{eq:three}
+\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{H}\right)-\left(E\left(Y_{it+1}^{L}\right)-\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{L}\right)>\frac{b_{t}}{E(p_{t+1})}s_{it}^{*}\label{eq:three}
 \end{equation}
 
 \end_inset
@@ -1152,7 +1152,7 @@ Yield for hybrids follows a similar function as yield for landraces, but
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\right)\label{eq:truerel}
+Y_{it}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}^{L}\label{eq:truerel}
 \end{equation}
 
 \end_inset
@@ -1160,7 +1160,56 @@ Y_{it}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\right)
 However, there may be reasons why farmers reduce input use when adopting
  hybrid seed.
  For instance, if they face a budget constrained, then inputs will be reduced
- by the cost of seed, resulting in lower yields:
+ by the cost of seed, resulting in lower yields
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+note for Caro: it's divided by 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+w_{t}
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ because otherwise 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+X_{it}^{L} would have to be multiplied by w_{t}.
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -1217,49 +1266,18 @@ and as a result, the farmer will use too much hybrid seed and not enough
 \end_layout
 
 \begin_layout Standard
-The model in equation 
+The model leads to different farmer types based on their dynamic profile
+ and knowledge, see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:three"
+reference "types of farmers"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- is restricted to decision making in one agricultural season.
- However, farmers need to decide each season, and will use information gained
- from past experiences to form expectations.
- Farmers who are not aware of the true relationship between 
-\begin_inset Formula $Y_{it}^{H}$
-\end_inset
-
- and 
-\begin_inset Formula $X_{it}$
-\end_inset
-
- and overadopt (for instance because of budget constraints or because of
- inflated expectations) will be disappointed once outcomes are revealed.
- Farmers may be unable to learn about the complex relationship between 
-\begin_inset Formula $Y_{it}^{H}$
-\end_inset
-
- and 
-\begin_inset Formula $X_{it}$
-\end_inset
-
- from their limited experiential data.
- Instead, these farmers may simply reduce their expectations of the hybrid
- markup, in the limit setting 
-\begin_inset Formula $E(A)=0$
-\end_inset
-
-, leading them to dis-adopt in the future.
-\end_layout
-
-\begin_layout Standard
-The model leads to different farmer types based on their dynamic profile
- and knowledge.
+.
  First, there is a group of farmers that is knowledgeable about the true
  relationship between 
 \begin_inset Formula $Y_{it}^{H}$
@@ -1280,8 +1298,18 @@ noprefix "false"
 \end_inset
 
 , and as a result has expectations that match production outcomes.
- For a share of these farmers, the marginal cost of adoption is lower than
- the expected marginal return in equation 
+ For a share of these farmers, the type 1 farmers in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the marginal cost of adoption is lower than the expected marginal return
+ in equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:three"
@@ -1291,8 +1319,19 @@ noprefix "false"
 
 \end_inset
 
-, and as a result they always adopt, while for another subset of these farmers,
- the marginal cost of adoption is higher than the expected marginal return,
+, and as a result they always adopt.
+ For another subset of these farmers that are called type 2 farmers in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the marginal cost of adoption is higher than the expected marginal return,
  so they will never adopt (unless the technologies, the prices of technologies
  or other circumstances change).
  Providing information about the complementarity between improved seed and
@@ -1301,36 +1340,9 @@ noprefix "false"
 
 \begin_layout Standard
 Another group of farmers is not knowledgeable about the interaction effect,
- but instead believes that there is always a hybrid premium (equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:truerel"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: I believe this group of farmers could over- or underestimate the hybrid
- premium, not only overestimate.
- Farmers initially overestimating the hybrid premium will never start adopting
- based on our information, will they? Only the ones overestimating the premium,
- then due to a bad experience (or a story told by a neighbor) underestimate
- the premium will adopt due to our information, right? (see paragraph after
- equation 7)
-\end_layout
-
-\end_inset
-
- A subset of these farmers does not adopt because their marginal cost of
- adoption exceeds the expected marginal returns.
- Providing these farmers with information may lead them to reconsider.
- Another subset of these farmers without knowledge about the true relationship
+ but instead believes in miracle seed and thinks that there is always a
+ hybrid premium.
+ A subset of these farmers without knowledge about the true relationship
  between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
@@ -1339,10 +1351,11 @@ Caro: I believe this group of farmers could over- or underestimate the hybrid
 \begin_inset Formula $X_{it}$
 \end_inset
 
- does adopt because their marginal cost of adoption is lower than their
- expected marginal returns.
- Providing these farmers with information may lead them to dis-adopt in
- the short run conditional on this new information.
+ does adopt prior to the intervention because their marginal cost of adoption
+ is lower than their expected marginal returns.
+ Providing these type 3 farmers with information may lead them to dis-adopt
+ in the short run as this new information decreases their expected marginal
+ return.
 \begin_inset Foot
 status collapsed
 
@@ -1367,6 +1380,460 @@ never adopters
 
 \end_inset
 
+ Another subset of these farmers, classified as type 4 farmers in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, does not adopt at baseline because their marginal cost of adoption exceeds
+ the expected marginal returns.
+ Providing these farmers with information will not have an effect because
+ it will only decrease their expected marginal return which was already
+ too low to adopt prior to the intervention, these farmers will never adopt.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+you wrote: "Providing these farmers with information may lead them to reconsider.
+" but I think that's incorrect.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The model in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is restricted to decision making in one agricultural season.
+ However, farmers need to decide each season, and will use information gained
+ from past experiences to form expectations.
+ Farmers who are not knowledgeable and not aware of the true relationship
+ between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ and over-adopt (for instance because of budget constraints or because of
+ inflated expectations) will be disappointed once outcomes are revealed.
+ Farmers may be unable to learn about the complex relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ from their limited experiential data.
+ Instead, these farmers may simply reduce their expectations of the hybrid
+ markup, in the limit setting 
+\begin_inset Formula $E(A)=0$
+\end_inset
+
+, leading them to dis-adopt in the future.
+ For a share of these farmers, type 5 in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the expected marginal return will still be larger than the marginal cost
+ of adoption, even if they underestimate the probability of realizing a
+ hybrid premium due to their bad experience.
+ They will always adopt.
+ The intervention will not affect adoption as it increases the expected
+ marginal return of these farmers, but they will adjust their expectations
+ in response to the treatment.
+ For another fraction of these farmers, type 6 in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the expected marginal return will be smaller than the marginal cost of
+ adoption, so that they do not adopt prior to the intervention.
+ However, as the intervention increases their expectation of the return,
+ they will start adopting in response to the treatment.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Types of farmers
+\begin_inset CommandInset label
+LatexCommand label
+name "types of farmers"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lllllll}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+type & prior & internal & baseline & effect on & effect on & effect on 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& knowledge & comparison & adoption & adoption & expectations & efforts
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+1 & know true  & true exp.
+ marginal & yes & none  & none  & none 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of   & return > marginal & & (always adopt)& (correct exp.
+ & (correct efforts)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &  cost of adoption &&& at baseline) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+2 & know true  & true exp.
+ marginal & no & none  & none & none 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of  & return < marginal & & (never adopt) & (correct exp.
+ & (correct efforts)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &   cost of adoption &&& at baseline) &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+3 & overestimate  & biased exp.
+ marginal & yes & dis-adopt due to & more realistic & none 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of & return > marginal &&   decreased exp.
+ & exp.
+ & (no adoption) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &  cost of adoption &&   marginal return 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+4 & overestimate  & biased exp.
+ marginal & no & none  & none & none 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of  & return < marginal & & (never adopt) &  (correct exp.
+ & (no adoption)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &  cost of adoption &&& at baseline) &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+5 & underestimate  & biased exp.
+ marginal & yes & none   & more realistic & increase 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of  & return > marginal & & (always adopt) &  exp.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &  cost of adoption &&  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+6 & underestimate  & biased exp.
+ marginal & no & adopt due to  & none & increase 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& probability of  & return < marginal &&  increased exp.
+ & (correct exp.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& hybrid premium &  cost of adoption &  &  marginal return & at baseline)
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1375,11 +1842,30 @@ The model leads to the following testable predictions:
 \end_layout
 
 \begin_layout Enumerate
+Some farmers that acquire new information related to the interaction effects
+ between improved seed varieties and complementary inputs (types 3 and 6)
+ will change their adoption behavior.
+ The effect on adoption in the next season could be positive or negative,
+ depending on how many farmers can be categorized as type 3 and type 6.
+ If there are more type 3 than type 6 farmers, the effect on adoption will
+ be negative.
+ If there are less type 3 than type 6 farmers, the effect on adoption will
+ be positive.
+ However, it is likely that these two opposing effects cancel each other
+ out.
+ If we only consider farmers that adopt at baseline, the effect on adoption
+ will be negative as this excludes type 6 farmers from the analysis.
+\end_layout
+
+\begin_layout Enumerate
 Farmers that acquire new information related to the interaction effects
- between improved seed varieties and complementary inputs dis-adopt in the
- next season as the expected marginal return reduces ceteris paribus.
- The effect will be larger for farmers that adopt at baseline since this
- removes 
+ between improved seed varieties and complementary inputs 
+\shape italic
+and plant improved seed at some point in time
+\shape default
+ (types 3, 5, 6) will use more complementary inputs and invest more effort.
+ The effect will be larger for farmers that adopt at baseline (types 1,
+ 3, 5) since this removes 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1387,24 +1873,37 @@ never adopters
 \begin_inset Quotes erd
 \end_inset
 
- from the sample.
-\end_layout
-
-\begin_layout Enumerate
-Farmers that acquire new information related to the interaction effects
- between improved seed varieties and complementary inputs use more complementary
- inputs and invest more effort.
- This effect will be especially important for farmers that adopt at baseline
- but dis-adopt at midline.
+ (types 2 and 4) from the sample.
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I believe we should look at the effect on effort of adopters only, i.e.
+ the effect of the treatment on midline effort among farmers who adopt at
+ midline and the effect of the treatment on endline effort among farmers
+ who adopt at endline.
+ Yes, this will be endogenous but I still think it would be more useful
+ that conditioning on baseline adoption, meaning that a farmer group for
+ which we expect an effect is excluded from analysis (type 6) and a group
+ for which we don't expect an effect (type 1 who is knowledgeable to begin
+ with) is included in the analysis.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
 Farmers that acquire new information related to the interaction effects
- between improved seed varieties and complementary inputs adapt their expectatio
-ns.
- Again, we expect this effect will be larger for farmers that adopt at baseline,
- since this removes 
+ between improved seed varieties and complementary inputs 
+\shape italic
+and plant improved seed at some point in time
+\shape default
+ (types 3, 5, 6) will adapt their expectations.
+ Again, the effect will be larger for farmers that adopt at baseline (types
+ 1, 3, 5) since this removes 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1412,7 +1911,18 @@ never adopters
 \begin_inset Quotes erd
 \end_inset
 
- from the sample.
+ (types 2 and 4) from the sample.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Same argument as for prediction 2.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2273,7 +2783,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2883,7 +3393,7 @@ always adopters
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
