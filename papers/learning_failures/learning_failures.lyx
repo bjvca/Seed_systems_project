@@ -977,7 +977,7 @@ hybrid
 \begin_inset Formula $\pi_{it}^{*^{H}}$
 \end_inset
 
- and landraces 
+ and farmer saved seed 
 \begin_inset Formula $\pi_{it}^{*^{L}}$
 \end_inset
 
@@ -1013,17 +1013,17 @@ E
 
  is the expected price at which output is valued, assuming that consumers
  do not differentiate between maize obtained from hybrid seed and maize
- obtained from landrace seed, so that it is equal for both seed types.
+ obtained from farmer saved seed.
  
 \begin_inset Formula $E\left(Y_{it+1}^{H}\right)$
 \end_inset
 
  and 
-\begin_inset Formula $E\left(Y_{it}^{L}\right)$
+\begin_inset Formula $E\left(Y_{it+1}^{L}\right)$
 \end_inset
 
- is the expected yield for hybrids and landraces respectively.
- Local landraces are assumed to be free, while the amount of hybrid seed
+ is the expected yield for hybrids and farmer saved seed respectively.
+ Farmer saved seed are assumed to be free, while the amount of hybrid seed
  
 \begin_inset Formula $s_{it}$
 \end_inset
@@ -1033,8 +1033,8 @@ E
 \end_inset
 
 .
- In both profit functions, a range of complementary inputs and cultivation
- practices, further referred to as 
+ In both profit functions, the cost of a range of complementary inputs and
+ cultivation practices, further referred to as 
 \shape italic
 inputs
 \shape default
@@ -1051,7 +1051,7 @@ inputs
 
 \begin_layout Standard
 Farmers adopt hybrid seed if they expect that using it is more profitable
- than using landrace seed, if 
+ than using farmer saved seed, that is, if 
 \begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it}^{L}\right)$
 \end_inset
 
@@ -1106,13 +1106,13 @@ noprefix "false"
 
  shows that adoption decisions based on profit functions fundamentally depend
  on yield comparisons.
- Yield for landraces is a function of inputs used:
+ We assume that yield for farmer saved seed is a function of inputs used:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{L}=Y_{it}\left(X_{it}^{L}\right)
+Y_{it+1}^{L}=Y_{it}\left(X_{it}^{L}\right)
 \end{equation}
 
 \end_inset
@@ -1134,15 +1134,15 @@ and this relationship is assumed to be positive with decreasing returns
 \end_layout
 
 \begin_layout Standard
-Yield for hybrids follows a similar function as yield for landraces, but
- adds a positive and constant hybrid premium 
+Yield for hybrids follows a similar function as yield for farmer saved seed,
+ but adds a positive and constant hybrid premium 
 \begin_inset Formula $(A>0)$
 \end_inset
 
 .
  However, the seed premium only applies when the farmer uses at least the
- same amount of complementary inputs as they would do when using landraces
- 
+ same amount of complementary inputs as they would do when using farmer
+ saved seed 
 \begin_inset Formula $X_{it}^{H}\geq X_{it}^{L}$
 \end_inset
 
@@ -1152,7 +1152,7 @@ Yield for hybrids follows a similar function as yield for landraces, but
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}^{L}\label{eq:truerel}
+Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}^{L}\label{eq:truerel}
 \end{equation}
 
 \end_inset
@@ -1215,13 +1215,16 @@ X_{it}^{L} would have to be multiplied by w_{t}.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it}^{H}=Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)
+Y_{it+1}^{H}=Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)
 \end{equation}
 
 \end_inset
 
-If farmers would be able to, at least on average, predict the future, such
- that 
+If farmers would be able to, at least on average, predict yields in 
+\emph on
+t+1
+\emph default
+, such that 
 \begin_inset Formula $E\left(Y_{it+1}\right)=Y_{it+1}+\varepsilon$
 \end_inset
 
@@ -1230,8 +1233,8 @@ If farmers would be able to, at least on average, predict the future, such
 \end_inset
 
 , their decision to adopt would depend on the difference in yield between
- hybrid and landrace seed, on the relative prices of the inputs, and on
- the yield responses of the inputs.
+ hybrid and farmer saved seed, on the relative prices of the inputs, and
+ on the yield responses of the inputs.
  We introduce farmer heterogeneity into the model by assuming that at least
  some farmers are not aware of the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
@@ -1297,31 +1300,8 @@ noprefix "false"
 
 \end_inset
 
-, and as a result invests the correct efforts and has expectations that
- match production outcomes.
- For a share of these farmers, the type 1 farmers in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "types of farmers"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the marginal cost of adoption is lower than the expected marginal return
- in equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:three"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, and as a result they always adopt.
- For another subset of these farmers that are called type 2 farmers in Table
+, and as a result these farmers make correct investment choices.
+ For at least some of these farmers, referred to as type 1 farmers in Table
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1332,11 +1312,40 @@ noprefix "false"
 
 \end_inset
 
-, the marginal cost of adoption is higher than the expected marginal return,
- so they will never adopt (unless the technologies, the prices of technologies
- or other circumstances change).
- Providing information about the complementarity between improved seed and
- other inputs will have no effect on these farmers.
+, the marginal cost of adoption will be lower than the expected marginal
+ return in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and as a result they always adopt.
+ For another subset of these farmers , referred to as type 2 farmers in
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the marginal cost of adoption will be higher than the expected marginal
+ return, so they will never adopt.
+ Providing information about the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ will have no effect on these farmers.
 \end_layout
 
 \begin_layout Standard
@@ -1354,14 +1363,20 @@ Another group of farmers is not knowledgeable about the interaction effect,
 
  does adopt prior to the intervention because their marginal cost of adoption
  is lower than their expected marginal returns.
- Providing these type 3 farmers with information may lead them to dis-adopt
- in the short run as this new information decreases their expected marginal
- return.
- As these farmers stop adopting hybrid varieties and start using local varieties
- that their household has likely been using for centuries, their yield expectati
-ons will become more realistic.
- Correct expectations are defined as the farmer harvesting as much maize
- from their field as expected.
+ Providing these type 3 farmers with information may lead them to dis-adopt,
+ at least in the short run, when this new information reduces their expected
+ marginal return below the marginal cost.
+ As these farmers stop adopting hybrid varieties and start using cheaper
+ farmer saved seed, their yield expectations will also become more in line
+ with reality.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Unclear and not really necessary - consider deleting: Correct expectations
+ are defined as the farmer harvesting as much maize from their field as
+ expected.
  If a farmer plants hybrid seed, these expectations deal with the yield
  of hybrid seed.
  If a farmer plants local seed, these expectations deal with the yield of
@@ -1372,10 +1387,19 @@ ons will become more realistic.
 
 , implying that all farmers that plant local land races have correct expectation
 s prior to the intervention.
- Because type 3 farmers dis-adopt, they will not invest more efforts in
- response to the treatment.
- Another subset of these farmers, classified as type 4 farmers in Table
  
+\end_layout
+
+\end_inset
+
+As type 3 farmers dis-adopt, we do not expect and impact on efforts in response
+ to the treatment for this subgroup.
+ 
+\end_layout
+
+\begin_layout Standard
+Another subset of this second group of farmers that is not knowledgeable
+ about the interaction effect, referred to as type 4 farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1385,14 +1409,15 @@ noprefix "false"
 
 \end_inset
 
-, does not adopt at baseline because their marginal cost of adoption exceeds
- the expected marginal returns.
- Providing these farmers with information will not have an effect because
- it will only decrease their expected marginal return which was already
- too low to adopt prior to the intervention, these farmers will never adopt.
- Hence there will be no effect on their expectations as they plant local
- seed, so that their expectations were correct before the intervention.
- As they opt for local seed, there will not be an effect on their efforts.
+, does not adopt at baseline because, even though the have inflated expectations
+ of the seed, the marginal cost of adoption still exceeds the expected marginal
+ returns.
+ Providing these farmers with information will not have an effect on their
+ adoption decision because it will only decrease their expected marginal
+ return which was already too low to adopt prior to the intervention.
+ As they were already planting local seed, their expectations will also
+ not be affected by the intervention, nor do we expect an effect on their
+ efforts.
 \begin_inset Note Note
 status collapsed
 
@@ -1407,46 +1432,8 @@ you wrote: "Providing these farmers with information may lead them to reconsider
 \end_layout
 
 \begin_layout Standard
-The model in equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:three"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- is restricted to decision making in one agricultural season.
- However, farmers need to decide each season, and will use information gained
- from past experiences to form expectations.
- Farmers who are not knowledgeable and not aware of the true relationship
- between 
-\begin_inset Formula $Y_{it}^{H}$
-\end_inset
-
- and 
-\begin_inset Formula $X_{it}$
-\end_inset
-
- and over-adopt (for instance because of budget constraints or because of
- inflated expectations) will be disappointed once outcomes are revealed.
- Farmers may be unable to learn about the complex relationship between 
-\begin_inset Formula $Y_{it}^{H}$
-\end_inset
-
- and 
-\begin_inset Formula $X_{it}$
-\end_inset
-
- from their limited experiential data.
- Instead, these farmers may simply reduce their expectations of the hybrid
- markup, in the limit setting 
-\begin_inset Formula $E(A)=0$
-\end_inset
-
-, leading them to dis-adopt in the future.
- For a share of these farmers, type 5 in Table 
+Farmer may also underestimate the hybrid seed premium.
+ For some, type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1456,14 +1443,14 @@ noprefix "false"
 
 \end_inset
 
-, the expected marginal return will still be larger than the marginal cost
+, the expected marginal return may still be larger than the marginal cost
  of adoption, even if they underestimate the probability of realizing a
- hybrid premium due to their bad experience.
- They will always adopt.
- The intervention will not affect adoption as it increases the expected
- marginal return of these farmers, but they will adjust their efforts and
+ hybrid premium.
+ These farmers keep adopting as the intervention increases the expected
+ marginal return of these farmers, but they may adjust their efforts and
  expectations in response to the treatment.
- For another fraction of these farmers, type 6 in Table 
+ For another fraction of farmers that underestimate the hybrid seed premium,
+ referred to as type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1476,11 +1463,11 @@ noprefix "false"
 , the expected marginal return will be smaller than the marginal cost of
  adoption, so that they do not adopt prior to the intervention.
  However, as the intervention increases their expectation of the return,
- they will start adopting in response to the treatment and also invest more
+ they may start adopting in response to the treatment and also invest more
  efforts.
- There will be no impact on our measure of expectations though because the
- type 6 farmers do not adopt at baseline and therefore have correct expectations
- about their yield prior to the intervention.
+ There will be no impact on expectations because the type 6 farmers do not
+ adopt at baseline and therefore have correct expectations about their yield
+ prior to the intervention.
 \end_layout
 
 \begin_layout Standard
