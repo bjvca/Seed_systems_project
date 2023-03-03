@@ -169,7 +169,7 @@ y, such as higher yield or pest resistance, may lead them to invest less
  In the experiment, a treatment group gets explicit information on the importanc
 e of combining improved technologies and recommended farming practices.
  We find some evidence that in the short run, our message scares farmers
- away from commercial seed, back to local land-races.
+ away from commercial seed, back to local farmer-saved seed.
  There is further suggestive evidence that at least some farmers adjust
  expectations and move back into adoption in the longer run.
  We conclude that policy makers and industry should focus on technology
@@ -421,7 +421,7 @@ miracle seed
  that they think they can just broadcast on their least fertile plots without
  further management and still get exceptional harvests.
  However, improved maize seed needs a lot of fertilizer, often leaving soil
- more depleted than when landraces are used.
+ more depleted than when farmer-saved seed is used.
  In the areas where our research is situated, striga (
 \emph on
 striga hermonthica
@@ -472,9 +472,9 @@ We start with testing if farmers are able to extract the relevant information
  are more likely to use seed saved from the previous season.
  If we confine attention to only farmers that adopted at baseline, we see
  that farmers that were exposed to the treatment video were also less likely
- to obtain seed from agro-input dealers, more likely to use landraces, and
- less likely to use improved seed varieties such as hybrids or Open Pollinated
- Varieties (OPV).
+ to obtain seed from agro-input dealers, more likely to use farmer-saved
+ seed, and less likely to use improved seed varieties such as hybrids or
+ Open Pollinated Varieties (OPV).
  However, in the subsequent season, these differences between treatment
  and control groups have disappeared.
 \end_layout
@@ -942,8 +942,8 @@ t+1
 status collapsed
 
 \begin_layout Plain Layout
-For simplicity, we assume a discount factor of 1, but a positive discount
- factor will not alter the result.
+For simplicity, we assume a discount factor of 1, but another discount factor
+ will not alter the results.
 \end_layout
 
 \end_inset
@@ -956,28 +956,16 @@ literal "false"
 
 \end_inset
 
-, we assume that farmers are risk-neutral and choose a seed type, hybrid
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-We refer to all improved seed varieties in this theoretical framework, i.e.
- to all high-yielding cultivars like open-pollinated and hybrid varieties,
- but we use the term 
-\shape italic
-hybrid
-\shape default
- for simplicity from now on.
-\end_layout
-
-\end_inset
-
- or local landrace, to maximize their profits per area of land.
- In particular, they compare the expected profit functions of hybrids 
+, we assume that farmers are risk-neutral and choose a seed type, an improved
+ seed (a high-yielding cultivar, i.e.
+ an OPV or hybrid variety) or local farmer-saved seed, to maximize their
+ profits per area of land.
+ In particular, they compare the expected profit functions of improved seed
+ 
 \begin_inset Formula $\pi_{it}^{*^{H}}$
 \end_inset
 
- and farmer saved seed 
+ and farmer-saved seed 
 \begin_inset Formula $\pi_{it}^{*^{L}}$
 \end_inset
 
@@ -1012,8 +1000,8 @@ E
 \end_inset
 
  is the expected price at which output is valued, assuming that consumers
- do not differentiate between maize obtained from hybrid seed and maize
- obtained from farmer saved seed.
+ do not differentiate between maize obtained from improved seed and maize
+ obtained from farmer-saved seed.
  
 \begin_inset Formula $E\left(Y_{it+1}^{H}\right)$
 \end_inset
@@ -1022,8 +1010,8 @@ E
 \begin_inset Formula $E\left(Y_{it+1}^{L}\right)$
 \end_inset
 
- is the expected yield for hybrids and farmer saved seed respectively.
- Farmer saved seed are assumed to be free, while the amount of hybrid seed
+ is the expected yield for improved and farmer-saved seed respectively.
+ Farmer-saved seed is assumed to be free, while the amount of improved seed
  
 \begin_inset Formula $s_{it}$
 \end_inset
@@ -1050,8 +1038,8 @@ inputs
 \end_layout
 
 \begin_layout Standard
-Farmers adopt hybrid seed if they expect that using it is more profitable
- than using farmer saved seed, that is, if 
+Farmers adopt improved seed if they expect that using it is more profitable
+ than using farmer-saved seed, that is, if 
 \begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it}^{L}\right)$
 \end_inset
 
@@ -1106,7 +1094,7 @@ noprefix "false"
 
  shows that adoption decisions based on profit functions fundamentally depend
  on yield comparisons.
- We assume that yield for farmer saved seed is a function of inputs used:
+ We assume that yield for farmer-saved seed is a function of inputs used:
 \end_layout
 
 \begin_layout Standard
@@ -1134,15 +1122,15 @@ and this relationship is assumed to be positive with decreasing returns
 \end_layout
 
 \begin_layout Standard
-Yield for hybrids follows a similar function as yield for farmer saved seed,
- but adds a positive and constant hybrid premium 
+Yield for improved seed follows a similar function as yield for farmer-saved
+ seed, but adds a positive and constant adoption premium 
 \begin_inset Formula $(A>0)$
 \end_inset
 
 .
- However, the seed premium only applies when the farmer uses at least the
- same amount of complementary inputs as they would do when using farmer
- saved seed 
+ However, the adoption premium only applies when the farmer uses at least
+ the same amount of complementary inputs as they would do when using farmer-save
+d seed 
 \begin_inset Formula $X_{it}^{H}\geq X_{it}^{L}$
 \end_inset
 
@@ -1158,11 +1146,11 @@ Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}^{L}\label{eq:truerel
 \end_inset
 
 However, there may be reasons why farmers reduce input use when adopting
- hybrid seed.
+ improved seed.
  For instance, if they face a budget constrained, then inputs will be reduced
  by the cost of seed, resulting in lower yields
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 note for Caro: it's divided by 
@@ -1233,7 +1221,7 @@ t+1
 \end_inset
 
 , their decision to adopt would depend on the difference in yield between
- hybrid and farmer saved seed, on the relative prices of the inputs, and
+ improved and farmer-saved seed, on the relative prices of the inputs, and
  on the yield responses of the inputs.
  We introduce farmer heterogeneity into the model by assuming that at least
  some farmers are not aware of the true relationship between 
@@ -1264,7 +1252,7 @@ E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\ri
 \end_layout
 
 \begin_layout Standard
-and as a result, the farmer will use too much hybrid seed and not enough
+and as a result, the farmer will use too much improved seed and not enough
  other inputs.
 \end_layout
 
@@ -1350,8 +1338,8 @@ noprefix "false"
 
 \begin_layout Standard
 Another group of farmers is not knowledgeable about the interaction effect,
- but instead believes in miracle seed and thinks that there is always a
- hybrid premium.
+ but instead believes in miracle seed and thinks that there is always an
+ adoption premium.
  A subset of these farmers without knowledge about the true relationship
  between 
 \begin_inset Formula $Y_{it}^{H}$
@@ -1366,8 +1354,8 @@ Another group of farmers is not knowledgeable about the interaction effect,
  Providing these type 3 farmers with information may lead them to dis-adopt,
  at least in the short run, when this new information reduces their expected
  marginal return below the marginal cost.
- As these farmers stop adopting hybrid varieties and start using cheaper
- farmer saved seed, their yield expectations will also become more in line
+ As these farmers stop adopting improved varieties and start using cheaper
+ farmer-saved seed, their yield expectations will also become more in line
  with reality.
  
 \begin_inset Note Note
@@ -1377,22 +1365,22 @@ status collapsed
 Unclear and not really necessary - consider deleting: Correct expectations
  are defined as the farmer harvesting as much maize from their field as
  expected.
- If a farmer plants hybrid seed, these expectations deal with the yield
- of hybrid seed.
+ If a farmer plants improved seed, these expectations deal with the yield
+ of improved seed.
  If a farmer plants local seed, these expectations deal with the yield of
  local seed.
  In fact, we assume that 
 \begin_inset Formula $E\left(Y_{it}^{L}\right)=Y_{it}^{L}$
 \end_inset
 
-, implying that all farmers that plant local land races have correct expectation
-s prior to the intervention.
+, implying that all farmers that plant local farmer-saved seed have correct
+ expectations prior to the intervention.
  
 \end_layout
 
 \end_inset
 
-As type 3 farmers dis-adopt, we do not expect and impact on efforts in response
+As type 3 farmers dis-adopt, we do not expect an impact on efforts in response
  to the treatment for this subgroup.
  
 \end_layout
@@ -1418,21 +1406,20 @@ noprefix "false"
  As they were already planting local seed, their expectations will also
  not be affected by the intervention, nor do we expect an effect on their
  efforts.
+\end_layout
+
+\begin_layout Standard
+Farmers may also underestimate the adoption premium
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-you wrote: "Providing these farmers with information may lead them to reconsider.
-" but I think that's incorrect.
+I miss the part about disappointment here
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Farmer may also underestimate the hybrid seed premium.
+.
  For some, type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1444,12 +1431,12 @@ noprefix "false"
 \end_inset
 
 , the expected marginal return may still be larger than the marginal cost
- of adoption, even if they underestimate the probability of realizing a
- hybrid premium.
- These farmers keep adopting as the intervention increases the expected
- marginal return of these farmers, but they may adjust their efforts and
- expectations in response to the treatment.
- For another fraction of farmers that underestimate the hybrid seed premium,
+ of adoption, even if they underestimate the probability of realizing an
+ adoption premium.
+ These farmers keep adopting as the intervention increases their expected
+ marginal return, but they may adjust their efforts and expectations in
+ response to the treatment.
+ For another fraction of farmers that underestimate the adoption premium,
  referred to as type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1581,7 +1568,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption && adopt) & baseline) & baseline)
+& adoption premium &  cost of adoption && adopt) & baseline) & baseline)
 \backslash
 
 \backslash
@@ -1620,7 +1607,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &   cost of adoption && adopt)& baseline) & baseline)
+& adoption premium &   cost of adoption && adopt)& baseline) & baseline)
 \backslash
 
 \backslash
@@ -1660,7 +1647,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &&   marg.
+& adoption premium &  cost of adoption &&   marg.
  return & & adoption)
 \backslash
 
@@ -1700,7 +1687,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption && adopt) & baseline) &  adoption)
+& adoption premium &  cost of adoption && adopt) & baseline) &  adoption)
 \backslash
 
 \backslash
@@ -1739,7 +1726,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption & & adopt) & 
+& adoption premium &  cost of adoption & & adopt) & 
 \backslash
 
 \backslash
@@ -1779,7 +1766,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &  &  marg.
+& adoption premium &  cost of adoption &  &  marg.
  return &  baseline) 
 \backslash
 
@@ -1829,8 +1816,8 @@ scriptsize
 
 Note: $^1$Correct expectations are defined as the farmer harvesting as much
  maize from their field as expected.
- If a farmer plants hybrid seed, these expectations deal with the yield
- of hybrid seed.
+ If a farmer plants improved seed, these expectations deal with the yield
+ of improved seed.
  If a farmer plants local seed, these expectations deal with the yield of
  local seed.
 \end_layout
@@ -2027,7 +2014,7 @@ y after the first rains) is very important to get good yields.
  row planting.
  At this stage, it is also recommended to add inorganic fertilizer (Di-Ammonium
  Phosphate).
- It is then shown that one seed of a common hybrid seed is place in each
+ It is then shown that one seed of a common hybrid seed is placed in each
  hill.
 \begin_inset Note Note
 status open
@@ -2474,8 +2461,8 @@ never adopters
 
 .
  However, we also see that a large group of farmers that adopts at baseline
- reverts to local landraces at midline (16 percent) or still adopts at midline
- but eventually dis-adopts at endline (7 percent).
+ reverts to local farmer-saved seed at midline (16 percent) or still adopts
+ at midline but eventually dis-adopts at endline (7 percent).
  Fortunately, large groups of households also enter into adoption.
  We see that 19 percent of non-adopting households are adopting at midline
  and twelve percent of households that are not adopting at both base- and
@@ -2785,7 +2772,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3286,8 +3273,8 @@ noprefix "false"
  to illustrate the dynamics of varietal adoption.
  In addition, we investigate other outcomes that are related or even partly
  overlapping.
- For instance, we look at the use of land races, as using land races is
- to some extent the opposite of technology adoption (but not completely
+ For instance, we look at the use of farmer-saved seed, as using farmer-saved
+ seed is to some extent the opposite of technology adoption (but not completely
  because many farmer also recycle hybrid seed because they are not aware
  that it is not suited for recycling).
  We also test if there are differences in the use of recycled seed between
@@ -3350,7 +3337,7 @@ The third column (3) shows the difference between treatment and control
  return is reduced by the treatment (prediction 1).
  Dis-adoption implies that farmers will be less likely to plant fresh improved
  seed varieties and seed bought at agro-input shops, but more likely to
- use land races and farmer-saved seed.
+ use recycled and farmer-saved seed.
  We find that all coefficients go in the expected direction, however, we
  only find a significant difference for the share of farmers that planted
  recycled seed at midline.
@@ -3363,7 +3350,7 @@ The comparisons in the third column hold for all farmers, while the fourth
  (as expected, see prediction 1).
  Farmers that were exposed to the treatment are almost six percentage points
  less likely to adopt fresh improved seed varieties, and five percentage
- points more likely to revert to land races.
+ points more likely to revert to farmer-saved seed.
  We see a particularly strong increase in the share of farmers that uses
  seed recycled from the previous harvest in the treatment group and a somewhat
  lower but still significant reduction in farmers that bought seed from
@@ -3380,7 +3367,7 @@ The fifth column (5) shows the difference between treatment and control
  At endline, differences seem to have disappeared, suggesting that the dis-adopt
 ion effect is only temporary.
  This may be because farmers have moved to a new equilibrium where they
- know the true hybrid premium and are more likely to become 
+ know the true adoption premium and are more likely to become 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3789,7 +3776,7 @@ e(end_adoption[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
-land race seed & (
+farmer-saved seed & (
 \backslash
 Sexpr{format(round(mean_base[2,1,2],digits=2),nsmall=2)}) & (
 \backslash
@@ -5682,10 +5669,10 @@ We first tested if farmers picked up the subtle messages that lie at the
 Turning to the main outcome—behavior related to seed use—we found that in
  the season immediately following the treatment, treated farmers were less
  likely to use improved seed obtained from agro-input dealers and revert
- back to farmer saved landraces.
- In line with our expectations, this switching back to landraces was only
- short lived: in the next season, there was no difference between treatment
- and control groups anymore.
+ back to farmer-saved seed.
+ In line with our expectations, this switching back to farmer-saved seed
+ was only short lived: in the next season, there was no difference between
+ treatment and control groups anymore.
 \end_layout
 
 \begin_layout Standard
