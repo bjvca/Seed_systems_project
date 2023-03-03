@@ -1008,7 +1008,7 @@ where
 E
 \emph default
  is an expectations operator and 
-\begin_inset Formula $\left(E\left(p_{t+1}\right)\right)$
+\begin_inset Formula $E\left(p_{t+1}\right)$
 \end_inset
 
  is the expected price at which output is valued, assuming that consumers
@@ -1287,7 +1287,7 @@ noprefix "false"
 \begin_inset Formula $X_{it}$
 \end_inset
 
-in equation 
+ in equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:truerel"
@@ -1297,7 +1297,8 @@ noprefix "false"
 
 \end_inset
 
-, and as a result has expectations that match production outcomes.
+, and as a result invests the correct efforts and has expectations that
+ match production outcomes.
  For a share of these farmers, the type 1 farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1356,30 +1357,23 @@ Another group of farmers is not knowledgeable about the interaction effect,
  Providing these type 3 farmers with information may lead them to dis-adopt
  in the short run as this new information decreases their expected marginal
  return.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-While both subgroups are likely respond to the provision of new information,
- in this paper we are mainly concerned with farmers that adopt at baseline
- when looking at treatment heterogeneity.
- This is because this group already shows interest in adoption.
- In the group that does not adopt at baseline, we suspected that the treatment
- effect will likely be attenuated by a large group of 
-\begin_inset Quotes eld
+ As these farmers stop adopting hybrid varieties and start using local varieties
+ that their household has likely been using for centuries, their yield expectati
+ons will become more realistic.
+ Correct expectations are defined as the farmer harvesting as much maize
+ from their field as expected.
+ If a farmer plants hybrid seed, these expectations deal with the yield
+ of hybrid seed.
+ If a farmer plants local seed, these expectations deal with the yield of
+ local seed.
+ In fact, we assume that 
+\begin_inset Formula $E\left(Y_{it}^{L}\right)=Y_{it}^{L}$
 \end_inset
 
-never adopters
-\begin_inset Quotes erd
-\end_inset
-
-, and indeed when running the analysis for this subgroup we did not find
- significant effects.
- This analysis is available from the authors upon request.
-\end_layout
-
-\end_inset
-
+, implying that all farmers that plant local land races have correct expectation
+s prior to the intervention.
+ Because type 3 farmers dis-adopt, they will not invest more efforts in
+ response to the treatment.
  Another subset of these farmers, classified as type 4 farmers in Table
  
 \begin_inset CommandInset ref
@@ -1396,7 +1390,9 @@ noprefix "false"
  Providing these farmers with information will not have an effect because
  it will only decrease their expected marginal return which was already
  too low to adopt prior to the intervention, these farmers will never adopt.
- 
+ Hence there will be no effect on their expectations as they plant local
+ seed, so that their expectations were correct before the intervention.
+ As they opt for local seed, there will not be an effect on their efforts.
 \begin_inset Note Note
 status collapsed
 
@@ -1465,8 +1461,8 @@ noprefix "false"
  hybrid premium due to their bad experience.
  They will always adopt.
  The intervention will not affect adoption as it increases the expected
- marginal return of these farmers, but they will adjust their expectations
- in response to the treatment.
+ marginal return of these farmers, but they will adjust their efforts and
+ expectations in response to the treatment.
  For another fraction of these farmers, type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1480,14 +1476,18 @@ noprefix "false"
 , the expected marginal return will be smaller than the marginal cost of
  adoption, so that they do not adopt prior to the intervention.
  However, as the intervention increases their expectation of the return,
- they will start adopting in response to the treatment.
+ they will start adopting in response to the treatment and also invest more
+ efforts.
+ There will be no impact on our measure of expectations though because the
+ type 6 farmers do not adopt at baseline and therefore have correct expectations
+ about their yield prior to the intervention.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1530,7 +1530,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{lllllll}
+begin{tabular}{cllllll}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1548,7 +1548,7 @@ hline
 
 \begin_layout Plain Layout
 
-type & prior & internal & baseline & effect on & effect on & effect on 
+& prior & internal & baseline & effect on & effect on & effect on 
 \backslash
 
 \backslash
@@ -1557,8 +1557,7 @@ type & prior & internal & baseline & effect on & effect on & effect on
 
 \begin_layout Plain Layout
 
-& knowledge & comparison & adoption & adoption & expectations & efforts
- 
+& knowledge & comparison & adoption & adoption & exp.$^1$ & efforts 
 \backslash
 
 \backslash
@@ -1569,13 +1568,14 @@ type & prior & internal & baseline & effect on & effect on & effect on
 
 
 \backslash
-hline
+cline{2-7}
 \end_layout
 
 \begin_layout Plain Layout
 
 1 & know true  & true exp.
- marginal & yes & none  & none  & none 
+ marg.
+ & yes & none  & none  & none 
 \backslash
 
 \backslash
@@ -1584,8 +1584,8 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of   & return > marginal & & (always adopt)& (correct exp.
- & (correct efforts)
+& probability of   & return > marg.
+ & & (always & (correct at & (correct at 
 \backslash
 
 \backslash
@@ -1594,7 +1594,7 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &&& at baseline) 
+& hybrid premium &  cost of adoption && adopt) & baseline) & baseline)
 \backslash
 
 \backslash
@@ -1613,7 +1613,8 @@ hline
 \begin_layout Plain Layout
 
 2 & know true  & true exp.
- marginal & no & none  & none & none 
+ marg.
+ & no & none  & none & none 
 \backslash
 
 \backslash
@@ -1622,8 +1623,8 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of  & return < marginal & & (never adopt) & (correct exp.
- & (correct efforts)
+& probability of  & return < marg.
+ & & (never  & (correct at & (correct at 
 \backslash
 
 \backslash
@@ -1632,7 +1633,7 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &   cost of adoption &&& at baseline) &
+& hybrid premium &   cost of adoption && adopt)& baseline) & baseline)
 \backslash
 
 \backslash
@@ -1651,7 +1652,8 @@ hline
 \begin_layout Plain Layout
 
 3 & overestimate  & biased exp.
- marginal & yes & dis-adopt due to & more realistic & none 
+ marg.
+ & yes & dis-adopt due to & more  & none 
 \backslash
 
 \backslash
@@ -1660,9 +1662,9 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of & return > marginal &&   decreased exp.
- & exp.
- & (no adoption) 
+& probability of & return > marg.
+ &&   decreased exp.
+ & realistic & (no  
 \backslash
 
 \backslash
@@ -1671,7 +1673,8 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &&   marginal return 
+& hybrid premium &  cost of adoption &&   marg.
+ return & & adoption)
 \backslash
 
 \backslash
@@ -1690,7 +1693,8 @@ hline
 \begin_layout Plain Layout
 
 4 & overestimate  & biased exp.
- marginal & no & none  & none & none 
+ marg.
+ & no & none  & none & none 
 \backslash
 
 \backslash
@@ -1699,8 +1703,8 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of  & return < marginal & & (never adopt) &  (correct exp.
- & (no adoption)
+& probability of  & return < marg.
+ & & (never  &  (correct at & (no 
 \backslash
 
 \backslash
@@ -1709,7 +1713,7 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &&& at baseline) &  
+& hybrid premium &  cost of adoption && adopt) & baseline) &  adoption)
 \backslash
 
 \backslash
@@ -1728,7 +1732,8 @@ hline
 \begin_layout Plain Layout
 
 5 & underestimate  & biased exp.
- marginal & yes & none   & more realistic & increase 
+ marg.
+ & yes & none   & more  & increase 
 \backslash
 
 \backslash
@@ -1737,7 +1742,8 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of  & return > marginal & & (always adopt) &  exp.
+& probability of  & return > marg.
+ & & (always  &  realistic
 \backslash
 
 \backslash
@@ -1746,7 +1752,7 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &&  
+& hybrid premium &  cost of adoption & & adopt) & 
 \backslash
 
 \backslash
@@ -1765,7 +1771,8 @@ hline
 \begin_layout Plain Layout
 
 6 & underestimate  & biased exp.
- marginal & no & adopt due to  & none & increase 
+ marg.
+ & no & adopt due to  & none & increase 
 \backslash
 
 \backslash
@@ -1774,9 +1781,9 @@ hline
 
 \begin_layout Plain Layout
 
-& probability of  & return < marginal &&  increased exp.
- & (correct exp.
- 
+& probability of  & return < marg.
+ &&  increased exp.
+ & (correct at
 \backslash
 
 \backslash
@@ -1785,8 +1792,8 @@ hline
 
 \begin_layout Plain Layout
 
-& hybrid premium &  cost of adoption &  &  marginal return & at baseline)
- 
+& hybrid premium &  cost of adoption &  &  marg.
+ return &  baseline) 
 \backslash
 
 \backslash
@@ -1827,6 +1834,20 @@ end{center}
 scriptsize
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: $^1$Correct expectations are defined as the farmer harvesting as much
+ maize from their field as expected.
+ If a farmer plants hybrid seed, these expectations deal with the yield
+ of hybrid seed.
+ If a farmer plants local seed, these expectations deal with the yield of
+ local seed.
+\end_layout
+
 \end_inset
 
 
@@ -1855,15 +1876,27 @@ Some farmers that acquire new information related to the interaction effects
  out.
  If we only consider farmers that adopt at baseline, the effect on adoption
  will be negative as this excludes type 6 farmers from the analysis.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Can we also show that the effect on adoption will be positive if we only
+ consider farmers that do not adopt at baseline (as this excludes type 3
+ farmers from the analysis)? 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
-Farmers that acquire new information related to the interaction effects
- between improved seed varieties and complementary inputs 
+Not knowledgeable farmers that acquire new information related to the interactio
+n effects between improved seed varieties and complementary inputs 
 \shape italic
-and plant improved seed at some point in time
+and plant improved seed after the treatment
 \shape default
- (types 3, 5, 6) will use more complementary inputs and invest more effort.
+ (types 5, 6) will use more complementary inputs and invest more effort.
  The effect will be larger for farmers that adopt at baseline (types 1,
  3, 5) since this removes 
 \begin_inset Quotes eld
@@ -1876,7 +1909,7 @@ never adopters
  (types 2 and 4) from the sample.
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I believe we should look at the effect on effort of adopters only, i.e.
@@ -1899,30 +1932,12 @@ I believe we should look at the effect on effort of adopters only, i.e.
 Farmers that acquire new information related to the interaction effects
  between improved seed varieties and complementary inputs 
 \shape italic
-and plant improved seed at some point in time
+and plant improved seed at some point in time but not at baseline
 \shape default
- (types 3, 5, 6) will adapt their expectations.
- Again, the effect will be larger for farmers that adopt at baseline (types
- 1, 3, 5) since this removes 
-\begin_inset Quotes eld
-\end_inset
-
-never adopters
-\begin_inset Quotes erd
-\end_inset
-
- (types 2 and 4) from the sample.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Same argument as for prediction 2.
-\end_layout
-
-\end_inset
-
-
+ (types 3, 5) will adapt their expectations.
+ The effect will be larger for farmers that adopt at baseline (types 1,
+ 3, 5) since this removes many farmers that have correct expectations at
+ baseline (types 2, 4, 6) from the sample.
 \end_layout
 
 \begin_layout Section
