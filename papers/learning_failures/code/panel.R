@@ -606,13 +606,13 @@ xmat_base <- cbind(all$adoption_onfield,all$Land_Races,all$farmer_saved_seed,all
 index_base <- icwIndex(xmat=xmat_base,revcols = c(2,3))
 all$index_base <- index_base$index
 
-all_nt <- subset(all, treatment=FALSE)
+
 mean_base <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes
 outcomes <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
 for (i in 1:length(outcomes)) {
-  mean_base[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
-  mean_base[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_base[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_base[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
@@ -697,7 +697,7 @@ xmat_end <- cbind(all$q58_correct,all$q59_correct,all$q60_correct,all$q61_correc
 index_end <- icwIndex(xmat=xmat_end)
 all$index_end <- index_end$index
 
-all_nt <- subset(all, treatment=FALSE)
+all_nt <- subset(all, treatment==FALSE)
 mean_know <-  array(NA,dim=c(4,2,7))
 #loop here over outcomes
 outcomes <- c("q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct","index_end")
@@ -757,13 +757,13 @@ xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, 
 index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
 
-all_nt <- subset(all, treatment=FALSE)
+
 mean_pract <-  array(NA,dim=c(4,2,9))
 #loop here over outcomes
 outcomes <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base")
 for (i in 1:length(outcomes)) {
-  mean_pract[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
-  mean_pract[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_pract[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_pract[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
@@ -925,13 +925,13 @@ xmat_base <- cbind(all$expectations, all$yield_inkg, all$landproductivity)
 index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
 
-all_nt <- subset(all, treatment=FALSE)
+
 mean_expectations <-  array(NA,dim=c(4,2,9))
 #loop here over outcomes
 outcomes <- c("expectations","yield_inkg","landproductivity","index_base")
 for (i in 1:length(outcomes)) {
-  mean_expectations[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
-  mean_expectations[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_expectations[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_expectations[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
