@@ -168,10 +168,10 @@ y, such as higher yield or pest resistance, may lead them to invest less
  using a field experiment among 3,500 smallholder maize farmers in Uganda.
  In the experiment, a treatment group gets explicit information on the importanc
 e of combining improved technologies and recommended farming practices.
- We find some evidence that in the short run, our message scares farmers
- away from commercial seed, back to farmer-saved seed.
- There is further suggestive evidence that at least some farmers adjust
- expectations and move back into adoption in the longer run.
+ We find some evidence that our message scares farmers away from commercial
+ seed, back to farmer-saved seed.
+ There is further suggestive evidence that treated farmers adjust expectations:
+ they are also more likely to report to have harvested as much as they expected.
  We conclude that policy makers and industry should focus on technology
  adoption as a package of complementary inputs and efforts, instead of marketing
  a single technology.
@@ -340,31 +340,6 @@ literal "false"
 \begin_layout Standard
 In this paper, we consider the possibility that farmers hold inflated expectatio
 ns of inputs as an explanation for their dis-adoption.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Over the years, we uncovered many anecdotes in a variety of contexts that
- point to this explanation.
- For instance, many farmers use (inorganic) fertilizer once and assume this
- will lead to lasting improvements in soil fertility.
- However, these fertilizers need to be applied in each cropping cycle to
- be effective.
- In the context of seed, extension officers often complain that farmers
- consider the trial seed packs they provide as some kind of 
-\begin_inset Quotes eld
-\end_inset
-
-miracle seed
-\begin_inset Quotes erd
-\end_inset
-
- which they can just broadcast on their least fertile plots without further
- management and still get exceptional harvests.
-\end_layout
-
-\end_inset
-
  These inflated expectations have their origin in the fact that monetary
  outlays are necessary for improved technologies, and farmers may consider
  this as a signal that modern inputs are substitutes for other investments
@@ -422,15 +397,15 @@ miracle seed
  further management and still get exceptional harvests.
  However, improved maize seed needs a lot of fertilizer, often leaving soil
  more depleted than when farmer-saved seed is used.
- In the areas where our research is situated, striga (
+ In the areas where our research is situated, Striga (
 \emph on
 striga hermonthica
 \emph default
 ), a parasitic weed that feeds on the roots of maize plants and cause stunted
  growth, is a serious problem.
- Unfortunately, striga proliferates in poor soils and as a result some farmers
+ Unfortunately, Striga proliferates in poor soils and as a result some farmers
  now believe that improved seed varieties are responsible for increased
- striga infestations on their fields.
+ Striga infestations on their fields.
 \end_layout
 
 \begin_layout Standard
@@ -464,10 +439,9 @@ We test the predictions of the model using a field experiment among 3500
 
 \begin_layout Standard
 We start with testing if farmers are able to extract the relevant information
- from the treatment video by testing knowledge after two full seasons post
- intervention.
- We find some indications that in the treatment group more farmers are aware
- of the importance of combining inputs than in the control group.
+ from the treatment video by testing knowledge post intervention.
+ While we do not find treatment effects that differ significantly from zero,
+ we see that all coefficients go in the expected direction.
  Turning to adoption behavior, we see that farmers in the treatment group
  are more likely to use seed saved from the previous season.
  If we confine attention to only farmers that adopted at baseline, we see
@@ -475,21 +449,13 @@ We start with testing if farmers are able to extract the relevant information
  to obtain seed from agro-input dealers, more likely to use farmer-saved
  seed, and less likely to use improved seed varieties such as hybrids or
  Open Pollinated Varieties (OPV).
- However, in the subsequent season, these differences between treatment
- and control groups have disappeared.
-\end_layout
-
-\begin_layout Standard
-We then look at some secondary outcomes to explore mechanisms at work behind
- the intervention.
- First, we test if the intervention has an effect on the use of complementary
+ We also test if the intervention has an effect on the use of complementary
  inputs such as fertilizer and pesticides, as well as on best practices
  in crop management such as row-planting and weeding.
- We would have expected a positive impact here, at least in the longer run
- when farmers are given sufficient time realign their production decisions
- to the new knowledge, but we do not; statistical power may be an issue.
- Second, even in the absence of adjustments in complementary input use and
- practices, the intervention may still have lasting impacts if farmers'
+ We find little evidence that the intervention increased the use of inputs
+ or recommended practices.
+ Finally, even in the absence of adjustments in complementary input use
+ and practices, the intervention may still have lasting impacts if farmers'
  expectations become more realistic, and we do see that a larger share of
  farmers in the treatment group report that yields are what they expected
  than in the control group.
@@ -567,8 +533,8 @@ noprefix "false"
 
 \end_inset
 
- looks at results, with subsections for knowledge, adoption, and impact
- pathways.
+ looks at results, with subsections for knowledge, adoption, complementary
+ inputs, and expectations.
  A final Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -865,13 +831,11 @@ literal "false"
  finds that a video intervention that informs farmers about the returns
  on intensification investments in rice growing increased adoption in Uganda.
  In all these studies, it is assumed that expected returns are underestimated.
- In the present study, we expect the reverse: Farmers consider improved
- seed to be miracle seed and thus overestimate returns, leading to too much
- investment.
- Correcting these believes is expected to lead to less adoption in the short
- run, but more stable adoption for part of the farmer population in the
- long run.
- 
+ In the present study, we expect different reactions of different groups
+ of farmers: A group of farmers considers improved seed to be miracle seed
+ and thus overestimate returns, leading to too much investment.
+ Another group overestimates returns due to a previous disappointment, leading
+ to too little investment.
 \end_layout
 
 \begin_layout Standard
@@ -1897,9 +1861,8 @@ status collapsed
 
 \begin_layout Plain Layout
 I believe we should look at the effect on effort of adopters only, i.e.
- the effect of the treatment on midline effort among farmers who adopt at
- midline and the effect of the treatment on endline effort among farmers
- who adopt at endline.
+ the effect of the treatment on endline effort among farmers who adopt at
+ endline.
  Yes, this will be endogenous but I still think it would be more useful
  that conditioning on baseline adoption, meaning that a farmer group for
  which we expect an effect is excluded from analysis (type 6) and a group
@@ -1952,33 +1915,6 @@ literal "false"
 \end_inset
 
 .
- We describe the study population and the treatments below.
-\end_layout
-
-\begin_layout Subsection
-Study population
-\end_layout
-
-\begin_layout Standard
-The field experiment was implemented in eastern Uganda, an area know for
- its maize production.
- Maize is considered both a food and cash crop in that area.
- As a matter of fact, much of the maize that is used as food aid in Sudan
- is sourced from here.
- As this study was part of a larger study that involved seed supply chains,
- smallholder farmers were drawn from the catchment areas of agro input dealers.
- As such, farmers should have reasonable access to improved seed varieties.
-\end_layout
-
-\begin_layout Standard
-Baseline data was collected from dealers in September and October 2020 and
- from farmers in April 2021.
- Midline data was collected in January and February 2022, and endline data
- was collected in July and August 2022.
-\end_layout
-
-\begin_layout Subsection
-The treatment
 \end_layout
 
 \begin_layout Standard
@@ -2332,8 +2268,9 @@ learning_failures/code/output/end_expectations.Rdata
 \end_layout
 
 \begin_layout Standard
-The experiment was conducted in southeastern Uganda, an area known for its
- maize production where maize is considered both a food and a cash crop.
+The field experiment was conducted in southeastern Uganda, an area known
+ for its maize production where maize is considered both a food and a cash
+ crop.
  As a matter of fact, much of the maize that is used as food aid in Sudan
  is sourced from here.
  Our sample consists of about 3500 smallholder maize farmers.
@@ -2351,8 +2288,9 @@ The experiment was conducted in southeastern Uganda, an area known for its
  Confining attention to farmers that were interviewed in all survey rounds,
  we remain with a balanced panel of 3,400 farmers.
  As such, farmers should have reasonable access to improved maize varieties.
- Baseline data was collected in April 2021, midline data in January and
- February 2022, and endline data in July and August 2022.
+ Baseline data was collected in April 2021.
+ Midline data was collected in January and February 2022, and endline data
+ was collected in July and August 2022.
 \end_layout
 
 \begin_layout Subsection
@@ -2507,8 +2445,8 @@ name "section: Results"
 \end_layout
 
 \begin_layout Standard
-In this section, we present impact of the treatment at mid- and endline
- using simple differences between outcomes in treatment and control villages.
+In this section, we present impact of the treatment using simple differences
+ between outcomes in treatment and control villages.
 \begin_inset Foot
 status collapsed
 
@@ -2527,12 +2465,17 @@ literal "false"
 \end_inset
 
 ).
- 
+ Even though we did collect data at base-, mid- and endline, we only report
+ midline results because we expect the effect to be largest right after
+ the intervention and no large impact from repeating the treatment.
+ For this reason and to make the paper easy to read, we decided to not present
+ the endline results.
+ The same analysis on endline data is available from the authors on request.
 \end_layout
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Subsection
@@ -2545,7 +2488,8 @@ First we check if smallholder farmers are able to pick up the subtle messages
  According to prediction 1, the treatment increases farmers' knowledge.
  In a short quiz, enumerators read a set of alternative answers to farmers
  who then select the response that they feel is most appropriate.
- This quiz was only implemented at endline because we were wary of priming.
+ This quiz was only implemented after the intervention because we were wary
+ of priming.
 \end_layout
 
 \begin_layout Standard
@@ -2585,10 +2529,10 @@ n practices like weeding and application of fertilizer is less, equally,
  This is followed up by a more specific question, asking the farmer to indicate
  what applies for weeding when they are using hybrid seed.
  The options from which the farmer can choose are: 1) You do not need to
- weed and remove striga because hybrid seed varieties are treated to resist
- weed infestation; 2) You do not need to weed and remove striga in the first
+ weed and remove Striga because hybrid seed varieties are treated to resist
+ weed infestation; 2) You do not need to weed and remove Striga in the first
  four weeks because hybrid seed is better at competing for sun, nutrients
- and water than normal seed; 3) You need to weed and remove striga just
+ and water than normal seed; 3) You need to weed and remove Striga just
  as you would with normal seed because maize seed does not compete well
  for sunlight, water and nutrients.
  
@@ -2666,9 +2610,9 @@ noprefix "false"
 
 \begin_layout Standard
 The second column (2) shows the estimated difference between the treatment
- and control group for outcomes at endline, while the third column (3) also
- reports this difference, but only for the subset of farmers that adopted
- improved seed at baseline.
+ and control group for outcomes after the intervention, while the third
+ column (3) also reports this difference, but only for the subset of farmers
+ that adopted improved seed at baseline.
  We look at treatment heterogeneity at this level because it is likely that
  the treatment is not relevant for all smallholders: some farmers may not
  adopt because of other reasons than the ones we conjecture.
@@ -2813,7 +2757,7 @@ cline{2-4}
 
 Farmer knows inputs and practices are important  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -2834,7 +2778,7 @@ lse(end_knowledge[3,2,1]<.1,"+","")))}}$
 
  when using improved seed &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,1],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,1],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,1],digits=3),nsmall=3)}) & (
 \backslash
@@ -2858,7 +2802,7 @@ Sexpr{format(round(end_knowledge[2,2,1],digits=3),nsmall=3)})
 
 Farmer knows weeding is important  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,2],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,2],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -2879,7 +2823,7 @@ lse(end_knowledge[3,2,2]<.1,"+","")))}}$
 
 when using improved seed &   (
 \backslash
-Sexpr{format(round(mean_know[2,1,2],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,2],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,2],digits=3),nsmall=3)}) & (
 \backslash
@@ -2903,7 +2847,7 @@ Sexpr{format(round(end_knowledge[2,2,2],digits=3),nsmall=3)})
 
 Farmer knows applying fertilizer is important  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,3],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,3],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -2924,7 +2868,7 @@ lse(end_knowledge[3,2,3]<.1,"+","")))}}$
 
 when using improved seed &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,3],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,3],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,3],digits=3),nsmall=3)}) & (
 \backslash
@@ -2948,7 +2892,7 @@ Sexpr{format(round(end_knowledge[2,2,3],digits=3),nsmall=3)})
 
 Farmer knows plot selection should be independent  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,4],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -2969,7 +2913,7 @@ lse(end_knowledge[3,2,4]<.1,"+","")))}}$
 
 of using improved seed &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,4],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,4],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,4],digits=3),nsmall=3)}) & (
 \backslash
@@ -2993,7 +2937,7 @@ Sexpr{format(round(end_knowledge[2,2,4],digits=3),nsmall=3)})
 
 Farmer knows it is best to invest in different inputs  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,5],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,5],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -3014,7 +2958,7 @@ lse(end_knowledge[3,2,5]<.1,"+","")))}}$
 
 instead of putting all eggs in one basket &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,5],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,5],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,5],digits=3),nsmall=3)}) & (
 \backslash
@@ -3038,7 +2982,7 @@ Sexpr{format(round(end_knowledge[2,2,5],digits=3),nsmall=3)})
 
 Farmer knows recommended seed spacing and rate  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,6],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,6],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,6],digits=3),nsmall=3)}$^{
 \backslash
@@ -3059,7 +3003,7 @@ lse(end_knowledge[3,2,6]<.1,"+","")))}}$
 
 &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,6],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,6],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,6],digits=3),nsmall=3)}) & (
 \backslash
@@ -3085,7 +3029,7 @@ Sexpr{format(round(end_knowledge[2,2,6],digits=3),nsmall=3)})
 \backslash
 textbf{Knowledge index}  & 
 \backslash
-Sexpr{format(round(mean_know[1,1,7],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_know[1,1,7],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(end_knowledge[1,1,7],digits=3),nsmall=3)}$^{
 \backslash
@@ -3106,7 +3050,7 @@ lse(end_knowledge[3,2,7]<.1,"+","")))}}$
 
 &  (
 \backslash
-Sexpr{format(round(mean_know[2,1,7],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_know[2,1,7],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(end_knowledge[2,1,7],digits=3),nsmall=3)}) & (
 \backslash
@@ -3185,12 +3129,12 @@ scriptsize
 
 \begin_layout Plain Layout
 
-Note: Column (1) reports control group means at endline (and standard deviations
- below); column (2) reports difference between treatment and control at
- endline; column (3) reports difference between treatment and control at
- endline for farmers that adopt at baseline; **, * and + denote significance
- at the 1, 5 and 10 percent levels; standard errors are clustered at the
- village level.
+Note: Column (1) reports control group means post-intervention (and standard
+ deviations below); column (2) reports difference between treatment and
+ control post-intervention; column (3) reports difference between treatment
+ and control post-intervention for farmers that adopt at baseline; **, *
+ and + denote significance at the 1, 5 and 10 percent levels; standard errors
+ are clustered at the village level.
 \end_layout
 
 \end_inset
@@ -3279,8 +3223,7 @@ noprefix "false"
 
 \begin_layout Standard
 The third column (3) shows the difference between treatment and control
- for outcomes at midline, after households in the treatment group received
- treatment once.
+ for outcomes after the intervention.
  Our theory suggests that in response to being sensitized about the importance
  of using complementary inputs and cultivation practices when using improved
  seed varieties, some farmers (types 3 and 6) will change their adoption
@@ -3298,8 +3241,8 @@ The third column (3) shows the difference between treatment and control
  almost no significant coefficients.
  However, we find that all coefficients go in the direction of dis-adoption
  and a significant difference for the share of farmers that planted recycled
- seed at midline, indicating that there are more type 3 than type 6 farmers
- in our sample.
+ seed post-intervention, indicating that there are more type 3 than type
+ 6 farmers in our sample.
 \end_layout
 
 \begin_layout Standard
@@ -3317,25 +3260,6 @@ The comparisons in the third column hold for all farmers, while the fourth
  an agro-input dealer.
  For the subgroup of farmers that adopted at baseline, the treatment also
  has a significant and negative effect on the adoption index.
-\end_layout
-
-\begin_layout Standard
-The fifth column (5) shows the difference between treatment and control
- for outcomes at endline, after treatment households were treated a second
- time, while the sixth column (6) repeats this analysis for farmers who
- reported adopting at baseline.
- At endline, differences seem to have disappeared, suggesting that the dis-adopt
-ion effect is only temporary.
- This may be because farmers have moved to a new equilibrium where they
- know the true adoption premium and are more likely to become 
-\begin_inset Quotes eld
-\end_inset
-
-always adopters
-\begin_inset Quotes erd
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -3385,7 +3309,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcccccc}
+begin{tabular}{rcccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3403,7 +3327,7 @@ hline
 
 \begin_layout Plain Layout
 
-& (1) & (2) & (3) & (4) & (5) & (6) 
+& (1) & (2) & (3) & (4)
 \backslash
 
 \backslash
@@ -3418,7 +3342,7 @@ hline
 
 
 \backslash
-cline{2-7}
+cline{2-5}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3427,9 +3351,19 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-Farmer planted & 
+Farmer planted
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[1,1,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_base[1,1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_base[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -3439,12 +3373,17 @@ _base[3,2,1]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,1,1]<.01,"**",ifelse(mid_adoption[3,1,1]<.05,"*",ifels
-e(mid_adoption[3,1,1]<.1,"+","")))}}$   & 
+e(mid_adoption[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -3454,17 +3393,44 @@ e(mid_adoption[3,2,1]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+
 \backslash
-Sexpr{format(round(end_adoption[1,1,1],digits=3),nsmall=3)}$^{
+
 \backslash
-Sexpr{ifelse(end_adoption[3,1,1]<.01,"**",ifelse(end_adoption[3,1,1]<.05,"*",ifels
-e(end_adoption[3,1,1]<.1,"+","")))}}$  & 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+improved seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(end_adoption[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(mean_base[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{ifelse(end_adoption[3,2,1]<.01,"**",ifelse(end_adoption[3,2,1]<.05,"*",ifels
-e(end_adoption[3,2,1]<.1,"+","")))}}$
+Sexpr{format(round(mean_base[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3478,23 +3444,6 @@ e(end_adoption[3,2,1]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
-improved seed & (
-\backslash
-Sexpr{format(round(mean_base[2,1,1],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_base[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3504,18 +3453,23 @@ Sexpr{format(round(end_adoption[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
-Farmer planted seed & 
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[1,1,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_base[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_base[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -3525,32 +3479,22 @@ _base[3,2,4]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,1,4]<.01,"**",ifelse(mid_adoption[3,1,4]<.05,"*",ifels
-e(mid_adoption[3,1,4]<.1,"+","")))}}$   & 
+e(mid_adoption[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,2,4]<.01,"**",ifelse(mid_adoption[3,2,4]<.05,"*",ifels
 e(mid_adoption[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
- & 
-\backslash
-Sexpr{format(round(end_adoption[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_adoption[3,1,4]<.01,"**",ifelse(end_adoption[3,1,4]<.05,"*",ifels
-e(end_adoption[3,1,4]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_adoption[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_adoption[3,2,4]<.01,"**",ifelse(end_adoption[3,2,4]<.05,"*",ifels
-e(end_adoption[3,2,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -3566,17 +3510,28 @@ e(end_adoption[3,2,4]<.1,"+","")))}}$
 
 from agro-input shop & (
 \backslash
-Sexpr{format(round(mean_base[2,1,4],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_base[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mean_base[2,2,4],digits=3),nsmall=3)}) & (
+Sexpr{format(round(mean_base[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mid_adoption[2,1,4],digits=3),nsmall=3)}) & (
+Sexpr{format(round(mid_adoption[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mid_adoption[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,1,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,2,4],digits=3),nsmall=3)})
+Sexpr{format(round(mid_adoption[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3599,9 +3554,23 @@ Sexpr{format(round(end_adoption[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Farmer planted & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[1,1,3],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_base[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_base[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -3611,12 +3580,17 @@ _base[3,2,3]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,1,3]<.01,"**",ifelse(mid_adoption[3,1,3]<.05,"*",ifels
-e(mid_adoption[3,1,3]<.1,"+","")))}}$   & 
+e(mid_adoption[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -3626,17 +3600,44 @@ e(mid_adoption[3,2,3]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+
 \backslash
-Sexpr{format(round(end_adoption[1,1,3],digits=3),nsmall=3)}$^{
+
 \backslash
-Sexpr{ifelse(end_adoption[3,1,3]<.01,"**",ifelse(end_adoption[3,1,3]<.05,"*",ifels
-e(end_adoption[3,1,3]<.1,"+","")))}}$  & 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+recycled seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(end_adoption[1,2,3],digits=3),nsmall=3)}$^{
+Sexpr{format(round(mean_base[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{ifelse(end_adoption[3,2,3]<.01,"**",ifelse(end_adoption[3,2,3]<.05,"*",ifels
-e(end_adoption[3,2,3]<.1,"+","")))}}$
+Sexpr{format(round(mean_base[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3650,23 +3651,6 @@ e(end_adoption[3,2,3]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
-recycled seed & (
-\backslash
-Sexpr{format(round(mean_base[2,1,3],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_base[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3676,18 +3660,23 @@ Sexpr{format(round(end_adoption[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
-Farmer planted & 
+Farmer planted
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[1,1,2],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_base[1,1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_base[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -3697,12 +3686,17 @@ _base[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,1,2],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,1,2]<.01,"**",ifelse(mid_adoption[3,1,2]<.05,"*",ifels
-e(mid_adoption[3,1,2]<.1,"+","")))}}$   & 
+e(mid_adoption[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -3712,17 +3706,44 @@ e(mid_adoption[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+
 \backslash
-Sexpr{format(round(end_adoption[1,1,2],digits=3),nsmall=3)}$^{
+
 \backslash
-Sexpr{ifelse(end_adoption[3,1,2]<.01,"**",ifelse(end_adoption[3,1,2]<.05,"*",ifels
-e(end_adoption[3,1,2]<.1,"+","")))}}$  & 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+farmer-saved seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(end_adoption[1,2,2],digits=3),nsmall=3)}$^{
+Sexpr{format(round(mean_base[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{ifelse(end_adoption[3,2,2]<.01,"**",ifelse(end_adoption[3,2,2]<.05,"*",ifels
-e(end_adoption[3,2,2]<.1,"+","")))}}$
+Sexpr{format(round(mean_base[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,2,2],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3736,23 +3757,6 @@ e(end_adoption[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
-farmer-saved seed & (
-\backslash
-Sexpr{format(round(mean_base[2,1,2],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_base[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3762,20 +3766,25 @@ Sexpr{format(round(end_adoption[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-textbf{Adoption index} & 
+textbf{Adoption index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[1,1,5],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_base[1,1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_base[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -3785,12 +3794,17 @@ _base[3,2,5]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,1,5],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_adoption[3,1,5]<.01,"**",ifelse(mid_adoption[3,1,5]<.05,"*",ifels
-e(mid_adoption[3,1,5]<.1,"+","")))}}$   & 
+e(mid_adoption[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_adoption[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -3800,17 +3814,39 @@ e(mid_adoption[3,2,5]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+
 \backslash
-Sexpr{format(round(end_adoption[1,1,5],digits=3),nsmall=3)}$^{
+
 \backslash
-Sexpr{ifelse(end_adoption[3,1,5]<.01,"**",ifelse(end_adoption[3,1,5]<.05,"*",ifels
-e(end_adoption[3,1,5]<.1,"+","")))}}$  & 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(end_adoption[1,2,5],digits=3),nsmall=3)}$^{
+Sexpr{format(round(mean_base[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{ifelse(end_adoption[3,2,5]<.01,"**",ifelse(end_adoption[3,2,5]<.05,"*",ifels
-e(end_adoption[3,2,5]<.1,"+","")))}}$
+Sexpr{format(round(mean_base[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption[2,2,5],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3824,23 +3860,6 @@ e(end_adoption[3,2,5]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & (
-\backslash
-Sexpr{format(round(mean_base[2,1,5],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_base[2,2,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_adoption[2,2,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_adoption[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 
@@ -3850,28 +3869,39 @@ Sexpr{format(round(end_adoption[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
-Observations & 
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_base[4,2,1],digits=0),nsmall=0)} &  
+Sexpr{format(round(mean_base[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mean_base[4,2,1],digits=0),nsmall=0)} &  
+Sexpr{format(round(mean_base[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mid_adoption[4,1,1],digits=0),nsmall=0)}  &  
+Sexpr{format(round(mid_adoption[4,1,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mid_adoption[4,2,1],digits=0),nsmall=0)} &  
-\backslash
-Sexpr{format(round(end_adoption[4,1,1],digits=0),nsmall=0)}  &  
-\backslash
-Sexpr{format(round(end_adoption[4,2,1],digits=0),nsmall=0)}
+Sexpr{format(round(mid_adoption[4,2,1],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3933,13 +3963,11 @@ scriptsize
 
 Note: Column (1) reports means at baseline (and standard deviations below);
  column (2) reports difference between treatment and control at baseline;
- column (3) reports difference between treatment and control at midline;
- column (4) reports difference between treatment and control at midline
- for farmers that adopt at baseline; column (5) reports difference between
- treatment and control at endline; column (6) reports difference between
- treatment and control at endline for farmers that adopt at baseline; **,
- * and + denote significance at the 1, 5 and 10 percent levels; standard
- errors are clustered at the village level.
+ column (3) reports difference between treatment and control post-intervention;
+ column (4) reports difference between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
 \end_layout
 
 \end_inset
@@ -4043,8 +4071,8 @@ The effect of making farmers aware that improved seed needs at least the
  a-priori (see prediction 3).
  On the one hand, the intervention advocates for inputs and cultivation
  practices, and so one may expect that some farmers (the not knowledgeable
- ones that plant improved seed at mid-/ endline - types 5, 6) increase use
- as they adjust their practices to this new knowledge.
+ ones that plant improved seed after the intervention - types 5, 6) increase
+ use as they adjust their practices to this new knowledge.
  However, in the previous Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4057,11 +4085,7 @@ noprefix "false"
 
  we saw that the first response of the average farmer is to reduce the adoption
  of improved seed, which may lead to a simultaneous decline in other efforts,
- which may offset the increased use of inputs and practices by adopters,
- at least in the short run.
- However, in subsequent seasons when the dis-adoption effect has vanished,
- one would expect that at least some treated farmers also use more inputs
- and put in more effort.
+ which may offset the increased use of inputs and practices by adopters.
 \end_layout
 
 \begin_layout Standard
@@ -4088,14 +4112,12 @@ noprefix "false"
 
 \begin_layout Standard
 The third column (3) shows that farmers do not invest more inputs or efforts
- at midline.
+ after the intervention.
  On the contrary (and especially if we only consider a subset of farmers
  that adopted at baseline, see column (4)) farmers appear to be less likely
  to plant in rows and to use DAP.
  However, according to the index, there is no overall effect of the intervention
- on complementary input use and cultivation practices at midline.
- After a second season we also do not find a consistent increase in input
- use, see columns (5) and (6).
+ on complementary input use and cultivation practices.
 \end_layout
 
 \begin_layout Standard
@@ -4103,48 +4125,6 @@ These results could indicate that the response of smallholders to the treatment
  is limited to decisions related to seed.
  However, it may also be that we lack power as a result of heterogeneous
  treatment effects.
- For instance, our theoretical model predicts a positive effect at endline
- only for farmers that adopt at baseline, dis-adopt at midline and are responsiv
-e to the treatment (that is, they are not already aware of the importance
- of using improved seed, which is likely the case for always adopters).
- If we compare treatment and control farmers for the subset of farmers that
- adopts at baseline, does not adopt at midline, and adopt again at endline,
- we do indeed find that treated farmers use more fertilizer and pesticides
- and the index is significant at the ten percent level.
- However, such comparisons are likely to suffer from endogeneity bias, as
- the treatment affects adoption decisions at both mid- and endline.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: I don't agree with what you wrote here:
-\end_layout
-
-\begin_layout Plain Layout
-"For instance, our theoretical model predicts a positive effect at endline
- only for farmers that adopt at baseline, dis-adopt at midline and are responsiv
-e to the treatment (that is, they are not already aware of the importance
- of using improved seed, which is likely the case for always adopters).
- If we compare treatment and control farmers for the subset of farmers that
- adopts at baseline, does not adopt at midline, and adopt again at endline,
- we do indeed find that treated farmers use more fertilizer and pesticides
- and the index is significant at the ten percent level.
- However, such comparisons are likely to suffer from endogeneity bias, as
- the treatment affects adoption decisions at both mid- and endline."
-\end_layout
-
-\begin_layout Plain Layout
-— our theoretical model predicts a positive effect at endline for all not
- knowledgeable farmers that adopt at endline (types 5, 6), not only for
- the ones who dis-adopt at one point ...
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4187,7 +4167,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcccccc}
+begin{tabular}{rcccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4205,7 +4185,7 @@ hline
 
 \begin_layout Plain Layout
 
-& (1) & (2) & (3) & (4) & (5) & (6) 
+& (1) & (2) & (3) & (4)
 \backslash
 
 \backslash
@@ -4220,7 +4200,7 @@ hline
 
 
 \backslash
-cline{2-7}
+cline{2-5}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4237,9 +4217,14 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-Row-planting & 
+Row-planting
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,1],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(mean_pract[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -4249,12 +4234,17 @@ an_pract[3,2,1]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,1]<.01,"**",ifelse(mid_practices[3,1,1]<.05,"*",ife
-lse(mid_practices[3,1,1]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -4264,17 +4254,7 @@ lse(mid_practices[3,2,1]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,1]<.01,"**",ifelse(end_practices[3,1,1]<.05,"*",ife
-lse(end_practices[3,1,1]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,1]<.01,"**",ifelse(end_practices[3,2,1]<.05,"*",ife
-lse(end_practices[3,2,1]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4285,21 +4265,28 @@ lse(end_practices[3,2,1]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,1],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,1],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,1],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4313,13 +4300,32 @@ Sexpr{format(round(end_practices[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Reduced seed rate & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Reduced seed rate
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,2],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -4329,12 +4335,17 @@ an_pract[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,2],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,2]<.01,"**",ifelse(mid_practices[3,1,2]<.05,"*",ife
-lse(mid_practices[3,1,2]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -4344,17 +4355,7 @@ lse(mid_practices[3,2,2]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,2]<.01,"**",ifelse(end_practices[3,1,2]<.05,"*",ife
-lse(end_practices[3,1,2]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,2]<.01,"**",ifelse(end_practices[3,2,2]<.05,"*",ife
-lse(end_practices[3,2,2]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4365,21 +4366,28 @@ lse(end_practices[3,2,2]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,2],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,2],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,2],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,2],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4393,13 +4401,32 @@ Sexpr{format(round(end_practices[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Organic fertilizer use & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Organic fertilizer use
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,3],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -4409,12 +4436,17 @@ an_pract[3,2,3]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,3]<.01,"**",ifelse(mid_practices[3,1,3]<.05,"*",ife
-lse(mid_practices[3,1,3]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -4424,17 +4456,7 @@ lse(mid_practices[3,2,3]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,3]<.01,"**",ifelse(end_practices[3,1,3]<.05,"*",ife
-lse(end_practices[3,1,3]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,3]<.01,"**",ifelse(end_practices[3,2,3]<.05,"*",ife
-lse(end_practices[3,2,3]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4445,21 +4467,28 @@ lse(end_practices[3,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,3],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,3],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,3],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,3],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4473,13 +4502,32 @@ Sexpr{format(round(end_practices[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-DAP use & 
+\end_layout
+
+\begin_layout Plain Layout
+
+DAP use
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -4489,12 +4537,17 @@ an_pract[3,2,4]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,4]<.01,"**",ifelse(mid_practices[3,1,4]<.05,"*",ife
-lse(mid_practices[3,1,4]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -4504,17 +4557,7 @@ lse(mid_practices[3,2,4]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,4]<.01,"**",ifelse(end_practices[3,1,4]<.05,"*",ife
-lse(end_practices[3,1,4]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,4]<.01,"**",ifelse(end_practices[3,2,4]<.05,"*",ife
-lse(end_practices[3,2,4]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4525,21 +4568,28 @@ lse(end_practices[3,2,4]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,4],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,4],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,4],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4553,13 +4603,32 @@ Sexpr{format(round(end_practices[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Urea use & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Urea use
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,5],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -4569,12 +4638,17 @@ an_pract[3,2,5]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,5],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,5]<.01,"**",ifelse(mid_practices[3,1,5]<.05,"*",ife
-lse(mid_practices[3,1,5]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -4584,17 +4658,7 @@ lse(mid_practices[3,2,5]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,5]<.01,"**",ifelse(end_practices[3,1,5]<.05,"*",ife
-lse(end_practices[3,1,5]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,5]<.01,"**",ifelse(end_practices[3,2,5]<.05,"*",ife
-lse(end_practices[3,2,5]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4605,21 +4669,28 @@ lse(end_practices[3,2,5]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,5],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,5],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,5],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,5],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4633,13 +4704,32 @@ Sexpr{format(round(end_practices[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Weeding frequency & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Weeding frequency
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,6],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,6],digits=3),nsmall=3)}$^{
 \backslash
@@ -4649,12 +4739,17 @@ an_pract[3,2,6]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,6],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,6]<.01,"**",ifelse(mid_practices[3,1,6]<.05,"*",ife
-lse(mid_practices[3,1,6]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,6],digits=3),nsmall=3)}$^{
 \backslash
@@ -4664,17 +4759,7 @@ lse(mid_practices[3,2,6]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,6]<.01,"**",ifelse(end_practices[3,1,6]<.05,"*",ife
-lse(end_practices[3,1,6]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,6]<.01,"**",ifelse(end_practices[3,2,6]<.05,"*",ife
-lse(end_practices[3,2,6]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4685,21 +4770,28 @@ lse(end_practices[3,2,6]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,6],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,6],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,6],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,6],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,6],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,6],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,6],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,6],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4713,13 +4805,32 @@ Sexpr{format(round(end_practices[2,2,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Pesticide use & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Pesticide use
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,7],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,7],digits=3),nsmall=3)}$^{
 \backslash
@@ -4729,12 +4840,17 @@ an_pract[3,2,7]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,7],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,7]<.01,"**",ifelse(mid_practices[3,1,7]<.05,"*",ife
-lse(mid_practices[3,1,7]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,7],digits=3),nsmall=3)}$^{
 \backslash
@@ -4744,17 +4860,7 @@ lse(mid_practices[3,2,7]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,7]<.01,"**",ifelse(end_practices[3,1,7]<.05,"*",ife
-lse(end_practices[3,1,7]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,7]<.01,"**",ifelse(end_practices[3,2,7]<.05,"*",ife
-lse(end_practices[3,2,7]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4765,21 +4871,28 @@ lse(end_practices[3,2,7]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,7],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,7],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,7],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,7],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,7],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,7],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,7],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,7],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4793,13 +4906,32 @@ Sexpr{format(round(end_practices[2,2,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Re-sowing & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Re-sowing
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,8],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,8],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,8],digits=3),nsmall=3)}$^{
 \backslash
@@ -4809,12 +4941,17 @@ an_pract[3,2,8]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,8],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,8]<.01,"**",ifelse(mid_practices[3,1,8]<.05,"*",ife
-lse(mid_practices[3,1,8]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,8],digits=3),nsmall=3)}$^{
 \backslash
@@ -4824,17 +4961,7 @@ lse(mid_practices[3,2,8]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,8]<.01,"**",ifelse(end_practices[3,1,8]<.05,"*",ife
-lse(end_practices[3,1,8]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,8]<.01,"**",ifelse(end_practices[3,2,8]<.05,"*",ife
-lse(end_practices[3,2,8]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4845,21 +4972,28 @@ lse(end_practices[3,2,8]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,8],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_pract[2,2,8],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,1,8],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_practices[2,2,8],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,8],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,8],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_pract[2,1,8],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_pract[2,2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,1,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_practices[2,2,8],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -4873,15 +5007,34 @@ Sexpr{format(round(end_practices[2,2,8],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-textbf{Efforts index} & 
+textbf{Efforts index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_pract[1,1,9],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_pract[1,1,9],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_pract[1,2,9],digits=3),nsmall=3)}$^{
 \backslash
@@ -4891,12 +5044,17 @@ an_pract[3,2,9]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,1,9],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_practices[3,1,9]<.01,"**",ifelse(mid_practices[3,1,9]<.05,"*",ife
-lse(mid_practices[3,1,9]<.1,"+","")))}}$   & 
+lse(mid_practices[3,1,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_practices[1,2,9],digits=3),nsmall=3)}$^{
 \backslash
@@ -4906,17 +5064,7 @@ lse(mid_practices[3,2,9]<.1,"+","")))}}$
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_practices[1,1,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,1,9]<.01,"**",ifelse(end_practices[3,1,9]<.05,"*",ife
-lse(end_practices[3,1,9]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_practices[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_practices[3,2,9]<.01,"**",ifelse(end_practices[3,2,9]<.05,"*",ife
-lse(end_practices[3,2,9]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -4927,17 +5075,33 @@ lse(end_practices[3,2,9]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(mean_pract[2,1,9],digits=2),nsmall=2)}) & (
+Sexpr{format(round(mean_pract[2,1,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mean_pract[2,2,9],digits=3),nsmall=3)}) & (
+Sexpr{format(round(mean_pract[2,2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mid_practices[2,1,9],digits=3),nsmall=3)}) & (
+Sexpr{format(round(mid_practices[2,1,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
 \backslash
-Sexpr{format(round(mid_practices[2,2,9],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,1,9],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_practices[2,2,9],digits=3),nsmall=3)}) 
+Sexpr{format(round(mid_practices[2,2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -4961,17 +5125,33 @@ Sexpr{format(round(end_practices[2,2,9],digits=3),nsmall=3)})
 
 Observations & 
 \backslash
-Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)} &  
+Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)} &  
+Sexpr{format(round(mean_pract[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mid_practices[4,1,1],digits=0),nsmall=0)}  &  
+Sexpr{format(round(mid_practices[4,1,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
 \backslash
-Sexpr{format(round(mid_practices[4,2,1],digits=0),nsmall=0)} &  
-\backslash
-Sexpr{format(round(end_practices[4,1,1],digits=0),nsmall=0)}  &  
-\backslash
-Sexpr{format(round(end_practices[4,2,1],digits=0),nsmall=0)} 
+Sexpr{format(round(mid_practices[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -5028,13 +5208,11 @@ scriptsize
 
 Note: Column (1) reports means at baseline (and standard deviations below);
  column (2) reports difference between treatment and control at baseline;
- column (3) reports difference between treatment and control at midline;
- column (4) reports difference between treatment and control at midline
- for farmers that adopt at baseline; column (5) reports difference between
- treatment and control at endline; column (6) reports difference between
- treatment and control at endline for farmers that adopt at baseline; **,
- * and + denote significance at the 1, 5 and 10 percent levels; standard
- errors are clustered at the village level.
+ column (3) reports difference between treatment and control post-intervention;
+ column (4) reports difference between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
 \end_layout
 
 \end_inset
@@ -5092,8 +5270,8 @@ noprefix "false"
  We again report baseline means and balance in the first two columns (1)
  and (2).
  However, we did not ask if expectations were met at baseline, so that we
- report the control group average at midline and do not test for baseline
- balance for the expectations variable.
+ report the control group average post-intervention and do not test for
+ baseline balance for the expectations variable.
  Note that a large majority of farmers indicated that they harvested less
  than expected.
 \end_layout
@@ -5105,11 +5283,9 @@ The third column (3) shows that in the treatment group, a significantly
  see column (4).
  This is what we expected in prediction 4 because it removes many farmers
  that have correct expectations at baseline from the sample.
- The fifth and sixth columns (5) and (6) show that the difference between
- treatment and control disappears at endline.
- This pattern suggests that a subset of farmers indeed started out with
- inflated expectations, and this was corrected after they learned that improved
- seed is not miracle seed.
+ This suggests that a subset of farmers indeed started out with inflated
+ expectations, which were corrected after they learned that improved seed
+ is not miracle seed.
 \end_layout
 
 \begin_layout Standard
@@ -5185,7 +5361,7 @@ hline
 
 \begin_layout Plain Layout
 
-& (1) & (2) & (3) & (4) & (5) & (6) 
+& (1) & (2) & (3) & (4)
 \backslash
 
 \backslash
@@ -5200,7 +5376,7 @@ hline
 
 
 \backslash
-cline{2-7}
+cline{2-5}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5209,27 +5385,34 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
+Yield as expected 
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-Yield as expected  & 
+& 
 \backslash
-Sexpr{0.15} &
+Sexpr{0.15}
 \end_layout
 
 \begin_layout Plain Layout
 
- & 
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_expectations[3,1,1]<.01,"**",ifelse(mid_expectations[3,1,1]<.05,"
-*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$   & 
+*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -5239,17 +5422,7 @@ Sexpr{ifelse(mid_expectations[3,2,1]<.01,"**",ifelse(mid_expectations[3,2,1]<.05
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_expectations[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,1,1]<.01,"**",ifelse(end_expectations[3,1,1]<.05,"
-*",ifelse(end_expectations[3,1,1]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_expectations[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,2,1]<.01,"**",ifelse(end_expectations[3,2,1]<.05,"
-*",ifelse(end_expectations[3,2,1]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -5260,19 +5433,26 @@ Sexpr{ifelse(end_expectations[3,2,1]<.01,"**",ifelse(end_expectations[3,2,1]<.05
 
 & (
 \backslash
-Sexpr{0.36}) & & (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,1,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,2,1],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{0.36})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -5286,13 +5466,32 @@ Sexpr{format(round(end_expectations[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Production in kg & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Production in kg
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_expectations[1,1,2],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_expectations[1,1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_expectations[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
@@ -5302,12 +5501,17 @@ Sexpr{ifelse(mean_expectations[3,2,2]<.01,"**",ifelse(mean_expectations[3,2,2]<.
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,1,3],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_expectations[3,1,3]<.01,"**",ifelse(mid_expectations[3,1,3]<.05,"
-*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$   & 
+*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -5317,17 +5521,7 @@ Sexpr{ifelse(mid_expectations[3,2,3]<.01,"**",ifelse(mid_expectations[3,2,3]<.05
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_expectations[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,1,3]<.01,"**",ifelse(end_expectations[3,1,3]<.05,"
-*",ifelse(end_expectations[3,1,3]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_expectations[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,2,3]<.01,"**",ifelse(end_expectations[3,2,3]<.05,"
-*",ifelse(end_expectations[3,2,3]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -5338,21 +5532,28 @@ Sexpr{ifelse(end_expectations[3,2,3]<.01,"**",ifelse(end_expectations[3,2,3]<.05
 
 & (
 \backslash
-Sexpr{format(round(mean_expectations[2,1,2],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,1,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,2,3],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_expectations[2,1,2],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -5366,13 +5567,32 @@ Sexpr{format(round(end_expectations[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
-Yield in kg/acre & 
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield in kg/acre
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_expectations[1,1,3],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_expectations[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_expectations[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
@@ -5382,12 +5602,17 @@ Sexpr{ifelse(mean_expectations[3,2,3]<.01,"**",ifelse(mean_expectations[3,2,3]<.
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,1,4],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_expectations[3,1,4]<.01,"**",ifelse(mid_expectations[3,1,4]<.05,"
-*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$   & 
+*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -5397,42 +5622,44 @@ Sexpr{ifelse(mid_expectations[3,2,4]<.01,"**",ifelse(mid_expectations[3,2,4]<.05
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_expectations[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,1,4]<.01,"**",ifelse(end_expectations[3,1,4]<.05,"
-*",ifelse(end_expectations[3,1,4]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_expectations[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,2,4]<.01,"**",ifelse(end_expectations[3,2,4]<.05,"
-*",ifelse(end_expectations[3,2,4]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
 
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(mean_expectations[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(mean_expectations[2,1,3],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,3],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,1,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,2,4],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_expectations[2,2,3],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -5446,15 +5673,34 @@ Sexpr{format(round(end_expectations[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-textbf{Harvest index} & 
+textbf{Harvest index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{format(round(mean_expectations[1,1,4],digits=2),nsmall=2)} & 
+Sexpr{format(round(mean_expectations[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mean_expectations[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
@@ -5464,12 +5710,17 @@ Sexpr{ifelse(mean_expectations[3,2,4]<.01,"**",ifelse(mean_expectations[3,2,4]<.
 
 \begin_layout Plain Layout
 
- & 
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,1,5],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(mid_expectations[3,1,5]<.01,"**",ifelse(mid_expectations[3,1,5]<.05,"
-*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$   & 
+*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
 Sexpr{format(round(mid_expectations[1,2,5],digits=3),nsmall=3)}$^{
 \backslash
@@ -5479,17 +5730,7 @@ Sexpr{ifelse(mid_expectations[3,2,5]<.01,"**",ifelse(mid_expectations[3,2,5]<.05
 
 \begin_layout Plain Layout
 
- & 
-\backslash
-Sexpr{format(round(end_expectations[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,1,5]<.01,"**",ifelse(end_expectations[3,1,5]<.05,"
-*",ifelse(end_expectations[3,1,5]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(end_expectations[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(end_expectations[3,2,5]<.01,"**",ifelse(end_expectations[3,2,5]<.05,"
-*",ifelse(end_expectations[3,2,5]<.1,"+","")))}}$ 
+
 \backslash
 
 \backslash
@@ -5500,21 +5741,28 @@ Sexpr{ifelse(end_expectations[3,2,5]<.01,"**",ifelse(end_expectations[3,2,5]<.05
 
 & (
 \backslash
-Sexpr{format(round(mean_expectations[2,1,4],digits=2),nsmall=2)}) & (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,1,5],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(end_expectations[2,2,5],digits=3),nsmall=3)}) 
-\backslash
+Sexpr{format(round(mean_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
 
-\backslash
+\begin_layout Plain Layout
 
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -5528,23 +5776,7 @@ Sexpr{format(round(end_expectations[2,2,5],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-\end_layout
 
-\begin_layout Plain Layout
-
-Observations & 
-\backslash
-Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)} &  
-\backslash
-Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)} &  
-\backslash
-Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}  &  
-\backslash
-Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)} &  
-\backslash
-Sexpr{format(round(end_expectations[4,1,1],digits=0),nsmall=0)}  &  
-\backslash
-Sexpr{format(round(end_expectations[4,2,1],digits=0),nsmall=0)} 
 \backslash
 
 \backslash
@@ -5556,6 +5788,44 @@ Sexpr{format(round(end_expectations[4,2,1],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
+
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -5601,13 +5871,11 @@ scriptsize
 
 Note: Column (1) reports means at baseline (and standard deviations below);
  column (2) reports difference between treatment and control at baseline;
- column (3) reports difference between treatment and control at midline;
- column (4) reports difference between treatment and control at midline
- for farmers that adopt at baseline; column (5) reports difference between
- treatment and control at endline; column (6) reports difference between
- treatment and control at endline for farmers that adopt at baseline; **,
- * and + denote significance at the 1, 5 and 10 percent levels; standard
- errors are clustered at the village level.
+ column (3) reports difference between treatment and control post-intervention;
+ column (4) reports difference between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
 \end_layout
 
 \end_inset
