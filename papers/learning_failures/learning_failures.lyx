@@ -169,7 +169,7 @@ y, such as higher yield or pest resistance, may lead them to invest less
  In the experiment, a treatment group gets explicit information on the importanc
 e of combining improved technologies and recommended farming practices.
  We find some evidence that in the short run, our message scares farmers
- away from commercial seed, back to local farmer-saved seed.
+ away from commercial seed, back to farmer-saved seed.
  There is further suggestive evidence that at least some farmers adjust
  expectations and move back into adoption in the longer run.
  We conclude that policy makers and industry should focus on technology
@@ -958,8 +958,8 @@ literal "false"
 
 , we assume that farmers are risk-neutral and choose a seed type, an improved
  seed (a high-yielding cultivar, i.e.
- an OPV or hybrid variety) or local farmer-saved seed, to maximize their
- profits per area of land.
+ an OPV or hybrid variety) or farmer-saved seed, to maximize their profits
+ per area of land.
  In particular, they compare the expected profit functions of improved seed
  
 \begin_inset Formula $\pi_{it}^{*^{H}}$
@@ -1367,14 +1367,14 @@ Unclear and not really necessary - consider deleting: Correct expectations
  expected.
  If a farmer plants improved seed, these expectations deal with the yield
  of improved seed.
- If a farmer plants local seed, these expectations deal with the yield of
- local seed.
+ If a farmer plants farmer-saved seed, these expectations deal with the
+ yield of farmer-saved seed.
  In fact, we assume that 
 \begin_inset Formula $E\left(Y_{it}^{L}\right)=Y_{it}^{L}$
 \end_inset
 
-, implying that all farmers that plant local farmer-saved seed have correct
- expectations prior to the intervention.
+, implying that all farmers that plant farmer-saved seed have correct expectatio
+ns prior to the intervention.
  
 \end_layout
 
@@ -1403,9 +1403,9 @@ noprefix "false"
  Providing these farmers with information will not have an effect on their
  adoption decision because it will only decrease their expected marginal
  return which was already too low to adopt prior to the intervention.
- As they were already planting local seed, their expectations will also
- not be affected by the intervention, nor do we expect an effect on their
- efforts.
+ As they were already planting farmer-saved seed, their expectations will
+ also not be affected by the intervention, nor do we expect an effect on
+ their efforts.
 \end_layout
 
 \begin_layout Standard
@@ -1818,8 +1818,8 @@ Note: $^1$Correct expectations are defined as the farmer harvesting as much
  maize from their field as expected.
  If a farmer plants improved seed, these expectations deal with the yield
  of improved seed.
- If a farmer plants local seed, these expectations deal with the yield of
- local seed.
+ If a farmer plants farmer-saved seed, these expectations deal with the
+ yield of farmer-saved seed.
 \end_layout
 
 \end_inset
@@ -1840,6 +1840,17 @@ The model leads to the following testable predictions:
 Farmers that acquire new information about the interaction between improved
  seed and complementary inputs and were not knowledgeable to begin with
  (types 3 - 6) will have increased knowledge.
+ The effect will be larger for farmers that adopt at baseline (types 1,
+ 3, 5) since this removes 
+\begin_inset Quotes eld
+\end_inset
+
+never adopters
+\begin_inset Quotes erd
+\end_inset
+
+ who are likely to be less interested in the information (types 2 and 4)
+ from the sample.
 \end_layout
 
 \begin_layout Enumerate
@@ -1878,16 +1889,9 @@ Farmers that acquire new information about the interaction between improved
 and plant improved seed after the treatment
 \shape default
  (types 5, 6) will use more complementary inputs and invest more effort.
- The effect will be larger for farmers that adopt at baseline (types 1,
- 3, 5) since this removes 
-\begin_inset Quotes eld
-\end_inset
-
-never adopters
-\begin_inset Quotes erd
-\end_inset
-
- (types 2 and 4) from the sample.
+ However, another set of farmers will dis-adopt due to the treatment (type
+ 3), simultaneously reducing inputs and efforts as soon as they use farmer-saved
+ seed.
 \begin_inset Note Note
 status collapsed
 
@@ -2408,8 +2412,8 @@ never adopters
 
 .
  However, we also see that a large group of farmers that adopts at baseline
- reverts to local farmer-saved seed at midline (16 percent) or still adopts
- at midline but eventually dis-adopts at endline (7 percent).
+ reverts to farmer-saved seed at midline (16 percent) or still adopts at
+ midline but eventually dis-adopts at endline (7 percent).
  Fortunately, large groups of households also enter into adoption.
  We see that 19 percent of non-adopting households are adopting at midline
  and twelve percent of households that are not adopting at both base- and
@@ -2432,7 +2436,7 @@ Caro: Shouldn't this sum up to 100%?
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2538,6 +2542,7 @@ Impact on knowledge
 \begin_layout Standard
 First we check if smallholder farmers are able to pick up the subtle messages
  in the treatment video.
+ According to prediction 1, the treatment increases farmers' knowledge.
  In a short quiz, enumerators read a set of alternative answers to farmers
  who then select the response that they feel is most appropriate.
  This quiz was only implemented at endline because we were wary of priming.
@@ -2678,6 +2683,8 @@ never adopters
 \end_inset
 
  is excluded from the analysis if we only look at farmers who adopt at baseline.
+ Hence we expect the effect to be larger for the remaining share of farmers
+ (see prediction 1).
 \end_layout
 
 \begin_layout Standard
@@ -3277,7 +3284,7 @@ The third column (3) shows the difference between treatment and control
  Our theory suggests that in response to being sensitized about the importance
  of using complementary inputs and cultivation practices when using improved
  seed varieties, some farmers (types 3 and 6) will change their adoption
- behavior (prediction 1).
+ behavior (prediction 2).
  A share of farmers that initially underestimated the probability of an
  adoption premium (type 6) will start adopting as their expected marginal
  return is increased by the treatment.
@@ -3300,7 +3307,7 @@ The comparisons in the third column hold for all farmers, while the fourth
  column (4) restricts the sample to farmers that adopted at baseline.
  We see that effects become stronger if we restrict attention to this subgroup
  and exclude type 6 farmers from the analysis (as expected, see prediction
- 1).
+ 2).
  Farmers that were exposed to the treatment are almost six percentage points
  less likely to adopt fresh improved seed varieties, and five percentage
  points more likely to revert to farmer-saved seed.
@@ -4033,7 +4040,7 @@ literal "false"
 \begin_layout Standard
 The effect of making farmers aware that improved seed needs at least the
  same complementary inputs and efforts as not improved seed is not clear
- a-priori.
+ a-priori (see prediction 3).
  On the one hand, the intervention advocates for inputs and cultivation
  practices, and so one may expect that some farmers (the not knowledgeable
  ones that plant improved seed at mid-/ endline - types 5, 6) increase use
@@ -4096,7 +4103,16 @@ These results could indicate that the response of smallholders to the treatment
  is limited to decisions related to seed.
  However, it may also be that we lack power as a result of heterogeneous
  treatment effects.
- 
+ For instance, our theoretical model predicts a positive effect at endline
+ only for farmers that adopt at baseline, dis-adopt at midline and are responsiv
+e to the treatment (that is, they are not already aware of the importance
+ of using improved seed, which is likely the case for always adopters).
+ If we compare treatment and control farmers for the subset of farmers that
+ adopts at baseline, does not adopt at midline, and adopt again at endline,
+ we do indeed find that treated farmers use more fertilizer and pesticides
+ and the index is significant at the ten percent level.
+ However, such comparisons are likely to suffer from endogeneity bias, as
+ the treatment affects adoption decisions at both mid- and endline.
 \end_layout
 
 \begin_layout Standard
@@ -4135,7 +4151,7 @@ e to the treatment (that is, they are not already aware of the importance
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5045,11 +5061,20 @@ and harvest related outcomes.
  maize from their field as they expected.
  If a farmer planted improved seed, these expectations deal with the yield
  of improved seed.
- If a farmer planted local seed, these expectations deal with the yield
- of local seed.
+ If a farmer planted farmer-saved seed, these expectations deal with the
+ yield of farmer-saved seed.
  We also measure harvest related outcomes on a randomly selected maize field.
  We look at production and yield, dividing production of the plot by the
  size of the plot.
+ The three outcomes are also combined in an index following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1198/016214508000000841"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5078,7 +5103,7 @@ The third column (3) shows that in the treatment group, a significantly
  higher share of farmers say that they produced what they expected.
  The effect is larger for the subset of farmers that adopted at baseline,
  see column (4).
- This is what we expected in prediction 3 because it removes many farmers
+ This is what we expected in prediction 4 because it removes many farmers
  that have correct expectations at baseline from the sample.
  The fifth and sixth columns (5) and (6) show that the difference between
  treatment and control disappears at endline.
@@ -5099,7 +5124,7 @@ Finally, the table shows that the average farmer cultivates about 470 kilograms
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5607,32 +5632,31 @@ name "section: Conclusion"
 \end_layout
 
 \begin_layout Standard
-This paper was motivated by qualitative evidence that many farmers appear
- to overestimate the potential benefits of certain improved agricultural
- technologies.
- The cost of a particular modern commercial input that a farmer wants to
- start using, such as improved seed varieties or inorganic fertilizers,
- is often substantial and competes with other (complementary) agricultural
- inputs.
+This paper was motivated by qualitative evidence suggesting that many farmers
+ appear to overestimate the benefits of certain improved agricultural technologi
+es, leading to subsequent disappointment.
+ The cost of a particular commercial input that a farmer wants to start
+ using, such as improved seed or inorganic fertilizer, is often substantial
+ and competes with other (complementary) agricultural inputs.
  Furthermore, modern inputs are generally marketed with a focus on a few
- dimensions (eg seed that is treated against certain types of weed), and
- so farmers may reduce inputs (like herbicides) and efforts (like manual
- weeding) related to this dimension.
+ dimensions (for example, seed that is treated against certain types of
+ weed), and so farmers may reduce inputs (like herbicides) and efforts (like
+ manual weeding) related to this dimension.
  However, to get the most out of improved technologies, it is important
  to also use complementary inputs and proper agronomic practices, otherwise
  outcomes may be lower than expected.
  If farmers incorrectly attribute disappointing outcomes to the technology
- itself rather than improper use, this could lead to a pattern where farmers
- who try out a new technology switch back to local seed in the next season.
- In a sample of maize smallholder farmers in Uganda, we indeed see substantial
+ itself rather than their own improper management, this could lead to a
+ pattern where farmers who try out a new technology switch back to farmer-saved
+ seed in the next season.
+ In a sample of smallholder maize farmers in Uganda, we indeed see substantial
  dis-adoption over time.
  Furthermore, a large majority of farmers indicate that they expected higher
- yields from their plots.
+ yields from from their fields.
 \end_layout
 
 \begin_layout Standard
-To credibly test the hypothesis that farmers think of improved seed varieties
- are 
+To credibly test the hypothesis that farmers think of improved seed as 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5641,71 +5665,67 @@ miracle seed
 \end_inset
 
 , we set up a field experiment around an engaging video on recommended cultivati
-on practices for maize growing that was shown to farmers before the planting
- season at the time when farmer select the seed that they will use.
- Two versions of the video were produced: one control video and one treatment
- video.
- The treatment video was essentially the same video as the control video,
- expect that in the treatment video, after each practice or input that was
- shown, it was explicitly mentioned that this is 
+on practices for maize growing.
+ We produced one control version and one treatment version of the video.
+ The treatment and control videos are identical, except that, after each
+ practice or input that is shown, the treatment video explicitly mentions
+ that this is 
 \begin_inset Quotes eld
 \end_inset
 
-also important when you are using improved seed varieties such as hybrid
- seed or OPVs
+also important when you are using improved seed varieties
 \begin_inset Quotes erd
 \end_inset
 
 .
  We then randomly allocated treatment and control status to villages, where
- a set of farmers were then shown the corresponding video.
- We revisited farmers in treatment and control villages a first time after
- one agricultural season and a second time after a second season to test
- if there were differences in farmer knowledge, seed use, complementary
- input use and agronomic practices, and expectations.
+ a set of farmers was shown the video just before the planting season, at
+ the time when they selected the seed that they would use.
+ We revisited farmers in treatment and control villages to test if there
+ are differences in farmer knowledge, seed use, complementary input use
+ and agronomic practices, and expectations.
 \end_layout
 
 \begin_layout Standard
-We first tested if farmers picked up the subtle messages that lie at the
- heart of our light-touch information treatment.
+We first test if farmers picked up the subtle messages that lie at the heart
+ of our information treatment.
  To do so, we subjected farmers to a multiple choice quiz.
- While we did not find average treatment effects that differed significantly
- from zero, we did see that all coefficients were going in the expected
- direction.
- We suspect that the lack of statistical significance may be due to the
- already high knowledge at baseline.
- However, even when most farmers already possess the knowledge, the treatment
- may still have made this knowledge more salient.
+ While we do not find treatment effects that differ significantly from zero,
+ we see that all coefficients go in the expected direction.
+ We suspect that the lack of statistical significance can be explained by
+ the already high knowledge among control farmers, implying that knowledge
+ was high prior to the intervention.
+ However, even if most farmers already possessed the knowledge, the treatment
+ may have still made this knowledge more salient, potentially affecting
+ their behavior.
 \end_layout
 
 \begin_layout Standard
-Turning to the main outcome—behavior related to seed use—we found that in
- the season immediately following the treatment, treated farmers were less
- likely to use improved seed obtained from agro-input dealers and revert
- back to farmer-saved seed.
- In line with our expectations, this switching back to farmer-saved seed
- was only short lived: in the next season, there was no difference between
- treatment and control groups anymore.
+Turning to the main outcome - behavior related to seed use - we find that
+ a share of farmers started adopting in the season following the treatment,
+ and another share of farmers dis-adopted, so that these two opposing effects
+ canceled each other out.
+ Results indicate that the first group is larger: on average, treated farmers
+ were less likely to use improved seed obtained from agro-input dealers
+ and reverted back to farmer-saved seed.
+ If we restrict attention to the first subgroup, we see a clear dis-adoption
+ effect.
 \end_layout
 
 \begin_layout Standard
 To see if the main impact pathway runs through the budget constraint, we
- looked at complementary input use.
- We found little evidence that the intervention increased input use or the
- use of recommended practices.
- If anything, we actually see that at midline, the use of inputs in the
- treatment group is lower than in the control.
- However, if we restrict the sample to farmers that dis-adopt at midline
- and adopt again at endline, we do see an increase in input use at endline.
+ look at complementary input use.
+ We find little evidence that the intervention increased the use of inputs
+ or recommended practices.
  Another intermediate outcome is related to expectations.
- We found that farmers that received the treatment were more likely to report
- at midline that what they harvested was in line with what they expected.
+ We find that farmers that received the treatment were more likely to report
+ that their harvest was in line with what they expected.
 \end_layout
 
 \begin_layout Standard
-Our results differ from various other studies that found that improved technolog
-y increased agricultural productivity by crowding in modern inputs and cultivati
-on practices 
+Our results differ from other studies that find that improved technology
+ increases agricultural productivity by crowding in modern inputs and cultivatio
+n practices 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1257/aer.20150474,bulte_freeseed"
@@ -5714,7 +5734,7 @@ literal "false"
 \end_inset
 
 .
- The reason for these opposite effects may be due to the fact that 
+ The reason for these opposite effects may be that 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bulte_freeseed"
@@ -5730,9 +5750,9 @@ literal "false"
 
 \end_inset
 
- provided the improved technology (also seed) for free as part of there
- experiment, potentially resulting in an income effect in the sense that
- money that was not used to buy seed was used to buy complementary inputs.
+ provided the improved technology (also seed) for free as part of the experiment
+, potentially resulting in an income effect in the sense that money that
+ treated farmers did not use to buy seed was used to buy complementary inputs.
 \begin_inset Foot
 status collapsed
 
@@ -5756,13 +5776,12 @@ literal "false"
 \end_inset
 
  In our experiment, no free seed was provided, so when the adoption decision
- was made, farmers had to take the additional cost of seed and the fact
- that expensive complementary inputs would need to be purchased into account,
- leading to disadoption.
+ was made, farmers had to take the cost of seed combined with the cost of
+ complementary inputs into account, leading to dis-adoption in some cases.
 \end_layout
 
 \begin_layout Standard
-Our study further casts doubt on the suggestion that bayesian learning via
+Our study further casts doubt on the suggestion that Bayesian learning via
  sequential adoption can be a successful strategy for smallholder farmers
  in the long run 
 \begin_inset CommandInset citation
@@ -5773,22 +5792,22 @@ literal "false"
 \end_inset
 
 .
- If important interaction effects between different inputs are present,
- it is unlikely that farmers can try out all possible combinations of inputs
- to learn about these interactions in a bayesian fashion.
- Furthermore, if farmers can not learn about the interactions, expectations
+ If there are important interaction effects between different inputs, farmers
+ can hardly try out all possible combinations of inputs to learn about these
+ interactions in a Bayesian fashion.
+ Furthermore, if farmers cannot learn about these interactions, expectations
  may be incorrect, leading to sub-optimal adoption patterns, further complicatin
 g learning.
 \end_layout
 
 \begin_layout Standard
-Our study also has important implications for both policy markers and the
- private sector.
+Our study has important implications for both policy makers and the private
+ sector.
  When designing agricultural extension and advisory services, policy makers
  should highlight the complementarity of modern inputs.
  If not, their efforts risk to be short lived.
- Worse, false perceptions of poor quality may crowd out the market for quality
- inputs 
+ Worse, incorrect perceptions of poor quality caused by misattribution may
+ crowd out the market for quality inputs 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qjx009"
@@ -5797,7 +5816,7 @@ literal "false"
 \end_inset
 
 .
- Policy makers often subsidize improved technologies to scale up adoption
+ Policy makers also often subsidize improved technologies to scale up adoption
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -5810,24 +5829,24 @@ literal "false"
  While this may work for some stand-alone technologies 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "eg."
+before "for example,"
 key "https://doi.org/10.1093/ajae/aay108"
 literal "false"
 
 \end_inset
 
-, promoting technologies that require complementary inputs (such as the
- use of subsidized or even free seed trial packs) may be counterproductive.
+, promoting technologies that require complementary inputs (such as subsidized
+ or even free seed trial packs) without supplying these complementary inputs
+ may be counterproductive as farmers may not experience the expected success.
 \end_layout
 
 \begin_layout Standard
-There is also a role for industry.
+Industry can also play an important role here.
  As part of their marketing strategy, seed producers and agro-input dealers
- tend to highlight particular traits of the technology they use, such as
+ tend to highlight particular traits of the technology they sell, such as
  high yields.
  Furthermore, they may not be tempted to actively promote the use of complementa
-ry inputs if they are produced by companies that target the same customers
- as they do.
+ry inputs if they are produced by competing companies.
  In both cases, short term benefits may lead to long run losses.
 \end_layout
 
