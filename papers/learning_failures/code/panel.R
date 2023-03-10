@@ -49,6 +49,21 @@ baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_f
 midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"), stringsAsFactors=TRUE)
 endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"), stringsAsFactors=TRUE)
 
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 999] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 96] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 98] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == "n/a"] <- NA
+
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 999] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 96] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 98] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == "n/a"] <- NA
+
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 999] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 96] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 98] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == "n/a"] <- NA
+
 #no treatment indicator for dealer training in baseline_farmers
 #treatments at shop level
 treatments_shop_level <- read.csv(paste(path,"/baseline/data/agro_input/public/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
@@ -628,8 +643,8 @@ all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearin
 all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
 ##  collect results
-xmat_base <- cbind(all$adoption_onfield,all$Land_Races,all$farmer_saved_seed,all$Bought_from_agro_input_shop)
-index_base <- icwIndex(xmat=xmat_base,revcols = c(2,3))
+xmat_base <- cbind(all$adoption_onfield,all$farmer_saved_seed,all$Bought_from_agro_input_shop)
+index_base <- icwIndex(xmat=xmat_base,revcols = c(2))
 all$index_base <- index_base$index
 
 
@@ -652,8 +667,8 @@ for (i in 1:length(outcomes)) {
 
 save(mean_base, file=paste(path,"papers/learning_failures/code/output/mean_base.Rdata",sep="/")) 
 
-xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_Land_Races,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
-index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2,3))
+xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
+index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
 all$index_mid <- index_mid$index
 
 mid_adoption <-  array(NA,dim=c(4,2,5))
@@ -680,8 +695,8 @@ mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,2,i] <- nobs(ols)
 }
 
-xmat_end <- cbind(all$end_adoption_onfield,all$end_Land_Races,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
-index_end <- icwIndex(xmat=xmat_end,revcols = c(2,3))
+xmat_end <- cbind(all$end_adoption_onfield,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
+index_end <- icwIndex(xmat=xmat_end,revcols = c(2))
 all$index_end <- index_end$index
 
 end_adoption <-  array(NA,dim=c(4,2,5))
