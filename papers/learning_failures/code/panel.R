@@ -49,6 +49,18 @@ baseline_farmers <- read.csv(paste(path,"/baseline/data/farmer/public/baseline_f
 midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv",sep="/"), stringsAsFactors=TRUE)
 endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"), stringsAsFactors=TRUE)
 
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 999] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 96] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 98] <- NA
+
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 999] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 96] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == 98] <- NA
+
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 999] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 96] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == 98] <- NA
+
 #no treatment indicator for dealer training in baseline_farmers
 #treatments at shop level
 treatments_shop_level <- read.csv(paste(path,"/baseline/data/agro_input/public/treats_shop_level.csv", sep="/"), stringsAsFactors = TRUE)
