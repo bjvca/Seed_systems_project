@@ -658,15 +658,7 @@ never adopters
 \begin_inset Quotes erd
 \end_inset
 
- from 
-\begin_inset Quotes eld
-\end_inset
-
-adopters
-\begin_inset Quotes erd
-\end_inset
-
- and 
+ from “new adopters” and 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1952,14 +1944,60 @@ The treatment was implemented using short, engaging videos, shown to the
 
 \begin_layout Standard
 The treatment was implemented in the form of two variations of this video.
- The control video is essentially the video as described above.
+ The control video is essentially the video described above.
  In the treatment video, we added subtle messages that recommended practices
  and inputs that feature in the video are particularly important when the
  farmer uses seed of improved varieties.
  The only difference between the treatment and control video is thus that
  the former makes explicit the fact that significant complementarity exists
  between seed of improved varieties and the recommended inputs and practices.
- This way we can test if this little piece of information makes a difference.
+ To give an example, the farmer narrates in the control video that: 
+\begin_inset Quotes eld
+\end_inset
+
+At planting time, I paid attention to recommended spacing, carefully measuring
+ 1 foot between plants and 2,5 feet between rows.
+ I first dug a 4 inches deep hole and added 1 water bottle cap of DAP.
+ Then I added some soil.
+ Afterwards I put 1 maize seed in and covered it with soil.
+\begin_inset Quotes erd
+\end_inset
+
+ The treatment video shows the same scene but then the farmer adds: 
+\begin_inset Quotes eld
+\end_inset
+
+Did you know that recommended spacing and using DAP is even more important
+ when using improved seeds?
+\begin_inset Quotes erd
+\end_inset
+
+ The control video is about eight minutes long and can be found 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://vimeo.com/781882803"
+literal "false"
+
+\end_inset
+
+.
+ The treatment video is about twelve minutes long and can be found 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://vimeo.com/781882930"
+literal "false"
+
+\end_inset
+
+, meaning that there are four extra minutes of material.
+ The other eight minutes are equal to the control video, no scenes are replaced
+ or modified.
+\end_layout
+
+\begin_layout Standard
+This way we can test if this little piece of information makes a difference.
  An additional advantage is that control farmers will also believe that
  they are somewhat treated, so that treated and control farmers will adjust
  their behavior similarly 
@@ -1972,42 +2010,22 @@ literal "false"
 
  and effort responses will not explain the treatment effect, if we find
  one.
- The treatment video is about twelve minutes long and can be found 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "https://vimeo.com/781882930"
-literal "false"
-
-\end_inset
-
-.
- The control video is about eight minutes long and can be found 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "https://vimeo.com/781882803"
-literal "false"
-
-\end_inset
-
-.
- Half farmers in half of the villages are randomly assigned to the control
- group, the other half to the treatment group.
+ Farmers in half of the villages are randomly assigned to the control group,
+ the other half to the treatment group.
 \end_layout
 
-\begin_layout Section
-Empirical strategy
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: Do we not need a section like this?
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+The information in the videos was supposed to benefit farmers in the second
+ agricultural season of 2021, where maize planting happens in August and
+ September and maize harvesting in November and December.
+ We decided to implement the treatment well before the start of the season,
+ in April 2021, to safeguard that farmers had the necessary information
+ before deciding which kind of seed to use.
+ On the other hand, we were worried that their knowledge would not last,
+ and showed the video a second time in August 2021.
+ Post-treatment data was collected in January and February 2022, asking
+ farmers about the second cropping season of 2021.
+ The intervention was repeated again in 2022.
 \end_layout
 
 \begin_layout Section
@@ -2456,6 +2474,96 @@ Caro: Are these figures for only the adopting farmers (at baseline)?
 
 \end_layout
 
+\begin_layout Subsection
+Empirical strategy
+\begin_inset CommandInset label
+LatexCommand label
+name "section: Empirical strategy"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Bjorn: please explain how we now control for the averages only (new way
+ of estimating)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to the random assignment to treatment and control groups, comparing
+ outcome variable means of treated and control participants provides unbiased
+ estimates of the average treatment effects.
+ Differences are estimated in a regression framework.
+ To increase power, we condition the estimates on baseline values of the
+ outcome variables.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+As this study was part of a larger project with additional treatments at
+ the agro-input dealer level, controls are included for the orthogonal treatment
+s (demeaned and interacted with the main treatment 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lin2013agnostic,muralidharan2019factorial"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Standard errors are clustered at the village level, the level of randomization.
+ Since we have almost 3500 observations in 130 clusters, the original form
+ of the sandwich estimator 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/biomet/73.1.13"
+literal "false"
+
+\end_inset
+
+ is used.
+ We account for multiple hypothesis testing by aggregating different outcomes
+ within each domain into summary indices, following 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "doi:10.1198/016214508000000841"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Each index is computed as a weighted mean of the standardized values of
+ the outcome variables.
+ The weights of this efficient generalized least squares estimator are calculate
+d to maximize the amount of information captured in the index by giving
+ less weight to outcomes that are highly correlated with each other.
+\end_layout
+
+\end_inset
+
+ For these indices, signs of outcomes were switched where necessary so that
+ the positive direction always indicates a “better” outcome.
+\end_layout
+
 \begin_layout Section
 Results
 \begin_inset CommandInset label
@@ -2474,26 +2582,12 @@ In this section, we present impact of the treatment using simple differences
 status collapsed
 
 \begin_layout Plain Layout
-Differences between treatment and control are estimated in a regression
- framework where standard errors are clustered at the level of the intervention
- (village level).
- As this study was part of a larger study with also treatments at the agro-input
- dealer level, controls are included for orthogonal treatments (demeaned
- and interacted with the main treatment 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "lin2013agnostic"
-literal "false"
-
-\end_inset
-
-).
- Even though we did collect data at base-, mid- and endline, we only report
+Even though we did collect data at base-, mid- and endline, we only report
  midline results because we expect the effect to be largest right after
- the intervention and no large impact from repeating the treatment.
+ the intervention.
  For this reason and to make the paper easy to read, we decided to not present
  the endline results.
- The same analysis on endline data is available from the authors on request.
+ The same analysis on endline data is available from the authors upon request.
 \end_layout
 
 \end_inset
@@ -3757,7 +3851,7 @@ Sexpr{format(round(mid_adoption[2,2,3],digits=3),nsmall=3)})
 
 
 \backslash
-textbf{Adoption index}
+textbf{Adoption index$^1$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3953,6 +4047,12 @@ Note: Column (1) reports means at baseline (and standard deviations below);
  for farmers that adopt at baseline; **, * and + denote significance at
  the 1, 5 and 10 percent levels; standard errors are clustered at the village
  level.
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$For this index, signs of outcomes were switched where necessary so that
+ the positive direction always indicates adoption of improved varieties.
 \end_layout
 
 \end_inset
@@ -5290,7 +5390,7 @@ Finally, the table shows that the average farmer cultivates about 470 kilograms
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
