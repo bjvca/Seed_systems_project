@@ -52,14 +52,17 @@ endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv"
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 999] <- NA
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 96] <- NA
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 98] <- NA
+baseline_farmers[, 4:98][baseline_farmers[, 4:98] == "n/a"] <- NA
 
 midline_farmers[, 4:72][midline_farmers[, 4:72] == 999] <- NA
 midline_farmers[, 4:72][midline_farmers[, 4:72] == 96] <- NA
 midline_farmers[, 4:72][midline_farmers[, 4:72] == 98] <- NA
+midline_farmers[, 4:72][midline_farmers[, 4:72] == "n/a"] <- NA
 
 endline_farmers[, 4:76][endline_farmers[, 4:76] == 999] <- NA
 endline_farmers[, 4:76][endline_farmers[, 4:76] == 96] <- NA
 endline_farmers[, 4:76][endline_farmers[, 4:76] == 98] <- NA
+endline_farmers[, 4:76][endline_farmers[, 4:76] == "n/a"] <- NA
 
 #no treatment indicator for dealer training in baseline_farmers
 #treatments at shop level
