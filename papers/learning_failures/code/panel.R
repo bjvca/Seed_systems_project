@@ -614,8 +614,8 @@ all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearin
 all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
 ##  collect results
-xmat_base <- cbind(all$adoption_onfield,all$Land_Races,all$farmer_saved_seed,all$Bought_from_agro_input_shop)
-index_base <- icwIndex(xmat=xmat_base,revcols = c(2,3))
+xmat_base <- cbind(all$adoption_onfield,all$farmer_saved_seed,all$Bought_from_agro_input_shop)
+index_base <- icwIndex(xmat=xmat_base,revcols = c(2))
 all$index_base <- index_base$index
 
 
@@ -638,8 +638,8 @@ for (i in 1:length(outcomes)) {
 
 save(mean_base, file=paste(path,"papers/learning_failures/code/output/mean_base.Rdata",sep="/")) 
 
-xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_Land_Races,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
-index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2,3))
+xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
+index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
 all$index_mid <- index_mid$index
 
 mid_adoption <-  array(NA,dim=c(4,2,5))
@@ -665,8 +665,8 @@ mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,2,i] <- nobs(ols)
 }
 
-xmat_end <- cbind(all$end_adoption_onfield,all$end_Land_Races,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
-index_end <- icwIndex(xmat=xmat_end,revcols = c(2,3))
+xmat_end <- cbind(all$end_adoption_onfield,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
+index_end <- icwIndex(xmat=xmat_end,revcols = c(2))
 all$index_end <- index_end$index
 
 end_adoption <-  array(NA,dim=c(4,2,5))
