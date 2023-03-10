@@ -215,6 +215,32 @@ endline_farmers$end_resowing <- NA
 endline_farmers$end_resowing <- endline_farmers$check.maize.q49=="Yes"
 endline_farmers$end_resowing[endline_farmers$check.maize.q49=="98"] <- NA
 
+##weeding at correct time
+baseline_farmers$time_weed <- NA
+baseline_farmers$Check2.check.maize.q46 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q46))
+baseline_farmers$time_weed <-  (baseline_farmers$Check2.check.maize.q46 <= 20)
+
+midline_farmers$mid_time_weed <- NA
+midline_farmers$check.maize.q46 <- as.numeric(as.character(midline_farmers$check.maize.q46))
+midline_farmers$mid_time_weed <-  (midline_farmers$check.maize.q46 <= 20)
+
+endline_farmers$end_time_weed <- NA
+endline_farmers$check.maize.q46 <- as.numeric(as.character(endline_farmers$check.maize.q46))
+endline_farmers$end_time_weed <-  (endline_farmers$check.maize.q46 <= 20)
+
+#planting at correct time
+baseline_farmers$time_plant <- NA
+baseline_farmers$Check2.check.maize.q48 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q48))
+baseline_farmers$time_plant <-  (baseline_farmers$Check2.check.maize.q48 =="2")
+
+midline_farmers$mid_time_plant <- NA
+midline_farmers$check.maize.q48 <- as.numeric(as.character(midline_farmers$check.maize.q48))
+midline_farmers$mid_time_plant <-  (midline_farmers$check.maize.q48 =="2")
+
+endline_farmers$end_time_plant <- NA
+endline_farmers$check.maize.q48 <- as.numeric(as.character(endline_farmers$check.maize.q48))
+endline_farmers$end_time_plant <-  (endline_farmers$check.maize.q48 =="2")
+
 #create adoption_onfield variable for midline
 
 #1. hybrid
@@ -648,9 +674,10 @@ all$index_mid <- index_mid$index
 mid_adoption <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
 outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
+outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
 for (i in 1:length(outcomes)) {
  
-ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
 
 vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
 coef_test(ols, vcov_cluster)
@@ -659,7 +686,7 @@ mid_adoption[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,1,i] <- nobs(ols)
 
-ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
 vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
 coef_test(ols, vcov_cluster)
 mid_adoption[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -675,9 +702,10 @@ all$index_end <- index_end$index
 end_adoption <-  array(NA,dim=c(4,2,5))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
 outcomes <- c("end_adoption_onfield","end_Land_Races","end_farmer_saved_seed","end_Bought_from_agro_input_shop","index_end")
+outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
 for (i in 1:length(outcomes)) {
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
@@ -686,7 +714,7 @@ for (i in 1:length(outcomes)) {
   end_adoption[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_adoption[4,1,i] <- nobs(ols)
     
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
   vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   end_adoption[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -760,7 +788,7 @@ save(end_knowledge, file=paste(path,"papers/learning_failures/code/output/end_kn
 
 #c("end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing")
 
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing")])
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","time_plant","time_weed")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","mid_time_plant","mid_time_weed")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","end_time_plant","end_time_weed")])
 
 
 ##demean orthogonal treatments
@@ -768,14 +796,14 @@ all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
 
 
-xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, all$DAP_use, all$Urea_use, all$times_weeding, all$pesticide_use, all$resowing)
+xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, all$DAP_use, all$Urea_use, all$times_weeding, all$pesticide_use, all$resowing, all$time_plant, all$time_weed)
 index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
 
 
-mean_pract <-  array(NA,dim=c(4,2,9))
+mean_pract <-  array(NA,dim=c(4,2,11))
 #loop here over outcomes
-outcomes <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base")
+outcomes <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base","time_plant","time_weed")
 for (i in 1:length(outcomes)) {
   mean_pract[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
   mean_pract[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
@@ -789,18 +817,18 @@ for (i in 1:length(outcomes)) {
   mean_pract[4,2,i] <- nobs(ols)
 }
 
-xmat_mid <- cbind(all$mid_correct_spacing, all$mid_correct_seed_rate, all$mid_organic_use, all$mid_DAP_use, all$mid_Urea_use, all$mid_times_weeding, all$mid_pesticide_use, all$mid_resowing)
+xmat_mid <- cbind(all$mid_correct_spacing, all$mid_correct_seed_rate, all$mid_organic_use, all$mid_DAP_use, all$mid_Urea_use, all$mid_times_weeding, all$mid_pesticide_use, all$mid_resowing, all$mid_time_plant, all$mid_time_weed)
 index_mid <- icwIndex(xmat=xmat_mid)
 all$index_mid <- index_mid$index
 
-mid_practices <-  array(NA,dim=c(4,4,9))
+mid_practices <-  array(NA,dim=c(4,4,11))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")
-outcomes <- c("mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","index_mid")
-outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base")
+outcomes <- c("mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","index_mid","mid_time_plant", "mid_time_weed")
+outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base","time_plant","time_weed")
 
 for (i in 1:length(outcomes)) {
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
@@ -809,7 +837,7 @@ for (i in 1:length(outcomes)) {
   mid_practices[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_practices[4,1,i] <- nobs(ols)
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
   vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   mid_practices[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -821,18 +849,18 @@ for (i in 1:length(outcomes)) {
 }
 
 
-xmat_end <- cbind(all$end_correct_spacing, all$end_correct_seed_rate, all$end_organic_use, all$end_DAP_use, all$end_Urea_use, all$end_times_weeding, all$end_pesticide_use, all$end_resowing)
+xmat_end <- cbind(all$end_correct_spacing, all$end_correct_seed_rate, all$end_organic_use, all$end_DAP_use, all$end_Urea_use, all$end_times_weeding, all$end_pesticide_use, all$end_resowing, all$end_time_plant, all$end_time_weed)
 index_end <- icwIndex(xmat=xmat_end)
 all$index_end <- index_end$index
 
-end_practices <-  array(NA,dim=c(4,3,9))
+end_practices <-  array(NA,dim=c(4,3,11))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
-outcomes <- c("end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","index_end")
-outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base")
+outcomes <- c("end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","index_end","end_time_plant","end_time_weed")
+outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base","time_plant","time_weed")
 
 for (i in 1:length(outcomes)) {
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
@@ -841,7 +869,7 @@ for (i in 1:length(outcomes)) {
   end_practices[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_practices[4,1,i] <- nobs(ols)
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1,])
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
   vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 ,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster) 
   end_practices[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -849,7 +877,7 @@ for (i in 1:length(outcomes)) {
   end_practices[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_practices[4,2,i] <- nobs(ols) 
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1 & all$mid_adoption_onfield==0 &  all$end_adoption_onfield==1 ,])
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1 & all$mid_adoption_onfield==0 &  all$end_adoption_onfield==1 ,])
   vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & all$mid_adoption_onfield==0 &  all$end_adoption_onfield==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster) 
   end_practices[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
@@ -963,7 +991,6 @@ all$index_mid <- index_mid$index
 mid_expectations <-  array(NA,dim=c(4,4,9))
 #loop here over outcomes c
 outcomes <- c("mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity","index_mid")
-
 for (i in 1:length(outcomes)) {
   
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
