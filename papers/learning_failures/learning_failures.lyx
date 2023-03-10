@@ -758,6 +758,17 @@ literal "false"
 
  argue that this is due to farmers employing a Bayesian approach to learning,
  where they try to isolate the impact of one component of the package.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+another paper, perhaps interesting to add: Uncertainty, Learning, and Technology
+ Adoption in Agriculture (Chavas & Nauges, 2020)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1104,7 +1115,7 @@ d seed
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}^{L}\label{eq:truerel}
+Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\right)\label{eq:truerel}
 \end{equation}
 
 \end_inset
@@ -1373,18 +1384,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Farmers may also underestimate the adoption premium
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I miss the part about disappointment here
-\end_layout
-
-\end_inset
-
-.
- For some, type 5 in Table 
+Another group of farmers had a disappointing experience with seed of an
+ improved variety in the past, as they used to believe in miracle seed and
+ over-adopted as described above, and consequently reduced their expectations
+ of the adoption markup.
+ For some of them, type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1400,7 +1404,10 @@ noprefix "false"
  These farmers keep adopting as the intervention increases their expected
  marginal return, but they may adjust their efforts and expectations in
  response to the treatment.
- For another fraction of farmers that underestimate the adoption premium,
+\end_layout
+
+\begin_layout Standard
+For another fraction of farmers that underestimate the adoption premium,
  referred to as type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1950,6 +1957,19 @@ The treatment was implemented in the form of two variations of this video.
  The only difference between the treatment and control video is thus that
  the former makes explicit the fact that significant complementarity exists
  between improved seed varieties and the recommended inputs and practices.
+ This way we can test if this little piece of information makes a difference.
+ An additional advantage is that control farmers will also believe that
+ they are somewhat treated, so that treated and control farmers will adjust
+ their behavior similarly 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bulte2014behavioral"
+literal "false"
+
+\end_inset
+
+ and effort responses will not explain the treatment effect, if we find
+ one.
  The treatment video is about twelve minutes long and can be found 
 \begin_inset CommandInset href
 LatexCommand href
@@ -4010,7 +4030,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Reducing the seed rate is our second outcome.
+Reducing the seed rate, i.e.
+ the number of seeds used, is our second outcome.
  Farmers often plant more seed than necessary because they fear that it
  may not germinate.
  However, using more than two seeds per hill leads to stunted maize growth
@@ -4023,8 +4044,9 @@ Reducing the seed rate is our second outcome.
 \begin_layout Standard
 The next three outcomes look at fertilizer use.
  The application of organic fertilizer is important for soil structure,
- while Di-Ammonium Phosphate (DAP) and Urea are used to provide essential
- nutrients at particular points in time.
+ while Di-Ammonium Phosphate (DAP) or Nitrogen, Phosphorus, and Potassium
+ (NPK) and Urea are used to provide essential nutrients at particular points
+ in time.
  The cost of organic fertilizer is mainly in terms of labor, while both
  DAP and Urea need to be bought from an agro-input shop and applied during
  planting (DAP) and at early stages of growth (Urea).
@@ -4043,8 +4065,9 @@ Spodoptera frugiperda
 Busseola fusca
 \emph default
 ) can severely reduce yields.
- Pesticides, including insecticides, are widely available in agro-input
- shops under commercial names such as Rocket, Lalafos and Dudu acelamectin.
+ Pesticides, herbicides, fungicides, and insecticides, are widely available
+ in agro-input shops under commercial names such as Rocket, Lalafos and
+ Dudu acelamectin.
  While weeding requires labor, pesticides come at a pecuniary cost.
 \end_layout
 
@@ -4515,7 +4538,7 @@ Sexpr{format(round(mid_practices[2,2,3],digits=3),nsmall=3)}
 
 \begin_layout Plain Layout
 
-DAP use
+DAP/ NPK use
 \end_layout
 
 \begin_layout Plain Layout
@@ -4818,7 +4841,8 @@ Sexpr{format(round(mid_practices[2,2,6],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Pesticide use
+Pesticide etc.
+ use
 \end_layout
 
 \begin_layout Plain Layout
@@ -5300,7 +5324,7 @@ Finally, the table shows that the average farmer cultivates about 470 kilograms
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
