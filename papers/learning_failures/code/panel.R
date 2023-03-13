@@ -390,6 +390,7 @@ endline_farmers$q62_correct <- ifelse(endline_farmers$check.maize.q62=="c",1,0)
 
 endline_farmers$check.maize.q63[endline_farmers$check.maize.q63=="n/a"] <- NA
 endline_farmers$q63_correct <- ifelse(endline_farmers$check.maize.q63=="a",1,0)
+endline_farmers$q63_correct[endline_farmers$check.maize.q63=="c"] <- 1 #Roberts comment
 
 
 #now make a panel
