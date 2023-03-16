@@ -923,8 +923,12 @@ literal "false"
 
 \end_inset
 
-, we assume that farmers are risk-neutral and choose a seed type, an improved
- variety (a high-yielding cultivar, i.e.
+, we assume that farmers (index 
+\emph on
+i
+\emph default
+ in the model below) are risk-neutral and choose a seed type, which is either
+ of an improved variety (a high-yielding cultivar, i.e.
  an OPV or a hybrid variety) or farmer-saved seed, to maximize their profits
  per area of land.
  In particular, they compare the expected profit functions of seed of an
@@ -985,7 +989,7 @@ E
 \end_inset
 
  is procured at a cost 
-\begin_inset Formula $b_{t}$
+\begin_inset Formula $b_{t}>0$
 \end_inset
 
 .
@@ -1006,7 +1010,7 @@ inputs
 \end_layout
 
 \begin_layout Standard
-Farmers adopt improved varieties if they expect that using their seed is
+Farmers adopt improved varieties if they expect that using this seed is
  more profitable than using farmer-saved seed, that is, if 
 \begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it}^{L}\right)$
 \end_inset
@@ -1031,8 +1035,8 @@ where we normalize by output price.
 status collapsed
 
 \begin_layout Plain Layout
-We model the decision to adopt as a binary process, where farmers adopt
- on entire fields, instead of expressing 
+We assume farmers have only one plot and model the decision to adopt as
+ a binary process, instead of expressing 
 \begin_inset Formula $s_{it}$
 \end_inset
 
@@ -1061,8 +1065,7 @@ noprefix "false"
 
 \end_inset
 
- shows that adoption decisions based on profit functions fundamentally depend
- on yield comparisons.
+ shows that adoption decisions fundamentally depend on yield comparisons.
  We assume that yield for farmer-saved seed is a function of inputs used:
 \end_layout
 
@@ -1091,7 +1094,7 @@ and this relationship is assumed to be positive with decreasing returns
 \end_layout
 
 \begin_layout Standard
-Yield for seed of improved varieties follows a similar function as yield
+Yield for seed of improved varieties follows the same function as yield
  for farmer-saved seed, but adds a positive and constant adoption premium
  
 \begin_inset Formula $(A>0)$
@@ -1101,7 +1104,7 @@ Yield for seed of improved varieties follows a similar function as yield
  However, the adoption premium only applies when the farmer uses at least
  the same amount of complementary inputs as they would do when using farmer-save
 d seed 
-\begin_inset Formula $X_{it}^{H}\geq X_{it}^{L}$
+\begin_inset Formula $\left(X_{it}^{H}\geq X_{it}^{L}\right)$
 \end_inset
 
 :
@@ -1110,14 +1113,14 @@ d seed
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\right)\label{eq:truerel}
+Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{H}\right)\label{eq:truerel}
 \end{equation}
 
 \end_inset
 
-However, there may be reasons why farmers reduce input use when adopting
- improved varieties.
- For instance, if they face a budget constrained, then inputs will be reduced
+However, there may be reasons why farmers reduce input use when switching
+ to improved varieties.
+ For instance, if they face a budget constraint, then inputs will be reduced
  by the cost of seed, resulting in lower yields
 \begin_inset Note Note
 status collapsed
@@ -1173,7 +1176,7 @@ X_{it}^{L} would have to be multiplied by w_{t}.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{it+1}^{H}=Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)
+Y_{it+1}^{H}=Y_{it}\left(X_{it}^{H}\right)=Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\right)
 \end{equation}
 
 \end_inset
@@ -1203,7 +1206,7 @@ t+1
 \end_inset
 
 , but instead believe that 
-\begin_inset Formula $E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{L}\right)$
+\begin_inset Formula $E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{H}\right)$
 \end_inset
 
 .
@@ -1222,13 +1225,13 @@ E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{L}-\frac{b_{t}s_{it}}{w_{t}}\ri
 \end_layout
 
 \begin_layout Standard
-and as a result, the farmer will use too much seed of improved varieties
- and not enough other inputs.
+and as a result, the farmer will use seed of improved varieties but not
+ enough complementary inputs.
 \end_layout
 
 \begin_layout Standard
 The model leads to different farmer types based on their dynamic profile
- and knowledge, see Table 
+ and knowledge, as summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1295,7 +1298,8 @@ noprefix "false"
 
 , the marginal cost of adoption will be higher than the expected marginal
  return, so they will never adopt.
- Providing information about the true relationship between 
+ As type 1 and type 2 farmers are assumed to be already knowledgeable about
+ the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
 
@@ -1303,14 +1307,11 @@ noprefix "false"
 \begin_inset Formula $X_{it}$
 \end_inset
 
- will have no effect on these farmers.
+, providing information will have little effect on these farmers.
 \end_layout
 
 \begin_layout Standard
-Another group of farmers is not knowledgeable about the interaction effect,
- but instead believes in miracle seed and thinks that there is always an
- adoption premium.
- A subset of these farmers without knowledge about the true relationship
+Another group of farmers is not knowledgeable about the true relationship
  between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
@@ -1319,44 +1320,33 @@ Another group of farmers is not knowledgeable about the interaction effect,
 \begin_inset Formula $X_{it}$
 \end_inset
 
- does adopt prior to the intervention because their marginal cost of adoption
- is lower than their expected marginal returns.
- Providing these type 3 farmers with information may lead them to dis-adopt,
- at least in the short run, when this new information reduces their expected
- marginal return below the marginal cost.
+ and believe there is always an adoption premium.
+ A subset of these farmers may adopt prior to the intervention because their
+ marginal cost of adoption is lower than their expected marginal returns.
+ Providing these type 3 farmers with information may lead them to dis-adopt
+ if this new information reduces their expected marginal return below the
+ marginal cost.
  As these farmers stop adopting improved varieties and start using cheaper
  farmer-saved seed, their yield expectations will also become more in line
  with reality.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Unclear and not really necessary - consider deleting: Correct expectations
- are defined as the farmer harvesting as much maize from their field as
- expected.
- If a farmer plants seed of an improved variety, these expectations deal
- with the yield of seed of an improved variety.
- If a farmer plants farmer-saved seed, these expectations deal with the
- yield of farmer-saved seed.
- In fact, we assume that 
-\begin_inset Formula $E\left(Y_{it}^{L}\right)=Y_{it}^{L}$
-\end_inset
-
-, implying that all farmers that plant farmer-saved seed have correct expectatio
-ns prior to the intervention.
- 
-\end_layout
-
-\end_inset
-
- As type 3 farmers dis-adopt, we do not expect an impact on efforts in response
- to the treatment for this subgroup.
- 
+ We further expect a positive treatment effect for type 3 farmers, as in
+ the control group there are farmers that still believe improved seed varieties
+ are miracle seed and so apply less inputs and put in less effort than they
+ would if they would use farmer saved seed (and in the treatment group most
+ farmers revert to farmer saved seed).
 \end_layout
 
 \begin_layout Standard
 Another subset of this second group of farmers that is not knowledgeable
- about the interaction effect, referred to as type 4 farmers in Table 
+ about the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+, referred to as type 4 farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1367,21 +1357,32 @@ noprefix "false"
 \end_inset
 
 , does not adopt at baseline because, even though they have inflated expectation
-s of the seed, the marginal cost of adoption still exceeds the expected
- marginal returns.
+s of the improve seed variety, the marginal cost of adoption still exceeds
+ the expected marginal returns.
  Providing these farmers with information will not have an effect on their
  adoption decision because it will only decrease their expected marginal
  return which was already too low to adopt prior to the intervention.
  As they were already planting farmer-saved seed, their expectations will
  also not be affected by the intervention, nor do we expect an effect on
- their efforts.
+ their input use and efforts.
 \end_layout
 
 \begin_layout Standard
-Another group of farmers had a disappointing experience with an improved
+Another group of farmers is also not not knowledgeable about the true relationsh
+ip between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+.
+ But unlike type 3 and 4 farmers, these farmers hold expectations of the
+ adoption markup that are too low.
+ This could be because they had a disappointing experience with an improved
  variety in the past, as they used to believe in miracle seed and over-adopted
- as described above, and consequently reduced their expectations of the
- adoption markup.
+ as described above.
  For some of them, type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1392,9 +1393,9 @@ noprefix "false"
 
 \end_inset
 
-, the expected marginal return may still be larger than the marginal cost
- of adoption, even if they underestimate the probability of realizing an
- adoption premium.
+, adopt at baseline as the expected marginal return may still be larger
+ than the marginal cost of adoption, even if they underestimate the probability
+ of realizing an adoption premium.
  These farmers keep adopting as the intervention increases their expected
  marginal return, but they may adjust their efforts and expectations in
  response to the treatment.
@@ -1426,7 +1427,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1487,7 +1488,7 @@ hline
 
 \begin_layout Plain Layout
 
-& prior & internal & baseline & effect on & effect on & effect on 
+& baseline  & baseline & effect on & effect on & effect on & effect on 
 \backslash
 
 \backslash
@@ -1496,7 +1497,7 @@ hline
 
 \begin_layout Plain Layout
 
-& knowledge & comparison & adoption & adoption & exp.$^1$ & efforts 
+& expectations  & adoption & knowledge & adoption & exp.$^1$ & efforts 
 \backslash
 
 \backslash
@@ -1512,9 +1513,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-1 & know true  & true exp.
- marg.
- & yes & none  & none  & none 
+1 & correct  & yes  & none & none  & none  & none 
 \backslash
 
 \backslash
@@ -1523,8 +1522,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& probability of   & return > marg.
- & & (always & (correct at & (correct at 
+& expectations of    & & &(always & (correct at &  
 \backslash
 
 \backslash
@@ -1533,46 +1531,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& adoption premium &  cost of adoption && adopt) & baseline) & baseline)
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-2 & know true  & true exp.
- marg.
- & no & none  & none & none 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& probability of  & return < marg.
- & & (never  & (correct at & (correct at 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& adoption premium &   cost of adoption && adopt)& baseline) & baseline)
+& adoption premium  & & & adopt) & baseline) & 
 \backslash
 
 \backslash
@@ -1590,9 +1549,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-3 & overestimate  & biased exp.
- marg.
- & yes & dis-adopt due to & more  & none 
+2 & correct   & no &   none &none  & none & none 
 \backslash
 
 \backslash
@@ -1601,9 +1558,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& probability of & return > marg.
- &&   decreased exp.
- & realistic & (no  
+& expectations of & & &(never  & (correct at &  
 \backslash
 
 \backslash
@@ -1612,8 +1567,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& adoption premium &  cost of adoption &&   marg.
- return & & adoption)
+& adoption premium &&& adopt)& baseline) &
 \backslash
 
 \backslash
@@ -1631,9 +1585,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-4 & overestimate  & biased exp.
- marg.
- & no & none  & none & none 
+3 & inflated  & yes  & yes & dis-adopt due to & more  & increase 
 \backslash
 
 \backslash
@@ -1642,8 +1594,8 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& probability of  & return < marg.
- & & (never  &  (correct at & (no 
+& expectations of  &&  ++ & decreased exp.
+ & realistic & +  
 \backslash
 
 \backslash
@@ -1652,46 +1604,8 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& adoption premium &  cost of adoption && adopt) & baseline) &  adoption)
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-5 & underestimate  & biased exp.
- marg.
- & yes & none   & more  & increase 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& probability of  & return > marg.
- & & (always  &  realistic
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& adoption premium &  cost of adoption & & adopt) & 
+& adoption premium  &&  & marg.
+ return & & 
 \backslash
 
 \backslash
@@ -1709,9 +1623,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-6 & underestimate  & biased exp.
- marg.
- & no & adopt due to  & none & increase 
+4 & inflated & no & yes &none  & none & none 
 \backslash
 
 \backslash
@@ -1720,9 +1632,7 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& probability of  & return < marg.
- &&  increased exp.
- & (correct at
+& expectations of & & + & (never  &  (correct at &  
 \backslash
 
 \backslash
@@ -1731,7 +1641,80 @@ cline{2-7}
 
 \begin_layout Plain Layout
 
-& adoption premium &  cost of adoption &  &  marg.
+& adoption premium  &&& adopt) & baseline) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+5 & reduced   & yes & yes& none   & more  & increase 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& expectations of   & & ++ & (always  &  realistic & +
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& adoption premium & & & adopt) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+6 & reduced   & no & yes & adopt due to  & none & increase 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& expectations of   && + & increased exp.
+ & (correct at & ++
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& adoption premium &  &  & marg.
  return &  baseline) 
 \backslash
 
@@ -1802,9 +1785,10 @@ The model leads to the following testable predictions:
 \end_layout
 
 \begin_layout Enumerate
-Farmers that acquire new information about the interaction between seed
- of improved varieties and complementary inputs and were not knowledgeable
- to begin with (types 3 - 6) will have increased knowledge.
+Some farmers that were unaware of the true relationship between seed of
+ improved varieties and complementary inputs that receive the intervention
+ will have increased knowledge about the importance of combining seed of
+ improved varieties with complementary inputs.
  The effect will be larger for farmers that adopt at baseline (types 1,
  3, 5) since this removes 
 \begin_inset Quotes eld
@@ -1819,9 +1803,10 @@ never adopters
 \end_layout
 
 \begin_layout Enumerate
-Some farmers that acquire new information about the interaction between
- seed of improved varieties and complementary inputs (types 3 and 6) will
- change their adoption behavior.
+Some farmers that were unaware of the true relationship between seed of
+ improved varieties and complementary inputs and receive new information
+ about the importance of using complementary inputs and effort may change
+ their adoption behavior.
  The effect on adoption in the next season could be positive or negative,
  depending on how many farmers can be categorized as type 3 and type 6.
  If there are more type 3 than type 6 farmers, the effect on adoption will
@@ -1848,17 +1833,34 @@ Can we also show that the effect on adoption will be positive if we only
 
 \begin_layout Enumerate
 Farmers that acquire new information about the interaction between seed
- of improved varieties and complementary inputs and were not knowledgeable
- to begin with, 
+ of improved varieties and complementary inputs 
 \shape italic
-and plant seed of an improved variety after the treatment
+and plant seed of an improved variety at some point in time but not at baseline
 \shape default
- (types 5, 6) will use more complementary inputs and invest more effort.
- However, another set of farmers will dis-adopt due to the treatment (type
- 3), simultaneously reducing inputs and efforts as soon as they use farmer-saved
- seed.
+ (types 3, 5) will adapt their expectations.
+ The effect will be larger for farmers that adopt at baseline (types 1,
+ 3, 5) since this removes many farmers that have correct expectations at
+ baseline (types 2, 4, 6) from the sample.
+\end_layout
+
+\begin_layout Enumerate
+Some farmers that were unaware of the true relationship between seed of
+ improved varieties and complementary inputs and receive new information
+ about the importance of using complementary inputs and effort may invest
+ more effort and increase use of complementary inputs.
+ This will be especially the case for type 6 farmers who stared adopting
+ (potentially after disadopting due to disappointing outcomes) and will
+ put the new knowledge into practice.
+ To a lesser extent, farmers that consider adoption to be profitable despite
+ low yield expectations may try to further increase yields by increasing
+ effort (type 5).
+ Finally, as we mentioned above, also we expect a positive treatment effect
+ for type 3 farmers, as in the control group there are farmers that still
+ believe improved seed varieties are miracle seed and so apply less inputs
+ and put in less effort than they would if they would use farmer saved seed
+ (and in the treatment group most farmers revert to farmer saved seed).
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 I believe we should look at the effect on effort of adopters only, i.e.
@@ -1874,18 +1876,6 @@ I believe we should look at the effect on effort of adopters only, i.e.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-Farmers that acquire new information about the interaction between seed
- of improved varieties and complementary inputs 
-\shape italic
-and plant seed of an improved variety at some point in time but not at baseline
-\shape default
- (types 3, 5) will adapt their expectations.
- The effect will be larger for farmers that adopt at baseline (types 1,
- 3, 5) since this removes many farmers that have correct expectations at
- baseline (types 2, 4, 6) from the sample.
 \end_layout
 
 \begin_layout Section
@@ -4220,7 +4210,7 @@ These results could indicate that the response of smallholders to the treatment
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6248,9 +6238,6 @@ We first test if farmers picked up the subtle messages that lie at the heart
  We suspect that the lack of statistical significance can be explained by
  the already high knowledge among control farmers, implying that knowledge
  was high prior to the intervention.
- However, even if most farmers already possessed the knowledge, the treatment
- may have still made this knowledge more salient, potentially affecting
- their behavior.
 \end_layout
 
 \begin_layout Standard
