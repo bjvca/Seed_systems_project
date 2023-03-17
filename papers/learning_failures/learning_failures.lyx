@@ -1964,38 +1964,41 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The treatment was implemented using short, engaging videos, shown to the
- farmers on tablet computers.
- Based on extensive interviews with experts, we developed a script that
- served as a basis for a video about best practices in maize cultivation.
- The video starts off with a couple (man and woman) in a healthy maize field
- inspecting their crops.
+The treatment was based on short, engaging videos, shown to the farmers
+ on tablet computers.
+ Based on extensive interviews with experts (extension agents, seed breeders,
+ seed producers, government officials, etc.) we developed a script that served
+ as a basis for a video about best practices in maize cultivation.
+ The video starts off with a couple (man and woman) in a well-kept maize
+ field inspecting their crops.
  The man narrates that they have been farmers for more than ten years but
  that their fields have not always been this productive.
  He recounts how they used to struggle to feed their children, but that
- over time, they learned how to grow more maize.
+ over time, they learned how to grow more maize on less land.
  The secret of their success, they continue, lies in the adoption of improved
  technologies and best practices, such as the use of organic fertilizer,
- and optimal plant spacing and reduced seed rates.
- Furthermore, they argue that the use of an improved variety and fertilizer
- also contributed significantly to increased production.
+ optimal plant spacing, and reduced seed rates.
+ Furthermore, they argue that the use of seed from an improved variety and
+ the use of inorganic fertilizer also contributed significantly to increased
+ production.
  They conclude this introduction by stating that they are proud to be successful
  farmers that can feed their families and even have some marketable surplus
  that they can sell on the market.
- The viewer is then invited to become a successful farmer as well by paying
+ The viewer is then invited to become equally successful in farming by paying
  close attention as the role model farmers explain in detail the most important
  inputs and practices that transformed their lives.
 \end_layout
 
 \begin_layout Standard
 The treatment was implemented in the form of two variations of this video.
- The control video is essentially the video described above.
+ The control video is essentially the video as described above.
  In the treatment video, we added subtle messages that recommended practices
  and inputs that feature in the video are particularly important when the
  farmer uses seed of improved varieties.
  The only difference between the treatment and control video is thus that
  the former makes explicit the fact that significant complementarity exists
- between seed of improved varieties and the recommended inputs and practices.
+ between seed of improved varieties and recommended inputs and practices
+ such as inorganic fertilizers and row planting.
  To give an example, the farmer narrates in the control video that: 
 \begin_inset Quotes eld
 \end_inset
@@ -2036,16 +2039,17 @@ literal "false"
 
 \end_inset
 
-, meaning that there are four extra minutes of material.
- The other eight minutes are equal to the control video, no scenes are replaced
- or modified.
+, indicating four extra minutes of material (the other eight minutes are
+ equal to the control video, no scenes are replaced or modified).
 \end_layout
 
 \begin_layout Standard
-This way we can test if this little piece of information makes a difference.
- An additional advantage is that control farmers will also believe that
- they are somewhat treated, so that treated and control farmers will adjust
- their behavior similarly 
+By randomizing who among our sample of farmers gets to see the video, we
+ can isolate the causal effect of making salient the fact that improved
+ varieties also need inputs and effort, that they are not miracle seed.
+ An additional advantage is that it is not immediately clear what is the
+ treatment and what is the control, reducing the likelihood that results
+ are driven by experimenter demand effects 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bulte2014behavioral"
@@ -2053,28 +2057,41 @@ literal "false"
 
 \end_inset
 
- and effort responses will not explain the treatment effect, if we find
- one.
- Farmers in half of the villages are randomly assigned to the control group,
- the other half to the treatment group.
+.
 \end_layout
 
 \begin_layout Standard
-The information in the videos was supposed to benefit farmers in the second
- agricultural season of 2021, where maize planting happens in August and
- September and maize harvesting in November and December.
+The experiment targeted the second agricultural season of 2021, where maize
+ planting happens in August and September and maize harvesting in November
+ and December.
  We decided to implement the treatment well before the start of the season,
- in April 2021, to safeguard that farmers had the necessary information
+ in April 2021, to make sure that farmers had the necessary information
  before deciding which kind of seed to use.
- On the other hand, we were worried that their knowledge would not last,
- and showed the video a second time in August 2021.
- Post-treatment data was collected in January and February 2022, asking
- farmers about the second cropping season of 2021.
- The intervention was repeated again in 2022.
+ At this point in time, we also collected baseline data.
+ The treatment was repeated just before planting in August 2021.
+ Post-treatment data was collected in January and February 2022.
+ The intervention was repeated in the first season of 2022 with a final
+ round of data collection in July and August 2022.
+ However, most of this paper, and particularly the impact assessment of
+ the intervention, will focus on the 2021 agricultural season.
+ We only use data from the 2022 agricultural season to look at some descriptives
+ statistics on the dynamics of improved seed variety adoption.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Impact in 2022 of the treatment was limited, probably due to nature of the
+ treatment where once you receive knowledge additional treatment is unlikely
+ to have a lot of impact.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Data
+Data and empirical strategy
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Data"
@@ -2358,7 +2375,7 @@ The field experiment was conducted in southeastern Uganda, an area known
  crop.
  As a matter of fact, much of the maize that is used as food aid in Sudan
  is sourced from here.
- Our sample consists of about 3500 smallholder maize farmers.
+ Our sample consists of about 3,500 smallholder maize farmers.
  As this study is part of a larger project that investigates maize seed
  supply chains, farmers were drawn from the catchment areas of agro-input
  shops.
@@ -2369,13 +2386,9 @@ The field experiment was conducted in southeastern Uganda, an area known
  come from.
  Enumerators were instructed to randomly sample ten households that grow
  maize in these locations.
- Consequently, about 3500 smallholders were sampled.
  Confining attention to farmers that were interviewed in all survey rounds,
  we remain with a balanced panel of 3,400 farmers.
  As such, farmers should have reasonable access to improved maize varieties.
- Baseline data was collected in April 2021.
- Midline data was collected in January and February 2022, and endline data
- was collected in July and August 2022.
 \end_layout
 
 \begin_layout Subsection
@@ -2383,12 +2396,14 @@ Adoption
 \end_layout
 
 \begin_layout Standard
-We define smallholders' adoption of improved maize varieties as follows:
+In this section, we illustrate the dynamics of the adoption of seed from
+ improved varieties by smallholder farmers.
+ We define smallholders' adoption of improved maize varieties as follows:
  We ask farmers on how many fields they cultivated maize in the preceding
  season.
  From these plots, we randomly select one field for which detailed questions
  about input use and cultivation practices are asked.
- A farmer is defined to be an adopter if he/she used not recycled seed of
+ A farmer is defined to be an adopter if he/she used non-recycled seed of
  a hybrid variety or an OPV that was recycled less than four times.
 \end_layout
 
@@ -2404,18 +2419,21 @@ noprefix "false"
 \end_inset
 
  provides a visual representation of the evolution of varietal adoption
- among farmers in our survey.
- We see that the share of adopters slowly increases over time: At baseline,
- we find that about 45 percent of farmers report to have adopted an improved
- maize variety on the randomly selected plot.
- At midline, this figure has already increased to about 50 percent.
- At endline, the share of adopters is 54 percent of farmers.
+ among farmers over different survey rounds using this definition.
+ We see that the share of adopters slowly increases over time: At survey
+ 1 (the baseline suvey), we find that about 45 percent of farmers report
+ to have adopted an improved maize variety on the randomly selected plot
+ at baseline in April 2021.
+ At the end of the first season, at the time of our second survey in early
+ 2022, this figure has already increased to about 50 percent.
+ After a second season, when we interviewed farmers one last time in July/August
+ 2022, the share of adopters further increased to 54 percent.
 \end_layout
 
 \begin_layout Standard
 The figure also shows interesting dynamics.
  At the top, we see a substantial share of households (22 percent) that
- adopted according to all three survey rounds.
+ adopted in all three survey rounds.
  These could be considered 
 \begin_inset Quotes eld
 \end_inset
@@ -2435,13 +2453,14 @@ never adopters
 \end_inset
 
 .
- However, we also see that a large group of farmers that adopts at baseline
- reverts to farmer-saved seed at midline (16 percent) or still adopts at
- midline but eventually dis-adopts at endline (7 percent).
+ However, we also see that a large group of farmers that adopts during the
+ first survey reverts to farmer-saved seed at the time of the second survey
+ (16 percent) or still adopts at the time of the second survey but eventually
+ dis-adopts at the time of the third survey (7 percent).
  Fortunately, large groups of households also enter into adoption.
- We see that 19 percent of non-adopting households are adopting at midline
- and twelve percent of households that are not adopting at both base- and
- midline become adopters at endline.
+ We see that 19 percent of non-adopting households are adopting at the time
+ of the second survey and twelve percent of households that are not adopting
+ at both first and second survey become adopters in the third survey.
  Finally, there are also some households that seem to be moving in and out
  of adoption (8 percent) or moving out and back into adoption (9 percent).
 \begin_inset Note Note
@@ -2460,13 +2479,13 @@ Caro: Shouldn't this sum up to 100%?
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename alluvial.png
-	scale 25
+	scale 30
 
 \end_inset
 
@@ -2503,7 +2522,7 @@ name "fig:Dynamics-of-seed"
 
 \begin_layout Standard
 Furthermore, we find that a significant share of farmers that adopted at
- baseline seems to be disappointed.
+ the time of the first survey seems to be disappointed.
  Almost 30 percent indicate that were not satisfied with the quality of
  the planting material that they used.
  One in four indicates that they will not use it again in the future.
