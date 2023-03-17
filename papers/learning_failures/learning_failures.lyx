@@ -1298,16 +1298,6 @@ noprefix "false"
 
 , the marginal cost of adoption will be higher than the expected marginal
  return, so they will never adopt.
- As type 1 and type 2 farmers are assumed to be already knowledgeable about
- the true relationship between 
-\begin_inset Formula $Y_{it}^{H}$
-\end_inset
-
- and 
-\begin_inset Formula $X_{it}$
-\end_inset
-
-, providing information will have little effect on these farmers.
 \end_layout
 
 \begin_layout Standard
@@ -1323,7 +1313,23 @@ Another group of farmers is not knowledgeable about the true relationship
  and believe there is always an adoption premium.
  A subset of these farmers may adopt prior to the intervention because their
  marginal cost of adoption is lower than their expected marginal returns.
- Providing these type 3 farmers with information may lead them to dis-adopt
+ We refer to these farmers in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as type 3 farmers.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Providing these type 3 farmers with information may lead them to dis-adopt
  if this new information reduces their expected marginal return below the
  marginal cost.
  As these farmers stop adopting improved varieties and start using cheaper
@@ -1336,7 +1342,8 @@ Another group of farmers is not knowledgeable about the true relationship
  farmers revert to farmer saved seed).
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
 Another subset of this second group of farmers that is not knowledgeable
  about the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
@@ -1359,12 +1366,15 @@ noprefix "false"
 , does not adopt at baseline because, even though they have inflated expectation
 s of the improve seed variety, the marginal cost of adoption still exceeds
  the expected marginal returns.
- Providing these farmers with information will not have an effect on their
- adoption decision because it will only decrease their expected marginal
- return which was already too low to adopt prior to the intervention.
- As they were already planting farmer-saved seed, their expectations will
- also not be affected by the intervention, nor do we expect an effect on
- their input use and efforts.
+ Type 3 and 4 farmers are those that believe in 
+\begin_inset Quotes eld
+\end_inset
+
+miracle seed
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1383,7 +1393,7 @@ ip between
  This could be because they had a disappointing experience with an improved
  variety in the past, as they used to believe in miracle seed and over-adopted
  as described above.
- For some of them, type 5 in Table 
+ Some of these farmers, type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1396,13 +1406,7 @@ noprefix "false"
 , adopt at baseline as the expected marginal return may still be larger
  than the marginal cost of adoption, even if they underestimate the probability
  of realizing an adoption premium.
- These farmers keep adopting as the intervention increases their expected
- marginal return, but they may adjust their efforts and expectations in
- response to the treatment.
-\end_layout
-
-\begin_layout Standard
-For another fraction of farmers that underestimate the adoption premium,
+ For another fraction of farmers that underestimate the adoption premium,
  referred to as type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1415,19 +1419,13 @@ noprefix "false"
 
 , the expected marginal return will be smaller than the marginal cost of
  adoption, so that they do not adopt prior to the intervention.
- However, as the intervention increases their expectation of the return,
- they may start adopting in response to the treatment and also invest more
- efforts.
- There will be no impact on expectations because the type 6 farmers do not
- adopt at baseline and therefore have correct expectations about their yield
- prior to the intervention.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1781,16 +1779,57 @@ Note: $^1$Correct expectations are defined as the farmer harvesting as much
 \end_layout
 
 \begin_layout Standard
-The model leads to the following testable predictions:
+Heterogeneity in terms of prior knowledge and adoption behaviour will lead
+ to different impacts of an intervention aimed at correcting false beliefs
+ about the relationship between input use and effort and the return on improved
+ seed varieties.
+ In some cases, such as for adoption, effects for different subgroups may
+ go in different directions, potentially canceling out an overall average
+ treatment effect.
+ In other cases, like for knowledge, some groups may not be affected, diluting
+ the overall treatment effect.
+ The model and the different farmer types summarized in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ allow us to make predictions on the impact of an intervention designed
+ to increase knowledge about the true relationship between performance of
+ improved seed varieties and complementary inputs and efforts (described
+ in detail in the next section) on four key outcome areas.
 \end_layout
 
 \begin_layout Enumerate
-Some farmers that were unaware of the true relationship between seed of
- improved varieties and complementary inputs that receive the intervention
- will have increased knowledge about the importance of combining seed of
- improved varieties with complementary inputs.
- The effect will be larger for farmers that adopt at baseline (types 1,
- 3, 5) since this removes 
+Impact on knowledge: As type 1 and type 2 farmers are assumed to be already
+ knowledgeable about the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+, the intervention will have little effect on these farmers.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Note that we do not know which farmers are knowledgeable and which are not
+ as we only measure knowledge at endline to avoid priming effects.
+\end_layout
+
+\end_inset
+
+ Types 3 to 6 are assumed to be unaware about the true relationship between
+ seed of improved varieties and complementary inputs; the intervention will
+ thus increase knowledge.
+ The knowledge effect will be larger for farmers that adopt at baseline
+ (types 1, 3, 5) since this removes 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1803,20 +1842,27 @@ never adopters
 \end_layout
 
 \begin_layout Enumerate
-Some farmers that were unaware of the true relationship between seed of
- improved varieties and complementary inputs and receive new information
- about the importance of using complementary inputs and effort may change
- their adoption behavior.
- The effect on adoption in the next season could be positive or negative,
- depending on how many farmers can be categorized as type 3 and type 6.
- If there are more type 3 than type 6 farmers, the effect on adoption will
- be negative.
- If there are less type 3 than type 6 farmers, the effect on adoption will
- be positive.
- However, it is likely that these two opposing effects cancel each other
- out.
- If we only consider farmers that adopt at baseline, the effect on adoption
- will be negative as this excludes type 6 farmers from the analysis.
+Impact on adoption: We expect opposing effects on adoption behavior for
+ farmer types 3 and 6.
+ Providing type 3 farmers with information may lead them to dis-adopt if
+ this new information reduces their expected marginal return below the marginal
+ cost.
+ For type 6 farmers, the intervention may increase expectations of the return,
+ and they may start adopting in response to the treatment.
+ Reducing expectations of farmers that do not adopt at baseline even though
+ they believe in miracle seed will not change their mind as this will reduce
+ their expected returns even more (type 4).
+ Similarly, we do not expect the intervention will change adoption of farmers
+ that already adopt event though they underestimate potential yield effects
+ (type 5); these farmer will keep adopting as the intervention increases
+ their expected returns to seed of improved varieties.
+ Finally, as for knowledge, farmers that are aware of the correct relationship
+ between inputs and improved seed varieties (types 1 and 2) are not expected
+ to change adoption behavior in response to the intervention.
+ The direction of the effect of the intervention of adoption wil thus depend
+ on the relative size of group 3 and group 6 respectively.
+ Note that if we only consider farmers that adopt at baseline, the effect
+ on adoption will be negative as this excludes type 6 farmers from the analysis.
 \begin_inset Note Note
 status collapsed
 
@@ -1832,22 +1878,29 @@ Can we also show that the effect on adoption will be positive if we only
 \end_layout
 
 \begin_layout Enumerate
-Farmers that acquire new information about the interaction between seed
- of improved varieties and complementary inputs 
-\shape italic
-and plant seed of an improved variety at some point in time but not at baseline
-\shape default
- (types 3, 5) will adapt their expectations.
- The effect will be larger for farmers that adopt at baseline (types 1,
- 3, 5) since this removes many farmers that have correct expectations at
- baseline (types 2, 4, 6) from the sample.
+Effect on expectations: Expectations are defined as the difference between
+ what the farmer expected and what was realized on the farm.
+ We expect that the intervention results in expectations that are more in
+ line with realize outcomes.
+ This will likely only be the case for farmers that are unaware of the true
+ relationship and so we again do not expect an effect for types 1 and 2.
+ Furthermore, since our intervention aims to correct perceptions only for
+ seed of improved varieties, expectations of farmers that use farmer-saved
+ seed at baseline are unlikely to be affected (as it is assumed that the
+ production function of farmer saved seed is common knowledge).
+ Therefore, we only expect an impact on farmers that plant seed of improved
+ maize varieties at baseline and also have incorrect expectations (types
+ 3 and 4).
+ So again, we expect a positive effect, particularly if we restrict the
+ sample to farmers that adopt at baseline.
 \end_layout
 
 \begin_layout Enumerate
-Some farmers that were unaware of the true relationship between seed of
- improved varieties and complementary inputs and receive new information
- about the importance of using complementary inputs and effort may invest
- more effort and increase use of complementary inputs.
+Impact on use of complementary inputs and effort: Some farmers that were
+ unaware of the true relationship between seed of improved varieties and
+ complementary inputs and receive new information about the importance of
+ using complementary inputs and effort may invest more effort and increase
+ use of complementary inputs.
  This will be especially the case for type 6 farmers who stared adopting
  (potentially after disadopting due to disappointing outcomes) and will
  put the new knowledge into practice.
@@ -1858,9 +1911,9 @@ Some farmers that were unaware of the true relationship between seed of
  for type 3 farmers, as in the control group there are farmers that still
  believe improved seed varieties are miracle seed and so apply less inputs
  and put in less effort than they would if they would use farmer saved seed
- (and in the treatment group most farmers revert to farmer saved seed).
+ (while in the treatment group most farmers revert to farmer saved seed).
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I believe we should look at the effect on effort of adopters only, i.e.
@@ -1875,7 +1928,9 @@ I believe we should look at the effect on effort of adopters only, i.e.
 
 \end_inset
 
-
+ For input use and effort, we thus expect a positive effect, and whether
+ the effect is more pronounced for baseline adopters only depends on the
+ relative importance of the groups and the effect sizes.
 \end_layout
 
 \begin_layout Section
