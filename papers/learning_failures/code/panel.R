@@ -50,17 +50,17 @@ midline_farmers <- read.csv(paste(path,"/midline/data/farmer/public/midline.csv"
 endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv",sep="/"), stringsAsFactors=TRUE)
 
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 999] <- NA
-baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 96] <- NA
+#baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 96] <- NA
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == 98] <- NA
 baseline_farmers[, 4:98][baseline_farmers[, 4:98] == "n/a"] <- NA
 
 midline_farmers[, 4:72][midline_farmers[, 4:72] == 999] <- NA
-midline_farmers[, 4:72][midline_farmers[, 4:72] == 96] <- NA
+#midline_farmers[, 4:72][midline_farmers[, 4:72] == 96] <- NA
 midline_farmers[, 4:72][midline_farmers[, 4:72] == 98] <- NA
 midline_farmers[, 4:72][midline_farmers[, 4:72] == "n/a"] <- NA
 
 endline_farmers[, 4:76][endline_farmers[, 4:76] == 999] <- NA
-endline_farmers[, 4:76][endline_farmers[, 4:76] == 96] <- NA
+#endline_farmers[, 4:76][endline_farmers[, 4:76] == 96] <- NA
 endline_farmers[, 4:76][endline_farmers[, 4:76] == 98] <- NA
 endline_farmers[, 4:76][endline_farmers[, 4:76] == "n/a"] <- NA
 
@@ -572,11 +572,14 @@ alluvial_frame <- subset(alluvial_frame, !(farmer_ID %in% to_drop))
 
 alluvial_frame$farmer_ID <- as.character(alluvial_frame$farmer_ID)
 col_vector = c('green', 'red')
+alluvial_frame$round[alluvial_frame$round == "baseline"] <- "survey 1"
+alluvial_frame$round[alluvial_frame$round == "midline"] <- "survey 2"
+alluvial_frame$round[alluvial_frame$round == "endline"] <- "survey 3"
 alluvial_long(alluvial_frame
               , key = round
               , value = adoption_onfield
               , id = farmer_ID 
-              , order_levels_key =c("baseline","midline","endline")
+              , order_levels_key =c("survey 1","survey 2","survey 3")
               ,bins = 2
               ,bin_labels = c("nonadoption","adoption")
               , fill_by = 'value'

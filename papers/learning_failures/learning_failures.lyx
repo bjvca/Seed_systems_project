@@ -162,16 +162,17 @@ Farmers that try out agricultural technologies, such as seeds of improved
 y, such as higher yield or pest resistance, may lead them to invest less
  in complementary inputs such as fertilizers or pesticides and reduce management
  practices such as weeding.
- Subsequent disappointment about the performance of the technology may then
- be erroneously attributed to the technology itself, resulting in dis-adoption.
- We provide a simple model of technology adoption and test its predictions
- using a field experiment among 3,500 smallholder maize farmers in Uganda.
- In the experiment, a treatment group gets explicit information on the importanc
-e of combining improved technologies and recommended farming practices.
- We find some evidence that our message scares farmers away from commercial
- seed, back to farmer-saved seed.
+ We provide a simple model of biased expectations, complementary input use
+ and technology adoption and test its predictions using a field experiment
+ among 3,500 smallholder maize farmers in Uganda.
+ We find some evidence that correcting expectations scares farmers away
+ from commercial seed, back to farmer-saved seed.
  There is further suggestive evidence that treated farmers adjust expectations:
  they are also more likely to report to have harvested as much as they expected.
+ Our findings have important implications for the dynamics of technology
+ adoption, as disappointment about the performance of a technology that
+ is erroneously attributed to the technology itself lead may lead to dis-adoptio
+n.
  We conclude that policy makers and industry should focus on technology
  adoption as a package of complementary inputs and efforts, instead of marketing
  a single technology.
@@ -1425,7 +1426,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2058,6 +2059,19 @@ literal "false"
 \end_inset
 
 .
+ Randomization was done at the village level to reduce the likelihood that
+ treated households would provide information to households in the control
+ group, which has been found to happen in information treatments using video
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1086/703868"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2077,7 +2091,7 @@ The experiment targeted the second agricultural season of 2021, where maize
  We only use data from the 2022 agricultural season to look at some descriptives
  statistics on the dynamics of improved seed variety adoption.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Impact in 2022 of the treatment was limited, probably due to nature of the
@@ -2547,32 +2561,28 @@ name "section: Empirical strategy"
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Bjorn: please explain how we now control for the averages only (new way
- of estimating)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Due to the random assignment to treatment and control groups, comparing
- outcome variable means of treated and control participants provides unbiased
- estimates of the average treatment effects.
- Differences are estimated in a regression framework.
- To increase power, we condition the estimates on baseline values of the
- outcome variables.
-\begin_inset Foot
-status collapsed
+ outcome variable averages of treated and control participants provides
+ unbiased estimates of the average treatment effects.
+ We follow common practice and do this in an Analysis of Covavariance (ANCOVA)
+ regression framework, where we regress outcomes of interest (knowledge,
+ adoption, input use and effort, and expectations) on an indicator variable
+ that takes the value of one if the household was in the treatment group
+ (and zero otherwise) and include baseline values of the outcome variables
+ as controls 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MCKENZIE2012210"
+literal "false"
 
-\begin_layout Plain Layout
-As this study was part of a larger project with additional treatments at
- the agro-input dealer level, controls are included for the orthogonal treatment
+\end_inset
+
+.
+ Furthermore, as this study was part of a larger project as we with additional
+ cross-randomized treatments, controls are included for the orthogonal treatment
 s (demeaned and interacted with the main treatment 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2584,14 +2594,9 @@ literal "false"
 ).
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 Standard errors are clustered at the village level, the level of randomization.
- Since we have almost 3500 observations in 130 clusters, the original form
+ Since we have almost 3500 observations in 350 clusters, the original form
  of the sandwich estimator 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2601,29 +2606,21 @@ literal "false"
 \end_inset
 
  is used.
- We account for multiple hypothesis testing by aggregating different outcomes
- within each domain into summary indices, following 
+ For each of the four outcome families (knowledge, adoption, input use and
+ effort, and expectations), we also compute indices, which is a common way
+ to also account for multiple hypothesis testing.
+ To do so, we follow 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "doi:10.1198/016214508000000841"
 literal "false"
 
 \end_inset
 
-.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Each index is computed as a weighted mean of the standardized values of
- the outcome variables.
- The weights of this efficient generalized least squares estimator are calculate
-d to maximize the amount of information captured in the index by giving
- less weight to outcomes that are highly correlated with each other.
-\end_layout
-
-\end_inset
-
+, where each index is computed as a weighted mean of the standardized values
+ of the outcome variables.
+ The weights are derived from the (inverse) covariance matrix, such that
+ less weight is given to outcomes that are highly correlated with each other.
  For these indices, signs of outcomes were switched where necessary so that
  the positive direction always indicates a “better” outcome.
 \end_layout
@@ -2639,26 +2636,6 @@ name "section: Results"
 
 \end_layout
 
-\begin_layout Standard
-In this section, we present impact of the treatment using simple differences
- between outcomes in treatment and control villages.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Even though we did collect data at base-, mid- and endline, we only report
- midline results because we expect the effect to be largest right after
- the intervention.
- For this reason and to make the paper easy to read, we decided to not present
- the endline results.
- The same analysis on endline data is available from the authors upon request.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Impact on knowledge
 \end_layout
@@ -2666,45 +2643,14 @@ Impact on knowledge
 \begin_layout Standard
 First we check if smallholder farmers are able to pick up the subtle messages
  in the treatment video.
- According to prediction 1, the treatment increases farmers' knowledge.
- In a short quiz, enumerators read a set of alternative answers to farmers
- who then select the response that they feel is most appropriate.
- This quiz was only implemented after the intervention because we were wary
- of priming.
+ According to prediction 1, we expect a positive effect of the treatment
+ on farmers' knowledge.
+ We test farmer knowledge by means of a short quiz.
+ A question was asked and enumerators read a set of alternative answers
+ to farmers who then select the response that they feel is most appropriate.
 \end_layout
 
 \begin_layout Standard
-We test if farmers know that when using seed of an improved maize variety
- like an OPV or a hybrid variety: a) recommended cultivation practices like
- weeding or applying fertilizer are equally or even more important than
- when using lower quality seed, that they should b) weed and remove Striga
- as often c) apply the same amount or even more fertilizer, d) use equally
- good plots as they would if they would use lower quality seed, e) buy both
- seed of an improved variety and fertilizer when investing their money in
- agriculture, combine these different inputs instead of putting all their
- eggs in one basket.
- We also include one control question about the optimal seed rate and plant
- spacing, where we do not expect a difference between treatment and control
- because the correct answer featured in both videos.
- The six outcomes are also combined in an index following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "doi:10.1198/016214508000000841"
-literal "false"
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: I shortened this part significantly.
- If you don't like it, here the old text:
-\end_layout
-
-\begin_layout Plain Layout
 We start with a general question, asking if farmers think recommended cultivatio
 n practices like weeding and application of fertilizer is less, equally,
  or more important when using quality maize seed like OPV or seed of a hybrid
@@ -2721,7 +2667,7 @@ n practices like weeding and application of fertilizer is less, equally,
  
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 We have a similar question for fertilizer application when seed of a hybrid
  variety is used.
  The options here are that 1) You do not need to use inorganic fertilizer
@@ -2733,7 +2679,7 @@ We have a similar question for fertilizer application when seed of a hybrid
  use.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 We then have a question that checks if farmers use sub-optimal plots by
  asking which plots are best suited to plant seed of an improved variety
  on.
@@ -2746,7 +2692,7 @@ We then have a question that checks if farmers use sub-optimal plots by
  
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Another question tests if farmers think it is better to combine inputs,
  or to put all eggs in one basket.
  The question simply asks how to best invest money in agriculture.
@@ -2757,7 +2703,7 @@ Another question tests if farmers think it is better to combine inputs,
  seed without fertilizer does not give good results.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Finally, we include a control question, where we do not expect a difference
  between treatment and control because the answer featured in both treatment
  and control videos.
@@ -2766,11 +2712,16 @@ Finally, we include a control question, where we do not expect a difference
  rows with one seed per hill; 2) One foot between plants and two and a half
  foot between rows with two seeds per hill; and 3) Two foot between plants
  and two and a half foot between rows with two seeds per hill.
-\end_layout
+ The four outcomes (excluding the control question) are also combined in
+ an index following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1198/016214508000000841"
+literal "false"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -2797,33 +2748,30 @@ The second column (2) shows the estimated difference between the treatment
  and control group for outcomes after the intervention, while the third
  column (3) also reports this difference, but only for the subset of farmers
  that adopted an improved variety at baseline.
- We look at treatment heterogeneity at this level because it is likely that
- the treatment is not relevant for all smallholders: some farmers may not
- adopt because of other reasons than the ones we conjecture.
- For instance, improved varieties may not be profitable in their specific
- case, or access to credit may be their primary constraint.
- This substantial share of 
-\begin_inset Quotes eld
+ The rationale for restricting that sample like this is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-framework"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
-never adopters
-\begin_inset Quotes erd
-\end_inset
-
- is excluded from the analysis if we only look at farmers who adopt at baseline.
- Hence we expect the effect to be larger for the remaining share of farmers
- (see prediction 1).
+: as it keeps farmers for whom the treatment effect is likely to be largest,
+ we expect a larger effect in column (3) than in column (2).
 \end_layout
 
 \begin_layout Standard
 We see that knowledge, as measured by the quiz questions, has increased
- for all questions.
+ for all questions, and generally more so for the subset of farmers that
+ used seed of an improved variety at baseline.
  For instance, the share of farmers that knows complementary inputs and
  practices are at least as important when using seed of improved varieties
- increased from 87 to 89.2 percent.
+ increased from 87.1 to 89.4 percent.
  Furthermore, the share of farmers that recommends investing in different
  inputs (as opposed to investing all their money in only one input), increases
- from 74 to 76.2 percent.
+ from 73.5 to 75.7 percent.
  If we only consider farmers that adopted at baseline, the increase over
  the control amounts to almost five percentage points.
  However, after adjusting standard errors for clustering at the village
@@ -2833,21 +2781,8 @@ We see that knowledge, as measured by the quiz questions, has increased
  farmers were already able to indicate the correct response, and hence there
  is little scope for further improvement.
  At the same time, we note that all coefficient estimates are going in the
- same direction.
- Furthermore, even though farmers may possess the knowledge, there is still
- a difference between knowing and acting.
- We suspect that our intervention does not only increase knowledge, but
- also nudges farmer to practice what they know.
- Such aspirational effects are common in other studies that use videos featuring
- role models 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bernard2015will,10.1162/rest_a_01153"
-literal "false"
-
-\end_inset
-
-.
+ same direction which translates in the index in column (3) coming closes
+ to significance with a p-value of 0.125.
 \end_layout
 
 \begin_layout Standard
@@ -3343,15 +3278,16 @@ name "impact adoption"
 \end_layout
 
 \begin_layout Standard
-We now test the main hypothesis of this paper: if farmers that were made
+We now test the main hypothesis of this paper: Do farmers that were made
  aware of the fact that seed of improved varieties also needs complementary
- inputs behave differently in terms of seed use in subsequent seasons.
+ inputs and proper agronomic management behave differently in terms of seed
+ use in subsequent seasons.
  To this end, we asked farmers which maize variety they planted on the randomly
- selected maize field last season.
- In particular, we look at the use of fresh seed of an improved variety,
+ selected maize field in the season prior to the survey.
+ We again define adoption as at the use of fresh seed of an improved variety,
  i.e.
  seed of a hybrid variety which was not recycled and seed of an OPV which
- was not recycled too often, our key adoption indicator that was also used
+ was not recycled too often (the definition of adoption that was also used
  in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3362,13 +3298,13 @@ noprefix "false"
 
 \end_inset
 
- to illustrate the dynamics of varietal adoption.
+ to illustrate the dynamics of varietal adoption).
  In addition, we investigate other outcomes that are related or even partly
  overlapping.
  For instance, we test if there are differences in the use of recycled seed
- between the treatment and control group.
- We define recycled seed as seed that a farmer has saved him- or herself
- or obtained from another farmer who saved it (neighbor, relative, etc.).
+ between the treatment and control group, where we define recycled seed
+ as seed that a farmer has saved him- or herself or obtained from another
+ farmer who saved it (neighbor, relative, etc.).
  Note that seed of an improved variety and seed that was recycled are not
  exact opposites.
  Seed of an OPV can be recycled for a couple of seasons and still count
@@ -3456,7 +3392,7 @@ noprefix "false"
 \end_inset
 
 .
- The first column (1) shows sample means of the five outcomes at baseline
+ The first column (1) shows sample means of the four outcomes at baseline
  and standard deviations in brackets below.
  For instance, we see that 48 percent of farmers use fresh seed of improved
  varieties and that one third of farmers reports that the seed that they
@@ -3475,7 +3411,17 @@ The third column (3) shows the difference between treatment and control
  Our theory suggests that in response to being sensitized about the importance
  of using complementary inputs and cultivation practices when using seed
  of an improved variety, some farmers (types 3 and 6) will change their
- adoption behavior (prediction 2).
+ adoption behavior (prediction 2 in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-framework"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  A share of farmers that initially underestimated the probability of an
  adoption premium (type 6) will start adopting as their expected marginal
  return is increased by the treatment.
@@ -3485,20 +3431,18 @@ The third column (3) shows the difference between treatment and control
  Dis-adoption implies that farmers will be less likely to plant fresh seed
  of an improved variety and seed bought at agro-input shops, but more likely
  to use recycled farmer-saved seed.
- As predicted, these two opposing effects cancel each other out and we see
- almost no significant coefficients.
+ As these two opposing effects cancel each other out, we find few effects
+ on the entire sample.
  However, we find that all coefficients go in the direction of dis-adoption
  and a significant difference for the share of farmers that planted recycled
- seed post-intervention, indicating that there are more type 3 than type
- 6 farmers in our sample.
+ seed post-intervention.
 \end_layout
 
 \begin_layout Standard
-The comparisons in the third column hold for all farmers, while the fourth
+The comparisons in the third column is for all farmers, while the fourth
  column (4) restricts the sample to farmers that adopted at baseline.
  We see that effects become stronger if we restrict attention to this subgroup
- and exclude type 6 farmers from the analysis (as expected, see prediction
- 2).
+ (and exclude type 6 farmers from the analysis).
  Farmers that were exposed to the treatment are almost seven percentage
  points less likely to adopt fresh seed of an improved variety.
  We see a particularly strong increase in the share of farmers that uses
@@ -4128,13 +4072,684 @@ $^1$For this index, signs of outcomes were switched where necessary so that
 \end_layout
 
 \begin_layout Subsection
+Impact on expectations and harvest
+\end_layout
+
+\begin_layout Standard
+In this section, we investigate how the intervention affects expectations
+\begin_inset space ~
+\end_inset
+
+and harvest related outcomes.
+ Again, we expect a positive effect, particularly if we restrict the sample
+ to farmers that adopt at baseline (see prediction 3 in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-framework"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ To measure expectations, we simply asked farmers if they harvested as much
+ maize from their field as they expected an code this as a binary response
+ variable.
+ We also measure harvest related outcomes on a randomly selected maize field.
+ We look at production and yield (dividing production of the plot by the
+ size of the plot).
+ The three outcomes are also combined in an index following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1198/016214508000000841"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Results can be found in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects-expect"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We again report baseline means and balance in the first two columns (1)
+ and (2).
+ However, we did not ask if expectations were met at baseline, so that we
+ report the control group average post-intervention and do not test for
+ baseline balance for the expectations variable.
+ Note that a large majority of farmers indicated that they harvested less
+ than expected.
+\end_layout
+
+\begin_layout Standard
+The third column (3) shows that, in line with expectations, in the treatment
+ group a significantly higher share of farmers say that they produced what
+ they expected.
+ The effect is larger for the subset of farmers that adopted at baseline,
+ see column (4).
+ This suggests that a subset of farmers indeed started out with inflated
+ expectations, which were corrected after they learned that seed of improved
+ varieties is not miracle seed.
+\end_layout
+
+\begin_layout Standard
+Finally, the table shows that the average farmer cultivates about 470 kilograms
+ of maize on the random plot.
+ The randomly selected field seems to be slightly larger than one acre on
+ average, so that yield is about 440 kilograms per acre.
+ The intervention does not seem to have any impact on production or productivity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on expectations and harvest
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Treatment-effects-expect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield as expected 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{0.15}
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,1]<.01,"**",ifelse(mid_expectations[3,1,1]<.05,"
+*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,1]<.01,"**",ifelse(mid_expectations[3,2,1]<.05,"
+*",ifelse(mid_expectations[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{0.36})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Production in kg
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,2]<.01,"**",ifelse(mean_expectations[3,2,2]<.05
+,"*",ifelse(mean_expectations[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,3]<.01,"**",ifelse(mid_expectations[3,1,3]<.05,"
+*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,3]<.01,"**",ifelse(mid_expectations[3,2,3]<.05,"
+*",ifelse(mid_expectations[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield in kg/acre
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,3]<.01,"**",ifelse(mean_expectations[3,2,3]<.05
+,"*",ifelse(mean_expectations[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,4]<.01,"**",ifelse(mid_expectations[3,1,4]<.05,"
+*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,4]<.01,"**",ifelse(mid_expectations[3,2,4]<.05,"
+*",ifelse(mid_expectations[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(mean_expectations[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Harvest index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_expectations[3,2,4]<.01,"**",ifelse(mean_expectations[3,2,4]<.05
+,"*",ifelse(mean_expectations[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,5]<.01,"**",ifelse(mid_expectations[3,1,5]<.05,"
+*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,5]<.01,"**",ifelse(mid_expectations[3,2,5]<.05,"
+*",ifelse(mid_expectations[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+&  
+\backslash
+Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Column (1) reports means at baseline (and standard deviations below);
+ column (2) reports difference between treatment and control at baseline;
+ column (3) reports difference between treatment and control post-intervention;
+ column (4) reports difference between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Impact on input use and efforts
 \end_layout
 
 \begin_layout Standard
-In this subsection, we investigate how the intervention affects efforts
- and the use of inputs other than seed, as these are important variables
- in our theoretical framework in Section 
+Finally, we investigate how the intervention affects effort and the use
+ of inputs other than seed, as these are important variables in our theoretical
+ framework in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -4145,12 +4760,28 @@ noprefix "false"
 \end_inset
 
 .
- We look at a range of cultivation practices and complementary inputs in
+ For input use and effort, we expect a positive effect, and the effect is
+ likely to be more pronounced for the subsample of baseline adopters (see
+ prediction 4 in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-framework"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+We look at a range of cultivation practices and complementary inputs in
  line with what is featured in both treatment and control videos.
  A first outcome is an indicator for single-stand row-planting.
  Row-planting is an important management practice that can lead to significant
  yield gains.
- Under row-planting, space is used optimally and plants have sufficient
+ Under row-planting, space is used optimally such that plants have sufficient
  nutrients and sunlight.
  However, row-planting increases workload, hence farmers often engage in
  the alternative that is less labor demanding: broadcasting.
@@ -4213,30 +4844,7 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The effect of making farmers aware that seed of improved varieties needs
- at least the same complementary inputs and efforts as seed of other varieties
- is not clear a-priori (see prediction 3).
- On the one hand, the intervention advocates for inputs and cultivation
- practices, and so one may expect that some farmers (the not knowledgeable
- ones that plant seed of an improved variety after the intervention - types
- 5, 6) increase use as they adjust their practices to this new knowledge.
- However, in the previous Subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "impact adoption"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- we saw that the first response of the average farmer is to reduce the adoption
- of improved varieties, which may lead to a simultaneous decline in other
- efforts, which may offset the increased use of inputs and practices by
- adopters.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4269,13 +4877,6 @@ The third column (3) shows that farmers do not invest more inputs or efforts
  to plant in rows and to use DAP.
  However, according to the index, there is no overall effect of the intervention
  on complementary input use and cultivation practices.
-\end_layout
-
-\begin_layout Standard
-These results could indicate that the response of smallholders to the treatment
- is limited to decisions related to seed.
- However, it may also be that we lack power as a result of heterogeneous
- treatment effects.
 \end_layout
 
 \begin_layout Standard
@@ -5509,669 +6110,6 @@ Sexpr{format(round(mid_practices[4,2,1],digits=0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: Column (1) reports means at baseline (and standard deviations below);
- column (2) reports difference between treatment and control at baseline;
- column (3) reports difference between treatment and control post-intervention;
- column (4) reports difference between treatment and control post-intervention
- for farmers that adopt at baseline; **, * and + denote significance at
- the 1, 5 and 10 percent levels; standard errors are clustered at the village
- level.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Impact on expectations and harvest
-\end_layout
-
-\begin_layout Standard
-We also investigate how the intervention affects expectations
-\begin_inset space ~
-\end_inset
-
-and harvest related outcomes.
- To measure expectations, we simply asked farmers if they harvested as much
- maize from their field as they expected, a binary variable.
- If a farmer planted seed of an improved variety, these expectations deal
- with the yield of seed of an improved variety.
- If a farmer planted farmer-saved seed, these expectations deal with the
- yield of farmer-saved seed.
- We also measure harvest related outcomes on a randomly selected maize field.
- We look at production and yield, dividing production of the plot by the
- size of the plot.
- The three outcomes are also combined in an index following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "doi:10.1198/016214508000000841"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Results can be found in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Treatment-effects-expect"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We again report baseline means and balance in the first two columns (1)
- and (2).
- However, we did not ask if expectations were met at baseline, so that we
- report the control group average post-intervention and do not test for
- baseline balance for the expectations variable.
- Note that a large majority of farmers indicated that they harvested less
- than expected.
-\end_layout
-
-\begin_layout Standard
-The third column (3) shows that in the treatment group, a significantly
- higher share of farmers say that they produced what they expected.
- The effect is larger for the subset of farmers that adopted at baseline,
- see column (4).
- This is what we expected in prediction 4 because it removes many farmers
- that have correct expectations at baseline from the sample.
- This suggests that a subset of farmers indeed started out with inflated
- expectations, which were corrected after they learned that seed of improved
- varieties is not miracle seed.
-\end_layout
-
-\begin_layout Standard
-Finally, the table shows that the average farmer cultivates about 470 kilograms
- of maize on the random plot.
- The randomly selected field seems to be slightly larger than one acre on
- average, so that yield is about 440 kilograms per acre.
- The intervention does not seem to have any impact on production or productivity.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average treatment effects on expectations and harvest
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Treatment-effects-expect"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rcccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (1) & (2) & (3) & (4)
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-5}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Yield as expected 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{0.15}
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,1,1]<.01,"**",ifelse(mid_expectations[3,1,1]<.05,"
-*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,2,1]<.01,"**",ifelse(mid_expectations[3,2,1]<.05,"
-*",ifelse(mid_expectations[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{0.36})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Production in kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mean_expectations[3,2,2]<.01,"**",ifelse(mean_expectations[3,2,2]<.05
-,"*",ifelse(mean_expectations[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,1,3]<.01,"**",ifelse(mid_expectations[3,1,3]<.05,"
-*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,2,3]<.01,"**",ifelse(mid_expectations[3,2,3]<.05,"
-*",ifelse(mid_expectations[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mean_expectations[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Yield in kg/acre
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mean_expectations[3,2,3]<.01,"**",ifelse(mean_expectations[3,2,3]<.05
-,"*",ifelse(mean_expectations[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,1,4]<.01,"**",ifelse(mid_expectations[3,1,4]<.05,"
-*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,2,4]<.01,"**",ifelse(mid_expectations[3,2,4]<.05,"
-*",ifelse(mid_expectations[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-(
-\backslash
-Sexpr{format(round(mean_expectations[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Harvest index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mean_expectations[3,2,4]<.01,"**",ifelse(mean_expectations[3,2,4]<.05
-,"*",ifelse(mean_expectations[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,1,5]<.01,"**",ifelse(mid_expectations[3,1,5]<.05,"
-*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mid_expectations[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(mid_expectations[3,2,5]<.01,"**",ifelse(mid_expectations[3,2,5]<.05,"
-*",ifelse(mid_expectations[3,2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mean_expectations[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mean_expectations[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Observations
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-&  
-\backslash
-Sexpr{format(round(mean_expectations[4,2,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-&  
-\backslash
-Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-&  
-\backslash
-Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
 
 \end_layout
 
