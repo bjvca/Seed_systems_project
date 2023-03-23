@@ -299,8 +299,9 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-Several key constraints have been rigorously tested in the last decade.
- This includes poor access to information 
+Several key constraints to agricultural technology adoption have been rigorously
+ tested in the last decade.
+ These include poor access to information 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ashraf2009finding"
@@ -316,8 +317,8 @@ literal "true"
 
 \end_inset
 
-, heterogeneity in uncertainty and the net benefits to the technology due
- to infrastructure and transaction costs 
+, heterogeneity in the net benefits to the technology due to infrastructure
+ and transaction costs 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
@@ -346,8 +347,9 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-More recently, issues related to input quality as a constraint to widespread
- adoption have emerged.
+More recently, quality related issues of the technology (often inputs such
+ as improved seed varieties, inorganic fertilizers, or pesticides) have
+ emerged as a potential constraint.
  In a widely cited article, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -359,15 +361,23 @@ literal "false"
  argue that because quality is often difficult to assess by the farmers
  from simple visual inspection, information asymmetries between sellers
  and buyers characterize the markets for seed and fertilizer, crowding out
- the market for quality seed.
+ the market for quality inputs.
  However, it is not clear if these quality issues are due to agro-input
  dealers intentionally adulterating inputs, or if this is simply because
- they lack knowledge and skills to preserve quality.
+ they lack knowledge and skills to preserve quality 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BARRIGA2020104928"
+literal "false"
+
+\end_inset
+
+.
  Furthermore, it is not clear if these quality issues are real: While some
  studies argue that input quality is indeed lacking 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143,BARRIGA2020104928"
+key "bold2017lemon,doi:10.1080/00220388.2018.1464143"
 literal "false"
 
 \end_inset
@@ -388,34 +398,36 @@ We attempt to answer some of these questions by means of a field experiment
  in the Ugandan market for improved maize seed varieties (high-yielding
  cultivars like open-pollinated and hybrid varieties).
  To test if low seed quality is primarily due to poor handling and storage,
- we organize trainings for a random sub-sample of farmers.
+ we organize trainings for a random sub-sample of agro-input dealers and
+ look at the impact of at both agro-input dealer level and farmers living
+ in their catchment areas.
  Furthermore, we implement an information clearinghouse which is based on
  crowd-sourced ratings and works through reputational mechanisms like yelp.com
  or tripadvisor.com.
  By aggregating the experiences of many users under similar conditions,
  farmers can learn more about an agro-input dealer and the quality of the
  products they sell than if they have to rely on own experience only.
- This allows farmers to switch to the hightes rated input dealers.
+ This allows farmers to switch to higher rated input dealers.
  However, as the ratings are also available to the agro-input dealers, it
  also provides dealers with an incentive to increase the quality of products
  and services.
- If the quality of seed in the market is already sufficient, the same clearingho
-use will work by rectifying the misperception of non-adopters.
+ If the quality of seed in the market is already sufficient, the clearinghouse
+ may also rectify misperceptions of non-adopters.
  Both interventions are tested in a randomized control trial (RCT) among
- 350 agro-input dealers and an associated 3500 smallholder maize farmers
+ 350 agro-input dealers and an associated 3,500 smallholder maize farmers
  in their catchment areas in eastern Uganda over the course of two agricultural
  seasons.
 \end_layout
 
 \begin_layout Standard
-The results show that the training does not have a clear positive impact
- on dealers or their customers, suggesting that providing dealers with informati
-on does not work as long as they do not have an incentive to learn.
- On the other hand, the information clearinghouse affects both actors positively.
- Treated farmers start switching to different shops.
- Treated dealers anticipate this and increase their efforts to outperform
- their competitors: they seek knowledge about seed handling and improve
- their services.
+Results show that the training does not have a clear impact on dealers or
+ their customers.
+ The information clearinghouse affects both actors positively.
+ Treated farmers start switching to different shops; treated dealers increase
+ their efforts to outperform their competitors.
+ Treated agro-input dealers have higher knowledge about seed handling and
+ improve their services, suggesting that if they are incentivized, they
+ additional information does seem to have a positive effect.
  Treated shops are also more likely to be registered with the Uganda National
  Agro-Input and Dealers' Association (UNADA), perhaps to signal quality,
  and are inspected more often.
@@ -426,15 +438,62 @@ on does not work as long as they do not have an incentive to learn.
  both midline and endline.
  As a result, their yield at endline significantly exceeds yields of control
  farmers.
- Hence, a clearinghouse clearly improves the Ugandan market for maize seed
- by improving quality in the eyes of farmers and by rectifying the misperception
- of non-adopters.
- All this proves that the perceived quality of seed is an important constraint
- to its adoption.
 \end_layout
 
 \begin_layout Standard
-The paper is structured as follows: Section 
+Our study advances the literature on effective ways to reduce information
+ asymmetries, such as who information should be targeted to and the role
+ of reputation mechanisms in changing behaviour.
+ For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "laneetal"
+literal "false"
+
+\end_inset
+
+ show how providing information about bus safety to passengers affects the
+ demand and supply of safer public transit, but only if there is a public
+ signal (when bus drives know they are being tracked and this information
+ is revealed to passengers).
+ Our study further fits into an emerging literature that tests the effectiveness
+ of crowd-sourced information to reduce information asymmetry and harness
+ reputation mechanisms.
+ Event though advances in Information and Communication Technologies and
+ the rise of e-commerce has led to a variety of websites that aggregate
+ crowd-sourced reviews about businesses and most e-commerce platforms allow
+ for consumer feedback, there is surprisingly little evidence available
+ on the impact of this.
+ The few rigorous studies that are available report impressive impact.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "reimers2021digitization"
+literal "false"
+
+\end_inset
+
+ compare the impacts of professional critics and Amazon star ratings of
+ books on consumer welfare and find the effect of star ratings on consumer
+ surplus to be more than ten times the effect of traditional review outlets.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "false"
+
+\end_inset
+
+ implement a platform to crowdsource information about service provision
+ quality and prices charged and reveal this information to consumers in
+ a market – artificial insemination of livestock in Punjab, Pakistan.
+ They find that treated farmers experience 25% higher insemination success
+ and these effects seem largely due to existing veterinarians increasing
+ effort.
+\end_layout
+
+\begin_layout Standard
+The remainder of this paper is structured as follows: Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Background"
@@ -542,7 +601,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-Background
+Problem statement and hypotheses
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Background"
@@ -552,81 +611,23 @@ name "section: Background"
 
 \end_layout
 
-\begin_layout Subsection
-Agro-input dealers
+\begin_layout Standard
+There are different reasons why quality of inputs may be lacking.
+ For instance, it could be that inputs are stored in sub-optimal conditions
+ (eg.
+ in direct sunlight, in moist environments,...) or handled in harmful ways
+ (eg.
+ stored beyond expiry date, repackaging,...).
+ At least for some agro-input dealers 
 \end_layout
 
 \begin_layout Standard
-Both interventions target agro-input dealers.
- Agro-input shops are businesses that sell inputs and equipment used in
- agricultural production, such as agricultural technologies like fertilizer
- and improved seed.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Agro-input shops sell only 
+the quality of maize seed could deteriorate because 
 \shape italic
-improved
-\shape default
- seed.
- The alternative to improved seed is farmer-saved seed which farmers harvest
- themselves in one crop season and save to plant it in the following season.
- This seed is usually free of charge (if farmers themselves save it) or
- cheap (if neighbors, relatives etc.
- save it) and not sold by agro-input shops.
-\end_layout
-
-\end_inset
-
- These dealers play an important role in the seed system because they create
- a market for agricultural technologies, develop and disseminate knowledge,
- and sometimes perform additional tasks like providing farm credit 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "hornum2021functional"
-literal "false"
-
-\end_inset
-
-.
- Furthermore, they are part of an important network with connections to
- actors across the value chain, such as manufacturers of inputs (e.g.
- seed companies), government organizations (e.g.
- breeders) and other agribusinesses.
- While the importance of the dealers in the seed supply chain seems straightforw
-ard and some authors emphasize the role of private agents 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "de2016agricultural"
-literal "false"
-
-\end_inset
-
-, there are very few studies which target these actors.
- As the shops form a key link between the producers and users of agricultural
- technologies, the activities of these dealers play an important role and
- quality issues may arise at their level.
- That is why our interventions specifically target agro-input shops and
- dealers.
-\end_layout
-
-\begin_layout Subsection
-Potential causes of (perceived) quality deterioration
-\begin_inset CommandInset label
-LatexCommand label
-name "subsection: The problem"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-On the one hand, the quality of maize seed could deteriorate because 
-\shape italic
+\emph on
 agro-input dealers lack knowledge
 \shape default
+\emph default
 .
  They could handle and store seed incorrectly and sell inferior seed without
  being aware.
@@ -697,7 +698,7 @@ literal "false"
 
 .
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Quotes eld
