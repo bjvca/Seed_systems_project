@@ -373,13 +373,13 @@ endline_farmers$end_pesticide_use <- endline_farmers$check.maize.q47=="Yes"
 endline_farmers$end_pesticide_use[endline_farmers$check.maize.q47=="98"] <- NA
 
 endline_farmers$check.maize.q58[endline_farmers$check.maize.q58=="n/a"] <- NA
-endline_farmers$q58_correct <- ifelse(endline_farmers$check.maize.q58 %in% c("c"),1,0)
+endline_farmers$q58_correct <- ifelse(endline_farmers$check.maize.q58 %in% c("b","c"),1,0)
 
 endline_farmers$check.maize.q59[endline_farmers$check.maize.q59=="n/a"] <- NA
 endline_farmers$q59_correct <- ifelse(endline_farmers$check.maize.q59=="c",1,0)
 
 endline_farmers$check.maize.q60[endline_farmers$check.maize.q60=="n/a"] <- NA
-endline_farmers$q60_correct <- ifelse(endline_farmers$check.maize.q60%in%c("d"),1,0)
+endline_farmers$q60_correct <- ifelse(endline_farmers$check.maize.q60%in%c("c","d"),1,0)
 
 endline_farmers$check.maize.q61[endline_farmers$check.maize.q61=="n/a"] <- NA
 endline_farmers$q61_correct <- ifelse(endline_farmers$check.maize.q61=="c",1,0)
