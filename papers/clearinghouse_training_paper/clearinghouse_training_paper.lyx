@@ -1103,10 +1103,6 @@ name "figure: Theory of change CH"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1209,7 +1205,7 @@ noprefix "false"
  Grouping of agro-input dealers into catchment areas is done on the basis
  of geographical location.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 The haversine function is used to construct an adjacency matrix based on
@@ -1218,6 +1214,13 @@ The haversine function is used to construct an adjacency matrix based on
  The 5 kilometer threshold was selected based on a visual inspection of
  the map, the size of an average village and the reported distance between
  farmers and dealers.
+\begin_inset CommandInset label
+LatexCommand label
+name "fn:The-haversine-function"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1277,7 +1280,7 @@ literal "false"
  we decide to collect information on 10 farmers per dealer, leading to a
  sample size of 3,180 households.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 More detailed information can be found in the pre-analysis plan which was
@@ -1384,6 +1387,23 @@ name "section: Intervention"
 
 \end_layout
 
+\begin_layout Standard
+This section provides a detailed description of the two interventions that
+ will be used to test the hypotheses outline in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "section: Background"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We start with the agro-input dealer training and then explain the information
+ clearinghouse we implemented.
+\end_layout
+
 \begin_layout Subsection
 Agro-input dealer training
 \end_layout
@@ -1410,24 +1430,41 @@ Training
 \end_layout
 
 \begin_layout Standard
-Of each treated shop, the owner who decides upon investments and capital-intensi
-ve practices and the attendant who is in charge of day to day activities
- and decides upon labor-intensive practices were invited.
+In each treatment catchment area, all shops were selected to receive a training.
+ Of each treated shop, both the owner and the shop manager who is in charge
+ of day to day activities and decides upon labor-intensive practices were
+ invited.
+ The owner was invited because some of the recommended techniques and practices
+ required investments.
+ The shop manager was invited because many of the recommendations were hands-on
+ practices.
  We handed out one free portable seed moisture meter per shop as an incentive
  and tried to increase attendance by all means.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-The trainings took place in locations that were easily reachable.
- All attendants were compensated for transport, lunch and drinks were provided.
+All attendants were compensated for transport, lunch and drinks were provided.
  The training took place at a time of the year when dealers were not too
  busy.
 \end_layout
 
 \end_inset
 
+ Trainings were organized in small groups, with on average 
+\begin_inset Note Note
+status open
 
+\begin_layout Plain Layout
+Caroline: please fill in
+\end_layout
+
+\end_inset
+
+ agro-input dealers present.
+ The trainings took place in locations that were easily reachable for agro-input
+ dealers.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1461,6 +1498,10 @@ noprefix "false"
 \end_inset
 
 .
+ The trainings were organized together with the Uganda National Agro-input
+ Dealer Association (UNADA), the national organization for agro-inputs in
+ Uganda.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1512,22 +1553,28 @@ Collection and computation of ratings
 \end_layout
 
 \begin_layout Standard
-When we collected baseline data from smallholder farmers, we also asked
+At the time of baseline data collection from smallholder farmers, we asked
  them to rate agro-input dealers in their proximity on a number of characteristi
 cs.
- It may be argued that by asking farmers to rate dealers, one also makes
- farmers aware of the existence of all dealers in the area, and that this
- awareness effect may potentially confound the clearinghouse effect.
- We thus also iterated through the dealers in control catchment areas, to
- make control farmers similarly aware of the existence of dealers in their
- vicinity.
- However, control farmers were not asked to rate dealers as the process
- of rating and thinking about a dealer's seed could make quality more salient,
- and is therefore part of the treatment.
-\end_layout
+ Enumerators were guided by an application that iterated through all the
+ agro-input dealers in the catchment area.
+ For each dealer, we provided the common names that are used to refer to
+ the shop, a description of where the store was located, and a picture of
+ the store front (obtained during the agro-input dealer census—see Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sample"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-Farmers' responses to the questions which are outlined in Table 
+\end_inset
+
+).
+ We further asked if farmers knew the dealer.
+ We then asked farmers to rate them using the questions which are outlined
+ in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "questions"
@@ -1537,16 +1584,18 @@ noprefix "false"
 
 \end_inset
 
- constitute the ratings.
+.
  For example, we asked farmers to rate the maize seed that an agro-input
  shop sells on a scale of one to five stars on germination.
- They were collected 
+ Ratings were always collected 
 \shape italic
+\emph on
 after
 \shape default
+\emph default
  harvest, when smallholders were able to assess seed quality based on observing
  germination and yield, the resistance against droughts, pests and diseases,
- and how fast the seed matures, see Figure 
+ and how fast the seed matures; see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1556,7 +1605,7 @@ noprefix "false"
 
 \end_inset
 
- which shows a timeline of the interventions.
+ for a timeline of the interventions.
  
 \end_layout
 
@@ -1812,15 +1861,26 @@ end{center}
 
 \end_inset
 
+ 
+\end_layout
 
+\begin_layout Standard
+It may be argued that by asking farmers to rate dealers, one also makes
+ farmers aware of the existence of all dealers in the area, and that this
+ awareness effect may potentially confound the clearinghouse effect.
+ In the control group, we thus also iterated through dealers in the catchment
+ areas, to make control farmers similarly aware of the existence of dealers
+ in their vicinity.
+ However, control farmers were not asked to rate dealers as the process
+ of rating a dealer's seed could make quality more salient, which we consider
+ to be an important impact pathway in the treatment.
 \end_layout
 
 \begin_layout Standard
 Based on the answers of all farmers in a catchment area, we computed the
  ratings for each agro-input shop.
- These ratings were translated into words and stars, so that they are easily
- understandable for farmers and dealers who are not used to interpreting
- numbers.
+ These ratings were translated into words and stars, so that they are comprehens
+ible for farmers and dealers who are not used to interpreting numbers.
  More details about the rating computations can be found in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1842,10 +1902,12 @@ Dissemination of ratings to farmers
 For the success of the clearinghouse it is crucial to disseminate the agro-input
  dealer ratings 
 \shape italic
+\emph on
 before
 \shape default
- farmers start buying seed for the next agricultural season, so that they
- can use this information when choosing whether and where to purchase inputs,
+\emph default
+ farmers start buying seed for the next agricultural season, such that they
+ can use this information when choosing whether and where to purchase inputs;
  see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1872,10 +1934,11 @@ name "text about SMS"
 \end_layout
 
 \begin_layout Standard
-We sent farmers one text message per dealer in their proximity.
+We sent farmers one text message (Short Message Service - SMS) per dealer
+ in their proximity.
  This message was translated into three local languages - Lusoga, Lugwere,
  Samia - chosen at the sub-county level to increase specificity.
- Please see Table 
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "SMS"
@@ -1885,7 +1948,7 @@ noprefix "false"
 
 \end_inset
 
- in the appendix for more details about these messages.
+ in the appendix provides more details about these messages.
  Also in control catchment areas, farmers received text messages with the
  names of dealers in their proximity, so that they were aware of the presence
  of these dealers.
@@ -1903,13 +1966,11 @@ literal "false"
  They find that enterprises randomly assigned to be listed in the directory
  receive more business calls, make greater use of mobile money, and are
  more likely to employ workers.
- As we are not interested in this kind of knowledge effect, i.e.
- farmers knowing which dealers operate in their proximity, we also disseminate
- control dealer information, so that we are able to measure the pure clearinghou
-se effect of making unobservable seed quality observable.
- An additional advantage is that control farmers will also believe that
- they are somewhat treated, so that treated and control farmers will adjust
- their behavior similarly 
+ To separate this knowledge effect from the effect emanating from the informatio
+n clearing house, we also disseminate control dealer information.
+ An additional advantage is that it is harder for farmers to identify if
+ they are being treated or not, reducing the likelihood of experimenter
+ demand effects 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bulte2014behavioral"
@@ -1917,8 +1978,7 @@ literal "false"
 
 \end_inset
 
- and effort responses will not explain the treatment effect, if we find
- one.
+.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1931,18 +1991,27 @@ The enumerators also re-visited the farmers in our sample.
  cycles through all dealers in the proximity of each farmer and states:
  "We wanted to let you know that customers from 
 \shape italic
-shop name
+\emph on
+[name of the shop]
 \shape default
+\emph default
  rate the quality of maize seed sold there as okay/good/very good/excellent!
  The quality of the maize seed that this agro-input shop sells got a score
  of 
 \shape italic
-score
+\emph on
+[score]
 \shape default
+\emph default
  out of 5!" in treated catchment areas.
  Then the enumerator showed the stars associated with the score.
  Again, we also cycled through dealers in control areas without providing
- the rating.
+ the rating, but just indicating to farmers that these agro-dealers are
+ operating in their area.
+ As was the case for the collection of ratings at baseline, the application
+ provides different names under which the shop is known, a description of
+ where the store was located, and a picture of the store front to make sure
+ farmers have the right shop in mind.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1953,7 +2022,7 @@ Dissemination of ratings to dealers
 Agro-input dealers received their ratings by means of a report on laminated
  paper which was delivered to their shops.
  The front shows a visually appealing certificate with a logo and the own
- general rating, see Figure 
+ general rating; see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "SeedAdvisor certificate"
@@ -1964,8 +2033,8 @@ noprefix "false"
 \end_inset
 
 .
- It can be used to display the ratings in the shop, similar to a "certificate
- of excellence" from TripAdvisor.
+ We encouraged agro-input dealers to display the ratings in the shop, similar
+ to a "certificate of excellence" from TripAdvisor.
 \end_layout
 
 \begin_layout Standard
@@ -2030,18 +2099,21 @@ name "SeedAdvisor certificate"
 
 \begin_layout Standard
 The back of the report shows more detailed information.
- In addition to the dealer's general rating, it shows the dealer's specific
- ratings (overall quality, yield, drought and disease resistance, speed
- of maturing, and germination) and the average ratings of other agro-input
- dealers in the same catchment area in a table, visualized by stars.
- This shows dealers their relative position in the area and could stimulate
- competition.
- Dealers were not informed about the individual ratings of their competitors,
- they only learned about the catchment area averages.
+ In addition to the dealer's general rating, it shows the separate ratings
+ that the seed of the agro-input dealer received on the different attributes
+ (overall quality, yield, drought and disease resistance, speed of maturing,
+ and germination) and the average ratings of other agro-input dealers in
+ the same catchment area in a table, visualized by stars.
+ This shows dealers their relative position in the area and could provide
+ an important incentive to improve.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The intervention was repeated in the course of 2022, see Figure 
+The intervention was repeated in the course of 2022; see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -2067,17 +2139,6 @@ name "section: Empirical strategy"
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Bjorn: please explain how we now control for the averages only (new way
- of estimating)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2095,7 +2156,7 @@ Due to the random assignment to treatment and control groups, comparing
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one-1}
+Y_{ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one-1}
 \end{equation}
 
 \end_inset
@@ -2104,11 +2165,11 @@ Y_{1ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{e
 \end_layout
 
 \begin_layout Standard
-where 
-\begin_inset Formula $Y_{1ij}$
+where for dealer level outcomes 
+\begin_inset Formula $Y_{ij}$
 \end_inset
 
- is the outcome variable for dealer or farmer 
+ is the outcome variable for dealer 
 \emph on
 i
 \emph default
@@ -2132,11 +2193,12 @@ j
 \begin_inset Formula $X_{ij}$
 \end_inset
 
- is a vector of all interactions between the different orthogonal treatments
- in the factorial design 
+ is a vector of controls for the orthogonal treatments in the factorial
+ design 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "muralidharan2019factorial"
+before "demeaned and interacted with the main treatment effect, see"
+key "lin2013agnostic,muralidharan2019factorial"
 literal "false"
 
 \end_inset
@@ -2145,18 +2207,36 @@ literal "false"
 \begin_inset Formula $ε_{ij}$
 \end_inset
 
- is a dealer- or farmer-specific error term.
+ an error term that is potentially correlated withing catchment areas.
  The coefficient 
 \begin_inset Formula $β$
 \end_inset
 
  is our estimated average treatment effect.
+ For farmer level outcomes a similar equation is estimated, where 
+\begin_inset Formula $Y_{ij}$
+\end_inset
+
+ is now the outcome variable for farmer 
+\emph on
+i
+\emph default
+ in catchment area 
+\emph on
+j
+\emph default
+ at mid- or endline, 
+\begin_inset Formula $ε_{ij}$
+\end_inset
+
+ is an error term that is potentially correlates within catchment areas,
+ and all other terms are defined as above.
 \end_layout
 
 \begin_layout Standard
 Because we randomize at catchment area level, we use cluster-robust variance-cov
-ariance matrices.
- For outcomes at the farmer level where we have almost 3500 observations
+ariance matrices that cluster standard errors at this level.
+ For outcomes at the farmer level where we have almost 3,500 observations
  in 130 clusters, the original form of the sandwich estimator 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2165,7 +2245,7 @@ literal "false"
 
 \end_inset
 
- which does not make any small-sample correction is used.
+ which does not make any small-sample correction, is used.
  For outcomes at the agro-input dealer level where we have almost 350 observatio
 ns in 130 clusters, we approximate the leave-one-cluster-out jackknife variance
  estimator 
@@ -2177,21 +2257,6 @@ literal "false"
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted: "We trim continuous variables to reduce the influence of outliers.
- Inverse hyperbolic sine transforms are used if variables are skewed.
- Outcomes for which 95% of observations have the same value within the relevant
- sample are omitted from the analysis and not included in any indicators
- or hypothesis tests."
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2223,144 +2288,6 @@ d to maximize the amount of information captured in the index by giving
  us about the different impact channels.
  That is why we also report the treatment effects on individual variables
  even though they have to be interpreted with care.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted: "We evaluate the effect of the interventions and investigate their
- impact channels by considering a range of different outcome variables.
- Testing hypotheses regarding multiple outcomes calls for special techniques
- because the probability of rejecting a true null hypothesis for at least
- one outcome is larger than the significance level used for each test 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "kling2004experimental"
-literal "false"
-
-\end_inset
-
-.
- That is why we account for multiple hypothesis testing by aggregating families
- of outcomes into groups, an approach followed by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.2307/2531158"
-literal "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2004experimental"
-literal "false"
-
-\end_inset
-
-.
- We use a method by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- and aggregate different outcomes within each domain into single summary
- indices.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Each index is computed as a weighted mean of the standardized values of
- the outcome variables.
- The weights of this efficient generalized least squares estimator are calculate
-d to maximize the amount of information captured in the index by giving
- less weight to outcomes that are highly correlated with each other.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Combining outcomes in indices is a common strategy against over-rejection
- of the null hypothesis due to multiple inference.
- This approach is useful to see whether a treatment has a positive overall
- impact.
- For instance, it is interesting to group primary outcome variables at the
- agro-input dealer level to see if the treatments generally has a positive
- impact on dealers.
- However, interpreting these effects can be difficult.
- Furthermore, we remain interested in individual outcomes because they inform
- us about the different channels of impact.
- It is interesting to see whether e.g.
- the seed handling practices, efforts and services of dealers improved at
- midline due to one of the treatments, even though the overall index of
- primary dealer outcomes might not have significantly changed, yet.
- This way it is also easy to see which individual outcomes drive the result
- if an overall index is significantly affected.
- That is why, in addition to reporting the treatment effects on these indices,
- we will report the treatment effects on individual outcome variables.
- However, they have to be interpreted with care.
-\end_layout
-
-\begin_layout Plain Layout
-An alternative strategy to deal with multiple comparisons is to adjust the
- significance levels according to family-wise error rates.
- Here individual coefficients are considered to be part of a family of n
- hypotheses.
- The family-wise error rate is the probability of at least one type I error
- in this family.
- We can maintain the family-wise error rate at some level alpha like 0.05
- by adjusting the p-values used to test each individual null hypothesis
- in the family 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "multiple"
-literal "false"
-
-\end_inset
-
-.
- The simplest of these methods is the Bonferroni adjustment, where alpha/n
- are used as critical values.
- For instance, if one would like to test 20 hypotheses, the cutoff p-value
- for testing each individual outcome would be less than 0.0025 so that the
- family-wise error rate remains at the 0.05 level.
- The downside of this method is that it assumes that outcomes are independent,
- rendering it too conservative when outcomes are correlated.
- That is why we adjust while accounting for correlation, an approach used
- by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "sankoh1997some"
-literal "false"
-
-\end_inset
-
- and later by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "aker2012zap"
-literal "false"
-
-\end_inset
-
-.
- In this procedure the adjusted p-value depends on the number of outcomes
- being tested, the unadjusted p-value for an outcome, and the mean correlation
- among the other outcomes.
- If outcomes are independent, then the procedure is equal to the Bonferroni
- adjustment.
- If the outcomes are perfectly correlated, the adjusted p-value is equivalent
- to the unadjusted p-value."
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -2376,16 +2303,22 @@ name "section: Data"
 
 \begin_layout Subsection
 Sample
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Sample"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Our sample consists of agro-input dealers and smallholder maize farmers
+Our sample consists of agro-input dealers, and smallholder maize farmers
  who live in the catchment areas of these dealers.
  The dealer sample was obtained by listing all input shops in 11 districts
- in southeastern Uganda, which roughly corresponds to the Busoga kingdom,
- during a census.
+ in southeastern Uganda, which roughly corresponds to the Busoga kingdom.
  We found 348 dealers, sufficient to detect treatment effects according
- to our power simulations, see section 
+ to our power simulations; see section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Experimental design"
@@ -2400,21 +2333,53 @@ noprefix "false"
 
 \begin_layout Standard
 After the census, these agro-input shops were assigned to 130 catchment
- areas.
- 1 to 18 dealers operate in an area, with a mean of 2.7.
- To connect shops and villages, we asked dealers where most of their customers
- come from.
+ areas (for details, see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "section: Experimental design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, Footnote 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fn:The-haversine-function"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in particular).
+ We find that 1 to 18 dealers operate in an area, with a mean of 2.7.
+ To connect shops to customers, we asked dealers the name of the villages
+ where most of their customers come from.
  Then enumerators were instructed to randomly sample ten households that
  grow maize in these villages.
  Consequently, about 3500 smallholder maize farmers were sampled, sufficient
- to detect treatment effects according to our power simulations.
+ to detect treatment effects according to our power simulations (see Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "section: Experimental design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
 Baseline data was collected from dealers in September and October 2020 and
  from farmers in April 2021.
- Midline data was collected in January and February 2022, and endline data
- was collected in July and August 2022.
+ Midline data from both farmers and dealers was collected in January and
+ February 2022, and endline data from farmers and dealers was collected
+ in July and August 2022.
 \end_layout
 
 \begin_layout Subsection
@@ -2439,18 +2404,17 @@ noprefix "false"
 
 .
  When enumerators approached a shop, they tried to interview the person
- who is most knowledgeable about the day to day operations of the business,
- inventories, sales, and so on.
+ who is most knowledgeable about the day to day operations, which was usually
+ the shop manager.
  The average respondent is 32 years old.
  60% are male and more than 90% finished primary education.
- In 55% of the cases, the respondent is the owner of the shop.
+ In 55% of the cases, the respondent is also the owner of the shop.
 \end_layout
 
 \begin_layout Standard
 We see substantial heterogeneity among agro-input shops.
  Some are small informal stores which are located in rural areas and sell
- maize seed only during the planting season whilst usually selling other
- products.
+ maize seed only during the planting season.
  Others have many customers, are efficient, located in towns and specialized
  in inputs and equipment used in agricultural production.
  The average shop was established 5 years ago and is located 7 kilometers
@@ -2460,16 +2424,16 @@ We see substantial heterogeneity among agro-input shops.
 \end_layout
 
 \begin_layout Standard
-We also collected a variety of variables related to the quality of maize
- seed sold at these agro-input shops.
+We also collected information that would allow us to assess the quality
+ of maize seed sold at these agro-input shops.
  Enumerators asked if they could inspect the area where seed is stored and
  noted that there is quite some room for improvement.
  65% of shops have problems with pests like rats or insects and 16% store
  maize seed in open containers.
- When we asked dealers about the services they provide, around half reported
- to offer credit and extension or training.
+ When we asked dealers about the services that agro-input dealers provide,
+ around half reported to offer credit and extension or training.
  On the other hand, 2 in 3 shops received a complaint about seed they sold
- from a customer since last season.
+ from a customer over the last season.
 \end_layout
 
 \begin_layout Standard
@@ -2479,27 +2443,10 @@ We also purchased a bag of maize seed.
  We measured the moisture in the bag and found that it was 13.6% on average,
  with a minimum of 10.3 and a maximum of 17.4.
  Note that seed moisture content determines whether molds and storage pests
- thrive, so that moisture should stay below 13%.
+ thrive.
+ It is recommended to keep moisture below 13%.
  While 68% of seed bags show a packaging date, only 18% show an expiry date,
  and 8% show a certification sticker.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted: "Interestingly, when asked to rate the product quality of an agro-input
- shop on a scale of 1 to 5, dealers rated themselves significantly better
- than farmers did.
- It is also interesting to note that farmers who bought seed at a particular
- agro-input shop rate this shop's seed significantly worse than farmers
- who did not.
- Both comparisons can only be made for clearinghouse treated dealers and
- farmers because control dealers were not rated at baseline, and control
- farmers did not rate at baseline."
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3575,7 +3522,10 @@ noprefix "false"
 
  reports means in the 
 \shape italic
-farmer 
+\emph on
+farmer
+\emph default
+ 
 \shape default
 sample.
  When approaching a household, enumerators were instructed to interview
@@ -3603,25 +3553,6 @@ Half of the farmers in our sample adopted improved maize seed on at least
  or Nitrogen, Phosphorus, and Potassium (NPK) on a randomly selected maize
  field.
  Productivity is low with 500 kilograms per acre.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted because adopting farmers could be structurally different than non-adopti
-ng farmers, so this doesn't say much: "Interestingly, farmers who adopted
- improved maize seed harvested 589 kilograms (worth 413 000 Ugandan shillings
- (UGX)) per acre on average, whereas farmers who did not harvested 424 kilograms
- (worth 299 000 UGX) per acre, meaning that adopting farmers had 39% more
- yield (worth 114 000 UGX) per acre.
- However, farmers who adopted report to have spent on average 32 000 UGX
- per acre on seed material, farmers who did not 1 000 UGX per acre.
- This results in a difference of 31 000 UGX per acre in seed costs, meaning
- that adopting farmers almost quadrupled their investment."
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -3631,7 +3562,7 @@ Orthogonality tests of randomization balance
 \begin_layout Standard
 To test if treatment and control groups are comparable in terms of a set
  of baseline characteristics we include standard orthogonality tables with
- pre-registered variables (Tables 
+ pre-registered variables for both dealers and farmers (Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -3651,12 +3582,15 @@ noprefix "false"
 
 \end_inset
 
-).
+ respectively).
  Some of these characteristics are unlikely to be affected by the intervention,
- while others are picked from the primary and secondary outcomes.
- Very few of the pre-registered baseline characteristics are significantly
- different between treated and control dealers and farmers, the baseline
- sample is balanced.
+ while others are picked from the primary and secondary outcomes we will
+ use to measure the impact of our interventions in the next section.
+ For the agro-input dealer training, we find that from a total of 16 comparisons
+, only one is significant at the 5 percent level.
+ For the clearing house treatment, we find two significant differences,
+ both at the 10 percent level.
+ This is consistent with a balance sample.
 \end_layout
 
 \begin_layout Standard
@@ -6111,13 +6045,13 @@ In the regressions with these overall indices, we do not control for the
 \shape italic
 and
 \shape default
- at baseline, leading to less observations and statistical power.
+ at baseline, leading to less observations and reduced statistical power.
 \end_layout
 
 \end_inset
 
- The information which variables are included in which indices can be found
- in the notes below the respective tables.
+ The information on what variables are included in which indices can be
+ found in the notes below the tables.
 \end_layout
 
 \begin_layout Standard
@@ -6174,7 +6108,7 @@ literal "false"
 
 \end_inset
 
- which provides time-stamped recordings of all changes made over the course
+ which provides time-stamped records of all changes made over the course
  of the project.
 \end_layout
 
@@ -6201,27 +6135,30 @@ noprefix "false"
 .
  At midline, the overall index is significantly larger among information
  clearinghouse treated dealers.
- There is also some evidence that individual outcomes were positively impacted.
- For instance, we see that dealers in the treatment group sold more maize
- seed at a higher price and therefore report significantly larger revenues.
+ Looking at individual outcomes, we see that dealers in the treatment group
+ sold more maize seed at a higher price, albeit not significantly so.
+ However, the combination of this does lead to significantly higher revenues.
  On the other hand, the dealer training does not affect the index significantly.
- In fact, considering variables individually suggests a negative impact
- of the training on the average sales price of improved maize varieties.
+ In fact, we find a negative impact of the training on the average sales
+ price of improved maize varieties.
  
 \end_layout
 
 \begin_layout Standard
-At endline, the clearinghouse intervention significantly increased primary
- outcomes at the agro-input dealer level as measured by the overall index.
- The effect is driven by a substantial increase in the number of maize seed
- customers that shops attract and by an increase in the index which measures
- dealer efforts and services.
+At endline, the positive effects of the clearinghouse intervention seems
+ to become stronger.
+ The overall index is now significant at the 5 percent level.
+ Interestingly, this effect seems to be driven by different variables than
+ at midline.
+ Now, we see a substantial increase in the number of customers that shops
+ attract and an increase in the index which measures dealer efforts and
+ services.
  Furthermore, all other effects go in the expected direction and some are
  close to the significance threshold.
  For instance, we see that shops in the clearinghouse treatment group apply
  better seed storage and handling practices,
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 These agro-input shop features were noted by our enumerators who inspected
@@ -6239,8 +6176,8 @@ status collapsed
 Note that the rating indices are pre-registered outcomes but treatment and
  control groups can be compared only at endline.
  At base- and midline, only clearinghouse treated farmers rated dealers
- in their proximity because being confronted with these questions is part
- of the treatment.
+ in their proximity because we consider the act of rating itself an important
+ part of the treatment.
  Hence control dealers were not rated and this line is left blank at midline.
  At endline, all farmers rated all shops, so that this variable can be investiga
 ted.
@@ -8074,12 +8011,14 @@ Secondary outcome variables
 \end_layout
 
 \begin_layout Standard
-As a first set of secondary outcomes at dealer level, we construct more
- 
+As a first set of secondary outcomes at dealer level, we construct a set
+ of 
 \shape italic
+\emph on
 indices
 \shape default
- which aggregate different variables according to 
+\emph default
+ which aggregate several related variables, again following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -8099,19 +8038,9 @@ noprefix "false"
 \end_inset
 
 .
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-These variables are not further adjusted for multiple hypothesis testing
- by means of an overall index because all of them are indices.
-\end_layout
-
-\end_inset
-
- A first index which proxies dealer's motivation and satisfaction remains
- constant among treatment groups.
- A second index which reflects self-ratings of agro-input dealers is similarly
+ A first index attempts to measure dealer's motivation and satisfaction,
+ which remains constant among treatment groups.
+ A second index reflects self-ratings of agro-input dealers and is similarly
  unaffected by the two treatments.
  While the index of dealer efforts and services among the primary outcomes
  in Table 
@@ -8126,8 +8055,8 @@ noprefix "false"
 
  was based on what dealers reported, we also asked farmers which services
  the dealers offer.
- We find convincing evidence that the information clearinghouse increases
- farmers' perceptions about dealers' efforts and services at midline.
+ We find strong evidence that the information clearinghouse increases farmers'
+ perceptions about dealers' efforts and services at midline.
  Surprisingly, we find that the dealer training seems to have the opposite
  effect.
  To investigate changes in skill and knowledge, we construct two more indices.
@@ -9111,8 +9040,8 @@ $^5$The index of dealer's knowledge about seed contains 4 variables: whether
 \end_layout
 
 \begin_layout Standard
-We also consider outcomes associated with particular seed types.
- Because dealers often do not stock all types, sample sizes are smaller
+We also consider outcomes associated with particular seed varieties.
+ Because dealers often do not stock all varieties, sample sizes are smaller
  here.
  The next set of variables deals with 
 \shape italic
@@ -13120,7 +13049,7 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 deleted: "Furthermore, enumerators purchased a 
@@ -14218,944 +14147,9 @@ $^2$The comparisons were only made for shops in which the enumerator was
 
 \end_inset
 
-"
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted: "Finally, Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on secondary dealer outcomes: Other"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- reports the treatment effects on 
-\shape italic
-other
-\shape default
- secondary outcomes.
- We find a significant effect on the likelihood of owning a seed moisture
- meter for agro-input dealers that were allocated to the training.
- This is not surprising since dealers who attended the training were given
- such a device.
- The overall index is not affected by any of the treatments at mid- or endline.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on secondary dealer outcomes: Other
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary dealer outcomes: Other"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of maize varieties in stock
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,1]<.05,"*",ifelse(df_ols_D_sec[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,1]<.05,"*",ifelse(df_ols_D_sec[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,1]<.05,"*",ifelse(df_ols_end_D_sec[3,1,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec[3,2,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of hybrid maize varieties in stock$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,2]<.05,"*",ifelse(df_ols_D_sec[3,1,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,2]<.05,"*",ifelse(df_ols_D_sec[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of open-pollinated maize varieties in stock$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,3]<.05,"*",ifelse(df_ols_D_sec[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,3]<.05,"*",ifelse(df_ols_D_sec[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec[3,1,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec[3,2,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has equipment to monitor seed moisture
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,4]<.05,"*",ifelse(df_ols_D_sec[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,4]<.05,"*",ifelse(df_ols_D_sec[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec[3,1,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec[3,2,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,4],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,1,4]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,4]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,2,4]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,4]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,4],digits=3),nsmall=3)})
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & & 306 & & & 297
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below; 
- 2nd, 3rd, 5th and 6th column reports differences between treatment and
- control groups and standard errors below; they are clustered at the level
- of randomization; 4th and 7th column reports number of observations; **,
- * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-"
+".
+ Have we ever tried pooling the observations from midline and endline? Than
+ samples become larger.
 \end_layout
 
 \end_inset
@@ -15173,7 +14167,7 @@ Primary outcome variables
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Bjorn: During midline we see an increase in the likelihood that farmers
@@ -15219,73 +14213,46 @@ noprefix "false"
  reports the effects of the interventions on a set of key outcomes at the
  smallholder level.
  We do not find an impact on the overall primary outcome index at midline.
- Looking at the variables individually, we do see a significant impact of
- the information clearinghouse intervention.
- Most strikingly, there is a substantial increase in the share of farmers
- who switched to a different agro-input shop.
- In areas where the clearinghouse was implemented, we record a 4 percentage
- point higher propensity to switch, which corresponds to a 25 percent increase
+ Looking at the variables individually, we see a substantial increase in
+ the share of farmers who switched to a different agro-input shop: In areas
+ where the clearinghouse was implemented, we record a 4 percentage point
+ higher likelihood to switch, which corresponds to a 25 percent increase
  relative to the baseline mean.
- Furthermore, the clearinghouse increased adoption.
- Treated farmers are 4 percentage points more likely to have used improved
- maize seed on any field.
+ Furthermore, the clearinghouse increased adoption: Treated farmers are
+ 3.5 percentage points more likely to have used improved maize seed on at
+ least one plot.
  We also see a 6 percentage point increase in the share of farmers who used
  quality maize seed bought from an agro-input dealer.
  Finally, for our measure of effort perception, farmers indicate that dealers
  in areas exposed to the clearinghouse provide more services such as training,
  credit, etc.
  than dealers in control areas.
- However, this estimate is based on a very small sample.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I suggest to delete this here and in the table.
-\end_layout
-
-\end_inset
-
  We do not find an effect of the dealer level training on farmer outcomes
- at midline, except for the affected index of shop services which is based
- on a very small sample.
+ at midline, except for the index of shop services.
+ Somewhat surprisingly, the training seemed to have reduced services.
 \end_layout
 
 \begin_layout Standard
 At endline, we see that the information clearinghouse has a positive impact
  on farmers when looking at the overall index.
- Considering individual primary outcomes, we find that farmers who were
- exposed to the clearinghouse treatment are 4 percentage points more likely
- to have used improved seed on at least one of their maize plots.
- Two other important outcome are related to the perception of product quality,
+ Considering individual primary outcomes, we find that the adoption effect
+ we found at midline persists: farmers who were exposed to the clearinghouse
+ treatment are now 4 percentage points more likely to have used improved
+ seed on at least one of their maize plots.
+ Two other important outcomes are related to the perception of product quality,
  shop and seller.
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "repeated footnote"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  To be able to calculate these indices at the smallholder level, the farmer
- needs to have rated at least one dealer in the neighborhood on all the
- components of the indices, which leads to a reduction of the sample size
+ needs to have rated at least one dealer in the catchment area on all the
+ components of the indices, which leads to a reduction of the sample size,
  which in turn may have affected power.
  Nonetheless, we see that the index of farmer’s maize seed ratings of shops
- nearby is significantly affected by the treatment.
+ within the catchment area is significantly and positively affected by the
+ clearing house treatment.
  Other variables that are significantly impacted include the likelihood
  that farmers switch shops, or the efforts and services that farmers receive
  from dealers.
- It is also encouraging that results at the farmer level are consistent
- with outcomes at the dealer level.
+ In general, results at the farmer level are consistent with outcomes at
+ the dealer level.
  For instance, in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15849,7 +14816,7 @@ Sexpr{format(round(df_ols_end_F_prim[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of farmer's maize seed ratings of shops nearby$^1$
+Index of farmer's maize seed ratings of shops within catchment area$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -15961,7 +14928,7 @@ Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of farmer's general ratings of shops nearby$^2$
+Index of farmer's general ratings of shops within catchment area$^2$
 \end_layout
 
 \begin_layout Plain Layout
@@ -16073,7 +15040,7 @@ Sexpr{format(round(df_ols_end_F_nobase[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of services of shops nearby according to farmers$^3$
+Index of services of shops within catchment area according to farmers$^3$
 \end_layout
 
 \begin_layout Plain Layout
@@ -17018,16 +15985,16 @@ $^2$The index of farmer's general ratings contains 6 ratings: general quality,
 
 \begin_layout Plain Layout
 
-$^3$The index of services of shops nearby contains 7 variables: whether
- shop offers refund/insurance, credit, training/advice, delivery, after-sales
- service, accepts different payment methods, sells small quantities.
+$^3$The index of services of shops within catchment area contains 7 variables:
+ whether shop offers refund/insurance, credit, training/advice, delivery,
+ after-sales service, accepts different payment methods, sells small quantities.
  The answers are aggregated at shop level, then the index is computed at
  farmer level.
  Only 
 \backslash
 Sexpr{format(round(df_means_end_F_prim[3,4],digits=0),nsmall=0)} farmers
- answered all 7 questions for at least one shop nearby at baseline and at
- endline.
+ answered all 7 questions for at least one shop within the catchment area
+ at baseline and at endline.
 \backslash
 
 \backslash
@@ -17082,12 +16049,12 @@ Secondary outcome variables
 
 \begin_layout Standard
 To explore impact pathways at the level of the smallholder, we often consider
- outcomes associated with a randomly selected maize field.
+ outcomes associated with a randomly selected maize plot.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-Farmers often have more than one field.
+Farmers often have more than one plot.
  As outcomes on different plots from the same farmer are likely to be strongly
  correlated, it is not cost effective to ask questions about all fields.
  An unbiased estimate of the outcome at the household level can be obtained
@@ -17108,9 +16075,11 @@ noprefix "false"
 
  we look at the 
 \shape italic
+\emph on
 adoption of improved maize seed
 \shape default
- on that field.
+\emph default
+ on that a randomly selected plot.
  While we do not find any significant impact of the agro-input dealer training
  at midline, we do find some interesting results for the information clearinghou
 se treatment even though the overall index is not impacted.
@@ -18206,9 +17175,11 @@ noprefix "false"
 
 , we zoom in on the 
 \shape italic
+\emph on
 maize seed that farmers planted
 \shape default
- on the randomly selected field, and investigate their quality perceptions.
+\emph default
+ on the randomly selected plot, and investigate their quality perceptions.
  On fields exposed to the clearinghouse treatment, farmers use more expensive
  seed leading to higher seed costs.
  This is consistent with the explanation that the clearinghouse increases
@@ -19424,10 +18395,13 @@ $^1$The index of farmer's seed ratings contains 6 ratings: general quality,
 \begin_layout Standard
 We further look at 
 \shape italic
-harvest 
+\emph on
+harvest
+\emph default
+ 
 \shape default
 related outcomes, like maize yield and revenue, associated with the randomly
- selected field.
+ selected plot.
 \begin_inset Foot
 status collapsed
 
@@ -19465,8 +18439,8 @@ noprefix "false"
  Note that picking up a yield effect of this size is particularly convincing
  because this outcome is relatively far down the causal impact chain and
  shows high variability.
- The increase in production and yield at endline is most likely due to increased
- adoption at midline.
+ The increase in production and yield at endline is consistent with the
+ increased adoption at midline.
 \end_layout
 
 \begin_layout Standard
@@ -20531,910 +19505,6 @@ dag$ indicates that the variable is included in the overall index; larger
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted: "Finally, we report the results regarding a family of 
-\shape italic
-other
-\shape default
- secondary outcomes which are somewhat unrelated to each other in Table
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on secondary farmer outcomes: Other"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We construct an index of farmer’s knowledge, the other two outcomes in
- the table are constructed from the farmer-input dealer dyads.
- In particular, for each farmer, we first calculate what percentage of agro-inpu
-t dealer the farmer i) knows and ii) knows and bought seed from in the previous
- season.
- At endline, the share of farmers buying seed from dealers in their catchment
- area is significantly higher in areas where the clearinghouse was implemented.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on secondary farmer outcomes: Other
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary farmer outcomes: Other"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of improved maize varieties farmer knows$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,1,1]<.05,"*",ifelse(df_ols_F_sec[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,1]<.05,"*",ifelse(df_ols_F_sec[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,1,1]<.05,"*",ifelse(df_ols_end_F_sec[3,1,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,2,1]<.05,"*",ifelse(df_ols_end_F_sec[3,2,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer knows particular shop nearby$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,1,2]<.05,"*",ifelse(df_ols_F_sec[3,1,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec[3,2,2]<.05,"*",ifelse(df_ols_F_sec[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,1,2]<.05,"*",ifelse(df_ols_end_F_sec[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec[3,2,2]<.05,"*",ifelse(df_ols_end_F_sec[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer bought particular shop's seed last season
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,13],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,13]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,13]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,13]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,13],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,13],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's knowledge how to manage improved maize seed$^1$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,6]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,6]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,6]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,6]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,6],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,8],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,1,8]<.05,"*",ifelse(df_ols_F_nobase[3,1,8]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,2,8]<.05,"*",ifelse(df_ols_F_nobase[3,2,8]<.1,"+","")))
-}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_nobase[3,8],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,8]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,8]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,8],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,8]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,8]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,8]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,8],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,8],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,8],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & & 3407 & & & 3441
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below; 
- 2nd, 3rd, 5th and 6th column reports differences between treatment and
- control groups and standard errors below; they are clustered at the level
- of randomization; 4th and 7th column reports number of observations; **,
- * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$The index of farmer's knowledge how to manage improved maize seed contains
- 5 variables: whether farmers know that when using quality maize seed: 1)
- good seed handling/management is equally or even more important than when
- using lower quality seed, that they should 2) weed and remove striga 3)
- apply the same amount or even more fertilizer, 4) use equally good plots
- as they would if they'd use lower quality seed, 5) buy both quality seed
- and fertilizer.
- We report the mean and standard deviation at endline because this variable
- was not collected at base- or midline to avoid priming.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-"
 \end_layout
 
 \end_inset
@@ -23916,7 +21986,7 @@ Sexpr{format(round(df_ols_end_F_prim_HET[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of farmer's maize seed ratings of shops nearby$^1$
+Index of farmer's maize seed ratings of shops within catchment area$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -24029,7 +22099,7 @@ Sexpr{format(round(df_ols_end_F_nobase_HET[2,2,1],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of farmer's general ratings of shops nearby$^2$
+Index of farmer's general ratings of shops within catchment area$^2$
 \end_layout
 
 \begin_layout Plain Layout
@@ -24142,7 +22212,7 @@ Sexpr{format(round(df_ols_end_F_nobase_HET[2,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Index of services of shops nearby according to farmers$^3$
+Index of services of shops within catchment area according to farmers$^3$
 \end_layout
 
 \begin_layout Plain Layout
@@ -25101,16 +23171,16 @@ $^2$The index of farmer's general ratings contains 6 ratings: general quality,
 
 \begin_layout Plain Layout
 
-$^3$The index of services of shops nearby contains 7 variables: whether
- shop offers refund/insurance, credit, training/advice, delivery, after-sales
- service, accepts different payment methods, sells small quantities.
+$^3$The index of services of shops within catchment area contains 7 variables:
+ whether shop offers refund/insurance, credit, training/advice, delivery,
+ after-sales service, accepts different payment methods, sells small quantities.
  The answers are aggregated at shop level, then the index is computed at
  farmer level.
  Only 
 \backslash
 Sexpr{format(round(df_means_end_F_prim_HET[3,4],digits=0),nsmall=0)} farmers
- answered all 7 questions for at least one shop nearby at baseline and at
- endline.
+ answered all 7 questions for at least one shop within the catchment area
+ at baseline and at endline.
 \backslash
 
 \backslash
