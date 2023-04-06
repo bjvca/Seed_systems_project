@@ -3586,11 +3586,27 @@ noprefix "false"
  Some of these characteristics are unlikely to be affected by the intervention,
  while others are picked from the primary and secondary outcomes we will
  use to measure the impact of our interventions in the next section.
- For the agro-input dealer training, we find that from a total of 16 comparisons
-, only one is significant at the 5 percent level.
+ 
+\end_layout
+
+\begin_layout Standard
+For outcomes at the agro-input dealer level reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we find that from a total of 16 comparisons, only one is significant at
+ the 5 percent level for the agro-input dealer training.
  For the clearing house treatment, we find two significant differences,
  both at the 10 percent level.
- This is consistent with a balance sample.
+ This is consistent with a balanced sample.
+ For outcomes at the farmer level, out of 32 comparisons, none is statistically
+ significant.
 \end_layout
 
 \begin_layout Standard
@@ -11810,8 +11826,10 @@ $^1$The comparisons were only made for shops which had Longe 5 in stock
 \begin_layout Standard
 We also collected information about 
 \shape italic
+\emph on
 memberships, licenses, and inspections
 \shape default
+\emph default
 .
 \begin_inset Note Note
 status collapsed
@@ -19525,23 +19543,13 @@ name "Heterogeneity"
 
 \begin_layout Standard
 One could argue that the information clearinghouse will not work in areas
- with only one agro-input dealer, as farmers would be less likely to switch
- to better dealers and dealers would have no incentive to improve their
- services and increase their efforts if there is no threat of competition
+ with only one agro-input dealer, as farmers have less opportunities to
+ switch to better dealers and dealers would have less incentives to improve
+ their services and increase their efforts if there is no threat of competition
  nearby.
  In our sample, 46 of 130 catchment areas are served by only one dealer.
  We exclude these smallest clusters which leaves us with 302 shops and 3020
  farmers in 84 areas.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Note that samples sizes are smaller which has implications for statistical
- power.
-\end_layout
-
-\end_inset
-
  Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23230,7 +23238,7 @@ $^6$We report the mean and standard deviation at midline because not all
 \end_layout
 
 \begin_layout Section
-Threat to validity
+Attrition
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Threat to validity"
@@ -23301,12 +23309,14 @@ We noticed the attrition problem after midline data collection and instructed
  year.
  This supports our claim that at least a share control dealer attrition
  can be explained by a lack of enumerator effort instead of bankruptcy.
- Anyway, even if attrition is non-random: when attrition bias is likely
- to be negative and treatment effects are expected to be positive, the unadjuste
-d selection-contaminated estimates provide 
+ Furthermore, even if attrition is non-random, the bias is likely to be
+ negative and treatment effects are expected to be positive.
+ As such, the unadjusted selection-contaminated estimates provide 
 \shape italic
+\emph on
 lower
 \shape default
+\emph default
  bounds for the true treatment effect 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -23316,21 +23326,7 @@ literal "false"
 \end_inset
 
 .
- We refrain from estimating 
-\shape italic
-upper
-\shape default
- bounds which are robust to non-random attrition (e.g.
  
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "10.2307/145818,NBERt0277"
-literal "false"
-
-\end_inset
-
-) because our ordinary estimates are lower bounds for the true effect and
- therefore the most conservative estimates.
 \end_layout
 
 \begin_layout Standard
@@ -23338,10 +23334,11 @@ literal "false"
 status collapsed
 
 \begin_layout Plain Layout
-What about only reporting endline attrition? It makes our case more convincing
- and if dealers were not found at midline but were found at endline, their
- attrition is most likely random and not relevant? When dealers are found
- back, it isn't "real attrition", is it?
+Caro: What about only reporting endline attrition? It makes our case more
+ convincing and if dealers were not found at midline but were found at endline,
+ their attrition is most likely random and not relevant? When dealers are
+ found back, it isn't "real attrition", is it? Bjorn: Maybe we should just
+ consider deleting this entire Threat to validity section.
 \end_layout
 
 \end_inset
@@ -24676,7 +24673,7 @@ To support our claim, we test if the ratings are correlated with objective
  to some extent.
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 I suggest to delete this paragraph because it proves nothing: specialized
@@ -24760,52 +24757,93 @@ name "section: Conclusion"
 
 \begin_layout Standard
 Even though agricultural technologies like high yielding seed varieties
- and fertilizers are seen as the key to agricultural productivity, the adoption
- by smallholders remains persistently low in sub-Saharan Africa, which hinders
- poverty alleviation at the individual and aggregate level.
- We study a particular constraint to technology adoption: the perceived
- quality of agricultural inputs like improved maize seed.
- We hypothesize that seed quality deteriorates because agro-input dealers
- lack knowledge and incentives.
- Alternatively, quality could be sufficient but farmers misperceive it.
+ and inorganic fertilizers are considered to be key in increasing agricultural
+ productivity and accelerate rural transformation, the adoption by smallholders
+ remains persistently low in sub-Saharan Africa.
+ We studied a particular constraint to technology adoption: the perceived
+ quality of agricultural inputs.
+ We hypothesized that seed quality deteriorates because agro-input dealers
+ lack knowledge and/or because asymmetric information results in excessive
+ search costs for farmers and reduced incentives for dealers.
 \end_layout
 
 \begin_layout Standard
 To assess the importance of this potential constraint to agricultural technology
- adoption, we test two interventions in the market for seed.
- A training informs agro-input dealers about correct seed handling and storage
- practices.
- An information clearinghouse based on crowd-sourced ratings reduces the
- information asymmetry between seller and buyer by making the quality of
- maize seed observable.
- Both interventions are tested in an RCT among 350 agro-input dealers and
- 3500 smallholder maize farmers in Uganda.
+ adoption, we tested two interventions in the market for improved maize
+ seed varieties in eastern Uganda using a randomized control trial.
+ A training informed agro-input dealers about correct seed handling and
+ storage practices.
+ An information clearinghouse based on crowd-sourced ratings of the quality
+ of seed that agro-input dealers sell reduced the information asymmetry
+ between seller and buyer by making the quality of maize seed observable.
 \end_layout
 
 \begin_layout Standard
-The results of our analyses show that training dealers does not work as
- long as they do not have an incentive to learn.
- However, the clearinghouse clearly improves the Ugandan market for maize
- seed as sellers and buyers behave in the way the theory of change in Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure: Theory of change CH"
-plural "false"
-caps "false"
-noprefix "false"
+The results of our analyses showed that training dealers did not lead to
+ increased knowledge, did not change agro-input dealer practices and did
+ not increase observable quality attributes of the seed.
+ We also did not find any impact among farmers that are living in catchment
+ areas of agro-input dealers that were trained: they did not rate quality
+ differently nor had higher adoption rates than farmers that were not exposed
+ to the dealer level training.
+ However, the clearinghouse had clear impacts on the Ugandan market for
+ maize seed as sellers and buyers started behaving in a way that is consistent
+ with theory of change.
+ Effects at farmer level included an increased likelihood of switching to
+ different dealers (especially after one season), increased adoption of
+ improved seed varieties, and increased productivity (especially after the
+ second season).
+ Effects at the dealer level included increased number of customers and
+ more services provided to farmers.
+\end_layout
+
+\begin_layout Standard
+We conclude that quality consideration are an important constraint to the
+ adoption of agricultural inputs.
+ Implications for policy are that any strategy which reduces the information
+ asymmetry between seller and buyer by making input quality more observable,
+ through for instance certification, electronic verification, inspection
+ etc., is likely to improve the market and increase adoption.
+ However, it has been well established that differences in seemingly small
+ attributes in information campaigns can have important consequences for
+ behavior change 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "duflo2011poor"
+literal "false"
 
 \end_inset
 
- predicted.
- It improves maize seed quality at agro-input shops in the eyes of the farmers,
- and increases adoption.
+.
+ For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "benyishay2019social"
+literal "false"
+
+\end_inset
+
+ find that information farmers appear most convinced if information comes
+ from sources they share a group identity with.
+ Furthermore, the heterogeneous settings farmers face (in terms of soil
+ fertility and (micro-)climatic conditions) means that uniform information
+ messages or blanket recommendations are often less effective than site-specific
+ or (hyper) local information 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "AYALEW2022102788"
+literal "false"
+
+\end_inset
+
+.
+ An information clearinghouse based on crowd-sourced information combines
+ many of the attributes that are found to be important as peers who are
+ familiar with the heterogeneous conditions farmers face provide the ratings.
 \end_layout
 
 \begin_layout Standard
-We conclude that the adoption of agricultural inputs is constrained by the
- perception of smallholders they are of insufficient quality.
- A crowd-sourced information clearinghouse can be an important institutional
+A crowd-sourced information clearinghouse can be an important institutional
  innovation to solve the problem of asymmetric information in the market
  for agricultural inputs.
  It may be preferable to alternative strategies due to its likely lower
@@ -24815,29 +24853,24 @@ We conclude that the adoption of agricultural inputs is constrained by the
 \end_layout
 
 \begin_layout Standard
-Implications for policy are that any strategy which reduces the information
- asymmetry between seller and buyer by making input quality more observable,
- e.g.
- forms of a clearinghouse, certification, electronic verification, inspection
- etc., is likely to improve the market and increase adoption.
- However, one reason why the clearinghouse works so well is that peers,
- who are familiar with the heterogeneous conditions farmers face, provide
- the ratings.
- The opinion of a peer who knows the local weather and soil could be more
- useful and trustworthy for smallholders than the judgment of an inspector
- or seed certification/ verification system.
- Smallholders know best which dimensions of input quality matter for them.
- That is why strategies which make input quality observable by consulting
- peers are most likely to be equally successful as the clearinghouse.
- Furthermore, solutions have to be cheap, self-sustaining and scalable.
-\end_layout
-
-\begin_layout Standard
+Finally, the null results for the agro-input dealer training experiment
+ shows that simply investing in training may not be an effective strategy
+ as long as agro-input dealers are not incentivized.
+ In fact, our results suggest that if agro-input dealers are exposed to
+ the incentives created by competition and full information, farmers may
+ actively seek out knowledge necessary to further improve and keep ahead
+ of competitors.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-questions for future research?
+The conclusion should be much more elaborated if we plan to send this to
+ a general interest journal.
+ It needs to relate our findings back to the broader literature.
+ For instance, can we find other studies that report null results of trainings?
+ Are there studies that look at the importance of motivation for using informati
+on? Is there are literature on how incentives crowds in knowledge seeking
+ behavior, etc
 \end_layout
 
 \end_inset
@@ -25019,6 +25052,7 @@ I would prefer table A.1 (distinguish between tables in paper and tables
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
