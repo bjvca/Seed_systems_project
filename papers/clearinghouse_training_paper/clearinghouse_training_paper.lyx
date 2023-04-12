@@ -145,8 +145,8 @@ thanks{Development Strategy and Governance Division, IFPRI}}
 
 \end_inset
 
-Addressing quality constraints to agricultural technology adoption in the
- Ugandan market for maize seed
+The (perceived) quality of agricultural technology and its adoption: evidence
+ from improved seed varieties in Uganda
 \begin_inset Note Note
 status open
 
@@ -274,9 +274,9 @@ literal "false"
 \end_inset
 
 .
- Unfortunately, there is concern that the use of improved inputs and technologie
-s across the region seems to be stagnating—or at least advancing at a slower
- pace than required 
+ Unfortunately, the use of improved inputs and technologies across the region
+ seems to be stagnating, or at least advancing at a slower pace than required
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1257/jep.36.1.33"
@@ -318,8 +318,8 @@ literal "true"
 
 \end_inset
 
-, heterogeneity in the net benefits to the technology due to infrastructure
- and transaction costs 
+, heterogeneity in the net benefits derived from the technology due to differenc
+es in infrastructure and transaction costs 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
@@ -348,9 +348,9 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-More recently, quality related issues of the technology (often inputs such
- as improved seed varieties, inorganic fertilizers, or pesticides) have
- emerged as a potential constraint.
+More recently, issues related to the quality the technology (often inputs
+ such as improved seed varieties, inorganic fertilizers, or pesticides)
+ have emerged as a potential constraint.
  In a widely cited article, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -362,10 +362,28 @@ literal "false"
  argue that because quality is often difficult to assess by the farmers
  from simple visual inspection, information asymmetries between sellers
  and buyers characterize the markets for seed and fertilizer, crowding out
- the market for quality inputs.
- However, it is not clear if these quality issues are due to agro-input
- dealers intentionally adulterating inputs, or if this is simply because
- they lack knowledge and skills to preserve quality 
+ the market for quality inputs, similar to what happens in Akerlof's seminal
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Market for Lemons
+\begin_inset Quotes erd
+\end_inset
+
+ paper 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "george1970market"
+literal "false"
+
+\end_inset
+
+.
+ However, subsequent research argued that it is not clear if these quality
+ issues are due to agro-input dealers intentionally adulterating inputs,
+ or if this is simply because they lack knowledge and skills to preserve
+ quality 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -378,7 +396,7 @@ literal "false"
  studies argue that input quality is indeed lacking 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bold2017lemon,doi:10.1080/00220388.2018.1464143"
+key "doi:10.1080/00220388.2018.1464143"
 literal "false"
 
 \end_inset
@@ -392,27 +410,16 @@ literal "false"
 \end_inset
 
 .
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "gharib2021fear"
-literal "false"
-
-\end_inset
-
- find that concerns about seed quality reduce farmers’ willingness to invest
- in seeds, as farmers are willing to pay 15% more for bags directly from
- the seed company than for bags from local retailers.
 \end_layout
 
 \begin_layout Standard
-We attempt to answer some of these questions by means of a field experiment
+We attempt to answer some of these questions through a field experiment
  in the Ugandan market for improved maize seed varieties (high-yielding
  cultivars like open-pollinated and hybrid varieties).
  To test if low seed quality is primarily due to poor handling and storage,
- we organize trainings for a random sub-sample of agro-input dealers and
- look at the impact of at both agro-input dealer level and farmers living
- in their catchment areas.
+ we organize trainings for a random sub-set of agro-input dealers and look
+ at the impact of at both agro-input dealer level and farmers living in
+ their catchment areas.
  Furthermore, we implement an information clearinghouse which is based on
  crowd-sourced ratings and works through reputational mechanisms like yelp.com
  or tripadvisor.com.
@@ -432,11 +439,18 @@ We attempt to answer some of these questions by means of a field experiment
 \end_layout
 
 \begin_layout Standard
-Results show that the training does not have a clear impact on dealers or
+Results show that the training does not have a clear impact on dealers nor
  their customers.
- The information clearinghouse affects both actors positively.
- Treated farmers start switching to different shops; treated dealers increase
- their efforts to outperform their competitors.
+ We find no impact on knowledge as measured by a simple quiz.
+ 
+\end_layout
+
+\begin_layout Standard
+The information clearinghouse affects both agro-input dealers and farmers
+ positively.
+ Farmers living in catchment areas of treated agro-input dealer report a
+ higher propensity to switching to a different agro-input dealer.
+ Treated dealers increase their efforts to outperform their competitors.
  Treated agro-input dealers have higher knowledge about seed handling and
  improve their services, suggesting that if they are incentivized, they
  additional information does seem to have a positive effect.
@@ -1110,67 +1124,6 @@ name "figure: Theory of change CH"
 \end_layout
 
 \begin_layout Section
-Robert's model which differentiates between temporal and cross-sectional
- learning (more T vs.
- more N)
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Model"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-While the potential benefit of a training seems straightforward, one could
- argue that a clearinghouse is redundant as Ugandan farmers plant maize
- twice a year, and can infer relatively fast which agro-input dealers in
- their neighborhood provide good quality.
- However, these farmers might not trust their own judgment of quality even
- after using and experiencing the seed material.
- If farmers observe impressive yield and correctly infer that the quality
- of the seed they used is good, they perceive this as only one source, as
- only one observation.
- On the other hand, the aggregation of the experiences of many users may
- be a powerful way to reveal the quality of the product in a trustworthy
- manner.
- The extension literature 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-example? citation? source?
-\end_layout
-
-\end_inset
-
- shows that smallholders are more likely to trust information if it comes
- from more than one source, e.g.
- from a clearinghouse rating that is computed based on multiple opinions.
-\end_layout
-
-\begin_layout Standard
-It is crucial that the "more N" who provide the ratings are 
-\shape italic
-peers
-\shape default
- operating under similar conditions in terms of location, soil, weather
- and so forth, because the identity of the one providing the information
- matters for technology adoption: For example, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Arslan2022"
-literal "false"
-
-\end_inset
-
- conducted a randomized experiment to assess the effects of information
- communicated by either a peer farmer or a market actor, and show that farmers
- who received information from the peer outperformed others.
-\end_layout
-
-\begin_layout Section
 Experimental design
 \begin_inset CommandInset label
 LatexCommand label
@@ -1410,7 +1363,68 @@ Agro-input dealer training
 \end_layout
 
 \begin_layout Subsubsection*
-Content and training material
+Content and training maRobert's model which differentiates between temporal
+ and cross-sectional learning (more T vs.
+ more N)
+\begin_inset CommandInset label
+LatexCommand label
+name "section: Model-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+While the potential benefit of a training seems straightforward, one could
+ argue that a clearinghouse is redundant as Ugandan farmers plant maize
+ twice a year, and can infer relatively fast which agro-input dealers in
+ their neighborhood provide good quality.
+ However, these farmers might not trust their own judgment of quality even
+ after using and experiencing the seed material.
+ If farmers observe impressive yield and correctly infer that the quality
+ of the seed they used is good, they perceive this as only one source, as
+ only one observation.
+ On the other hand, the aggregation of the experiences of many users may
+ be a powerful way to reveal the quality of the product in a trustworthy
+ manner.
+ The extension literature 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+example? citation? source?
+\end_layout
+
+\end_inset
+
+ shows that smallholders are more likely to trust information if it comes
+ from more than one source, e.g.
+ from a clearinghouse rating that is computed based on multiple opinions.
+\end_layout
+
+\begin_layout Standard
+It is crucial that the "more N" who provide the ratings are 
+\shape italic
+peers
+\shape default
+ operating under similar conditions in terms of location, soil, weather
+ and so forth, because the identity of the one providing the information
+ matters for technology adoption: For example, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Arslan2022"
+literal "false"
+
+\end_inset
+
+ conducted a randomized experiment to assess the effects of information
+ communicated by either a peer farmer or a market actor, and show that farmers
+ who received information from the peer outperformed others.
+\end_layout
+
+\begin_layout Subsubsection*
+terial
 \end_layout
 
 \begin_layout Standard
@@ -24674,7 +24688,7 @@ To support our claim, we test if the ratings are correlated with objective
  to some extent.
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I suggest to delete this paragraph because it proves nothing: specialized
@@ -24694,7 +24708,7 @@ I suggest to delete this paragraph because it proves nothing: specialized
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 FYI : see these correlations between ratings & quality indicators:
@@ -24832,7 +24846,7 @@ literal "false"
  or (hyper) local information 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "AYALEW2022102788"
+key "AYALEW2022102788,https://doi.org/10.1111/ajae.12242"
 literal "false"
 
 \end_inset
