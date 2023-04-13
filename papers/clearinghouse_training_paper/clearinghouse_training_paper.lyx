@@ -811,104 +811,6 @@ Personal initiative is defined as a self-starting, future-oriented, and
  trainings more effective.
 \end_layout
 
-\begin_layout Standard
-The remainder of this paper is structured as follows: Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Background"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- provides information on the background of the study and section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Experimental design"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- the experimental design.
- The interventions, empirical strategy and data are described in sections
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Intervention"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Empirical strategy"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Data"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- After presenting the results in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we outline potential threats to validity in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Threat to validity"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Then we discuss our findings and conclude in sections 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Discussion"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Conclusion"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
 Experimental design
 \begin_inset CommandInset label
@@ -921,17 +823,7 @@ name "section: Experimental design"
 \end_layout
 
 \begin_layout Standard
-To test the two hypotheses outline in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Background"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we developed two interventions (described in detail in the next section),
+We developed two interventions (described in detail in the next section),
  and evaluate the impact using a randomized control trial (RCT).
  For the randomization of the interventions, we define catchment areas.
  Catchment areas are defined relative to clusters of agro-input shops, and
@@ -945,7 +837,7 @@ noprefix "false"
  Grouping of agro-input dealers into catchment areas is done on the basis
  of geographical location.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The haversine function is used to construct an adjacency matrix based on
@@ -23039,556 +22931,7 @@ $^6$We report the mean and standard deviation at midline because not all
 \end_layout
 
 \begin_layout Section
-Attrition
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Threat to validity"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Survey-attrition"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- reports attrition levels in the treatment and comparison groups.
- We failed to collect data from 12% of dealers and 2% of farmers at midline,
- and from 14% of dealers and 1% of farmers at endline.
- To test if non-response is related to one of the treatments, we regress
- the likelihood of leaving the sample on the treatment indicators.
- We find that clearinghouse treated dealers are significantly less likely
- to leave the sample.
-\end_layout
-
-\begin_layout Standard
-Whether our estimates are biased or not depends on whether this attrition
- is random or not.
- For instance, a non-random subset of agro-input dealers might have left
- the sample, meaning that attritors and non-attritors differ significantly,
- which could bias our results.
- It is for instance plausible that the worst performing shops in the clearinghou
-se control group went bankrupt.
- Our clearinghouse treatment might have prevented bankruptcy and helped
- dealers to stay in the market because it served as some kind of advertisement
- if the rating was good.
- 
-\end_layout
-
-\begin_layout Standard
-On the other hand, it is plausible that enumerators invested less effort
- when searching control dealers because they did not have to deliver their
- SeedAdvisor certificates.
- Carrying this certificate might have made them more persistent when looking
- for a shop because they did not want to return to their supervisor without
- having delivered that paper.
- Moreover, the certificate might have helped enumerators to find the treated
- dealers because they were able to show the names to neighbors etc.
- (instead of just asking) who in turn helped finding them.
- In that case, a larger number of random dealers left the control sample,
- meaning that the dealers who were not found are not different from the
- ones that were found.
- The sub-sample of dealers that remained in the control group would then
- be representative for the entire control group, hence our estimates would
- be unbiased.
- Attrition would only reduce power.
-\end_layout
-
-\begin_layout Standard
-We noticed the attrition problem after midline data collection and instructed
- our enumerators to be more thorough at endline.
- Consequently, 7 of 28 clearinghouse control dealers who were not found
- for the midline interview, were found for the endline interview later that
- year.
- This supports our claim that at least a share control dealer attrition
- can be explained by a lack of enumerator effort instead of bankruptcy.
- Furthermore, even if attrition is non-random, the bias is likely to be
- negative and treatment effects are expected to be positive.
- As such, the unadjusted selection-contaminated estimates provide 
-\shape italic
-\emph on
-lower
-\shape default
-\emph default
- bounds for the true treatment effect 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/aer.96.3.847,duflo2007using"
-literal "false"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: What about only reporting endline attrition? It makes our case more
- convincing and if dealers were not found at midline but were found at endline,
- their attrition is most likely random and not relevant? When dealers are
- found back, it isn't "real attrition", is it? Bjorn: Maybe we should just
- consider deleting this entire Threat to validity section.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Attrition
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Survey-attrition"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Agro-input dealer left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_attritionD[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_attritionD[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_attritionD[3,1,1]<.01,"**",ifelse(df_ols_attritionD[3,1,1]<.05
-,"*",ifelse(df_ols_attritionD[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05
-,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionD[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionD[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_attritionF[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_attritionF[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_attritionF[3,1,1]<.01,"**",ifelse(df_ols_attritionF[3,1,1]<.05
-,"*",ifelse(df_ols_attritionF[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_attritionF[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_attritionF[3,2,1]<.01,"**",ifelse(df_ols_attritionF[3,2,1]<.05
-,"*",ifelse(df_ols_attritionF[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionF[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Agro-input dealer left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionD_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
-nD_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
-nD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_attritionF_end[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionF_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
-nF_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionF_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
-nF_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports sample means at mid- or endline and standard deviations
- below;  2nd-3rd column reports differences between treatment and control
- groups and standard errors below; they are clustered at the level of randomizat
-ion; **, * and + denote significance at the 1, 5 and 10 percent levels.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Discussion
+Causal Chain and Mechanism
 \begin_inset CommandInset label
 LatexCommand label
 name "section: Discussion"
@@ -23598,13 +22941,26 @@ name "section: Discussion"
 
 \end_layout
 
-\begin_layout Subsubsection*
-Why does the agro-input dealer training not work?
+\begin_layout Standard
+The clearinghouse is a unique intervention because it solves a variety of
+ potentially interlinked problems simultaneously.
+ If the quality of maize seed at agro-input shops is good, it corrects the
+ misperception of farmers.
+ If the quality of maize seed is poor, it provides farmers with information
+ about where to find better seed and dealers with an incentive to change
+ their behavior.
+ The mechanism underlying the dealer training is increased knowledge.
+ In this section, provide some additional evidence on these different impact
+ pathways.
+ 
+\end_layout
+
+\begin_layout Subsection
+Learning
 \end_layout
 
 \begin_layout Standard
-The training has to increase agro-input dealer's knowledge about seed storage
- to improve their behavior and subsequently seed quality.
+The primary mechanism underlying the agro-input dealer training is learing.
  However, the dealer knowledge indices in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23629,14 +22985,26 @@ noprefix "false"
 
 \end_inset
 
- shows that, even though the training no significant effect on both the
- index nor individual questions, all coefficients are positive and some
+ shows that, even though the training has no significant effect on both
+ the index nor individual questions, all coefficients are positive and some
  are substantial in magnitude.
- Furthermore, we have argued that different points in the paper that knowledge
+ 
+\end_layout
+
+\begin_layout Standard
+Furthermore, we have argued at different points in the paper that knowledge
  may be more useful if agro-input dealers are also motivated to put it into
  practice.
- We find that there is indeed a significant positive interaction effect
- between the training and clearinghouse treatment.
+ To further look into this, we can exploit our factorial design.
+ We indeed find that there is a significant positive interaction effect
+ between the training and clearinghouse treatment for the primary outcome
+ index at the agro-input dealer level.
+ The positive interaction effect for the index seems to be driven by a significa
+nt increase in (both capital intensive and labour intensive) seed handling
+ practices.
+ This confirms that if agro-input dealers are encouraged to excel through
+ a clearinghouse, they are more likely to put into practice the seed handling
+ practices that they were taught during the training.
  However, care should be taken when interpreting this finding as we are
  likely to be under-powered to estimate interaction effects, increasing
  the chance of false discoveries.
@@ -23644,7 +23012,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Can we exploit the factorial design to learn more? Some dealers are trained
@@ -24251,19 +23619,30 @@ Note: 1st column reports sample means and standard deviations below;  2nd
 
 \end_layout
 
-\begin_layout Subsubsection*
-Why does the information clearinghouse work?
+\begin_layout Subsection
+Switching
 \end_layout
 
 \begin_layout Standard
-The clearinghouse is a unique intervention because it solves a variety of
- potentially interlinked problems simultaneously.
- If the quality of maize seed at agro-input shops is good, it corrects the
- misperception of farmers.
- If the quality of maize seed is poor, it provides farmers with information
- about where to find better seed and dealers with an incentive to change
- their behavior.
- Our results in Section 
+An important potential mechanism underlying the clearinghouse treatment
+ is farmers' propensity to switch form lower ranked agro-input dealers to
+ better rated ones.
+ We provide some evidence here on this impact pathway.
+\end_layout
+
+\begin_layout Standard
+We find that indeed, farmers that are exposed to the clearinghouse intervention
+ increased the likelihood that they switched agro-input dealer, particularly
+ at midline.
+\end_layout
+
+\begin_layout Standard
+Table X tests if farmers that reported switching moved from lower rated
+ agro
+\end_layout
+
+\begin_layout Standard
+Our results in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Results"
@@ -24373,6 +23752,54 @@ e for a increase in adoption of 15 percentage points, and we find that the
  so we could argue that they have to know that they are cheating)? Clearinghouse
 +training vs.
  clearinghouse+no training.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dealer Effort and Services Rendered
+\end_layout
+
+\begin_layout Standard
+The rating system provides agro-input dealers with an incentive to be better
+ than their direct competitors.
+ To do so, agro-input dealers may increase effort and may also start providing
+ more services to their customers in an effort to get better scores and
+ retain or even increase the number of customers.
+\end_layout
+
+\begin_layout Standard
+In Table X we provide evidence that agro–input dealers indeed provide more
+ effort and 
+\end_layout
+
+\begin_layout Subsection
+Perceptions
+\end_layout
+
+\begin_layout Standard
+Finally, the rating system is assumed to change perceptions.
+ The effect is probably largest for farmers in treatment areas that are
+ not adopting improved seed at baseline.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Can we do a table on that? Comparing adoption between treatment farmers
+ and control farmers but only for subset of farmers that do not adopt at
+ baseline? What about 
+\begin_inset Quotes eld
+\end_inset
+
+think adultarated
+\begin_inset Quotes erd
+\end_inset
+
+ question, is it still there? What about ratings at endline? 
 \end_layout
 
 \end_inset
@@ -24535,6 +23962,555 @@ Another danger to the functioning of the clearinghouse could be agro-input
  the theory occurs in practice, namely whether making quality observable
  improves the market for maize seed, and not to provide a policy intervention,
  sophisticated enough to be applied without further considerations.
+\end_layout
+
+\begin_layout Section
+Attrition
+\begin_inset CommandInset label
+LatexCommand label
+name "section: Threat to validity"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Survey-attrition"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports attrition levels in the treatment and comparison groups.
+ We failed to collect data from 12% of dealers and 2% of farmers at midline,
+ and from 14% of dealers and 1% of farmers at endline.
+ To test if non-response is related to one of the treatments, we regress
+ the likelihood of leaving the sample on the treatment indicators.
+ We find that clearinghouse treated dealers are significantly less likely
+ to leave the sample.
+\end_layout
+
+\begin_layout Standard
+Whether our estimates are biased or not depends on whether this attrition
+ is random or not.
+ For instance, a non-random subset of agro-input dealers might have left
+ the sample, meaning that attritors and non-attritors differ significantly,
+ which could bias our results.
+ It is for instance plausible that the worst performing shops in the clearinghou
+se control group went bankrupt.
+ Our clearinghouse treatment might have prevented bankruptcy and helped
+ dealers to stay in the market because it served as some kind of advertisement
+ if the rating was good.
+ 
+\end_layout
+
+\begin_layout Standard
+On the other hand, it is plausible that enumerators invested less effort
+ when searching control dealers because they did not have to deliver their
+ SeedAdvisor certificates.
+ Carrying this certificate might have made them more persistent when looking
+ for a shop because they did not want to return to their supervisor without
+ having delivered that paper.
+ Moreover, the certificate might have helped enumerators to find the treated
+ dealers because they were able to show the names to neighbors etc.
+ (instead of just asking) who in turn helped finding them.
+ In that case, a larger number of random dealers left the control sample,
+ meaning that the dealers who were not found are not different from the
+ ones that were found.
+ The sub-sample of dealers that remained in the control group would then
+ be representative for the entire control group, hence our estimates would
+ be unbiased.
+ Attrition would only reduce power.
+\end_layout
+
+\begin_layout Standard
+We noticed the attrition problem after midline data collection and instructed
+ our enumerators to be more thorough at endline.
+ Consequently, 7 of 28 clearinghouse control dealers who were not found
+ for the midline interview, were found for the endline interview later that
+ year.
+ This supports our claim that at least a share control dealer attrition
+ can be explained by a lack of enumerator effort instead of bankruptcy.
+ Furthermore, even if attrition is non-random, the bias is likely to be
+ negative and treatment effects are expected to be positive.
+ As such, the unadjusted selection-contaminated estimates provide 
+\shape italic
+\emph on
+lower
+\shape default
+\emph default
+ bounds for the true treatment effect 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/aer.96.3.847,duflo2007using"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Caro: What about only reporting endline attrition? It makes our case more
+ convincing and if dealers were not found at midline but were found at endline,
+ their attrition is most likely random and not relevant? When dealers are
+ found back, it isn't "real attrition", is it? Bjorn: Maybe we should just
+ consider deleting this entire Threat to validity section.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Attrition
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Survey-attrition"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & training & CH
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{midline}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-input dealer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,1,1]<.01,"**",ifelse(df_ols_attritionD[3,1,1]<.05
+,"*",ifelse(df_ols_attritionD[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05
+,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionD[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,1,1]<.01,"**",ifelse(df_ols_attritionF[3,1,1]<.05
+,"*",ifelse(df_ols_attritionF[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,2,1]<.01,"**",ifelse(df_ols_attritionF[3,2,1]<.05
+,"*",ifelse(df_ols_attritionF[3,2,1]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{endline}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-input dealer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
+nD_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
+nD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritio
+nF_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritio
+nF_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,2,1]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,2,1],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: 1st column reports sample means at mid- or endline and standard deviations
+ below;  2nd-3rd column reports differences between treatment and control
+ groups and standard errors below; they are clustered at the level of randomizat
+ion; **, * and + denote significance at the 1, 5 and 10 percent levels.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
