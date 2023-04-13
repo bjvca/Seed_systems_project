@@ -6,9 +6,73 @@
 \origin unavailable
 \textclass article
 \begin_preamble
+\batchmode
+
+\def\input@path{{/home/bjvca/data/projects/Seed_systems_project/papers/learning_failures/}}
+
+\usepackage{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}{\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+
+
+
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{color}
+\usepackage{babel}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{multirow}
+
+
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \end_preamble
-\use_default_options true
+\use_default_options false
 \begin_modules
 knitr
 \end_modules
@@ -16,7 +80,7 @@ knitr
 \language english
 \language_package default
 \inputencoding utf8
-\fontencoding global
+\fontencoding T1
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -42,23 +106,23 @@ knitr
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks true
-\pdf_pdfborder true
+\pdf_pdfborder false
 \pdf_colorlinks true
 \pdf_backref false
 \pdf_pdfusetitle true
-\pdf_quoted_options "linkcolor=blue, urlcolor=blue, citecolor=blue, pdfstartview={FitH}, hyperfootnotes=false, unicode=true"
+\pdf_quoted_options "pdfborderstyle=,linkcolor=blue,urlcolor=blue,citecolor=blue,pdfstartview={FitH},hyperfootnotes=false"
 \papersize default
 \use_geometry false
 \use_package amsmath 1
-\use_package amssymb 1
-\use_package cancel 1
+\use_package amssymb 0
+\use_package cancel 0
 \use_package esint 1
-\use_package mathdots 1
-\use_package mathtools 1
-\use_package mhchem 1
-\use_package stackrel 1
-\use_package stmaryrd 1
-\use_package undertilde 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine natbib
 \cite_engine_type authoryear
 \biblio_style plainnat
@@ -67,8 +131,9 @@ knitr
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 1
+\use_refstyle 0
 \use_minted 0
+\boxbgcolor #f7f7f7
 \index Index
 \shortcut idx
 \color #008000
@@ -93,65 +158,111 @@ knitr
 
 \begin_body
 
+\begin_layout Author
+Bjorn Van Campenhout
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Development Strategy and Governance Unit, International Food Policy Research
+ Institute (IFPRI) and LICOS Center for Institutions and Economic Performance,
+ KU Leuven, Leuven, Belgium; corresponding author: B.VanCampenhout@cgiar.org
+\end_layout
+
+\end_inset
+
+, Caroline Miehe
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+LICOS, KU Leuven, Leuven, Belgium
+\end_layout
+
+\end_inset
+
+, Leocardia Nabwire
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Development Strategy and Governance Unit, IFPRI, Kampala, Uganda
+\end_layout
+
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+ Robert Sparrow
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Development Economics Group, Wageningen University and Research, Wageningen,
+ and International Institute of Social Studies, Erasmus University Rotterdam,
+ The Hague, Netherlands
+\end_layout
+
+\end_inset
+
+, David J.
+ Spielman
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Innovation Policy and Scaling Unit, IFPRI, Washington, DC, USA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-author{Bjorn Van Campenhout
-\backslash
-thanks{Development Strategy and Governance Division, IFPRI, Belgium - correspond
-ing author: bjorn.vancampenhout@cgiar.org}, 
-\end_layout
-
-\begin_layout Plain Layout
-
-Caroline Miehe
-\backslash
-thanks{LICOS, KU Leuven, Belgium}, 
-\end_layout
-
-\begin_layout Plain Layout
-
-Leocardia Nabwire
-\backslash
-thanks{Development Strategy and Governance Division, IFPRI, Uganda},
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Robert Sparrow
-\backslash
-thanks{Development Economics Group, Wageningen University and Research,
- Netherlands},
-\end_layout
-
-\begin_layout Plain Layout
-
-David Spielman
-\backslash
-thanks{Development Strategy and Governance Division, IFPRI, Rwanda}}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-Miracle Seed: Biased Expectations, Complementary Input Use, and the Dynamics
+Miracle Seeds: Biased Expectations, Complementary Input Use, and the Dynamics
  of Smallholder Technology Adoption
+\end_layout
+
+\begin_layout Abstract
+To fully benefit from new agricultural technologies like improved varieties,
+ significant investment is often required in complementary inputs such as
+ fertilizers and pesticides, and management such as systematic planting,
+ irrigation, and weeding practices.
+ Farmers may fail to recognize the importance of these complements, leading
+ to unsatisfactory crop yields and outputs and, eventually, dis-adoption
+ of the variety.
+ We provide a simple model of biased expectations, complementary input use
+ and technology adoption and test its predictions using a field experiment
+ among smallholder maize farmers in eastern Uganda.
+ We find that pointing out the importance of complementary investments using
+ a short, engaging video effectively deters some farmers from using commercial
+ improved varieties, in turn reducing complementary input use.
+ Consistent with the theoretical model, we find some evidence that this
+ behavior change emanates from increased knowledge and expectations that
+ are more in line with realized outcomes.
+ Our findings have important implications for the dynamics of technology
+ adoption, as disappointment about the performance of a technology that
+ is erroneously attributed to the technology itself may lead to dis-adoption.
+ We argue that smallholders' information sources such as private input dealers
+ and public extension agents may not be sufficiently able to communicate
+ the importance of applying complementary inputs and implementing required
+ management practices.
+ We conclude that policymakers, extension providers, and agri-input companies
+ need to focus more on the design of more holistic and thoughtful packages—inclu
+sive of recommendations on timing, labor, cost, and effort—for smallholders,
+ rather than the marketing of single 
+\begin_inset Quotes erd
+\end_inset
+
+miracle
+\begin_inset Quotes erd
+\end_inset
+
+ technologies and inputs.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -160,44 +271,10 @@ Miracle Seed: Biased Expectations, Complementary Input Use, and the Dynamics
 JEL Codes:
 \series default
  O33, D84, Q16 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-also C93, D83, L15, O00, O12, O13, Q12?
-\end_layout
-
+\begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Abstract
-To fully capitalize on new agricultural technologies like improved seed
- varieties, significant complementary investments in the form of inputs
- (such as fertilizers or pesticides) and greater attention to management
- practices like row planting are required.
- Farmers frequently fail to recognize the importance of this fact, and occasiona
-lly invest less than they would if they were utilizing farmer-saved seed,
- which can result in unsatisfactory outcomes and eventual abandonment of
- the technology.
- We provide a simple model of biased expectations, complementary input use
- and technology adoption and test its predictions using a field experiment
- among a sample of smallholder maize farmers in eastern Uganda.
- We find that pointing out the importance of complementary investments using
- a short engaging video scares some farmers away from commercial improved
- seed varieties, back to farmer-saved seed, in turn reducing complementary
- input use.
- Consistent with the theoretical model and theory of change, we find some
- evidence that this behavior change emanates from increased knowledge and
- expectations that are more in line with realized outcomes.
- Our findings have important implications for the dynamics of technology
- adoption, as disappointment about the performance of a technology that
- is erroneously attributed to the technology itself lead may lead to dis-adoptio
-n.
- We conclude that policy makers and industry should focus on technology
- adoption as a package of complementary inputs and efforts, instead of marketing
- a single technology.
 \end_layout
 
 \begin_layout Standard
@@ -209,13 +286,35 @@ Keywords:
  systems, Uganda
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% Acknowledgements to NWO-WOTRO, CGIAR Seed Equal Research Initiative, CGIAR
+ Market Intelligence Research Initiative, CGIAR Research Program on Policies,
+ Institutions, and Markets
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introduction
 \end_layout
 
 \begin_layout Standard
-To feed a growing population in a sustainable way, farmers throughout the
- developing world will have to grow more food on less land 
+To feed a growing population in a environmentally sustainable manner and
+ in the midst of a long-term climate crisis, farmers throughout the developing
+ world are expected to grow more food on less land with greater efficiency
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "tilman2011global,garnett2013sustainable"
@@ -224,24 +323,13 @@ literal "false"
 \end_inset
 
 .
- To achieve this objective, much is expected from new technologies, especially
- from higher yielding cultivars 
+ To achieve this goal, much is expected from new technologies, especially
+ from higher-yielding varieties that are resilient to biotic stresses (pests
+ and disease) and tolerant of droughts, floods, heat, and other abiotic
+ stresses 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "evenson2003assessing"
-literal "false"
-
-\end_inset
-
-.
- At the same time, agricultural production will become more challenging
- due to the climate crisis.
- Also in this context, varieties that are selected to be more resilient
- against droughts and pests are thought to be at least part of the solution
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "LYBBERT2012114"
+key "LYBBERT2012114, evenson2003assessing"
 literal "false"
 
 \end_inset
@@ -251,9 +339,9 @@ literal "false"
 
 \begin_layout Standard
 Unfortunately, the adoption of such technologies is lagging in areas where
- they has the largest potential.
- Recent trends in agricultural productivity in Africa reflect how technological
- progress has stagnated on the continent 
+ they may have the largest potential.
+ Recent trends in agricultural productivity growth in Africa show that technolog
+ical progress has largely stagnated on the continent 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1257/jep.36.1.33"
@@ -262,10 +350,11 @@ literal "false"
 \end_inset
 
 .
- Significant heterogeneity underlies this general stagnation.
- For instance, at the micro level, we often observe dis-adoption, where
- farmers choose to switch back to technologies they have been using for
- decades after trying out a new technology once or twice 
+ However, significant heterogeneity underlies this general stagnation.
+ For instance, at the micro level, we often observe dis-adoption patterns
+ and trends, where farmers choose to switch back to technologies and inputs
+ they have been using for decades after trying out a new technology once
+ or twice 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "https://doi.org/10.1111/j.1574-0862.2006.00169.x,https://doi.org/10.1111/agec.12721"
@@ -274,13 +363,68 @@ literal "false"
 \end_inset
 
 .
+ In many cases, these patterns and trends may not be due to a lack of awareness
+ of information about, for example, improved cultivars or inorganic fertilizer
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "SHEAHAN201712"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For simplicity, we use the term 
+\begin_inset Quotes eld
+\end_inset
+
+technologies
+\begin_inset Quotes erd
+\end_inset
+
+ to refer to agricultural technologies such as improved varieties, which
+ are genetic innovations embodied in seed.
+ We use the term 
+\begin_inset Quotes eld
+\end_inset
+
+inputs
+\begin_inset Quotes erd
+\end_inset
+
+ to refer to organic and inorganic fertilizers and pesticides, and we use
+ the term 
+\begin_inset Quotes eld
+\end_inset
+
+practices
+\begin_inset Quotes erd
+\end_inset
+
+ to refer to labor and management effort such as precision planting, irrigation,
+ and weeding.
+ Of course, we recognize that these terms can be used interchangeably—seed
+ is also an input, while fertilizers and precision practices can also be
+ technologies—and that each figures differently into our understanding of
+ the conventional agricultural production function.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-There are many reasons why farmers do not move into a state of consistent
- adoption.
- One obvious reason is that the inputs that some farmers previously used
- simply become unavailable 
+There are many reasons why farmers may not move into a state of sustained
+ adoption of a given technology.
+ One obvious reason is that farmers cannot access the technology through
+ local markets or other means of supply, or may have enjoyed access only
+ for a limited time as part of a promotional campaign or project intervention
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "https://doi.org/10.1111/agec.12175"
@@ -289,8 +433,9 @@ literal "false"
 \end_inset
 
 .
- Farmers may also learn over time that a particular technology is not suitable
- for them or does not meet their expectations 
+ Another reason may be that farmers may be learning over time that a particular
+ technology is not suitable for them or does not meet their expectations
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "CUSTODIO201619"
@@ -299,9 +444,9 @@ literal "false"
 \end_inset
 
 .
- Heterogeneity in the quality of the input, coupled with the fact that it
- is often hard to judge the quality of the input even ex-ante, may also
- result in dis-adoption 
+ Heterogeneity in the quality of the technology, coupled with the fact that
+ it is often difficult to assess quality prior to purchase or application,
+ may also result in dis-adoption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "miehe2023lifting,10.1093/qje/qjx009"
@@ -310,8 +455,9 @@ literal "false"
 \end_inset
 
 .
- Farmers that are faced with credit constraints or face additional uninsured
- risk may also reconsider past adoption behavior 
+ Farmers that face credit or liquidity constraints, or face additional uninsured
+ risk, may also reconsider past adoption behavior and tend towards dis-adoption
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural"
@@ -320,9 +466,10 @@ literal "false"
 \end_inset
 
 .
- In the longer run, general equilibrium effects due to more farmers using
- the new technology—which will increase supply and reduce output prices—may
- lead farmers with higher marginal cost to exit 
+ In the longer run, general equilibrium effects that accrue as more farmers
+ adopt a new technology, thereby increasing supply of the commodity and
+ reducing output prices, may also lead farmers with higher marginal costs
+ to exit the market and dis-adopt.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "cochrane1958farm"
@@ -336,9 +483,9 @@ literal "false"
 \begin_layout Standard
 In this paper, we consider the possibility that farmers hold inflated expectatio
 ns of new technologies as an explanation for their dis-adoption.
- These inflated expectations are a result of the fact that farmers often
- seem unaware (or fail to recognize) that these inputs generally need substantia
-l complementary investment.
+ These inflated expectations result from the possibility that farmers may
+ be unaware (or fail to recognize) the need for substantial complementary
+ investment.
  For instance, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -347,26 +494,63 @@ literal "false"
 
 \end_inset
 
- show that farming with seed of a hybrid variety is far more costly than
- farming with seed of a traditional variety.
- The extra production costs include the cost of seed, but also fertilizer
- costs as hybrid farming requires more chemical fertilizers to achieve significa
-nt yield improvements, and (hired) labor and land preparation costs as hybrid
- farming again requires more specific and complex cultivation techniques.
- 
+ show that farming with improved maize varieties is far more costly than
+ farming with unimproved maize varieties.
+ The additional production costs include not just the (higher) cost of seed,
+ but also higher fertilizer costs required to achieve expected yield improvement
+s, and higher costs of labor for farm tasks that are associated with the
+ cultivation of higher-yielding maize.
+ Inflated expectations about technology performance can have lasting impacts
+ on adoption if farmers attribute poor outcomes to the technology, instead
+ of to insufficient complementary inputs and effort.
+ This learning failure is often understandable: if multiple factors simultaneous
+ly affect yields and output, then learning about the causal impact of a
+ new technology from a single experience is difficult, especially if the
+ technology performs only under specific or stochastic circumstances such
+ as abiotic stress 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "LybbertBell2010"
+literal "false"
+
+\end_inset
+
+, or if the farmer is unable to learn in a Bayesian manner because it is
+ too cognitively taxing (Gars Ward, 2019), pays attention to the wrong attribute
+s of the technology 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/qje/qju015"
+literal "false"
+
+\end_inset
+
+, or is unable to capitalize on social learning 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "foster1995learning"
+literal "false"
+
+\end_inset
+
+ (Conley Udry, 2010).
 \end_layout
 
 \begin_layout Standard
-Inflated expectations about the performance of improved technologies can
- have lasting impacts on adoption if farmers attribute poor outcomes to
- the technology, instead of to insufficient complementary inputs and effort.
- This learning failure is understandable: as many factors simultaneously
- affect yields, learning about the causal impact of a new technology from
- a single experience is difficult, and cognitive constrained farmers may
- pay attention to the wrong attributes 
+This paper was motivated by evidence suggesting that many farmers are unaware
+ that many agricultural technologies such as improved varieties require
+ substantial complementary inputs and effort to reap benefits.
+ Indeed, it is theoretically possible and quite reasonable to believe that
+ farmers overestimate the returns to a technology and are disappointed when
+ they compare realized yields with what they expected at the time of planting.
+ Because it is hard for farmers to learn about the yield response of a single
+ input, farmers may decide that the technology itself is to blame.
+ This is consistent with the observation that many farmers think inputs
+ are often counterfeit or of low quality, even when objective assessments
+ of input quality find them to be acceptable 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.1093/qje/qju015,foster1995learning"
+key "BARRIGA2020104928,MICHELSON2021102579"
 literal "false"
 
 \end_inset
@@ -375,17 +559,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Over the years, we uncovered many anecdotes in a variety of contexts that
- illustrate the importance of biased expectations, sub-optimal complementary
- investments, and subsequent disadoption when disappointing outcomes are
- attributed to the technology itself.
- For instance, many farmers use inorganic fertilizer once and assume this
- will lead to lasting improvements of their soil fertility.
- However, fertilizer need to be applied in each cropping cycle to be effective,
- and it is recommended to combine them with organic fertilizer or lime to
- maintain physical soil characteristics such as acidity.
- In the context of seed, extension officers often complain that farmers
- consider seed of improved varieties as some kind of 
+Many researchers working in developing-country agriculture will have their
+ own anecdotal evidence of inflated expectations that illustrate the presence
+ of biased expectations, sub-optimal complementary investments, and subsequent
+ dis-adoption when disappointing outcomes are attributed to the technology
+ itself.
+ For instance, researchers may be familiar with farmers' belief that using
+ inorganic fertilizer for one cropping cycle will lead to long-lasting soil
+ fertility improvements.
+ Others may be familiar with a common belief among farmers—often promoted
+ by extension agents and agro-dealers—that an improved variety is a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -393,90 +576,130 @@ miracle seed
 \begin_inset Quotes erd
 \end_inset
 
- that they think they can just broadcast on their plots without further
- management and still get exceptional harvests.
- However, seed of improved maize varieties needs a lot of nutrients, often
- leaving soil more depleted than when farmer-saved seed is used.
- In the areas where our research is situated, Striga (
-\emph on
-striga hermonthica
-\emph default
-), a parasitic weed that feeds on the roots of maize plants and cause stunted
- growth, is a serious problem.
- Unfortunately, Striga proliferates in poor soils and as a result some farmers
- now believe that improved seed varieties are responsible for increased
- Striga infestations on their fields.
+ that can be planted without additional inputs or management to achieve
+ exceptional harvests.
+ Entire narratives—some with more nuance than others—have been written on
+ the singular power of genetic improvement, from the semi-dwarf 
+\begin_inset Quotes erd
+\end_inset
+
+Green Revolution
+\begin_inset Quotes erd
+\end_inset
+
+ varieties of wheat and rice to genetically modified crops 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lipton1989newseeds, doi:10.1080/00220388.2012.713470"
+literal "false"
+
+\end_inset
+
+ (Tripp 2002).
 \end_layout
 
 \begin_layout Standard
-We present a simple model of technology adoption that incorporates the above
- ideas.
- In this model, farmers compare expected returns of an improved technology
- to business-as-usual.
- The new technology comes at a cost, while the traditional technology does
+To develop our theory of inflated expectations, we present a simple model
+ of technology adoption that incorporates the ideas discussed above.
+ In this model, farmers compare the expected returns of an improved technology
+ to their business-as-usual choices.
+ The new technology comes at a cost, while the unimproved technology does
  not.
  Both technologies, though, require complementary inputs and efforts that
- directly affect productivity, but for the new technology, productivity
- gains only materialize when complementary input use exceeds levels that
- would be used for the traditional technology.
- Based on the model, we define several farmer types and derive predictions
- about how they would behave if they would would know the true shape of
- the production function of the new technology.
+ directly affect productivity, with productivity gains from the new technology
+ only materializing when complementary input use exceeds business-as-usual
+ levels for the unimproved technology.
+ Further, recognizing that farmers may be heterogeneous, we define several
+ farmer types and derive predictions about how they might behave if they
+ know the true shape of the production function of the new technology.
 \end_layout
 
 \begin_layout Standard
-We test the predictions of the model using a field experiment among 3,500
- maize farmers in eastern Uganda.
+We test our model's predictions using a field experiment conducted with
+ almost 3,500 maize farmers in eastern Uganda.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The overarching study that this paper was pre-registered at the 
+\begin_inset CommandInset href
+LatexCommand href
+name "AEA RCT registry"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+under RCT ID 0006361.
+ That study was primarily designed to examine quality-related constraints
+ to technology adoption with a series of interventions at the agro-input
+ dealer level.
+ This paper makes use of farmer-level interventions that were introduced
+ alongside the main design and described in the pre-analysis plan.
+\end_layout
+
+\end_inset
+
  At the heart of the field experiment is a light-touch information intervention
  that highlights the importance of complementary investments when using
- improved seed varieties.
- In particular, we show all farmers in our sample a short engaging video
- about the use of improved agro-inputs and recommended management practices
- for maize growing.
- In the treatment group we essentially show the same video, except that
- in certain parts—for instance when the use of inorganic fertilizers is
- demonstrated or when weeding is explained—we highlight that it is particularly
- important to use additional inputs and to perform management practices
- when using seed of an improved variety.
+ improved maize varieties.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We use the term 
+\begin_inset Quotes eld
+\end_inset
+
+improved variety
+\begin_inset Quotes erd
+\end_inset
+
+ throughout this paper to refer to both maize hybrids and open pollinated
+ varieties (OPVs) marketed and sold in our study areas, as opposed to farmer-sav
+ed seed or seed obtained through farmer-to-farmer exchanges which, in the
+ specific context of maize, may be less performant due to cross pollination
+ and genetic drift over multiple generations, or due to poor seed storage
+ and handling between seasons.
+\end_layout
+
+\end_inset
+
+ Specifically, we show all farmers in our sample a short, engaging video
+ about the use of improved inputs and recommended management practices for
+ maize cultivation.
+ In the treatment group, we show the same video, except that in certain
+ points in the narration—for instance when the use of inorganic fertilizers
+ is demonstrated or when weeding is explained—we highlight the particular
+ importance of using additional inputs and performing certain management
+ practices in conjunction with the improved variety.
 \end_layout
 
 \begin_layout Standard
-We start by testing if farmers are able to extract the relevant information
- from the treatment video using a simple quiz to test knowledge post-interventio
-n.
+We begin by testing whether farmers are able to extract the relevant information
+ from the treatment video.
  While we do not find treatment effects that differ significantly from zero,
- we see that all coefficients go in the expected direction.
- Turning to adoption behavior, we see that farmers in the treatment group
- are less likely to use seed of an improved variety such as a hybrid or
- Open Pollinated Variety (OPV).
- If we confine attention to only farmers that adopted at baseline, we see
- that farmers that were exposed to the treatment video were also less likely
- to obtain seed from agro-input dealers and more likely to use farmer-saved
- seed, in addition to reducing adoption of hybrid or Open Pollinated Variety
- (OPV).
- We also test if the intervention has an effect on the use of complementary
- inputs such as fertilizer and pesticides, as well as on best practices
- in crop management such as row-planting and weeding.
- We find little evidence that the intervention increased the use of inputs
- or recommended practices; on the contrary, we see reductions in costly
- inputs such as inorganic fertilizer use and row planting.
- We also see that in the treatment group, farmer's expectations become more
- in line with realized output.
+ we see that all coefficients move in the expected direction.
+ Turning to adoption behavior, we find that farmers in the treatment group
+ are less likely to use an improved variety.
+ If we confine our attention to only farmers that adopted at baseline, we
+ find further indications of dis-adoption by treated farmers between baseline
+ and follow-up.
+ We find no evidence that the intervention increased the use of complementary
+ inputs such as fertilizers and pesticides, or recommended practices for
+ maize management such as row planting and intensive weeding.
+ We also see that among treated farmers, expectations became more in line
+ with realized output.
 \end_layout
 
 \begin_layout Standard
-Our findings have important implications for the dynamics of technology
+Our findings have implications for the dynamics of smallholder technology
  adoption.
  Disappointment about the performance of a technology that is erroneously
- attributed to the technology itself lead may lead to dis-adoption.
- Furthermore, from a public welfare point of view, overestimating the benefits
- of new technologies leads to less than optimal adoption.
- Even though in the short run, many farmers seem to disadopt in response
- to our intervention, the fact that farmers' expectations become more realistic
- suggests that farmers that do adopt are now also in for the longer run.
- Furthermore, if disappointing outcomes stick more and spread more easily
- than good outcomes, correcting misperceptions may substantial positive
- spillover effects 
+ attributed to the technology itself may lead to dis-adoption which, in
+ the long run, may actually encourage farmers to form more realistic expectation
+s and, from a public welfare point of view, increase efficiency in production
+ and other positive externalities 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ledgerwood2014sticky,HORNIK2015273"
@@ -485,26 +708,23 @@ literal "false"
 \end_inset
 
 .
-\end_layout
+ Our findings also imply that public and private actors in the agriculture
+ sector need to promote new technologies as highly site- and context-specific
+ combinations of technologies, inputs, practices, and efforts instead of
+ single 
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Standard
-Our work also has important implications for both public and private sector
- stakeholders.
- The main conclusion is that a more holistic approach is necessary when
- encouraging varietal turnover and adoption of improved varieties by smallholder
- farmers.
- Governments should provide (free or subsidized) innovation packages that
- include complementary inputs as well, instead of focusing on a single technolog
-y such as seed or fertilizer trial packs.
- Agricultural advisory services should manage expectations of farmers with
- respect to modern agricultural inputs.
- Agro-input dealers should be careful when marketing individual products
- for a particular trait if their aim is to build a loyal customer base.
+miracle seeds
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 The remainder of the article is organized as follows.
- In the next Section 
+ In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Related literature"
@@ -537,7 +757,7 @@ noprefix "false"
 \end_inset
 
 , we discuss the intervention we will use to test model predictions.
- The next Section 
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Data"
@@ -548,8 +768,7 @@ noprefix "false"
 \end_inset
 
  provides some descriptive statistics and illustrates the dynamics of varietal
- adoption in our sample.
- It also presents the empirical strategy.
+ adoption in our sample, while also presenting our empirical strategy.
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -560,9 +779,9 @@ noprefix "false"
 
 \end_inset
 
- looks at results, with subsections for knowledge, adoption, expectations,
- and complementary inputs.
- A final Section 
+ explores our results, with subsections focusing on outcomes related to
+ knowledge, adoption, expectations, and complementary inputs.
+ Concluding remarks are provided in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Conclusion"
@@ -572,7 +791,7 @@ noprefix "false"
 
 \end_inset
 
- concludes.
+.
 \end_layout
 
 \begin_layout Section
@@ -587,11 +806,11 @@ name "section: Related literature"
 \end_layout
 
 \begin_layout Standard
-The role of technology adoption in agricultural development and structural
- transformation is at the heart of food security, poverty reduction, and
- economic development.
- The history of thinking about agricultural technology adoption goes back
- to 
+The role of technology adoption in agriculture is at the heart of a rich
+ body of research on food security, poverty reduction, economic development,
+ and structural transformation.
+ Studies on the economics of technical change in agriculture go back to
+ at least 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.2307/1905380"
@@ -616,27 +835,17 @@ literal "false"
 \end_inset
 
 .
- More recently, as field experiments started to proliferate in development
- economics, theories related to technology adoption have been subject to
- the scrutiny of randomized controlled trials, often under the auspices
- of the Agricultural Technology Adoption Initiative, a collaboration between
- the Abdul Latif Jameel Poverty Action Lab (J-PAL) and Berkeley's Center
- for Effective Global Action (CEGA) 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "jack2013market"
-literal "false"
-
-\end_inset
-
-.
+ More recently and with the proliferation of field experiments and randomized
+ controlled trials, economic theories that explore alternative drivers of
+ technology adoption have received greater empirical attention.
 \end_layout
 
 \begin_layout Standard
-Studies about technology adoption often (implicitly) assume some kind of
- graduation model, where farmers switch to a high level equilibrium of sustained
- adoption once initial conditions, in terms of for instance access to informatio
-n or access to finance, are satisfied 
+Most of these studies (implicitly) assume that some kind of graduation model
+ underlies the technical change process, wherein farmers switch from a low-level
+ equilibrium to a high-level equilibrium in which technology use is sustained
+ once initial conditions—typically, access to information or finance—are
+ satisfied or binding constraints removed 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karlan2014agricultural,https://doi.org/10.1111/agec.12175,ABATE2016235"
@@ -645,11 +854,11 @@ literal "false"
 \end_inset
 
 .
- Especially in applied micro-economic field experiments, researchers focus
- on a limited number of agricultural seasons, and are unable to fully appreciate
- the dynamics of technology adoption.
- However, a number of studies document significant levels of dis-adoption
- 
+ Yet most of these studies follow farmers across a limited number of agricultura
+l seasons, and are unable to fully appreciate the dynamics of technology
+ adoption over time.
+ Only a few studies offer a long-term perspective, with several documenting
+ significant levels of dis-adoption 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g."
@@ -658,8 +867,7 @@ literal "false"
 
 \end_inset
 
-, and studies that take a longer run perspective find significant levels
- of transient technology use among smallholder farmers in Africa 
+, or transient technology use over time 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "https://doi.org/10.1111/agec.12721,https://doi.org/10.1111/j.1574-0862.2006.00169.x"
@@ -671,8 +879,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-At the core of our theoretical framework presented in the next Section (Section
- 
+At the core of our theoretical framework described in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -682,13 +889,13 @@ noprefix "false"
 
 \end_inset
 
-) is a learning failure where farmers have inflated expectations about the
- return of a new technology but fail to uncover the true form of the production
- function through experience, leading to disappointment and subsequent dis-adopt
-ion.
+ is a model of learning failures where farmers have inflated expectations
+ about the returns to a new technology, but fail to uncover the true form
+ of the production function through experience, leading to disappointment
+ and subsequent dis-adoption.
  Indeed, heterogeneity in farmer characteristics implies that farmers need
- to learn if using a new technology is optimal for their specific case given
- costs and benefits 
+ to learn if using a new technology is optimal for their specific context
+ given costs and benefits 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
@@ -707,28 +914,27 @@ literal "false"
 \end_inset
 
 .
- However, learning about a new technology is hard.
- Based on observable characteristics, it is often difficult to determine
- what the quality of an input is before using it.
- Some even argue that many technologies are credence goods 
+ However, learning about a new technology is often difficult for reasons
+ related to the technology's complexity and the observability of its quality
+ or performance (i.e., its credence good nature) 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "doi:10.1080/00220388.2018.1464143"
+key "doi:10.1080/00220388.2018.1464143, 10.1093/qje/qjx009, LybbertBell2010"
 literal "false"
 
 \end_inset
 
- because their evaluation is also hard ex-post, as many factors, including
- some that are out of the control of the farmer such as weather conditions
- and pests, affect outcomes 
+, or the social, psychological, and behavioral attributes of the farmer
+ and her learning process 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.1093/qje/qjx009"
+key "10.1093/qje/qju015,foster1995learning"
 literal "false"
 
 \end_inset
 
 .
+ Our study contributes to this literature by...
 \end_layout
 
 \begin_layout Standard
@@ -736,7 +942,7 @@ One strand of the literature argues that sequential adoption leads to experienti
 al learning by farmers.
  In cases where technologies are bundled in packages, it is often observed
  that farmers sequentially adopt components of the package, rather than
- the entire package 
+ adopting the entire package at once 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g."
@@ -754,13 +960,14 @@ literal "false"
 
 \end_inset
 
- argue that this is due to farmers employing a Bayesian approach to learning,
- where they try to isolate the impact of one component of the package.
+ argue that this occurs when farmers employ a Bayesian approach to learning
+ in which try to isolate the impact of one component of the package at a
+ time.
  However, there are circumstances under which this strategy is not optimal
- because it does not allow farmers to identify potential interaction effects
- between the inputs.
- Indeed, the reason why many interventions are presented as a package means
- that these interaction effects are not trivial.
+ because it can prevent farmers from identifying potentially synergistic
+ interactions between technologies, inputs, and practices.
+ Indeed, the reason why many interventions are presented as a package is
+ because these interaction effects are not trivial.
  For instance, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -772,13 +979,14 @@ literal "false"
  find that banana tissue culture, a technology to ensure that banana plantlets
  are free from pests and diseases, leads to a seven percent yield gain in
  Kenya.
- However, they also find that improving access to irrigation could lift
- yield gains above 20 percent.
- It seems unlikely that farmers follow a sequential learning path that allows
- for all possible interactions between the different technologies.
- Furthermore, behavioral constrains may prevent farmers from effective learning.
- It is for instance possible that farmers pay attention to the wrong attributes
- 
+ However, they also find that improving access to irrigation can lift yield
+ gains above 20 percent.
+ It seems unlikely that farmers would follow a sequential learning path
+ that allows for all possible interactions between the different technologies.
+ Furthermore, farmers may face certain behavioral constrains that inhibit
+ their ability to learn about interaction effects if, for example, they
+ pay attention to minor or tangential attributes of the package and miss
+ the more important attributes 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qju015"
@@ -787,16 +995,17 @@ literal "false"
 \end_inset
 
 .
+ Our study contributes to this literature by...
 \end_layout
 
 \begin_layout Standard
-When learning about a new technology, farmers will ex-post compare realized
- yields to the yields they expected at the time they made the decision to
- adopt.
- This information will then be used to decide on subsequent adoption.
- The effect of incorrect expectations about future returns on decision making
- has been studied most in the context of education.
- Both 
+Another strand of the literature addresses the technology learning process
+ in terms of how farmers compare realized yields against expected yields
+ to inform their subsequent, longer-term adoption decisions.
+ The effect of incorrect expectations about future returns on decision-making
+ has been studied most in the context of education, but is readily applicable
+ to learning in agriculture.
+ For example, both 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.1162/qjec.2010.125.2.515"
@@ -812,10 +1021,10 @@ literal "false"
 
 \end_inset
 
- find that providing information about the correct returns significantly
- increased investment in schooling (in the Dominican Republic and Madagascar
- respectively).
- 
+ find that providing accurate information about the returns to education
+ significantly increased investment in schooling (in the Dominican Republic
+ and Madagascar respectively).
+ After appropriately modeling spillover effects, 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "doi:10.1086/703868"
@@ -823,19 +1032,22 @@ literal "false"
 
 \end_inset
 
- tests if a video intervention that informs farmers about the returns on
- intensification investments in rice growing affects adoption in Uganda.
- In all these studies, it is assumed that expected returns are underestimated.
- In the present study, we expect different reactions of different groups
- of farmers: one group of farmers overestimates returns, leading to too
- much investment; another group underestimates returns (perhaps due to a
- previous disappointment), leading to too little investment.
+ finds that a video intervention that informs Ugandan farmers about the
+ returns on intensification investments in rice growing improved practices
+ and increased input use and production.
+ Across these studies, it is assumed that expected returns are underestimated
+ by the individual.
+ Our study contributes to this literature by unpacking this strong assumption,
+ and exploring the possiblity that individuals may be capable of both over-
+ and under-estimating returns to a new technology, leading to over-investment
+ and under-investment in complementary input use, respectively.
 \end_layout
 
 \begin_layout Standard
-Finally, our treatment comes in the form of short and engaging videos.
- There is a large literature that shows videos featuring role models can
- be an important vehicle for changing behavior in a variety of settings.
+Finally, we build on another strand of the literature that focuses on the
+ role of video-mediated messaging to convey salient information to farmers.
+ This literature explores the ways in which informational videos can changing
+ behavior in a variety of settings and through a range of mechanisms.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -872,12 +1084,12 @@ literal "false"
 
 \end_inset
 
- show that farmers that were exposed to videos similar to the ones we use
- in the present study were performing significantly better on a knowledge
- test, were more likely to apply recommended practices and fertilizer than
+ show that farmers that were exposed to videos similar to those we use in
+ the present study were performing significantly better on a knowledge test,
+ and were more likely to apply recommended practices and fertilizer than
  households that did not view the video.
  These same households also reported maize yields 10.5 percent higher than
- the ones of the control group.
+ the control group.
  In Ethiopia, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -889,9 +1101,8 @@ literal "false"
  assess the impacts of video-mediated agricultural extension service provision
  on farmers’ adoption of improved agricultural technologies and practices
  in Ethiopia using data from a two-year randomized experiment.
- Our study also contributes to this literature as it tests if a video is
- effective in transmitting subtle information.
- 
+ Our study contributes to this literature by testing whether a short and
+ engaging video is effective in transmitting salient information.
 \end_layout
 
 \begin_layout Section
@@ -906,11 +1117,12 @@ name "sec:Theoretical-framework"
 \end_layout
 
 \begin_layout Standard
-Farmers are solving an intertemporal problem, allocating resources at 
+In our theoretical framework, we describe farmers as solving an intertemporal
+ problem in which they allocate resources at 
 \emph on
 t
 \emph default
- in order to get maximum profit at 
+ in order to maximize profits at 
 \emph on
 t+1
 \emph default
@@ -937,16 +1149,15 @@ literal "false"
 \emph on
 i
 \emph default
- in the model below) are risk-neutral and choose a seed type, which is either
- of an improved variety (a high-yielding cultivar, i.e.
- an OPV or a hybrid variety) or farmer-saved seed, to maximize their profits
- per area of land.
- In particular, they compare the expected profit functions of seed of an
- improved variety 
+ in the model below) are risk-neutral and choose to plant seed which is
+ either of an improved variety or is farmer-saved seed, to maximize their
+ profits per area of land.
+ In doing so, they compare the expected profit functions of seed of an improved
+ variety 
 \begin_inset Formula $\pi_{it}^{*^{H}}$
 \end_inset
 
- and farmer-saved seed 
+ against farmer-saved seed 
 \begin_inset Formula $\pi_{it}^{*^{L}}$
 \end_inset
 
@@ -980,9 +1191,21 @@ E
 \begin_inset Formula $E\left(p_{t+1}\right)$
 \end_inset
 
- is the expected price at which output is valued, assuming that consumers
- do not differentiate between maize obtained from seed of improved varieties
- and maize obtained from farmer-saved seed.
+ is the expected price at which output is valued, assuming that the end
+ commodity, maize grain, is indistinguishable to consumers by variety.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In Uganda, where most grain is combined, milled, and sold without varietal
+ denomination, this is a reasonable assumption.
+ In other countries such as Mexico and Malawi, where consumers have distinct
+ varietal preferences related to taste, texture and color, this assumption
+ might not always hold.
+\end_layout
+
+\end_inset
+
  
 \begin_inset Formula $E\left(Y_{it+1}^{H}\right)$
 \end_inset
@@ -991,10 +1214,10 @@ E
 \begin_inset Formula $E\left(Y_{it+1}^{L}\right)$
 \end_inset
 
- is the expected yield for seed of an improved variety and farmer-saved
+ reflect the expected yield for seed of an improved variety and farmer-saved
  seed respectively.
- Farmer-saved seed is assumed to be free, while the amount of seed of an
- improved variety 
+ Farmer-saved seed is assumed to be free, while seed of an improved variety
+ 
 \begin_inset Formula $s_{it}$
 \end_inset
 
@@ -1004,13 +1227,13 @@ E
 
 .
  In both profit functions, the cost of a range of complementary inputs and
- cultivation practices, further referred to as 
+ management practices, referred to as 
 \shape italic
 \emph on
 inputs
 \shape default
 \emph default
-, are deducted, which are summarized in the vector 
+, are deducted and summarized by the vector 
 \begin_inset Formula $X_{it}$
 \end_inset
 
@@ -1022,8 +1245,8 @@ inputs
 \end_layout
 
 \begin_layout Standard
-Farmers adopt improved varieties if they expect that using this seed is
- more profitable than using farmer-saved seed, that is, if 
+Farmers adopt improved varieties if they expect it to be more profitable
+ than using farmer-saved seed, that is, if 
 \begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it+1}^{L}\right)$
 \end_inset
 
@@ -1047,17 +1270,17 @@ where we normalize by output price.
 status collapsed
 
 \begin_layout Plain Layout
-We assume farmers have only one plot and model the decision to adopt as
- a binary process, instead of expressing 
+For simplicity, we assume farmers have only one plot and model the decision
+ to adopt as a binary process, instead of expressing 
 \begin_inset Formula $s_{it}$
 \end_inset
 
-in kilograms of seed used.
+ in kilograms of seed used.
  As such, 
 \begin_inset Formula $b_{t}$
 \end_inset
 
- refers to the cost of planting an entire field with seed of an improved
+ refers to the cost of planting an entire plot with seed of an improved
  variety.
 \end_layout
 
@@ -1078,7 +1301,7 @@ noprefix "false"
 \end_inset
 
  shows that adoption decisions fundamentally depend on yield comparisons.
- We assume that yield for farmer-saved seed is a function of inputs used:
+ We assume that yields for farmer-saved seed is a function of inputs used:
 \end_layout
 
 \begin_layout Standard
@@ -1093,7 +1316,7 @@ Y_{it+1}^{L}=Y_{it}\left(X_{it}^{L}\right)
 \end_layout
 
 \begin_layout Standard
-and this relationship is assumed to be positive with decreasing returns
+and that this relationship is assumed to be positive with decreasing returns
  to scale: 
 \begin_inset Formula $\frac{dY_{it}}{dX_{it}}>0$
 \end_inset
@@ -1106,16 +1329,15 @@ and this relationship is assumed to be positive with decreasing returns
 \end_layout
 
 \begin_layout Standard
-Yield for seed of improved varieties follows the same function as yield
- for farmer-saved seed, but adds a positive and constant adoption premium
- 
+Yield for improved varieties follows the same function as yield for farmer-saved
+ seed, but adds a positive and constant adoption premium 
 \begin_inset Formula $(A>0)$
 \end_inset
 
 .
  However, the adoption premium only applies when the farmer uses at least
- the same amount of complementary inputs as they would do when using farmer-save
-d seed 
+ the same amount of complementary inputs as they would when using farmer-saved
+ seed 
 \begin_inset Formula $\left(X_{it}^{H}\geq X_{it}^{L}\right)$
 \end_inset
 
@@ -1130,7 +1352,7 @@ Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{H}\righ
 
 \end_inset
 
-If farmers would be able to, at least on average, predict yields in 
+If farmers are able to predict yields—at least on average—in 
 \emph on
 t+1
 \emph default
@@ -1143,10 +1365,14 @@ t+1
 \end_inset
 
 , their decision to adopt would depend on the difference in yield between
- seed of an improved variety and farmer-saved seed, on the relative prices
- of the inputs, and on the yield responses of the inputs.
- We introduce farmer heterogeneity into the model by assuming that at least
- some farmers are not aware of the true relationship between 
+ an improved variety and farmer-saved seed, on the relative prices of inputs
+ and costs of management, and on the yield responses to the inputs and managemen
+t.
+\end_layout
+
+\begin_layout Standard
+Next, we introduce farmer heterogeneity into the model by assuming that
+ at least some farmers are not aware of the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
 
@@ -1154,8 +1380,8 @@ t+1
 \begin_inset Formula $X_{it}$
 \end_inset
 
-, but instead believe that the adoption premium is always there, that is
- 
+, but instead believe that the adoption premium is always present, that
+ is 
 \begin_inset Formula $E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{H}\right)$
 \end_inset
 
@@ -1165,8 +1391,8 @@ t+1
 \end_layout
 
 \begin_layout Standard
-The model leads to different farmer types based on their dynamic profile
- and knowledge, as summarized in Table 
+This variation in the model leads to different farmer-types based on their
+ dynamic profile and knowledge, as summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1177,7 +1403,7 @@ noprefix "false"
 \end_inset
 
 .
- First, there is a group of farmers that is knowledgeable about the true
+ The first type of farmers are those that are knowledgeable about the true
  relationship between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
@@ -1186,7 +1412,7 @@ noprefix "false"
 \begin_inset Formula $X_{it}$
 \end_inset
 
- in equation 
+ in Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:truerel"
@@ -1196,8 +1422,8 @@ noprefix "false"
 
 \end_inset
 
-, and as a result these farmers make correct investment choices.
- For at least some of these farmers, referred to as type 1 farmers in Table
+, and as a result make correct investment choices.
+ For at least some of these farmers, referred to as Type 1 farmers in Table
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1209,7 +1435,7 @@ noprefix "false"
 \end_inset
 
 , the marginal cost of adoption will be lower than the expected marginal
- return in equation 
+ return in Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:three"
@@ -1221,8 +1447,8 @@ noprefix "false"
 
 , and as a result they adopt (and will continue to do so in the future unless
  there is a change in fundamentals such as the cost of seed).
- For another subset of these farmers , referred to as type 2 farmers in
- Table 
+ For another subset of these farmers, referred to as Type 2 farmers in Table
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1247,8 +1473,8 @@ Another group of farmers is not knowledgeable about the true relationship
 \end_inset
 
  and believes there is always an adoption premium.
- A subset of these farmers may adopt prior to the intervention because their
- marginal cost of adoption is lower than their expected marginal returns.
+ A subset of these farmers may adopt because their marginal cost of adoption
+ is lower than their expected marginal return.
  We refer to these farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1259,7 +1485,7 @@ noprefix "false"
 
 \end_inset
 
- as type 3 farmers.
+ as Type 3 farmers.
  Another subset of this second group of farmers that is not knowledgeable
  about the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
@@ -1269,7 +1495,7 @@ noprefix "false"
 \begin_inset Formula $X_{it}$
 \end_inset
 
-, referred to as type 4 farmers in Table 
+, referred to as Type 4 farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1280,8 +1506,8 @@ noprefix "false"
 \end_inset
 
 , does not adopt at baseline because, even though they have inflated expectation
-s of the improve seed variety yields, the marginal cost of adoption still
- exceeds the expected marginal returns.
+s of the improve variety's yield, the marginal cost of adoption still exceeds
+ the expected marginal return.
 \end_layout
 
 \begin_layout Standard
@@ -1295,7 +1521,7 @@ Another group of farmers is also not knowledgeable about the true relationship
 \end_inset
 
 .
- But unlike type 3 and 4 farmers, these farmers underestimate the adoption
+ But unlike Type 3 and 4 farmers, these farmers underestimate the adoption
  premium (much like the rice farmer underestimate the returns to intensification
  investments in 
 \begin_inset CommandInset citation
@@ -1306,7 +1532,7 @@ literal "false"
 \end_inset
 
 ), perhaps due to a disappointing experience in the past.
- Some of these farmers, type 5 in Table 
+ Some of these farmers, Type 5 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1319,7 +1545,7 @@ noprefix "false"
 , adopt at baseline as the expected marginal return may still be larger
  than the marginal cost of adoption, even if they underestimate the return.
  For another fraction of farmers that underestimate the adoption premium,
- referred to as type 6 in Table 
+ referred to as Type 6 in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "types of farmers"
@@ -1329,15 +1555,15 @@ noprefix "false"
 
 \end_inset
 
-, the expected marginal return will be smaller than the marginal cost of
- adoption, so that they do not adopt prior to the intervention.
+, the expected marginal return will be less than the marginal cost of adoption,
+ such that they do not adopt.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1692,10 +1918,31 @@ scriptsize
 \end_layout
 
 \begin_layout Standard
-Heterogeneity in terms of prior knowledge and adoption behaviour will lead
- to different impacts of an intervention aimed at correcting incorrect beliefs
- about the relationship between input use and effort and the returns to
- improved seed varieties.
+Heterogeneity in terms of prior knowledge and adoption behavior will lead
+ to different effects of an intervention aimed at 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+correcting
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ incorrect beliefs about the relationship between input use and effort and
+ the returns to improved varieties.
  In some cases, such as for adoption, effects for different subgroups may
  go in opposite directions, potentially canceling out an overall average
  treatment effect.
@@ -1714,11 +1961,11 @@ noprefix "false"
  allow us to make predictions on the impact of an intervention designed
  to increase knowledge about the true relationship between performance of
  improved seed varieties and complementary inputs and efforts (described
- in detail in the next section) on four key outcome areas:
+ in detail in the next section) on four key outcome areas: 
 \end_layout
 
 \begin_layout Enumerate
-Impact on knowledge: As type 1 and type 2 farmers are assumed to be already
+Impact on knowledge: As Type 1 and Type 2 farmers are assumed to be already
  knowledgeable about the true relationship between 
 \begin_inset Formula $Y_{it}^{H}$
 \end_inset
@@ -1738,45 +1985,45 @@ Note that we do not know which farmers are knowledgeable and which are not
 
 \end_inset
 
- Types 3 to 6 are assumed to be unaware about the true relationship between
- seed of improved varieties and complementary inputs; the intervention will
- thus increase knowledge.
+ Types 3 to 6 are assumed to be unaware of the true relationship between
+ improved varieties and complementary inputs; the intervention will thus
+ increase knowledge.
  The knowledge effect will be larger for farmers that adopt at baseline
- (types 1, 3, 5) since this removes 
+ (Types 1, 3, 5) since this removes 
 \begin_inset Quotes eld
 \end_inset
 
-never adopters
+Never Adopters
 \begin_inset Quotes erd
 \end_inset
 
- who are likely to be less interested in the information (types 2 and 4)
+ who are likely to be less interested in the information (Types 2 and 4)
  from the sample.
 \end_layout
 
 \begin_layout Enumerate
 Impact on adoption: We expect opposing effects on adoption behavior for
- farmer types 3 and 6.
- Providing type 3 farmers with information may lead them to dis-adopt if
- the new information reduces their expected marginal return below the marginal
- cost.
- For type 6 farmers, the intervention may increase expectations of the return,
+ farmer Types 3 and 6.
+ Providing Type 3 farmers with information may cause them to dis-adopt if
+ the new information reduces their expected marginal return below their
+ marginal cost.
+ For Type 6 farmers, the intervention may increase expectations of the return,
  and they may start adopting in response to the treatment if the increase
  is sufficiently high.
  Reducing expectations of farmers that do not adopt at baseline even though
  they have inflated expectations will not change their mind as this will
- reduce their expected returns even more (type 4).
- Similarly, we do not expect the intervention will change adoption of farmers
- that already adopt even though they underestimate potential yield effects
- (type 5); these farmer will keep adopting as the intervention increases
- their expected returns to seed of improved varieties.
+ reduce their expected returns even more (Type 4).
+ Similarly, we do not expect that the intervention will change the adoption
+ behavior of farmers who already adopt even though they underestimate potential
+ yield effects (Type 5): these farmer will keep adopting as the intervention
+ increases their expected returns to the improved variety.
  Finally, as for knowledge, farmers that are aware of the correct relationship
- between inputs and improved seed varieties (types 1 and 2) are not expected
+ between inputs and improved varieties (Types 1 and 2) are not expected
  to change adoption behavior in response to the intervention.
- The direction of the effect of the intervention of adoption will thus depend
- on the relative size and effects of group 3 and group 6 respectively.
+ The direction of the intervention's effect on adoption will thus depend
+ on the share of type 3 and 6 farmers respectively.
  Note that if we only consider farmers that adopt at baseline, the expected
- effect on adoption will be negative as this excludes type 6 farmers from
+ effect on adoption will be negative as this excludes Type 6 farmers from
  the analysis.
 \end_layout
 
@@ -1786,34 +2033,58 @@ Effect on expectations: Expectations are defined as the difference between
  We predict that the intervention results in expectations that are more
  in line with realized outcomes.
  This will likely only be the case for farmers that are unaware of the true
- relationship and so we again do not expect an effect for types 1 and 2.
- Furthermore, since our intervention aims to correct perceptions only for
- seed of improved varieties, expectations of farmers that use farmer-saved
- seed at baseline are unlikely to be affected (as it is assumed that the
- production function of farmer-saved seed is common knowledge).
- Therefore, we only expect an impact on farmers that plant seed of improved
- varieties at baseline and also have incorrect expectations (types 3 and
- 4).
- Again, we expect this positive effect to be stronger if we restrict the
- sample to farmers that adopt at baseline.
+ relationship and so we again do not expect an effect for Types 1 and 2.
+ Furthermore, since our intervention aims to 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+correct
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ perceptions only for improved varieties, expectations of farmers that use
+ farmer-saved seed at baseline are unlikely to be affected (as it is assumed
+ that the production function of farmer-saved seed is common knowledge).
+ Thus, we only expect an impact on farmers that plant improved varieties
+ at baseline and also have incorrect expectations (Types 3 and 4).
+ Again, we expect this positive effect to be stronger for farmers that adopt
+ at baseline.
 \end_layout
 
 \begin_layout Enumerate
-Impact on use of complementary inputs and effort: Some farmers that were
- unaware of the true relationship between seed of improved varieties and
+Impact on use of complementary inputs and management effort: Some farmers
+ that were unaware of the true relationship between improved varieties and
  complementary inputs and receive new information about the importance of
  using complementary inputs and effort may invest more effort and increase
  use of complementary inputs.
- This will be especially the case for type 6 farmers who stared adopting
- (potentially after disadopting due to disappointing outcomes) and will
- put the new knowledge into practice.
+ This will be especially the case for Type 6 farmers who adopted (potentially
+ after dis-adopting due to disappointing outcomes) and will put the new
+ knowledge into practice.
  To a lesser extent, farmers that consider adoption to be profitable despite
  low yield expectations may try to further increase yields by increasing
- effort (type 5).
- For type 3 farmers, we expect a negative effect, with farmers using less
+ effort (Type 5).
+ For Type 3 farmers, we expect a negative effect, with farmers using less
  complementary inputs if the fall back to farmer-saved seed.
- For input use and effort, the effect is not clear a-priori, even if we
- confine ourselves to impact in the sub-group of farmers that adopt at baseline.
+ For input use and effort, the effect is not clear 
+\shape italic
+a priori
+\shape default
+, even not for farmers that adopt at baseline.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1828,66 +2099,83 @@ name "section: Experiment"
 \end_layout
 
 \begin_layout Standard
-The model predictions were tested using a field experiment.
- The field experiment itself was part of a larger project on quality related
- constraints to technology adoption that also had interventions at the agro-inpu
-t dealer level.
- The pre-analysis plan for the larger study, which has a section for the
- farmer level intervention we focus on in this paper, was pre-registered
- at the 
-\begin_inset CommandInset href
-LatexCommand href
-name "AEA RCT registry"
-target "https://www.socialscienceregistry.org/trials/6361"
-literal "false"
-
-\end_inset
-
- under RCT ID 0006361.
+The model predictions were tested using a field experiment conducted with
+ almost 3,500 maize farmers in eastern Uganda.
+ The intervention was the screening of short, engaging videos about best
+ practices in maize cultivation.
+ The videos were shown individually to participating farmers on a tablet
+ computer by specially trained field enumerators.
+ The content of the video's script was developed following extensive interviews
+ with experts, including agricultural extension agents, plant breeders,
+ seed producers, government officials, and farmers themselves.
 \end_layout
 
 \begin_layout Standard
-The treatment was based on short, engaging videos, shown to the farmers
- on tablet computers.
- Based on extensive interviews with experts (extension agents, seed breeders,
- seed producers, government officials, etc.) we developed a script that served
- as a basis for a video about best practices in maize cultivation.
- The video starts off with a couple (man and woman) in a well-kept maize
- field inspecting their crops.
- The man narrates that they have been farmers for more than ten years but
- that their fields have not always been this productive.
- He recounts how they used to struggle to feed their children, but that
+The video opens with a couple (a man and woman) in a well-kept maize plot
+ inspecting their crop.
+ The couple explains that they have been farmers for more than ten years
+ but that their fields have not always been this productive.
+ They recount how they used to struggle to feed their children, but that
  over time, they learned how to grow more maize on less land.
- The secret of their success, they continue, lies in the adoption of improved
- technologies and best practices, such as the use of organic fertilizer,
- optimal plant spacing, and reduced seed rates.
- Furthermore, they argue that the use of seed from an improved variety and
- the use of inorganic fertilizer also contributed significantly to increased
- production.
+ The secret of their success, the couple continues, lies in the adoption
+ of improved technologies and best practices, such as the use of organic
+ fertilizer, optimal plant spacing, and reduced seed rates.
+ Furthermore, they explain that the use of an improved variety and inorganic
+ fertilizer contributed significantly to increased production.
  They conclude this introduction by stating that they are proud to be successful
- farmers that can feed their families and even have some marketable surplus
- that they can sell on the market.
+ farmers who can feed their families and even produce surpluses that they
+ can sell in the market.
  The viewer is then invited to become equally successful in farming by paying
- close attention as the role model farmers explain in detail the most important
- inputs and practices that transformed their lives in the remainder of the
- video.
+ close attention as the featured (role model) farmers explain in detail
+ the most important technologies, inputs, and practices that transformed
+ their lives.
+\end_layout
+
+\begin_layout Standard
+For example, the video addresses commonly held belief among farmers in Uganda
+ that improved varieties directly lead to increases in infestations of Striga
+ (
+\emph on
+striga hermonthica
+\emph default
+), a parasitic weed that feeds on the roots of maize plants and cause stunted
+ growth infestations.
+ Indeed, because improved maize varieties require more nutrients than more
+ conventional varieties sown by farmers, it is often the complementary applicati
+on of inorganic fertilizer that stimulates Striga growth.
+ As such, the video encourages farmers to invest more effort in timely weeding
+ practices when cultivating improved maize.
 \end_layout
 
 \begin_layout Standard
 The treatment was implemented in the form of two variations of this video.
- The control video is essentially the video as described above.
- In the treatment video, we added subtle messages that recommended practices
- and inputs that feature in the video are particularly important when the
- farmer uses seed of improved varieties.
- The only difference between the treatment and control video is thus that
- the former makes explicit the fact that significant complementarities exist
- between seed of improved varieties and recommended inputs and practices
- such as inorganic fertilizers and row planting.
+ The control group viewed the video as described above.
+ The treatment group viewed a similar video that differed slightly in terms
+ of content: Specifically, we added subtle recommendations for inputs and
+ practices that are particularly important when cultivating improved maize
+ varieties.
+ The only difference between the control and treatment videos is that the
+ latter makes explicit the fact that significant complementarities exist
+ between improved varieties and recommended inputs and practices such as
+ inorganic fertilizers and row planting.
+ In effect, the treatment and control videos are identical, except that,
+ after each practice or input that is shown, the treatment video explicitly
+ mentions that the practice or input is 
+\begin_inset Quotes eld
+\end_inset
+
+[...] particularly/even more important when you are using seed of an improved
+ variety
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-To give an example, the farmer narrates in the control video that: 
+For example, in the control video, the farmer explains that: 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1895,11 +2183,12 @@ At planting time, I paid attention to recommended spacing, carefully measuring
  1 foot between plants and 2,5 feet between rows.
  I first dug a 4 inches deep hole and added 1 water bottle cap of DAP.
  Then I added some soil.
- Afterwards I put 1 maize seed in and covered it with soil.
+ Afterwards, I put 1 maize seed in and covered it with soil.
 \begin_inset Quotes erd
 \end_inset
 
- The treatment video shows the same scene but then the farmer adds: 
+ In the treatment video, the farmer narrates the same scene but adds a pointed
+ comment at the end of the exposition, stating: 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1937,14 +2226,14 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-By randomizing who among our sample of farmers gets to see the video, we
- can isolate the causal effect of making salient the fact that improved
- varieties do not substitute for complementary inputs and effort, but in
- fact need more investment.
- The use of a control video also has the additional advantage is that it
- is not immediately clear what is the treatment and what is the control,
- reducing the likelihood that results are driven by experimenter demand
- effects 
+By randomizing which video is viewed by our sampled farmers, we can isolate
+ the causal effect of making salient the fact that improved varieties do
+ not substitute for complementary inputs and effort, but in fact require
+ more investment.
+ The use of a control video has the additional advantage: since it is not
+ clear to farmers or enumerators which video is the treatment and which
+ is the control, we reduce the likelihood that results are driven by experimente
+r demand effects 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bulte2014behavioral"
@@ -1953,10 +2242,9 @@ literal "false"
 \end_inset
 
 .
- Randomization was done at the village level to reduce the likelihood that
- treated households would provide information to households in the control
- group, which has been found to happen in information treatments using video
- 
+ Furthermore, to reduce the likelihood that treated households could provide
+ information to households in the control group—a common problem in video-mediat
+ed information treatments 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "doi:10.1086/703868"
@@ -1964,38 +2252,30 @@ literal "false"
 
 \end_inset
 
-.
- 
+—randomization was conducted at the village level in a manner that ensured
+ reasonable geographic and social distance between villages.
 \end_layout
 
 \begin_layout Standard
 The experiment targeted the second agricultural season of 2021, where maize
- planting happens in August and September and maize harvesting in November
- and December.
- We decided to implement the treatment well before the start of the season,
- in April 2021, to make sure that farmers had the necessary information
- before deciding which kind of seed to use.
- At this point in time, we also collected baseline data.
- The treatment was repeated just before planting in August 2021.
- Post-treatment data was collected in January and February 2022.
- The intervention was repeated in the first season of 2022 with a final
- round of data collection in July and August 2022.
- However, most of this paper, and particularly the impact assessment of
- the intervention, will focus on the 2021 agricultural season.
- We only use data from the 2022 agricultural season to look at some descriptive
- statistics on the dynamics of improved seed variety adoption.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Impact in 2022 of the treatment was limited, probably due to nature of the
- treatment where once you receive knowledge additional treatment is unlikely
- to have a lot of impact.
+ is sown in August and September and harvested in November and December.
+ We implemented the treatment in April 2021, well before the start of the
+ season, to ensure that farmers had the necessary information before making
+ decisions on seed and input use.
+ At this point in time, we also collected baseline data on our sampled household
+s.
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
+The intervention was repeated just before planting in August 2021, and post-trea
+tment data was collected in January and February 2022.
+ The intervention was again repeated in the first season of 2022, with a
+ final round of data collection conducted in July and August 2022.
+ Note that this paper focuses on outcomes following the 2021 agricultural
+ season since we do not expect significant results from continuing the intervent
+ion (i.e., providing farmers with the same information) in 2022.
+ However, we do explore descriptive results from 2022 to provide insight
+ into patterns of sustained adoption among treated farmers.
 \end_layout
 
 \begin_layout Section
@@ -2279,23 +2559,36 @@ learning_failures/code/output/end_expectations.Rdata
 
 \begin_layout Standard
 The field experiment was conducted in southeastern Uganda, an area known
- for its maize production where maize is considered both a food and a cash
- crop.
- Our sample consists of about 3,500 smallholder maize farmers.
- As this study is part of a larger project that investigates maize seed
- supply chains, farmers were drawn from the catchment areas of agro-input
- shops.
- We started by listing all shops in eleven districts in southeastern Uganda,
- which roughly correspond to the Busoga kingdom, an exercise that let to
- about 350 agro-input dealers.
- We then asked these dealers about the villages where most of their customers
- come from.
- Enumerators were instructed to randomly sample ten households that grow
- maize in these locations.
- Confining attention to farmers that were interviewed in all survey rounds,
- we remain with a balanced panel of 3,400 farmers.
- Given our sampling strategy, we expect farmers would have reasonable access
- to improved maize varieties is they would choose to adopt them.
+ for its maize production, and where maize is considered both a food and
+ cash crop.
+ Because this experiment was conducted as part of a larger study on maize
+ seed supply chains, farmers were drawn from the catchment areas (marketsheds)
+ of agro-input shops.
+ The sampling frame was developed as follows.
+ First, we listed all agro-input shops in 11 districts in southeastern Uganda,
+ resulting in the identification of about 347 agro-input dealers.
+ We then asked these dealers to identify the villages where most of their
+ customers come from.
+ This sampling frame allows us to assume that sampled farmers have both
+ reasonable and similar access to improved maize varieties if they choose
+ to adopt (or not adopt) as a result of our intervention, and that other
+ constraining factors such as seed quality, credit access, or individual
+ preferences were similarly distributed across our treatment and control
+ groups.
+\end_layout
+
+\begin_layout Standard
+Next, our field enumerators compiled household lists for each village and
+ randomly sampled ten maize-cultivating households per village.
+ The enumerators interviewed 3,470 farmers using a household survey instrument
+ that contained a wide range of questions about the individual, their household,
+ and their farm.
+ There were no large farms in the study villages, so no exclusion criterion
+ was needed to ensure the sampling of smallholder farmers.
+ From an initial sample of 3,470 farmers who were interviewed in the baseline
+ survey round, only 63 farmers dropped out in the subsequent survey round.
+ We find no evidence of attrition bias among the drop-outs, and thus focus
+ our analysis on a balanced panel of 3,407 farmers.
 \end_layout
 
 \begin_layout Subsection
@@ -2303,15 +2596,50 @@ Adoption
 \end_layout
 
 \begin_layout Standard
-In this section, we illustrate the dynamics of the adoption of seed from
- improved varieties by smallholder farmers.
- We define smallholder adoption of improved maize varieties as follows:
- We ask farmers on how many fields they cultivated maize in the preceding
- season.
- From these plots, we randomly select one field, on which detailed questions
- about input use and cultivation practices are asked.
- A farmer is defined to be an adopter if he/she used non-recycled seed of
- a hybrid variety or an OPV that was recycled less than four times.
+In this section, we explore the dynamics of improved maize variety adoption
+ by smallholder farmers in our study area.
+ We define smallholder adoption of improved maize varieties as follows.
+ First, we asked farmers how many plots they cultivated maize on during
+ the preceding season.
+ From these plots, we randomly selected one plot and asked detailed questions
+ about seed and varietal use, input use, and management practices.
+ Based on the information collected, we then defined a farmer as an 
+\begin_inset Quotes eld
+\end_inset
+
+Adopter
+\begin_inset Quotes erd
+\end_inset
+
+ if they used either non-recycled (newly purchased, not saved) seed of (a)
+ a hybrid or (b) an open pollinated variety.
+ All others were defined as 
+\begin_inset Quotes eld
+\end_inset
+
+Non-Adopters.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We acknowledge that this definition of adoption is not perfect.
+ Seed of an open pollinated variety that had been recycled (saved) up to
+ four times could still count as improved and farmers using this seed could
+ still count as adopters.
+ However, smallholder expectations are likely to be biased because they
+ pay a higher price for hybrids and open pollinated varieties, which is
+ less the case for farmer-saved seed, which is why this stricter definition
+ is useful to answer the questions raised in this paper.
+ Also, most of our results remain robust to different definitions of adoption.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2325,60 +2653,59 @@ noprefix "false"
 
 \end_inset
 
- provides a visual representation of the evolution of varietal adoption
- among farmers over different survey rounds using this definition.
- We see that the share of adopters slowly increases over time: At survey
- 1 (the baseline survey), we find that about 45 percent of farmers report
- to have adopted an improved maize variety on the randomly selected plot.
- At the end of the first season, at the time of our second survey in early
- 2022, this figure has already increased to about 50 percent.
- After a second season, when we interviewed farmers one last time in July/August
- 2022, the share of adopters further increased to 54 percent.
+ illustrates the evolution of varietal adoption among farmers over different
+ survey rounds using this definition.
+ We see that the share of adopters slowly increases over time: At Survey
+ 1 (baseline), about 45 percent of farmers report to have sown an improved
+ maize variety on the randomly selected plot.
+ At the end of the first season, at the time of Survey 2 in April 2022,
+ this figure increased to about 50 percent and, by Survey 3 in July/August
+ 2022, to about 54 percent.
 \end_layout
 
 \begin_layout Standard
-The figure also shows interesting dynamics.
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dynamics-of-seed"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ also illustrates the dynamics of adoption in our sample.
  At the top, we see a substantial share of households (22 percent) that
  adopted in all three survey rounds.
  These could be considered 
 \begin_inset Quotes eld
 \end_inset
 
-always adopters
+Always Adopters
 \begin_inset Quotes erd
 \end_inset
 
-.
+ or Type 1 and 5 farmers, as described earlier.
  At the bottom of the chart, we find an equally substantial share (23 percent)
  that can similarly be categorized as 
 \begin_inset Quotes eld
 \end_inset
 
-never adopters
+Never Adopters
 \begin_inset Quotes erd
 \end_inset
 
-.
- However, we also see that a large group of farmers that adopts during the
- first survey reverts to farmer-saved seed at the time of the second survey
- (16 percent) or still adopts at the time of the second survey but eventually
- dis-adopts at the time of the third survey (7 percent).
- Fortunately, large groups of households also enter into adoption.
- We see that 19 percent of non-adopting households are adopting at the time
- of the second survey and twelve percent of households that are not adopting
- at both first and second survey become adopters in the third survey.
- Finally, there are also some households that seem to be moving in and out
+ or Type 2 and 4 farmers.
+ However, we also see that a large group of farmers that adopts during Survey
+ 1 reverts to farmer-saved seed at the time of the second survey (16 percent)
+ or still adopts at the time of Survey 2 but eventually dis-adopts at the
+ time of Survey 3 (7 percent).
+ During this same period, large numbers of households also adopt.
+ We see that 19 percent of non-adopting households adopt at the time of
+ Survey 2 and 12 percent of households that are not adopting in both Surveys
+ 1 and 2 do adopt by Survey 3.
+ Finally, we find that the some households seem to be moving in and out
  of adoption (8 percent) or moving out and back into adoption (9 percent).
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Caro: Shouldn't this sum up to 100%?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2395,7 +2722,7 @@ status open
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2417,17 +2744,13 @@ name "fig:Dynamics-of-seed"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Furthermore, we find that a significant share of farmers that adopted at
+Furthermore, we find that a substantial share of farmers that adopted at
  the time of the first survey seems to be disappointed.
  Baseline data shows that 30 percent of farmers indicated that were not
  satisfied with the quality of the planting material that they used.
@@ -2446,15 +2769,14 @@ name "section: Empirical strategy"
 \end_layout
 
 \begin_layout Standard
-Due to the random assignment to treatment and control groups, comparing
- outcome variable averages of treated and control participants provides
- unbiased estimates of the average treatment effects.
- We follow common practice and do this in an Analysis of Covariance (ANCOVA)
- regression framework, where we regress outcomes of interest (knowledge,
- adoption, input use and effort, and expectations) on an indicator variable
- that takes the value of one if the household was in the treatment group
- (and zero otherwise) and include baseline values of the outcome variables
- as controls 
+Due to the random assignment of participants to treatment and control groups,
+ comparing outcome variable averages of treated and control participants
+ provides unbiased estimates of the average treatment effects.
+ Using an Analysis of Covariance (ANCOVA) regression framework, we regress
+ outcomes of interest (knowledge, adoption, input use and effort, and expectatio
+ns) on an indicator variable that takes the value of 1 if the household
+ was in the treatment group and 0 otherwise, and include baseline values
+ of the outcome variables as controls 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MCKENZIE2012210"
@@ -2477,10 +2799,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Standard errors are clustered at the village level as this is the level
- of randomization used.
- Since we have almost 3500 observations in 350 clusters, the original form
- of the sandwich estimator 
+Since we have almost 3,500 observations in about 350 clusters, the original
+ form of the sandwich estimator 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/biomet/73.1.13"
@@ -2488,7 +2808,8 @@ literal "false"
 
 \end_inset
 
- is used.
+ is used, with standard errors clustered at the village level (our level
+ of randomization).
  For each of the four outcome families (knowledge, adoption, input use and
  effort, and expectations), we compute outcome indices, which is a common
  way to also account for multiple hypothesis testing.
@@ -2524,9 +2845,9 @@ Impact on knowledge
 \end_layout
 
 \begin_layout Standard
-First we check if smallholder farmers are able to pick up the subtle messages
- in the treatment video.
- According to prediction 1, we expect a positive effect of the treatment
+First we examine whether the treated participants are able to pick up the
+ subtle (salience) messaging in the treatment video.
+ According to Prediction 1, we expect a positive effect of the treatment
  on farmers' knowledge.
  We test farmer knowledge by means of a short quiz where a number of questions
  were asked and enumerators read a set of alternative answers to farmers
@@ -2534,67 +2855,65 @@ First we check if smallholder farmers are able to pick up the subtle messages
 \end_layout
 
 \begin_layout Standard
-We started with a general question, asking if farmers think recommended
- cultivation practices like weeding and application of fertilizer is less,
- equally, or more important when using quality maize seed like OPV or seed
- of a hybrid variety.
- This is followed up by a more specific question, asking the farmer to indicate
- what applies for weeding when they are using seed of a hybrid variety.
- The options from which the farmer can choose are: 1) You do not need to
- weed and remove Striga because seed of a hybrid variety of varieties are
- treated to resist weed infestation; 2) You do not need to weed and remove
- Striga in the first four weeks because seed of a hybrid variety is better
- at competing for sun, nutrients and water than normal seed; 3) You need
- to weed and remove Striga just as you would with normal seed because maize
- seed does not compete well for sunlight, water and nutrients.
- 
+The quiz begins with a general question that asks whether farmers think
+ recommended cultivation practices like weeding and application of fertilizer
+ is less, equally, or more important when using an improved variety.
+ This is followed by a more specific multiple-choice question on the appropriate
+ weeding practice when cultivating an improved variety.
+ Response options are: (1) You do not need to weed and remove Striga because
+ seed of a hybrid variety of varieties are treated to resist weed infestation;
+ (2) You do not need to weed and remove Striga in the first four weeks because
+ seed of a hybrid variety is better at competing for sun, nutrients, and
+ water than normal seed; and (3) You need to weed and remove Striga just
+ as you would with normal seed because maize seed does not compete well
+ for sunlight, water, and nutrients.
 \end_layout
 
 \begin_layout Standard
-We have a similar question for fertilizer application when seed of a hybrid
- variety is used.
- The options here are that 1) You do not need to use inorganic fertilizer
- because you already bought seed.
- 2) You can use less fertilizer than you normally would since seed of an
- improved maize variety grows faster 3) You need to use the amount of fertilizer
- that you would with normal seed because also seed of an improved variety
- need nutrition; 4) You should use more fertilizer than you would normally
- use.
+The quiz contains a similar questions for fertilizer application when cultivatin
+g an improved variety.
+ The options here are: (1) You do not need to use inorganic fertilizer because
+ you already bought seed; (2) You can use less fertilizer than you normally
+ would since seed of an improved maize variety grows faster; (3) You need
+ to use the amount of fertilizer that you would with normal seed because
+ also seed of an improved variety need nutrition; and (4) You should use
+ more fertilizer than you would normally use.
 \end_layout
 
 \begin_layout Standard
-We then have a question that checks if farmers use sub-optimal plots by
- asking which plots are best suited to plant seed of an improved variety
+The quiz also contains questions that checks if farmers use sub-optimal
+ plots by asking which plots are best suited to cultivate an improved variety
  on.
- The options here are 1) that it is best to save seed of an improved variety
- for poor plots, as these need less nutrients; 2) that is best to use your
+ Response options are: (1) that it is best to save seed of an improved variety
+ for poor plots, as these need less nutrients; (2) that is best to use your
  seed of an improved variety for plots that are furthest away from the home,
  as seed of an improved variety need less care than normal seed; and 3)
  that the decision on what plot to plant seed of an improved variety should
  not be affected by the seed type that is used.
- 
 \end_layout
 
 \begin_layout Standard
-Another question tests if farmers think it is better to combine inputs,
- or to put all eggs in one basket.
+Another question explores how farmers think about their investment choices
+ with respect to inputs, i.e., whether to invest their resources in a single
+ input or a combination of inputs.
  The question simply asks how to best invest money in agriculture.
- The options are that 1) It is best to invest all your money in seed, because
- poor seed quality is the main cause of low yields; 2) It is best to invest
+ The options are: (1) It is best to invest all your money in seed, because
+ poor seed quality is the main cause of low yields; (2) It is best to invest
  all your money in fertilizer, because poor soil is the main cause of low
- yields; and 3) It is best to buy both fertilizer and seed, because good
+ yields; and (3) It is best to buy both fertilizer and seed, because good
  seed without fertilizer does not give good results.
 \end_layout
 
 \begin_layout Standard
-Finally, we include a control question, where we do not expect a difference
- between treatment and control because the answer featured in both treatment
- and control videos.
- In particular, we ask about the optimal spacing and seed rate for maize.
- The options are 1) One foot between plants and two and a half foot between
- rows with one seed per hill; 2) One foot between plants and two and a half
- foot between rows with two seeds per hill; and 3) Two foot between plants
- and two and a half foot between rows with two seeds per hill.
+Finally, the quiz includes a control question, answers to which are not
+ expected to between treatment and control groups because the answer are
+ featured in both versions of the video.
+ Specifically, the question asks about the optimal spacing and seed rate
+ for maize, with response options as: (1) One foot between plants and two
+ and a half foot between rows with one seed per hill; (2) One foot between
+ plants and two and a half foot between rows with two seeds per hill; and
+ (3) Two foot between plants and two and a half foot between rows with two
+ seeds per hill.
  The four outcomes (excluding the control question) are also combined in
  an index following 
 \begin_inset CommandInset citation
@@ -2608,7 +2927,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The average treatment effects on knowledge can be found in Table 
+Estimates of the average treatment effects on knowledge can be found in
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:knowledge"
@@ -2623,15 +2943,15 @@ noprefix "false"
  get an idea of effect sizes of the intervention.
  We see that knowledge is already high: 88 percent of farmers in the control
  group know that recommended cultivation practices like weeding or applying
- fertilizer are also important when using seed of improved varieties.
+ fertilizer are also important when using improved varieties.
 \end_layout
 
 \begin_layout Standard
-The second column (2) shows the estimated difference between the treatment
- and control group for outcomes after the intervention, while the third
- column (3) also reports this difference, but only for the subset of farmers
- that adopted an improved variety at baseline.
- The rationale for restricting is explained in 
+Column (2) shows the estimated difference between the treatment and control
+ groups for outcomes after the intervention, while Column (3) also reports
+ this difference, but only for the subset of farmers that adopted an improved
+ variety at baseline.
+ The rationale for restricting our sample is alluded to in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -2641,31 +2961,32 @@ noprefix "false"
 
 \end_inset
 
-: as it keeps farmers for whom the treatment effect is likely to be largest,
- we expect a larger effect in column (3) than in column (2).
+: because the restricted sample retains farmers for whom the treatment effect
+ is likely to be largest, we expect a larger effect in Column (3) than in
+ Column (2).
 \end_layout
 
 \begin_layout Standard
-We see that knowledge, as measured by the quiz questions, has increased
- for all questions, and generally more so for the subset of farmers that
- used seed of an improved variety at baseline.
+We find that knowledge, as measured by the quiz questions, increases for
+ all questions, and generally more so for the subset of farmers that used
+ an improved variety at baseline.
  For instance, the share of farmers that knows complementary inputs and
- practices are at least as important when using seed of improved varieties
- increased from 87.1 to 89.4 percent.
+ practices are at least as important when using improved varieties increases
+ from 87.1 to 89.4 percent.
  Furthermore, the share of farmers that recommends investing in different
  inputs (as opposed to investing all their money in only one input), increases
  from 73.5 to 75.7 percent.
  If we only consider farmers that adopted at baseline, the increase over
  the control amounts to almost five percentage points.
  However, after adjusting standard errors for clustering at the village
- level, none of the differences is statistically significant at conventional
+ level, none of the differences are statistically significant at conventional
  levels.
- This may be due to the fact that, ex-post, it turned out that many of the
+ This may be due to the fact that, ex-post, it turns out that many of the
  farmers were already able to indicate the correct response, and hence there
  is little scope for further improvement.
- At the same time, we note that all coefficient estimates are going in the
- same direction which translates in the index in column (3) coming closes
- to significance with a p-value of 0.125.
+ At the same time, we note that all coefficient estimates are moving in
+ the same direction, which translates in the index in Column (3) approaching
+ significance with a p-value of 0.125.
 \end_layout
 
 \begin_layout Standard
@@ -3161,17 +3482,14 @@ name "impact adoption"
 \end_layout
 
 \begin_layout Standard
-We now test the main hypothesis of this paper: Do farmers that were made
- aware of the fact that seed of improved varieties needs substantial complementa
-ry inputs and proper agronomic management behave differently in terms of
- seed use in subsequent seasons than farmers that were not exposed to this
- information.
+We now test the main hypothesis of this paper, whether farmers who were
+ informed with subtle, salient messaging that improved varieties need substantia
+l investment in complementary inputs and management practices behave differently
+ in terms of seed use in subsequent seasons than farmers that were not similarly
+ informed.
  To this end, we asked farmers which maize variety they planted on the randomly
- selected maize field in the season prior to the survey.
- We again define adoption as the use of fresh seed of an improved variety,
- i.e.
- seed of a hybrid variety which was not recycled and seed of an OPV which
- was not recycled too often (the same definition used in Figure 
+ selected maize plot in the season prior to the survey.
+ We again define adoption as described earlier and used in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Dynamics-of-seed"
@@ -3181,17 +3499,14 @@ noprefix "false"
 
 \end_inset
 
- to illustrate the dynamics of varietal adoption).
+.
  In addition, we investigate other outcomes that are related or even partly
  overlapping.
  For instance, we test if there are differences in the use of recycled seed
  between the treatment and control group, where we define recycled seed
  as seed that a farmer has saved themselves or obtained from another farmer
- who saved it (neighbor, relative, etc.).
- Note that seed of an improved variety and seed that was recycled are not
- exact opposites, as seed of an OPV can be recycled for a couple of seasons
- and still count as seed of an improved variety.
- Another related outcome is the share of farmers that report to have bought
+ who saved it (e.g., a neighbor or relative).
+ Another related outcome is the share of farmers that report having purchased
  seed from an agro-input shop.
  The three outcomes are also combined in an index following 
 \begin_inset CommandInset citation
@@ -3202,68 +3517,10 @@ literal "false"
 \end_inset
 
 .
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-adoption variable (please don't delete for clarifications later on):
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-Q31.
- What maize variety did you plant on randomly selected maize field last
- season?
-\end_layout
-
-\begin_layout Plain Layout
-hybrid: Farmer reports to have planted seed of a hybrid variety.
-\end_layout
-
-\begin_layout Plain Layout
-OPV: Farmer reports to have planted seed of a OPV.
-\end_layout
-
-\begin_layout Plain Layout
-Land_Races: Farmer reports to have planted a "land races/ multi-colored
- variety/ local seed".
-\end_layout
-
-\begin_layout Plain Layout
-improved: Farmer reports to have planted seed of a hybrid variety/ OPV.
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-Q32.
- Where did you obtain this seed from for the maize planted on randomly selected
- maize field last season?
-\end_layout
-
-\begin_layout Plain Layout
-farmer_saved_seed: Farmer reports to have saved this seed him-/ herself
- or to have obtained this seed from another farmer who saved it (neighbor,
- relative, etc.).
-\end_layout
-
-\begin_layout Plain Layout
-Bought_from_agro_input_shop: Farmer reports to have bought this seed from
- an agro-input shop.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Results are in Table 
+Results are summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Treatment-effects"
@@ -3273,26 +3530,25 @@ noprefix "false"
 
 \end_inset
 
-.
- The first column (1) shows sample means of the four outcomes at baseline
- and standard deviations in brackets below.
- For instance, we see that 48 percent of farmers use fresh seed of improved
- varieties and that one third of farmers reports that the seed that they
- planted on the randomly selected plot was obtained from an agro-input dealer.
- The second column (2) illustrates pre-treatment balance between treatment
- and control groups.
+ and show that the intervention decreases adoption.
+ Column (1) shows sample means of the four outcomes at baseline with standard
+ deviations in the brackets below.
+ We find that 48 percent of farmers use fresh seed of improved varieties
+ and that one third of farmers reports that the seed that they planted on
+ the randomly selected plot was obtained from an agro-input dealer.
+ Column (2) shows pre-treatment balance between treatment and control groups.
  We see that the randomization was successful, as there is no significant
  difference in varietal adoption behavior between farmers that will be exposed
  to the treatment and those that will not.
 \end_layout
 
 \begin_layout Standard
-The third column (3) shows the difference between treatment and control
- for outcomes after the intervention.
+Column (3) shows the difference between treatment and control groups for
+ outcomes after the intervention.
  Our theory suggests that in response to being sensitized about the importance
- of using complementary inputs and cultivation practices when using seed
- of an improved variety, some farmers (types 3 and 6) will change their
- adoption behavior (prediction 2 in Section 
+ of using complementary inputs and management practices when using an improved
+ variety, some farmers (Types 3 and 6) will change their adoption behavior
+ (Prediction 2 in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -3304,32 +3560,32 @@ noprefix "false"
 
 ).
  A share of farmers that initially underestimated the returns to improved
- seed varieties (type 6) will start adopting as their expected marginal
- return is increased by the treatment.
+ varieties (Type 6) will start adopting as their expected marginal return
+ is increased by the treatment.
  Another share of farmers that initially overestimated the probability of
- an adoption premium (type 3) will dis-adopt as their expected marginal
+ an adoption premium (Type 3) will dis-adopt as their expected marginal
  return is reduced by the treatment.
- Dis-adoption implies that farmers will be less likely to plant fresh seed
- of an improved variety and seed bought at agro-input shops, but more likely
- to use recycled farmer-saved seed.
- As these two opposing effects cancel each other out, we find few effects
- on the entire sample.
- However, we find that all coefficients go in the direction of dis-adoption
- and a significant difference for the share of farmers that planted recycled
- seed post-intervention.
+ Dis-adoption implies that farmers will be less likely to use improved seed
+ and seed bought at an agro-input shop but more likely to use farmer-saved
+ seed in accordance with our earlier definitions of adoption.
+ Since these two opposing effects cancel each other out, we find limited
+ effects on the entire sample.
+ However, we do find that all coefficients move in the direction of dis-adoption
+; we also find a significant difference in the share of farmers that planted
+ recycled seed post-intervention.
 \end_layout
 
 \begin_layout Standard
-The comparisons in the third column is for all farmers, while the fourth
- column (4) restricts the sample to farmers that adopted at baseline.
- We see that effects become stronger if we restrict attention to this subgroup
- (and exclude type 6 farmers from the analysis).
- Farmers that were exposed to the treatment are almost seven percentage
- points less likely to adopt fresh seed of an improved variety.
+While the comparisons in Column (3) includes all farmers in our sample,
+ Column (4) restricts the sample to farmers that adopted at baseline.
+ We see that the estimated effects become stronger when we restrict attention
+ to this subgroup (and exclude Type 6 farmers from the analysis).
+ Farmers who were exposed to the treatment are almost seven percentage points
+ less likely to adopt fresh seed of an improved variety.
  We see a particularly strong increase in the share of farmers that uses
  seed recycled from the previous harvest in the treatment group and a somewhat
- lower but still significant reduction in farmers that bought seed from
- an agro-input dealer.
+ lower but still significant reduction in farmers who bought seed from an
+ agro-input dealer.
  For the subgroup of farmers that adopted at baseline, the treatment also
  has a significant and negative effect on the adoption index.
 \end_layout
@@ -3957,10 +4213,32 @@ Impact on expectations and harvest
 \end_layout
 
 \begin_layout Standard
-As the intervention is designed to affect farmer behavior by correcting
- farmers' expectations, we confirm this impact pathway by testing if post
- intervention, farmers feel their expectations in terms of yield were met.
- As mentioned in prediction 3 in Section 
+Since the intervention is designed to affect farmer behavior by 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+correcting
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ their expectations, we explore the plausibility of this impact pathway
+ by testing if post-intervention, farmers feel their expectations of yield
+ were met.
+ As mentioned in Prediction 3 in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -3972,9 +4250,8 @@ noprefix "false"
 
 , we think this is particularly the case if we restrict the sample to farmers
  that adopt at baseline.
- We also measure harvest related outcomes on a randomly selected maize field.
- We look at production and yield (dividing production of the plot by the
- size of the plot).
+ We also measure harvest-related outcomes (production and yield) on a randomly
+ selected maize plot.
  The three outcomes are also combined in an index following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -3987,7 +4264,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Results can be found in Table 
+The results in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Treatment-effects-expect"
@@ -3997,9 +4274,8 @@ noprefix "false"
 
 \end_inset
 
-.
- We again report baseline means and balance in the first two columns (1)
- and (2).
+ show that yield expectations have been significantly affected.
+ We again report baseline means and balance in Columns (1) and (2).
  However, we did not ask if expectations were met at baseline, and so we
  report the control group average post-intervention and do not test for
  baseline balance for the expectations variable.
@@ -4008,22 +4284,52 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-The third column (3) shows that, in line with expectations, in the treatment
- group a significantly higher share of farmers say that they produced what
- they expected.
- The effect is larger for the subset of farmers that adopted at baseline,
- see column (4).
+Column (3) shows that, in line with our prediction, a significantly higher
+ share of farmers in the treatment group state that they produced what they
+ expected.
+ The effect is larger for the subset of farmers that adopted at baseline
+ (Column (4)).
  This suggests that a subset of farmers indeed started out with inflated
- expectations, which were corrected after they learned that seed of improved
- varieties is not miracle seed.
+ expectations, which were 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+corrected
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ after they learned that improved varieties are not 
+\begin_inset Quotes eld
+\end_inset
+
+miracle seeds.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Finally, the table shows that the average farmer cultivates about 460 kilograms
- of maize on the random plot.
- The randomly selected field seems to be slightly larger than one acre on
- average, so that yield is about 440 kilograms per acre.
- The intervention does not seem to have any impact on production or productivity.
+Finally, the table shows that the average farmer produces about 460 kg of
+ maize on the randomly selected plot.
+ The average size of these randomly selected plots is slightly larger than
+ one acre on average, such that yields are about 440 kg per acre.
+ Thus, the intervention does not seem to have any impact on maize production
+ or yield.
 \end_layout
 
 \begin_layout Standard
@@ -4625,9 +4931,8 @@ Impact on input use and efforts
 \begin_layout Standard
 Finally, we investigate how the intervention affects effort and the use
  of inputs other than seed.
- For input use and effort, the effect is ambigious, even if we restrict
- attention to the subsample of baseline adopters (see prediction 4 in Section
- 
+ For input use and effort, the effect is ambiguous, even if we restrict
+ the sample to baseline adopters (see Prediction 4 in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -4641,35 +4946,35 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We look at a range of cultivation practices and complementary inputs in
+We examine a range of cultivation practices and complementary inputs in
  line with what is featured in both treatment and control videos.
- A first outcome is an indicator for single-stand row-planting.
- Row-planting is an important management practice that can lead to significant
+ A first outcome is an indicator for single-stand row planting.
+ Row planting is an important management practice that can lead to significant
  yield gains.
- Under row-planting, space is used optimally such that plants have sufficient
- nutrients and sunlight.
- However, row-planting increases workload, hence farmers often engage in
- the alternative that is less labor demanding: broadcasting.
+ Under row planting, space is used optimally such that plants have sufficient
+ nutrients, sunlight, and room to grow.
+ However, row planting increases workload, such that farmers often engage
+ in the alternative that is less demanding on their labor—broadcast planting.
 \end_layout
 
 \begin_layout Standard
-Reducing the seed rate, i.e.
- the number of seeds used, is our second outcome.
+Reducing the seeding rate, i.e., the number of seeds sown, is our second outcome
+ of interest.
  Farmers often plant more seed than necessary because they fear that it
  may not germinate.
  However, using more than two seeds per hill leads to stunted maize growth
  due to competition for light and nutrients.
- At the same time, just as for row-planting, a lower seed rate may increase
+ At the same time, just as for row planting, a lower seed rate may increase
  the workload, as farmers need to engage in gap filling after one week if
  seed fails to germinate.
 \end_layout
 
 \begin_layout Standard
-The next three outcomes look at fertilizer use.
+The next three outcomes relate to fertilizer use.
  The application of organic fertilizer is important for soil structure,
  while Di-Ammonium Phosphate (DAP) or Nitrogen, Phosphorus, and Potassium
- (NPK) and Urea are used to provide essential nutrients at particular points
- in time.
+ (NPK) and Urea (Nitrogen) are used to provide essential nutrients at particular
+ points in time.
  The cost of organic fertilizer is mainly in terms of labor, while both
  DAP and Urea need to be bought from an agro-input shop and applied during
  planting (DAP) and at early stages of growth (Urea).
@@ -4696,7 +5001,7 @@ Busseola fusca
 
 \begin_layout Standard
 Finally, we look at differences in re-sowing or gap-filling.
- This involves revisiting the field after planting and inspecting the hills
+ This involves revisiting the plot after planting and inspecting the hills
  for seed germination.
  If a seed did not germinate, a new seed is planted in that location.
  Re-sowing, reduced seed rate and row-planting are thus likely to be correlated.
@@ -4709,7 +5014,6 @@ literal "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -4724,8 +5028,8 @@ noprefix "false"
 \end_inset
 
 .
- As in the previous table, the first two columns (1) and (2) report means
- and orthogonality for outcomes before the treatment.
+ As in the previous table, Columns (1) and (2) report means and orthogonality
+ for outcomes before the treatment.
  We find an imbalance for the number of times that a farmer reports to have
  weeded and the likelihood that farmers re-sow after one week.
  Note that the imbalance goes in different directions, which makes it less
@@ -4735,18 +5039,18 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-The third column (3) shows that farmers do not invest more inputs or efforts
- after the intervention.
+Column (3) shows that farmers do not invest more inputs or efforts after
+ the intervention.
  On the contrary (and especially if we only consider a subset of farmers
- that adopted at baseline, see column (4)) farmers appear to be less likely
+ that adopted at baseline (Column (4)), farmers appear to be less likely
  to plant in rows and to use DAP.
  This suggests that there is an important group of farmers that adopts at
  baseline, perhaps using some inputs and practices such as inorganic fertilizer
  and row planting.
  However, after being made aware that all complementary inputs are equally
- important, they may decide it is not optimal to use improved seed varieties,
- and they may turn back to farmer saved seed, in turn reducing input use
- and some practices like row planting.
+ important, they may decide it is not optimal to use improved varieties,
+ and may revert to farmer-saved seed, in turn reducing input use and key
+ management practices like row planting.
 \end_layout
 
 \begin_layout Standard
@@ -6054,18 +6358,20 @@ name "section: Conclusion"
 \end_layout
 
 \begin_layout Standard
-This paper was motivated by qualitative evidence suggesting that many farmers
- are unaware that many agricultural technologies such as seed of improved
- varieties require substantial complementary inputs and effort to get the
- most out of it.
- As a result, farmers overestimate the returns from the technology and are
- disappointed when they compare realized yields with what they expected
- at the time of planting.
- As it is hard for farmers to learn about the yield response of a single
- input, farmers may decide that the technology itself is to blame.
- This is consistent with the observation that many farmers think inputs
- are often counterfeit or of low quality, but objective assessments of quality
- of inputs find quality to be acceptable 
+This paper was motivated by evidence suggesting that farmers are unaware
+ that many agricultural technologies such as improved varieties require
+ substantial complementary inputs, better management practices, and greater
+ effort to realize their benefits.
+ Both theory and practice suggest that it is feasible for farmers to overestimat
+e the returns to a technology, and may dis-adopt when disappointed with
+ actual returns.
+ But when following recommendations for the use of complementary inputs
+ and practices, farmers may be unable to learn about the contribution made
+ by each component of a package, and may ultimately attribute disappointing
+ returns to the technology itself.
+ This is consistent with findings suggesting that farmers blame poor returns
+ on inputs they believe to be counterfeit or of low quality even when objective
+ quality assessments show otherwise 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928,MICHELSON2021102579"
@@ -6074,12 +6380,11 @@ literal "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
-To credibly test the hypothesis that farmers think of seed of improved varieties
- as 
+To credibly test this hypothesis—specifically, that farmers think of improved
+ varieties as 
 \begin_inset Quotes eld
 \end_inset
 
@@ -6087,45 +6392,77 @@ miracle seed
 \begin_inset Quotes erd
 \end_inset
 
-, we set up a field experiment around an engaging video on recommended cultivati
-on practices for maize growing.
- We produced two versions of the video, one for the treatment group and
- one for the comparison group.
- The treatment and control videos are identical, except that, after each
- practice or input that is shown, the treatment video explicitly mentions
- that the practice or input is 
-\begin_inset Quotes eld
-\end_inset
-
-[...] particularly/even more important when you are using seed of an improved
- variety
-\begin_inset Quotes erd
-\end_inset
-
-.
- We then randomly allocated treatment and control status to villages, where
- a set of farmers was shown the video a few months before the planting season,
- at the time when they selected the seed that they would use, and again
- at the start of the planting season.
- We revisited farmers after harvest in treatment and control villages to
- test if there were differences in farmer knowledge, seed use, expectations,
- complementary input use and agronomic practices.
+ and may dis-adopt when results are disappointing—we conducted a field experimen
+t built around an short, engaging video on recommended input use and management
+ practices for maize cultivation in eastern Uganda.
+ We produced two versions of the video that differ only in terms of the
+ presence (absence) of subtle messaging about the salience of recommended
+ inputs and practices for the treatment (control) groups.
+ Screenings of the two versions of the video were randomly assigned to villages
+ in our study area, and then to maize farmers in those villages, resulting
+ in a sample of almost 3,500 farmers who were interviewed at regular intervals
+ to uncover any changes in their knowledge about best practices in maize
+ cultivation as well as their seed/variety choices, their expectations of
+ yield and output, and their use of complementary inputs and management
+ practices.
+ ...
 \end_layout
 
 \begin_layout Standard
-While we did not find treatment effects that differ significantly from zero
- for knowledge, we did see that all coefficients go in the expected direction.
+While we do not find treatment effects that differ significantly from zero
+ for knowledge outcomes, we do observe that all coefficients move in the
+ expected direction.
  We suspect that the lack of statistical significance may be caused by low
- power given an already high knowledge among farmers.
- Turning to the main outcome—behavior related to seed use—we found that
- treated farmers were less likely to use seed of improved varieties obtained
- from agro-input dealers and more likely to revert back to farmer-saved
+ power given an already high level of knowledge among our sampled farmers.
+\end_layout
+
+\begin_layout Standard
+Despite this, for the main outcome of interest—behavior related to seed
+ choices—we find that treated farmers were less likely to use improved varieties
+ obtained from agro-input dealers and more likely to revert to farmer-saved
  seed.
  We also found that farmers that received the treatment were more likely
  to report that their harvest was in line with what they expected.
- We found no overall effect of the treatment on input use and effort, although
- there is some indication that especially costly inputs and practices were
- reduced.
+ We found no overall effect of the treatment on input use and management
+ practices, although there is some indication that especially costly inputs
+ and practices were reduced.
+\end_layout
+
+\begin_layout Standard
+Our findings have implications for the study of technology adoption dynamics,
+ suggesting that disappointment about the performance of a technology that
+ is erroneously attributed to the technology itself may lead to dis-adoption.
+ But while farmers may have dis-adopted in the short run in response to
+ our intervention, the possibility that farmers' expectations became more
+ realistic may suggest that farmers that do adopt may be aligning their
+ outlooks to a longer-run perspective, which could lead to efficiency gains
+ and positive spillover effects 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ledgerwood2014sticky,HORNIK2015273"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Our study also casts some doubt on the suggestion that Bayesian learning
+ via sequential adoption can be a successful strategy for smallholder farmers
+ in the long run 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.2307/1242825,https://doi.org/10.1111/agec.12124"
+literal "false"
+
+\end_inset
+
+.
+ If there are important interaction effects between technologies, inputs
+ and practices, it seems unreasonable to assume that farmers can try out
+ all possible combinations of inputs to learn about these interactions in
+ a Bayesian fashion.
 \end_layout
 
 \begin_layout Standard
@@ -6140,7 +6477,7 @@ literal "false"
 \end_inset
 
 .
- The reason for these opposite effects may be that 
+ A possible explanation for our opposing results may be that 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bulte_freeseed"
@@ -6156,9 +6493,14 @@ literal "false"
 
 \end_inset
 
- provided the improved technology (also seed) for free as part of the experiment
-, potentially resulting in an income effect in the sense that money that
- treated farmers did not use to buy seed was used to buy complementary inputs.
+ provided the improved technology (also an improved variety) for free as
+ part of the experiment, potentially resulting in an income effect, i.e.,
+ the money that treated farmers did 
+\shape italic
+not
+\shape default
+ use to purchase seed was instead allocated to the purchase of complementary
+ inputs.
 \begin_inset Foot
 status collapsed
 
@@ -6171,48 +6513,34 @@ literal "false"
 \end_inset
 
  do discuss the possibility that their effects are driven by an income effect.
- However, under income effect, they understand the effect of the additional
- income resulting from the adoption of the technology (a flood tolerant
- variety).
- The income effect we are concerned about is the one that is due to the
- fact that farmers receive seed for free, potentially freeing up money for
- other investments.
+ However, in the presence of an income effect, they understand the effect
+ of the additional income resulting from the adoption of the technology
+ (a flood-tolerant rice variety).
+ The income effect we are concerned about is one that results from farmers
+ receiving seed for free, potentially freeing up money for other investments.
 \end_layout
 
 \end_inset
 
- In our experiment, no free seed was provided, so when the adoption decision
- was made, farmers had to take the cost of seed combined with the cost of
- complementary inputs into account, further eroding the expected profitability
- of the improved technology.
+ In our experiment, no free seed was provided, so when adoption decisions
+ were made, farmers had to take the combined cost of seed 
+\shape italic
+and
+\shape default
+ cost of complementary inputs into account, further eroding the expected
+ profitability of the improved technology.
 \end_layout
 
 \begin_layout Standard
-Our study further casts doubt on the suggestion that Bayesian learning via
- sequential adoption can be a successful strategy for smallholder farmers
- in the long run 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.2307/1242825,https://doi.org/10.1111/agec.12124"
-literal "false"
-
-\end_inset
-
-.
- If there are important interaction effects between different inputs, it
- seems unreasonable to assume that farmers can try out all possible combinations
- of inputs to learn about these interactions in a Bayesian fashion.
- 
-\end_layout
-
-\begin_layout Standard
-Our study has important implications for both policy makers and the private
- sector.
- When designing agricultural extension and advisory services, policy makers
- should highlight the complementarity of modern inputs.
- If not, their efforts risk to be short lived.
- Worse, incorrect perceptions of poor quality caused by misattribution may
- crowd out the market for quality inputs 
+Finally, our findings have implications for how public and private actors
+ in the agriculture sector promote new technologies.
+ If smallholders' information sources such as private input dealers and
+ public extension agents are not sufficiently able to communicate the importance
+ of complementary inputs and practices, then lower likelihoods of sustained
+ adoption may result.
+ Worse, if smallholders have incorrect perceptions about poor quality caused
+ by mis-attribution, the persistence of these perceptions may crowd out
+ the market for quality inputs 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qjx009"
@@ -6221,42 +6549,64 @@ literal "false"
 \end_inset
 
 .
- Policy makers also often subsidize improved technologies to scale up adoption
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "JAYNE20181"
-literal "false"
+ And while the distribution of free or subsidized technologies and inputs
+ may go some way in encouraging farmers' learning processes and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
 
 \end_inset
 
-.
- While this may work for some stand-alone technologies 
+correcting
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ their perceptions (for example, with uniquely standalone technologies 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "for example,"
 key "https://doi.org/10.1093/ajae/aay108"
 literal "false"
 
 \end_inset
 
-, promoting technologies that require complementary inputs (such as subsidized
- or even free seed trial packs) without supplying these complementary inputs
- may be counterproductive, as farmers may not experience the expected success.
+), this approach can break down when complementary inputs and practices
+ are not part of the package.
+ And this, in turn, can again lead to disappointment among farmers.
 \end_layout
 
 \begin_layout Standard
-Industry can also play an important role here.
- As part of their marketing strategy, seed producers and agro-input dealers
- tend to highlight particular traits of the technology they sell, such as
- high yields or pest resistance.
- As a result, farmers may actually reduce fertilizer use or weeding.
- Furthermore, they may not be tempted to actively promote the use of complementa
-ry inputs if they are produced by competing companies.
- In both cases, short term benefits may lead to long run losses.
+Our findings suggest that agricultural development programs, extension providers
+, and agri-input companies need to focus less on marketing single 
+\begin_inset Quotes erd
+\end_inset
+
+miracle
+\begin_inset Quotes erd
+\end_inset
+
+ technologies for smallholders, and more on the design and communication
+ of comprehensive packages that include both agronomic and economic information
+ on topics such as expected variation in yield and output, sensitivity of
+ timing for specific farming tasks, magnitude and costs of family and hired
+ labor, and the relative drudgery of effort, among many others.
+ We conclude that the design and communication of comprehensive packages
+ requires greater investment in the form and content of rural education,
+ extension and advisory services, and agri-input marketing strategies.
 \end_layout
 
 \begin_layout Standard
+ 
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
