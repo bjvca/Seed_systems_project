@@ -513,8 +513,15 @@ literal "false"
 \end_inset
 
 , or if the farmer is unable to learn in a Bayesian manner because it is
- too cognitively taxing (Gars Ward, 2019), pays attention to the wrong attribute
-s of the technology 
+ too cognitively taxing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gars2019can"
+literal "false"
+
+\end_inset
+
+, pays attention to the wrong attributes of the technology 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qju015"
@@ -693,10 +700,11 @@ We begin by testing whether farmers are able to extract the relevant information
 Our findings have implications for the dynamics of smallholder technology
  adoption.
  Disappointment about the performance of a technology that is erroneously
- attributed to the technology itself may lead to dis-adoption which, in
- the long run, may actually encourage farmers to form more realistic expectation
-s and, from a public welfare point of view, increase efficiency in production
- and other positive externalities 
+ attributed to the technology itself may lead to dis-adoption.
+ Incorrect perceptions lead to sub-optimal adoption.
+ Furthermore, if disappointing outcomes stick more and spread more easily
+ than good outcomes, correcting misperceptions may have substantial positive
+ spillover effects 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ledgerwood2014sticky,HORNIK2015273"
@@ -931,7 +939,6 @@ literal "false"
 \end_inset
 
 .
- Our study contributes to this literature by...
 \end_layout
 
 \begin_layout Standard
@@ -978,8 +985,10 @@ literal "false"
  Kenya.
  However, they also find that improving access to irrigation can lift yield
  gains above 20 percent.
- It seems unlikely that farmers would follow a sequential learning path
- that allows for all possible interactions between the different technologies.
+ In case there are many complementarities like this, it seems unlikely that
+ farmers are in a position to follow a sequential learning path that allows
+ for all possible interactions between the different technologies within
+ a reasonable time frame.
  Furthermore, farmers may face certain behavioral constrains that inhibit
  their ability to learn about interaction effects if, for example, they
  pay attention to minor or tangential attributes of the package and miss
@@ -992,7 +1001,9 @@ literal "false"
 \end_inset
 
 .
- Our study contributes to this literature by...
+ Our study contributes to this literature by providing additional evidence
+ on the limits of Bayesian learning.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1175,7 +1186,7 @@ E\left(\pi_{it+1}^{H}\right)=E\left(p_{t+1}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E\left(\pi_{it+1}^{L}\right)=E\left(p_{t+1}Y_{it+1}^{L}\right)-\sum w_{t}X_{it}^{L}
+E\left(\pi_{it+1}^{L}\right)=E\left(p_{t+1}Y_{it+1}^{L}\right)-\sum w_{t}X_{it}^{L}\label{eq:two}
 \end{equation}
 
 \end_inset
@@ -1223,6 +1234,53 @@ In Uganda, where most grain is combined, milled, and sold without varietal
 \end_inset
 
 .
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+One may argue that the farmer saved seed has a shadow price of at least
+ the grain price, in which case this can also be subtracted from expected
+ revenue in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:two"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the adoption decision not only depends on yield comparisons but also
+ on cost comparisons in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This is done in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "suri2011selection"
+literal "false"
+
+\end_inset
+
+.
+ However, she also notes that the cost of farmer saved seed is likely to
+ be very low (if not zero).
+ Rather than complicating the model by explicitly modeling the price of
+ farmer-saved seed, we decided to set it to zero.
+ Setting it to a small positive value would not change the arguments the
+ predictions derived from the model.
+\end_layout
+
+\end_inset
+
  In both profit functions, the cost of a range of complementary inputs and
  management practices, referred to as 
 \shape italic
@@ -2575,8 +2633,9 @@ The field experiment was conducted in southeastern Uganda, an area known
 \end_layout
 
 \begin_layout Standard
-Next, our field enumerators compiled household lists for each village and
- randomly sampled ten maize-cultivating households per village.
+Next, field supervisors compiled household lists for each village and randomly
+ sampled ten maize-cultivating households per village using systematic sampling
+ (nth name selection technique).
  The enumerators interviewed 3,470 farmers using a household survey instrument
  that contained a wide range of questions about the individual, their household,
  and their farm.
@@ -2584,8 +2643,9 @@ Next, our field enumerators compiled household lists for each village and
  was needed to ensure the sampling of smallholder farmers.
  From an initial sample of 3,470 farmers who were interviewed in the baseline
  survey round, only 63 farmers dropped out in the subsequent survey round.
- We find no evidence of attrition bias among the drop-outs, and thus focus
- our analysis on a balanced panel of 3,407 farmers.
+ We did not find that attrition differed significantly between treatment
+ groups, and thus proceed with the analysis on a balanced panel of 3,407
+ farmers.
 \end_layout
 
 \begin_layout Subsection
