@@ -112,17 +112,24 @@ baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$farmer_saved_seed == 0] <- 0
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 0] <- 0
 
-baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
-baseline_farmers$fourthormore_timeused<-ifelse(baseline_farmers$fourthormore_timeused=="TRUE",1,0)
+baseline_farmers$OPVbutsaved <- NA
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 1 & baseline_farmers$farmer_saved_seed == 1] <- 1
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 1 & baseline_farmers$farmer_saved_seed == 0] <- 0
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 0] <- 0
 
-baseline_farmers$OPVbutfourthormore_timeused <- NA
-baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==1] <- 1
-baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==0] <- 0
-baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==0] <- 0
+# baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
+# baseline_farmers$fourthormore_timeused<-ifelse(baseline_farmers$fourthormore_timeused=="TRUE",1,0)
+# 
+# baseline_farmers$OPVbutfourthormore_timeused <- NA
+# baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==1] <- 1
+# baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==1 & baseline_farmers$fourthormore_timeused==0] <- 0
+# baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV==1 & baseline_farmers$farmer_saved_seed==0] <- 0
 
 baseline_farmers$adoption_onfield <- baseline_farmers$improved
 baseline_farmers$adoption_onfield[baseline_farmers$hybridbutsaved==1] <- 0
-baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
+#baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
+baseline_farmers$adoption_onfield[baseline_farmers$OPVbutsaved==1] <- 0
+
 ##correct spacing at baseline
 baseline_farmers$Check2.check.maize.q40[baseline_farmers$Check2.check.maize.q40 == "n/a"] <- NA
 baseline_farmers$correct_spacing <- baseline_farmers$Check2.check.maize.q40 == "b" | baseline_farmers$Check2.check.maize.q40 == "c"
@@ -268,22 +275,28 @@ midline_farmers$mid_hybridbutsaved[midline_farmers$mid_hybrid == 1 & midline_far
 midline_farmers$mid_hybridbutsaved[midline_farmers$mid_hybrid == 1 & midline_farmers$mid_farmer_saved_seed == 0] <- 0
 midline_farmers$mid_hybridbutsaved[midline_farmers$mid_hybrid == 0] <- 0
 
-midline_farmers$mid_Check2.check.maize.q34 <- midline_farmers$check.maize.q34
-midline_farmers$mid_fourthormore_timeused<-((midline_farmers$mid_Check2.check.maize.q34=="d")|(midline_farmers$mid_Check2.check.maize.q34=="e")|(midline_farmers$mid_Check2.check.maize.q34=="f"))
-midline_farmers$mid_fourthormore_timeused<-ifelse(midline_farmers$mid_fourthormore_timeused=="TRUE",1,0)
+midline_farmers$mid_OPVbutsaved <- NA
+midline_farmers$mid_OPVbutsaved[midline_farmers$mid_OPV == 1 & midline_farmers$mid_farmer_saved_seed == 1] <- 1
+midline_farmers$mid_OPVbutsaved[midline_farmers$mid_OPV == 1 & midline_farmers$mid_farmer_saved_seed == 0] <- 0
+midline_farmers$mid_OPVbutsaved[midline_farmers$mid_OPV == 0] <- 0
 
-midline_farmers$mid_OPVbutfourthormore_timeused <- NA
-midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==1 & midline_farmers$mid_fourthormore_timeused==1] <- 1
-midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==1 & midline_farmers$mid_fourthormore_timeused==0] <- 0
-midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==0] <- 0
-midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV == 0] <- 0
+# midline_farmers$mid_Check2.check.maize.q34 <- midline_farmers$check.maize.q34
+# midline_farmers$mid_fourthormore_timeused<-((midline_farmers$mid_Check2.check.maize.q34=="d")|(midline_farmers$mid_Check2.check.maize.q34=="e")|(midline_farmers$mid_Check2.check.maize.q34=="f"))
+# midline_farmers$mid_fourthormore_timeused<-ifelse(midline_farmers$mid_fourthormore_timeused=="TRUE",1,0)
+# 
+# midline_farmers$mid_OPVbutfourthormore_timeused <- NA
+# midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==1 & midline_farmers$mid_fourthormore_timeused==1] <- 1
+# midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==1 & midline_farmers$mid_fourthormore_timeused==0] <- 0
+# midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV==1 & midline_farmers$mid_farmer_saved_seed==0] <- 0
+# midline_farmers$mid_OPVbutfourthormore_timeused[midline_farmers$mid_OPV == 0] <- 0
 
 midline_farmers$mid_improved<-((midline_farmers$mid_Check2.check.maize.q31=="Longe_10H")|(midline_farmers$mid_Check2.check.maize.q31=="Longe_7H")|(midline_farmers$mid_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(midline_farmers$mid_Check2.check.maize.q31=="Bazooka")|(midline_farmers$mid_Check2.check.maize.q31=="Longe_6H")|(midline_farmers$mid_Check2.check.maize.q31=="Panner")|(midline_farmers$mid_Check2.check.maize.q31=="Wema")|(midline_farmers$mid_Check2.check.maize.q31=="KH_series"|midline_farmers$mid_Check2.check.maize.q31=="Longe_5")|(midline_farmers$mid_Check2.check.maize.q31=="Longe_4")|(midline_farmers$mid_Check2.check.maize.q31=="Other_hybrid"))
 midline_farmers$mid_improved<-ifelse(midline_farmers$mid_improved=="TRUE",1,0)
 
 midline_farmers$mid_adoption_onfield <- midline_farmers$mid_improved
 midline_farmers$mid_adoption_onfield[midline_farmers$mid_hybridbutsaved==1] <- 0
-midline_farmers$mid_adoption_onfield[midline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
+#midline_farmers$mid_adoption_onfield[midline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
+midline_farmers$mid_adoption_onfield[midline_farmers$mid_OPVbutsaved==1] <- 0
 
 #fertilizer use at midline
 midline_farmers$mid_DAP_use <- NA
@@ -323,22 +336,28 @@ endline_farmers$end_hybridbutsaved[endline_farmers$end_hybrid == 1 & endline_far
 endline_farmers$end_hybridbutsaved[endline_farmers$end_hybrid == 1 & endline_farmers$end_farmer_saved_seed == 0] <- 0
 endline_farmers$end_hybridbutsaved[endline_farmers$end_hybrid == 0] <- 0
 
-endline_farmers$end_Check2.check.maize.q34 <- endline_farmers$check.maize.q34
-endline_farmers$end_fourthormore_timeused<-((endline_farmers$end_Check2.check.maize.q34=="d")|(endline_farmers$end_Check2.check.maize.q34=="e")|(endline_farmers$end_Check2.check.maize.q34=="f"))
-endline_farmers$end_fourthormore_timeused<-ifelse(endline_farmers$end_fourthormore_timeused=="TRUE",1,0)
+endline_farmers$end_OPVbutsaved <- NA
+endline_farmers$end_OPVbutsaved[endline_farmers$end_OPV == 1 & endline_farmers$end_farmer_saved_seed == 1] <- 1
+endline_farmers$end_OPVbutsaved[endline_farmers$end_OPV == 1 & endline_farmers$end_farmer_saved_seed == 0] <- 0
+endline_farmers$end_OPVbutsaved[endline_farmers$end_OPV == 0] <- 0
 
-endline_farmers$end_OPVbutfourthormore_timeused <- NA
-endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==1 & endline_farmers$end_fourthormore_timeused==1] <- 1
-endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==1 & endline_farmers$end_fourthormore_timeused==0] <- 0
-endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==0] <- 0
-endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV == 0] <- 0
+# endline_farmers$end_Check2.check.maize.q34 <- endline_farmers$check.maize.q34
+# endline_farmers$end_fourthormore_timeused<-((endline_farmers$end_Check2.check.maize.q34=="d")|(endline_farmers$end_Check2.check.maize.q34=="e")|(endline_farmers$end_Check2.check.maize.q34=="f"))
+# endline_farmers$end_fourthormore_timeused<-ifelse(endline_farmers$end_fourthormore_timeused=="TRUE",1,0)
+# 
+# endline_farmers$end_OPVbutfourthormore_timeused <- NA
+# endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==1 & endline_farmers$end_fourthormore_timeused==1] <- 1
+# endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==1 & endline_farmers$end_fourthormore_timeused==0] <- 0
+# endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV==1 & endline_farmers$end_farmer_saved_seed==0] <- 0
+# endline_farmers$end_OPVbutfourthormore_timeused[endline_farmers$end_OPV == 0] <- 0
 
 endline_farmers$end_improved<-((endline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(endline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(endline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(endline_farmers$end_Check2.check.maize.q31=="Bazooka")|(endline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(endline_farmers$end_Check2.check.maize.q31=="Panner")|(endline_farmers$end_Check2.check.maize.q31=="Wema")|(endline_farmers$end_Check2.check.maize.q31=="KH_series"|endline_farmers$end_Check2.check.maize.q31=="Longe_5")|(endline_farmers$end_Check2.check.maize.q31=="Longe_4")|(endline_farmers$end_Check2.check.maize.q31=="Other_hybrid"))
 endline_farmers$end_improved<-ifelse(endline_farmers$end_improved=="TRUE",1,0)
 
 endline_farmers$end_adoption_onfield <- endline_farmers$end_improved
 endline_farmers$end_adoption_onfield[endline_farmers$end_hybridbutsaved==1] <- 0
-endline_farmers$end_adoption_onfield[endline_farmers$end_OPVbutfourthormore_timeused==1] <- 0
+#endline_farmers$end_adoption_onfield[endline_farmers$end_OPVbutfourthormore_timeused==1] <- 0
+endline_farmers$end_adoption_onfield[endline_farmers$end_OPVbutsaved==1] <- 0
 
 ## farmer saved
 
