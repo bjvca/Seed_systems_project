@@ -1277,7 +1277,7 @@ baseline_dealers$notrated <- ifelse(is.na(baseline_dealers$score_corrected)&base
 # #5:
 # #of course this won't open for you Bjorn but I may not store this CSV in GitHub folder because it contains private info
 # training_attendance <- read.csv("C:/Users/u0127963/Desktop/PhD/Seed_systems_project_without_Bjorn/1st intervention (dealer training)/attendance/training_attendance.csv", sep=";")
-# training_attendance$shop_ID <- training_attendance$ï..shop_ID
+# training_attendance$shop_ID <- training_attendance$?..shop_ID
 # training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
 # baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
 # baseline_dealers$someone_attended[baseline_dealers$someone_attended==0] <- NA
@@ -4585,6 +4585,19 @@ for (i in 1:length(results_farmer_prim)){
   df_ols_F_prim[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
   df_ols_F_prim[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
+#impact pathway: do farmers that did not adopt at baseline are less likely to think seed is adulterated? 
+i <- 6
+ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+
+df_ols_mech  <- array(NA,dim=c(4,3,11))
+
+df_ols_mech[1,2,1] <- coef_test(ols, vcov_cluster)$beta[3]
+df_ols_mech[2,2,1] <- coef_test(ols, vcov_cluster)$SE[3]
+df_ols_mech[3,2,1] <- coef_test(ols, vcov_cluster)$p_Satt[3]
+df_ols_mech[4,2,1] <- nobs(ols)
+
+
 ###
 #4#
 ###
@@ -5954,6 +5967,8 @@ for (i in 1:length(results_farmer_nobase)){
   df_ols_F_nobase[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
   df_ols_F_nobase[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[3]}
 
+
+
 ###
 #4#
 ###
@@ -5998,9 +6013,7 @@ for (i in 1:length(results_farmer_nobase)){
 save(df_ols_F_nobase,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_F_nobase.Rdata",sep="/"))
 
 
-
-
-
+save(df_ols_mech,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_mech.Rdata",sep="/"))
 
 
 
