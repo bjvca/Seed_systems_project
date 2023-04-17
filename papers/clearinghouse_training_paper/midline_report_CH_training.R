@@ -3950,16 +3950,42 @@ index_ratings_mid <- icwIndex(xmat=variables_ratings_mid)
 baseline_dealers$index_ratings_mid <- index_ratings_mid$index
 
 #3. new index_overall_prim_dealer_mid incl. ratings
-variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
+variables_overall_prim_dealer_mid <- cbind(baseline_dealers$mid_quantitysold
+                                           ,baseline_dealers$mid_revenue
                                            ,baseline_dealers$mid_maize.owner.agree.q7
-                                           
-                                           ,baseline_dealers$index_practices_cap_mid,baseline_dealers$index_practices_lab_mid
-                                           ,baseline_dealers$index_efforts_mid) #x
+                                           ,baseline_dealers$index_practices_cap_mid
+                                           ,baseline_dealers$index_practices_lab_mid
+                                           ,baseline_dealers$index_efforts_mid)
+#x
 #                                           ,baseline_dealers$index_ratings_mid) #to do after endline
 # no ,baseline_dealers$mid_reading bc nobs at midline
 
+
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid) #x
 baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$index #x
+
+###new overall indices for new tables in new structure of paper
+#Effects on dealer outcomes at end of causal chain
+variables_dealer_endchain_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
+                                       ,baseline_dealers$mid_maize.owner.agree.q7)
+
+index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid)
+baseline_dealers$index_dealer_endchain_mid <- index_dealer_endchain_mid$index
+
+#Effects on dealer knowledge
+variables_dealer_knowledge_mid <- cbind(baseline_dealers$index_knowl_store_mid,baseline_dealers$index_knowl_seed_mid)
+
+index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid)
+baseline_dealers$index_dealer_knowledge_mid <- index_dealer_knowledge_mid$index
+
+#Effects on dealer efforts
+variables_dealer_efforts_mid <- cbind(baseline_dealers$index_efforts_mid,
+                                      baseline_dealers$index_servicesFARM_mid,
+                                      baseline_dealers$index_practices_lab_mid,
+                                      baseline_dealers$index_practices_cap_mid)
+
+index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid)
+baseline_dealers$index_dealer_efforts_mid <- index_dealer_efforts_mid$index
 
 ################################################################################################################################################################################
 
@@ -3969,7 +3995,9 @@ baseline_dealers$index_overall_prim_dealer_mid <- index_overall_prim_dealer_mid$
 
 results_dealer_sec_nobase <- c("index_motivation_mid","index_ratings_mid"
                                ,"index_overall_prim_dealer_mid","index_overallsec_mid"
-                               ,"index_overall_off_mid","mid_reading")
+                               ,"index_overall_off_mid","mid_reading"
+                               ,"index_dealer_endchain_mid","index_dealer_knowledge_mid"
+                               ,"index_dealer_efforts_mid")
 
 df_means_D_sec_nobase <- array(NA,dim=c(3,10))
 
@@ -4001,9 +4029,19 @@ baseline_dealers$index_ratings_midT <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_prim_dealer_midT <- index_overall_prim_dealer_mid$index
 
+index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_dealer_endchain_midT <- index_dealer_endchain_mid$index
+
+index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_dealer_knowledge_midT <- index_dealer_knowledge_mid$index
+
+index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_dealer_efforts_midT <- index_dealer_efforts_mid$index
+
 results_dealer_sec_nobase <- c("index_motivation_midT","index_ratings_midT"
                                ,"index_overall_prim_dealer_midT","index_overallsec_midT"
-                               ,"index_overall_off_midT","mid_reading")
+                               ,"index_overall_off_midT","mid_reading","index_dealer_endchain_midT","index_dealer_knowledge_midT"
+                               ,"index_dealer_efforts_midT")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -4032,9 +4070,19 @@ baseline_dealers$index_ratings_midC <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_prim_dealer_midC <- index_overall_prim_dealer_mid$index
 
+index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_dealer_endchain_midC <- index_dealer_endchain_mid$index
+
+index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_dealer_knowledge_midC <- index_dealer_knowledge_mid$index
+
+index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_dealer_efforts_midC <- index_dealer_efforts_mid$index
+
 results_dealer_sec_nobase <- c("index_motivation_midC","index_ratings_midC"
                                ,"index_overall_prim_dealer_midC","index_overallsec_midC"
-                               ,"index_overall_off_midC","mid_reading")
+                               ,"index_overall_off_midC","mid_reading","index_dealer_endchain_midC","index_dealer_knowledge_midC"
+                               ,"index_dealer_efforts_midC")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -4063,9 +4111,19 @@ baseline_dealers$index_ratings_midF <- index_ratings_mid$index
 index_overall_prim_dealer_mid <- icwIndex(xmat=variables_overall_prim_dealer_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_prim_dealer_midF <- index_overall_prim_dealer_mid$index
 
+index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_dealer_endchain_midF <- index_dealer_endchain_mid$index
+
+index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_dealer_knowledge_midF <- index_dealer_knowledge_mid$index
+
+index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$farmer_control)
+baseline_dealers$index_dealer_efforts_midF <- index_dealer_efforts_mid$index
+
 results_dealer_sec_nobase <- c("index_motivation_midF","index_ratings_midF"
                                ,"index_overall_prim_dealer_midF","index_overallsec_midF"
-                               ,"index_overall_off_midF","mid_reading")
+                               ,"index_overall_off_midF","mid_reading","index_dealer_endchain_midF","index_dealer_knowledge_midF"
+                               ,"index_dealer_efforts_midF")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing_demeaned*farmer",sep="~")),data=baseline_dealers)
