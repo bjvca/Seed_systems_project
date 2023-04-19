@@ -804,6 +804,11 @@ baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 1 & baseline_farmers$farmer_saved_seed == 0] <- 0
 baseline_farmers$hybridbutsaved[baseline_farmers$hybrid == 0] <- 0
 
+baseline_farmers$OPVbutsaved <- NA
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 1 & baseline_farmers$farmer_saved_seed == 1] <- 1
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 1 & baseline_farmers$farmer_saved_seed == 0] <- 0
+baseline_farmers$OPVbutsaved[baseline_farmers$OPV == 0] <- 0
+
 baseline_farmers$fourthormore_timeused<-((baseline_farmers$Check2.check.maize.q34=="d")|(baseline_farmers$Check2.check.maize.q34=="e")|(baseline_farmers$Check2.check.maize.q34=="f"))
 baseline_farmers$fourthormore_timeused<-ifelse(baseline_farmers$fourthormore_timeused=="TRUE",1,0)
 baseline_farmers$OPVbutfourthormore_timeused <- NA
@@ -814,7 +819,8 @@ baseline_farmers$OPVbutfourthormore_timeused[baseline_farmers$OPV == 0] <- 0
 
 baseline_farmers$adoption_onfield <- baseline_farmers$improved
 baseline_farmers$adoption_onfield[baseline_farmers$hybridbutsaved==1] <- 0
-baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
+#baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
+baseline_farmers$adoption_onfield[baseline_farmers$OPVbutsaved==1] <- 0
 #hereq31
 
 baseline_farmers$Check2.check.maize.q36<-ifelse(baseline_farmers$Check2.check.maize.q36=="Yes",1,0)
@@ -4510,9 +4516,9 @@ baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_bas
 ###new overall indices for new tables in new structure of paper
 #Effects on dealer outcomes at end of causal chain
 variables_dealer_endchain_mid <- cbind(baseline_dealers$mid_quantitysold,baseline_dealers$mid_revenue
-                                       ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_av_salesprices)
+                                       ,baseline_dealers$mid_maize.owner.agree.q7,baseline_dealers$mid_av_salesprices,baseline_dealers$mid_maize.owner.agree.nr_var)
 variables_dealer_endchain_base <- cbind(baseline_dealers$quantitysold,baseline_dealers$revenue
-                                        ,baseline_dealers$maize.owner.agree.q7,baseline_dealers$av_salesprices)
+                                        ,baseline_dealers$maize.owner.agree.q7,baseline_dealers$av_salesprices,baseline_dealers$maize.owner.agree.nr_var)
 
 index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid)
 baseline_dealers$index_dealer_endchain_mid <- index_dealer_endchain_mid$index
@@ -6011,6 +6017,11 @@ baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_
 baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 1 & baseline_farmers$mid_farmer_saved_seed == 0] <- 0
 baseline_farmers$mid_hybridbutsaved[baseline_farmers$mid_hybrid == 0] <- 0
 
+baseline_farmers$mid_OPVbutsaved <- NA
+baseline_farmers$mid_OPVbutsaved[baseline_farmers$mid_OPV == 1 & baseline_farmers$mid_farmer_saved_seed == 1] <- 1
+baseline_farmers$mid_OPVbutsaved[baseline_farmers$mid_OPV == 1 & baseline_farmers$mid_farmer_saved_seed == 0] <- 0
+baseline_farmers$mid_OPVbutsaved[baseline_farmers$mid_OPV == 0] <- 0
+
 baseline_farmers$mid_Check2.check.maize.q34 <- baseline_farmers$CHECK.MAIZE.Q34
 baseline_farmers$mid_fourthormore_timeused<-((baseline_farmers$mid_Check2.check.maize.q34=="d")|(baseline_farmers$mid_Check2.check.maize.q34=="e")|(baseline_farmers$mid_Check2.check.maize.q34=="f"))
 baseline_farmers$mid_fourthormore_timeused<-ifelse(baseline_farmers$mid_fourthormore_timeused=="TRUE",1,0)
@@ -6026,7 +6037,8 @@ baseline_farmers$mid_improved<-ifelse(baseline_farmers$mid_improved=="TRUE",1,0)
 
 baseline_farmers$mid_adoption_onfield <- baseline_farmers$mid_improved
 baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_hybridbutsaved==1] <- 0
-baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
+#baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
+baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutsaved==1] <- 0
 
 #8. overall index
 variables_overallsec_plotF_mid <- cbind(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
@@ -6833,14 +6845,12 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 variables_farmer_adoption_mid <- cbind(baseline_farmers$mid_adoption_onfield
                                        ,baseline_farmers$mid_Bought_from_agro_input_shop
                                        ,baseline_farmers$mid_Check2.check.maize.q25a
-                                       ,baseline_farmers$mid_agro)
-
-#
+                                       ,baseline_farmers$mid_agro,baseline_farmers$mid_costforseed_new)
 
 variables_farmer_adoption_base <- cbind(baseline_farmers$adoption_onfield
                                         ,baseline_farmers$Bought_from_agro_input_shop
                                         ,baseline_farmers$Check2.check.maize.q25a
-                                        ,baseline_farmers$agro)
+                                        ,baseline_farmers$agro,baseline_farmers$costforseed_new)
 
 #
 
