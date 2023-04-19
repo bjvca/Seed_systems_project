@@ -14948,7 +14948,7 @@ status collapsed
 Effects on farmer outcomes at end of causal chain: Harvest
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on farmer outcomes at end of causal chain: Harvest on randomly selected maize field"
+name "Effects on farmer outcomes at end of causal chain: Harvest"
 
 \end_inset
 
@@ -16060,7 +16060,7 @@ nt increase in (both capital intensive and labour intensive) seed handling
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Can we exploit the factorial design to learn more? Some dealers are trained
@@ -17469,16 +17469,16 @@ e for a increase in adoption of 15 percentage points, and we find that the
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on farmer switching
+Effects on farmer switching behavior
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on primary farmer outcomes-2"
+name "Effects on farmer switching behavior"
 
 \end_inset
 
@@ -17534,7 +17534,7 @@ hline
 \backslash
 multicolumn{1}{c}{
 \backslash
-textit{baseline}} & 
+textit{midline}} & 
 \backslash
 multicolumn{3}{c}{
 \backslash
@@ -17577,9 +17577,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Farmer switched to different agro-input shop$^4$$^{
-\backslash
-dag}$
+Farmer switched to different agro-input shop$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -17794,7 +17792,7 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^4$We report the mean and standard deviation at midline because this variable
+$^1$We report the mean and standard deviation at midline because this variable
  was not collected at baseline.
 \backslash
 
@@ -17838,10 +17836,31 @@ Note that dealers do not necessarily increases efforts because they are
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I suggest to delete the seed bag table.
+ According to this table, the CH has no measurable effect on seed quality.
+ I believe that is because a) the smaller sample size and b) measuring seed
+ quality is extremely complicated and we didn't manage to do so.
+ Since we don't find an effect but also cannot know whether the absence
+ of the effect is due to the absence of a real effect (i.e.
+ the CH didn't affect quality, only perceptions) or because of issue like
+ sample size/ quality measurement.
+ Hence I feel it adds nothing and only hurts our story.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -18835,7 +18854,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of all seed handling practices$^6$
+Index of all seed handling practices (delete?)$^6$
 \end_layout
 
 \begin_layout Plain Layout
@@ -18988,7 +19007,7 @@ cmidrule(lr){6-8}
 
 
 \backslash
-textbf{Overall index at dealer level}
+textbf{Overall index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -19243,11 +19262,11 @@ $^3$The index of dealer's efforts and services according to farmers contains
 
 \begin_layout Plain Layout
 
-$^4$The index of labor-intensive seed handling and storage practices contains
- 6 variables: whether seed is stored in dedicated area, whether shop has
- no pest problem, whether seed is stored in correct lighting, whether seed
- is stored on correct surface, whether seed is not stored in open containers,
- cleanness and professionality rating by enumerator.
+$^4$The index of labor-intensive seed handling practices contains 6 variables:
+ whether seed is stored in dedicated area, whether shop has no pest problem,
+ whether seed is stored in correct lighting, whether seed is stored on correct
+ surface, whether seed is not stored in open containers, cleanness and professio
+nality rating by enumerator.
 \backslash
 
 \backslash
@@ -19256,10 +19275,10 @@ $^4$The index of labor-intensive seed handling and storage practices contains
 
 \begin_layout Plain Layout
 
-$^5$The index of capital-intensive seed handling and storage practices contains
- 6 variables: whether roof is leak-proof, whether roof is insulated, whether
- walls are insulated, whether shop is ventilated, whether any official certifica
-te is displayed, whether expired seed is handled  correctly.
+$^5$The index of capital-intensive seed handling practices contains 6 variables:
+ whether roof is leak-proof, whether roof is insulated, whether walls are
+ insulated, whether shop is ventilated, whether any official certificate
+ is displayed, whether expired seed is handled  correctly.
 \backslash
 
 \backslash
@@ -19268,8 +19287,8 @@ te is displayed, whether expired seed is handled  correctly.
 
 \begin_layout Plain Layout
 
-$^6$The index of all seed handling and storage practices contains 12 variables:
- the ones included in the index of capital-intensive practices and the ones
+$^6$The index of all seed handling practices contains 12 variables: the
+ ones included in the index of capital-intensive practices and the ones
  included in the index of labor-intensive practices.
 \backslash
 
@@ -19297,10 +19316,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on dealer outcomes regarding bag of maize seed
+Effects on bag of maize seed bought at dealer
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on dealer outcomes regarding bag of maize seed"
+name "Effects on bag of maize seed bought at dealer"
 
 \end_inset
 
@@ -19819,7 +19838,7 @@ Sexpr{format(round(df_ols_end_D_sec_bag[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Seed is in original bag without damage signs$^
+Seed is in original undamaged bag$^
 \backslash
 dag$
 \end_layout
@@ -20331,8 +20350,8 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Days since the packaging date or days since the expiry date minus 6
- months (if bag does not show packaging date).
+$^1$Days since the packaging date or, if the bag does not show the packaging
+ date, days since the expiry date minus 6 months.
 \backslash
 
 \backslash
@@ -20346,7 +20365,8 @@ $^2$The comparisons were only made for shops in which the enumerator was
  Also, we do not control for the baseline values of the outcome variables
  in the entire table because only 144 of the 179 dealers who had seed at
  midline also had seed at baseline and only 183 of the 265 dealers who had
- seed at endline also had seed at baseline.
+ seed at endline also had seed at baseline, so that controlling for baseline
+ values would reduce the sample sizes drastically.
 \backslash
 
 \backslash
@@ -20373,10 +20393,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on dealer outcomes regarding memberships, licenses, inspections
+Effects on dealer memberships, licenses, inspections
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on dealer outcomes regarding memberships, licenses, inspections"
+name "Effects on dealer memberships, licenses, inspections"
 
 \end_inset
 
@@ -20615,146 +20635,6 @@ Sexpr{format(round(df_ols_end_D_sec_off[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Shop has trading license issued by local government$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_D_sec_off[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_D_sec_off[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Shop is member of other professional association$^
 \backslash
 dag$
@@ -20883,6 +20763,146 @@ Sexpr{format(round(df_ols_end_D_sec_off[2,1,3],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_end_D_sec_off[2,2,3],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop has trading license issued by local government$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_off[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_off[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_D_sec_off[3,1,2]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_off[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_D_sec_off[3,2,2]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_off[3,2],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_off[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,2]<.1
+,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_off[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,2]<.1
+,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_off[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_sec_off[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_off[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_off[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_off[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_off[2,2,2],digits=3),nsmall=3)}) & 
 \backslash
 
 \backslash
@@ -21567,7 +21587,7 @@ Finally, the rating system is assumed to change perceptions held by farmers
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Effects of clearinghouse on perceptions"
+reference "Effects of clearinghouse on farmer perceptions"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21641,10 +21661,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects of clearinghouse on perceptions
+Effects of clearinghouse on farmer perceptions
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects of clearinghouse on perceptions"
+name "Effects of clearinghouse on farmer perceptions"
 
 \end_inset
 
@@ -21736,6 +21756,10 @@ textit{endline}}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 cmidrule(lr){2-2} 
@@ -21755,23 +21779,9 @@ cmidrule(lr){9-10}
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer thinks maize seed at agro-input shops is adulterated
+Farmer thinks maize seed at agro-input shops is adulterated$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -21906,7 +21916,9 @@ Sexpr{format(round(df_ols_end_mech[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of farmer's maize seed ratings of shops within catchment area$^1$
+Index of farmer's maize seed ratings of shops within catchment area$^1$$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -22002,7 +22014,13 @@ Sexpr{format(round(df_ols_end_mech[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of farmer's general ratings of shops within catchment area$^2$
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's general ratings of shops within catchment area$^2$$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -22106,7 +22124,7 @@ Sexpr{format(round(df_ols_end_mech[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Index of shop's maize seed ratings by farmers$^5$
+Index of shop's maize seed ratings by farmers (delete?)$^3$
 \end_layout
 
 \begin_layout Plain Layout
@@ -22189,6 +22207,115 @@ Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,2],digits=3),nsmall=3)})
 
 
 \backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6} 
+\backslash
+cmidrule(lr){7-8} 
+\backslash
+cmidrule(lr){9-10}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,14],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,14]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,14]<.1
+,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,14],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,14],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -22230,19 +22357,6 @@ Note: 1st column reports sample means and standard deviations below;  2nd
 
 \begin_layout Plain Layout
 
-$^5$The index of shop's maize seed ratings by farmers contains 6 ratings:
- general quality, yield, drought tolerance, pest/disease tolerance, time
- of maturity, germination.
- Ratings are aggregated at shop level (one shop is rated by multiple farmers),
- then the index is computed.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
 $^1$The index of farmer's maize seed ratings contains 6 ratings: general
  quality, yield, drought tolerance, pest/disease tolerance, time of maturity,
  germination.
@@ -22260,6 +22374,19 @@ $^2$The index of farmer's general ratings contains 6 ratings: general quality,
  location, price, product quality, stock, reputation.
  The ratings are aggregated at farmer level (one farmer rates multiple shops),
  then this index is computed.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^3$The index of shop's maize seed ratings by farmers contains 6 ratings:
+ general quality, yield, drought tolerance, pest/disease tolerance, time
+ of maturity, germination.
+ Ratings are aggregated at shop level (one shop is rated by multiple farmers),
+ then the index is computed.
 \backslash
 
 \backslash
@@ -22286,11 +22413,10 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on secondary farmer outcomes: Seed planted on randomly selected
- maize field
+Effects on seed farmer planted on randomly selected maize plot
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on secondary farmer outcomes: Seed planted on randomly selected maize field-1"
+name "Effects on seed farmer planted on randomly selected maize plot"
 
 \end_inset
 
@@ -23473,6 +23599,16 @@ $^1$The index of farmer's seed ratings contains 6 ratings: general quality,
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I would delete this table
 \end_layout
 
 \end_inset
@@ -27123,3181 +27259,6 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on secondary dealer outcomes: Memberships, licenses, inspections
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary dealer outcomes: memberships, licenses, and inspections"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop is registered with UNADA$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,1]<.05,"*",ifelse(df_ols_D_sec_off[3,1,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,1]<.05,"*",ifelse(df_ols_D_sec_off[3,2,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,1]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,1]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,1]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has trading license issued by local government$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_D_sec_off[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_D_sec_off[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop is member of other professional association$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,3]<.05,"*",ifelse(df_ols_D_sec_off[3,1,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,3]<.05,"*",ifelse(df_ols_D_sec_off[3,2,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,3]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,3]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Transf.
- number of shop inspections (IHS)$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,4]<.05,"*",ifelse(df_ols_D_sec_off[3,1,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,4]<.05,"*",ifelse(df_ols_D_sec_off[3,2,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,4]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,4]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,4],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop received warning after inspection$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,5]<.05,"*",ifelse(df_ols_D_sec_off[3,1,5]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,5]<.05,"*",ifelse(df_ols_D_sec_off[3,2,5]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,5]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,5]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,5]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,5]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,5],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop's products were confiscated after inspection$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,1,6]<.05,"*",ifelse(df_ols_D_sec_off[3,1,6]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_off[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_off[3,2,6]<.05,"*",ifelse(df_ols_D_sec_off[3,2,6]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_off[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,1,6]<.05,"*",ifelse(df_ols_end_D_sec_off[3,1,6]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_off[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_off[3,2,6]<.05,"*",ifelse(df_ols_end_D_sec_off[3,2,6]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_off[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_off[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_off[2,2,6],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,1,5]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,5]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,2,5]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,5]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,1,5]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,2,5]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,5],digits=3),nsmall=3)})
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & & 306 & & & 297
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below; 
- 2nd, 3rd, 5th and 6th column reports differences between treatment and
- control groups and standard errors below; they are clustered at the level
- of randomization; 4th and 7th column reports number of observations; **,
- * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- copied
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on secondary dealer outcomes: Randomly selected bag of maize seed
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary dealer outcomes: Bag of maize seed"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Moisture in percent$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,1,1]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,2,1]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,1,1]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,1]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,1]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Bag shows packaging date$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,1,2]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,2]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shelflife in days$^1$$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,1,3]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,2,3]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,3]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,3]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Seed is in original bag without damage signs$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,1,4]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,2,4]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,4]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,4]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,2,4],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Bag shows lot number$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,1,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,5]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,5]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,1,5]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,5]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag[3,2,5]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,5]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag[2,2,5],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag_B[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag_B[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag_B[3,1,1]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,1,1]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,1]<.1,"+"
-,"")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_bag_B[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag_B[3,1,1]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,1,
-1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,
-1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag_B[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_bag_B[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,1],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.$^2$ & & & & 179 & & & 265
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below; 
- 2nd, 3rd, 5th and 6th column reports differences between treatment and
- control groups and standard errors below; they are clustered at the level
- of randomization; 4th and 7th column reports number of observations; **,
- * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$Days since the packaging date or days since the expiry date minus 6
- months (if bag does not show packaging date).
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^2$The comparisons were only made for shops in which the enumerator was
- able to buy a bag of maize seed at mid- or endline.
- Also, we do not control for the baseline values of the outcome variables
- in the entire table because only 144 of the 179 dealers who had seed at
- midline also had seed at baseline and only 183 of the 265 dealers who had
- seed at endline also had seed at baseline.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- copied
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on secondary dealer outcomes: Other
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary dealer outcomes: Other"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of maize varieties in stock
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,1]<.05,"*",ifelse(df_ols_D_sec[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,1]<.05,"*",ifelse(df_ols_D_sec[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,1]<.05,"*",ifelse(df_ols_end_D_sec[3,1,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec[3,2,1]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of hybrid maize varieties in stock$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,2]<.05,"*",ifelse(df_ols_D_sec[3,1,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,2]<.05,"*",ifelse(df_ols_D_sec[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec[3,1,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec[3,2,2]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of open-pollinated maize varieties in stock$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,3]<.05,"*",ifelse(df_ols_D_sec[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,3]<.05,"*",ifelse(df_ols_D_sec[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,3]<.05,"*",ifelse(df_ols_end_D_sec[3,1,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,3]<.05,"*",ifelse(df_ols_end_D_sec[3,2,3]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop has equipment to monitor seed moisture
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,1,4]<.05,"*",ifelse(df_ols_D_sec[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec[3,2,4]<.05,"*",ifelse(df_ols_D_sec[3,2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec[3,1,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec[3,2,4]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec[2,2,4],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,1,4]<.05,"*",ifelse(df_ols_D_sec_nobase[3,1,4]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_sec_nobase[3,2,4]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,4]<.1,"
-+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_sec_nobase[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,1,4]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_sec_nobase[3,2,4]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,
-2,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_sec_nobase[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,4],digits=3),nsmall=3)})
- & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & & 306 & & & 297
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below in
- brackets;  2nd, 3rd, 5th and 6th column reports differences between treatment
- and control groups and standard errors below in brackets; they are clustered
- at the level of randomization; 4th and 7th column reports number of observation
-s; **, * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- copied
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways true
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
 Effects on primary farmer outcomes
 \begin_inset CommandInset label
 LatexCommand label
@@ -33118,1210 +30079,6 @@ $^1$For this variable, only seed which was not farmer-saved counted as hybrid
 
 \backslash
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- copied
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on secondary farmer outcomes: Seed planted on randomly selected
- maize field
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on secondary farmer outcomes: Seed planted on randomly selected maize field"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{baseline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's seed ratings$^1$$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,1]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,1]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,1]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,1]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,1]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,1]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,1]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,1]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,1],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer was satisfied with seed quality$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,2],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,2]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,2]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,2]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,2]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,2]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,2]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,2]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,2]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,2],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer would use seed again$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,3]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,3]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,3]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,3]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,3]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,3]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,3]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,3]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,3],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Amount of seed farmer used in kg$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,4]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,4]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,4]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,4]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,4]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,4]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,4]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,4]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,4],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Price of seed in UGX/kg$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,5]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,5]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,5]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,5]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,5]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,5]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,5],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Transf.
- cost of seed in UGX (IHS)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,6]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,6]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,6]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,6]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,6]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,6]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,6]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,6]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,6],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,10],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,1,10]<.05,"*",ifelse(df_ols_F_nobase[3,1,10]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,2,10]<.05,"*",ifelse(df_ols_F_nobase[3,2,10]<.1,"+","")
-))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_nobase[3,10],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,10]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,10]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,10]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,10]<.1
-,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,10],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,10],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & & 3407 & & & 3441
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note: 1st column reports baseline means and standard deviations below; 
- 2nd, 3rd, 5th and 6th column reports differences between treatment and
- control groups and standard errors below; they are clustered at the level
- of randomization; 4th and 7th column reports number of observations; **,
- * and + denote significance at the 1, 5 and 10 percent levels; $^
-\backslash
-dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$The index of farmer's seed ratings contains 6 ratings: general quality,
- yield, drought tolerance, pest/disease tolerance, time of maturity, germination.
 \end_layout
 
 \end_inset

@@ -6850,6 +6850,21 @@ baseline_farmers$index_farmer_adoption_mid <- index_farmer_adoption_mid$index
 index_farmer_adoption_base <- icwIndex(xmat=variables_farmer_adoption_base)
 baseline_farmers$index_farmer_adoption_base <- index_farmer_adoption_base$index
 
+#Effects on farmer perceptions
+variables_farmer_perceptions_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25h
+                                          ,baseline_farmers$index_ratingsF_mid
+                                          ,baseline_farmers$index_ratingsshopF_mid)
+
+variables_farmer_perceptions_base <- cbind(baseline_farmers$Check2.check.maize.q25h
+                                          ,baseline_farmers$index_ratingsF_base
+                                          ,baseline_farmers$index_ratingsshopF_base)
+
+index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,revcols = c(1))
+baseline_farmers$index_farmer_perceptions_mid <- index_farmer_perceptions_mid$index
+
+index_farmer_perceptions_base <- icwIndex(xmat=variables_farmer_perceptions_base,revcols = c(1))
+baseline_farmers$index_farmer_perceptions_base <- index_farmer_perceptions_base$index
+
 ################################################################################################################################################################################
 
 ###
@@ -6868,7 +6883,8 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"index_overall_seedonplot_mid" #10
                            ,"index_overall_yieldetc_mid"   #11
                            ,"mid_Check2.check.maize.q56"   #12
-                           ,"index_farmer_adoption_mid")
+                           ,"index_farmer_adoption_mid"
+                           ,"index_farmer_perceptions_mid")
 
 #                          ,"mid_bought_last_season"      #13
 
@@ -6908,6 +6924,10 @@ df_means_end_F_nobase[2,8] <- sd(baseline_farmers$index_overallsecF_base_save,na
 df_means_end_F_nobase[1,13] <- mean(baseline_farmers$index_farmer_adoption_base,na.rm = T)
 df_means_end_F_nobase[2,13] <- sd(baseline_farmers$index_farmer_adoption_base,na.rm = T)
 
+df_means_end_F_nobase[1,14] <- mean(baseline_farmers$index_farmer_perceptions_base,na.rm = T)
+df_means_end_F_nobase[2,14] <- sd(baseline_farmers$index_farmer_perceptions_base,na.rm = T)
+
+
 
 ###
 #2#
@@ -6945,6 +6965,9 @@ baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$inde
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_farmer_adoption_midT <- index_farmer_adoption_mid$index
 
+index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,sgroup = baseline_farmers$training_control,revcols = c(1))
+baseline_farmers$index_farmer_perceptions_midT <- index_farmer_perceptions_mid$index
+
 results_farmer_nobase <- c("index_ratingsF_midT"
                            ,"index_ratingsshopF_midT"
                            ,"mid_farmerswitched"
@@ -6957,7 +6980,8 @@ results_farmer_nobase <- c("index_ratingsF_midT"
                            ,"index_overall_seedonplot_midT"
                            ,"index_overall_yieldetc_midT"
                            ,"mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midT")
+                           ,"index_farmer_adoption_midT"
+                           ,"index_farmer_perceptions_midT")
 
 #                           ,"mid_bought_last_season"
 
@@ -7003,6 +7027,9 @@ baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$inde
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_farmer_adoption_midC <- index_farmer_adoption_mid$index
 
+index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,sgroup = baseline_farmers$clearing_control,revcols = c(1))
+baseline_farmers$index_farmer_perceptions_midC <- index_farmer_perceptions_mid$index
+
 results_farmer_nobase <- c("index_ratingsF_midC"
                            ,"index_ratingsshopF_midC"
                            ,"mid_farmerswitched"
@@ -7015,7 +7042,8 @@ results_farmer_nobase <- c("index_ratingsF_midC"
                            ,"index_overall_seedonplot_midC"
                            ,"index_overall_yieldetc_midC"
                            ,"mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midC")
+                           ,"index_farmer_adoption_midC"
+                           ,"index_farmer_perceptions_midC")
 
 #                          ,"mid_bought_last_season"
 
@@ -7081,6 +7109,9 @@ baseline_farmers$index_overall_yieldetc_midF <- index_overall_yieldetc_midF$inde
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_farmer_adoption_midF <- index_farmer_adoption_mid$index
 
+index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,sgroup = baseline_farmers$farmer_control,revcols = c(1))
+baseline_farmers$index_farmer_perceptions_midF <- index_farmer_perceptions_mid$index
+
 results_farmer_nobase <- c("index_ratingsF_midF"
                            ,"index_ratingsshopF_midF"
                            ,"mid_farmerswitched"
@@ -7093,7 +7124,8 @@ results_farmer_nobase <- c("index_ratingsF_midF"
                            ,"index_overall_seedonplot_midF"
                            ,"index_overall_yieldetc_midF"
                            ,"mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midF")
+                           ,"index_farmer_adoption_midF"
+                           ,"index_farmer_perceptions_midF")
 
 #                           ,"mid_bought_last_season"
 

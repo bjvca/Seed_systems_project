@@ -5925,13 +5925,10 @@ baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
 
 ###new overall indices for new tables in new structure of paper
 #Effects on farmer outcomes at end of causal chain
-variables_farmer_adoption_mid <- cbind(
-                                       baseline_farmers$mid_adoption_onfield
+variables_farmer_adoption_mid <- cbind(baseline_farmers$mid_adoption_onfield
                                        ,baseline_farmers$mid_Bought_from_agro_input_shop
                                        ,baseline_farmers$mid_Check2.check.maize.q25a
                                        ,baseline_farmers$mid_agro)
-
-#
 
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid)
 baseline_farmers$index_farmer_adoption_mid <- index_farmer_adoption_mid$index
