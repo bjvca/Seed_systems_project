@@ -2709,14 +2709,14 @@ baseline_dealers$maize.owner.agree.long10h.q24[baseline_dealers$maize.owner.agre
 baseline_dealers$maize.owner.agree.long10h.q24[baseline_dealers$maize.owner.agree.long10h.q24==999] <- NA
 baseline_dealers$maize.owner.agree.long10h.q24 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.long10h.q24))
 baseline_dealers <- trim("maize.owner.agree.long10h.q24",baseline_dealers,trim_perc=.02)
-baseline_dealers$maize.owner.agree.long10h.q24 <- ihs(baseline_dealers$maize.owner.agree.long10h.q24)
+#baseline_dealers$maize.owner.agree.long10h.q24 <- ihs(baseline_dealers$maize.owner.agree.long10h.q24)
 
 baseline_dealers$mid_maize.owner.agree.long10h.q24 <- baseline_dealers$owner.agree.long10h.q24 #x
 baseline_dealers$mid_maize.owner.agree.long10h.q24[baseline_dealers$mid_maize.owner.agree.long10h.q24=="n/a"] <- NA #x
 baseline_dealers$mid_maize.owner.agree.long10h.q24[baseline_dealers$mid_maize.owner.agree.long10h.q24==999] <- NA #x
 baseline_dealers$mid_maize.owner.agree.long10h.q24 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.long10h.q24)) #x
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q24",baseline_dealers,trim_perc=.02) #x
-baseline_dealers$mid_maize.owner.agree.long10h.q24 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q24)
+#baseline_dealers$mid_maize.owner.agree.long10h.q24 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q24)
 
 
 #5. Q25. Total quantity sold of ${carry} (Kg) over the second season of 2020
@@ -2727,10 +2727,10 @@ baseline_dealers$mid_maize.owner.agree.long10h.q25 <- ihs(baseline_dealers$mid_m
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q25",baseline_dealers,trim_perc=.02) #x
 
 #6. Sales price per kilogram of ${q25} at the beginning of the second season of 2020 (q26)
-baseline_dealers$maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$maize.owner.agree.long10h.q26)
+#baseline_dealers$maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$maize.owner.agree.long10h.q26)
 baseline_dealers <- trim("maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
+#baseline_dealers$mid_maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.02) #x
 
 #7. (h) How much of Longe10H was lost/wasted the second season of 2020 (kg) (q27)
@@ -3102,14 +3102,14 @@ baseline_dealers$maize.owner.agree.longe5.q49[baseline_dealers$maize.owner.agree
 baseline_dealers$maize.owner.agree.longe5.q49[baseline_dealers$maize.owner.agree.longe5.q49==999] <- NA
 baseline_dealers$maize.owner.agree.longe5.q49 <- as.numeric(as.character(baseline_dealers$maize.owner.agree.longe5.q49))
 baseline_dealers <- trim("maize.owner.agree.longe5.q49",baseline_dealers,trim_perc=.02)
-baseline_dealers$maize.owner.agree.longe5.q49 <- ihs(baseline_dealers$maize.owner.agree.longe5.q49) #x
+#baseline_dealers$maize.owner.agree.longe5.q49 <- ihs(baseline_dealers$maize.owner.agree.longe5.q49) #x
 
 baseline_dealers$mid_maize.owner.agree.longe5.q49 <- baseline_dealers$owner.agree.longe5.q49 #x
 baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49=="n/a"] <- NA #x
 baseline_dealers$mid_maize.owner.agree.longe5.q49[baseline_dealers$mid_maize.owner.agree.longe5.q49==999] <- NA #x
 baseline_dealers$mid_maize.owner.agree.longe5.q49 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe5.q49)) #x
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q49",baseline_dealers,trim_perc=.02) #x
-baseline_dealers$mid_maize.owner.agree.longe5.q49 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q49) #x
+#baseline_dealers$mid_maize.owner.agree.longe5.q49 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q49) #x
 
 #5. Q50. Total quantity sold of ${carry3} (Kg) over the second season of 2020
 baseline_dealers$maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$maize.owner.agree.longe5.q50)
@@ -3119,10 +3119,10 @@ baseline_dealers$mid_maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$mid_ma
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q50",baseline_dealers,trim_perc=.02) #x
 
 #6. Q51. Sales price per kilogram of ${q50}  at the beginning of the second season of 2020
-baseline_dealers$maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$maize.owner.agree.longe5.q51)
+#baseline_dealers$maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$maize.owner.agree.longe5.q51)
 baseline_dealers <- trim("maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02)
 
-baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
+#baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02) #x
 
 #7. Q52. How much of Longe 5 was lost/wasted the second season of 2020 (kg)
