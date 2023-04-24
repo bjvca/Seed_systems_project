@@ -6167,8 +6167,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Transf.
- quantity of maize seed sold in kg (IHS)$^
+Quantity of maize seed sold in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -6444,8 +6443,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- revenue from maize seed in mln UGX (IHS)$^
+Revenue from maize seed in mln UGX$^1$$^
 \backslash
 dag$
 \end_layout
@@ -6583,8 +6581,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- number of maize seed customers per day (IHS)$^
+Number of maize seed customers per day$^1$$^
 \backslash
 dag$
 \end_layout
@@ -7083,12 +7080,19 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
 
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
 \end_layout
 
 \end_inset
@@ -7192,7 +7196,7 @@ We remain agnostic about the cost of seed, which is why we do not include
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7300,8 +7304,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Transf.
- amount carried forward in kg (IHS)$^
+Amount carried forward in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -7441,8 +7444,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- amount shop bought from provider in kg (IHS)$^
+Amount shop bought from provider in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -7583,7 +7585,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,2],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
- cost in UGX/kg (IHS)
+ cost in UGX/kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -7721,8 +7723,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- quantity sold in kg (IHS)$^
+Quantity sold in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -7862,8 +7863,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,4],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- sales price in UGX/kg (IHS)$^
+Sales price in UGX/kg$^
 \backslash
 dag$
 \end_layout
@@ -8003,8 +8003,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- amount lost/wasted in kg (IHS)$^{
+Amount lost/wasted in kg$^1$$^{
 \backslash
 dag}$
 \end_layout
@@ -8144,8 +8143,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,6],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- number of times per month shop ran out (IHS)$^{
+Number of times per month shop ran out$^1$$^{
 \backslash
 dag}$
 \end_layout
@@ -8481,7 +8479,7 @@ cmidrule(lr){6-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.$^1$ & & & & 268 & & & 254
+ number of obs.$^2$ & & & & 268 & & & 254
 \backslash
 
 \backslash
@@ -8541,7 +8539,19 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$The comparisons were only made for shops which had Longe 10H in stock
+$^1$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The comparisons were only made for shops which had Longe 10H in stock
  at mid- or endline.
 \backslash
 
@@ -8571,7 +8581,7 @@ use treatment at midline.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8679,8 +8689,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Transf.
- amount carried forward in kg (IHS)$^
+Amount carried forward in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -8820,8 +8829,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- amount shop bought from provider in kg (IHS)$^
+Amount shop bought from provider in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -8961,8 +8969,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- cost in UGX/kg (IHS)
+Cost in UGX/kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -9100,8 +9107,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- quantity sold in kg (IHS)$^
+Quantity sold in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -9241,8 +9247,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,4],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- sales price in UGX/kg (IHS)$^
+Sales price in UGX/kg$^
 \backslash
 dag$
 \end_layout
@@ -9382,8 +9387,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- amount lost/wasted in kg (IHS)$^{
+Amount lost/wasted in kg$^1$$^{
 \backslash
 dag}$
 \end_layout
@@ -9523,8 +9527,7 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,6],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- number of times per month shop ran out (IHS)$^{
+Number of times per month shop ran out$^1$$^{
 \backslash
 dag}$
 \end_layout
@@ -9835,7 +9838,7 @@ cmidrule(lr){6-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.$^1$ & & & & 275 & & & 269
+ number of obs.$^2$ & & & & 275 & & & 269
 \backslash
 
 \backslash
@@ -9895,7 +9898,19 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$The comparisons were only made for shops which had Longe 5 in stock
+$^1$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The comparisons were only made for shops which had Longe 5 in stock
  at mid- or endline.
 \backslash
 
@@ -11022,7 +11037,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17450,8 +17465,7 @@ Sexpr{format(round(df_ols_end_D_sec_off[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- number of shop inspections (IHS)$^
+Number of shop inspections$^1$$^
 \backslash
 dag$
 \end_layout
@@ -18096,6 +18110,18 @@ Note: 1st column reports baseline means and standard deviations below;
 dag$ indicates that the variable is included in the overall index; larger
  indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
  Sine.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
 \backslash
 
 \backslash
