@@ -3,6 +3,14 @@ rm(list=ls())
 #df_ols_ --> df_ols_end_
 #df_means_ --> df_means_end_
 
+trim <- function(var,dataset,trim_perc=.02){
+  dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
+  return(dataset)}
+
+ihs <- function(x) {
+  y <- log(x + sqrt(x ^ 2 + 1))
+  return(y)}
+
 path <- getwd()
 #path <- strsplit(path,"/papers/endline_report")[[1]]
 path <- strsplit(path,"/papers/clearinghouse_training_paper")[[1]]
@@ -948,6 +956,30 @@ baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) replace(x, x 
 baseline_dealers$tot_sold <- rowSums(baseline_dealers[sel], na.rm=T)
 baseline_dealers$tot_sold[baseline_dealers$tot_sold > 80000] <- NA
 
+####my variable
+baseline_dealers$maize.owner.agree.long10h.q25_unadj <- baseline_dealers$maize.owner.agree.long10h.q25
+baseline_dealers$maize.owner.agree.long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
+
+baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agree.q32=="0"] <- 0
+
+baseline_dealers$maize.owner.agree.longe5.q50_unadj <- baseline_dealers$maize.owner.agree.longe5.q50
+baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
+
+baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
+
+baseline_dealers$check.owner.agree.long10h.q25[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe7H.q38[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe5.q50[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$check.owner.agree.longe4.q62[baseline_dealers$attrition_ind_D_end==1] <- NA
+baseline_dealers$kg_improved[baseline_dealers$attrition_ind_D_end==1] <- NA
+
+baseline_dealers$quantitysold <- baseline_dealers$maize.owner.agree.long10h.q25+baseline_dealers$maize.owner.agree.longe7h.q37+baseline_dealers$maize.owner.agree.longe5.q50+baseline_dealers$maize.owner.agree.longe4.q62
+baseline_dealers <- trim("quantitysold",baseline_dealers,trim_perc=.02)
+baseline_dealers$quantitysold_not_transf <- baseline_dealers$quantitysold
+baseline_dealers$quantitysold <- ihs(baseline_dealers$quantitysold)
+
+####
+
 #Bjorn's variable: amount of lost/wasted seed during last season in kg
 sel <- c("maize.owner.agree.long10h.q27", "maize.owner.agree.longe7h.q39", "maize.owner.agree.longe5.q52", "maize.owner.agree.longe4.q64")
 baseline_dealers[sel] <- lapply(baseline_dealers[sel], function(x) as.numeric(as.character(x)) )
@@ -957,15 +989,25 @@ baseline_dealers$tot_lost <- rowSums(baseline_dealers[sel], na.rm=T)
 #Bjorn's skill variable
 baseline_dealers$maize.owner.agree.skill.q105_b<-ifelse(baseline_dealers$maize.owner.agree.skill.q105=="b",1,0)
 
+#reading
+baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.02)
+baseline_dealers$reading_save <- baseline_dealers$reading
+
 ###loop###
 
 ###
 #1#
 ###
 
-balance_dealer <- c("maize.owner.agree.age","maize.owner.agree.gender","finished_primary","maize.owner.agree.q3"
-                    ,"maize.owner.agree.q6","years_shop","maize.owner.agree.q10","maize.owner.agree.nr_var"
-                    ,"tot_sold","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72"
+balance_dealer <- c("maize.owner.agree.age"
+                    ,"maize.owner.agree.gender"
+                    ,"finished_primary"
+                    ,"maize.owner.agree.q3"
+                    ,"maize.owner.agree.q6"
+                    ,"years_shop"
+                    ,"maize.owner.agree.q10"
+                    ,"maize.owner.agree.nr_var"
+                    ,"quantitysold_not_transf","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72"
                     ,"maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
                     ,"maize.owner.agree.inspection.q115","reading","lot"
                     ,"refunds"
@@ -1042,12 +1084,36 @@ trainingtreatment_CA_level <- data.frame(aggregate(treatments_shop_level$trainin
 names(trainingtreatment_CA_level) <- c("catchID","training")
 baseline_farmers <- merge(baseline_farmers, trainingtreatment_CA_level, by.x="catchID", by.y="catchID")
 
+baseline_farmers$landproductivity_untrimmed <- baseline_farmers$landproductivity
+baseline_farmers <- trim("landproductivity",baseline_farmers,trim_perc=.05)
+
+baseline_farmers$agro <- ifelse(baseline_farmers$Check2.check.maize.q25b=="d",1,0)
+baseline_farmers$agro[is.na(baseline_farmers$Check2.check.maize.q25b)] <- NA
+baseline_farmers$agro[baseline_farmers$Check2.check.maize.q25a==0] = 0
+
+baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
+
 ###loop###
-balance_farmer <- c("Check2.check.maize.q8","Check2.check.maize.q10","Check2.check.maize.q14","Check2.check.maize.q15","finishedprimary"
-                    ,"Check2.check.maize.q18","Check2.check.maize.q20","Check2.check.maize.q22","Check2.check.maize.q25a"
-                    ,"boughtfromagroinputshop2","Check2.check.maize.q25d2","Check2.check.maize.q25h","Check2.check.maize.q30a.1"
-                    ,"adoption_onfield","Check2.check.maize.q35a","Check2.check.maize.q42","correctplanting","yield_inkg"
-                    ,"landproductivity","Check2.check.maize.q53"
+balance_farmer <- c("Check2.check.maize.q8"
+                    ,"Check2.check.maize.q10"
+                    ,"Check2.check.maize.q14"
+                    ,"Check2.check.maize.q15"
+                    ,"finishedprimary"
+                    ,"Check2.check.maize.q18"
+                    ,"Check2.check.maize.q20"
+                    ,"Check2.check.maize.q22"
+                    ,"Check2.check.maize.q25a"
+                    ,"agro"
+                    ,"Check2.check.maize.q25d"
+                    ,"Check2.check.maize.q25h"
+                    ,"Check2.check.maize.q30a.1"
+                    ,"adoption_onfield"
+                    ,"Check2.check.maize.q35a"
+                    ,"Check2.check.maize.q42"
+                    ,"correctplanting"
+                    ,"yield_inkg"
+                    ,"landproductivity"
+                    ,"Check2.check.maize.q53"
                     ,"yearsmaize"
                     ,"Check2.check.maize.q43")
 
@@ -1498,14 +1564,6 @@ for (i in 1:length(attrition_farmer_end)){
 ##### 1 ANALYSIS: Agro-input dealer - Primary###################################################################################################################################
 ################################################################################################################################################################################
 
-trim <- function(var,dataset,trim_perc=.02){
-  dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
-  return(dataset)}
-
-ihs <- function(x) {
-  y <- log(x + sqrt(x ^ 2 + 1))
-  return(y)}
-
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
 baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
 baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
@@ -1551,22 +1609,6 @@ baseline_dealers$notrated <- ifelse(is.na(baseline_dealers$score_corrected)&base
 
 
 #1. Cumulative quantity sold of a hybrid and a open-pollinated maize variety last season in kg
-baseline_dealers$maize.owner.agree.long10h.q25_unadj <- baseline_dealers$maize.owner.agree.long10h.q25
-baseline_dealers$maize.owner.agree.long10h.q25[baseline_dealers$maize.owner.agree.q20=="0"] <- 0
-
-baseline_dealers$maize.owner.agree.longe7h.q37[baseline_dealers$maize.owner.agree.q32=="0"] <- 0
-
-baseline_dealers$maize.owner.agree.longe5.q50_unadj <- baseline_dealers$maize.owner.agree.longe5.q50
-baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree.q45=="0"] <- 0
-
-baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
-
-baseline_dealers$check.owner.agree.long10h.q25[baseline_dealers$attrition_ind_D_end==1] <- NA
-baseline_dealers$check.owner.agree.longe7H.q38[baseline_dealers$attrition_ind_D_end==1] <- NA
-baseline_dealers$check.owner.agree.longe5.q50[baseline_dealers$attrition_ind_D_end==1] <- NA
-baseline_dealers$check.owner.agree.longe4.q62[baseline_dealers$attrition_ind_D_end==1] <- NA
-baseline_dealers$kg_improved[baseline_dealers$attrition_ind_D_end==1] <- NA
-
 baseline_dealers$mid_maize.owner.agree.q20 <- NA
 baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="Yes"] <- 1
 baseline_dealers$mid_maize.owner.agree.q20[baseline_dealers$check.owner.agree.q20=="No"] <- 0
@@ -1608,11 +1650,6 @@ baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.own
 baseline_dealers$mid_maize.owner.agree.longe4.q62 <- as.numeric(as.character(baseline_dealers$mid_maize.owner.agree.longe4.q62)) #x
 baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.owner.agree.longe4.q62==999]<-NA #x
 baseline_dealers$mid_maize.owner.agree.longe4.q62[baseline_dealers$mid_maize.owner.agree.q57=="0"] <- 0 #x
-
-baseline_dealers$quantitysold <- baseline_dealers$maize.owner.agree.long10h.q25+baseline_dealers$maize.owner.agree.longe7h.q37+baseline_dealers$maize.owner.agree.longe5.q50+baseline_dealers$maize.owner.agree.longe4.q62
-baseline_dealers <- trim("quantitysold",baseline_dealers,trim_perc=.02)
-baseline_dealers$quantitysold_not_transf <- baseline_dealers$quantitysold
-baseline_dealers$quantitysold <- ihs(baseline_dealers$quantitysold)
 
 baseline_dealers$mid_quantitysold <- baseline_dealers$mid_maize.owner.agree.long10h.q25+baseline_dealers$mid_maize.owner.agree.longe7h.q37+baseline_dealers$mid_maize.owner.agree.longe5.q50+baseline_dealers$mid_maize.owner.agree.longe4.q62 #x
 baseline_dealers <- trim("mid_quantitysold",baseline_dealers,trim_perc=.02) #x
@@ -1713,9 +1750,6 @@ baseline_dealers$mid_maize.owner.agree.q7_not_transf <- baseline_dealers$mid_mai
 baseline_dealers$mid_maize.owner.agree.q7 <- ihs(baseline_dealers$mid_maize.owner.agree.q7) #x
 
 #5. Moisture content of random seed bag: now not controlling for baseline
-baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.02)
-baseline_dealers$reading_save <- baseline_dealers$reading
-
 baseline_dealers$mid_reading <- baseline_dealers$reading_end #x
 baseline_dealers$mid_reading_unadj <- baseline_dealers$reading_end #x
 
@@ -5109,17 +5143,13 @@ baseline_farmers$mid_Check2.check.maize.q25a <- baseline_farmers$CHECK.MAIZE.Q25
 baseline_farmers$mid_Check2.check.maize.q25a<-ifelse(baseline_farmers$mid_Check2.check.maize.q25a=="Yes",1,0)
 
 #2. q25b. Where did you obtain the maize seed used in the second season of **2020 (entoigo 2020)** on any of your plots?
-baseline_farmers$agro <- ifelse(baseline_farmers$Check2.check.maize.q25b=="d",1,0)
-baseline_farmers$agro[is.na(baseline_farmers$Check2.check.maize.q25b)] <- NA
-baseline_farmers$agro[baseline_farmers$Check2.check.maize.q25a==0] = 0
-
 baseline_farmers$mid_agro <- ifelse(baseline_farmers$CHECK.MAIZE.Q25B=="d",1,0)
 baseline_farmers$mid_agro[is.na(baseline_farmers$CHECK.MAIZE.Q25B)] <- NA
 baseline_farmers$mid_agro[baseline_farmers$CHECK.MAIZE.Q25A=="No"] = 0
 
 #3. Q25d. How much quality maize seed (hybrid or OPV) did you buy from an input dealer in the second agricultural season of 2020? Record amount in **KG**
 #baseline_farmers$Check2.check.maize.q25d[baseline_farmers$agro==0] = 0
-baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
+#baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 #baseline_farmers$Check2.check.maize.q25d <- ihs(baseline_farmers$Check2.check.maize.q25d)
 
 #email to Bjorn (08/04) about farmer q25d
@@ -6520,9 +6550,6 @@ baseline_farmers$mid_yield_inkg_untrimmed <- baseline_farmers$mid_yield_inkg
 baseline_farmers <- trim("mid_yield_inkg",baseline_farmers,trim_perc=.05)
 
 #2. yield
-baseline_farmers$landproductivity_untrimmed <- baseline_farmers$landproductivity
-baseline_farmers <- trim("landproductivity",baseline_farmers,trim_perc=.05)
-
 baseline_farmers$mid_Check2.check.maize.q29 <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q29))
 baseline_farmers$mid_landproductivity <- baseline_farmers$mid_yield_inkg_untrimmed/baseline_farmers$mid_Check2.check.maize.q29 #yield in kg per acre
 baseline_farmers <- trim("mid_landproductivity",baseline_farmers,trim_perc=.05)
