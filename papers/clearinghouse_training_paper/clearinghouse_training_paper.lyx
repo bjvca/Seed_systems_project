@@ -5941,8 +5941,8 @@ noprefix "false"
 
 \end_inset
 
-, the average agro-input dealer sold about just under one metric ton of
- these four improved seed varieties.
+, the average agro-input dealer sold about 700 kilograms of these four improved
+ seed varieties.
  We also asked agro-input dealers about the sales price at the start of
  the season for each of these four seed types and again calculate the average
  at the dealer level.
@@ -5964,12 +5964,11 @@ noprefix "false"
  For each of the four seed types, we then multiply the reported price with
  the reported quantities sold and sum over the four seed types to obtain
  total revenue.
- Before transforming this variable using the inverse hyperbolic sine, we
- find that average revenue is about XXX (or about USD XXX).
+ Average revenue is about UGX 2.9 million (or about USD 800).
  We also include the number of customers that come to buy seed on an average
  day at the start of the previous season, as well as the number of improved
  seed varieties that the agro-input dealer had in stock.
- At baseline, we find the average ago-input dealer receives XXX customers
+ At baseline, we find the average ago-input dealer receives 20 customers
  per day, and has almost three different improved maize seed varieties in
  stock.
  The variables in this family of outcomes are combined in an index to assess
@@ -6032,8 +6031,8 @@ literal "false"
  to become stronger, with the overall index now becoming significant at
  the 1 percent level.
  The effect seems to be driven by a 31 percent increase in the number of
- customers that a treated shop attracts, which translate into an extra XXX
- customers.
+ customers that a treated shop attracts, which translates into an extra
+ 6 customers.
  
 \end_layout
 
@@ -7191,13 +7190,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-One problem affecting seed quality is stale seed.
- We asked agro-input dealers how much of the particular seed that they sold
- was carried over from the previous season.
- Furthermore, we asked agro-input dealers to estimate how much of their
- stock was procured directly from seed companies in the same season.
- We expect that out treatments will reduce the former and increase the latter.
- In line with Table 
+In line with Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Business volume"
@@ -7207,18 +7200,25 @@ noprefix "false"
 
 \end_inset
 
-, we also look at sales volumes, prices, and revenue for the particular
+, we start by looking at sales volumes, prices, and revenue for the particular
  seeds.
- We also asked agro-input dealers to provide an estimate of how often they
- ran out of stock.
- 
+ We also focus on outcomes related to stock management.
+ For instance, one problem affecting seed quality is stale seed.
+ We asked agro-input dealers how much of the particular seed that they sold
+ was carried over from the previous season.
+ Furthermore, we asked agro-input dealers to estimate how much of their
+ stock was procured directly from seed companies in the same season.
+ We expect that out treatments will reduce the former and increase the latter.
+ We also asked agro-input dealers to provide an estimate of how much of
+ the seed stock was wasted or lot during the season, and how often they
+ ran out of stock for the particular seed.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7607,7 +7607,6 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,2],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Transf.
-
  cost in UGX/kg
 \end_layout
 
@@ -7747,7 +7746,6 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,3],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Quantity sold in kg$^1$$^
-
 \backslash
 dag$
 \end_layout
@@ -8596,16 +8594,17 @@ $^2$The comparisons were only made for shops which had Longe 10H in stock
 \begin_layout Standard
 For Longe 10H, we do not find significant effects of the training nor clearingho
 use treatment at midline.
- However, at endline, individual outcomes all go in the expected direction,
- and when the effects are combined in an index, the effect of the information
- clearing house becomes positive and significant at the one percent level.
+ However, at endline, for the information clearing, house individual outcomes
+ all go in the expected direction, and when the effects are combined in
+ an index, the effect becomes positive and significant at the one percent
+ level.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8993,7 +8992,6 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-
 Cost in UGX/kg
 \end_layout
 
@@ -9133,7 +9131,6 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,3],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Quantity sold in kg$^1$$^
-
 \backslash
 dag$
 \end_layout
@@ -9966,8 +9963,8 @@ Impact on smallholder farmers
 \end_layout
 
 \begin_layout Standard
-We start by looking at production related outcomes for farmers that live
- in catchment areas of agro-input dealers involved in our study.
+We first look at production related outcomes for farmers that live in catchment
+ areas of agro-input dealers involved in our study.
  We start by looking at overall production, and at production scaled by
  plot size.
  We also look at market participation and how much farmers save for seed.
@@ -9975,6 +9972,31 @@ We start by looking at production related outcomes for farmers that live
  intervention reduces the likelihood that farmers recycle grain as seed
  for the next season.
  We collect these variables into an overall harvest related index.
+\end_layout
+
+\begin_layout Standard
+Results, reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on farmer outcomes at end of causal chain: Harvest"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, indicate the average farmer in our sample produces about 460 kilograms
+ of maize.
+ As the average area used for cultivation is about 1 acre, productivity
+ is similar.
+ We do not find an impact of the clearinghouse intervention at midline.
+ However, at endline, we see that farmers that live in areas where the clearingh
+ouse was implemented report higher production.
+ Yield differences are significant at the 1 percent level and amount to
+ 10 percent of baseline means.
+ The clearinghouse intervention does not seem to have an impact on sales.
+ Finally, we see that farmers at midline reduce the likelihood of using
+ 
 \end_layout
 
 \begin_layout Standard
@@ -11046,17 +11068,7 @@ dag$ indicates that the variable is included in the overall index; larger
 \end_layout
 
 \begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on farmer outcomes at end of causal chain: Harvest"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that 
+Table shows that 
 \end_layout
 
 \begin_layout Standard
