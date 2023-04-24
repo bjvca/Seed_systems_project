@@ -122,7 +122,7 @@ e},
 
 Bjorn Van Campenhout
 \backslash
-thanks{Innovation Policy and Scaling Unit, IFPRI, Belgium}
+thanks{Innovation Policy and Scaling Unit, IFPRI, Belgium} 
 \backslash
 footnotemark[1],
 \backslash
@@ -6026,7 +6026,7 @@ we need to know how many are there at baseline so we get a sense of the
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6167,7 +6167,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity of maize seed sold in kg$^1$$^
+Quantity of maize seed sold in kg$
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -7196,7 +7198,7 @@ We remain agnostic about the cost of seed, which is why we do not include
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7584,8 +7586,7 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- cost in UGX/kg
+Cost in UGX/kg
 \end_layout
 
 \begin_layout Plain Layout
@@ -10356,8 +10357,7 @@ dag)}$ from this table
 
 \begin_layout Plain Layout
 
-Transf.
- amount sold in kg (IHS)$^
+Amount sold in kg$^1$$^
 \backslash
 dag$
 \end_layout
@@ -10498,8 +10498,7 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transf.
- revenue in UGX (IHS)$^
+Revenue in UGX$^1$$^
 \backslash
 dag$
 \end_layout
@@ -10640,8 +10639,7 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Transf.
- amount kept as seed in kg (IHS)
+Amount kept as seed in kg$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -11003,6 +11001,18 @@ Note: 1st column reports baseline means and standard deviations below;
 dag$ indicates that the variable is included in the overall index; larger
  indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
  Sine.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
 \backslash
 
 \backslash
@@ -12282,8 +12292,7 @@ Sexpr{format(round(df_ols_end_F_sec_seed[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- cost of maize seed used on specific plot in UGX (IHS)$^
+Cost of maize seed used on specific plot in UGX$^2$$^
 \backslash
 dag$
 \end_layout
@@ -12662,6 +12671,22 @@ dag$ indicates that the variable is included in the overall index; larger
 
 $^1$For this variable, only non-recycled (newly purchased, not farmer-saved)
  seed counted hybrid/open-pollinated seed.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -18216,7 +18241,7 @@ Finally, we also test if average ratings at the dealer level differ between
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

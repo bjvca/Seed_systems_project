@@ -6296,10 +6296,12 @@ baseline_farmers$costforseed_new <- baseline_farmers$Check2.check.maize.q38_untr
 
 baseline_farmers$costforseed_new_untrimmed <- baseline_farmers$costforseed_new
 baseline_farmers <- trim("costforseed_new",baseline_farmers,trim_perc=.05)
+baseline_farmers$costforseed_new_not_transf <- baseline_farmers$costforseed_new
 baseline_farmers$costforseed_new <- ihs(baseline_farmers$costforseed_new)
 
 baseline_farmers$mid_costforseed_new <- baseline_farmers$mid_Check2.check.maize.q38_untrimmed*baseline_farmers$mid_Check2.check.maize.q39_untrimmed
 baseline_farmers <- trim("mid_costforseed_new",baseline_farmers,trim_perc=.05)
+baseline_farmers$mid_costforseed_new_not_transf <- baseline_farmers$mid_costforseed_new
 baseline_farmers$mid_costforseed_new <- ihs(baseline_farmers$mid_costforseed_new)
 
 #7. overall
@@ -6329,14 +6331,14 @@ results_farmer_sec_seed <- c("index_ratingplot_mid"
                              ,"mid_Check2.check.maize.q37"
                              ,"mid_Check2.check.maize.q38"
                              ,"mid_Check2.check.maize.q39"
-                             ,"mid_costforseed_new"
+                             ,"mid_costforseed_new_not_transf"
                              ,"index_overall_seedonplot_mid")
 results_farmer_sec_seed_base <- c("index_ratingplot_base"
                                   ,"Check2.check.maize.q36"
                                   ,"Check2.check.maize.q37"
                                   ,"Check2.check.maize.q38"
                                   ,"Check2.check.maize.q39"
-                                  ,"costforseed_new"
+                                  ,"costforseed_new_not_transf"
                                   ,"index_overall_seedonplot_base")
 
 df_means_end_F_sec_seed <- array(NA,dim=c(5,11))
@@ -6529,6 +6531,7 @@ baseline_farmers <- trim("mid_landproductivity",baseline_farmers,trim_perc=.05)
 baseline_farmers$Check2.check.maize.q54[baseline_farmers$Check2.check.maize.q53==0] <- 0
 baseline_farmers$soldinkg <- baseline_farmers$Check2.check.maize.q54*baseline_farmers$Check2.check.maize.q51
 baseline_farmers <- trim("soldinkg",baseline_farmers,trim_perc=.05)
+baseline_farmers$soldinkg_not_transf <- baseline_farmers$soldinkg
 baseline_farmers$soldinkg <- ihs(baseline_farmers$soldinkg)
 
 baseline_farmers$mid_Check2.check.maize.q53 <- baseline_farmers$CHECK.MAIZE.Q53
@@ -6539,11 +6542,13 @@ baseline_farmers$mid_Check2.check.maize.q54 <- as.numeric(as.character(baseline_
 baseline_farmers$mid_Check2.check.maize.q54[baseline_farmers$mid_Check2.check.maize.q53==0] <- 0
 baseline_farmers$mid_soldinkg <- baseline_farmers$mid_Check2.check.maize.q54*baseline_farmers$mid_Check2.check.maize.q51
 baseline_farmers <- trim("mid_soldinkg",baseline_farmers,trim_perc=.05)
+baseline_farmers$mid_soldinkg_not_transf <- baseline_farmers$mid_soldinkg
 baseline_farmers$mid_soldinkg <- ihs(baseline_farmers$mid_soldinkg)
 
 #6. revenue
 baseline_farmers$revenueUGX[baseline_farmers$Check2.check.maize.q53==0] <- 0
 baseline_farmers <- trim("revenueUGX",baseline_farmers,trim_perc=.05)
+baseline_farmers$revenueUGX_not_transf <- baseline_farmers$revenueUGX
 baseline_farmers$revenueUGX <- ihs(baseline_farmers$revenueUGX)
 
 baseline_farmers$mid_Check2.check.maize.q55 <- baseline_farmers$CHECK.MAIZE.Q55
@@ -6552,6 +6557,7 @@ baseline_farmers$mid_Check2.check.maize.q55 <- as.numeric(as.character(baseline_
 baseline_farmers$mid_revenueUGX <- baseline_farmers$mid_Check2.check.maize.q54*baseline_farmers$mid_Check2.check.maize.q55
 baseline_farmers$mid_revenueUGX[baseline_farmers$mid_Check2.check.maize.q53==0] <- 0
 baseline_farmers <- trim("mid_revenueUGX",baseline_farmers,trim_perc=.05)
+baseline_farmers$mid_revenueUGX_not_transf <- baseline_farmers$mid_revenueUGX
 baseline_farmers$mid_revenueUGX <- ihs(baseline_farmers$mid_revenueUGX)
 
 #8.
@@ -6574,13 +6580,13 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg"
                                  ,"mid_landproductivity"
-                                 ,"mid_soldinkg"
-                                 ,"mid_revenueUGX"
+                                 ,"mid_soldinkg_not_transf"
+                                 ,"mid_revenueUGX_not_transf"
                                  ,"index_overall_yieldetc_mid")
 results_farmer_sec_yieldetc_base <- c("yield_inkg"
                                       ,"landproductivity"
-                                      ,"soldinkg"
-                                      ,"revenueUGX"
+                                      ,"soldinkg_not_transf"
+                                      ,"revenueUGX_not_transf"
                                       ,"index_overall_yieldetc_base")
 
 df_means_end_F_sec_yieldetc <- array(NA,dim=c(5,11))
@@ -6827,11 +6833,13 @@ baseline_farmers$index_skillsF_mid <- index_skillsF_mid$index
 
 #7. Q56. How much did you keep for seed (record in kg)? OK!
 baseline_farmers <- trim("Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+baseline_farmers$Check2.check.maize.q56_not_transf <- baseline_farmers$Check2.check.maize.q56
 baseline_farmers$Check2.check.maize.q56 <- ihs(baseline_farmers$Check2.check.maize.q56)
 
 baseline_farmers$mid_Check2.check.maize.q56 <- baseline_farmers$CHECK.MAIZE.Q56
 baseline_farmers$mid_Check2.check.maize.q56 <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q56))
 baseline_farmers <- trim("mid_Check2.check.maize.q56",baseline_farmers,trim_perc=.05)
+baseline_farmers$mid_Check2.check.maize.q56_not_transf <- baseline_farmers$mid_Check2.check.maize.q56
 baseline_farmers$mid_Check2.check.maize.q56 <- ihs(baseline_farmers$mid_Check2.check.maize.q56)
 
 #at baseline, q56 was only asked if	q53=Yes (Did you sell any maize that you harvested?) which was wrong, therefore no controlling for bl value
@@ -6920,7 +6928,7 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"index_overallsec_plotF_mid"   #9
                            ,"index_overall_seedonplot_mid" #10
                            ,"index_overall_yieldetc_mid"   #11
-                           ,"mid_Check2.check.maize.q56"   #12
+                           ,"mid_Check2.check.maize.q56_not_transf"   #12
                            ,"index_farmer_adoption_mid"
                            ,"index_farmer_perceptions_mid")
 
@@ -6947,8 +6955,8 @@ df_means_end_F_nobase[2,9] <- sd(baseline_farmers$index_overallsec_plotF_base_sa
 df_means_end_F_nobase[1,10] <- mean(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
 df_means_end_F_nobase[2,10] <- sd(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
 
-df_means_end_F_nobase[1,12] <- mean(baseline_farmers$Check2.check.maize.q56,na.rm = T)
-df_means_end_F_nobase[2,12] <- sd(baseline_farmers$Check2.check.maize.q56,na.rm = T)
+df_means_end_F_nobase[1,12] <- mean(baseline_farmers$Check2.check.maize.q56_not_transf,na.rm = T)
+df_means_end_F_nobase[2,12] <- sd(baseline_farmers$Check2.check.maize.q56_not_transf,na.rm = T)
 
 df_means_end_F_nobase[1,11] <- mean(baseline_farmers$index_overall_yieldetc_base,na.rm = T)
 df_means_end_F_nobase[2,11] <- sd(baseline_farmers$index_overall_yieldetc_base,na.rm = T)
