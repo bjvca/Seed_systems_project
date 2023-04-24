@@ -5853,7 +5853,10 @@ Exact variables definitions are provided in the results section below.
 \begin_layout Standard
 Results tables have a common layout.
  The first column (1) provides sample means (with standard deviations in
- brackets below), mainly to get an idea of effect sizes.
+ brackets below).
+ This is mainly to get an idea of effect sizes and so we always provide
+ averages in levels, even though we may use inverse hyperbolic sine transforms
+ when we compare differences between treatment and control groups.
  In the second column, we provide the average treatment effect for the dealer
  training at midline, while the third column reports the average treatment
  effect for the clearinghouse treatment at midline.
@@ -5922,34 +5925,55 @@ noprefix "false"
 ).
  Outcomes that can be classified under this heading include sales volumes,
  prices, and revenue.
- For these three questions, we restricted attention to four popular improved
- seed varieties, two of which are hybrid seed varieties (Longe 7H and Longe
- 10H) and two of which are Open Pollinated Varieties (Longe 4 and Longe
- 5).
- We ask to total quantities that were sold of each variety during the course
- of the previous season and simply add this.
- As can be seen in Table 
+ A measure of sales volumes was constructed by asking to total quantities
+ that were sold during the course of the previous season.
+ We restrict attention to the four most popular improved seed varieties,
+ two of which are hybrid seed varieties (Longe 7H and Longe 10H) and two
+ of which are Open Pollinated Varieties (Longe 4 and Longe 5).
+ Total sales is then simply the sum of these four varieties.
+ As can be seen in column 1 of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "balance_dealer"
+reference "Effects on dealer outcomes at end of causal chain: Business volume"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-, the average agro input dealer sold about 910 kilograms of these four improved
- seed varieties.
- We also asked agro-input dealers about the sales price of each seed during
- most of the season and again calculate the average at the dealer level.
+, the average agro-input dealer sold about just under one metric ton of
+ these four improved seed varieties.
+ We also asked agro-input dealers about the sales price at the start of
+ the season for each of these four seed types and again calculate the average
+ at the dealer level.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer outcomes at end of causal chain: Business volume"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that at baseline the average price for one kilogram of improved maize
+ seed was about 4,300 ugandan shillings (or about USD 1.2).
+ We then calculate revenue derived from sales of improved seed varieties
+ (expressed in millions of Ugandan shillings) by first multiplying prices
+ by quantities and then summing for the four seed types.
  For each of the four seed types, we then multiply the reported price with
  the reported quantities sold and sum over the four seed types to obtain
- total revenue in millions of Ugandan shillings.
+ total revenue.
+ Before transforming this variable using the inverse hyperbolic sine, we
+ find that average revenue is about XXX (or about USD XXX).
  We also include the number of customers that come to buy seed on an average
  day at the start of the previous season, as well as the number of improved
  seed varieties that the agro-input dealer had in stock.
- These variables are combined in and index to assess overall impact on agro-inpu
-t dealer operations.
+ At baseline, we find the average ago-input dealer receives XXX customers
+ per day, and has almost three different improved maize seed varieties in
+ stock.
+ The variables in this family of outcomes are combined in an index to assess
+ overall impact on agro-input dealer operations.
 \end_layout
 
 \begin_layout Standard
@@ -5965,20 +5989,21 @@ noprefix "false"
 
  shows that we do not find an impact of the training on agro-input dealer
  business outcomes.
- Both at midline and at endline, the index is not significantly different
- from zero.
+ Both at midline (column 2) and at endline (column 5), the index is not
+ significantly different from zero.
  Looking at the individual outcomes, there is no consistent pattern.
- At midline, we find a negative impact of the training on the average sales
- price of improved maize varieties.
+ At midline, we find a negative impact of the agro-input dealer training
+ on the average sales price of improved maize varieties.
  At endline, we find some evidence that the training reduced amounts sold,
- as well as revenue.
+ and this is also reflected in lower revenue.
  
 \end_layout
 
 \begin_layout Standard
-We do find a positive impact for the clearinghouse intervention on operations.
- At midline, the overall index is significantly larger among information
- clearinghouse treated dealers.
+We do find a positive impact for the clearinghouse intervention on agro-input
+ dealer operations.
+ At midline, the overall index (in column 3) is significantly higher among
+ dealers that were in the information clearinghouse treatment group.
  Looking at individual outcomes, we see that dealers in the treatment group
  sold more maize seed at a higher price, albeit not significantly so.
  However, the combination of this does lead to revenues that are almost
@@ -6007,19 +6032,9 @@ literal "false"
  to become stronger, with the overall index now becoming significant at
  the 1 percent level.
  The effect seems to be driven by a 31 percent increase in the number of
- customers that a treated shop attracts.
+ customers that a treated shop attracts, which translate into an extra XXX
+ customers.
  
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-we need to know how many are there at baseline so we get a sense of the
- effect
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -6167,7 +6182,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity of maize seed sold in kg$
+Quantity of maize seed sold in kg$^
 \backslash
 S$$^
 \backslash
@@ -6445,7 +6460,9 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Revenue from maize seed in mln UGX$^1$$^
+Revenue from maize seed in mln UGX$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -6583,7 +6600,9 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Number of maize seed customers per day$^1$$^
+Number of maize seed customers per day$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -7091,7 +7110,9 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -7129,7 +7150,8 @@ noprefix "false"
 
 \end_inset
 
- looks at overall business impact, Tables 
+ looks at overall business impact based on four most commonly used improved
+ seed varieties, Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Longe 10H"
@@ -7150,8 +7172,9 @@ noprefix "false"
 \end_inset
 
  focus on the effect of the interventions on business related to a particular
- seed (out of the four common seeds).
- We look at the most recent hybrid seed variety (Longe 10H) in Table 
+ seed.
+ We look at the most recently released hybrid seed variety (Longe 10H) in
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Longe 10H"
@@ -7178,27 +7201,32 @@ noprefix "false"
 \begin_layout Standard
 One problem affecting seed quality is stale seed.
  We asked agro-input dealers how much of the particular seed that they sold
- in the previous season was carried over from the previous season.
- Related, as a second outcome we asked agro-input dealers to estimate how
- much of their stock was procured directly from seed companies in the same
- season.
+ was carried over from the previous season.
+ Furthermore, we asked agro-input dealers to estimate how much of their
+ stock was procured directly from seed companies in the same season.
  We expect that out treatments will reduce the former and increase the latter.
- 
-\end_layout
+ In line with Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer outcomes at end of causal chain: Business volume"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-We remain agnostic about the cost of seed, which is why we do not include
- it in the index.
- For quantities sold, we expect a positive impact.
+\end_inset
+
+, we also look at sales volumes, prices, and revenue for the particular
+ seeds.
  We also asked agro-input dealers to provide an estimate of how often they
- ran out of stock 
+ ran out of stock.
+ 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7306,7 +7334,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Amount carried forward in kg$^1$$^
+Amount carried forward in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -7446,7 +7476,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Amount shop bought from provider in kg$^1$$^
+Amount shop bought from provider in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -7724,7 +7756,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^1$$^
+Quantity sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -8004,7 +8038,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Amount lost/wasted in kg$^1$$^{
+Amount lost/wasted in kg$^
+\backslash
+S$$^{
 \backslash
 dag}$
 \end_layout
@@ -8144,7 +8180,9 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,6],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Number of times per month shop ran out$^1$$^{
+Number of times per month shop ran out$^
+\backslash
+S$$^{
 \backslash
 dag}$
 \end_layout
@@ -8480,7 +8518,7 @@ cmidrule(lr){6-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.$^2$ & & & & 268 & & & 254
+ number of obs.$^1$ & & & & 268 & & & 254
 \backslash
 
 \backslash
@@ -8530,8 +8568,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -8540,7 +8577,9 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -8552,7 +8591,7 @@ $^1$Due to the skewness of this variable, the regression was run after an
 
 \begin_layout Plain Layout
 
-$^2$The comparisons were only made for shops which had Longe 10H in stock
+$^1$The comparisons were only made for shops which had Longe 10H in stock
  at mid- or endline.
 \backslash
 
@@ -8690,7 +8729,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Amount carried forward in kg$^1$$^
+Amount carried forward in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -8830,7 +8871,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,1],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Amount shop bought from provider in kg$^1$$^
+Amount shop bought from provider in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -9108,7 +9151,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^1$$^
+Quantity sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -9388,7 +9433,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Amount lost/wasted in kg$^1$$^{
+Amount lost/wasted in kg$^
+\backslash
+S$$^{
 \backslash
 dag}$
 \end_layout
@@ -9528,7 +9575,9 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,6],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Number of times per month shop ran out$^1$$^{
+Number of times per month shop ran out$^
+\backslash
+S$$^{
 \backslash
 dag}$
 \end_layout
@@ -9839,7 +9888,7 @@ cmidrule(lr){6-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.$^2$ & & & & 275 & & & 269
+ number of obs.$^1$ & & & & 275 & & & 269
 \backslash
 
 \backslash
@@ -9889,8 +9938,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -9899,7 +9947,9 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -9911,7 +9961,7 @@ $^1$Due to the skewness of this variable, the regression was run after an
 
 \begin_layout Plain Layout
 
-$^2$The comparisons were only made for shops which had Longe 5 in stock
+$^1$The comparisons were only made for shops which had Longe 5 in stock
  at mid- or endline.
 \backslash
 
@@ -9956,7 +10006,7 @@ We start by looking at production related outcomes for farmers that live
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10357,7 +10407,9 @@ dag)}$ from this table
 
 \begin_layout Plain Layout
 
-Amount sold in kg$^1$$^
+Amount sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -10498,7 +10550,9 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,3],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Revenue in UGX$^1$$^
+Revenue in UGX$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -10639,7 +10693,9 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Amount kept as seed in kg$^1$
+Amount kept as seed in kg$^
+\backslash
+S$
 \end_layout
 
 \begin_layout Plain Layout
@@ -10999,8 +11055,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -11009,7 +11064,9 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -12292,7 +12349,9 @@ Sexpr{format(round(df_ols_end_F_sec_seed[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Cost of maize seed used on specific plot in UGX$^2$$^
+Cost of maize seed used on specific plot in UGX$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -12659,8 +12718,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -12679,7 +12737,9 @@ $^1$For this variable, only non-recycled (newly purchased, not farmer-saved)
 
 \begin_layout Plain Layout
 
-$^2$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -13777,8 +13837,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -14827,8 +14886,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -14884,7 +14942,7 @@ Note that dealers do not necessarily increases efforts because they are
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15813,8 +15871,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -15885,7 +15942,7 @@ $^4$The index of capital-intensive seed handling practices contains 6 variables:
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16915,8 +16972,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -16962,7 +17018,7 @@ $^2$The comparisons were only made for shops in which the enumerator was
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17490,7 +17546,9 @@ Sexpr{format(round(df_ols_end_D_sec_off[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Number of shop inspections$^1$$^
+Number of shop inspections$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -18133,8 +18191,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -18143,7 +18200,9 @@ dag$ indicates that the variable is included in the overall index; larger
 
 \begin_layout Plain Layout
 
-$^1$Due to the skewness of this variable, the regression was run after an
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
  Inverse Hyperbolic Sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
@@ -19186,7 +19245,7 @@ Caro: What about only reporting endline attrition? It makes our case more
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -19781,7 +19840,7 @@ Outcome variables and results as they were pre-registered
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -19922,8 +19981,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Transf.
- quantity of maize seed sold in kg (IHS)$^
+Quantity of maize seed sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -20197,8 +20257,9 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,2],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- revenue from maize seed in mln UGX (IHS)$^
+Revenue from maize seed in mln UGX$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -20336,8 +20397,9 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Transf.
- number of maize seed customers per day (IHS)$^
+Number of maize seed customers per day$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -21504,8 +21566,21 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^
+\backslash
+S$Due to the skewness of this variable, the regression was run after an
+ Inverse Hyperbolic Sine transformation.
+ Coefficient estimates can therefore be interpreted as percentage changes.
+ The baseline mean column shows the untransformed variable.
 \backslash
 
 \backslash
@@ -21587,7 +21662,7 @@ $^5$The index of shop's maize seed ratings by farmers contains 6 ratings:
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -22469,8 +22544,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -22553,7 +22627,7 @@ $^5$The index of dealer's knowledge about seed contains 4 variables: whether
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -24231,8 +24305,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -24328,7 +24401,7 @@ $^6$We report the mean and standard deviation at midline because not all
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -25362,8 +25435,7 @@ Note: 1st column reports baseline means and standard deviations below;
  * and + denote significance at the 1, 5 and 10 percent levels; $^
 \backslash
 dag$ indicates that the variable is included in the overall index; larger
- indices indicate more desirable outcomes; IHS stands for Inverse Hyperbolic
- Sine.
+ indices indicate more desirable outcomes.
 \backslash
 
 \backslash
@@ -25551,7 +25623,7 @@ I would prefer table A.1 (distinguish between tables in paper and tables
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
