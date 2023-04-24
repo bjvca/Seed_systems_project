@@ -3222,9 +3222,11 @@ baseline_dealers$mid_revenue_long10h.q25 <- ihs(baseline_dealers$mid_revenue_lon
 
 #11. Overall index of secondary Longe10H agro-input dealer outcome variables
 variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.long10h.q21,baseline_dealers$mid_maize.owner.agree.long10h.q22
-                                        ,baseline_dealers$mid_maize.owner.agree.long10h.q25,baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
+                                        ,baseline_dealers$mid_maize.owner.agree.long10h.q25,baseline_dealers$mid_maize.owner.agree.long10h.q26
+                                        ,baseline_dealers$mid_revenue_long10h.q25) #x
 variables_overall_Longe10H_base <- cbind(baseline_dealers$maize.owner.agree.long10h.q21,baseline_dealers$maize.owner.agree.long10h.q22
-                                         ,baseline_dealers$maize.owner.agree.long10h.q25,baseline_dealers$maize.owner.agree.long10h.q26)
+                                         ,baseline_dealers$maize.owner.agree.long10h.q25,baseline_dealers$maize.owner.agree.long10h.q26
+                                         ,baseline_dealers$revenue_long10h.q25)
 
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid, revcols = c(1)) #x
 baseline_dealers$index_overall_Longe10H_mid <- index_overall_Longe10H_mid$index #x
@@ -3419,14 +3421,16 @@ variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.l
                                         baseline_dealers$mid_maize.owner.agree.long10h.q25,
                                         baseline_dealers$mid_maize.owner.agree.long10h.q27,
                                         baseline_dealers$mid_maize.owner.agree.long10h.q30,
-                                        baseline_dealers$mid_maize.owner.agree.long10h.q26)
+                                        baseline_dealers$mid_maize.owner.agree.long10h.q26,
+                                        baseline_dealers$mid_revenue_long10h.q25)
 
 variables_overall_Longe10H_base <- cbind(baseline_dealers$maize.owner.agree.long10h.q21,
                                         baseline_dealers$maize.owner.agree.long10h.q22,
                                         baseline_dealers$maize.owner.agree.long10h.q25,
                                         baseline_dealers$maize.owner.agree.long10h.q27,
                                         baseline_dealers$maize.owner.agree.long10h.q30,
-                                        baseline_dealers$maize.owner.agree.long10h.q26)
+                                        baseline_dealers$maize.owner.agree.long10h.q26,
+                                        baseline_dealers$revenue_long10h.q25)
 
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid, revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe10H_mid <- index_overall_Longe10H_mid$index #x
@@ -3684,11 +3688,13 @@ baseline_dealers$mid_revenue_longe5 <- ihs(baseline_dealers$mid_revenue_longe5) 
 variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46,
                                       baseline_dealers$mid_maize.owner.agree.longe5.q47,
                                       baseline_dealers$mid_maize.owner.agree.longe5.q50,
-                                      baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q51,
+                                      baseline_dealers$mid_revenue_longe5) #x
 variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46,
                                        baseline_dealers$maize.owner.agree.longe5.q47,
                                        baseline_dealers$maize.owner.agree.longe5.q50,
-                                       baseline_dealers$maize.owner.agree.longe5.q51)
+                                       baseline_dealers$maize.owner.agree.longe5.q51,
+                                       baseline_dealers$revenue_longe5)
 
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1)) #x
 baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
@@ -3884,7 +3890,8 @@ variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.lon
                                       baseline_dealers$mid_maize.owner.agree.longe5.q50,
                                       baseline_dealers$mid_maize.owner.agree.longe5.q52,
                                       baseline_dealers$mid_maize.owner.agree.longe5.q55,
-                                      baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
+                                      baseline_dealers$mid_maize.owner.agree.longe5.q51,
+                                      baseline_dealers$mid_revenue_longe5) #x
 
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
@@ -3894,7 +3901,8 @@ variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5
                                       baseline_dealers$maize.owner.agree.longe5.q50,
                                       baseline_dealers$maize.owner.agree.longe5.q52,
                                       baseline_dealers$maize.owner.agree.longe5.q55,
-                                      baseline_dealers$maize.owner.agree.longe5.q51) #x
+                                      baseline_dealers$maize.owner.agree.longe5.q51,
+                                      baseline_dealers$revenue_longe5) #x
 
 index_overall_Longe5_base <- icwIndex(xmat=variables_overall_Longe5_base,revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index #x
@@ -6627,9 +6635,9 @@ baseline_farmers$mid_revenueUGX <- ihs(baseline_farmers$mid_revenueUGX)
 
 #8.
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
-                                          ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX)
+                                          ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_yield_inkg)
 variables_overall_yieldetc_base <- cbind(baseline_farmers$landproductivity
-                                          ,baseline_farmers$soldinkg,baseline_farmers$revenueUGX)
+                                          ,baseline_farmers$soldinkg,baseline_farmers$revenueUGX,baseline_farmers$yield_inkg)
 
 index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
 baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
@@ -6928,7 +6936,7 @@ baseline_farmers$index_overallsecF_mid <- index_overallsecF_mid$index
 #CREATE NEW index_overall_yieldetc_mid BECAUSE 3 MORE VARIABLES OK!
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
                                         ,baseline_farmers$mid_soldinkg
-                                        ,baseline_farmers$mid_revenueUGX)
+                                        ,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_yield_inkg)
 
 index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
 baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
@@ -6936,7 +6944,7 @@ baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
 #also baseline because mean
 variables_overall_yieldetc_base <- cbind(baseline_farmers$landproductivity
                                         ,baseline_farmers$soldinkg
-                                        ,baseline_farmers$revenueUGX)
+                                        ,baseline_farmers$revenueUGX,baseline_farmers$yield_inkg)
 
 index_overall_yieldetc_base <- icwIndex(xmat=variables_overall_yieldetc_base)
 baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$index
