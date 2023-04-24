@@ -3209,6 +3209,17 @@ baseline_dealers <- trim("mid_maize.owner.agree.long10h.q30",baseline_dealers,tr
 baseline_dealers$mid_maize.owner.agree.long10h.q30_not_transf <- baseline_dealers$mid_maize.owner.agree.long10h.q30
 baseline_dealers$mid_maize.owner.agree.long10h.q30 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q30) #x
 
+#Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated maize variety
+baseline_dealers <- trim("revenue_long10h.q25",baseline_dealers,trim_perc=.02)
+baseline_dealers$revenue_long10h.q25 <- baseline_dealers$revenue_long10h.q25/1000000 #x
+baseline_dealers$revenue_long10h.q25_not_transf <- baseline_dealers$revenue_long10h.q25
+baseline_dealers$revenue_long10h.q25 <- ihs(baseline_dealers$revenue_long10h.q25)
+
+baseline_dealers <- trim("mid_revenue_long10h.q25",baseline_dealers,trim_perc=.02) #x
+baseline_dealers$mid_revenue_long10h.q25 <- baseline_dealers$mid_revenue_long10h.q25/1000000 #x
+baseline_dealers$mid_revenue_long10h.q25_not_transf <- baseline_dealers$mid_revenue_long10h.q25
+baseline_dealers$mid_revenue_long10h.q25 <- ihs(baseline_dealers$mid_revenue_long10h.q25) #x
+
 #11. Overall index of secondary Longe10H agro-input dealer outcome variables
 variables_overall_Longe10H_mid <- cbind(baseline_dealers$mid_maize.owner.agree.long10h.q21,baseline_dealers$mid_maize.owner.agree.long10h.q22
                                         ,baseline_dealers$mid_maize.owner.agree.long10h.q25,baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
@@ -3234,7 +3245,8 @@ results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21_not_transf", #1
                             "mid_maize.owner.agree.long10h.q26", #5
                             "mid_maize.owner.agree.long10h.q27_not_transf", #6
                             "mid_maize.owner.agree.long10h.q30_not_transf", #7
-                            "index_overall_Longe10H_mid")        #8
+                            "index_overall_Longe10H_mid",
+                            "mid_revenue_long10h.q25_not_transf")
 results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21_not_transf",
                                  "maize.owner.agree.long10h.q22_not_transf",
                                  "maize.owner.agree.long10h.q24",
@@ -3242,7 +3254,8 @@ results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21_not_transf",
                                  "maize.owner.agree.long10h.q26",
                                  "maize.owner.agree.long10h.q27_not_transf",
                                  "maize.owner.agree.long10h.q30_not_transf",
-                                 "index_overall_Longe10H_base")
+                                 "index_overall_Longe10H_base",
+                                 "revenue_long10h.q25_not_transf")
 
 df_means_end_D_secL10H <- array(NA,dim=c(3,11))
 
@@ -3276,7 +3289,8 @@ results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
                             ,"mid_maize.owner.agree.long10h.q26"
                             ,"mid_maize.owner.agree.long10h.q27"
                             ,"mid_maize.owner.agree.long10h.q30"
-                            ,"index_overall_Longe10H_midT")
+                            ,"index_overall_Longe10H_midT",
+                            "mid_revenue_long10h.q25")
 results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q22"
                                  ,"maize.owner.agree.long10h.q24"
@@ -3284,7 +3298,8 @@ results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q26"
                                  ,"maize.owner.agree.long10h.q27"
                                  ,"maize.owner.agree.long10h.q30"
-                                 ,"index_overall_Longe10H_baseT")
+                                 ,"index_overall_Longe10H_baseT",
+                                 "revenue_long10h.q25")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -3318,7 +3333,8 @@ results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
                             ,"mid_maize.owner.agree.long10h.q26"
                             ,"mid_maize.owner.agree.long10h.q27"
                             ,"mid_maize.owner.agree.long10h.q30"
-                            ,"index_overall_Longe10H_midC")
+                            ,"index_overall_Longe10H_midC",
+                            "mid_revenue_long10h.q25")
 results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q22"
                                  ,"maize.owner.agree.long10h.q24"
@@ -3326,7 +3342,8 @@ results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q26"
                                  ,"maize.owner.agree.long10h.q27"
                                  ,"maize.owner.agree.long10h.q30"
-                                 ,"index_overall_Longe10H_baseC")
+                                 ,"index_overall_Longe10H_baseC",
+                                 "revenue_long10h.q25")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -3360,7 +3377,8 @@ results_dealer_secL10H <- c("mid_maize.owner.agree.long10h.q21"
                             ,"mid_maize.owner.agree.long10h.q26"
                             ,"mid_maize.owner.agree.long10h.q27"
                             ,"mid_maize.owner.agree.long10h.q30"
-                            ,"index_overall_Longe10H_midF")
+                            ,"index_overall_Longe10H_midF",
+                            "mid_revenue_long10h.q25")
 results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q22"
                                  ,"maize.owner.agree.long10h.q24"
@@ -3368,7 +3386,8 @@ results_dealer_secL10H_base <- c("maize.owner.agree.long10h.q21"
                                  ,"maize.owner.agree.long10h.q26"
                                  ,"maize.owner.agree.long10h.q27"
                                  ,"maize.owner.agree.long10h.q30"
-                                 ,"index_overall_Longe10H_baseF")
+                                 ,"index_overall_Longe10H_baseF",
+                                 "revenue_long10h.q25")
 
 baseline_dealers[results_dealer_secL10H_base] <- lapply(baseline_dealers[results_dealer_secL10H_base],function(x)x - mean(x,na.rm = T))
 
@@ -3650,6 +3669,17 @@ baseline_dealers <- trim("mid_maize.owner.agree.longe5.q55",baseline_dealers,tri
 baseline_dealers$mid_maize.owner.agree.longe5.q55_not_transf <- baseline_dealers$mid_maize.owner.agree.longe5.q55
 baseline_dealers$mid_maize.owner.agree.longe5.q55 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q55) #x
 
+#Seed revenue in UGX: quantities sold * prices of hybrid and open-pollinated maize variety
+baseline_dealers <- trim("revenue_longe5",baseline_dealers,trim_perc=.02)
+baseline_dealers$revenue_longe5 <- baseline_dealers$revenue_longe5/1000000 #x
+baseline_dealers$revenue_longe5_not_transf <- baseline_dealers$revenue_longe5
+baseline_dealers$revenue_longe5 <- ihs(baseline_dealers$revenue_longe5)
+
+baseline_dealers <- trim("mid_revenue_longe5",baseline_dealers,trim_perc=.02) #x
+baseline_dealers$mid_revenue_longe5 <- baseline_dealers$mid_revenue_longe5/1000000 #x
+baseline_dealers$mid_revenue_longe5_not_transf <- baseline_dealers$mid_revenue_longe5
+baseline_dealers$mid_revenue_longe5 <- ihs(baseline_dealers$mid_revenue_longe5) #x
+
 #11. Overall index of secondary Longe5 agro-input dealer outcome variables
 variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.longe5.q46,
                                       baseline_dealers$mid_maize.owner.agree.longe5.q47,
@@ -3679,7 +3709,8 @@ results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46_not_transf", #1
                           "mid_maize.owner.agree.longe5.q51", #5
                           "mid_maize.owner.agree.longe5.q52_not_transf", #6
                           "mid_maize.owner.agree.longe5.q55_not_transf", #7
-                          "index_overall_Longe5_mid")         #8
+                          "index_overall_Longe5_mid"
+                          ,"mid_revenue_longe5_not_transf")
 results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46_not_transf",
                                "maize.owner.agree.longe5.q47_not_transf",
                                "maize.owner.agree.longe5.q49",
@@ -3687,7 +3718,8 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46_not_transf",
                                "maize.owner.agree.longe5.q51",
                                "maize.owner.agree.longe5.q52_not_transf",
                                "maize.owner.agree.longe5.q55_not_transf",
-                               "index_overall_Longe5_base")
+                               "index_overall_Longe5_base"
+                               ,"revenue_longe5_not_transf")
 
 df_means_end_D_secL5 <- array(NA,dim=c(3,11))
 
@@ -3721,7 +3753,8 @@ results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
                           ,"mid_maize.owner.agree.longe5.q51"
                           ,"mid_maize.owner.agree.longe5.q52"
                           ,"mid_maize.owner.agree.longe5.q55"
-                          ,"index_overall_Longe5_midT")
+                          ,"index_overall_Longe5_midT"
+                          ,"mid_revenue_longe5")
 results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q47"
                                ,"maize.owner.agree.longe5.q49"
@@ -3729,7 +3762,8 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q51"
                                ,"maize.owner.agree.longe5.q52"
                                ,"maize.owner.agree.longe5.q55"
-                               ,"index_overall_Longe5_baseT")
+                               ,"index_overall_Longe5_baseT"
+                               ,"revenue_longe5")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
@@ -3763,7 +3797,8 @@ results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
                           ,"mid_maize.owner.agree.longe5.q51"
                           ,"mid_maize.owner.agree.longe5.q52"
                           ,"mid_maize.owner.agree.longe5.q55"
-                          ,"index_overall_Longe5_midC")
+                          ,"index_overall_Longe5_midC"
+                          ,"mid_revenue_longe5")
 results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q47"
                                ,"maize.owner.agree.longe5.q49"
@@ -3771,7 +3806,8 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q51"
                                ,"maize.owner.agree.longe5.q52"
                                ,"maize.owner.agree.longe5.q55"
-                               ,"index_overall_Longe5_baseC")
+                               ,"index_overall_Longe5_baseC"
+                               ,"revenue_longe5")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
@@ -3805,7 +3841,8 @@ results_dealer_secL5 <- c("mid_maize.owner.agree.longe5.q46"
                           ,"mid_maize.owner.agree.longe5.q51"
                           ,"mid_maize.owner.agree.longe5.q52"
                           ,"mid_maize.owner.agree.longe5.q55"
-                          ,"index_overall_Longe5_midF")
+                          ,"index_overall_Longe5_midF"
+                          ,"mid_revenue_longe5")
 results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q47"
                                ,"maize.owner.agree.longe5.q49"
@@ -3813,7 +3850,8 @@ results_dealer_secL5_base <- c("maize.owner.agree.longe5.q46"
                                ,"maize.owner.agree.longe5.q51"
                                ,"maize.owner.agree.longe5.q52"
                                ,"maize.owner.agree.longe5.q55"
-                               ,"index_overall_Longe5_baseF")
+                               ,"index_overall_Longe5_baseF"
+                               ,"revenue_longe5")
 
 baseline_dealers[results_dealer_secL5_base] <- lapply(baseline_dealers[results_dealer_secL5_base],function(x)x - mean(x,na.rm = T))
 
