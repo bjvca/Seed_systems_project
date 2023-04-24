@@ -5700,6 +5700,15 @@ baseline_farmers$mid_revenueUGX[baseline_farmers$mid_Check2.check.maize.q53==0] 
 baseline_farmers$mid_revenueUGX <- ihs(baseline_farmers$mid_revenueUGX)
 baseline_farmers <- trim("mid_revenueUGX",baseline_farmers,trim_perc=.05)
 
+#Q55. How much did you charge for one bag?
+#Q51. How many kgs is in one bag?
+
+baseline_farmers$price_per_kg <- baseline_farmers$Check2.check.maize.q55/baseline_farmers$Check2.check.maize.q51
+baseline_farmers <- trim("price_per_kg",baseline_farmers,trim_perc=.05)
+
+baseline_farmers$mid_price_per_kg <- baseline_farmers$mid_Check2.check.maize.q55/baseline_farmers$mid_Check2.check.maize.q51
+baseline_farmers <- trim("mid_price_per_kg",baseline_farmers,trim_perc=.05)
+
 #8.
 variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
                                           ,baseline_farmers$mid_soldinkg,baseline_farmers$mid_revenueUGX,baseline_farmers$mid_yield_inkg)
@@ -5719,10 +5728,10 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 ###
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_mid")
+                                 ,"mid_revenueUGX","index_overall_yieldetc_mid","mid_price_per_kg")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_base")
+                                      ,"revenueUGX","index_overall_yieldetc_base","price_per_kg")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5752,10 +5761,10 @@ baseline_farmers$index_overall_yieldetc_baseT <- index_overall_yieldetc_baseT$in
 df_ols_F_sec_yieldetc <- array(NA,dim=c(3,3,11))
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midT")
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midT","mid_price_per_kg")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseT")
+                                      ,"revenueUGX","index_overall_yieldetc_baseT","price_per_kg")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5783,10 +5792,10 @@ index_overall_yieldetc_baseC <- icwIndex(xmat=variables_overall_yieldetc_base,sg
 baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$index
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midC")
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midC","mid_price_per_kg")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseC")
+                                      ,"revenueUGX","index_overall_yieldetc_baseC","price_per_kg")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -5814,10 +5823,10 @@ index_overall_yieldetc_baseF <- icwIndex(xmat=variables_overall_yieldetc_base,sg
 baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$index
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
-                                 ,"mid_revenueUGX","index_overall_yieldetc_midF")
+                                 ,"mid_revenueUGX","index_overall_yieldetc_midF","mid_price_per_kg")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
-                                      ,"revenueUGX","index_overall_yieldetc_baseF")
+                                      ,"revenueUGX","index_overall_yieldetc_baseF","price_per_kg")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
