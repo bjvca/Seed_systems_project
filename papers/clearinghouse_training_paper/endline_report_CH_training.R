@@ -3140,10 +3140,10 @@ baseline_dealers$mid_maize.owner.agree.long10h.q25 <- ihs(baseline_dealers$mid_m
 
 #6. Sales price per kilogram of ${q25} at the beginning of the second season of 2020 (q26)
 baseline_dealers <- trim("maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.02)
-#baseline_dealers$maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$maize.owner.agree.long10h.q26)
+baseline_dealers$maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$maize.owner.agree.long10h.q26)
 
 baseline_dealers <- trim("mid_maize.owner.agree.long10h.q26",baseline_dealers,trim_perc=.02) #x
-#baseline_dealers$mid_maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
+baseline_dealers$mid_maize.owner.agree.long10h.q26 <- ihs(baseline_dealers$mid_maize.owner.agree.long10h.q26) #x
 
 #7. (h) How much of Longe10H was lost/wasted the second season of 2020 (kg) (q27)
 baseline_dealers$sold_condition <- baseline_dealers$maize.owner.agree.long10h.q22_unadj+baseline_dealers$maize.owner.agree.long10h.q21_unadj-baseline_dealers$maize.owner.agree.long10h.q25_unadj
@@ -3608,10 +3608,10 @@ baseline_dealers$mid_maize.owner.agree.longe5.q50 <- ihs(baseline_dealers$mid_ma
 
 #6. Q51. Sales price per kilogram of ${q50}  at the beginning of the second season of 2020
 baseline_dealers <- trim("maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02)
-#baseline_dealers$maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$maize.owner.agree.longe5.q51)
+baseline_dealers$maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$maize.owner.agree.longe5.q51)
 
 baseline_dealers <- trim("mid_maize.owner.agree.longe5.q51",baseline_dealers,trim_perc=.02) #x
-#baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
+baseline_dealers$mid_maize.owner.agree.longe5.q51 <- ihs(baseline_dealers$mid_maize.owner.agree.longe5.q51) #x
 
 #7. Q52. How much of Longe 5 was lost/wasted the second season of 2020 (kg)
 baseline_dealers$sold3_condition <- baseline_dealers$maize.owner.agree.longe5.q47_unadj+baseline_dealers$maize.owner.agree.longe5.q46_unadj-baseline_dealers$maize.owner.agree.longe5.q50_unadj
