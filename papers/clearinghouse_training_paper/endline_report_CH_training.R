@@ -4855,6 +4855,26 @@ for (i in 1:length(results_dealer_sec_nobase)){
 
 #OK!
 
+#how we looked at trainingxCH interaction effect:
+#ran code until just before 2nd regression
+#still defining:
+results_dealer_sec_nobase <- c("index_motivation_mid",          #1
+                               "index_ratings_mid",             #2
+                               "index_overall_prim_dealer_mid", #3
+                               "index_overallsec_mid",          #4
+                               "index_overall_off_mid",         #5
+                               "mid_reading",                   #6
+                               "index_dealer_endchain_mid",
+                               "index_dealer_knowledge_mid",
+                               "index_dealer_efforts_mid")
+
+i=7
+
+ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
+vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+
+coef_test(ols, vcov_cluster)
+
 
 
 
