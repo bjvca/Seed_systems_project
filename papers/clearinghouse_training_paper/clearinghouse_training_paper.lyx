@@ -7342,7 +7342,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^1$$^
+Quantity sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -7483,6 +7485,8 @@ Sexpr{format(round(df_ols_end_D_secL10H[2,2,4],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Sales price in UGX/kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -8645,7 +8649,7 @@ use treatment at midline.
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8753,7 +8757,9 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^1$$^
+Quantity sold in kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -8894,6 +8900,8 @@ Sexpr{format(round(df_ols_end_D_secL5[2,2,4],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Sales price in UGX/kg$^
+\backslash
+S$$^
 \backslash
 dag$
 \end_layout
@@ -11523,7 +11531,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12477,297 +12485,6 @@ Sexpr{format(round(df_ols_end_F_sec_plot[2,2,3],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Amount of maize seed used on specific plot in kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,4],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,4]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,4]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,4]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,4]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,4]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,4]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,4]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,4]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,4],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Price of maize seed used on specific plot in UGX/kg
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,1,5]<.05,"*",ifelse(df_ols_F_sec_seed[3,1,5]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_seed[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_seed[3,2,5]<.05,"*",ifelse(df_ols_F_sec_seed[3,2,5]<.1,"+","
-")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_sec_seed[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,1,5]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,1,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_seed[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_seed[3,2,5]<.05,"*",ifelse(df_ols_end_F_sec_seed[3,2,5]
-<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_sec_seed[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_sec_seed[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_seed[2,2,5],digits=3),nsmall=3)}) &
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Cost of maize seed used on specific plot in UGX$^
 \backslash
 S$$^
@@ -13305,7 +13022,7 @@ Furthermore, we have argued at different points in the paper that knowledge
  between the training and clearinghouse treatment for the primary outcome
  index at the agro-input dealer level.
  The positive interaction effect for the index seems to be driven by a significa
-nt increase in (both capital intensive and labour intensive) seed handling
+nt increase in (both capital intensive and labor intensive) seed handling
  practices.
  This confirms that if agro-input dealers are encouraged to excel through
  a clearinghouse, they are more likely to put into practice the seed handling
