@@ -1195,7 +1195,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1243,8 +1243,8 @@ Collection and computation of ratings
 At the time of baseline data collection from smallholder farmers, we asked
  them to rate agro-input dealers in their proximity on a number of characteristi
 cs.
- Enumerators were guided by an application that iterated through all the
- agro-input dealers in the catchment area.
+ Enumerators were guided by an application on a tablet computer that iterated
+ through all the agro-input dealers in the catchment area.
  For each dealer, we provided the common names that are used to refer to
  the shop, a description of where the store was located, and a picture of
  the store front (obtained during the agro-input dealer census—see Section
@@ -1564,10 +1564,11 @@ It may be argued that by asking farmers to rate dealers, one also makes
 \end_layout
 
 \begin_layout Standard
-Based on the answers of all farmers in a catchment area, we computed the
- ratings for each agro-input shop.
- These ratings were translated into words and stars, so that they are comprehens
-ible for farmers and dealers who are not used to interpreting numbers.
+Based on the answers of all farmers about all dealers in a catchment area,
+ we computed the ratings for each agro-input shop.
+ These ratings were translated into words and stars for dissemination, such
+ that they are comprehensible for farmers and dealers who are not used to
+ interpreting numbers.
  More details about the rating computations can be found in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1674,9 +1675,10 @@ In person
 
 \begin_layout Standard
 The enumerators also re-visited the farmers in our sample.
- For this purpose, we designed a visually appealing dissemination app which
- cycles through all dealers in the proximity of each farmer and states:
- "We wanted to let you know that customers from 
+ For this purpose, we designed a visually appealing dissemination application
+ (shown to farmers on tablet computers) which cycles through all dealers
+ in the catchment area of each farmer and states: "We wanted to let you
+ know that customers from 
 \shape italic
 \emph on
 [name of the shop]
@@ -1691,14 +1693,18 @@ The enumerators also re-visited the farmers in our sample.
 \shape default
 \emph default
  out of 5!" in treated catchment areas.
- Then the enumerator showed the stars associated with the score.
+ The application also showed the stars associated with the score.
  Again, we also cycled through dealers in control areas without providing
- the rating, but just indicating to farmers that these agro-dealers are
- operating in their area.
- As was the case for the collection of ratings at baseline, the application
+ ratings, but just indicating to farmers that these agro-dealers are operating
+ in their area.
+ 
+\end_layout
+
+\begin_layout Standard
+As was the case for the collection of ratings at baseline, the application
  provides different names under which the shop is known, a description of
  where the store was located, and a picture of the store front to make sure
- farmers have the right shop in mind.
+ farmers associate the score to the correct shop.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1852,7 +1858,7 @@ Y_{ij}=\alpha+\beta T_{j}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq
 \end_layout
 
 \begin_layout Standard
-where for dealer level outcomes 
+where for dealer level outcomes, 
 \begin_inset Formula $Y_{ij}$
 \end_inset
 
@@ -1899,7 +1905,7 @@ literal "false"
 \begin_inset Formula $β$
 \end_inset
 
- is our estimated average treatment effect.
+ is the estimated average treatment effect.
  For farmer level outcomes a similar equation is estimated, where 
 \begin_inset Formula $Y_{ij}$
 \end_inset
@@ -2046,9 +2052,9 @@ noprefix "false"
  where most of their customers come from.
  Then enumerators were instructed to randomly sample ten households that
  grow maize in these villages.
- Consequently, about 3500 smallholder maize farmers were sampled, sufficient
- to detect treatment effects according to our power simulations (see Section
- 
+ Consequently, about 3,500 smallholder maize farmers were sampled, sufficient
+ to detect treatment effects for the outcomes used in our power simulations
+ (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Experimental design"
@@ -2077,8 +2083,10 @@ Descriptive statistics
 This subsection describes the baseline sample.
  Information about the average 
 \shape italic
+\emph on
 agro-input shop
 \shape default
+\emph default
  can be found in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2102,8 +2110,8 @@ noprefix "false"
 We see substantial heterogeneity among agro-input shops.
  Some are small informal stores which are located in rural areas and sell
  maize seed only during the planting season.
- Others have many customers, are efficient, located in towns and specialized
- in inputs and equipment used in agricultural production.
+ Others have many customers, are located in towns and specialize in inputs
+ and equipment used in agricultural production.
  The average shop was established 5 years ago and is located 7 kilometers
  from the nearest tarmac road.
  It has 41 customers per day.
@@ -6075,7 +6083,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -14810,176 +14818,6 @@ $^1$We report the mean and standard deviation at midline because this variable
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on farmer switching behavior
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects on farmer switching behavior-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rcc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& farmers who switched & farmers who did not switch
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-rating
-\backslash
-textsubscript{midline} - rating
-\backslash
-textsubscript{baseline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 0.195
-\end_layout
-
-\begin_layout Plain Layout
-
-& 0.199 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-rating
-\backslash
-textsubscript{endline} - rating
-\backslash
-textsubscript{midline}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 0.094
-\end_layout
-
-\begin_layout Plain Layout
-
-& -0.033 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Dealer Effort and Services Rendered
 \end_layout
@@ -18424,138 +18262,29 @@ Switching
 
 \begin_layout Standard
 An important potential mechanism underlying the clearinghouse treatment
- is farmers' propensity to switch form lower ranked agro-input dealers to
- better rated ones.
+ is farmers' propensity to switch from lower rated agro-input dealers to
+ shops that get better scores.
  We provide some evidence here on this impact pathway.
 \end_layout
 
 \begin_layout Standard
-We find that indeed, farmers that are exposed to the clearinghouse intervention
- increased the likelihood that they switched agro-input dealer, particularly
- at midline.
-\end_layout
-
-\begin_layout Standard
-Table X tests if farmers that reported switching moved from lower rated
- agro
-\end_layout
-
-\begin_layout Standard
-Our results in Section 
+At the farmer level, we asked farmers if they switched agro-input dealers
+ from the previous season (reported in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "section: Results"
+reference "switchingfarmers"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- show that all 3 impact pathways play a role.
- We find evidence of farmers switching to different shops, the behavior
- of dealers is also affected as we see significant effects on several measures
- of their efforts and services, and the clearinghouse improves smallholder
- perceptions of the maize seed at shops nearby.
- Clearly, both actors take the ratings serious.
- Hereafter we attempt to disentangle the different impact pathways and investiga
-te what exactly is going on.
-\end_layout
-
-\begin_layout Standard
-We demonstrate that the intervention affects several measures of adoption
- already at midline.
- If we assume that changing dealer behavior and farmers noticing this change
- takes some time, rectifying incorrect perceptions of smallholders must
- have played an important role in increasing their adoption.
- Furthermore, the heterogeneity analysis in Subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Heterogeneity"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that the clearinghouse also works in areas with only one agro-input
- shop and no competition where farmers are less likely to switch and dealers
- have less incentives to increase their efforts.
- Also note that the average agro-input shop was rated 3.4 out of 5 at baseline
- which indicates that seed quality was not so poor to begin with.
- We interpret this as support for the hypothesis that the quality of maize
- seed at some shops in our sample is sufficient but non-adopting farmers
- misperceive it.
- This is in line with 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "MICHELSON2021102579"
-literal "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- who establish that input quality is good but that farmers’ beliefs are
- often incorrect, so that one simply needs to rectify this misperception
- to increase adoption.
- The information clearinghouse provides an innovative way to do so.
- 
-\end_layout
-
-\begin_layout Standard
-In addition, the clearinghouse works through the other impact channels simultane
-ously.
- At endline, when all farmers rated all dealers, we find that smallholders
- perceive seed at clearinghouse treated dealers to be better.
- The rectifying incorrect perceptions argument made above does not explain
- why seed at treated shops received higher ratings.
- Clearly something else has changed due to the clearinghouse.
- It would be straightforward to assume that farmers perceive seed at treated
- shops to be better because the clearinghouse has improved seed quality.
- Unfortunately, we cannot verify this because are not able to objectively
- measure seed quality as DNA fingerprinting is the only reliable way to
- detect varietal purity.
- That is why we cannot confidently conclude that farmers' perceptions of
- seed improve because treated dealers improve seed quality by handling seed
- better.
- Instead, there could be other variables at play, farmers could for example
- rate seed at treated dealers better because these dealers decide to provide
- advice and recommendations in response to the clearinghouse, which is surely
- useful but has no impact on the actual quality of maize seed.
- Even though we cannot conclude that the clearinghouse improved objective
- maize seed quality, it did so in the eyes of smallholder farmers, which
- is what counts after all.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-A clearinghouse could improve quality by providing an incentive against
- a lack of care/ motivation to seek knowledge (unintentional mishandling
- of seed) and adulteration (intentional) by dealers.
- If we combine H1 and H2, can we get an idea of the magnitude of intentional
- adulteration? Intuitively, if we know that knowledge intervention is responsibl
-e for a increase in adoption of 15 percentage points, and we find that the
- information clearinghouse increases adoption by 20 percent, can we claim
- that adulteration reduces adoption by 5 percentage points? Can we get a
- better estimate if we exploit the factorial design (that is, some input
- dealers that are exposed to the clearinghouse will also get the training,
- so we could argue that they have to know that they are cheating)? Clearinghouse
-+training vs.
- clearinghouse+no training.
-\end_layout
-
-\end_inset
-
-
+).
+ We see that few farmers reported switching behavior at baseline.
+ However, at midline we see that in the clearinghouse treatment group a
+ significantly higher share of farmers reported switching agro-input dealer.
+ Also at endline, we find a higher propensity to switch dealers among clearingho
+use treated farmers.
 \end_layout
 
 \begin_layout Standard
@@ -18571,7 +18300,7 @@ status collapsed
 Effects on farmer switching behavior
 \begin_inset CommandInset label
 LatexCommand label
-name "Effects on farmer switching behavior"
+name "switchingfarmers"
 
 \end_inset
 
@@ -18894,6 +18623,86 @@ $^1$We report the mean and standard deviation at midline because this variable
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above reveals increased mobility in the treatment group, but it does
+ not establish the direction.
+ To further investigate if farmers switch from lower ranked to higher ranked
+ dealers, calculate the difference between the rating from shop where the
+ farmer is switching to and the rating of the shop that the farmer is switching
+ from.
+ If farmers indeed move to better rated shops, we expect this difference
+ to be positive and significantly different from zero.
+ We do find that this is indeed the case, and more so during the second
+ season, but the difference is not significant at conventional levels (p=0.166).
+\end_layout
+
+\begin_layout Standard
+We also explore switching at the agro-input dealer level.
+ Here we explore the relationship between ratings that agro-input shops
+ receive and the number of customers (standardized within catchment area).
+ If farmers switch from poorly rated input dealers to higher rated agro-input
+ dealers, we would expect to see a positive correlation in areas where the
+ information clearinghouse treatment was implemented.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Switching"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that shops that are rated higher at midline also receive more customers
+ at endline.
+ However, also here, the evidence is not very robust.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename plot_ratings_customers.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Switching
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Switching"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
