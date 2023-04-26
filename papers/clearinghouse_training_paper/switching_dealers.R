@@ -145,6 +145,8 @@ reviews_seed_baseline$score_corrected_stand <- ((reviews_seed_baseline$score_cor
 
 reviews_seed_baseline$rating_baseline <- reviews_seed_baseline$score_corrected_stand
 
+#reviews_seed_baseline$rating_baseline <- reviews_seed_baseline$score_corrected
+
 ########
 
 reviews_seed_midline <- read.csv(paste(path,"/midline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
@@ -171,6 +173,8 @@ reviews_seed_midline$score_corrected_stand <- ((reviews_seed_midline$score_corre
 
 reviews_seed_midline$rating_midline <- reviews_seed_midline$score_corrected_stand
 
+#reviews_seed_midline$rating_midline <- reviews_seed_midline$score_corrected
+
 ########
 
 reviews_seed_endline <- read.csv(paste(path,"/endline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
@@ -196,6 +200,8 @@ reviews_seed_endline$score_corrected_stand <- ((reviews_seed_endline$score_corre
                                                / reviews_seed_endline$score_corrected_CA_sd)
 
 reviews_seed_endline$rating_endline <- reviews_seed_endline$score_corrected_stand
+
+#reviews_seed_endline$rating_endline <- reviews_seed_endline$score_corrected
 
 ########
 
@@ -263,3 +269,41 @@ ggplot(all,aes(x=rating_midline,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
 summary(lm(all$customers_endline~all$rating_midline)) #2.865
+
+
+#Average ratings
+
+all$average_rating <- ((all$rating_baseline+all$rating_midline+all$rating_endline)/3)
+
+all$average_rating <- rowMeans(all[c("rating_baseline"
+                                     ,"rating_midline"
+                                     ,"rating_endline")],na.rm = T)
+
+ggplot(all,aes(x=average_rating,y=customers_baseline)) +
+  geom_point() +
+  geom_smooth(method='lm')
+summary(lm(all$customers_baseline~all$average_rating))
+
+ggplot(all,aes(x=average_rating,y=customers_midline)) +
+  geom_point() +
+  geom_smooth(method='lm')
+summary(lm(all$customers_midline~all$average_rating))
+
+ggplot(all,aes(x=average_rating,y=customers_endline)) +
+  geom_point() +
+  geom_smooth(method='lm')
+summary(lm(all$customers_endline~all$average_rating))
+
+all_CH_treated=subset(all,clearing==T)
+
+ggplot(all_CH_treated,aes(x=average_rating,y=customers_endline)) +
+  geom_point() +
+  geom_smooth(method='lm')
+summary(lm(all_CH_treated$customers_endline~all_CH_treated$average_rating))
+
+all_CH_control=subset(all,clearing==F)
+
+ggplot(all_CH_control,aes(x=average_rating,y=customers_endline)) +
+  geom_point() +
+  geom_smooth(method='lm')
+summary(lm(all_CH_control$customers_endline~all_CH_control$average_rating))
