@@ -10,7 +10,12 @@ rating_dyads_baseline <- read.csv(paste(path,"/baseline/data/farmer/public/ratin
 rating_dyads_baseline=subset(rating_dyads_baseline,bought_last_season=="Yes")
 
 reviews_seed_baseline <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
-names(reviews_seed_baseline)[names(reviews_seed_baseline) == "score_corrected"] <- "rat_at_baseline_of_dealer_farmer_chose_at_baseline"
+
+reviews_seed_baseline$score_corrected_standardized <- ((reviews_seed_baseline$score_corrected
+                                                       - mean(reviews_seed_baseline$score_corrected,na.rm = T))
+                                                       / sd(reviews_seed_baseline$score_corrected,na.rm = T))
+
+names(reviews_seed_baseline)[names(reviews_seed_baseline) == "score_corrected_standardized"] <- "rat_at_baseline_of_dealer_farmer_chose_at_baseline"
 
 rating_dyads_baseline <- merge(rating_dyads_baseline[,c("shop_ID","farmer_ID")]
                                ,reviews_seed_baseline[,c("shop_ID","rat_at_baseline_of_dealer_farmer_chose_at_baseline")]
@@ -23,14 +28,25 @@ rating_dyads_midline <- read.csv(paste(path,"/midline/data/farmer/public/midline
 rating_dyads_midline=subset(rating_dyads_midline,bought_last_season=="Yes")
 
 reviews_seed_midline <- read.csv(paste(path,"/midline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
-names(reviews_seed_midline)[names(reviews_seed_midline) == "score_corrected"] <- "rat_at_midline_of_dealer_farmer_chose_at_midline"
+
+reviews_seed_midline$score_corrected_standardized <- ((reviews_seed_midline$score_corrected
+                                                       - mean(reviews_seed_midline$score_corrected,na.rm = T))
+                                                      / sd(reviews_seed_midline$score_corrected,na.rm = T))
+
+names(reviews_seed_midline)[names(reviews_seed_midline) == "score_corrected_standardized"] <- "rat_at_midline_of_dealer_farmer_chose_at_midline"
 
 rating_dyads_midline <- merge(rating_dyads_midline[,c("shop_ID","farmer_ID")]
                               ,reviews_seed_midline[,c("shop_ID","rat_at_midline_of_dealer_farmer_chose_at_midline")]
                               ,by="shop_ID")
 
 reviews_seed_baseline <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
-names(reviews_seed_baseline)[names(reviews_seed_baseline) == "score_corrected"] <- "rat_at_baseline_of_dealer_farmer_chose_at_midline"
+
+reviews_seed_baseline$score_corrected_standardized <- ((reviews_seed_baseline$score_corrected
+                                                        - mean(reviews_seed_baseline$score_corrected,na.rm = T))
+                                                       / sd(reviews_seed_baseline$score_corrected,na.rm = T))
+
+
+names(reviews_seed_baseline)[names(reviews_seed_baseline) == "score_corrected_standardized"] <- "rat_at_baseline_of_dealer_farmer_chose_at_midline"
 
 rating_dyads_midline <- merge(rating_dyads_midline[,c("shop_ID","farmer_ID","rat_at_midline_of_dealer_farmer_chose_at_midline")]
                               ,reviews_seed_baseline[,c("shop_ID","rat_at_baseline_of_dealer_farmer_chose_at_midline")]
@@ -72,7 +88,12 @@ rating_dyads_endline <- merge(rating_dyads_endline[,c("shop_ID","farmer_ID")]
                               ,by="shop_ID")
 
 reviews_seed_midline <- read.csv(paste(path,"/midline/data/agro_input/public/reviews_seed.csv", sep="/"), stringsAsFactors = TRUE)
-names(reviews_seed_midline)[names(reviews_seed_midline) == "score_corrected"] <- "rat_at_midline_of_dealer_farmer_chose_at_endline"
+
+reviews_seed_midline$score_corrected_standardized <- ((reviews_seed_midline$score_corrected
+                                                       - mean(reviews_seed_midline$score_corrected,na.rm = T))
+                                                      / sd(reviews_seed_midline$score_corrected,na.rm = T))
+
+names(reviews_seed_midline)[names(reviews_seed_midline) == "score_corrected_standardized"] <- "rat_at_midline_of_dealer_farmer_chose_at_endline"
 
 rating_dyads_endline <- merge(rating_dyads_endline[,c("shop_ID","farmer_ID","clearing")]
                               ,reviews_seed_midline[,c("shop_ID","rat_at_midline_of_dealer_farmer_chose_at_endline")]
