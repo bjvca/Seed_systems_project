@@ -911,12 +911,12 @@ name "section: Experimental design"
 \begin_layout Standard
 We developed two interventions (described in detail in the next section),
  and evaluate the impact using a randomized control trial (RCT).
- For the randomization of the interventions, we define catchment areas.
+ Interventions are randomized at the catchment area level.
  Catchment areas are defined relative to clusters of agro-input shops, and
  capture its potential customers.
- Generally, dealers are clustered in towns, villages, markets, trading centers
- and other key market sheds and so a catchment area may be served by several
- agro-input shops.
+ Generally, agro-input dealers are clustered in towns, villages, markets,
+ trading centers and other key market sheds and so a single catchment area
+ may be served by several agro-input shops.
  If the catchment areas of two or more shops overlap because these dealers
  operate in the same town, street or right next to each other, they are
  assigned to the same catchment area and receive the same treatment.
@@ -931,7 +931,7 @@ The haversine function is used to construct an adjacency matrix based on
  are assigned to the same catchment area.
  The 5 kilometer threshold was selected based on a visual inspection of
  the map, the size of an average village and the reported distance between
- farmers and dealers.
+ farmers and dealers in previous survey data.
 \begin_inset CommandInset label
 LatexCommand label
 name "fn:The-haversine-function"
@@ -948,8 +948,8 @@ name "fn:The-haversine-function"
 
 \begin_layout Standard
 We randomize at catchment area level for three reasons.
- Firstly, because randomizing at the level of the individual agro-input
- shop prompted ethical concerns.
+ Firstly, randomizing at the level of the individual agro-input shop prompted
+ ethical concerns.
  In cases where two agro-input dealers are very close to each other, treating
  only one of the two may lead to a competitive advantage; randomizing at
  catchment area level substantially reduces the risk concern.
@@ -957,20 +957,19 @@ We randomize at catchment area level for three reasons.
  dealers.
  Thirdly, randomizing at catchment area level allows us to measure the effect
  of the treatments on farmers, as all farmers in the catchment area are
- now exposed agro-input dealers who all received the same treatment.
- To account for reduced statistical power due to randomizing at catchment
- area level we collect data from a larger sample.
+ now exposed to agro-input dealers who all received the same treatment.
 \end_layout
 
 \begin_layout Standard
 We used simulations to determine the sample sizes for this experiment.
- Simulating provides a flexible and intuitive way to analyze power.
+ Simulating provides a flexible and intuitive way to analyze statistical
+ power.
  Furthermore, instead of relying on theoretical distributions for the outcome
- variables that make assumptions and return analytic solutions, simulations
- can sample from real data.
- Power simulations based on previously collected data show that if the number
- of catchment areas is larger than 112, our experiments will return statisticall
-y significant results 80% of the time.
+ variables that make assumptions and return analytic solutions, we run simulatio
+ns that (re-)sample from real data data that was collected in previous surveys.
+ Power simulations show that if the number of catchment areas is larger
+ than 112, our experiments will return statistically significant results
+ 80% of the time on a selection of primary outcomes.
 \begin_inset Foot
 status collapsed
 
@@ -998,7 +997,7 @@ literal "false"
  we decide to collect information on 10 farmers per dealer, leading to a
  sample size of 3,180 households.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 More detailed information can be found in the pre-analysis plan which was
@@ -1039,7 +1038,7 @@ noprefix "false"
 .
  Impact is measured at both agro-input dealers and on farmers.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I am wondering if it would not be better to just put a table as is customary
@@ -1106,20 +1105,9 @@ name "section: Intervention"
 \end_layout
 
 \begin_layout Standard
-This section provides a detailed description of the two interventions that
- will be used to test the hypotheses outline in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Background"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+This section provides a detailed description of the two interventions.
  We start with the agro-input dealer training and then explain the information
- clearinghouse we implemented.
+ clearinghouse treatment.
 \end_layout
 
 \begin_layout Subsection
@@ -1137,8 +1125,8 @@ To determine the content of the training and to make sure it is locally
  dealer associations.
  A series of semi-structured interviews and a workshop were organized.
  The experts identified common problems and malpractices by dealers, and
- then determined effective and realistic solutions and best seed storage
- and handling practices.
+ then determined effective and realistic solutions and best practices in
+ seed storage and handling.
  We then developed a training manual to ensure standardization and a simple
  but visually appealing poster illustrating the most important best practices.
 \end_layout
@@ -1150,36 +1138,17 @@ Training
 \begin_layout Standard
 In each treatment catchment area, all shops were selected to receive a training.
  Of each treated shop, both the owner and the shop manager who is in charge
- of day to day activities and decides upon labor-intensive practices were
- invited.
+ of day-to-day activities were invited.
  The owner was invited because some of the recommended techniques and practices
  required investments.
  The shop manager was invited because many of the recommendations were hands-on
  practices.
- We handed out one free portable seed moisture meter per shop as an incentive
- and tried to increase attendance by all means.
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-All attendants were compensated for transport, lunch and drinks were provided.
+ We handed out one free portable seed moisture meter per shop as an incentive.
+ All attendants were compensated for transport, lunch and drinks were provided.
  The training took place at a time of the year when dealers were not too
  busy.
-\end_layout
-
-\end_inset
-
- Trainings were organized in small groups, with on average 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Caroline: please fill in
-\end_layout
-
-\end_inset
-
- agro-input dealers present.
+ Trainings were organized in small groups, with on average about 10-15 agro-inpu
+t dealers present.
  The trainings took place in locations that were easily reachable for agro-input
  dealers.
  
@@ -1188,8 +1157,8 @@ Caroline: please fill in
 \begin_layout Standard
 The trainers explained the correct handling and storage practices for improved
  maize seed and used the poster and an example seed bag for illustration.
- Afterwards the dealers rehearsed the more challenging practices like correctly
- applying the moisture meter.
+ Afterwards the dealers rehearsed the more challenging practices like measuring
+ moisture using a moisture meter.
  At the end of the training, they were asked to answer a couple of multiple
  choice questions.
  The dealers were told at the beginning of the training that receiving a
