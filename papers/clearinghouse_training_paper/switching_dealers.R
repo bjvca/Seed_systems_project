@@ -88,6 +88,8 @@ endline_dealers$check.owner.agree.q7[endline_dealers$check.owner.agree.q7==999] 
 endline_dealers$check.owner.agree.q7 <- as.numeric(as.character(endline_dealers$check.owner.agree.q7)) #x
 endline_dealers <- trim("check.owner.agree.q7",endline_dealers,trim_perc=.02) #x
 #endline_dealers$check.owner.agree.q7 <- ihs(endline_dealers$check.owner.agree.q7) #x
+#endline_dealers$check.owner.agree.q7[endline_dealers$check.owner.agree.q7>40] <- NA #x #here1
+
 
 #endline dealers has no catch ID
 
@@ -231,44 +233,55 @@ all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline
 ggplot(all,aes(x=rating_baseline,y=customers_baseline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all$customers_baseline~all$rating_baseline)) #2.158
+summary(lm(all$customers_baseline~all$rating_baseline))
 
 ggplot(all,aes(x=rating_midline,y=customers_midline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all$customers_midline~all$rating_midline)) #-1.658
+summary(lm(all$customers_midline~all$rating_midline))
 
 ggplot(all,aes(x=rating_endline,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all$customers_endline~all$rating_endline)) #1.745
+summary(lm(all$customers_endline~all$rating_endline))
 
 all_CH_treated=subset(all,clearing==T)
 
 ggplot(all_CH_treated,aes(x=rating_endline,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all_CH_treated$customers_endline~all_CH_treated$rating_endline)) #3.193
+summary(lm(all_CH_treated$customers_endline~all_CH_treated$rating_endline))
+
+#here2
 
 all_CH_control=subset(all,clearing==F)
 
 ggplot(all_CH_control,aes(x=rating_endline,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all_CH_control$customers_endline~all_CH_control$rating_endline)) #-0.4889
+summary(lm(all_CH_control$customers_endline~all_CH_control$rating_endline))
 
 
 #Caro's idea
 
+#THIS PLOT IS IN PAPER
 ggplot(all,aes(x=rating_baseline,y=customers_midline)) +
   geom_point() +
+  xlab("Standardized shop rating at baseline") + ylab("Standardized number of maize seed customers at midline") +
   geom_smooth(method='lm')
-summary(lm(all$customers_midline~all$rating_baseline)) #-6.888
+summary(lm(all$customers_midline~all$rating_baseline))
 
-ggplot(all,aes(x=rating_midline,y=customers_endline)) +
+ggplot(all,aes(x=rating_baseline,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
-summary(lm(all$customers_endline~all$rating_midline)) #2.865
+summary(lm(all$customers_endline~all$rating_baseline))
+
+#THIS PLOT IS IN PAPER
+ggplot(all,aes(x=rating_midline,y=customers_endline)) +
+  geom_point() +
+  xlab("Standardized shop rating at midline") + ylab("Standardized number of maize seed customers at endline") +
+  geom_smooth(method='lm')
+summary(lm(all$customers_endline~all$rating_midline))
 
 
 #Average ratings
