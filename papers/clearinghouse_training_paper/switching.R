@@ -75,6 +75,7 @@ rating_dyads_baseline_midline$farmer_switched <- ifelse(rating_dyads_baseline_mi
 mean(rating_dyads_baseline_midline$diff_between_rat_at_baseline[rating_dyads_baseline_midline$farmer_switched==1])
 mean(rating_dyads_baseline_midline$diff_between_rat_at_baseline[rating_dyads_baseline_midline$farmer_switched==0])
 
+t.test(rating_dyads_baseline_midline$diff_between_rat_at_baseline[rating_dyads_baseline_midline$farmer_switched==1], mu=0, alternative = "greater")
 
 
 #ENDLINE
@@ -125,6 +126,7 @@ rating_dyads_midline_endline$farmer_switched <- ifelse(rating_dyads_midline_endl
 mean(rating_dyads_midline_endline$diff_between_rat_at_midline[rating_dyads_midline_endline$farmer_switched==1],na.rm = T)
 mean(rating_dyads_midline_endline$diff_between_rat_at_midline[rating_dyads_midline_endline$farmer_switched==0])
 
+t.test(rating_dyads_midline_endline$diff_between_rat_at_midline[rating_dyads_midline_endline$farmer_switched==1], mu=0, alternative = "greater")
 
 
 #Stacking BASE, MID & ENDLINE
@@ -137,3 +139,5 @@ rating_dyads_baseline_midline_endline <- rbind(rating_dyads_baseline_midline[,c(
 
 mean(rating_dyads_baseline_midline_endline$difference[rating_dyads_baseline_midline_endline$farmer_switched==1],na.rm = T)
 mean(rating_dyads_baseline_midline_endline$difference[rating_dyads_baseline_midline_endline$farmer_switched==0])
+
+t.test(rating_dyads_baseline_midline_endline$difference[rating_dyads_baseline_midline_endline$farmer_switched==1], mu=0, alternative = "greater")
