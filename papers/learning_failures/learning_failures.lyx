@@ -1101,6 +1101,506 @@ name "sec:Theoretical-framework"
 \end_layout
 
 \begin_layout Standard
+In our theoretical framework, we describe farmers as solving an intertemporal
+ problem in which they allocate resources at 
+\emph on
+t
+\emph default
+ in order to maximize profits at 
+\emph on
+t+1
+\emph default
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For simplicity, we assume a discount factor of 1, but another discount factor
+ will not alter the results.
+\end_layout
+
+\end_inset
+
+ In line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "suri2011selection"
+literal "false"
+
+\end_inset
+
+, we assume that farmers (indexed 
+\emph on
+i
+\emph default
+ in the model below) are risk-neutral and choose to plant seed which is
+ either of a Variety H, a new variety that is stochastically dominant in
+ yield and other attributes in all states, or of a Variety L, an old variety
+ that is stochastically inferior in yield and other attributes in all states,
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The model is applicable to a variety of cases as Variety H and Variety L
+ can be interpreted as improved and unimproved, farmer-saved and commercially-pu
+rchased, modern and traditional, newer and older, hybrid and open pollinated
+ varieties, etc.
+\end_layout
+
+\end_inset
+
+ to maximize their profits per area of land.
+ In doing so, they compare the expected profit functions of Variety H 
+\begin_inset Formula $\pi_{it}^{*^{H}}$
+\end_inset
+
+ and Variety L 
+\begin_inset Formula $\pi_{it}^{*^{L}}$
+\end_inset
+
+ which are defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\pi_{it+1}^{H}\right)=E\left(p_{t+1}Y_{it+1}^{H}\right)-b_{t}s_{it}-\sum w_{t}X_{it}^{H}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\pi_{it+1}^{L}\right)=E\left(p_{t+1}Y_{it+1}^{L}\right)-\sum w_{t}X_{it}^{L}\label{eq:two}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\emph on
+E
+\emph default
+ is an expectations operator and 
+\begin_inset Formula $E\left(p_{t+1}\right)$
+\end_inset
+
+ is the expected price at which output is valued, assuming that the end
+ commodity, maize grain, is indistinguishable to consumers by variety.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In a country like Uganda, where most grain is combined, milled, and sold
+ without varietal denomination, this is a reasonable assumption.
+ In other countries such as Malawi or Mexico, where consumers have distinct
+ varietal preferences related to taste, texture, and color, this assumption
+ might not always hold.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $E\left(Y_{it+1}^{H}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $E\left(Y_{it+1}^{L}\right)$
+\end_inset
+
+ reflect the expected yield for seed of Variety H and L respectively.
+ Seed of Variety L is assumed to be free, while for seed of Variety H, 
+\begin_inset Formula $s_{it}$
+\end_inset
+
+ is procured at a cost 
+\begin_inset Formula $b_{t}>0$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Seed of Variety L may not be free but have a shadow price of at least the
+ grain price, which could be subtracted from the expected revenue in Equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:two"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, so that the adoption decision in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ would not only depend on yield comparisons but also on cost comparisons.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "suri2011selection"
+literal "false"
+
+\end_inset
+
+ takes this into account but also notes that the cost of, in her case, farmer-sa
+ved seed is likely to be low, if not zero.
+ Rather than complicating the model by explicitly modeling the price of
+ the stochastically inferior variety, we decide to set it to zero.
+ Setting it to a small positive value would not change the predictions derived
+ from the model.
+\end_layout
+
+\end_inset
+
+ In both profit functions, the cost of a range of complementary inputs and
+ management practices, referred to as inputs, are deducted and summarized
+ by the vector 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ with corresponding factor prices 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Farmers adopt the stochastically dominant Variety H if they expect it to
+ be more profitable than using the stochastically inferior Variety L, that
+ is, if 
+\begin_inset Formula $E\left(\pi_{it+1}^{H}\right)>E\left(\pi_{it+1}^{L}\right)$
+\end_inset
+
+ or:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(E\left(Y_{it+1}^{H}\right)-\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{H}\right)-\left(E\left(Y_{it+1}^{L}\right)-\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{L}\right)>\frac{b_{t}}{E(p_{t+1})}s_{it}^{*}\label{eq:three}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where we normalize by output price.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For simplicity, we assume that farmers have only one plot and model the
+ decision to adopt as a binary process, instead of expressing 
+\begin_inset Formula $s_{it}$
+\end_inset
+
+ in kilograms of seed used.
+ As such, 
+\begin_inset Formula $b_{t}$
+\end_inset
+
+ refers to the cost of planting an entire plot with seed of Variety H.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that adoption decisions fundamentally depend on yield comparisons.
+ We assume that yield for Variety L is a function of inputs used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{it+1}^{L}=Y_{it}\left(X_{it}^{L}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and that this relationship is assumed to be positive with decreasing returns
+ to scale: 
+\begin_inset Formula $\frac{dY_{it}}{dX_{it}}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{d^{2}Y_{it}}{dX_{it}^{2}}<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Yield for Variety H follows the same function, but adds a positive and constant
+ adoption premium 
+\begin_inset Formula $(A>0)$
+\end_inset
+
+.
+ However, the adoption premium only applies when the farmer uses at least
+ the same amount of complementary inputs as they would when using Variety
+ L 
+\begin_inset Formula $\left(X_{it}^{H}\geq X_{it}^{L}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{it+1}^{H}=A\left(X_{it}^{H}\geq X_{it}^{L}\right)+Y_{it}\left(X_{it}^{H}\right)\label{eq:truerel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If farmers are able to predict yields—at least on average—in 
+\emph on
+t+1
+\emph default
+, such that 
+\begin_inset Formula $E\left(Y_{it+1}\right)=Y_{it+1}+\varepsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\sim N(0,\sigma)$
+\end_inset
+
+, their decision to adopt would depend on the difference in yield between
+ Variety H and L, on the relative prices of inputs, and on the yield responses
+ to the inputs.
+\end_layout
+
+\begin_layout Standard
+Next, we introduce farmer heterogeneity into the model by assuming that
+ at least some farmers are not aware of the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+, but instead believe that the adoption premium is always present, that
+ is 
+\begin_inset Formula $E\left(Y_{it+1}^{H}\right)=A+Y_{it}\left(X_{it}^{H}\right)$
+\end_inset
+
+.
+ As a result, some farmer will use Variety H but not enough complementary
+ inputs, leading to disappointing outcomes.
+\end_layout
+
+\begin_layout Standard
+This variation in the model leads to different farmer-types based on their
+ dynamic profile and knowledge, as summarized in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Some farmers are knowledgeable about the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:truerel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and as a result make correct investment choices.
+ For at least some of these farmers, referred to as Type 1 farmers in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the marginal cost of adoption will be lower than the expected marginal
+ return in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and as a result they adopt (and will continue to do so in the future unless
+ there is a change in fundamentals such as the cost of seed).
+ For another subset of these farmers, referred to as Type 2 farmers in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the marginal cost of adoption will be higher than the expected marginal
+ return, so they will not adopt (and are unlikely to adopt in the near future).
+\end_layout
+
+\begin_layout Standard
+Another group of farmers is not knowledgeable about the true relationship
+ between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+ and believes there is always an adoption premium.
+ A subset of these farmers may adopt because their marginal cost of adoption
+ is lower than their expected marginal return.
+ We refer to these farmers in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as Type 3 farmers.
+ Another subset of this group of farmers that is not knowledgeable about
+ the true relationship between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+, referred to as Type 4 farmers in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, does not adopt at baseline because, even though they have inflated expectation
+s of Variety H's yield, the marginal cost of adoption still exceeds the
+ expected marginal return.
+\end_layout
+
+\begin_layout Standard
+Another group of farmers is also not knowledgeable about the true relationship
+ between 
+\begin_inset Formula $Y_{it}^{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{it}$
+\end_inset
+
+.
+ But unlike Type 3 and 4 farmers, they underestimate the adoption premium
+ (much like the rice farmers underestimate the returns to intensification
+ investments in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1086/703868"
+literal "false"
+
+\end_inset
+
+), perhaps due to a disappointing experience in the past.
+ Some of these farmers, Type 5 in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, adopt at baseline as the expected marginal return may still be larger
+ than the marginal cost of adoption, even if they underestimate the return.
+ For another fraction of farmers that underestimate the adoption premium,
+ referred to as Type 6 in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "types of farmers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the expected marginal return will be less than the marginal cost of adoption,
+ such that they do not adopt.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
