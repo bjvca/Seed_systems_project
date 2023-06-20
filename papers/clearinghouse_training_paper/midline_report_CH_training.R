@@ -4184,7 +4184,31 @@ for (i in 1:length(results_dealer_sec_nobase)){
 
 save(df_ols_D_sec_nobase,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_D_sec_nobase.Rdata",sep="/"))
 
+#how we looked at trainingxCH interaction effect:
+#ran code until just before 2nd regression
+#still defining:
+results_dealer_sec_nobase <- c("index_motivation_midT"
+                               ,"index_ratings_midT"
+                               ,"index_overall_prim_dealer_midT"
+                               ,"index_overallsec_midT"
+                               ,"index_overall_off_midT"
+                               ,"mid_reading"
+                               ,"index_dealer_endchain_midT"
+                               ,"index_dealer_knowledge_midT"
+                               ,"index_dealer_efforts_midT"
+                               
+                               ,"index_knowl_store_midT" #10 in addition
+                               ,"index_knowl_seed_midT") #11 in addition
 
+i=11 #index_ratings_midT = 2, index_overallsec_midT = 4, index_knowl_seed_midT = 11
+
+
+ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
+vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+
+summary(ols)
+
+coef_test(ols,vcov_cluster)
 
 
 

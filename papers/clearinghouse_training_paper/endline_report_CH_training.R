@@ -4866,14 +4866,35 @@ results_dealer_sec_nobase <- c("index_motivation_mid",          #1
                                "mid_reading",                   #6
                                "index_dealer_endchain_mid",
                                "index_dealer_knowledge_mid",
-                               "index_dealer_efforts_mid")
+                               "index_dealer_efforts_mid"
+                               
+                               ,"index_knowl_store_midT" #10 in addition
+                               ,"index_knowl_seed_midT") #11 in addition
 
-i=7
+i=9 #sig. index_overall_prim_dealer_mid = 3, index_dealer_endchain_mid = 7, index_dealer_efforts_mid = 9
+
 
 ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
 vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
 
-coef_test(ols, vcov_cluster)
+summary(ols)
+
+coef_test(ols,vcov_cluster)
+
+# #baseline_dealers$index_dealer_knowledge_mid
+# ols <- lm(formula = baseline_dealers$index_dealer_knowledge_mid ~ baseline_dealers$training * baseline_dealers$clearing * baseline_dealers$farmer_demeaned)
+# vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+# coef_test(ols, vcov_cluster)
+# 
+# #baseline_dealers$index_knowl_store_mid
+# ols <- lm(formula = baseline_dealers$index_knowl_store_mid ~ baseline_dealers$training * baseline_dealers$clearing * baseline_dealers$farmer_demeaned)
+# vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+# coef_test(ols, vcov_cluster)
+# 
+# #baseline_dealers$index_knowl_seed_mid
+# ols <- lm(formula = baseline_dealers$index_knowl_seed_mid ~ baseline_dealers$training * baseline_dealers$clearing * baseline_dealers$farmer_demeaned)
+# vcov_cluster <- vcovCR(ols,cluster=baseline_dealers$catchID,type="CR3")
+# coef_test(ols, vcov_cluster)
 
 
 
@@ -7021,12 +7042,10 @@ baseline_farmers$index_farmer_adoption_base <- index_farmer_adoption_base$index
 
 #Effects on farmer perceptions
 variables_farmer_perceptions_mid <- cbind(baseline_farmers$mid_Check2.check.maize.q25h
-                                          ,baseline_farmers$index_ratingsF_mid
-                                          ,baseline_farmers$index_ratingsshopF_mid)
+                                          ,baseline_farmers$index_ratingsF_mid)
 
 variables_farmer_perceptions_base <- cbind(baseline_farmers$Check2.check.maize.q25h
-                                          ,baseline_farmers$index_ratingsF_base
-                                          ,baseline_farmers$index_ratingsshopF_base)
+                                          ,baseline_farmers$index_ratingsF_base)
 
 index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,revcols = c(1))
 baseline_farmers$index_farmer_perceptions_mid <- index_farmer_perceptions_mid$index
@@ -7243,6 +7262,16 @@ df_ols_end_mech[1,2,3] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,3] <- coef_test(ols, vcov_cluster)$SE[3]
 df_ols_end_mech[3,2,3] <- coef_test(ols, vcov_cluster)$p_Satt[3]
 df_ols_end_mech[4,2,3] <- nobs(ols)
+
+i <- 14
+ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+
+df_ols_end_mech[1,2,4] <- coef_test(ols, vcov_cluster)$beta[3]
+df_ols_end_mech[2,2,4] <- coef_test(ols, vcov_cluster)$SE[3]
+df_ols_end_mech[3,2,4] <- coef_test(ols, vcov_cluster)$p_Satt[3]
+df_ols_end_mech[4,2,4] <- nobs(ols)
+
 
 ###
 #4#
