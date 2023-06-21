@@ -6806,9 +6806,14 @@ results_farmer_sec_yieldetc_base <- c("yield_inkg"
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
 for (i in 1:length(results_farmer_sec_yieldetc)){
-  ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers)
+  #ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers) 
+  ols <- lm(as.formula(paste(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_sec_yieldetc_base[i],sep="+")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]) #switch # to see impact on adopters/nonadopters only
+  
   #ols <- lm(as.formula(paste(results_farmer_sec_yieldetc[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers)
-  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  
+  #vcov_cluster <- vcovCR(ols,cluster=baseline_farmers$catchID,type="CR0")
+  vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0") #switch # to see impact on adopters/nonadopters only
+  
 
   df_ols_end_F_sec_yieldetc[1,2,i] <- coef_test(ols, vcov_cluster)$beta[3]
   df_ols_end_F_sec_yieldetc[2,2,i] <- coef_test(ols, vcov_cluster)$SE[3]
