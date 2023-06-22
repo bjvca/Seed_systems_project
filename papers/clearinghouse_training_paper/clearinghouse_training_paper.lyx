@@ -11509,8 +11509,7 @@ To explore the large effect of the clearinghouse on yields, we investigate
  led to a coefficient of 56.44 with a standard error of 17.38 (hence, significance
  at the 1% level).
  For farmers that did adopt at baseline, we find a coefficient of 30.79 with
- a standard error of 20.38 (hence, just no significance at the 10 percent
- level).
+ a standard error of 20.38 (hence, no significance).
  This indicates that the effect is driven by farmers who did not adopt at
  baseline, started adopting due to the clearinghouse, and in turn enjoy
  higher yields.
@@ -18070,7 +18069,7 @@ Another important outcome is related to farmer perceptions of product quality:
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -19368,80 +19367,41 @@ ion; **, * and + denote significance at the 1, 5 and 10
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Het
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Conclusion-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Heterogeneity analysis for competitive areas
-\begin_inset CommandInset label
-LatexCommand label
-name "Heterogeneity"
-
-\end_inset
-
-
+note for Robert & David:
 \end_layout
 
 \begin_layout Plain Layout
-One could argue that the information clearinghouse will not work in areas
- with only one agro-input dealer, as farmers have less opportunities to
- switch to better dealers and dealers would have less incentives to improve
- their services and increase their efforts if there is no threat of competition
- nearby.
- In our sample, 46 of 130 catchment areas are served by only one dealer.
- We exclude these smallest clusters which leaves us with 302 shops and 3020
- farmers in 84 areas.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on primary dealer outcomes - Heterogeneity"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on primary farmer outcomes - Heterogeneity"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- report that the effects are not stronger here.
- We conclude that the clearinghouse does not work better in more competitive
- areas and that our results for the entire sample are not driven by these
- dealers.
- One potential explanation for this is that some dealers provide great seed
- but farmers are not aware of it, so that the clearinghouse corrects a mispercep
-tion.
- This way the intervention can also work in areas without dealer competition
- and the results of the heterogeneity analysis stand to reason.
+In previous versions of the paper, I included a heterogeneity analysis for
+ more competitive areas (i.e., areas with more than 1 dealer, or areas with
+ more than 2 dealers), as one could argue that the information clearinghouse
+ will not work in areas with little competition, as farmers have less opportunit
+ies to switch to better dealers and dealers would have less incentives to
+ improve their services and increase their efforts if there is no threat
+ of competition nearby.
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status collapsed
+In our sample, 46 of 130 catchment areas are served by only one dealer,
+ 40 areas are served by only two dealers.
+ The effects on this subset of dealers are generally similar or slightly
+ weaker.
+ I decided to not include any of the heterogeneity analyses for two reasons.
+ Firstly, impact through competition is only one pathway, and after all
+ the analyses I have done, I am convinced that it is not the most important
+ one.
+ Secondly, I do not trust these results because a) the analysis was not
+ pre-registered and b) we are likely to be under-powered for this estimation:
+ the coefficients may have changed due to the smaller sample size, not due
+ to heterogeneous effects in this subset of catchment areas.
+ If you're interested in the results anyway, let me know.
+\end_layout
 
 \begin_layout Plain Layout
-more heterogeneity analysis ideas:
+More heterogeneity analysis ideas:
 \end_layout
 
 \begin_layout Itemize
@@ -19460,11 +19420,6 @@ Farmers who adopted at baseline
 Dealers with good rating (vs.
  dealers with poor rating) in CA: More vs.
  less customers? Do farmers switch for better seed?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -19612,21 +19567,26 @@ I'm not sure whether we want to promote the clearinghouse as the solution,
 \end_layout
 
 \begin_layout Standard
-A danger to the functioning of the clearinghouse could be agro-input dealers
- who start to influence ratings in a dishonest manner, e.g.
+The objective of this paper is to prove a concept and to test whether a
+ prediction of the theory occurs in practice, namely whether making quality
+ observable improves the market for maize seed.
+ If the clearinghouse would be scaled up, several challenges would need
+ to be addressed.
+ For example, one should decide how long SeedAdvisor certificates remain
+ valid and whether they have to be removed at some point, as old certificates
+ could provide incorrect signals, and dealers who received a good certificate
+ at some point in time would not have any incentive to keep up the good
+ work if the outdated certificate remains displayed in their store.
+ Another danger to the functioning of the clearinghouse could be agro-input
+ dealers who start to influence ratings in a dishonest manner, e.g.
  by faking ratings or by bribing farmers.
  Note that during this trial, rating and rated participants were connected
  by asking dealers where their customers come from, and collecting ratings
  from ten randomly selected farmers in that village.
  Dealers would need to understand our experimental design in order to know
  which farmer they would need to influence, so that it is almost impossible
- that they cheat during this trial.
- If the clearinghouse intervention would be scaled up, these kind of challenges
- would need to be addressed.
- However, the objective of this paper is to test whether a prediction of
- the theory occurs in practice, namely whether making quality observable
- improves the market for maize seed, and not to provide a policy intervention,
- sophisticated enough to be applied without further considerations.
+ that they cheat during this trial, but details like this need to be considered
+ before scaling up the experiment.
 \end_layout
 
 \begin_layout Standard
