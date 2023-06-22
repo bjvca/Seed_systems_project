@@ -1590,6 +1590,23 @@ baseline_dealers$small_catchID <- ifelse(baseline_dealers$catchID==16|baseline_d
                                          baseline_dealers$catchID==124|baseline_dealers$catchID==125|baseline_dealers$catchID==126|
                                          baseline_dealers$catchID==127|baseline_dealers$catchID==128|baseline_dealers$catchID==129|
                                          baseline_dealers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_dealers$catchID==4|baseline_dealers$catchID==13|baseline_dealers$catchID==15|
+#   baseline_dealers$catchID==17|baseline_dealers$catchID==24|baseline_dealers$catchID==25|
+#   baseline_dealers$catchID==28|baseline_dealers$catchID==29|baseline_dealers$catchID==37|
+#   baseline_dealers$catchID==40|baseline_dealers$catchID==41|baseline_dealers$catchID==43|
+#   baseline_dealers$catchID==49|baseline_dealers$catchID==52|baseline_dealers$catchID==54|
+#   baseline_dealers$catchID==55|baseline_dealers$catchID==56|baseline_dealers$catchID==60|
+#   baseline_dealers$catchID==68|baseline_dealers$catchID==69|baseline_dealers$catchID==70|
+#   baseline_dealers$catchID==71|baseline_dealers$catchID==72|baseline_dealers$catchID==75|
+#   baseline_dealers$catchID==78|baseline_dealers$catchID==81|baseline_dealers$catchID==85|
+#   baseline_dealers$catchID==86|baseline_dealers$catchID==88|baseline_dealers$catchID==94|
+#   baseline_dealers$catchID==99|baseline_dealers$catchID==100|baseline_dealers$catchID==105|
+#   baseline_dealers$catchID==111|baseline_dealers$catchID==113|baseline_dealers$catchID==114|
+#   baseline_dealers$catchID==115|baseline_dealers$catchID==117|baseline_dealers$catchID==119|baseline_dealers$catchID==123
+
 #baseline_dealers=subset(baseline_dealers,small_catchID=="0")
 
 #3: Less competitive catchment areas
@@ -2314,6 +2331,23 @@ baseline_dealers$small_catchID <- ifelse(baseline_dealers$catchID==16|baseline_d
                                            baseline_dealers$catchID==124|baseline_dealers$catchID==125|baseline_dealers$catchID==126|
                                            baseline_dealers$catchID==127|baseline_dealers$catchID==128|baseline_dealers$catchID==129|
                                            baseline_dealers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_dealers$catchID==4|baseline_dealers$catchID==13|baseline_dealers$catchID==15|
+#   baseline_dealers$catchID==17|baseline_dealers$catchID==24|baseline_dealers$catchID==25|
+#   baseline_dealers$catchID==28|baseline_dealers$catchID==29|baseline_dealers$catchID==37|
+#   baseline_dealers$catchID==40|baseline_dealers$catchID==41|baseline_dealers$catchID==43|
+#   baseline_dealers$catchID==49|baseline_dealers$catchID==52|baseline_dealers$catchID==54|
+#   baseline_dealers$catchID==55|baseline_dealers$catchID==56|baseline_dealers$catchID==60|
+#   baseline_dealers$catchID==68|baseline_dealers$catchID==69|baseline_dealers$catchID==70|
+#   baseline_dealers$catchID==71|baseline_dealers$catchID==72|baseline_dealers$catchID==75|
+#   baseline_dealers$catchID==78|baseline_dealers$catchID==81|baseline_dealers$catchID==85|
+#   baseline_dealers$catchID==86|baseline_dealers$catchID==88|baseline_dealers$catchID==94|
+#   baseline_dealers$catchID==99|baseline_dealers$catchID==100|baseline_dealers$catchID==105|
+#   baseline_dealers$catchID==111|baseline_dealers$catchID==113|baseline_dealers$catchID==114|
+#   baseline_dealers$catchID==115|baseline_dealers$catchID==117|baseline_dealers$catchID==119|baseline_dealers$catchID==123
+
 baseline_dealers=subset(baseline_dealers,small_catchID=="0")
 
 variables_practices_cap_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
@@ -4933,6 +4967,23 @@ baseline_dealers$small_catchID <- ifelse(baseline_dealers$catchID==16|baseline_d
                                            baseline_dealers$catchID==124|baseline_dealers$catchID==125|baseline_dealers$catchID==126|
                                            baseline_dealers$catchID==127|baseline_dealers$catchID==128|baseline_dealers$catchID==129|
                                            baseline_dealers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_dealers$catchID==4|baseline_dealers$catchID==13|baseline_dealers$catchID==15|
+#   baseline_dealers$catchID==17|baseline_dealers$catchID==24|baseline_dealers$catchID==25|
+#   baseline_dealers$catchID==28|baseline_dealers$catchID==29|baseline_dealers$catchID==37|
+#   baseline_dealers$catchID==40|baseline_dealers$catchID==41|baseline_dealers$catchID==43|
+#   baseline_dealers$catchID==49|baseline_dealers$catchID==52|baseline_dealers$catchID==54|
+#   baseline_dealers$catchID==55|baseline_dealers$catchID==56|baseline_dealers$catchID==60|
+#   baseline_dealers$catchID==68|baseline_dealers$catchID==69|baseline_dealers$catchID==70|
+#   baseline_dealers$catchID==71|baseline_dealers$catchID==72|baseline_dealers$catchID==75|
+#   baseline_dealers$catchID==78|baseline_dealers$catchID==81|baseline_dealers$catchID==85|
+#   baseline_dealers$catchID==86|baseline_dealers$catchID==88|baseline_dealers$catchID==94|
+#   baseline_dealers$catchID==99|baseline_dealers$catchID==100|baseline_dealers$catchID==105|
+#   baseline_dealers$catchID==111|baseline_dealers$catchID==113|baseline_dealers$catchID==114|
+#   baseline_dealers$catchID==115|baseline_dealers$catchID==117|baseline_dealers$catchID==119|baseline_dealers$catchID==123
+
 baseline_dealers=subset(baseline_dealers,small_catchID=="0")
 
 #####
@@ -5208,6 +5259,23 @@ baseline_farmers$small_catchID <- ifelse(baseline_farmers$catchID==16|baseline_f
                                            baseline_farmers$catchID==124|baseline_farmers$catchID==125|baseline_farmers$catchID==126|
                                            baseline_farmers$catchID==127|baseline_farmers$catchID==128|baseline_farmers$catchID==129|
                                            baseline_farmers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_farmers$catchID==4|baseline_farmers$catchID==13|baseline_farmers$catchID==15|
+#   baseline_farmers$catchID==17|baseline_farmers$catchID==24|baseline_farmers$catchID==25|
+#   baseline_farmers$catchID==28|baseline_farmers$catchID==29|baseline_farmers$catchID==37|
+#   baseline_farmers$catchID==40|baseline_farmers$catchID==41|baseline_farmers$catchID==43|
+#   baseline_farmers$catchID==49|baseline_farmers$catchID==52|baseline_farmers$catchID==54|
+#   baseline_farmers$catchID==55|baseline_farmers$catchID==56|baseline_farmers$catchID==60|
+#   baseline_farmers$catchID==68|baseline_farmers$catchID==69|baseline_farmers$catchID==70|
+#   baseline_farmers$catchID==71|baseline_farmers$catchID==72|baseline_farmers$catchID==75|
+#   baseline_farmers$catchID==78|baseline_farmers$catchID==81|baseline_farmers$catchID==85|
+#   baseline_farmers$catchID==86|baseline_farmers$catchID==88|baseline_farmers$catchID==94|
+#   baseline_farmers$catchID==99|baseline_farmers$catchID==100|baseline_farmers$catchID==105|
+#   baseline_farmers$catchID==111|baseline_farmers$catchID==113|baseline_farmers$catchID==114|
+#   baseline_farmers$catchID==115|baseline_farmers$catchID==117|baseline_farmers$catchID==119|baseline_farmers$catchID==123
+
 #baseline_farmers=subset(baseline_farmers,small_catchID=="0")
 
 #3: Less competitive catchment areas
@@ -5657,6 +5725,23 @@ baseline_farmers$small_catchID <- ifelse(baseline_farmers$catchID==16|baseline_f
                                            baseline_farmers$catchID==124|baseline_farmers$catchID==125|baseline_farmers$catchID==126|
                                            baseline_farmers$catchID==127|baseline_farmers$catchID==128|baseline_farmers$catchID==129|
                                            baseline_farmers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_farmers$catchID==4|baseline_farmers$catchID==13|baseline_farmers$catchID==15|
+#   baseline_farmers$catchID==17|baseline_farmers$catchID==24|baseline_farmers$catchID==25|
+#   baseline_farmers$catchID==28|baseline_farmers$catchID==29|baseline_farmers$catchID==37|
+#   baseline_farmers$catchID==40|baseline_farmers$catchID==41|baseline_farmers$catchID==43|
+#   baseline_farmers$catchID==49|baseline_farmers$catchID==52|baseline_farmers$catchID==54|
+#   baseline_farmers$catchID==55|baseline_farmers$catchID==56|baseline_farmers$catchID==60|
+#   baseline_farmers$catchID==68|baseline_farmers$catchID==69|baseline_farmers$catchID==70|
+#   baseline_farmers$catchID==71|baseline_farmers$catchID==72|baseline_farmers$catchID==75|
+#   baseline_farmers$catchID==78|baseline_farmers$catchID==81|baseline_farmers$catchID==85|
+#   baseline_farmers$catchID==86|baseline_farmers$catchID==88|baseline_farmers$catchID==94|
+#   baseline_farmers$catchID==99|baseline_farmers$catchID==100|baseline_farmers$catchID==105|
+#   baseline_farmers$catchID==111|baseline_farmers$catchID==113|baseline_farmers$catchID==114|
+#   baseline_farmers$catchID==115|baseline_farmers$catchID==117|baseline_farmers$catchID==119|baseline_farmers$catchID==123
+
 baseline_farmers=subset(baseline_farmers,small_catchID=="0")
 
 variables_servicesF_mid <- cbind(baseline_farmers$end_refunds,baseline_farmers$end_gives_credit,baseline_farmers$end_gives_advice
@@ -7378,6 +7463,23 @@ baseline_farmers$small_catchID <- ifelse(baseline_farmers$catchID==16|baseline_f
                                            baseline_farmers$catchID==124|baseline_farmers$catchID==125|baseline_farmers$catchID==126|
                                            baseline_farmers$catchID==127|baseline_farmers$catchID==128|baseline_farmers$catchID==129|
                                            baseline_farmers$catchID==130,1,0)
+
+#to exclude areas with more than 2 dealers:
+
+# |baseline_farmers$catchID==4|baseline_farmers$catchID==13|baseline_farmers$catchID==15|
+#   baseline_farmers$catchID==17|baseline_farmers$catchID==24|baseline_farmers$catchID==25|
+#   baseline_farmers$catchID==28|baseline_farmers$catchID==29|baseline_farmers$catchID==37|
+#   baseline_farmers$catchID==40|baseline_farmers$catchID==41|baseline_farmers$catchID==43|
+#   baseline_farmers$catchID==49|baseline_farmers$catchID==52|baseline_farmers$catchID==54|
+#   baseline_farmers$catchID==55|baseline_farmers$catchID==56|baseline_farmers$catchID==60|
+#   baseline_farmers$catchID==68|baseline_farmers$catchID==69|baseline_farmers$catchID==70|
+#   baseline_farmers$catchID==71|baseline_farmers$catchID==72|baseline_farmers$catchID==75|
+#   baseline_farmers$catchID==78|baseline_farmers$catchID==81|baseline_farmers$catchID==85|
+#   baseline_farmers$catchID==86|baseline_farmers$catchID==88|baseline_farmers$catchID==94|
+#   baseline_farmers$catchID==99|baseline_farmers$catchID==100|baseline_farmers$catchID==105|
+#   baseline_farmers$catchID==111|baseline_farmers$catchID==113|baseline_farmers$catchID==114|
+#   baseline_farmers$catchID==115|baseline_farmers$catchID==117|baseline_farmers$catchID==119|baseline_farmers$catchID==123
+
 baseline_farmers=subset(baseline_farmers,small_catchID=="0")
 
 variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating,baseline_farmers$mid_seed_yield_rating
