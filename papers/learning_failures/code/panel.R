@@ -567,6 +567,23 @@ summary(lm((mid_adoption_any=="Yes")~treatment, data=all[all$adoption_any=="Yes"
 summary(lm((mid_adoption_any=="Yes")~treatment*DAP_use, data=all[all$adoption_any=="Yes",]))
 summary(lm((mid_adoption_any=="Yes")~treatment*correctweeding, data=all[all$adoption_any=="Yes",]))
 
+###Caro's code to create figure by treatment group:
+
+# all=subset(all,treatment==FALSE)
+# 
+# midline_farmers <- merge(midline_farmers
+#                          ,baseline_farmers[,c("farmer_ID","Check2.check.maize.video_shown")]
+#                          ,by="farmer_ID")
+# 
+# endline_farmers <- merge(endline_farmers
+#                          ,baseline_farmers[,c("farmer_ID","Check2.check.maize.video_shown")]
+#                          ,by="farmer_ID")
+# 
+# baseline_farmers=subset(baseline_farmers,Check2.check.maize.video_shown==FALSE)
+# 
+# midline_farmers=subset(midline_farmers,Check2.check.maize.video_shown==FALSE)
+# 
+# endline_farmers=subset(endline_farmers,Check2.check.maize.video_shown==FALSE)
 
 ###########################alluvial graphs########################################
 library(easyalluvial)
