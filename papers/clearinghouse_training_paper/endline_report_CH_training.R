@@ -967,6 +967,10 @@ baseline_dealers$maize.owner.agree.longe5.q50[baseline_dealers$maize.owner.agree
 
 baseline_dealers$maize.owner.agree.longe4.q62[baseline_dealers$maize.owner.agree.q57=="0"] <- 0
 
+baseline_dealers$attrition_ind_D_end <- 0
+baseline_dealers$attrition_ind_D_end[baseline_dealers$checq=="No"] <- 1
+baseline_dealers$attrition_ind_D_end[is.na(baseline_dealers$checq)] <- 0
+
 baseline_dealers$check.owner.agree.long10h.q25[baseline_dealers$attrition_ind_D_end==1] <- NA
 baseline_dealers$check.owner.agree.longe7H.q38[baseline_dealers$attrition_ind_D_end==1] <- NA
 baseline_dealers$check.owner.agree.longe5.q50[baseline_dealers$attrition_ind_D_end==1] <- NA
@@ -1281,6 +1285,7 @@ prop.test(table(baseline_dealers$clearing,baseline_dealers$attrition_ind_D==1))
 
 #ENDLINE
 
+#again but doesn't matter
 baseline_dealers$attrition_ind_D_end <- 0
 baseline_dealers$attrition_ind_D_end[baseline_dealers$checq=="No"] <- 1
 baseline_dealers$attrition_ind_D_end[is.na(baseline_dealers$checq)] <- 0
