@@ -4420,7 +4420,7 @@ Bjorn, read from here :)
 \end_inset
 
 Even though all coefficient estimates are moving in the same direction,
- we cannot defect a treatment effect for the entire sample.
+ we cannot detect a treatment effect for the entire sample.
  This may be due to the fact that, ex-post, it turns out that many of the
  farmers were already able to indicate the correct response, and hence there
  is little scope for further improvement.
@@ -4436,10 +4436,11 @@ literal "false"
 \end_inset
 
  who find that seaweed farmers do not attend to pod size, a particular input
- dimension, even though they have access to experimental data.
+ dimension, even when they have access to experimental data.
  These farmers start changing their behavior only after they are presented
  with summaries that highlight relationships in the data that they previously
- failed to notice.
+ failed to notice, which shows that making available information salient
+ can lead to behavioral changes.
 \end_layout
 
 \begin_layout Standard
@@ -5028,6 +5029,10 @@ To separate the two opposing effects, we restrict the sample to farmers
  seed from an agro-input dealer.
  The treatment also has a significant and more pronounced negative effect
  on the adoption index for this subgroup of farmers that adopted at baseline.
+ Note that the measured treatment effects cannot be driven by the (insignificant
+, see Column (2)) differences in baseline adoption between treatment and
+ control farmers because we control for the baseline values of the outcome
+ variables.
 \end_layout
 
 \begin_layout Standard
@@ -9038,7 +9043,7 @@ Bjorn, read from here :)
 
 The finding that a small increase in knowledge leads to a large decrease
  in adoption indicates that farmers were already aware of the importance
- of complementary investments but fail to notice and attend to this piece
+ of complementary investments but failed to notice and attend to this piece
  of information, in line with 
 \begin_inset CommandInset citation
 LatexCommand citet
