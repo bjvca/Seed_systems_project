@@ -37,6 +37,7 @@ baseline_dealers$cust_stand <- ((baseline_dealers$maize.owner.agree.q7
                                                        - baseline_dealers$cust_CA_mean)
                                                       / baseline_dealers$cust_CA_sd)
 
+baseline_dealers$customers_baseline_save <- baseline_dealers$maize.owner.agree.q7
 baseline_dealers$customers_baseline <- baseline_dealers$cust_stand
 
 #baseline_dealers$customers_baseline <- baseline_dealers$maize.owner.agree.q7
@@ -75,6 +76,8 @@ midline_dealers <- merge(midline_dealers[,c("catchID","shop_ID","owner.agree.q7"
 midline_dealers$cust_stand <- ((midline_dealers$owner.agree.q7
                                  - midline_dealers$cust_CA_mean)
                                 / midline_dealers$cust_CA_sd)
+
+midline_dealers$customers_midline_save <- midline_dealers$owner.agree.q7
 
 midline_dealers$customers_midline <- midline_dealers$cust_stand
 
@@ -117,6 +120,7 @@ endline_dealers$cust_stand <- ((endline_dealers$check.owner.agree.q7
                                  - endline_dealers$cust_CA_mean)
                                 / endline_dealers$cust_CA_sd)
 
+endline_dealers$customers_endline_save <- endline_dealers$check.owner.agree.q7
 endline_dealers$customers_endline <- endline_dealers$cust_stand
 
 #endline_dealers$customers_endline <- endline_dealers$check.owner.agree.q7
@@ -207,23 +211,23 @@ reviews_seed_endline$rating_endline <- reviews_seed_endline$score_corrected_stan
 
 ########
 
-all <- merge(baseline_dealers[,c("shop_ID","customers_baseline","clearing")]
-                               ,midline_dealers[,c("shop_ID","customers_midline")]
+all <- merge(baseline_dealers[,c("shop_ID","customers_baseline","clearing","customers_baseline_save")]
+                               ,midline_dealers[,c("shop_ID","customers_midline","customers_midline_save")]
                                ,by="shop_ID",all.x=TRUE)
 
-all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline")]
-             ,endline_dealers[,c("shop_ID","customers_endline")]
+all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_baseline_save","customers_midline_save")]
+             ,endline_dealers[,c("shop_ID","customers_endline","customers_endline_save")]
              ,by="shop_ID",all.x=TRUE)
 
-all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline")]
+all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline","customers_baseline_save","customers_endline_save","customers_midline_save")]
              ,reviews_seed_baseline[,c("shop_ID","rating_baseline")]
              ,by="shop_ID",all.x=TRUE)
 
-all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline","rating_baseline")]
+all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline","rating_baseline","customers_baseline_save","customers_endline_save","customers_midline_save")]
              ,reviews_seed_midline[,c("shop_ID","rating_midline")]
              ,by="shop_ID",all.x=TRUE)
 
-all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline","rating_baseline","rating_midline")]
+all <- merge(all[,c("shop_ID","customers_baseline","clearing","customers_midline","customers_endline","rating_baseline","rating_midline","customers_baseline_save","customers_endline_save","customers_midline_save")]
              ,reviews_seed_endline[,c("shop_ID","rating_endline")]
              ,by="shop_ID",all.x=TRUE)
 
@@ -320,3 +324,39 @@ ggplot(all_CH_control,aes(x=average_rating,y=customers_endline)) +
   geom_point() +
   geom_smooth(method='lm')
 summary(lm(all_CH_control$customers_endline~all_CH_control$average_rating))
+
+#Robert's comment
+
+all$cust_end_min_base <- (all$customers_endline-all$customers_baseline)
+
+ggplot(all,aes(x=rating_midline,y=cust_end_min_base)) +
+  geom_point() +
+  xlab("Standardized shop rating at midline") + ylab("Difference between # customers at base- and endline (standardized)") +
+  geom_smooth(method='lm')
+summary(lm(all$cust_end_min_base~all$rating_midline))
+
+all$cust_end_min_base_notstand <- (all$customers_endline_save-all$customers_baseline_save)
+
+ggplot(all,aes(x=rating_midline,y=cust_end_min_base_notstand)) +
+  geom_point() +
+  xlab("Standardized shop rating at midline") + ylab("Difference between # customers at base- and endline (not standardized)") +
+  geom_smooth(method='lm')
+summary(lm(all$cust_end_min_base_notstand~all$rating_midline))
+
+###Bjorn's improvement
+
+all$cust_mid_min_base <- (all$customers_midline-all$customers_baseline)
+
+ggplot(all,aes(x=rating_baseline,y=cust_mid_min_base)) +
+  geom_point() +
+  xlab("Standardized shop rating at baseline") + ylab("Difference between number of customers base- and midline (standardized)") +
+  geom_smooth(method='lm')
+summary(lm(all$cust_mid_min_base~all$rating_baseline))
+
+all$cust_mid_min_base_notstand <- (all$customers_midline_save-all$customers_baseline_save)
+
+ggplot(all,aes(x=rating_baseline,y=cust_mid_min_base_notstand)) +
+  geom_point() +
+  xlab("Standardized shop rating at baseline") + ylab("Difference between number of customers base- and midline (not standardized)") +
+  geom_smooth(method='lm')
+summary(lm(all$cust_mid_min_base_notstand~all$rating_baseline))
