@@ -370,14 +370,22 @@ We investigate some of these issues through a field experiment conducted
  with both agro-dealers and smallholder farmers in their catchment areas
  in the nascent market for improved, high-yielding maize varieties in eastern
  Uganda.
-\backslash
-footnote{In the context of this study, high-yielding maize varieties refers
- to both open-pollinated varieties and hybrids.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In the context of this study, high-yielding maize varieties refers to both
+ open-pollinated varieties and hybrids.
  While the distinction may be lost on some, it is a nuance that is recognizable
  to many colleagues working in the fields of plant breeding and seed sector
- development.} We focus partly on agro-dealers because they are an essential
- marketing channel for inputs and technologies in countries with large smallhold
-er farmer populations living in remote areas with poor infrastructure.
+ development.
+\end_layout
+
+\end_inset
+
+ We focus partly on agro-dealers because they are an essential marketing
+ channel for inputs and technologies in countries with large smallholder
+ farmer populations living in remote areas with poor infrastructure.
  A reasonably dense network of semi-formal agro-dealers provides access
  to seed, fertilizer, agro-chemicals, and tools, and may be combined to
  provide agricultural advisory services and credit facilities, both formal
@@ -403,8 +411,8 @@ literal "false"
  seed companies into smaller bags in order to offer quantities that are
  convenient and affordable to smallholders.
  As a result, important information including variety name, expiry date,
- or planting instructions are lost, while the material used for re-packaging---a
-ir-tight polyethylene bags---affect aeration, moisture, and seed viability.
+ or planting instructions are lost, while the material used for re-packaging—air
+-tight polyethylene bags—affect aeration, moisture, and seed viability.
  Other agro-dealers sell from open bags, which can similarly lower seed
  viability 
 \begin_inset CommandInset citation
@@ -429,8 +437,8 @@ However, we recognize that providing information only to agro-dealers may
  regulation and oversight than their larger counterparts in manufacturing,
  import, or wholesale operations that are situated further up the supply
  chain.
- This means that agro-dealers may still be incentivized---even with training---t
-o underinvest in quality management and preservation.
+ This means that agro-dealers may still be incentivized—even with training—to
+ underinvest in quality management and preservation.
  In a context similar to ours, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -456,11 +464,8 @@ literal "false"
 
 \end_inset
 
- find that hybrid maize seed contains less than 50
-\backslash
-% authentic seeds and that 30
-\backslash
-% of nutrient is missing in fertilizer.
+ find that hybrid maize seed contains less than 50% authentic seeds and
+ that 30% of nutrient is missing in fertilizer.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -469,12 +474,9 @@ literal "false"
 
 \end_inset
 
- find that the average bottle of herbicide is missing 15
-\backslash
-% of the active ingredient and nearly one in three bottles contains less
- than 75
-\backslash
-% of the ingredient advertised.
+ find that the average bottle of herbicide is missing 15% of the active
+ ingredient and nearly one in three bottles contains less than 75% of the
+ ingredient advertised.
  
 \end_layout
 
@@ -630,9 +632,14 @@ literal "false"
 .
  More promising results have emerged recently when the focus shifts from
  traditional trainings to trainings designed to instill personal initiative
- 
-\backslash
-citep{campos2017teaching}.
+\begin_inset CommandInset citation
+LatexCommand citep
+key "campos2017teaching"
+literal "false"
+
+\end_inset
+
+.
 \begin_inset Foot
 status collapsed
 
@@ -750,9 +757,8 @@ literal "false"
  implement a crowd-sourced information clearinghouse in the market for artificia
 l insemination of livestock in Punjab, Pakistan, where individual signals
  of quality are noisy.
- They find that farmers who receive information enjoy 25
-\backslash
-% higher insemination success.
+ They find that farmers who receive information enjoy 25% higher insemination
+ success.
  
 \end_layout
 
@@ -768,28 +774,27 @@ name "section: Experimental design"
 \end_layout
 
 \begin_layout Standard
-We designed an experiment with two interventions (described in detail in
- the next section), and evaluate their impact using an RCT.
- The interventions are randomized at the catchment area level.
- Generally, agro-input shops are clustered in towns, villages, markets,
- trading centers, and other key market sheds, so that a single catchment
- area may be served by several dealers.
- If the catchment areas of two or more shops overlap because these dealers
- operate in the same town, street or right next to each other, they are
- assigned to the same catchment area and treatment.
- Clustering agro-input dealers into catchment areas is done on the basis
- of geographical location.
+We designed an experiment with two interventions (detailed in the next section)
+ that aim to induce quality improvements (or perceptions thereof) in the
+ seed market, and evaluate their impact on a set of outcomes related to
+ market performance, technology adoption, and productivity.
+ The interventions are randomized at the agro-dealer catchment area level.
+ These catchment areas are clusters of towns, villages, markets, trading
+ centers, and other key market sheds where agricultural market activity
+ tends to operate, and are typically host to several agro-dealers.
+ Clustering agro-dealers into catchment areas is done on the basis of geographic
+al location.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-We use the haversine function to construct an adjacency matrix based on
- GPS coordinates, and shops that are less than 5 kilometer apart are assigned
- to the same catchment area.
+We use a haversine function to construct an adjacency matrix based on GPS
+ coordinates, and agro-dealers that are less than 5 kilometer apart are
+ assigned to the same catchment area.
  The 5 kilometer threshold was selected based on a visual inspection of
- the map, the size of an average village and the reported distance between
- farmers and dealers in survey data from a previous study of the maize value
- chain that can be found 
+ a map, the size of an average village in our sample and the reported distance
+ between farmers and agro-dealers in survey data from a previous study of
+ the maize value chain that can be found 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -814,36 +819,39 @@ name "fn:The-haversine-function"
 \end_layout
 
 \begin_layout Standard
-We randomize at catchment area level for three reasons.
- Firstly, randomizing at the level of the individual agro-input shop prompted
- ethical concerns.
- In cases where two or more agro-input dealers operate very close to each
- other, treating only one of them may lead to a competitive (dis-)advantage.
- Randomizing at catchment area level substantially reduces the risk of (dis-)adv
-antaging shops.
- Secondly, it reduces the likelihood of spillovers from treated to control
- agro-input dealers.
- Thirdly, randomizing at catchment area level allows us to measure the effect
- of the treatments on farmers, as all farmers in the catchment area are
- now exposed to agro-input dealers who all received the same treatment.
+We randomize at the level of the catchment area (instead of opting for randomiza
+tion at the less aggregate agro-dealer level) for three reasons.
+ Firstly, randomizing at the level of the individual agro-dealer prompted
+ ethical concerns and was thus ruled out a priori.
+ Specifically, in cases where two or more agro-dealers operate in very close
+ proximity to each other, treating only one of them may lead to a competitive
+ (dis)advantage.
+ Randomizing at the catchment level substantially reduces the risk of (dis)advan
+taging agro-dealers in this way.
+ Secondly, catchment-level randomization reduces the likelihood of spillovers
+ from treated to control agro-dealers.
+ Thirdly, catchment-level randomization allows us to extend the evaluation
+ to the measurement of treatment effects on farmers (and not just agro-dealers)
+ because all farmers in the catchment area are now exposed to agro-dealers
+ who all received the same treatment.
 \end_layout
 
 \begin_layout Standard
-We used simulations to determine the sample sizes for this experiment.
- Simulating provides a flexible and intuitive way to analyze statistical
- power.
- Furthermore, instead of relying on theoretical distributions for the outcome
- variables that make assumptions and return analytic solutions, we run simulatio
-ns that (re-)sample from real data that was collected in previous surveys.
+We used simulations to determine the sample sizes required to detect effects
+ of the treatment on selected outcomes at both farmer and agro-dealer levels.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-We use data from 78 agro-input dealers and 1,529 smallholder farmers in
- the catchment areas of these dealers that were collected in three districts
- in eastern Uganda in July 2019.
- These surveys were part of another study of the maize value chain and can
- be found 
+Simulation provides a flexible and intuitive way to analyze statistical
+ power.
+ Furthermore, instead of relying on theoretical distributions for the outcome
+ variables that make assumptions and return analytic solutions, we run simulatio
+ns that (re-)sample from real data that was collected in previous surveys.
+ In particular, we use data from 78 agro-dealers and 1,529 smallholder farmers
+ in the catchment areas of these agro-dealers that were collected in three
+ districts in eastern Uganda in July 2019.
+ The data are publicly accessible 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -857,19 +865,20 @@ literal "false"
 
 \end_inset
 
- Power simulations show that if the number of catchment areas is larger
- than 112, our experiments will return statistically significant results
- 80% of the time on a selection of primary outcomes.
- This corresponds to about 318 agro-input dealers.
- Based on further simulations to study impacts at the farmer-household level,
- we decide to collect information on 10 farmers per dealer, leading to a
- sample size of 3,180 households.
+ The simulations show that if the number of catchment areas is larger than
+ 112, our experiments will return statistically significant results 80
+\backslash
+% of the time on a selection of primary outcomes.
+ This corresponds to approximately 318 agro-dealers.
+ Based on further simulations to study impacts at the farm-household level,
+ we decide to collect information on 10 farmers per agro-dealer, leading
+ to a sample size of 3,180 households.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-More detailed information can be found in the pre-analysis plan which was
- pre-registered at the 
+More detailed information including the expected treatment effect sizes
+ can be found in the pre-analysis plan which was pre-registered at the 
 \begin_inset CommandInset href
 LatexCommand href
 name "AEA RCT registry"
@@ -883,175 +892,19 @@ literal "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The two interventions are combined in a field experiment which takes the
+ The two interventions are combined in a field experiment that takes the
  form of a 
 \begin_inset Formula $2^{2}$
 \end_inset
 
  factorial design.
- The resulting layout is illustrated in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Design"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We measure impact on both, agro-input dealers and farmers.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Factorial design
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Design"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 
-\backslash
-multicolumn{2}{c}{dealer training} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 1 & 0 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{3-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multirow{2}{*}{clearinghouse} & 1 & 28 areas & 28 areas 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
- & 0 & 28 areas & 28 areas 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
+ The power simulations focused on the individual treatments, implying that
+ we are likely to be under-powered to estimate interaction effects between
+ the interventions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lin2013agnostic,muralidharan2019factorial"
+literal "false"
 
 \end_inset
 
@@ -1070,7 +923,7 @@ name "section: Intervention"
 \end_layout
 
 \begin_layout Subsection
-Agro-input dealer training
+Agro-dealer training
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1078,60 +931,19 @@ Training content and material
 \end_layout
 
 \begin_layout Standard
-To determine the content of the training and to make sure it is locally
- anchored, we consulted experts from different Ugandan institutions and
- organizations like the ministry of agriculture, the seed sector, and agro-input
- dealer associations.
- A series of semi-structured interviews and a workshop were organized.
- The experts identified common problems and malpractices, and then determined
- effective and realistic solutions and best practices in seed storage and
- handling.
+To determine the content of the training and to ensure it is sufficiently
+ anchored in the study site and context, we consulted experts from several
+ Ugandan organizations using semi-structured interviews and a workshop to
+ identify problems in the seed sector and in agro-dealer retailing practice,
+ and to discuss effective and realistic solutions and best practices to
+ address seed storage and handling issues.
  We then developed a training manual to ensure standardization and a simple
- but visually appealing poster illustrating the most important best practices.
-\end_layout
-
-\begin_layout Subsubsection*
-Training
-\end_layout
-
-\begin_layout Standard
-In each treated catchment area, all shops were selected to receive a training.
- Of each treated shop, both the owner and the shop manager who is in charge
- of day-to-day activities were invited.
- The owner was invited because some of the recommended techniques and practices
- require investments.
- The shop manager was invited because many of the recommendations are hands-on
- practices.
- We handed out one free portable seed moisture meter per shop as an incentive.
- All attendants were compensated for transport, lunch and drinks were provided.
- The training took place at a time of the year when dealers were not too
- busy.
- Trainings were organized in small groups, with on average about 10-15 agro-inpu
-t dealers present.
- The trainings took place in locations that were easily reachable for the
- participants.
-\end_layout
-
-\begin_layout Standard
-The trainers explained the correct handling and storage practices for improved
- maize seed and used the poster and an example seed bag for illustration.
- Afterwards the dealers rehearsed the more challenging practices like measuring
- moisture using a moisture meter.
- At the end of the training, they were asked to answer a couple of multiple
- choice questions.
- The dealers were told at the beginning of the training that receiving a
- moisture meter was conditional on passing this test, which might have motivated
- them to pay closer attention.
- They also received the poster as a handout which could be hung in their
- store.
-\end_layout
-
-\begin_layout Standard
-The trainings took one day and were organized in May 2021, late enough so
- that dealers were not busy with selling for the first agricultural season
- but early enough so that they could use the newly learned practices on
- the seed of the second agricultural season.
- A timeline is illustrated in Figure 
+ but visually appealing poster illustrating the most important practices.
+ Participants in the interviews and workshops included individuals from
+ the Ministry of Agriculture, Animal Industries and Fisheries (MAAIF), the
+ National Agricultural Research Organization (NARO) the Uganda Seed Trade
+ Association (USTA), and the Uganda National Agro-Dealers Association (UNADA).
+ The roll-out of the experiment began in 2021 (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1141,9 +953,76 @@ noprefix "false"
 
 \end_inset
 
-.
- The trainings were organized together with UNADA, the national association
- for agro-input dealers in Uganda.
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Training
+\end_layout
+
+\begin_layout Standard
+In each treated catchment area, all agro-dealers were selected for a training,
+ and for each treated agro-dealer, both the owner and shop manager were
+ invited.
+ The owner was invited because several recommended techniques and practices
+ required that new investments were made in the agro-dealership, while the
+ shop manager was invited because many of the recommendations are hands-on
+ practices that would ultimately fall under the manager's purview for day-to-day
+ operations.
+ Of 166 agro-dealers that were invited, 140 sent at least one person, leading
+ to a compliance of 84%.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For 80 agro-dealers, both owner and manager attended; for 50 agro-dealers,
+ only the owner attended; for 10 agro-dealers, only the manager attended.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The trainings took place in May 2021, a time when agro-dealers are not too
+ busy, and early enough to ensure they could apply newly learned practices
+ in the second agricultural season.
+ Trainings were held in locations that were easily reachable by the agro-dealers.
+ Trainings were organized in small groups, with an average of 10-15 agro-dealers
+ participating.
+ To deal with COVID in a responsible manner, participants and trainers were
+ required to keep the proper distance, wear face masks, and frequently disinfect
+ their hands.
+ All attendants were compensated for transport, and both lunch and refreshments
+ were provided.
+ Participants were further incentivized to engage in the training and pay
+ close attention with an offer of a free portable seed moisture meter, subject
+ to passing a short content knowledge tests comprised of a short series
+ of multiple-choice questions at the end of the training.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This was just to encourage agro-dealers to pay attention.
+ Every agro-dealer that attended got a moisture meter, regardless of how
+ they scored on the test.
+\end_layout
+
+\end_inset
+
+ The agro-dealers were also given a copy of an informational poster used
+ in the training to remind them of best practices.
+\end_layout
+
+\begin_layout Standard
+In each training, the trainers explained correct handling and storage practices
+ for improved maize seed and used the poster and an example seed bag for
+ illustration.
+ Participants then rehearsed the more challenging practices like measuring
+ moisture using a moisture meter.
+ The trainings were organized and conducted in collaboration with UNADA.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1195,15 +1074,15 @@ Rating collection and computation
 \end_layout
 
 \begin_layout Standard
-At the time of baseline data collection from smallholder farmers, we asked
- them to rate agro-input dealers in their proximity on a number of characteristi
-cs.
- Enumerators were guided by an application on a tablet computer that iterated
- through all agro-input dealers in the catchment area.
- For each dealer, we provided the common names that are used to refer to
- the shop, a description of where the store is located, and a picture of
- the store front (obtained during the agro-input dealer census—see Subsection
- 
+At the time of baseline data collection (April 2021), we asked sampled farmers
+ to rate all agro-dealers that operated in the catchment area on multiple
+ characteristics.
+ Enumerators were guided by a tablet-based application that iterated through
+ all agro-dealers in the catchment area.
+ For each agro-dealer, we provided the common names that are used to refer
+ to the agro-dealer, a description of where the store is located, and a
+ picture of the store front (obtained during the agro-dealer census—see
+ Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Sample"
@@ -1214,8 +1093,8 @@ noprefix "false"
 \end_inset
 
 ).
- If farmers knew the dealer, we asked them to provide ratings using the
- questions which are outlined in Table 
+ If farmers knew the agro-dealer, they were asked to provide ratings using
+ the questions listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "questions"
@@ -1226,17 +1105,9 @@ noprefix "false"
 \end_inset
 
 .
- For example, we asked farmers to rate the maize seed that an agro-input
- shop sells on a scale of one to five stars on germination.
- Ratings were always collected 
-\shape italic
-\emph on
-after
-\shape default
-\emph default
- harvest, when smallholders were able to assess seed quality based on observing
- germination and yield, the resistance against droughts, pests and diseases,
- and how fast the seed matures, see Figure 
+ For example, we asked farmers to rate the maize seed that an agro-dealer
+ sells on a scale of one to five stars on seed germination.
+ As can be seen in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1246,8 +1117,15 @@ noprefix "false"
 
 \end_inset
 
- for a timeline of the interventions.
- 
+ , we implemented the clearinghouse in two consecutive seasons, so ratings
+ were collected again in January 2022.
+ Ratings were always collected 
+\emph on
+after
+\emph default
+ harvest, when smallholders were able to assess seed quality based on observing
+ germination and yield, the resistance against droughts, pests and diseases,
+ and how quickly the crop matured (i.e., duration).
 \end_layout
 
 \begin_layout Standard
@@ -1260,7 +1138,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Questions for farmers to rate dealers 
+Questions for farmers to rate agro-dealers 
 \begin_inset CommandInset label
 LatexCommand label
 name "questions"
@@ -1381,7 +1259,7 @@ emph{description}.
 
 \begin_layout Plain Layout
 
-Please rate this agro-input shop on: & &
+Please rate this agro-dealer on: & &
 \backslash
 
 \backslash
@@ -1407,7 +1285,7 @@ Quality and authenticity of seed & 1 star & 5 stars
 
 \begin_layout Plain Layout
 
-Please rate the maize seed that this agro-input shop sells on: & &
+Please rate the maize seed that this agro-dealer sells on: & &
 \backslash
 
 \backslash
@@ -1506,37 +1384,25 @@ end{center}
 \end_layout
 
 \begin_layout Standard
-Some may argue that by asking farmers to rate dealers, one also makes farmers
- aware of the existence of all dealers in the area, and that this awareness
- effect potentially confounds the clearinghouse effect.
- In the control group, we thus also iterated through dealers in the catchment
- areas, to make control farmers similarly aware of the existence of dealers
- in their vicinity.
- However, control farmers were not asked to rate dealers as the process
- of rating a dealer's seed could make quality more salient, which we consider
- to be an important aspect of the treatment.
+A potential concern arises from asking treated farmers to rate agro-dealers
+ because it may increase awareness among farmers of the existence of all
+ agro-dealers in the area, so that this awareness effect could confound
+ the clearinghouse effect.
+ To address this concern, we also iterated through the agro-dealers in the
+ catchment areas with farmers in the the control group to make them similarly
+ aware of the existence of agro-dealers in their vicinity.
+ However, control farmers were not asked to rate agro-dealers as the process
+ of rating an agro-dealer's seed could make quality more salient, which
+ we consider to be a key aspect of the treatment.
 \end_layout
 
 \begin_layout Standard
-Based on the answers of all farmers about all dealers in a catchment area,
- we computed the ratings for each agro-input shop.
- These ratings were translated into words and stars for dissemination, such
- that they are comprehensible for farmers and dealers who are not used to
- interpreting numbers.
- As illustrated in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "timeline"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, there were two rounds of rating collections.
- However, these ratings were not pooled, meaning that the second score is
- independent of the first score.
- More details about the rating computations can be found in Appendix 
+Based on the answers of all farmers about all agro-dealers in a catchment
+ area, we computed an average rating for each agro-dealer.
+ These ratings were translated into both words and star ratings to ensure
+ that they were easily comprehensible to farmers and agro-dealers when dissemina
+ted.
+ See Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "A.2 Rating computation: details"
@@ -1546,7 +1412,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ for details on the rating computations..
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1554,16 +1420,11 @@ Rating dissemination to farmers
 \end_layout
 
 \begin_layout Standard
-For the success of the clearinghouse it is crucial to disseminate the agro-input
- dealer ratings 
-\shape italic
-\emph on
-before
-\shape default
-\emph default
- farmers start buying seed for the next agricultural season, such that they
- can use this information when choosing whether and where to purchase inputs,
- see Figure 
+Our ability to test the effectiveness of the clearinghouse treatment requires
+ precise timing for the dissemination of these agro-dealer ratings.
+ Dissemination occurred before farmers started buying seed for the next
+ agricultural season, allowing treated farmers to use the new rating information
+ when choosing whether and where to purchase inputs (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1573,8 +1434,9 @@ noprefix "false"
 
 \end_inset
 
-.
- Ratings were disseminated to farmers by means of text messages and in person.
+).
+ Ratings were disseminated to farmers through short message service (SMS)
+ and in person, as detailed below.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1589,62 +1451,59 @@ name "text about SMS"
 \end_layout
 
 \begin_layout Standard
-We sent farmers one text message per dealer in their proximity by Short
- Message Service (SMS).
- This message was translated into three local languages - Lusoga, Lugwere,
- Samia - chosen at the sub-county level to increase specificity.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "SMS"
-plural "false"
-caps "false"
-noprefix "false"
+Farmers were sent one text message per agro-dealer in their proximity by
+ SMS in one of three local languages---Lusoga, Lugwere, or Samia---chosen
+ at the sub-county level to increase specificity.
+ For farmers in the treatment area, the message read: 
+\end_layout
+
+\begin_layout Quote
+Hello from AgroAdvisor! Did you know that customers from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{
+\backslash
+emph{{[}
+\backslash
+textit{name of the agro-dealer}{]}}}
+\end_layout
 
 \end_inset
 
- in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "A.3 Rating dissemination: details"
-plural "false"
-caps "false"
-noprefix "false"
+ rate the quality of maize seed sold there as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{
+\backslash
+emph{{[}
+\backslash
+textit{okay/good/very good/excellent}{]}}}
+\end_layout
 
 \end_inset
 
- provides more details about the messages.
- Also in control catchment areas, farmers received text messages with the
- names of dealers in their proximity, so that they were aware of the presence
- of these dealers.
+?
+\end_layout
+
+\begin_layout Standard
+To isolate the effect of the ratings from more general effects that may
+ arise from sending SMS messages, we also use a placebo for the control
+ group that consisted of an "empty" SMS that only pointed out the existence
+ of the agro-dealers in the control farmer's catchment area.
+ This also makes it more difficult for farmers to identify if they are being
+ treated or not, thus reducing the likelihood of reactivity effects and
+ experimenter bias.
  
-\begin_inset CommandInset citation
-LatexCommand citet
-key "dillon2020important"
-literal "false"
-
-\end_inset
-
- demonstrate the importance of these control messages.
- They introduced a 
-\begin_inset Quotes eld
-\end_inset
-
-Yellow Pages
-\begin_inset Quotes erd
-\end_inset
-
- phone directory with contact information for local enterprises in central
- Tanzania.
- They find that enterprises randomly assigned to be listed in the directory
- receive more business calls, make greater use of mobile money, and are
- more likely to employ workers.
- To separate this knowledge effect from the effect emanating from the informatio
-n clearinghouse, we also disseminate control dealer information including
- their names but excluding the ratings.
- An additional advantage is that it is harder for farmers to identify if
- they are being treated or not, reducing the likelihood of experimenter
- demand effects.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1653,54 +1512,85 @@ In person
 
 \begin_layout Standard
 The enumerators also re-visited the farmers in our sample.
- For this purpose, we designed a visually appealing dissemination application
- (shown to farmers on tablet computers) which cycles through all dealers
- in the catchment area of each farmer and states: 
-\begin_inset Quotes eld
-\end_inset
+ For this purpose, we designed a visually appealing tablet-based application
+ that cycles through all agro-dealers in the catchment area of each farmer
+ and provides their ratings.
+ The application generates the following statement: 
+\end_layout
 
+\begin_layout Quote
 We wanted to let you know that customers from 
-\shape italic
-\emph on
-[name of the shop]
-\shape default
-\emph default
- rate the quality of maize seed sold there as okay/good/very good/excellent!
- The quality of the maize seed that this agro-input shop sells got a score
- of 
-\shape italic
-\emph on
-[score]
-\shape default
-\emph default
- out of 5!
-\begin_inset Quotes erd
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{
+\backslash
+emph{{[}
+\backslash
+textit{name of the agro-dealer}{]}}}
+\end_layout
+
 \end_inset
 
- in treated catchment areas.
- The application also showed the stars associated with the score.
- Again, we also cycled through dealers in control areas without providing
- ratings to inform farmers that these agro-dealers are operating in their
- neighborhood.
+ rate the quality of maize seed sold there as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{
+\backslash
+emph{{[}
+\backslash
+textit{okay/good/very good/excellent}{]}}}
+\end_layout
+
+\end_inset
+
+! The quality of the maize seed that this agro-dealer sells received a score
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{
+\backslash
+emph{{[}
+\backslash
+textit{score}{]}}}
+\end_layout
+
+\end_inset
+
+ out of 5!
+\end_layout
+
+\begin_layout Standard
+The application also displayed the stars associated with the score.
+ Again, for control group farmers, the application cycled through the agro-deale
+rs in the control areas without providing ratings to control for any effect
+ that may arise from simply being reminded of the existence of agro-dealers.
  
 \end_layout
 
-\begin_layout Standard
-As it was the case for the collection of ratings, the application provides
- different names under which the shop is known, a description of where the
- store is located, and a picture of the store front to make sure farmers
- associate the rating with the correct shop.
-\end_layout
-
 \begin_layout Subsubsection*
-Rating dissemination to dealers
+Rating dissemination to agro-dealers
 \end_layout
 
 \begin_layout Standard
-Agro-input dealers received their ratings by means of a report on laminated
- paper which was delivered to their shops.
- The front shows a visually appealing certificate with a logo and the own
- general rating, see Figure 
+Agro-dealers received their ratings by means of a report on laminated paper
+ that was delivered to their agro-dealerships.
+ The front of the report is a visually appealing certificate with a logo
+ and the agro-dealer's general rating (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "SeedAdvisor certificate"
@@ -1710,9 +1600,9 @@ noprefix "false"
 
 \end_inset
 
-.
- We encouraged agro-input dealers to display the ratings in the shop, similar
- to a 
+).
+ We encouraged agro-dealers to prominently display the ratings in the agro-deale
+rship, similar to a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1720,7 +1610,7 @@ certificate of excellence
 \begin_inset Quotes erd
 \end_inset
 
- from TripAdvisor.
+ from TripAdvisor or similar rating apps.
 \end_layout
 
 \begin_layout Standard
@@ -1784,33 +1674,40 @@ name "SeedAdvisor certificate"
 \end_layout
 
 \begin_layout Standard
-The back of the report shows more detailed information.
- In addition to the dealer's general rating, it shows the separate ratings
- that the seed of the agro-input dealer received on the different attributes
- (overall quality, yield, drought and disease resistance, speed of maturing,
- and germination) and the average ratings of other agro-input dealers in
- the same catchment area in a table, visualized by stars.
- This shows dealers their relative position in the area and could provide
- an important incentive to improve.
+The back of the report provides additional information, including the individual
+ ratings that the seed sold by the agro-dealer received for overall quality,
+ yield, drought and disease resistance, speed of maturing, and germination,
+ and the average (combined) ratings of other agro-dealers in the same catchment
+ area in a table, visualized by stars.
+ This shows agro-dealers their relative position in the area, potentially
+ incentivizing the agro-dealer to improve their ratings.
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The intervention was repeated in the course of 2022, see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "timeline"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We expect dealers to be more likely to change their behavior if they know
- that the clearinghouse will remain in place for some time, so that they
- will be scored again.
- It could also increase farmers' trust in the ratings.
- Again, the second rating does not depend on the first rating.
+The entire process of collecting and disseminating ratings was done twice,
+ the first time targeting the second agricultural season of 2021 and the
+ second time targeting the first agricultural season of 2022 (see Figure
+ 
+\backslash
+ref{timeline}).
+ Repeating the treatment was important to capture different dynamics of
+ particular impact channels on certain outcomes.
+ For instance, if seed quality is good but farmers hold pessimistic beliefs
+ about the quality, disseminating information may already result in increased
+ adoption and yield effects after a single season.
+ However, if agro-dealers engage in counterfeiting, the threat of farmers
+ switching to more honest agro-dealers may lead them to improve quality,
+ which will only be reflected in subsequent ratings.
+ This in turn could increase adoption but the effect of this on yields will
+ only become apparent during harvest in the second season.
+ Repetition may also be important for the effectiveness of certain impact
+ pathways.
+ For instance, agro-dealers may be more likely to change their behavior
+ if they know that they will be scored again in the near future.
 \end_layout
 
 \begin_layout Section
