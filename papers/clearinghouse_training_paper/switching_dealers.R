@@ -360,3 +360,44 @@ ggplot(all,aes(x=rating_baseline,y=cust_mid_min_base_notstand)) +
   xlab("Standardized shop rating at baseline") + ylab("Difference between number of customers base- and midline (not standardized)") +
   geom_smooth(method='lm')
 summary(lm(all$cust_mid_min_base_notstand~all$rating_baseline))
+
+all$cust_end_min_mid <- (all$customers_endline-all$customers_midline)
+all$cust_end_min_mid_notstand <- (all$customers_endline_save-all$customers_midline_save)
+
+#all$cust_end_min_mid <- all$cust_end_min_mid_notstand
+#all$cust_mid_min_base <- all$cust_mid_min_base_notstand
+
+#stacked
+part1 <- all[,c("rating_baseline","cust_mid_min_base")]
+part1$rating_tmin1 <- part1$rating_baseline
+part1$diff_cust_t_and_tmin1 <- part1$cust_mid_min_base
+part1 <- part1[,c("rating_tmin1","diff_cust_t_and_tmin1")]
+
+part2 <- all[,c("rating_midline","cust_end_min_mid")]
+part2$rating_tmin1 <- part2$rating_midline
+part2$diff_cust_t_and_tmin1 <- part2$cust_end_min_mid
+part2 <- part2[,c("rating_tmin1","diff_cust_t_and_tmin1")]
+
+stacked <- rbind(part1,part2)
+
+ggplot(stacked,aes(x=rating_tmin1,y=diff_cust_t_and_tmin1)) +
+  geom_point() +
+  xlab("Standardized shop rating at t-1") + ylab("Difference between number of customers t and t-1 (standardized)") +
+  geom_smooth(method='lm')
+summary(lm(stacked$diff_cust_t_and_tmin1~stacked$rating_tmin1))
+
+sum(stacked$rating_tmin1>=-0.70711 & stacked$rating_tmin1<=-0.70710 & !is.na(stacked$diff_cust_t_and_tmin1),na.rm = T) #24 if stand. 31 if not stand
+sum(stacked$rating_tmin1>=0.70710 & stacked$rating_tmin1<=0.70711 & !is.na(stacked$diff_cust_t_and_tmin1),na.rm = T) #23 if stand. 35 if not stand
+
+#NOTSTAND
+table(stacked$diff_cust_t_and_tmin1[stacked$rating_tmin1>=-0.70711 & stacked$rating_tmin1<=-0.70710])
+
+#-78 -50 -15 -10  -7  -4  -1   0   1   4   5   7  15  25  32  50  70  95 
+#1   1   2   3   1   2   3   5   2   1   3   1   1   1   1   1   1   1  #31
+
+#STAND
+table(stacked$diff_cust_t_and_tmin1[stacked$rating_tmin1>=-0.70711 & stacked$rating_tmin1<=-0.70710])
+
+#-1.414213    -0.6816843 -1.110223e-16        0   1.110223e-16      1.414213 
+#3            1          2                    11  3                 4  #24
+
