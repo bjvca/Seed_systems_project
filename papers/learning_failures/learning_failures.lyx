@@ -218,8 +218,8 @@ CGIAR research programme on Seed Systems Development (grant number W08.240.105),
  Institutions, and Markets (PIM), the CGIAR Seed Equal Research Initiative,
  and the CGIAR Market Intelligence Research Initiative which are funded
  by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
- Furthermore, Caroline Miehe also benefited from support by the Fonds Wetenschap
-pelijk Onderzoek – Vlaanderen (FWO) and the Fonds de la Recherche Scientifique
+ Furthermore, Caroline Miehe benefited from support by the Fonds Wetenschappelij
+k Onderzoek – Vlaanderen (FWO) and the Fonds de la Recherche Scientifique
  (FNRS) under EOS project G0G4318N.
 \end_layout
 
@@ -535,15 +535,15 @@ literal "false"
 \end_inset
 
 .
- An example the learning failure and its consequences was provided by extension
- agents we worked with.
- Seed of improved maize varieties need a lot of nutrients, often leaving
+ An example of the learning failure and its consequences was provided by
+ extension agents we worked with.
+ Seed of improved maize varieties needs a lot of nutrients, often leaving
  soil more depleted than when farmer-saved seed is used.
  In the areas where our research is situated, Striga (
 \shape italic
 Striga hermonthica
 \shape default
-), a parasitic weed that feeds on the roots of maize plants and cause stunted
+), a parasitic weed that feeds on the roots of maize plants and causes stunted
  growth, is a serious problem.
  Unfortunately, Striga proliferates in poor soils and as a result some farmers
  now believe that improved seed varieties are responsible for increased
@@ -582,7 +582,7 @@ literal "false"
 
 \end_inset
 
-under RCT ID 0006361.
+ under RCT ID 0006361.
  It was primarily designed to examine quality-related constraints to technology
  adoption with a series of interventions at the agro-input dealer level.
  This paper makes use of farmer-level interventions that were introduced
@@ -633,6 +633,8 @@ We begin by testing whether farmers are able to extract the relevant information
  effects that differ significantly from zero for a subset of farmers.
  Turning to adoption behavior, we find evidence of treated farmers dis-adopting
  between baseline and follow-up.
+ An exploratory heterogeneity analysis reveals that mainly more remote household
+s dis-adopt due to the treatment.
  We find no evidence that the intervention affected the use of complementary
  inputs such as fertilizers and pesticides, or recommended practices for
  maize management such as row planting and intensive weeding.
@@ -676,11 +678,11 @@ Correcting
 \begin_inset Quotes eld
 \end_inset
 
-miracle seeds
+miracle seeds.
 \begin_inset Quotes erd
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -822,7 +824,7 @@ l seasons, and are unable to fully appreciate the dynamics of technology
  significant levels of dis-adoption 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g."
+before "for example,"
 key "doi:10.1080/00220388.2013.874556"
 literal "false"
 
@@ -905,7 +907,7 @@ al learning by farmers.
  adopting the entire package at once 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g.,"
+before "for example,"
 key "byerlee1986farmers"
 literal "false"
 
@@ -1066,7 +1068,7 @@ literal "false"
  on farmers’ adoption of improved agricultural technologies and practices
  using data from a two-year randomized experiment.
  Our study uses a light touch intervention where treatment and control videos
- were very similar, expect for one small piece of information.
+ are very similar, expect for one small piece of information.
  Our study thus contributes to this literature by testing if videos are
  also effective in conveying subtle messages.
 \end_layout
@@ -3157,7 +3159,7 @@ of adoption
 \begin_inset Text
 
 \begin_layout Plain Layout
-to inc.
+to incr.
  exp.
 \end_layout
 
@@ -3400,7 +3402,6 @@ Effect on use of inputs and practices: Some farmers that were unaware of
  effort (Type 5).
  Hence, for inputs and efforts, we expect a positive effect that becomes
  less strong if we restrict ourselves to farmers that adopt at baseline.
- 
 \end_layout
 
 \begin_layout Section
@@ -3502,6 +3503,15 @@ Did you know that recommended spacing and using DAP is even more important
 
 \end_inset
 
+ Generally, the treatment video focuses on the 
+\shape italic
+benefits
+\shape default
+ of complements instead of the 
+\shape italic
+need
+\shape default
+ for complements.
  The control video is about eight minutes long and can be found at 
 \begin_inset CommandInset href
 LatexCommand href
@@ -3642,6 +3652,48 @@ load(paste(path2,
 \begin_inset Quotes erd
 \end_inset
 
+learning_failures/code/output/mean_base_het1.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mean_base_het2.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
 learning_failures/code/output/mean_know.Rdata
 \begin_inset Quotes erd
 \end_inset
@@ -3706,6 +3758,48 @@ load(paste(path2,
 \end_inset
 
 learning_failures/code/output/mid_adoption.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mid_adoption_het1.Rdata
+\begin_inset Quotes erd
+\end_inset
+
+, sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+load(paste(path2,
+\begin_inset Quotes erd
+\end_inset
+
+learning_failures/code/output/mid_adoption_het2.Rdata
 \begin_inset Quotes erd
 \end_inset
 
@@ -3863,7 +3957,26 @@ The field experiment was conducted in southeastern Uganda, an area known
  Because it was conducted as part of a larger study on maize seed supply
  chains, farmers were drawn from the catchment areas (market-sheds) of agro-inpu
 t shops.
- The sampling frame was developed as follows: first, we listed all agro-input
+ These shops sell agricultural inputs and technologies in countries with
+ large smallholder farmer populations living in remote areas with relatively
+ poor infrastructure.
+ A reasonably dense network of semi-formal agro-input dealers provides access
+ to seed, fertilizer, agro-chemicals, and tools, and sometimes agricultural
+ advisory service and credit.
+ We see substantial heterogeneity among agro-input shops.
+ Some are small informal stores that are located in rural areas and sell
+ small amounts of maize seed and other agricultural inputs in addition to
+ consumer items only during the planting season.
+ Others have many customers, are located in towns and only sell inputs and
+ equipment used in agricultural production.
+ In our study area, the average agro-dealership is located 7 km from the
+ nearest tarmac road, and services 40 customers per day.
+ Sampled farmers report to live on average 3.8 km from the nearest agro-input
+ shop.
+\end_layout
+
+\begin_layout Standard
+The sampling frame was developed as follows: first, we listed all agro-input
  shops in 11 districts in southeastern Uganda, resulting in the identification
  of 347 agro-input dealers.
  We then asked these dealers to identify the villages where most of their
@@ -3915,11 +4028,11 @@ Adopter
 \begin_inset Quotes eld
 \end_inset
 
-Non-adopters
+Non-adopters.
 \begin_inset Quotes erd
 \end_inset
 
-.
+
 \begin_inset Foot
 status collapsed
 
@@ -4015,7 +4128,7 @@ Never Adopters
  2 but do adopt by Survey 3.
  Finally, we find that the some households seem to be moving in and out
  of adoption (7 percent) or moving out and back into adoption (6 percent).
- Similar figures for treatment and control group can be found in Appendix
+ Similar figures distinguished by treatment group can be found in Appendix
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4075,9 +4188,9 @@ name "fig:Dynamics-of-seed"
 Another indication of the dynamic nature of adoption is the fact that a
  substantial share of farmers that adopted at the time of the first survey
  seemed to be disappointed.
- Baseline data shows that 30 percent of farmers indicated that were not
- satisfied with the quality of the planting material that they used; one
- in four indicated that they will not use the seed again in the future.
+ Baseline data shows that 30 percent of farmers indicated that they were
+ not satisfied with the quality of the planting material that they used;
+ one in four indicated that they will not use the seed again in the future.
 \end_layout
 
 \begin_layout Subsection
@@ -4187,7 +4300,7 @@ The quiz begins with a general question asking farmers whether they think
  than normal seed; and (3) you need to weed and remove Striga just as you
  would with unimproved varieties because maize seed does not compete well
  for sunlight, water, and nutrients.
- The quiz contains a similar question a key input as well—fertilizer—when
+ The quiz contains a similar question about a key input as well—fertilizer—when
  cultivating an improved variety.
  The options here are: (1) you do not need to use inorganic fertilizer because
  you already purchased seed; (2) you can use less fertilizer than you normally
@@ -4262,7 +4375,7 @@ Column (2) shows the estimated difference between the treatment and control
  groups for outcomes after the intervention, while Column (3) also reports
  this difference, but only for the subset of farmers that adopted an improved
  variety at baseline.
- The rationale for restricting our sample is alluded to in 
+ The rationale for restricting our sample is alluded to in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -4301,11 +4414,6 @@ After adjusting standard errors for clustering at the village level, none
  information.
  The overall effect is driven by increased knowledge about optimal agricultural
  investments among treated farmers.
- Even though we cannot defect a treatment effect for the entire sample,
- we note that all coefficient estimates are moving in the same direction.
- This may be due to the fact that, ex-post, it turns out that many of the
- farmers were already able to indicate the correct response, and hence there
- is little scope for further improvement.
  The significant results for the baseline adopters are in line with Prediction
  1 in Section 
 \begin_inset CommandInset ref
@@ -4318,6 +4426,40 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Bjorn, read from here :)
+\end_layout
+
+\end_inset
+
+Even though all coefficient estimates are moving in the same direction,
+ we cannot detect a treatment effect for the entire sample.
+ This may be due to the fact that, ex-post, it turns out that many of the
+ farmers were already able to indicate the correct response, and hence there
+ is little scope for further improvement.
+ This points to the explanation that farmers already knew that complementary
+ investments are important when using improved maize varieties but fail
+ to notice and attend to this piece of information.
+ This interpretation is in line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1093/qje/qju015"
+literal "false"
+
+\end_inset
+
+ who find that seaweed farmers do not attend to pod size, a particular input
+ dimension, even when they have access to experimental data.
+ These farmers start changing their behavior only after they are presented
+ with summaries that highlight relationships in the data that they previously
+ failed to notice, which shows that making available information salient
+ can lead to behavioral changes.
 \end_layout
 
 \begin_layout Standard
@@ -4823,7 +4965,7 @@ noprefix "false"
  For instance, we test if there are differences in the use of recycled seed
  between the treatment and control group, where we define recycled seed
  as seed that a farmer has saved themselves or obtained from another farmer
- who saved it (e.g., a neighbor or relative).
+ who saved it (for example, a neighbor or relative).
  Another related outcome is the share of farmers that report having purchased
  seed from an agro-input shop.
  The three outcomes are also combined in an index following 
@@ -4906,6 +5048,10 @@ To separate the two opposing effects, we restrict the sample to farmers
  seed from an agro-input dealer.
  The treatment also has a significant and more pronounced negative effect
  on the adoption index for this subgroup of farmers that adopted at baseline.
+ Note that the measured treatment effects cannot be driven by the (insignificant
+, see Column (2)) differences in baseline adoption between treatment and
+ control farmers because we control for the baseline values of the outcome
+ variables.
 \end_layout
 
 \begin_layout Standard
@@ -5571,18 +5717,18 @@ corrected
 \begin_inset Quotes eld
 \end_inset
 
-miracle seeds
+miracle seeds.
 \begin_inset Quotes erd
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
 Finally, the table shows that the average farmer produces about 460 kg of
  maize on the randomly selected plot.
- The average size of these plots is slightly larger than one acre on average,
- such that yields are about 440 kg per acre.
+ The average size of these plots is slightly larger than one acre, such
+ that yields are about 440 kg per acre.
  The intervention does not seem to have any impact on maize production or
  yield.
 \end_layout
@@ -6268,7 +6414,7 @@ Column (3) shows that farmers do not invest more effort in response to the
  may adopt some complementary inputs or practices, but in sufficient quantities
  and/or suboptimal combinations for the adoption premium to realize.
  When farmers subsequently dis-adopt, they may also stop using these inputs
- or practices, leading to a negative expected effect on practices for type
+ or practices, leading to a negative expected effect on practices for Type
  3 farmers in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7554,6 +7700,1278 @@ Note: Column (1) reports means at baseline (and standard deviations below);
 
 \end_layout
 
+\begin_layout Subsection
+Heterogeneity analysis: remote households
+\end_layout
+
+\begin_layout Standard
+To better understand the impact of the video on adoption, we investigate
+ heterogeneous treatment effects on remote households.
+ Note that this analysis is of exploratory nature and was not registered
+ in the pre-analysis plan at the 
+\begin_inset CommandInset href
+LatexCommand href
+name "AEA RCT registry"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+.
+ Instead, we conducted a Lasso regression analysis to find variables that
+ predict dis-adoption due to the treatment, which yielded remoteness as
+ an interesting variable to explore.
+ After further investigation and finding that the interaction of the treatment
+ indicator and the remoteness indicator is indeed significant at the 1 percent
+ level in the full ANCOVA model, we decided to add this heterogeneity analysis.
+\end_layout
+
+\begin_layout Standard
+As a measure of remoteness, we use a homestead's distance to the village
+ headquarters in kilometers, a variable with a minimum of zero and a maximum
+ of 15, a median of 0.5, and a mean of 0.75.
+ A household is defined as more remote or less connected if its distance
+ to the village headquarters is larger than the average distance.
+ A household that is less than average far away from the village headquarters
+ is defined as less remote or more connected.
+ Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Average treatment effects on adoption - Less connected households"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Average treatment effects on adoption - More connected households"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show that the less connected households clearly drive the results.
+ Smallholders who live further away from the city center are the ones that
+ dis-adopt when learning about the complementary between improved maize
+ varieties and other investments.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Note that this result must be interpreted with care as sampling sizes are
+ smaller when we split the sample, having implications for statistical power.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "suri2011selection"
+literal "false"
+
+\end_inset
+
+ provides one possible explanation for this result.
+ It is more difficult for less connected farmers to access improved varieties
+ but also the necessary complementary inputs such as DAP/NPK, Urea, and
+ pesticide.
+ Generally, agro-input shops are located in the centers of towns and villages,
+ in markets, trading centers, and other key market sheds.
+ For more remote farmers, this implies higher costs of acquiring the agricultura
+l inputs and technologies and lower net returns due to often poor infrastructure.
+ As the information intervention highlights the importance of complementary
+ investments when using improved maize varieties and further reduces the
+ perceived net benefits of adoption for farmers that initially had inflated
+ expectations of the adoption premium, the remote farmers with higher costs
+ and lower net returns may be the most sensitive to this information and
+ the first ones to dis-adopt.
+ This is only one possible reason for this exploratory result, there are
+ many alternative explanations like the larger insecurity and variability
+ in output prices in more isolated areas 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "https://doi.org/10.1111/j.1574-0862.2008.00310.x"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on adoption - Less connected households
+\begin_inset CommandInset label
+LatexCommand label
+name "Average treatment effects on adoption - Less connected households"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het1[3,2,1]<.01,"**",ifelse(mean_base_het1[3,2,1]<.05,"*",i
+felse(mean_base_het1[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,1,1]<.01,"**",ifelse(mid_adoption_het1[3,1,1]<.05
+,"*",ifelse(mid_adoption_het1[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,2,1]<.01,"**",ifelse(mid_adoption_het1[3,2,1]<.05
+,"*",ifelse(mid_adoption_het1[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+of an improved variety
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het1[3,2,4]<.01,"**",ifelse(mean_base_het1[3,2,4]<.05,"*",i
+felse(mean_base_het1[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,1,4]<.01,"**",ifelse(mid_adoption_het1[3,1,4]<.05
+,"*",ifelse(mid_adoption_het1[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,2,4]<.01,"**",ifelse(mid_adoption_het1[3,2,4]<.05
+,"*",ifelse(mid_adoption_het1[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+from agro-input shop & (
+\backslash
+Sexpr{format(round(mean_base_het1[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het1[3,2,3]<.01,"**",ifelse(mean_base_het1[3,2,3]<.05,"*",i
+felse(mean_base_het1[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,1,3]<.01,"**",ifelse(mid_adoption_het1[3,1,3]<.05
+,"*",ifelse(mid_adoption_het1[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,2,3]<.01,"**",ifelse(mid_adoption_het1[3,2,3]<.05
+,"*",ifelse(mid_adoption_het1[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+that was recycled
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Adoption index$^1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het1[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het1[3,2,5]<.01,"**",ifelse(mean_base_het1[3,2,5]<.05,"*",i
+felse(mean_base_het1[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,1,5]<.01,"**",ifelse(mid_adoption_het1[3,1,5]<.05
+,"*",ifelse(mid_adoption_het1[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het1[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het1[3,2,5]<.01,"**",ifelse(mid_adoption_het1[3,2,5]<.05
+,"*",ifelse(mid_adoption_het1[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het1[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het1[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 1258 & 1258 & 1131 & 458 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Column (1) reports means at baseline (and standard deviations below);
+ column (2) reports differences between treatment and control at baseline;
+ column (3) reports differences between treatment and control post-intervention;
+ column (4) reports differences between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$For this index, signs of outcomes were switched where necessary so that
+ the positive direction always indicates adoption of improved varieties.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on adoption - More connected households
+\begin_inset CommandInset label
+LatexCommand label
+name "Average treatment effects on adoption - More connected households"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het2[3,2,1]<.01,"**",ifelse(mean_base_het2[3,2,1]<.05,"*",i
+felse(mean_base_het2[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,1,1]<.01,"**",ifelse(mid_adoption_het2[3,1,1]<.05
+,"*",ifelse(mid_adoption_het2[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,2,1]<.01,"**",ifelse(mid_adoption_het2[3,2,1]<.05
+,"*",ifelse(mid_adoption_het2[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+of an improved variety
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het2[3,2,4]<.01,"**",ifelse(mean_base_het2[3,2,4]<.05,"*",i
+felse(mean_base_het2[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,1,4]<.01,"**",ifelse(mid_adoption_het2[3,1,4]<.05
+,"*",ifelse(mid_adoption_het2[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,2,4]<.01,"**",ifelse(mid_adoption_het2[3,2,4]<.05
+,"*",ifelse(mid_adoption_het2[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+from agro-input shop & (
+\backslash
+Sexpr{format(round(mean_base_het2[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer planted seed
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het2[3,2,3]<.01,"**",ifelse(mean_base_het2[3,2,3]<.05,"*",i
+felse(mean_base_het2[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,1,3]<.01,"**",ifelse(mid_adoption_het2[3,1,3]<.05
+,"*",ifelse(mid_adoption_het2[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,2,3]<.01,"**",ifelse(mid_adoption_het2[3,2,3]<.05
+,"*",ifelse(mid_adoption_het2[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+that was recycled
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Adoption index$^1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_base_het2[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mean_base_het2[3,2,5]<.01,"**",ifelse(mean_base_het2[3,2,5]<.05,"*",i
+felse(mean_base_het2[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,1,5]<.01,"**",ifelse(mid_adoption_het2[3,1,5]<.05
+,"*",ifelse(mid_adoption_het2[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_adoption_het2[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_adoption_het2[3,2,5]<.01,"**",ifelse(mid_adoption_het2[3,2,5]<.05
+,"*",ifelse(mid_adoption_het2[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_base_het2[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_adoption_het2[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 2097 & 2097 & 1897 & 807 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Column (1) reports means at baseline (and standard deviations below);
+ column (2) reports differences between treatment and control at baseline;
+ column (3) reports differences between treatment and control post-intervention;
+ column (4) reports differences between treatment and control post-intervention
+ for farmers that adopt at baseline; **, * and + denote significance at
+ the 1, 5 and 10 percent levels; standard errors are clustered at the village
+ level.
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$For this index, signs of outcomes were switched where necessary so that
+ the positive direction always indicates adoption of improved varieties.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusion
 \begin_inset CommandInset label
@@ -7569,7 +8987,7 @@ name "section: Conclusion"
 This paper was motivated by evidence suggesting that farmers are often unaware
  that many agricultural technologies such as improved seed varieties require
  substantial complementary inputs, better management practices, and greater
- effort for their benefits to be realized.
+ effort for their benefits to realize.
  In a sense, farmers overestimate the returns to a technology and are disappoint
 ed when they compare expectations to realized yields.
  As learning about a new technology is hard, farmers may attribute the disappoin
@@ -7627,9 +9045,35 @@ ts move in the expected direction and suspect that the lack of statistical
 For the main outcome of interest—behavior related to seed choices—we find
  that treated farmers were less likely to use improved varieties, and generally
  more likely to dis-adopt.
+ An exploratory heterogeneity analysis reveals that mainly more remote household
+s dis-adopt due to the treatment.
  We also find that farmers that received the treatment were more likely
  to report that their harvest was in line with what they expected.
  Both findings are again consistent with our theory.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Bjorn, read from here :)
+\end_layout
+
+\end_inset
+
+The finding that a small increase in knowledge leads to a large decrease
+ in adoption indicates that farmers were already aware of the importance
+ of complementary investments but failed to notice and attend to this piece
+ of information, in line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1093/qje/qju015"
+literal "false"
+
+\end_inset
+
+ who find that seaweed farmers change their behavior only after they are
+ presented with summaries that highlight relationships in the data that
+ they previously failed to notice, even though they had access to it.
  We found no overall effect of the treatment on input use and management
  practices, although there is some indication that especially costly inputs
  and practices were reduced.
@@ -7865,6 +9309,13 @@ miracle
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
@@ -7900,81 +9351,34 @@ name "A.1 Dynamics of varietal adoption by treatment group"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename alluvial_treated_farmers.png
+	scale 60
+	clip
 
+\end_inset
 
-\backslash
-begin{figure}[hbt!]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=8cm]{alluvial_treated_farmers.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-caption{Dynamics of varietal adoption - Treated farmers}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[hbt!]
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-
-\backslash
-centering
+Dynamics of varietal adoption - Treated farmers
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
 
 
-\backslash
-includegraphics[width=8cm]{alluvial_control_farmers.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-caption{Dynamics of varietal adoption - Control farmers}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
 \end_layout
 
 \end_inset
@@ -7983,6 +9387,38 @@ end{figure}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename alluvial_control_farmers.png
+	scale 60
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dynamics of varietal adoption - Control farmers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

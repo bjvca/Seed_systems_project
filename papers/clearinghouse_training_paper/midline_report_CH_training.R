@@ -700,6 +700,9 @@ baseline_farmers$adoption_onfield <- baseline_farmers$improved
 baseline_farmers$adoption_onfield[baseline_farmers$hybridbutsaved==1] <- 0
 #baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
 baseline_farmers$adoption_onfield[baseline_farmers$OPVbutsaved==1] <- 0
+
+baseline_farmers$adoption_onfield_save <- baseline_farmers$adoption_onfield
+
 #hereq31
 
 baseline_farmers$Check2.check.maize.q36<-ifelse(baseline_farmers$Check2.check.maize.q36=="Yes",1,0)
@@ -5345,6 +5348,8 @@ baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_hybridbutsaved==1] <-
 #baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutfourthormore_timeused==1] <- 0
 baseline_farmers$mid_adoption_onfield[baseline_farmers$mid_OPVbutsaved==1] <- 0
 
+baseline_farmers$mid_adoption_onfield_save <- baseline_farmers$mid_adoption_onfield
+
 #8. overall index
 variables_overallsec_plotF_mid <- cbind(baseline_farmers$mid_hybrid,baseline_farmers$mid_OPV
                                         ,baseline_farmers$mid_farmer_saved_seed,baseline_farmers$mid_Bought_from_agro_input_shop)
@@ -6854,3 +6859,79 @@ midline_for.cor.ratings.quality_farmers = subset(baseline_farmers, select = c("f
                                                                       "plotratings_midline"))
 
 write.csv(midline_for.cor.ratings.quality_farmers,paste(path,"/midline/data/farmer/public/midline_for.cor.ratings.quality_farmers.csv",sep="/"), row.names = T)
+
+
+
+
+
+
+
+
+
+
+#Lasso for Miracle seeds paper
+
+baseline_farmers_save <- baseline_farmers
+
+#relevant variables:
+baseline_farmers$adoption_onfield_save
+baseline_farmers$mid_adoption_onfield_save
+
+#looking only at baseline adopters
+baseline_farmers=subset(baseline_farmers,adoption_onfield_save==1)
+
+library('glmnet')
+
+baseline_farmers$Check2.check.maize.video_shown <- ifelse(baseline_farmers$Check2.check.maize.video_shown==TRUE,1,0)
+
+#only columns of baseline_farmers that are numeric
+num_cols <- unlist(lapply(baseline_farmers,is.numeric))
+baseline_farmers <- baseline_farmers[,num_cols]
+
+#only farmers that don't have NA for mid_adoption_onfield_save
+baseline_farmers=subset(baseline_farmers,!is.na(mid_adoption_onfield_save))
+
+baseline_farmers[is.na(baseline_farmers)] <- 0 #problematic but no other idea
+sum(is.na(baseline_farmers))
+
+baseline_farmers$mid_disadoption_onfield <- ifelse(baseline_farmers$mid_adoption_onfield_save==1,0,1)
+
+baseline_farmers$mid_disadoption_x_video <- (baseline_farmers$mid_disadoption_onfield * baseline_farmers$Check2.check.maize.video_shown)
+
+x = as.matrix(baseline_farmers[,-c(which(colnames(baseline_farmers)=='mid_disadoption_x_video'))])
+
+y = baseline_farmers$mid_disadoption_x_video
+
+lasso_fit <- glmnet(x,y,alpha = 1)
+
+coef(lasso_fit,s=0)
+coef(lasso_fit,s=0.5)
+coef(lasso_fit,s=1)
+
+#the larger ?? (= s), the less variables are included in the model
+#you can choose ?? yourself
+#or use cv.glmnet to conduct a cross-validation:
+
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+baseline_farmers <- baseline_farmers_save
+
+
+
+afterlasso <- c("Check2.check.maize.q9"
+                ,"seed_germinate_rating"
+                ,"gives_advice"
+                ,"mid_Bought_from_agro_input_shop"
+                ,"index_overall_seedonplot_mid")
+
+ols <- lm(mid_adoption_onfield_save~training_demeaned*clearing_demeaned*farmer+Check2.check.maize.q9+Check2.check.maize.q9*farmer,data=baseline_farmers)
+
+summary(ols)
+
+#Check2.check.maize.q9: very interesting (remoteness)
+#seed_germinate_rating: not interesting
+#gives_advice: not interesting
+#mid_Bought_from_agro_input_shop: interesting
+#index_overall_seedonplot_mid: not interesting

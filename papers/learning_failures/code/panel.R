@@ -677,7 +677,9 @@ baseline_farmers$Bought_from_agro_input_shop<-ifelse(baseline_farmers$Check2.che
 
 #make panel
 
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "Land_Races","farmer_saved_seed","Bought_from_agro_input_shop")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_Land_Races", "end_farmer_saved_seed","end_Bought_from_agro_input_shop")])
+#here2
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","Check2.check.maize.q9")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_Land_Races", "end_farmer_saved_seed","end_Bought_from_agro_input_shop")])
+
 ##always adopters
 ##demean orthogonal treatments
 all$clearing <- all$clearing - mean(all$clearing)
@@ -711,7 +713,7 @@ xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bou
 index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
 all$index_mid <- index_mid$index
 
-mid_adoption <-  array(NA,dim=c(4,2,5))
+mid_adoption <-  array(NA,dim=c(4,2,5)) #here
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
 outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
 outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
@@ -734,6 +736,138 @@ mid_adoption[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,2,i] <- nobs(ols)
 }
+
+
+
+#heterogeneity 1 remote start
+
+#nobs
+sum(all$Check2.check.maize.q9>=0.7471055,na.rm=T)
+sum(all$Check2.check.maize.q9>=0.7471055 & !is.na(all$mid_adoption_onfield),na.rm=T)
+sum(all$Check2.check.maize.q9>=0.7471055 & !is.na(all$mid_adoption_onfield) & all$adoption_onfield==1,na.rm=T)
+
+all_save <- all
+
+all=subset(all,Check2.check.maize.q9>=0.7471055)
+
+mean_base_het1 <-  array(NA,dim=c(4,2,5))
+#loop here over outcomes
+outcomes <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
+for (i in 1:length(outcomes)) {
+  mean_base_het1[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_base_het1[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mean_base_het1[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mean_base_het1[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mean_base_het1[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mean_base_het1[4,2,i] <- nobs(ols)
+}
+
+save(mean_base_het1, file=paste(path,"papers/learning_failures/code/output/mean_base_het1.Rdata",sep="/")) 
+
+xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
+index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
+all$index_mid <- index_mid$index
+
+mid_adoption_het1 <-  array(NA,dim=c(4,2,5)) #here
+#loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
+outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
+outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
+for (i in 1:length(outcomes)) {
+  
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_adoption_het1[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_adoption_het1[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_adoption_het1[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_adoption_het1[4,1,i] <- nobs(ols)
+  
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_adoption_het1[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_adoption_het1[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_adoption_het1[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_adoption_het1[4,2,i] <- nobs(ols)
+}
+
+save(mid_adoption_het1, file=paste(path,"papers/learning_failures/code/output/mid_adoption_het1.Rdata",sep="/")) 
+
+all <- all_save
+
+#heterogeneity 1 remote stop
+
+
+
+#heterogeneity 2 remote start
+
+#nobs
+sum(all$Check2.check.maize.q9<=0.7471055,na.rm=T)
+sum(all$Check2.check.maize.q9<=0.7471055 & !is.na(all$mid_adoption_onfield),na.rm=T)
+sum(all$Check2.check.maize.q9<=0.7471055 & !is.na(all$mid_adoption_onfield) & all$adoption_onfield==1,na.rm=T)
+
+all_save <- all
+
+all=subset(all,Check2.check.maize.q9<=0.7471055)
+
+mean_base_het2 <-  array(NA,dim=c(4,2,5))
+#loop here over outcomes
+outcomes <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
+for (i in 1:length(outcomes)) {
+  mean_base_het2[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_base_het2[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mean_base_het2[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mean_base_het2[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mean_base_het2[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mean_base_het2[4,2,i] <- nobs(ols)
+}
+
+save(mean_base_het2, file=paste(path,"papers/learning_failures/code/output/mean_base_het2.Rdata",sep="/")) 
+
+xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
+index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
+all$index_mid <- index_mid$index
+
+mid_adoption_het2 <-  array(NA,dim=c(4,2,5)) #here
+#loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
+outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
+outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
+for (i in 1:length(outcomes)) {
+  
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all)
+  
+  vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_adoption_het2[1,1,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_adoption_het2[2,1,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_adoption_het2[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_adoption_het2[4,1,i] <- nobs(ols)
+  
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_adoption_het2[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_adoption_het2[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_adoption_het2[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_adoption_het2[4,2,i] <- nobs(ols)
+}
+
+save(mid_adoption_het2, file=paste(path,"papers/learning_failures/code/output/mid_adoption_het2.Rdata",sep="/")) 
+
+all <- all_save
+
+#heterogeneity 2 remote stop
+
+
 
 xmat_end <- cbind(all$end_adoption_onfield,all$end_farmer_saved_seed,all$end_Bought_from_agro_input_shop)
 index_end <- icwIndex(xmat=xmat_end,revcols = c(2))

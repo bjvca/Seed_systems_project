@@ -1894,6 +1894,10 @@ icwIndex <- function(	xmat,
   return(list(weights = weights, index = index))
 }
 
+#after all analyses were finalized, we checked whether our results are robust to using use = "complete.obs" and use = "na.or.complete" instead
+#we also tried a function developed by Bjorn that sets NA=O (see email 13/07/2023)
+#results are roughly robust to these different approaches
+
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid) #x
 baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #x
 
