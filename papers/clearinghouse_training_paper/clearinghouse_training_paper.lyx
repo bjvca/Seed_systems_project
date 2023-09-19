@@ -115,37 +115,25 @@ status open
 \backslash
 author{Caroline Miehe
 \backslash
-thanks{LICOS, KU Leuven, Belgium},
-\end_layout
-
-\begin_layout Plain Layout
-
-Robert Sparrow
+thanks{LICOS, KU Leuven, Leuven, Belgium}, Robert Sparrow
 \backslash
-thanks{Development Economics Group, Wageningen University, Netherlands}
- 
+thanks{Development Economics Group, Wageningen University, Wageningen, Netherlan
+ds} 
 \backslash
 thanks{International Institute of Social Studies, Erasmus University Rotterdam,
- Netherlands},
+ Rotterdam, Netherlands},
 \backslash
 
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-David Spielman
+ David J.
+ Spielman
 \backslash
-thanks{Innovation Policy and Scaling Unit, IFPRI, United States},
-\end_layout
-
-\begin_layout Plain Layout
-
-Bjorn Van Campenhout
+thanks{Innovation Policy and Scaling Unit, International Food Policy Research
+ Institute, Washington, D.C., United States}, Bjorn Van Campenhout
 \backslash
-thanks{Innovation Policy and Scaling Unit, IFPRI, Belgium - corresponding
- author: b.vancampenhout@cgiar.org} 
+thanks{Innovation Policy and Scaling Unit, International Food Policy Research
+ Institute, Leuven, Belgium; corresponding author: b.vancampenhout@cgiar.org}
+ 
 \backslash
 footnotemark[1]}
 \end_layout
@@ -162,18 +150,32 @@ l evidence from Uganda
 \end_layout
 
 \begin_layout Abstract
-This article presents findings from a randomized control trial that tests
- two hypotheses on how the (perceived) quality of agricultural inputs affects
- adoption among smallholder farmers in Uganda.
- First, poor quality could be caused by agro-input dealers’ lack of knowledge
- about proper handling and storage.
- A training is expected to improve input quality and subsequent adoption.
- Second, information asymmetries could crowd out the market for quality
- inputs—a classic lemons problem.
- Here, we implement an information clearinghouse based on crowd-sourced
- reviews similar to yelp.com.
- We find that agro-input dealers and farmers benefit from the clearinghouse,
- but not from the training.
+Recently, issues related to the (perceived) quality of inputs and technologies
+ have been proposed as an important constraint to their adoption by smallholder
+ farmers in low income countries.
+ Taking maize seed embodying genetic gain as a case, we train random agro-dealer
+s to test whether under-adoption by farmers is caused by low quality due
+ to sellers’ lack of knowledge about proper storage and handling.
+ In a second hypothesis, we randomly introduce an information clearinghouse
+ similar to popular crowd-sourced review platforms such as yelp.com or trustpilot.
+com to test whether information asymmetries crowd out quality seed.
+ We find that the information clearinghouse treatment improves outcomes
+ for both agro-dealers and farmers, with agro-dealers receiving more customers
+ and reporting higher revenues from maize seed sales, and farmers reporting
+ significantly higher use of improved maize seed varieties obtained from
+ agro-dealers, leading to higher maize productivity after two seasons.
+ The primary mechanisms behind this impact appear to be an increased effort
+ to signal quality by agro-dealers and a general restoration of trust in
+ the market for improved seed.
+ The agro-dealer training does not have a clear impact on agro-dealers,
+ nor on farmers in associated catchment areas.
+ However, we do find that the information clearinghouse increases agro-dealer
+ knowledge about proper seed storage and handling.
+ Upon exploring interaction effects between the training and the clearinghouse
+ treatment, we also find that the training becomes effective for agro-dealers
+ that are also in the clearinghouse treatment group.
+ This underscores the importance of incentives to make supply side interventions
+ such as trainings effective.
 \end_layout
 
 \begin_layout Abstract
@@ -182,6 +184,14 @@ This article presents findings from a randomized control trial that tests
 Note:
 \series default
  Author order is alphabetical.
+ The experiment on which this paper is based is registered in the American
+ Economic Association's registry for randomized controlled trials as AEARCTR-000
+6361.
+ This project received clearance from Makerere University's School of Social
+ Sciences Research Ethics Committee (08.20.436/PR1) as well as from the Internatio
+nal Food Policy Research Institute's Institutional Review Board (DSGD-20-0829).
+ The research was also registered at the Ugandan National Commission for
+ Science and Technology (SS603ES).
 \end_layout
 
 \begin_layout Abstract
@@ -208,29 +218,20 @@ JEL Codes:
 Acknowledgments:
 \series default
  We would like to thank Charles Marc Wanume, Leocardia Nabwire, Richard
- Ariong, and Wilberforce Walukano for their support in the field, and Martin
- Paul Jr.
- Tabe-Ojong for his comments and suggestions as our discussant at the Centre
- for the Study of African Economies Conference 2023.
- This project received funding from The Netherlands - Consultative Group
- for International Agricultural Research research programme on Seed Systems
- Development, grant number W08.240.105, funded by the Netherlands Organisation
- for Scientific Research.
+ Ariong, and Wilberforce Walukano for their support in the field.
+ We would also like to express our gratitude to Johan Swinnen, Eva-Marie
+ Meemken, Francesco Cecchi, and Martin Paul Jr.
+ Tabe-Ojong for their helpful comments and suggestions.
+ We further thank participants of the Centre for the Study of African Economies
+ Conference 2023, the Netherlands - Consultative Group for International
+ Agricultural Research (NL-CGIAR) Conference, the AgEconMeeting 2022, and
+ seminars at Wageningen University and KU Leuven for valuable discussions.
+ This project received funding from the NL-CGIAR research programme on Seed
+ Systems Development, grant number W08.240.105, funded by the Netherlands
+ Organisation for Scientific Research.
  The research was also supported by the Fonds Wetenschappelijk Onderzoek
  - Vlaanderen and the Fonds de la Recherche Scientifique under EOS project
  G0G4318N.
-\end_layout
-
-\begin_layout Abstract
-
-\series bold
-Clearance:
-\series default
- This project received clearance from Makerere University's School of Social
- Sciences Research Ethics Committee (08.20.436/PR1) as well as from the Internatio
-nal Food Policy Research Institute's Institutional Review Board (DSGD-20-0829).
- The research was also registered at the Ugandan National Commission for
- Science and Technology (SS603ES).
 \end_layout
 
 \begin_layout Section
@@ -238,60 +239,28 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Over the next decades, farmers in sub-Saharan Africa will need to produce
- more food on less land under increasingly difficult climatic conditions
- 
+The adoption of new agricultural inputs and technologies (such as seed embodying
+ genetic gain, inorganic fertilizers, or agro-chemicals) remains tepid in
+ areas where they can make the largest difference in terms of food security,
+ poverty reduction, and biodiversity preservation 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "tilman2011global"
+key "10.1257/jep.36.1.33,doi:10.1086/714444,doi:10.1126/science.1151062"
 literal "false"
 
 \end_inset
 
 .
- The use of climate-smart agricultural practices and improved inputs such
- as higher-yielding and drought-tolerant crop varieties is thought to be
- at least part of the solution 
+ Several explanations for the low uptake of agricultural technology among
+ small-scale, resource-poor farmers in low- and middle-income countries
+ have been explored and tested with increasing depth and rigor in recent
+ years.
+ These include access to information about existence, use, and benefits
+ of the technology 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "evenson2003assessing"
+key "ashraf2009finding,doi:10.1086/703868"
 literal "false"
-
-\end_inset
-
-.
- Unfortunately, the adoption of improved agricultural inputs and technologies
- across the region seems to be stagnating, or at least advancing at a slower
- pace than required 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/jep.36.1.33"
-literal "false"
-
-\end_inset
-
-.
- As a result, differences in agricultural yields between sub-Saharan Africa
- and countries in Latin America and Asia have almost doubled since 1961
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "doi:10.1146/annurev-resource-100517-023202"
-literal "true"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Several key constraints to agricultural technology adoption have been tested
- in recent years.
- These include poor access to information 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "ashraf2009finding"
-literal "true"
 
 \end_inset
 
@@ -299,24 +268,23 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "duflo2011nudging"
-literal "true"
+literal "false"
 
 \end_inset
 
-, heterogeneity in the net benefits derived from the technology due to differenc
-es in infrastructure and transaction costs 
+, heterogeneity in the net benefits derived from the technology 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "suri2011selection"
-literal "true"
+literal "false"
 
 \end_inset
 
 , missing markets for risk and credit 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "karlan2014agricultural"
-literal "true"
+literal "false"
 
 \end_inset
 
@@ -324,7 +292,7 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hanna2014learning"
-literal "true"
+literal "false"
 
 \end_inset
 
@@ -332,9 +300,9 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-More recently, issues related to the quality of inputs such as improved
- seed varieties, inorganic fertilizers, and pesticides have emerged as a
- potential constraint to their adoption by smallholder farmers.
+More recently, issues related to the quality of inputs and technologies
+ have been proposed as a key constraint to their adoption by smallholder
+ farmers.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -343,11 +311,11 @@ literal "false"
 
 \end_inset
 
- argue that farmers can hardly assess quality from simple visual inspection
- at the time of purchase, so information asymmetries between sellers and
- buyers characterize the markets for seed and fertilizer, in turn crowding
- out the market for quality inputs in Uganda, similar to what happens in
- 
+ build on the observation that farmers generally cannot easily assess quality
+ from visual inspection at the time of purchase, so information asymmetries
+ between sellers and buyers characterize the market for agricultural inputs,
+ in turn crowding out the market for quality inputs in Uganda, similar to
+ the lessons learned from 
 \begin_inset CommandInset citation
 LatexCommand citeauthor
 key "george1970market"
@@ -355,15 +323,7 @@ literal "false"
 
 \end_inset
 
-'s seminal 
-\begin_inset Quotes eld
-\end_inset
-
-Market for Lemons
-\begin_inset Quotes erd
-\end_inset
-
- study 
+'s seminal ``Market for Lemons'' study 
 \begin_inset CommandInset citation
 LatexCommand citeyearpar
 key "george1970market"
@@ -372,9 +332,9 @@ literal "false"
 \end_inset
 
 .
- However, subsequent research argues that it is not clear if these quality
- issues are due to agro-input dealers intentionally adulterating inputs,
- or if this is simply because they lack knowledge and skills to preserve
+ However, subsequent research suggests ambiguity in whether these quality
+ issues are attributable to agro-dealers intentionally adulterating their
+ products, or whether they lack the requisite knowledge and skills to preserve
  quality 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -384,8 +344,8 @@ literal "false"
 \end_inset
 
 .
- Furthermore, it is not even clear if these quality issues are real: while
- some studies argue that input quality is indeed lacking 
+ Furthermore, it is not always clear whether these quality issues are significan
+t: while some studies argue that input quality is indeed lacking 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "doi:10.1080/00220388.2018.1464143"
@@ -393,8 +353,8 @@ literal "false"
 
 \end_inset
 
-, others argue that input quality is sufficient but farmers' perceptions
- are to blame 
+, others argue that farmers may mistakenly perceive quality deficiencies
+ even when the product meets the required standards 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,wossen2022misperceiving"
@@ -406,46 +366,47 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We attempt to answer some of these questions through a field experiment
- targeting agro-input dealers and smallholder farmers in their catchment
- areas in the nascent market for improved maize varieties (high-yielding
- cultivars like open-pollinated and hybrid varieties) in eastern Uganda.
- Agro-input dealers are essential for agricultural technology adoption in
- countries with large farmer populations living in remote areas with poor
- infrastructure.
- A reasonably dense network of semi-formal agro-input shops provides access
- to technologies to rural farmers.
- Often, these dealers also provide services like agricultural advice or
- even credit to smallholders.
+We investigate some of these issues through a field experiment conducted
+ with both agro-dealers and smallholder farmers in their catchment areas
+ in the nascent market for improved, high-yielding maize varieties in eastern
+ Uganda.
+\backslash
+footnote{In the context of this study, high-yielding maize varieties refers
+ to both open-pollinated varieties and hybrids.
+ While the distinction may be lost on some, it is a nuance that is recognizable
+ to many colleagues working in the fields of plant breeding and seed sector
+ development.} We focus partly on agro-dealers because they are an essential
+ marketing channel for inputs and technologies in countries with large smallhold
+er farmer populations living in remote areas with poor infrastructure.
+ A reasonably dense network of semi-formal agro-dealers provides access
+ to seed, fertilizer, agro-chemicals, and tools, and may be combined to
+ provide agricultural advisory services and credit facilities, both formal
+ or informal.
 \end_layout
 
 \begin_layout Standard
-At the same time, the informal nature of many agro-input shops may imply
- that they are a weak link in the supply chain for quality inputs, a risk
- that is likely to be smaller upstream where larger producers and importers
- face more scrutiny from the government.
- Agricultural inputs such as seeds and fertilizers are sometimes stored
- in sub-optimal conditions (e.g., in direct sunlight or in moist environments)
- or handled in harmful ways (e.g., stored beyond the expiry date or repackaged).
- There is some evidence of this kind of quality reduction.
- In a comprehensive study of the Ugandan seed supply chain, 
+Yet small-scale agro-dealers may also be weak links in the supply chain
+ for quality inputs.
+ For instance, the semi-formal nature and scale of agro-dealers may mean
+ they lack knowledge on proper handling and storage of agro-inputs.
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "BARRIGA2020104928"
-literal "true"
+literal "false"
 
 \end_inset
 
  document various issues related to handling and storage that may reduce
- input quality.
- For example, dealers often repack seed from larger bags packed by seed
- companies into smaller bags in order to offer quantities which are convenient
- and affordable to smallholder farmers.
- Important information including the expiry date and variety name can be
- lost during repackaging.
- Furthermore, seed is often repackaged in air tight polyethylene bags, which
- affect aeration and seed viability.
- Open air storage of bags can also lower the quality of seeds 
+ input quality in the Ugandan seed supply chain.
+ For example, agro-dealers often repack seed from larger bags packed by
+ seed companies into smaller bags in order to offer quantities that are
+ convenient and affordable to smallholders.
+ As a result, important information including variety name, expiry date,
+ or planting instructions are lost, while the material used for re-packaging---a
+ir-tight polyethylene bags---affect aeration, moisture, and seed viability.
+ Other agro-dealers sell from open bags, which can similarly lower seed
+ viability 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon"
@@ -454,96 +415,22 @@ literal "false"
 \end_inset
 
 .
- Temperature control after the seed leaves the breeders is crucial, too
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "BARRIGA2020104928"
-literal "false"
-
-\end_inset
-
-.
- Inventory carryover, poor rotation of seed stock and storage in moist condition
-s or in direct sunlight further reduce seed quality.
- That is because the bio-deterioration of maize is sensitive to temperature
- and humidity 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Curzi2022"
-literal "false"
-
-\end_inset
-
-, seed moisture affects the occurrence of storage fungi 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "govender2008effect"
-literal "true"
-
-\end_inset
-
-, and many quality attributes of seed tend to degrade with storage duration
- time and shelf life 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "hoffmann2021observability"
-literal "false"
-
-\end_inset
-
-.
+ In a first hypothesis, we thus posit that simply providing information
+ to agro-dealers will increase seed quality and subsequently improve farmers'
+ product experience, ultimately encouraging them to adopt improved maize
+ varieties.
 \end_layout
 
 \begin_layout Standard
-In a first hypothesis, we expect that a lack of dealer knowledge leads to
- deterioration in maize seed quality.
- Training agro-input dealers and providing them with information on proper
- seed handling and storage could increase quality and subsequent adoption.
- Lack of information is pervasive in developing countries and often leads
- to sub-optimal outcomes for the rural poor.
- As a result, a small piece of information can make a large difference 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "duflo2011poor"
-literal "true"
-
-\end_inset
-
-.
- Also in the context of smallholder technology adoption, knowledge gaps
- have been identified as a key constraint, and governments around the world
- invest in public agricultural advisory services 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1093/wbro/lkh013"
-literal "false"
-
-\end_inset
-
-.
- While the need for policies and interventions that strengthen input marketing
- capacity and infrastructure has been acknowledged decades ago 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "TRIPP2001147"
-literal "false"
-
-\end_inset
-
-, most studies target smallholder farmers with information, and we are unaware
- of studies that tackle knowledge gaps among (small) agro-input dealers.
-\end_layout
-
-\begin_layout Standard
-The fact that seed quality cannot easily be observed by farmers may also
- result in a 
-\shape italic
-\emph on
-lack of incentives for agro-input dealers
-\shape default
-\emph default
- to invest in quality preservation.
+However, we recognize that providing information only to agro-dealers may
+ not necessarily remedy the fact that seed quality cannot easily be observed
+ by farmers.
+ Furthermore, we expect that small scale agro-dealers are subjected to less
+ regulation and oversight than their larger counterparts in manufacturing,
+ import, or wholesale operations that are situated further up the supply
+ chain.
+ This means that agro-dealers may still be incentivized---even with training---t
+o underinvest in quality management and preservation.
  In a context similar to ours, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -552,24 +439,28 @@ literal "false"
 
 \end_inset
 
- look at maize grain as an output in rural Kenya and find that there is
- no incentive for sellers to address food safety issues because they are
- not observable for buyers.
- Worse, agro-input dealers may intentionally sacrifice quality to cut costs
- and increase profits, e.g., by mixing improved or fresh seed with local or
- old seed.
- There is some evidence of this kind of adulteration and counterfeiting
- in the Ugandan agricultural input supply chain.
+ examine maize (grain, not seed) in rural Kenyan markets and find an absence
+ of incentives for sellers to address food safety problems because they
+ are not observable to their buyers.
+ The same issue carries into seed markets, and in a worst-case scenario,
+ agro-dealers may intentionally sacrifice quality to reduce costs and increase
+ profits, e.g., by mixing improved or fresh seed with local or old seed, or
+ even with grain.
+ There is some evidence that may be consistent with this kind of adulteration
+ and counterfeiting in the Ugandan agricultural input supply chain.
  
 \begin_inset CommandInset citation
 LatexCommand citet
 key "bold2017lemon"
-literal "true"
+literal "false"
 
 \end_inset
 
- find that hybrid maize seed contains less than 50% authentic seeds and
- that 30% of nutrient is missing in fertilizer.
+ find that hybrid maize seed contains less than 50
+\backslash
+% authentic seeds and that 30
+\backslash
+% of nutrient is missing in fertilizer.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -578,34 +469,38 @@ literal "false"
 
 \end_inset
 
- find that the average bottle of herbicide is missing 15% of the active
- ingredient and nearly one in three bottles contains less than 75% of the
- ingredient advertised.
-\end_layout
-
-\begin_layout Standard
-That is why, in a second hypothesis, we expect that asymmetric information
- reduces dealers' incentives to provide quality seed.
- Addressing these asymmetries may lead to better quality, in turn increasing
- adoption.
- Uganda regulates seed quality by means of certifications and standards,
- but they provide farmers with a relatively weak and unreliable indication
- of quality.
- Alternatives such as electronic verification systems have also been experimente
-d with, but the cost of implementation has proven challenging, and they
- depend on the reliability of the underlying seed certification system.
-\end_layout
-
-\begin_layout Standard
-In addition to these problems caused by the lack of incentives for agro-input
- dealers, asymmetric information may also lead to situations where farmers
- fail to adopt because
-\shape italic
-\emph on
+ find that the average bottle of herbicide is missing 15
+\backslash
+% of the active ingredient and nearly one in three bottles contains less
+ than 75
+\backslash
+% of the ingredient advertised.
  
-\shape default
-\emph default
-they misperceive the quality of the inputs in the market.
+\end_layout
+
+\begin_layout Standard
+But even in cases where agro-dealers provide quality inputs, the fact that
+ quality can not be easily assessed by farmers at the time of purchase may
+ be problematic if farmers hold negatively skewed cognitive beliefs about
+ seed quality sold by agro-dealers.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There are many reasons why these beliefs are likely to be biased downwards,
+ including negativity bias and loss aversion 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "neg_bias,loss_aversion"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -614,8 +509,9 @@ literal "false"
 
 \end_inset
 
- establish that the nutrient content of fertilizer in Tanzania meets industry
- standards but that farmers believe that it is adulterated.
+ show that the nutrient content of inorganic fertilizers in Tanzania meets
+ industry standards, but farmers nonetheless persist in their belief that
+ it is adulterated.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -624,210 +520,139 @@ literal "false"
 
 \end_inset
 
- show that farmers in developing countries routinely misperceive input quality
- and that rectifying this misperception may improve farmers’ investment
- choices and productivity outcomes.
- Note that also here, a vicious cycle emerges, where farmers continue to
- perceive quality to be poor even though it may have improved, which in
- turn reduces incentives for agro-input dealers to maintain quality.
+ show that farmers in Nigeria routinely misperceive the cassava variety
+ they are cultivating, and that efforts to address misperceptions could
+ potentially improve farmers’ investment choices and productivity outcomes.
 \end_layout
 
 \begin_layout Standard
-To address issues caused by asymmetric information, we implement a novel
- intervention: a decentralized 
-\shape italic
-\emph on
-information clearinghouse
-\shape default
-\emph default
- that is based on crowd-sourced information and works through reputational
- mechanisms, much like yelp.com or tripadvisor.com.
- We ask smallholder farmers to rate agro-input dealers in their neighborhood
- on a number of seed quality attributes.
- We use this information to score and rank agro-input dealers, and disseminate
- these ratings back to both, farmers and agro-input dealers.
- Ratings were collected and disseminated twice to increase the likelihood
- that dealers change their behavior and that farmers know and trust the
- scores.
+In a second hypothesis, we conjecture that making quality observable to
+ both buyers and sellers will increase adoption through various mechanisms.
+ First, buyers may shift from sellers that sell low quality inputs to sellers
+ that provide high quality inputs.
+ Second, sellers may start to compete on quality, either by increasing quality
+ if there is still room for improvement, or by making the quality attribute
+ of their products more salient to buyers.
+ Finally, in light of the new information, farmers may adjust their perceptions
+ of the quality of technologies.
+ 
 \end_layout
 
 \begin_layout Standard
-The objective of the clearinghouse is thus to make maize seed quality observable.
- However, some may argue that farmers can assess seed quality well after
- one agricultural season: shortly after planting, farmers can observe germinatio
-n rates, i.e., the proportion of seeds that germinate, and later how fast
- the seed matures.
- Some seed may also be more susceptible to pests and diseases, while other
- seed may be particularly tolerant in terms of drought.
- After harvest, the farmer can observe the yield.
- In the limit, farmers can perfectly observe seed quality, and there is
- no need for a clearinghouse.
- However, others may argue that farmers cannot assess seed quality even
- after using it, because there are so many factors at play in agricultural
- production: if farmers experience a disappointing harvest, they cannot
- safely conclude that the seed material was poor because it could have also
- been poor soil, insufficient, late or too much rain, or own mismanagement
- like late planting or insufficient weeding.
- Misattribution occurs when farmers mistakenly ascribe bad outcomes to bad
- inputs, rather than to other possible causes.
- This would imply that the clearinghouse will not work, as farmers cannot
- assess seed quality at all.
- In the limit, improved maize seed would resemble a credence good and the
- clearinghouse ratings of farmers would be mainly noise.
- Even though farmers and dealers might still change their behavior in the
- short run because they expect the clearinghouse to work, this effect would
- fade out as soon as both actors learn that the ratings are as good as random.
- While there is considerable evidence that farmers cannot perfectly assess
- seed quality (e.g., 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "bold2017lemon"
-literal "false"
-
-\end_inset
-
-) and authors like 
+The two hypotheses are tested in a randomized control trial (RCT) among
+ 350 agro-dealers and an associated 3,500 smallholder maize farmers in their
+ catchment areas in eastern Uganda over the course of two agricultural seasons.
+ The first hypothesis involves a fairly standard intervention where we provide
+ a one day training for agro-dealership owners and managers on proper storage
+ and handling of seed.
+ For the second hypothesis, we build on 
 \begin_inset CommandInset citation
 LatexCommand citet
-key "tjernstrom2021learning"
+key "hasanain2019no"
 literal "false"
 
 \end_inset
 
- argue that sub-Saharan Africa's soil heterogeneity further hampers farmer
- learning about the returns to inputs, we argue that it seems unlikely that
- farmers cannot learn anything from their own experience.
- Research has shown that farmers do experiment with new technologies, but
- that (Bayesian) learning takes time.
- Therefore, farmers also learn about new technologies through peer networks
+ and implement a decentralized information clearinghouse that is based on
+ crowd-sourced information on quality provided by agro-dealers which is
+ then aggregated and made public, much like yelp.com or tripadvisor.com.
+ In particular, we ask farmers to provide star ratings to agro-dealers in
+ their vicinity, and use these ratings to construct scores and rank agro-dealers.
+ We then disseminate these scores to farmers.
+ We also provide the score, together with their relative position in the
+ rankings, to the agro-dealers.
  
+\end_layout
+
+\begin_layout Standard
+We find that the information clearinghouse improves outcomes for both agro-deale
+rs and farmers.
+ Clearinghouse treated agro-dealers receive more customers and have higher
+ revenues from maize seed than control agro-dealers.
+ Clearinghouse treated farmers are significantly more likely to use improved
+ maize varieties from agro-dealers, and have higher yields than control
+ farmers after two seasons.
+ Impact also seems to stem from treated agro-dealers who increase their
+ efforts and expand the services that they provide to farmers.
+ Treated agro-dealers are also more likely to be registered with the Uganda
+ National Agro-input Dealers Association (UNADA), perhaps to signal quality
+ now that it has been made salient to farmers.
+ Finally, we find that farmers in the treatment group rate maize seed of
+ agro-dealers in their neighborhood better, suggesting that the clearinghouse
+ treatment is also effective in changing perceptions.
+\end_layout
+
+\begin_layout Standard
+The agro-dealer training does not have a clear impact on dealers, nor on
+ farmers in associated catchment areas.
+ Interestingly, we do find that the information clearinghouse increases
+ agro-dealer knowledge about proper seed storage and handling.
+ Upon exploring interaction effects between the training and the clearinghouse
+ treatment, we also find that the training becomes effective for agro-dealers
+ that are also in the clearinghouse treatment group.
+ This is consistent with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2022"
+literal "false"
+
+\end_inset
+
+ who point out the importance of simultaneously addressing demand-side constrain
+ts to make training more effective.
+\end_layout
+
+\begin_layout Standard
+Our study contributes to a large literature on the effectiveness of providing
+ training to small businesses in developing countries.
+ Helping entrepreneurs to grow small firms by teaching them business skills
+ has yielded mixed results when subjected to rigorous impact evaluation
+ methods 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.1257/aer.100.1.35,foster1995learning"
+before "eg."
+key "10.1162/REST_a_00074,10.1257/app.6.2.1,doi:10.1086/707502"
+literal "false"
+
+\end_inset
+
+}.
+ While these studies often suffer from methodological issues such as low
+ statistical power, it has also been argued that simply providing knowledge
+ may be insufficient to move the needle 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/wbro/lkt007"
 literal "false"
 
 \end_inset
 
 .
- The ability to combine own experience with the experience of farmers in
- a similar location is therefore likely to provide a good signal about the
- quality of seed.
+ More promising results have emerged recently when the focus shifts from
+ traditional trainings to trainings designed to instill personal initiative
+ 
+\backslash
+citep{campos2017teaching}.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-To support our claim, we show that the ratings are correlated with objective
- indications of seed quality in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "A.1 Can farmers assess maize seed quality?"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+Personal initiative is defined as a self-starting, future-oriented, and
+ persistent proactive mindset.
 \end_layout
 
 \end_inset
 
-
+ Our study similarly shows the importance of (external) motivation in making
+ trainings reach their objective.
 \end_layout
 
 \begin_layout Standard
-Seeing that farmers cannot perfectly assess seed quality ex ante or ex post,
- one could argue that a better remedy against information asymmetries would
- be to objectively measure seed quality (e.g., by sending mystery shoppers,
- followed by DNA fingerprinting) or agro-input dealer practices (e.g., by
- sending objective inspectors incognito).
- However, these strategies are often not practical, not cost effective,
- or introduce other challenges (e.g., they may be prone to corruption or may
- not reach the most remote areas).
- Furthermore, peer ratings measure the dimensions of seed quality that matter
- most to smallholders.
- It is for example plausible that farmers do not mind about varietal purity
- (indicating whether seed is a particular variety, only detectable by DNA
- fingerprinting) but care a lot about seed performance (e.g., germination
- rate, vigor, and yield).
- Their preferences may be reflected in their ratings, whereas DNA fingerprinting
- may measure a dimension that matters less to farmers.
- The opinion of peers, who are familiar with the heterogeneous conditions
- farmers face, may be more useful and trustworthy for smallholders than
- the judgment of an inspector or DNA test.
- That is why we believe that our crowd-sourced clearinghouse strategy is
- an alternative worth exploring.
-\end_layout
-
-\begin_layout Standard
-A training is expected to work mainly through increasing agro-input dealer
- knowledge, which when applied will lead to improved seed quality.
- An information clearinghouse is expected to work through various impact
- pathways.
- Firstly, farmers may switch from lower rated shops to higher rated shops
- after ratings are revealed.
- Secondly, dealers could anticipate this and increase their efforts to outperfor
-m their competitors.
- This in turn may improve quality and agro-input dealers may want to signal
- this to farmers.
- To achieve good ratings, dealers could also start offering credit, advice,
- or other services that may increase customer satisfaction but will not
- directly affect seed quality.
- Finally, farmers who did not buy improved maize seed before (because they
- believed agro-input dealer sell poor quality seed) could start adopting
- when they learn that agro-input dealers generally receive good ratings.
- Ultimately, all this is expected to increase business at the agro-input
- dealer level and adoption and yields at the farmer level.
- Note that both interventions can only work if the perceived quality issues
- arise at the agro-input dealer level, they will fail if poor seed quality
- is caused further up the seed supply chain, e.g., by breeding results that
- are not in line with farmers' expectations.
-\end_layout
-
-\begin_layout Standard
-We test the training and the clearinghouse in a randomized control trial
- (RCT) among 350 agro-input dealers and an associated 3,500 smallholder
- maize farmers in their catchment areas in eastern Uganda over the course
- of two agricultural seasons.
- We find that the information clearinghouse improves outcomes for both,
- dealers and farmers.
- Shops in areas exposed to the clearinghouse intervention receive more customers
-, sell more, and have higher revenues from maize seed than shops in control
- areas, and these effects become stronger with time.
- Clearinghouse treated farmers are significantly more likely to use improved
- maize varieties from agro-input dealers, and consequently have higher yields
- than control farmers after two seasons.
- We find indications that farmers move from lower rated agro-input dealers
- to higher rated ones.
- Impact also seems to come from treated agro-input dealers who increase
- their efforts and expand the services that they provide to farmers.
- Treated shops are also more likely to be registered with the Uganda National
- Agro-input Dealers Association (UNADA), perhaps to signal quality.
- Finally, we find that farmers in the treatment group rate maize seed of
- shops in their neighborhood better, suggesting that the clearinghouse treatment
- is also effective in changing perceptions.
-\end_layout
-
-\begin_layout Standard
-The agro-input dealer training does not have a clear impact on dealers nor
- their customers.
- We find no effect on knowledge as measured by a simple quiz, even though
- all coefficients point in the expected direction.
- Interestingly, we also find that the information clearinghouse does increase
- knowledge about proper seed storage and handling.
- This suggests that agro-input dealers search and find information that
- can help them to improve if they are incentivized.
- This further suggests that providing information is most effective when
- combined with incentives.
- Exploiting the factorial nature of our experimental design and zooming
- in on the interaction effect, we find suggestive evidence that the training
- does increase outcomes for the subgroup of farmers that is also exposed
- to the clearinghouse intervention.
-\end_layout
-
-\begin_layout Standard
-Our study contributes to the literature on effective ways to reduce information
- asymmetries.
+Our study also contributes to the literature that shows how providing product
+ information to consumers can solve the lemons problem through a variety
+ of economic mechanisms.
+ First, by enabling consumers to screen on quality, they can now shift to
+ better quality products.
  For instance, 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -836,13 +661,67 @@ literal "false"
 
 \end_inset
 
- show how providing information about bus safety to passengers affects the
- demand and supply of safer public transport, but only if there is a public
- signal (i.e., when bus drivers know that they are tracked and that this informati
-on is revealed to passengers).
- The article further fits into an emerging literature that tests how crowd-sourc
-ed information and reputational mechanisms can reduce information asymmetries
- and effectively change behavior.
+ show that commuters in Nairobi choose for the safe busses after information
+ on safety records of different busses was made publicly available.
+ Second, public disclosure of product information makes it possible for
+ sellers to differentiate on quality, and indeed, start competing on it,
+ in turn lifting the market out of the low quality equilibrium.
+ For example, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1162/rest_a_00758"
+literal "false"
+
+\end_inset
+
+ show that entry of a chain store (with a solid reputation for quality)
+ leads to higher overall drug quality and lower prices in India.
+ For the market for antimalarial drugs in Uganda, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bjorkman2022can"
+literal "false"
+
+\end_inset
+
+ show that the presence of a non-governmental organization providing a superior
+ product led to a stark reduction in the share of firms selling fake drugs.
+\end_layout
+
+\begin_layout Standard
+We also contribute to a growing literature on the importance of social compariso
+n, self-image, and social norms in determining behavior.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "opower"
+literal "false"
+
+\end_inset
+
+ find that a social comparison-based intervention consisting of mailing
+ reports of home energy use to households reduced their energy consumption
+ dramatically.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "virgin_atlantic"
+literal "false"
+
+\end_inset
+
+ report on an experiment with airline pilots where different strategies
+ to increase fuel efficiency (including performance feedback and prosocial
+ incentives) are tested.
+ We suspect that, in addition to the threat of farmers shifting to better
+ rated agro-dealers, psychological factors such as professional identity
+ and a sense of social obligation may even be more important drivers for
+ agro-dealers to improve.
+\end_layout
+
+\begin_layout Standard
+The article further fits into an emerging literature that tests how crowd-source
+d information can be used to to reduce information asymmetries.
  Even though advances in Information and Communications Technology and the
  rise of e-commerce has led to numerous platforms that allow for consumer
  feedback and a variety of websites that aggregate crowd-sourced reviews,
@@ -858,61 +737,9 @@ literal "false"
 
  compare the effects of professional critics and Amazon star ratings of
  books on consumer welfare and find the effect of star ratings on consumer
- surplus to be more than ten times the effect of traditional review outlets.
-\end_layout
-
-\begin_layout Standard
-More specifically, we advance the literature on information clearinghouse
- mechanisms in developing countries, which have been studied to some extent,
- but mostly address market price information asymmetries between smallholders
- and middlemen.
- Assuming that middlemen are better informed about prevailing prices in
- the market than farmers, theory suggests that providing farmers with price
- information improves the functioning of rural agricultural markets
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-note from Caro for Bjorn: please don't change this back to 
-\begin_inset Quotes eld
-\end_inset
-
-bargaining power
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- However, evidence is mixed: while 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.2307/25760218"
-literal "false"
-
-\end_inset
-
- finds that internet kiosks that provide wholesale price information significant
-ly increase soy prices farmers receive in India, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "fafchamps2012impact"
-literal "false"
-
-\end_inset
-
- do not find a statistically significant effect of price information delivered
- to farmers' mobile phones in a neighboring state.
- However, a clearinghouse that relies on crowd-sourced ratings may be more
- effective in increasing the (perceived) quality of agricultural inputs
- in the market: while prices can generally be observed quite easily, assessing
- the performance of inputs such as seed or fertilizer is more difficult.
- Aggregating the experiences of many users may thus be a particularly powerful
- way to reveal their quality.
- For example, 
+ surplus to be more than ten times the effect of traditional (expert) review
+ outlets.
+ In the context of smallholder agriculture, 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -923,63 +750,10 @@ literal "false"
  implement a crowd-sourced information clearinghouse in the market for artificia
 l insemination of livestock in Punjab, Pakistan, where individual signals
  of quality are noisy.
- Using an RCT, they find that farmers who receive information enjoy 25%
- higher insemination success and no higher prices.
- The existing veterinarians seem to increase effort, while farmers are not
- likely to switch to better providers.
- This result illustrates how information clearinghouses can successfully
- aggregate information in low-capacity markets.
-\end_layout
-
-\begin_layout Standard
-Our study also contributes to a large literature on the effectiveness of
- providing training to small businesses in developing countries.
- Helping entrepreneurs to grow small firms by teaching them business skills
- has yielded mixed results when subjected to rigorous impact evaluation
- methods 
-\begin_inset CommandInset citation
-LatexCommand citep
-before "e.g.,"
-key "10.1162/REST_a_00074,10.1257/app.6.2.1,doi:10.1086/707502"
-literal "false"
-
-\end_inset
-
-.
- While these studies often suffer from methodological issues such as lacking
- statistical power, it has also been argued that simply providing knowledge
- may be insufficient to move the needle 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1093/wbro/lkt007"
-literal "false"
-
-\end_inset
-
-.
- More promising results have emerged recently when the focus shifts from
- traditional trainings to trainings designed to instill personal initiative
+ They find that farmers who receive information enjoy 25
+\backslash
+% higher insemination success.
  
-\begin_inset CommandInset citation
-LatexCommand citep
-key "campos2017teaching"
-literal "false"
-
-\end_inset
-
-.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Personal initiative is defined as a self-starting, future-oriented, and
- persistent proactive mindset.
-\end_layout
-
-\end_inset
-
- Our study similarly shows the importance of (external) motivation in making
- trainings reach their objective.
 \end_layout
 
 \begin_layout Section
@@ -19624,8 +19398,8 @@ e against minorities, and these preferences, instead of quality differences,
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "../../Study design/seed_systems_pap"
-options "../../Study design/IFPRI_Style"
+bibfiles "seed_systems_pap"
+options "IFPRI_Style"
 
 \end_inset
 
