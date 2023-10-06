@@ -678,7 +678,7 @@ baseline_farmers$Bought_from_agro_input_shop<-ifelse(baseline_farmers$Check2.che
 #make panel
 
 #here2
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","Check2.check.maize.q9")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_Land_Races", "end_farmer_saved_seed","end_Bought_from_agro_input_shop")])
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","Check2.check.maize.q9","Check2.check.maize.q57")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_Land_Races", "end_farmer_saved_seed","end_Bought_from_agro_input_shop")])
 
 ##always adopters
 ##demean orthogonal treatments
@@ -713,7 +713,17 @@ xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bou
 index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
 all$index_mid <- index_mid$index
 
-mid_adoption <-  array(NA,dim=c(4,2,5)) #here
+### instead of conditioning on baseline adoption, try to condition on baseline 
+all$Check2.check.maize.q57[all$Check2.check.maize.q57>99] <- NA
+ll <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[1]
+ul <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[2]
+
+all$overest <- all$Check2.check.maize.q57>=ul
+all$underest <- all$Check2.check.maize.q57<ll
+all$corest <- all$Check2.check.maize.q57>=ll & all$Check2.check.maize.q57<ul
+
+
+mid_adoption <-  array(NA,dim=c(4,3,5)) #here
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_Bought_from_agro_input_shop")
 outcomes <- c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop","index_mid")
 outcomes_base <- c("adoption_onfield","Land_Races","farmer_saved_seed","Bought_from_agro_input_shop","index_base" )
@@ -735,6 +745,14 @@ mid_adoption[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
 mid_adoption[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,2,i] <- nobs(ols)
+
+ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1  & all$overest,])
+vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & all$overest,]$shop_ID,type="CR0")
+coef_test(ols, vcov_cluster)
+mid_adoption[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
+mid_adoption[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
+mid_adoption[3,3,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+mid_adoption[4,3,i] <- nobs(ols)
 }
 
 
@@ -904,7 +922,7 @@ save(end_adoption, file=paste(path,"papers/learning_failures/code/output/end_ado
 
 #### knowledge
 
-all <- merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield")],endline_farmers[c("farmer_ID","q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct")], by="farmer_ID")
+all <- merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield","Check2.check.maize.q57")],endline_farmers[c("farmer_ID","q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct")], by="farmer_ID")
 ##demean orthogonal treatments
 all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
@@ -931,8 +949,16 @@ for (i in 1:length(outcomes)) {
   mean_know[4,2,i] <- nobs(ols)
 }
 
+### instead of conditioning on baseline adoption, try to condition on baseline 
+all$Check2.check.maize.q57[all$Check2.check.maize.q57>99] <- NA
+ll <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[1]
+ul <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[2]
 
-end_knowledge <-  array(NA,dim=c(4,2,7))
+all$overest <- all$Check2.check.maize.q57>=ul
+all$underest <- all$Check2.check.maize.q57<ll
+all$corest <- all$Check2.check.maize.q57>=ll & all$Check2.check.maize.q57<ul
+
+end_knowledge <-  array(NA,dim=c(4,3,7))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
 outcomes <- c("q58_correct","q59_correct","q60_correct","q61_correct","q62_correct","q63_correct","index_end")
 for (i in 1:length(outcomes)) {
@@ -953,7 +979,17 @@ for (i in 1:length(outcomes)) {
   end_knowledge[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   end_knowledge[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   end_knowledge[4,2,i] <- nobs(ols) 
+  
+  
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1  & (all$overest),])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & (all$overest ),]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  end_knowledge[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  end_knowledge[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  end_knowledge[3,3,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  end_knowledge[4,3,i] <- nobs(ols) 
 }
+
 
 save(mean_know, file=paste(path,"papers/learning_failures/code/output/mean_know.Rdata",sep="/")) 
 save(end_knowledge, file=paste(path,"papers/learning_failures/code/output/end_knowledge.Rdata",sep="/")) 
@@ -962,7 +998,7 @@ save(end_knowledge, file=paste(path,"papers/learning_failures/code/output/end_kn
 
 #c("end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing")
 
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","time_plant","time_weed")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","mid_time_plant","mid_time_weed")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","end_time_plant","end_time_weed")])
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield", "correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","time_plant","time_weed", "Check2.check.maize.q57")],midline_farmers[c("farmer_ID","mid_adoption_onfield","mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","mid_time_plant","mid_time_weed")]),endline_farmers[c("farmer_ID","end_adoption_onfield","end_correct_spacing", "end_correct_seed_rate", "end_organic_use", "end_DAP_use", "end_Urea_use", "end_times_weeding", "end_pesticide_use", "end_resowing","end_time_plant","end_time_weed")])
 
 
 ##demean orthogonal treatments
@@ -973,6 +1009,14 @@ all$training <- all$training - mean(all$training)
 xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, all$DAP_use, all$Urea_use, all$times_weeding, all$pesticide_use, all$resowing, all$time_plant, all$time_weed)
 index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
+### instead of conditioning on baseline adoption, try to condition on baseline 
+all$Check2.check.maize.q57[all$Check2.check.maize.q57>99] <- NA
+ll <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[1]
+ul <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[2]
+
+all$overest <- all$Check2.check.maize.q57>=ul
+all$underest <- all$Check2.check.maize.q57<ll
+all$corest <- all$Check2.check.maize.q57>=ll & all$Check2.check.maize.q57<ul
 
 
 mean_pract <-  array(NA,dim=c(4,2,11))
@@ -995,7 +1039,7 @@ xmat_mid <- cbind(all$mid_correct_spacing, all$mid_correct_seed_rate, all$mid_or
 index_mid <- icwIndex(xmat=xmat_mid)
 all$index_mid <- index_mid$index
 
-mid_practices <-  array(NA,dim=c(4,4,11))
+mid_practices <-  array(NA,dim=c(4,3,11))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")
 outcomes <- c("mid_correct_spacing", "mid_correct_seed_rate", "mid_organic_use", "mid_DAP_use", "mid_Urea_use", "mid_times_weeding", "mid_pesticide_use", "mid_resowing","index_mid","mid_time_plant", "mid_time_weed")
 outcomes_base <- c("correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","index_base","time_plant","time_weed")
@@ -1018,6 +1062,14 @@ for (i in 1:length(outcomes)) {
   mid_practices[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   mid_practices[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_practices[4,2,i] <- nobs(ols) 
+  
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$adoption_onfield==1  & all$underest,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & all$underest,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_practices[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_practices[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_practices[3,3,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_practices[4,3,i] <- nobs(ols) 
   
 
 }
@@ -1133,7 +1185,7 @@ endline_farmers$end_landproductivity <- endline_farmers$end_yield_inkg/endline_f
 endline_farmers$end_landproductivity_untrimmed <- endline_farmers$end_landproductivity
 endline_farmers <- trim("end_landproductivity",endline_farmers,trim_perc=.05)
 
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield","expectations","yield_inkg","landproductivity" )],midline_farmers[c("farmer_ID","mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity")])
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield","expectations","yield_inkg","landproductivity","Check2.check.maize.q57" )],midline_farmers[c("farmer_ID","mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity")])
 ##demean orthogonal treatments
 all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
@@ -1162,7 +1214,16 @@ xmat_mid <- cbind(all$mid_expectations_met,all$mid_yield_inkg, all$mid_landprodu
 index_mid <- icwIndex(xmat=xmat_mid)
 all$index_mid <- index_mid$index
 
-mid_expectations <-  array(NA,dim=c(4,4,9))
+### instead of conditioning on baseline adoption, try to condition on baseline 
+all$Check2.check.maize.q57[all$Check2.check.maize.q57>99] <- NA
+ll <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[1]
+ul <- quantile(all[all$adoption_onfield==1,]$Check2.check.maize.q57, c(.33,.66),na.rm=T)[2]
+
+all$overest <- all$Check2.check.maize.q57>=ul
+all$underest <- all$Check2.check.maize.q57<ll
+all$corest <- all$Check2.check.maize.q57>=ll & all$Check2.check.maize.q57<ul
+
+mid_expectations <-  array(NA,dim=c(4,3,5))
 #loop here over outcomes c
 outcomes <- c("mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity","index_mid")
 for (i in 1:length(outcomes)) {
@@ -1183,6 +1244,14 @@ for (i in 1:length(outcomes)) {
   mid_expectations[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   mid_expectations[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_expectations[4,2,i] <- nobs(ols) 
+  
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$adoption_onfield==1  & all$corest,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$adoption_onfield==1 & all$corest,]$shop_ID,type="CR0")
+  coef_test(ols, vcov_cluster)
+  mid_expectations[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
+  mid_expectations[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
+  mid_expectations[3,3,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
+  mid_expectations[4,3,i] <- nobs(ols) 
   
   }
 
@@ -1222,5 +1291,6 @@ save(end_expectations, file=paste(path,"papers/learning_failures/code/output/end
 #
 all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","treatment","clearing","training","adoption_onfield","Check2.check.maize.q36","Check2.check.maize.q37" )],midline_farmers[c("farmer_ID","mid_adoption_onfield")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity")])
 ##demean orthogonal treatments
+
 
 
