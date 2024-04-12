@@ -5359,7 +5359,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7085,6 +7085,575 @@ Observations & 3470  & 3407 & 1435 & 441
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Column (1) reports means at baseline (and standard deviations below);
+ column (2) reports differences between treatment and control post-intervention;
+ column (3) reports differences between treatment and control post-intervention
+ for farmers who adopt at baseline; column (4) reports differences between
+ treatment and control post-intervention for farmers who adopt and overestimate
+ returns to improved varieties at baseline; **, * and + denote significance
+ at the 1, 5 and 10 percent levels; standard errors are clustered at the
+ village level.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Impact on expectations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average treatment effects on expectations and harvest
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Treatment-effects-expect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield as expected 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{0.15}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,1]<.01,"**",ifelse(mid_expectations[3,1,1]<.05,"
+*",ifelse(mid_expectations[3,1,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,1]<.01,"**",ifelse(mid_expectations[3,2,1]<.05,"
+*",ifelse(mid_expectations[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,3,1]<.01,"**",ifelse(mid_expectations[3,3,1]<.05,"
+*",ifelse(mid_expectations[3,3,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{0.36})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,3,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Production in kg
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,3]<.01,"**",ifelse(mid_expectations[3,1,3]<.05,"
+*",ifelse(mid_expectations[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,3]<.01,"**",ifelse(mid_expectations[3,2,3]<.05,"
+*",ifelse(mid_expectations[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,3,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,3,3]<.01,"**",ifelse(mid_expectations[3,3,3]<.05,"
+*",ifelse(mid_expectations[3,3,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,3,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield in kg/acre
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,4]<.01,"**",ifelse(mid_expectations[3,1,4]<.05,"
+*",ifelse(mid_expectations[3,1,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,4]<.01,"**",ifelse(mid_expectations[3,2,4]<.05,"
+*",ifelse(mid_expectations[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,3,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,3,4]<.01,"**",ifelse(mid_expectations[3,3,4]<.05,"
+*",ifelse(mid_expectations[3,3,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(mean_expectations[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,3,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Harvest index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mean_expectations[1,1,4],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,1,5]<.01,"**",ifelse(mid_expectations[3,1,5]<.05,"
+*",ifelse(mid_expectations[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,2,5]<.01,"**",ifelse(mid_expectations[3,2,5]<.05,"
+*",ifelse(mid_expectations[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(mid_expectations[1,3,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(mid_expectations[3,3,5]<.01,"**",ifelse(mid_expectations[3,3,5]<.05,"
+*",ifelse(mid_expectations[3,3,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mean_expectations[2,1,4],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(mid_expectations[2,3,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observations
+\end_layout
+
+\begin_layout Plain Layout
+
+& 3470 & 3407 & 1435 &  439 
+\backslash
+
+\backslash
 
 \end_layout
 
