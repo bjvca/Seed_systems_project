@@ -5306,8 +5306,13 @@ baseline_farmers$large_catchID <- ifelse(baseline_farmers$catchID==3|baseline_fa
 
 
 baseline_farmers[baseline_farmers==999] <- NA
-baseline_farmers[, 4:372][baseline_farmers[, 4:372] == 96] <- NA #columns 4-372 only
-baseline_farmers[, 4:372][baseline_farmers[, 4:372] == 98] <- NA
+
+baseline_farmers[, 4:273][baseline_farmers[, 4:273] == 96] <- NA #columns 4-372 only #all except landproductivity (column 274)
+baseline_farmers[, 275:372][baseline_farmers[, 275:372] == 96] <- NA #columns 4-372 only
+
+baseline_farmers[, 4:273][baseline_farmers[, 4:273] == 98] <- NA
+baseline_farmers[, 275:372][baseline_farmers[, 275:372] == 98] <- NA
+
 baseline_farmers[baseline_farmers=="n/a"] <- NA
 
 
