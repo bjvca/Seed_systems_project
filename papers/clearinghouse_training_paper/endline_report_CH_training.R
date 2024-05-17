@@ -8219,16 +8219,38 @@ summary(regression2 <- lm(baseline_farmers$yield_endline~baseline_farmers$plotra
 
 
 
+
+
+
+
+
+
+
 #Lasso to investigate what affects ratings
 
 baseline_dealers_save <- baseline_dealers
 #baseline_dealers <- baseline_dealers_save
 
-#relevant variables:
-baseline_dealers$index_ratings_mid #at dealer level
-baseline_dealers$index_ratingsF_mid #at farmer level
+library('glmnet')
 
-#index_ratings_mid is constructed from variables_ratings_mid incl. mid_general
+#1. dealer level
+#1.a endline ratings and endline dealer characteristics
+#1.a.i numeric variables
+#1.a.i.1 #keep only complete variables
+#1.a.i.2 #imputation: NA = 0
+#1.a.i.3 #imputation: NA = mean
+#1.a.i.4 #imputation: NA = median
+
+#1.a.ii factor variables
+#1.a.iii logical variables
+#1.a.vi date variables
+#1.a.v difftime variables
+#1.b endline ratings and midline dealer characteristics
+#2. farmer level
+
+#1. dealer level
+
+#index_ratings_mid comes from variables_ratings_mid incl. mid_general
 #mid_general comes from end_seed_quality_general_rating
 #end_seed_quality_general_rating comes from endline_rating_dyads ("seed_quality_general_rating")
 #endline_rating_dyads was collected during endline data collection
@@ -8238,133 +8260,125 @@ summary(endline_farmers$today) #was collected between 10/07/2022 and 06/08/2022
 #endline information about shops
 summary(dealer_endline$date) #was collected between 11/07/2022 and 08/08/2022
 
-#Do farmers have midline or endline information in mind when they rate dealers?
-#Let's start with endline information for simplicity:
-#ENDLINE FARMERS RATE ENDLINE DEALERS
+#Farmers could have midline or endline characteristics in mind when they rate dealers at endline.
 
-library('glmnet')
+#relevant variable:
+baseline_dealers$index_ratings_mid
 
-#how many variables in baseline_dealers are numeric?
-num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric))
-summary(num_cols_numeric) #512 of 850
-#all integers are numeric
+#only dealers that don't have NA for index_ratings_mid
+sum(is.na(baseline_dealers$index_ratings_mid))
+baseline_dealers=subset(baseline_dealers,!is.na(index_ratings_mid))
 
-#how many variables in baseline_dealers are factor?
-num_cols_factor <- unlist(lapply(baseline_dealers,is.factor))
-summary(num_cols_factor) #317 of 850
-
-#how many variables in baseline_dealers are logical?
-num_cols_logical <- unlist(lapply(baseline_dealers,is.logical))
-summary(num_cols_logical) #7 of 850
-
-library(lubridate)
-
-#how many variables in baseline_dealers are date?
-num_cols_date <- unlist(lapply(baseline_dealers,is.Date))
-summary(num_cols_date) #10 of 850
-
-str(baseline_dealers, list.len=ncol(baseline_dealers))
-#4 are remaining are unknown or 'difftime'
-
-#1. numeric
-baseline_dealers <- baseline_dealers[,num_cols_numeric]
-
-#index_ratings_mid:
-#baseline_dealers$mid_general
-#baseline_dealers$mid_yield
-#baseline_dealers$mid_drought_resistent
-#baseline_dealers$mid_disease_resistent
-#baseline_dealers$mid_early_maturing
-#baseline_dealers$mid_germination
-
-
+#get rid of rating variables, so that they're not detected in Lasso
 baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("index_ratings_midT"
                                                                       ,"index_ratings_midC"
                                                                       ,"index_ratings_midF"
+                                                                      
                                                                       ,"ratings1"
                                                                       ,"ratings2"
                                                                       ,"ratings3"
                                                                       ,"ratings4"
-                                                                      ,"end_seed_quality_general_rating"
-                                                                      ,"end_seed_yield_rating"
-                                                                      ,"end_seed_drought_rating"
-                                                                      ,"end_seed_disease_rating"
-                                                                      ,"end_seed_maturing_rating"
-                                                                      ,"end_seed_germinate_rating"
-                                                                      ,"mid_general"
-                                                                      ,"mid_yield"
-                                                                      ,"mid_drought_resistent"
-                                                                      ,"mid_disease_resistent"
-                                                                      ,"mid_early_maturing"
-                                                                      ,"mid_germination"
-                                                                      ,"score"
-                                                                      ,"quality_rating_corrected"
-                                                                      ,"general_corrected"
-                                                                      ,"yield_corrected"
-                                                                      ,"drought_resistent_corrected"
-                                                                      ,"disease_resistent_corrected"
-                                                                      ,"early_maturing_corrected"
-                                                                      ,"germination_corrected"
-                                                                      ,"score_corrected"
-                                                                      ,"quality_rating.y"
-                                                                      ,"general.y"
-                                                                      ,"yield.y"
-                                                                      ,"drought_resistent.y"
-                                                                      ,"disease_resistent.y"
-                                                                      ,"early_maturing.y"
-                                                                      ,"germination.y"
-                                                                      ,"score_corrected.y"
-                                                                      ,"general_av"
-                                                                      ,"yield_av"
-                                                                      ,"quality_rating_av"
-                                                                      ,"drought_resistent_av"
-                                                                      ,"disease_resistent_av"
-                                                                      ,"early_maturing_av"
-                                                                      ,"germination_av"
-                                                                      ,"quality_rating_corrected_av"
-                                                                      ,"general_corrected_av"
-                                                                      ,"yield_corrected_av"
-                                                                      ,"drought_resistent_corrected_av"
-                                                                      ,"disease_resistent_corrected_av"
-                                                                      ,"early_maturing_corrected_av"
-                                                                      ,"germination_corrected_av"
+                                                                      
+                                                                      ,"general_rating"
+                                                                      ,"location_rating"
+                                                                      ,"price_rating"
+                                                  
+                                                                      ,"stock_rating"
+                                                                      ,"reputation_rating"
+                                                                      ,"seed_quality_general_rating"
+                                                                      ,"seed_yield_rating"
+                                                                      ,"seed_drought_rating"
+                                                                      ,"seed_disease_rating"
+                                                                      ,"seed_maturing_rating"
+                                                                      ,"seed_germinate_rating"
+                                                              
                                                                       ,"end_general_rating"
                                                                       ,"end_location_rating"
                                                                       ,"end_price_rating"
                                                                       ,"end_quality_rating"
                                                                       ,"end_stock_rating"
                                                                       ,"end_reputation_rating"
+                                                                      ,"end_seed_quality_general_rating"
+                                                                      ,"end_seed_yield_rating"
+                                                                      ,"end_seed_drought_rating"
+                                                                      ,"end_seed_disease_rating"
+                                                                      ,"end_seed_maturing_rating"
+                                                                      ,"end_seed_germinate_rating"
+                                                                      
                                                                       ,"mid_general_rating"
                                                                       ,"mid_location_rating"
                                                                       ,"mid_price_rating"
                                                                       ,"mid_quality_rating"
                                                                       ,"mid_stock_rating"
-                                                                      ,"mid_reputation_rating")]
+                                                                      ,"mid_reputation_rating"
+                                                                      ,"mid_seed_quality_general_rating"
+                                                                      ,"mid_seed_yield_rating"
+                                                                      ,"mid_seed_drought_rating"
+                                                                      ,"mid_seed_disease_rating"
+                                                                      ,"mid_seed_maturing_rating"
+                                                                      ,"mid_seed_germinate_rating"
+                                                                      
+                                                                      ,"mid_general"
+                                                                      ,"mid_yield"
+                                                                      ,"mid_drought_resistent"
+                                                                      ,"mid_disease_resistent"
+                                                                      ,"mid_early_maturing"
+                                                                      ,"mid_germination"
+                                                                      
+                                                                      ,"score"
+                                                                      ,"score_corrected.x"
+                                                                      ,"score_corrected.y"
+                                                                    
+                                                                      ,"quality_rating_corrected" #these 7 in reviews_seed
+                                                                      ,"general_corrected"
+                                                                      ,"yield_corrected"
+                                                                      ,"drought_resistent_corrected"
+                                                                      ,"disease_resistent_corrected"
+                                                                      ,"early_maturing_corrected"
+                                                                      ,"germination_corrected"
+                                                                      
+                                                                      ,"quality_rating.y" #these 7 in reviews_seed
+                                                                      ,"general.y"
+                                                                      ,"yield.y"
+                                                                      ,"drought_resistent.y"
+                                                                      ,"disease_resistent.y"
+                                                                      ,"early_maturing.y"
+                                                                      ,"germination.y"
+                                                                      
+                                                                      ,"general_av" #these 7 in reviews_seed
+                                                                      ,"yield_av"
+                                                                      ,"quality_rating_av"
+                                                                      ,"drought_resistent_av"
+                                                                      ,"disease_resistent_av"
+                                                                      ,"early_maturing_av"
+                                                                      ,"germination_av"
+                                                                      
+                                                                      ,"quality_rating_corrected_av" #these 7 in reviews_seed
+                                                                      ,"general_corrected_av"
+                                                                      ,"yield_corrected_av"
+                                                                      ,"drought_resistent_corrected_av"
+                                                                      ,"disease_resistent_corrected_av"
+                                                                      ,"early_maturing_corrected_av"
+                                                                      ,"germination_corrected_av"
+                                                                      )] #79 variables
 
-#only dealers that don't have NA for index_ratings_mid
-baseline_dealers=subset(baseline_dealers,!is.na(index_ratings_mid))
+#1.a endline ratings and endline dealer characteristics (endline farmers rate endline dealers)
 
-#glmnet doesn't handle missing values
-#either keep only complete records or do some imputation
-# TRIED TODAY: baseline_dealers_onlycomplete <- baseline_dealers[ , colSums(is.na(baseline_dealers)) == 0]
-#x = as.matrix(baseline_dealers_onlycomplete[,-c(which(colnames(baseline_dealers_onlycomplete)=='index_ratings_mid'))])
+#1.a.i numeric variables
+#how many variables in baseline_dealers are numeric?
+num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric))
+summary(num_cols_numeric) #512-79 of 850
 
-#y = baseline_dealers_onlycomplete$index_ratings_mid
+baseline_dealers_numeric <- baseline_dealers[,num_cols_numeric]
 
+#1.a.i.1 #keep only complete variables
+#glmnet cannot handle missing values
+summary(complete.cases(t(baseline_dealers_numeric)))
+baseline_dealers_numeric_onlycomplete <- baseline_dealers_numeric[,colSums(is.na(baseline_dealers_numeric)) == 0]
 
-# value_imputed <- data.frame(
-#   original = titanic_train$Age,
-#   imputed_zero = replace(titanic_train$Age, is.na(titanic_train$Age), 0),
-#   imputed_mean = replace(titanic_train$Age, is.na(titanic_train$Age), mean(titanic_train$Age, na.rm = TRUE)),
-#   imputed_median = replace(titanic_train$Age, is.na(titanic_train$Age), median(titanic_train$Age, na.rm = TRUE))
-# )
-# value_imputed
+x = as.matrix(baseline_dealers_numeric_onlycomplete[,-c(which(colnames(baseline_dealers_numeric_onlycomplete)=='index_ratings_mid'))])
 
-#baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
-#baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
-baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), 0, x)})
-
-summary(baseline_dealers$longe10h_kg)
+y = baseline_dealers_numeric_onlycomplete$index_ratings_mid
 
 lasso_fit <- glmnet(x,y,alpha = 1)
 
@@ -8372,8 +8386,6 @@ coef(lasso_fit,s=0)
 coef(lasso_fit,s=0.1)
 coef(lasso_fit,s=1)
 
-sum(is.na(baseline_dealers))
-                           
 #the larger ?? (= s), the less variables are included in the model
 #you can choose ?? yourself
 #or use cv.glmnet to conduct a cross-validation:
@@ -8382,40 +8394,62 @@ cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
 
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-baseline_farmers <- baseline_farmers_save
+#summary(ols <- lm(index_ratings_mid~training_demeaned*clearing*farmer_demeaned+variable+variable*clearing,data=baseline_dealers_save))
 
+#1.a.i.2 #imputation: NA = 0
+summary(baseline_dealers_numeric$longe10h_kg)
 
+baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), 0, x)})
 
-afterlasso <- c("Check2.check.maize.q9"
-                ,"seed_germinate_rating"
-                ,"gives_advice"
-                ,"mid_Bought_from_agro_input_shop"
-                ,"index_overall_seedonplot_mid")
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
 
-ols <- lm(mid_adoption_onfield_save~training_demeaned*clearing_demeaned*farmer+Check2.check.maize.q9+Check2.check.maize.q9*farmer,data=baseline_farmers)
+y = baseline_dealers_numeric$index_ratings_mid
 
-summary(ols)
+lasso_fit <- glmnet(x,y,alpha = 1)
 
-#Check2.check.maize.q9: very interesting (remoteness)
-#seed_germinate_rating: not interesting
-#gives_advice: not interesting
-#mid_Bought_from_agro_input_shop: interesting
-#index_overall_seedonplot_mid: not interesting
+coef(lasso_fit,s=0)
+coef(lasso_fit,s=0.1)
+coef(lasso_fit,s=1)
 
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
 
-#Do farmers have midline or endline information in mind when they rate dealers?
-#Let's now do midline information:
-#ENDLINE FARMERS RATE MIDLINE DEALERS
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
+summary(ols <- lm(index_ratings_mid~owner.agree.q87,data=baseline_dealers_save))
 
-#robustness: other measures of ratings, other data set (midline)
+#HERE
 
-#2. factor
+#1.a.i.4 #imputation: NA = median
+summary(baseline_dealers$longe10h_kg)
 
-#3. logical
+baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
 
-#4. date
+#HERE
 
-#5. unknown/'difftime'
+#1.a.ii factor variables
+#how many variables in baseline_dealers are factor?
+num_cols_factor <- unlist(lapply(baseline_dealers,is.factor))
+summary(num_cols_factor) #317 of 850
 
+#1.a.iii logical variables
+#how many variables in baseline_dealers are logical?
+num_cols_logical <- unlist(lapply(baseline_dealers,is.logical))
+summary(num_cols_logical) #7 of 850
 
+#1.a.vi date variables
+library(lubridate)
+#how many variables in baseline_dealers are date?
+num_cols_date <- unlist(lapply(baseline_dealers,is.Date))
+summary(num_cols_date) #10 of 850
+
+#1.a.v difftime variables
+str(baseline_dealers, list.len=ncol(baseline_dealers))
+#4 are remaining are unknown or 'difftime'
+
+#1.b endline ratings and midline dealer characteristics (endline farmers rate midline dealers)
+#2. farmer level
+
+#relevant variable:
+baseline_dealers$index_ratingsF_mid
+
+#robustness: other measures of ratings, other data set (baseline, midline)
