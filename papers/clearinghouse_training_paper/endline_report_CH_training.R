@@ -8240,7 +8240,6 @@ library('glmnet')
 #1.a.i.2 #imputation: NA = 0
 #1.a.i.3 #imputation: NA = mean
 #1.a.i.4 #imputation: NA = median
-
 #1.a.ii factor variables
 #1.a.iii logical variables
 #1.a.vi date variables
@@ -8360,7 +8359,16 @@ baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("index_rat
                                                                       ,"disease_resistent_corrected_av"
                                                                       ,"early_maturing_corrected_av"
                                                                       ,"germination_corrected_av"
-                                                                      )] #79 variables
+                                                                      
+                                                                      ,"quality_rating.x"
+                                                                      ,"general.x"
+                                                                      ,"yield.x"
+                                                                      ,"drought_resistent.x"
+                                                                      ,"disease_resistent.x"
+                                                                      ,"early_maturing.x"
+                                                                      ,"germination.x"
+                                                                      
+                                                                      )] #86 variables
 
 #1.a endline ratings and endline dealer characteristics (endline farmers rate endline dealers)
 
@@ -8399,6 +8407,8 @@ coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 #1.a.i.2 #imputation: NA = 0
 summary(baseline_dealers_numeric$longe10h_kg)
 
+baseline_dealers_numeric_save <- baseline_dealers_numeric
+
 baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), 0, x)})
 
 x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
@@ -8415,14 +8425,60 @@ cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
 
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-summary(ols <- lm(index_ratings_mid~owner.agree.q87,data=baseline_dealers_save))
+summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
 
-#HERE
+baseline_dealers_numeric <- baseline_dealers_numeric_save
+
+#1.a.i.3 #imputation: NA = mean
+
+summary(baseline_dealers_numeric$longe10h_kg)
+
+baseline_dealers_numeric_save <- baseline_dealers_numeric
+
+baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
+
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
+
+y = baseline_dealers_numeric$index_ratings_mid
+
+lasso_fit <- glmnet(x,y,alpha = 1)
+
+coef(lasso_fit,s=0)
+coef(lasso_fit,s=0.1)
+coef(lasso_fit,s=1)
+
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+
+baseline_dealers_numeric <- baseline_dealers_numeric_save
 
 #1.a.i.4 #imputation: NA = median
-summary(baseline_dealers$longe10h_kg)
+summary(baseline_dealers_numeric$longe10h_kg)
 
-baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+baseline_dealers_numeric_save <- baseline_dealers_numeric
+
+baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
+
+y = baseline_dealers_numeric$index_ratings_mid
+
+lasso_fit <- glmnet(x,y,alpha = 1)
+
+coef(lasso_fit,s=0)
+coef(lasso_fit,s=0.1)
+coef(lasso_fit,s=1)
+
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+
+baseline_dealers_numeric <- baseline_dealers_numeric_save
 
 #HERE
 
@@ -8431,16 +8487,95 @@ baseline_dealers <- lapply(baseline_dealers, function(x){x <- ifelse(is.na(x), m
 num_cols_factor <- unlist(lapply(baseline_dealers,is.factor))
 summary(num_cols_factor) #317 of 850
 
+baseline_dealers_factor <- baseline_dealers[,num_cols_factor]
+
+summary(complete.cases(t(baseline_dealers_factor)))
+baseline_dealers_factor_onlycomplete <- baseline_dealers_factor[,colSums(is.na(baseline_dealers_factor)) == 0]
+
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 0))
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 1))
+#owner.agree.q83.g
+#owner.agree.q97.a
+#owner.agree.q97.96
+#cert_mid
+#other_var_mid
+#q0
+#other_var_end
+#maize.owner.consent
+
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 3))
+
+cbind(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 2))
+
+#owner.agree.gender                 TRUE
+#owner.agree.ownership              TRUE
+#owner.agree.q5                     TRUE
+#owner.agree.q10                    TRUE
+#owner.agree.q20                    TRUE
+#owner.agree.q32                    TRUE
+#owner.agree.q45                    TRUE
+#owner.agree.q57                    TRUE
+#owner.agree.temp.q69               TRUE
+#owner.agree.temp.q71               TRUE
+
+#owner.agree.temp.q72               TRUE
+#owner.agree.temp.q73               TRUE
+#owner.agree.temp.q74               TRUE
+#owner.agree.temp.q75               TRUE
+#owner.agree.temp.q80               TRUE !
+#owner.agree.temp.q81               TRUE
+#owner.agree.q83.a                  TRUE
+#owner.agree.q83.b                  TRUE
+#owner.agree.q83.c                  TRUE
+#owner.agree.q83.d                  TRUE
+
+#owner.agree.q83.e                  TRUE
+#owner.agree.q83.f                  TRUE
+#owner.agree.q83.96                 TRUE
+#owner.agree.q88                    TRUE
+#owner.agree.q96                    TRUE
+#owner.agree.q97.b                  TRUE
+#owner.agree.q97.c                  TRUE
+#owner.agree.q97.d                  TRUE !
+#owner.agree.inspection.q121        TRUE
+#owner.agree.inspection.q122        TRUE
+
+#origin_mid                         TRUE
+#lot_mid                            TRUE
+#verif_mid                          TRUE
+#maize.q1                           TRUE
+#maize.q2                           TRUE
+#maize.owner.agree.knw              TRUE
+#maize.owner.agree.q9.96            TRUE
+#maize.owner.agree.q12              TRUE
+#maize.owner.agree.q97.a            TRUE
+#maize.owner.agree.q97.c            TRUE
+
+#maize.owner.agree.q97.d            TRUE
+#maize.owner.agree.q97.96           TRUE
+#checq                              TRUE !
+#check.owner.agree.q97.96           TRUE !
+#origin_end                         TRUE
+#cert_end                           TRUE
+#lot_end                            TRUE
+#verif_end                          TRUE
+
 #1.a.iii logical variables
 #how many variables in baseline_dealers are logical?
 num_cols_logical <- unlist(lapply(baseline_dealers,is.logical))
 summary(num_cols_logical) #7 of 850
+
+baseline_dealers_logical <- baseline_dealers[,num_cols_logical]
+
+rbind(baseline_dealers_logical$num_cols_logical)
 
 #1.a.vi date variables
 library(lubridate)
 #how many variables in baseline_dealers are date?
 num_cols_date <- unlist(lapply(baseline_dealers,is.Date))
 summary(num_cols_date) #10 of 850
+
+baseline_dealers_date <- baseline_dealers[,num_cols_date]
 
 #1.a.v difftime variables
 str(baseline_dealers, list.len=ncol(baseline_dealers))
