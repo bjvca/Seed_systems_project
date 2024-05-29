@@ -23,6 +23,7 @@ endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv"
 
 library(dplyr)
 library(Jmisc)
+library(glmnet)
 endline_farmers <- rename_with(endline_farmers,toupper)
 
 baseline_farmers <- merge(baseline_farmers,endline_farmers,by.x="farmer_ID",by.y="FARMER_ID",all.x=TRUE)
@@ -8226,365 +8227,1207 @@ summary(regression2 <- lm(baseline_farmers$yield_endline~baseline_farmers$plotra
 
 
 
-#Lasso to investigate what affects ratings
+# #Lasso: which dealer characteristics are correlated with dealers ratings
+# #Which kind of dealers are rated better? What affects dealer ratings?
+# 
+# baseline_dealers_save <- baseline_dealers
+# #baseline_dealers <- baseline_dealers_save
+# 
+# #dealers ratings:
+# baseline_dealers$index_ratings_mid
+# 
+# #index_ratings_mid comes from variables_ratings_mid incl. mid_general
+# #mid_general comes from end_seed_quality_general_rating
+# #end_seed_quality_general_rating comes from endline_rating_dyads ("seed_quality_general_rating")
+# #endline_rating_dyads was collected during endline data collection
+# 
+# summary(endline_farmers$today) #was collected between 10/07/2022 and 06/08/2022
+# 
+# #dealer characteristics
+# summary(dealer_endline$date) #was collected between 11/07/2022 and 08/08/2022
+# 
+# #Farmers could have midline or endline characteristics in mind when they rate dealers at endline.
+# #For simplicity, we focus on endline characteristics.
+# 
+# library('glmnet')
+# 
+# #endline ratings and endline dealer characteristics
+# #1. numeric variables
+# #1.a only complete variables
+# #1.b imputation: NA = 0
+# #1.c imputation: NA = mean
+# #1.d imputation: NA = median
+# #2. factor variables
+# #2.a with 2 factors
+# #2.a.i only complete variables
+# #2.a.ii imputation: NA = 0
+# #2.a.iii imputation: NA = 1
+# #2.a.iv imputation: NA = mean
+# #2.a.v imputation: NA = median
+# #2.b with >2 factors
+# #3. logical variables
+# #4. date variables
+# #5. difftime variables
+# 
+# #only dealers that don't have NA for index_ratings_mid
+# sum(is.na(baseline_dealers$index_ratings_mid))
+# baseline_dealers=subset(baseline_dealers,!is.na(index_ratings_mid))
+# 
+# #get rid of rating variables, so that they're not detected in Lasso
+# baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("index_ratings_midT"
+#                                                                       ,"index_ratings_midC"
+#                                                                       ,"index_ratings_midF"
+#                                                                       
+#                                                                       ,"ratings1"
+#                                                                       ,"ratings2"
+#                                                                       ,"ratings3"
+#                                                                       ,"ratings4"
+#                                                                       
+#                                                                       ,"general_rating"
+#                                                                       ,"location_rating"
+#                                                                       ,"price_rating"
+#                                                   
+#                                                                       ,"stock_rating"
+#                                                                       ,"reputation_rating"
+#                                                                       ,"seed_quality_general_rating"
+#                                                                       ,"seed_yield_rating"
+#                                                                       ,"seed_drought_rating"
+#                                                                       ,"seed_disease_rating"
+#                                                                       ,"seed_maturing_rating"
+#                                                                       ,"seed_germinate_rating"
+#                                                               
+#                                                                       ,"end_general_rating"
+#                                                                       ,"end_location_rating"
+#                                                                       ,"end_price_rating"
+#                                                                       ,"end_quality_rating"
+#                                                                       ,"end_stock_rating"
+#                                                                       ,"end_reputation_rating"
+#                                                                       ,"end_seed_quality_general_rating"
+#                                                                       ,"end_seed_yield_rating"
+#                                                                       ,"end_seed_drought_rating"
+#                                                                       ,"end_seed_disease_rating"
+#                                                                       ,"end_seed_maturing_rating"
+#                                                                       ,"end_seed_germinate_rating"
+#                                                                       
+#                                                                       ,"mid_general_rating"
+#                                                                       ,"mid_location_rating"
+#                                                                       ,"mid_price_rating"
+#                                                                       ,"mid_quality_rating"
+#                                                                       ,"mid_stock_rating"
+#                                                                       ,"mid_reputation_rating"
+#                                                                       ,"mid_seed_quality_general_rating"
+#                                                                       ,"mid_seed_yield_rating"
+#                                                                       ,"mid_seed_drought_rating"
+#                                                                       ,"mid_seed_disease_rating"
+#                                                                       ,"mid_seed_maturing_rating"
+#                                                                       ,"mid_seed_germinate_rating"
+#                                                                       
+#                                                                       ,"mid_general"
+#                                                                       ,"mid_yield"
+#                                                                       ,"mid_drought_resistent"
+#                                                                       ,"mid_disease_resistent"
+#                                                                       ,"mid_early_maturing"
+#                                                                       ,"mid_germination"
+#                                                                       
+#                                                                       ,"score"
+#                                                                       ,"score_corrected.x"
+#                                                                       ,"score_corrected.y"
+#                                                                     
+#                                                                       ,"quality_rating_corrected" #these 7 in reviews_seed
+#                                                                       ,"general_corrected"
+#                                                                       ,"yield_corrected"
+#                                                                       ,"drought_resistent_corrected"
+#                                                                       ,"disease_resistent_corrected"
+#                                                                       ,"early_maturing_corrected"
+#                                                                       ,"germination_corrected"
+#                                                                       
+#                                                                       ,"quality_rating.y" #these 7 in reviews_seed
+#                                                                       ,"general.y"
+#                                                                       ,"yield.y"
+#                                                                       ,"drought_resistent.y"
+#                                                                       ,"disease_resistent.y"
+#                                                                       ,"early_maturing.y"
+#                                                                       ,"germination.y"
+#                                                                       
+#                                                                       ,"general_av" #these 7 in reviews_seed
+#                                                                       ,"yield_av"
+#                                                                       ,"quality_rating_av"
+#                                                                       ,"drought_resistent_av"
+#                                                                       ,"disease_resistent_av"
+#                                                                       ,"early_maturing_av"
+#                                                                       ,"germination_av"
+#                                                                       
+#                                                                       ,"quality_rating_corrected_av" #these 7 in reviews_seed
+#                                                                       ,"general_corrected_av"
+#                                                                       ,"yield_corrected_av"
+#                                                                       ,"drought_resistent_corrected_av"
+#                                                                       ,"disease_resistent_corrected_av"
+#                                                                       ,"early_maturing_corrected_av"
+#                                                                       ,"germination_corrected_av"
+#                                                                       
+#                                                                       ,"quality_rating.x"
+#                                                                       ,"general.x"
+#                                                                       ,"yield.x"
+#                                                                       ,"drought_resistent.x"
+#                                                                       ,"disease_resistent.x"
+#                                                                       ,"early_maturing.x"
+#                                                                       ,"germination.x"
+#                                                                       
+#                                                                       )] #86 variables
+# 
+# #endline ratings and endline dealer characteristics
+# #1. numeric variables
+# num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric)) #how many variables in baseline_dealers are numeric?
+# summary(num_cols_numeric) #426
+# 
+# baseline_dealers_numeric <- baseline_dealers[,num_cols_numeric]
+# 
+# #glmnet cannot handle missing values
+# 
+# #1.a only complete variables
+# summary(complete.cases(t(baseline_dealers_numeric)))
+# baseline_dealers_numeric_onlycomplete <- baseline_dealers_numeric[,colSums(is.na(baseline_dealers_numeric)) == 0]
+# 
+# x = as.matrix(baseline_dealers_numeric_onlycomplete[,-c(which(colnames(baseline_dealers_numeric_onlycomplete)=='index_ratings_mid'))])
+# 
+# y = baseline_dealers_numeric_onlycomplete$index_ratings_mid
+# 
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# coef(lasso_fit,s=0)
+# coef(lasso_fit,s=0.5)
+# coef(lasso_fit,s=1)
+# 
+# #the larger s, the less variables are included in the model
+# #you can choose s yourself or use cv.glmnet to conduct a cross-validation:
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# #1.b imputation: NA = 0
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# baseline_dealers_numeric_save <- baseline_dealers_numeric
+# 
+# baseline_dealers_numeric[, 1:426] <- lapply(baseline_dealers_numeric[, 1:426], function(x){x <- ifelse(is.na(x), 0, x)})
+# 
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
+# y = baseline_dealers_numeric$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# #1.c imputation: NA = mean
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# baseline_dealers_numeric[, 1:426] <- lapply(baseline_dealers_numeric[, 1:426], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
+# y = baseline_dealers_numeric$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# #1.d imputation: NA = median
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# baseline_dealers_numeric[, 1:426] <- lapply(baseline_dealers_numeric[, 1:426], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_dealers_numeric$longe10h_kg)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
+# y = baseline_dealers_numeric$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# 
+# 
+# #2. factor variables
+# num_cols_factor <- unlist(lapply(baseline_dealers,is.factor)) #how many variables in baseline_dealers are factor?
+# summary(num_cols_factor) #317
+# 
+# baseline_dealers_factor <- baseline_dealers[,num_cols_factor]
+# 
+# #2.a with 2 factors
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 1)) #1 factor level
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 2)) #2 factor levels
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 348)) #348 factor levels
+# 
+# factor_2F <- unlist(lapply(baseline_dealers_factor,function(x) is.factor(x) && nlevels(x) == 2 | nlevels(x) == 348)) #to keep shop_ID
+# summary(factor_2F) #49
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor[,factor_2F]
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x)as.integer(x))
+# baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x){x <- ifelse(x==2, 1, 0)})
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_onlyrating = baseline_dealers[c("shop_ID","index_ratings_mid")]
+# 
+# baseline_dealers_factor_2F <- merge(baseline_dealers_onlyrating,baseline_dealers_factor_2F,by="shop_ID",all.x=TRUE)
+# 
+# baseline_dealers_factor_2F_save <- baseline_dealers_factor_2F
+# 
+# #2.a.i only complete variables
+# summary(complete.cases(t(baseline_dealers_factor_2F)))
+# baseline_dealers_factor_2F_onlycomplete <- baseline_dealers_factor_2F[,colSums(is.na(baseline_dealers_factor_2F)) == 0]
+# 
+# x = as.matrix(baseline_dealers_factor_2F_onlycomplete[,-c(which(colnames(baseline_dealers_factor_2F_onlycomplete)=='index_ratings_mid'))])
+# y = baseline_dealers_factor_2F_onlycomplete$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# #2.a.ii imputation: NA = 0
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 0 , x)})
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='index_ratings_mid'))])
+# y = baseline_dealers_factor_2F$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~owner.agree.gender,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.iii imputation: NA = 1
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 1 , x)})
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='index_ratings_mid'))])
+# y = baseline_dealers_factor_2F$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~owner.agree.gender,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.iv imputation: NA = mean
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE) , x)})
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='index_ratings_mid'))])
+# y = baseline_dealers_factor_2F$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~owner.agree.gender,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.v imputation: NA = median
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE) , x)}) #same as NA = 1 or NA = 0
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='index_ratings_mid'))])
+# y = baseline_dealers_factor_2F$index_ratings_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratings_mid~owner.agree.gender,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.b with >2 factors
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #but here's a sketch:
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 348))
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) > 2))
+# 
+# factor_many <- unlist(lapply(baseline_dealers_factor,function(x) is.factor(x) && nlevels(x) > 2))
+# summary(factor_many)
+# baseline_dealers_factor_many <- baseline_dealers_factor[,factor_many]
+# cbind(sapply(baseline_dealers_factor_many, function(x) is.factor(x) && nlevels(x) > 2))
+# 
+# #3. logical variables
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #but here's a sketch:
+# num_cols_logical <- unlist(lapply(baseline_dealers,is.logical)) #how many variables in baseline_dealers are logical?
+# summary(num_cols_logical)
+# baseline_dealers_logical <- baseline_dealers[,num_cols_logical]
+# rbind(baseline_dealers_logical$num_cols_logical)
+# 
+# #4. date variables
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #but here's a sketch:
+# library(lubridate)
+# num_cols_date <- unlist(lapply(baseline_dealers,is.Date)) #how many variables in baseline_dealers are date?
+# summary(num_cols_date)
+# baseline_dealers_date <- baseline_dealers[,num_cols_date]
+# 
+# #5. difftime variables
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #but here's a sketch:
+# str(baseline_dealers, list.len=ncol(baseline_dealers)) #4 are remaining are unknown or 'difftime'
+# 
+# baseline_dealers <- baseline_dealers_save
+
+
+
+
+
+
+
+
+
+
+# #Lasso: which FARMER characteristics are correlated with farmers' ratings
+# #Which kind of farmers rate better? What affects farmers' ratings?
+# 
+# baseline_farmers_save <- baseline_farmers
+# #baseline_farmers <- baseline_farmers_save
+# 
+# #farmers' ratings:
+# baseline_farmers$index_ratingsF_mid
+# 
+# #index_ratingsF_mid comes from variables_ratingsF_mid incl. mid_seed_quality_general_rating
+# #mid_seed_quality_general_rating is end_seed_quality_general_rating
+# #end_seed_quality_general_rating comes from endline_rating_dyads ("seed_quality_general_rating")
+# #endline_rating_dyads was collected during endline data collection
+# 
+# summary(endline_farmers$today) #was collected between 10/07/2022 and 06/08/2022
+# 
+# #farmer characteristics were collected in the same survey
+# 
+# #endline ratings and endline farmer characteristics
+# #1. numeric variables
+# #1.a only complete variables
+# #1.b imputation: NA = 0
+# #1.c imputation: NA = mean
+# #1.d imputation: NA = median
+# #2. factor variables
+# #2.a with 2 factors
+# #2.a.i only complete variables
+# #2.a.ii imputation: NA = 0
+# #2.a.iii imputation: NA = 1
+# #2.a.iv imputation: NA = mean
+# #2.a.v imputation: NA = median
+# #2.b with >2 factors
+# #3. logical variables
+# #4. date variables
+# #5. difftime variables
+# 
+# #only farmers that don't have NA for index_ratingsF_mid
+# sum(is.na(baseline_farmers$index_ratingsF_mid))
+# baseline_farmers=subset(baseline_farmers,!is.na(index_ratingsF_mid))
+# 
+# #get rid of rating variables, so that they're not detected in Lasso
+# baseline_farmers <- baseline_farmers[,!names(baseline_farmers) %in% c("seed_quality_general_rating"
+#                                                                       ,"seed_yield_rating"
+#                                                                       ,"seed_disease_rating"
+#                                                                       ,"seed_drought_rating"
+#                                                                       ,"seed_germinate_rating"
+#                                                                       ,"seed_maturing_rating"
+#                                                                       
+#                                                                       ,"end_seed_quality_general_rating"
+#                                                                       ,"end_seed_yield_rating"
+#                                                                       ,"end_seed_drought_rating"
+#                                                                       ,"end_seed_disease_rating"
+#                                                                       ,"end_seed_maturing_rating"
+#                                                                       ,"end_seed_germinate_rating"
+#                                                                       
+#                                                                       ,"mid_seed_quality_general_rating"
+#                                                                       ,"mid_seed_yield_rating"
+#                                                                       ,"mid_seed_drought_rating"
+#                                                                       ,"mid_seed_disease_rating"
+#                                                                       ,"mid_seed_maturing_rating"
+#                                                                       ,"mid_seed_germinate_rating"
+#                                                                       
+#                                                                       ,"general_rating"
+#                                                                       ,"location_rating"
+#                                                                       ,"price_rating"
+#                                                                       ,"stock_rating"
+#                                                                       ,"reputation_rating"
+#                                                                       ,"quality_rating"
+#                                                                       
+#                                                                       ,"end_general_rating"
+#                                                                       ,"end_location_rating"
+#                                                                       ,"end_price_rating"
+#                                                                       ,"end_quality_rating"
+#                                                                       ,"end_stock_rating"
+#                                                                       ,"end_reputation_rating"
+#                                                                       
+#                                                                       ,"mid_general_rating"
+#                                                                       ,"mid_location_rating"
+#                                                                       ,"mid_price_rating"
+#                                                                       ,"mid_quality_rating"
+#                                                                       ,"mid_stock_rating"
+#                                                                       ,"mid_reputation_rating"
+#                                                                       
+#                                                                       ,"index_ratingsF_midT"
+#                                                                       ,"index_ratingsF_midC"
+#                                                                       ,"index_ratingsF_midF"
+#                                                                       
+#                                                                       ,"index_ratingsshopF_mid"
+#                                                                       ,"index_ratingsshopF_midF"
+#                                                                       ,"index_ratingsshopF_midC"
+#                                                                       ,"index_ratingsshopF_midT"
+#                                                                       
+#                                                                       ,"index_farmer_perceptions_mid"
+#                                                                       ,"index_farmer_perceptions_midC"
+#                                                                       ,"index_farmer_perceptions_midT"
+#                                                                       ,"index_farmer_perceptions_midF"
+#                                                                       ,"index_farmer_perceptions_base"
+#                                                                       
+#                                                                       ,"index_ratingsF_base"
+#                                                                       ,"index_ratingsshopF_base")] #50 variables
+# 
+# #1. numeric variables
+# num_cols_numeric <- unlist(lapply(baseline_farmers,is.numeric)) #how many variables are numeric?
+# summary(num_cols_numeric) #362
+# 
+# baseline_farmers_numeric <- baseline_farmers[,num_cols_numeric]
+# 
+# #glmnet cannot handle missing values
+# 
+# #1.a only complete variables
+# summary(complete.cases(t(baseline_farmers_numeric)))
+# baseline_farmers_numeric_onlycomplete <- baseline_farmers_numeric[,colSums(is.na(baseline_farmers_numeric)) == 0]
+# 
+# x = as.matrix(baseline_farmers_numeric_onlycomplete[,-c(which(colnames(baseline_farmers_numeric_onlycomplete)=='index_ratingsF_mid'))])
+# y = baseline_farmers_numeric_onlycomplete$index_ratingsF_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratingsF_mid~Check2.check.maize.q30a.3,data=baseline_farmers_save))
+# 
+# #1.b imputation: NA = 0
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# baseline_farmers_numeric_save <- baseline_farmers_numeric
+# 
+# baseline_farmers_numeric[, 1:362] <- lapply(baseline_farmers_numeric[, 1:362], function(x){x <- ifelse(is.na(x), 0, x)})
+# 
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# x = as.matrix(baseline_farmers_numeric[,-c(which(colnames(baseline_farmers_numeric)=='index_ratingsF_mid'))])
+# y = baseline_farmers_numeric$index_ratingsF_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratingsF_mid~Check2.check.maize.q35g,data=baseline_farmers_save))
+# 
+# baseline_farmers_numeric <- baseline_farmers_numeric_save
+# 
+# #1.c imputation: NA = mean
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# baseline_farmers_numeric[, 1:362] <- lapply(baseline_farmers_numeric[, 1:362], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# x = as.matrix(baseline_farmers_numeric[,-c(which(colnames(baseline_farmers_numeric)=='index_ratingsF_mid'))])
+# y = baseline_farmers_numeric$index_ratingsF_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratingsF_mid~Check2.check.maize.q10,data=baseline_farmers_save))
+# 
+# baseline_farmers_numeric <- baseline_farmers_numeric_save
+# 
+# #1.d imputation: NA = median
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# baseline_farmers_numeric[, 1:362] <- lapply(baseline_farmers_numeric[, 1:362], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_farmers_numeric$Check2.check.maize.q8)
+# 
+# x = as.matrix(baseline_farmers_numeric[,-c(which(colnames(baseline_farmers_numeric)=='index_ratingsF_mid'))])
+# y = baseline_farmers_numeric$index_ratingsF_mid
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(index_ratingsF_mid~Check2.check.maize.q30a.1,data=baseline_farmers_save))
+# 
+# baseline_farmers_numeric <- baseline_farmers_numeric_save
+# 
+# 
+# 
+# #2. factor variables
+# num_cols_factor <- unlist(lapply(baseline_farmers,is.factor)) #how many variables are factor?
+# summary(num_cols_factor) #172
+# 
+# baseline_farmers_factor <- baseline_farmers[,num_cols_factor]
+# 
+# #2.a with 2 factors
+# 
+# sum(sapply(baseline_farmers_factor, function(x) is.factor(x) && nlevels(x) == 1)) #1 factor level
+# sum(sapply(baseline_farmers_factor, function(x) is.factor(x) && nlevels(x) == 2)) #2 factor levels
+# 
+# factor_2F <- unlist(lapply(baseline_farmers_factor,function(x) is.factor(x) && nlevels(x) == 2 | nlevels(x) > 1000)) #to keep farmer_ID
+# summary(factor_2F) #6
+# 
+# baseline_farmers_factor_2F <- baseline_farmers_factor[,factor_2F]
+# 
+# table(baseline_farmers_factor_2F$farmer_ID)
+# 
+# table(baseline_farmers_factor_2F$Check2.q1)
+# 
+# baseline_farmers_factor_2F[, 2:6] <- lapply(baseline_farmers_factor_2F[, 2:6], function(x)as.integer(x))
+# baseline_farmers_factor_2F[, 2:6] <- lapply(baseline_farmers_factor_2F[, 2:6], function(x){x <- ifelse(x==2, 1, 0)})
+# 
+# baseline_farmers_onlyrating = baseline_farmers[c("farmer_ID","index_ratingsF_mid")]
+# 
+# baseline_farmers_factor_2F <- merge(baseline_farmers_onlyrating,baseline_farmers_factor_2F,by="farmer_ID",all.x=TRUE)
+# 
+# #farmer_ID
+# #index_ratingsF_mid
+# #Check2.q1
+# #Check2.q3 #wegen n/a
+# #Check2.check.maize.q26.98
+# #check.maize.plot.4..plot_num
+# #check.maize.plot.5..plot_num
+# 
+# summary(ols <- lm(index_ratingsF_mid~Check2.q1,data=baseline_farmers_save))
+# 
+# #here only 7 variables, so I simply try all (for a Lasso with factors, look above at #Lasso: which dealer characteristics are correlated with dealers ratings)
+# 
+# 
+# 
+# #2.b with >2 factors AND logical variables AND date variables AND difftime variables
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #For a sketch, look above at #Lasso: which dealer characteristics are correlated with dealers ratings
+
+
+
+
+
+
+
+
+
+
+# #Lasso: which dealer characteristics are correlated with dealer success (number of maize seed customers per day)?
+# 
+# baseline_dealers_save <- baseline_dealers
+# #baseline_dealers <- baseline_dealers_save
+# 
+# #Number of maize seed customers per day:
+# baseline_dealers$mid_maize.owner.agree.q7_not_transf
+# 
+# #Dealer success could be determined by midline or endline characteristics
+# #For simplicity, we focus on endline characteristics.
+# 
+# #1. numeric variables
+# #1.a only complete variables
+# #1.b imputation: NA = 0
+# #1.c imputation: NA = mean
+# #1.d imputation: NA = median
+# #2. factor variables
+# #2.a with 2 factors
+# #2.a.i only complete variables
+# #2.a.ii imputation: NA = 0
+# #2.a.iii imputation: NA = 1
+# #2.a.iv imputation: NA = mean
+# #2.a.v imputation: NA = median
+# #2.b with >2 factors
+# #3. logical variables
+# #4. date variables
+# #5. difftime variables
+# 
+# #only dealers that don't have NA for mid_maize.owner.agree.q7_not_transf
+# sum(is.na(baseline_dealers$mid_maize.owner.agree.q7_not_transf))
+# baseline_dealers=subset(baseline_dealers,!is.na(mid_maize.owner.agree.q7_not_transf))
+# 
+# #get rid of variables, so that they're not detected in Lasso
+# baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("mid_maize.owner.agree.long10h.q25"
+#                                                                       ,"mid_maize.owner.agree.longe7h.q37"
+#                                                                       ,"mid_maize.owner.agree.longe5.q50"
+#                                                                       ,"mid_maize.owner.agree.longe4.q62" #4
+#                                                                       
+#                                                                       ,"maize.owner.agree.long10h.q25"
+#                                                                       ,"maize.owner.agree.longe7h.q37"
+#                                                                       ,"maize.owner.agree.longe5.q50"
+#                                                                       ,"maize.owner.agree.longe4.q62" #8
+#                                                                       
+#                                                                       ,"revenue_long10h.q25"
+#                                                                       ,"revenue_longe7h"
+#                                                                       ,"revenue_longe5"
+#                                                                       ,"revenue_longe4" #12
+#                                                                       
+#                                                                       ,"mid_revenue_long10h.q25"
+#                                                                       ,"mid_revenue_longe7h"
+#                                                                       ,"mid_revenue_longe5"
+#                                                                       ,"mid_revenue_longe4" #16
+#                                                                       
+#                                                                       ,"mid_quantitysold_not_transf"
+#                                                                       ,"quantitysold_not_transf" #18
+#                                                                       
+#                                                                       ,"quantitysold"
+#                                                                       ,"mid_quantitysold" #20
+#                                                                       
+#                                                                       ,"maize.owner.agree.q7"
+#                                                                       ,"mid_maize.owner.agree.q7" #22
+#                                                                       
+#                                                                       ,"owner.agree.q7"
+#                                                                       ,"check.owner.agree.q7" #24
+#                                                                       
+#                                                                       ,"maize.owner.agree.q7_not_transf" #25
+#                                                                       
+#                                                                       ,"check.owner.agree.long10h.q25"
+#                                                                       ,"check.owner.agree.longe7H.q38"
+#                                                                       ,"check.owner.agree.longe5.q50"
+#                                                                       ,"check.owner.agree.longe4.q62" #29
+#                                                                       
+#                                                                       ,"owner.agree.q6"
+#                                                                       ,"check.owner.agree.q6"
+#                                                                       ,"maize.owner.agree.q6" #32
+#                                                                       
+#                                                                       ,"maize.owner.agree.long10h.q25_unadj"
+#                                                                       ,"maize.owner.agree.longe5.q50_unadj"
+#                                                                       ,"mid_maize.owner.agree.long10h.q25_unadj"
+#                                                                       ,"mid_maize.owner.agree.longe5.q50_unadj" #36
+#                                                                       
+#                                                                       ,"index_overall_prim_dealer_midF"
+#                                                                       ,"index_overall_prim_dealer_baseF" #38
+#                                                                       
+#                                                                       ,"index_overall_prim_dealer_midC"
+#                                                                       ,"index_overall_prim_dealer_baseC" #40
+#                                                                       
+#                                                                       ,"index_overall_prim_dealer_midT"
+#                                                                       ,"index_overall_prim_dealer_baseT" #42
+#                                                                       
+#                                                                       ,"index_overall_prim_dealer_mid"
+#                                                                       ,"index_overall_prim_dealer_base" #44
+#                                                                       
+#                                                                       ,"longe10h_kg" #these var come from midline_dealers
+#                                                                       ,"longe7h_kg"
+#                                                                       ,"longe5_kg"
+#                                                                       ,"longe4_kg"
+#                                                                       ,"tot_kg" #49
+#                                                                       
+#                                                                       ,"index_dealer_endchain_mid"
+#                                                                       ,"index_dealer_endchain_midT"
+#                                                                       ,"index_dealer_endchain_midC"
+#                                                                       ,"index_dealer_endchain_midF"
+#                                                                       ,"index_dealer_endchain_base" #54
+#                                                                       
+#                                                                       ,"tot_sold"
+#                                                                       ,"kg_improved" #56
+#                                                                       
+#                                                                       ,"mid_revenue"
+#                                                                       ,"mid_revenue_not_transf" #58
+#                                                                       
+#                                                                       ,"revenue"
+#                                                                       ,"revenue_not_transf" #60
+#                                                                       )]
+# 
+# #1. numeric variables
+# num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric)) #how many variables in baseline_dealers are numeric?
+# summary(num_cols_numeric) #454
+# 
+# baseline_dealers_numeric <- baseline_dealers[,num_cols_numeric]
+# 
+# baseline_dealers_numeric_save <- baseline_dealers_numeric
+# 
+# #1.a only complete variables
+# summary(complete.cases(t(baseline_dealers_numeric)))
+# baseline_dealers_numeric_onlycomplete <- baseline_dealers_numeric[,colSums(is.na(baseline_dealers_numeric)) == 0]
+# 
+# x = as.matrix(baseline_dealers_numeric_onlycomplete[,-c(which(colnames(baseline_dealers_numeric_onlycomplete)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_numeric_onlycomplete$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~maize.owner.agree.q102,data=baseline_dealers_save))
+# 
+# #1.b imputation: NA = 0
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), 0, x)})
+# 
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_numeric$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~seed_maturing_rating,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# #1.c imputation: NA = mean
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_numeric$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~maize.owner.agree.temp.q82,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# #1.d imputation: NA = median
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+# 
+# summary(baseline_dealers_numeric$owner.agree.age)
+# 
+# x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_numeric$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~mid_reputation_rating,data=baseline_dealers_save))
+# 
+# baseline_dealers_numeric <- baseline_dealers_numeric_save
+# 
+# 
+# 
+# #2. factor variables
+# num_cols_factor <- unlist(lapply(baseline_dealers,is.factor)) #how many variables in baseline_dealers are factor?
+# summary(num_cols_factor) #315
+# 
+# baseline_dealers_factor <- baseline_dealers[,num_cols_factor]
+# 
+# #2.a with 2 factors
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 1)) #1 factor level
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 2)) #2 factor levels
+# sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 348)) #348 factor levels
+# 
+# factor_2F <- unlist(lapply(baseline_dealers_factor,function(x) is.factor(x) && nlevels(x) == 2 | nlevels(x) == 348)) #to keep shop_ID
+# summary(factor_2F) #49
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor[,factor_2F]
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x)as.integer(x))
+# baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x){x <- ifelse(x==2, 1, 0)})
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_onlyq7 = baseline_dealers[c("shop_ID","mid_maize.owner.agree.q7_not_transf")]
+# 
+# baseline_dealers_factor_2F <- merge(baseline_dealers_onlyq7,baseline_dealers_factor_2F,by="shop_ID",all.x=TRUE)
+# 
+# baseline_dealers_factor_2F_save <- baseline_dealers_factor_2F
+# 
+# #2.a.i only complete variables
+# summary(complete.cases(t(baseline_dealers_factor_2F)))
+# baseline_dealers_factor_2F_onlycomplete <- baseline_dealers_factor_2F[,colSums(is.na(baseline_dealers_factor_2F)) == 0]
+# 
+# x = as.matrix(baseline_dealers_factor_2F_onlycomplete[,-c(which(colnames(baseline_dealers_factor_2F_onlycomplete)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_factor_2F_onlycomplete$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# #2.a.ii imputation: NA = 0
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 0 , x)})
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_factor_2F$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~owner.agree.q5,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.iii imputation: NA = 1
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 1 , x)})
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_factor_2F$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~owner.agree.q10,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.iv imputation: NA = mean
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE) , x)})
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_factor_2F$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~owner.agree.q5,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.a.v imputation: NA = median
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE) , x)}) #same as NA = 1 or NA = 0
+# 
+# table(baseline_dealers_factor_2F$owner.agree.gender)
+# 
+# x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_maize.owner.agree.q7_not_transf'))])
+# y = baseline_dealers_factor_2F$mid_maize.owner.agree.q7_not_transf
+# lasso_fit <- glmnet(x,y,alpha = 1)
+# cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+# coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+# 
+# summary(ols <- lm(mid_maize.owner.agree.q7_not_transf~owner.agree.q5,data=baseline_dealers_save))
+# 
+# baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+# 
+# #2.b with >2 factors AND logical variables AND date variables AND difftime variables
+# #I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+# #For a sketch, look above at #Lasso: which dealer characteristics are correlated with dealers ratings
+# 
+# baseline_dealers <- baseline_dealers_save
+
+
+
+
+
+
+
+
+
+
+#Lasso: which dealer characteristics are correlated with dealer success (quantity of maize seed sold)?
 
 baseline_dealers_save <- baseline_dealers
 #baseline_dealers <- baseline_dealers_save
 
-library('glmnet')
+#Quantity of maize seed sold:
+baseline_dealers$mid_quantitysold_not_transf
 
-#1. dealer level
-#1.a endline ratings and endline dealer characteristics
-#1.a.i numeric variables
-#1.a.i.1 #keep only complete variables
-#1.a.i.2 #imputation: NA = 0
-#1.a.i.3 #imputation: NA = mean
-#1.a.i.4 #imputation: NA = median
-#1.a.ii factor variables
-#1.a.iii logical variables
-#1.a.vi date variables
-#1.a.v difftime variables
-#1.b endline ratings and midline dealer characteristics
-#2. farmer level
+#Dealer success could be determined by midline or endline characteristics.
+#For simplicity, we focus on endline characteristics.
 
-#1. dealer level
+#1. numeric variables
+#1.a only complete variables
+#1.b imputation: NA = 0
+#1.c imputation: NA = mean
+#1.d imputation: NA = median
+#2. factor variables
+#2.a with 2 factors
+#2.a.i only complete variables
+#2.a.ii imputation: NA = 0
+#2.a.iii imputation: NA = 1
+#2.a.iv imputation: NA = mean
+#2.a.v imputation: NA = median
+#2.b with >2 factors
+#3. logical variables
+#4. date variables
+#5. difftime variables
 
-#index_ratings_mid comes from variables_ratings_mid incl. mid_general
-#mid_general comes from end_seed_quality_general_rating
-#end_seed_quality_general_rating comes from endline_rating_dyads ("seed_quality_general_rating")
-#endline_rating_dyads was collected during endline data collection
+#only dealers that don't have NA for mid_quantitysold_not_transf
+sum(is.na(baseline_dealers$mid_quantitysold_not_transf))
+baseline_dealers=subset(baseline_dealers,!is.na(mid_quantitysold_not_transf))
 
-summary(endline_farmers$today) #was collected between 10/07/2022 and 06/08/2022
-
-#endline information about shops
-summary(dealer_endline$date) #was collected between 11/07/2022 and 08/08/2022
-
-#Farmers could have midline or endline characteristics in mind when they rate dealers at endline.
-
-#relevant variable:
-baseline_dealers$index_ratings_mid
-
-#only dealers that don't have NA for index_ratings_mid
-sum(is.na(baseline_dealers$index_ratings_mid))
-baseline_dealers=subset(baseline_dealers,!is.na(index_ratings_mid))
-
-#get rid of rating variables, so that they're not detected in Lasso
-baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("index_ratings_midT"
-                                                                      ,"index_ratings_midC"
-                                                                      ,"index_ratings_midF"
+#get rid of variables, so that they're not detected in Lasso
+baseline_dealers <- baseline_dealers[,!names(baseline_dealers) %in% c("mid_maize.owner.agree.long10h.q25"
+                                                                      ,"mid_maize.owner.agree.longe7h.q37"
+                                                                      ,"mid_maize.owner.agree.longe5.q50"
+                                                                      ,"mid_maize.owner.agree.longe4.q62" #4
                                                                       
-                                                                      ,"ratings1"
-                                                                      ,"ratings2"
-                                                                      ,"ratings3"
-                                                                      ,"ratings4"
+                                                                      ,"maize.owner.agree.long10h.q25"
+                                                                      ,"maize.owner.agree.longe7h.q37"
+                                                                      ,"maize.owner.agree.longe5.q50"
+                                                                      ,"maize.owner.agree.longe4.q62" #8
                                                                       
-                                                                      ,"general_rating"
-                                                                      ,"location_rating"
-                                                                      ,"price_rating"
-                                                  
-                                                                      ,"stock_rating"
-                                                                      ,"reputation_rating"
-                                                                      ,"seed_quality_general_rating"
-                                                                      ,"seed_yield_rating"
-                                                                      ,"seed_drought_rating"
-                                                                      ,"seed_disease_rating"
-                                                                      ,"seed_maturing_rating"
-                                                                      ,"seed_germinate_rating"
-                                                              
-                                                                      ,"end_general_rating"
-                                                                      ,"end_location_rating"
-                                                                      ,"end_price_rating"
-                                                                      ,"end_quality_rating"
-                                                                      ,"end_stock_rating"
-                                                                      ,"end_reputation_rating"
-                                                                      ,"end_seed_quality_general_rating"
-                                                                      ,"end_seed_yield_rating"
-                                                                      ,"end_seed_drought_rating"
-                                                                      ,"end_seed_disease_rating"
-                                                                      ,"end_seed_maturing_rating"
-                                                                      ,"end_seed_germinate_rating"
+                                                                      ,"revenue_long10h.q25"
+                                                                      ,"revenue_longe7h"
+                                                                      ,"revenue_longe5"
+                                                                      ,"revenue_longe4" #12
                                                                       
-                                                                      ,"mid_general_rating"
-                                                                      ,"mid_location_rating"
-                                                                      ,"mid_price_rating"
-                                                                      ,"mid_quality_rating"
-                                                                      ,"mid_stock_rating"
-                                                                      ,"mid_reputation_rating"
-                                                                      ,"mid_seed_quality_general_rating"
-                                                                      ,"mid_seed_yield_rating"
-                                                                      ,"mid_seed_drought_rating"
-                                                                      ,"mid_seed_disease_rating"
-                                                                      ,"mid_seed_maturing_rating"
-                                                                      ,"mid_seed_germinate_rating"
+                                                                      ,"mid_revenue_long10h.q25"
+                                                                      ,"mid_revenue_longe7h"
+                                                                      ,"mid_revenue_longe5"
+                                                                      ,"mid_revenue_longe4" #16
                                                                       
-                                                                      ,"mid_general"
-                                                                      ,"mid_yield"
-                                                                      ,"mid_drought_resistent"
-                                                                      ,"mid_disease_resistent"
-                                                                      ,"mid_early_maturing"
-                                                                      ,"mid_germination"
+                                                                      ,"mid_maize.owner.agree.q7_not_transf" #CHANGED
+                                                                      ,"quantitysold_not_transf" #18
                                                                       
-                                                                      ,"score"
-                                                                      ,"score_corrected.x"
-                                                                      ,"score_corrected.y"
-                                                                    
-                                                                      ,"quality_rating_corrected" #these 7 in reviews_seed
-                                                                      ,"general_corrected"
-                                                                      ,"yield_corrected"
-                                                                      ,"drought_resistent_corrected"
-                                                                      ,"disease_resistent_corrected"
-                                                                      ,"early_maturing_corrected"
-                                                                      ,"germination_corrected"
+                                                                      ,"quantitysold"
+                                                                      ,"mid_quantitysold" #20
                                                                       
-                                                                      ,"quality_rating.y" #these 7 in reviews_seed
-                                                                      ,"general.y"
-                                                                      ,"yield.y"
-                                                                      ,"drought_resistent.y"
-                                                                      ,"disease_resistent.y"
-                                                                      ,"early_maturing.y"
-                                                                      ,"germination.y"
+                                                                      ,"maize.owner.agree.q7"
+                                                                      ,"mid_maize.owner.agree.q7" #22
                                                                       
-                                                                      ,"general_av" #these 7 in reviews_seed
-                                                                      ,"yield_av"
-                                                                      ,"quality_rating_av"
-                                                                      ,"drought_resistent_av"
-                                                                      ,"disease_resistent_av"
-                                                                      ,"early_maturing_av"
-                                                                      ,"germination_av"
+                                                                      ,"owner.agree.q7"
+                                                                      ,"check.owner.agree.q7" #24
                                                                       
-                                                                      ,"quality_rating_corrected_av" #these 7 in reviews_seed
-                                                                      ,"general_corrected_av"
-                                                                      ,"yield_corrected_av"
-                                                                      ,"drought_resistent_corrected_av"
-                                                                      ,"disease_resistent_corrected_av"
-                                                                      ,"early_maturing_corrected_av"
-                                                                      ,"germination_corrected_av"
+                                                                      ,"maize.owner.agree.q7_not_transf" #25
                                                                       
-                                                                      ,"quality_rating.x"
-                                                                      ,"general.x"
-                                                                      ,"yield.x"
-                                                                      ,"drought_resistent.x"
-                                                                      ,"disease_resistent.x"
-                                                                      ,"early_maturing.x"
-                                                                      ,"germination.x"
+                                                                      ,"check.owner.agree.long10h.q25"
+                                                                      ,"check.owner.agree.longe7H.q38"
+                                                                      ,"check.owner.agree.longe5.q50"
+                                                                      ,"check.owner.agree.longe4.q62" #29
                                                                       
-                                                                      )] #86 variables
+                                                                      ,"owner.agree.q6"
+                                                                      ,"check.owner.agree.q6"
+                                                                      ,"maize.owner.agree.q6" #32
+                                                                      
+                                                                      ,"maize.owner.agree.long10h.q25_unadj"
+                                                                      ,"maize.owner.agree.longe5.q50_unadj"
+                                                                      ,"mid_maize.owner.agree.long10h.q25_unadj"
+                                                                      ,"mid_maize.owner.agree.longe5.q50_unadj" #36
+                                                                      
+                                                                      ,"index_overall_prim_dealer_midF"
+                                                                      ,"index_overall_prim_dealer_baseF" #38
+                                                                      
+                                                                      ,"index_overall_prim_dealer_midC"
+                                                                      ,"index_overall_prim_dealer_baseC" #40
+                                                                      
+                                                                      ,"index_overall_prim_dealer_midT"
+                                                                      ,"index_overall_prim_dealer_baseT" #42
+                                                                      
+                                                                      ,"index_overall_prim_dealer_mid"
+                                                                      ,"index_overall_prim_dealer_base" #44
+                                                                      
+                                                                      ,"longe10h_kg" #these var come from midline_dealers
+                                                                      ,"longe7h_kg"
+                                                                      ,"longe5_kg"
+                                                                      ,"longe4_kg"
+                                                                      ,"tot_kg" #49
+                                                                      
+                                                                      ,"index_dealer_endchain_mid"
+                                                                      ,"index_dealer_endchain_midT"
+                                                                      ,"index_dealer_endchain_midC"
+                                                                      ,"index_dealer_endchain_midF"
+                                                                      ,"index_dealer_endchain_base" #54
+                                                                      
+                                                                      ,"tot_sold"
+                                                                      ,"kg_improved" #56
+                                                                      
+                                                                      ,"mid_revenue"
+                                                                      ,"mid_revenue_not_transf" #58
+                                                                      
+                                                                      ,"revenue"
+                                                                      ,"revenue_not_transf" #60
+                                                                      )]
 
-#1.a endline ratings and endline dealer characteristics (endline farmers rate endline dealers)
-
-#1.a.i numeric variables
-#how many variables in baseline_dealers are numeric?
-num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric))
-summary(num_cols_numeric) #512-79 of 850
+#1. numeric variables
+num_cols_numeric <- unlist(lapply(baseline_dealers,is.numeric)) #how many variables in baseline_dealers are numeric?
+summary(num_cols_numeric) #454
 
 baseline_dealers_numeric <- baseline_dealers[,num_cols_numeric]
 
-#1.a.i.1 #keep only complete variables
-#glmnet cannot handle missing values
+baseline_dealers_numeric_save <- baseline_dealers_numeric
+
+#1.a only complete variables
 summary(complete.cases(t(baseline_dealers_numeric)))
 baseline_dealers_numeric_onlycomplete <- baseline_dealers_numeric[,colSums(is.na(baseline_dealers_numeric)) == 0]
 
-x = as.matrix(baseline_dealers_numeric_onlycomplete[,-c(which(colnames(baseline_dealers_numeric_onlycomplete)=='index_ratings_mid'))])
-
-y = baseline_dealers_numeric_onlycomplete$index_ratings_mid
-
+x = as.matrix(baseline_dealers_numeric_onlycomplete[,-c(which(colnames(baseline_dealers_numeric_onlycomplete)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_numeric_onlycomplete$mid_quantitysold_not_transf
 lasso_fit <- glmnet(x,y,alpha = 1)
-
-coef(lasso_fit,s=0)
-coef(lasso_fit,s=0.1)
-coef(lasso_fit,s=1)
-
-#the larger ?? (= s), the less variables are included in the model
-#you can choose ?? yourself
-#or use cv.glmnet to conduct a cross-validation:
-
 cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-#summary(ols <- lm(index_ratings_mid~training_demeaned*clearing*farmer_demeaned+variable+variable*clearing,data=baseline_dealers_save))
+summary(ols <- lm(mid_quantitysold_not_transf~maize.owner.agree.temp.q81,data=baseline_dealers_save))
 
-#1.a.i.2 #imputation: NA = 0
-summary(baseline_dealers_numeric$longe10h_kg)
+#1.b imputation: NA = 0
+summary(baseline_dealers_numeric$owner.agree.age)
 
-baseline_dealers_numeric_save <- baseline_dealers_numeric
+baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), 0, x)})
 
-baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), 0, x)})
+summary(baseline_dealers_numeric$owner.agree.age)
 
-x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
-
-y = baseline_dealers_numeric$index_ratings_mid
-
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_numeric$mid_quantitysold_not_transf
 lasso_fit <- glmnet(x,y,alpha = 1)
-
-coef(lasso_fit,s=0)
-coef(lasso_fit,s=0.1)
-coef(lasso_fit,s=1)
-
 cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+summary(ols <- lm(mid_quantitysold_not_transf~mid_refunds,data=baseline_dealers_save))
 
 baseline_dealers_numeric <- baseline_dealers_numeric_save
 
-#1.a.i.3 #imputation: NA = mean
+#1.c imputation: NA = mean
+summary(baseline_dealers_numeric$owner.agree.age)
 
-summary(baseline_dealers_numeric$longe10h_kg)
+baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
 
-baseline_dealers_numeric_save <- baseline_dealers_numeric
+summary(baseline_dealers_numeric$owner.agree.age)
 
-baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE), x)})
-
-x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
-
-y = baseline_dealers_numeric$index_ratings_mid
-
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_numeric$mid_quantitysold_not_transf
 lasso_fit <- glmnet(x,y,alpha = 1)
-
-coef(lasso_fit,s=0)
-coef(lasso_fit,s=0.1)
-coef(lasso_fit,s=1)
-
 cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+summary(ols <- lm(mid_quantitysold_not_transf~maize.owner.agree.longe7h.q38,data=baseline_dealers_save))
 
 baseline_dealers_numeric <- baseline_dealers_numeric_save
 
-#1.a.i.4 #imputation: NA = median
-summary(baseline_dealers_numeric$longe10h_kg)
+#1.d imputation: NA = median
+summary(baseline_dealers_numeric$owner.agree.age)
 
-baseline_dealers_numeric_save <- baseline_dealers_numeric
+baseline_dealers_numeric[, 1:454] <- lapply(baseline_dealers_numeric[, 1:454], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
 
-baseline_dealers_numeric[, 1:433] <- lapply(baseline_dealers_numeric[, 1:433], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE), x)})
+summary(baseline_dealers_numeric$owner.agree.age)
 
-x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='index_ratings_mid'))])
-
-y = baseline_dealers_numeric$index_ratings_mid
-
+x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_numeric$mid_quantitysold_not_transf
 lasso_fit <- glmnet(x,y,alpha = 1)
-
-coef(lasso_fit,s=0)
-coef(lasso_fit,s=0.1)
-coef(lasso_fit,s=1)
-
 cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-
 coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-summary(ols <- lm(index_ratings_mid~maize.owner.agree.temp.q74,data=baseline_dealers_save))
+summary(ols <- lm(mid_quantitysold_not_transf~mid_reputation_rating,data=baseline_dealers_save))
 
 baseline_dealers_numeric <- baseline_dealers_numeric_save
 
-#HERE
 
-#1.a.ii factor variables
-#how many variables in baseline_dealers are factor?
-num_cols_factor <- unlist(lapply(baseline_dealers,is.factor))
-summary(num_cols_factor) #317 of 850
+
+#2. factor variables
+num_cols_factor <- unlist(lapply(baseline_dealers,is.factor)) #how many variables in baseline_dealers are factor?
+summary(num_cols_factor) #315
 
 baseline_dealers_factor <- baseline_dealers[,num_cols_factor]
 
-summary(complete.cases(t(baseline_dealers_factor)))
-baseline_dealers_factor_onlycomplete <- baseline_dealers_factor[,colSums(is.na(baseline_dealers_factor)) == 0]
+#2.a with 2 factors
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 1)) #1 factor level
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 2)) #2 factor levels
+sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 348)) #348 factor levels
 
-sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 0))
-sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 1))
-#owner.agree.q83.g
-#owner.agree.q97.a
-#owner.agree.q97.96
-#cert_mid
-#other_var_mid
-#q0
-#other_var_end
-#maize.owner.consent
+factor_2F <- unlist(lapply(baseline_dealers_factor,function(x) is.factor(x) && nlevels(x) == 2 | nlevels(x) == 348)) #to keep shop_ID
+summary(factor_2F) #49
 
-sum(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 3))
+baseline_dealers_factor_2F <- baseline_dealers_factor[,factor_2F]
 
-cbind(sapply(baseline_dealers_factor, function(x) is.factor(x) && nlevels(x) == 2))
+table(baseline_dealers_factor_2F$owner.agree.gender)
 
-#owner.agree.gender                 TRUE
-#owner.agree.ownership              TRUE
-#owner.agree.q5                     TRUE
-#owner.agree.q10                    TRUE
-#owner.agree.q20                    TRUE
-#owner.agree.q32                    TRUE
-#owner.agree.q45                    TRUE
-#owner.agree.q57                    TRUE
-#owner.agree.temp.q69               TRUE
-#owner.agree.temp.q71               TRUE
+baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x)as.integer(x))
+baseline_dealers_factor_2F[, 2:49] <- lapply(baseline_dealers_factor_2F[, 2:49], function(x){x <- ifelse(x==2, 1, 0)})
 
-#owner.agree.temp.q72               TRUE
-#owner.agree.temp.q73               TRUE
-#owner.agree.temp.q74               TRUE
-#owner.agree.temp.q75               TRUE
-#owner.agree.temp.q80               TRUE !
-#owner.agree.temp.q81               TRUE
-#owner.agree.q83.a                  TRUE
-#owner.agree.q83.b                  TRUE
-#owner.agree.q83.c                  TRUE
-#owner.agree.q83.d                  TRUE
+table(baseline_dealers_factor_2F$owner.agree.gender)
 
-#owner.agree.q83.e                  TRUE
-#owner.agree.q83.f                  TRUE
-#owner.agree.q83.96                 TRUE
-#owner.agree.q88                    TRUE
-#owner.agree.q96                    TRUE
-#owner.agree.q97.b                  TRUE
-#owner.agree.q97.c                  TRUE
-#owner.agree.q97.d                  TRUE !
-#owner.agree.inspection.q121        TRUE
-#owner.agree.inspection.q122        TRUE
+baseline_dealers_onlyquantitysold = baseline_dealers[c("shop_ID","mid_quantitysold_not_transf")]
 
-#origin_mid                         TRUE
-#lot_mid                            TRUE
-#verif_mid                          TRUE
-#maize.q1                           TRUE
-#maize.q2                           TRUE
-#maize.owner.agree.knw              TRUE
-#maize.owner.agree.q9.96            TRUE
-#maize.owner.agree.q12              TRUE
-#maize.owner.agree.q97.a            TRUE
-#maize.owner.agree.q97.c            TRUE
+baseline_dealers_factor_2F <- merge(baseline_dealers_onlyquantitysold,baseline_dealers_factor_2F,by="shop_ID",all.x=TRUE)
 
-#maize.owner.agree.q97.d            TRUE
-#maize.owner.agree.q97.96           TRUE
-#checq                              TRUE !
-#check.owner.agree.q97.96           TRUE !
-#origin_end                         TRUE
-#cert_end                           TRUE
-#lot_end                            TRUE
-#verif_end                          TRUE
+baseline_dealers_factor_2F_save <- baseline_dealers_factor_2F
 
-#1.a.iii logical variables
-#how many variables in baseline_dealers are logical?
-num_cols_logical <- unlist(lapply(baseline_dealers,is.logical))
-summary(num_cols_logical) #7 of 850
+#2.a.i only complete variables
+summary(complete.cases(t(baseline_dealers_factor_2F)))
+baseline_dealers_factor_2F_onlycomplete <- baseline_dealers_factor_2F[,colSums(is.na(baseline_dealers_factor_2F)) == 0]
 
-baseline_dealers_logical <- baseline_dealers[,num_cols_logical]
+x = as.matrix(baseline_dealers_factor_2F_onlycomplete[,-c(which(colnames(baseline_dealers_factor_2F_onlycomplete)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_factor_2F_onlycomplete$mid_quantitysold_not_transf
+lasso_fit <- glmnet(x,y,alpha = 1)
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-rbind(baseline_dealers_logical$num_cols_logical)
+#2.a.ii imputation: NA = 0
+table(baseline_dealers_factor_2F$owner.agree.gender)
 
-#1.a.vi date variables
-library(lubridate)
-#how many variables in baseline_dealers are date?
-num_cols_date <- unlist(lapply(baseline_dealers,is.Date))
-summary(num_cols_date) #10 of 850
+baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 0 , x)})
 
-baseline_dealers_date <- baseline_dealers[,num_cols_date]
+table(baseline_dealers_factor_2F$owner.agree.gender)
 
-#1.a.v difftime variables
-str(baseline_dealers, list.len=ncol(baseline_dealers))
-#4 are remaining are unknown or 'difftime'
+x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_factor_2F$mid_quantitysold_not_transf
+lasso_fit <- glmnet(x,y,alpha = 1)
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
-#1.b endline ratings and midline dealer characteristics (endline farmers rate midline dealers)
-#2. farmer level
+summary(ols <- lm(mid_quantitysold_not_transf~lot_mid,data=baseline_dealers_save))
 
-#relevant variable:
-baseline_dealers$index_ratingsF_mid
+baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
 
-#robustness: other measures of ratings, other data set (baseline, midline)
+#2.a.iii imputation: NA = 1
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), 1 , x)})
+
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_factor_2F$mid_quantitysold_not_transf
+lasso_fit <- glmnet(x,y,alpha = 1)
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+summary(ols <- lm(mid_quantitysold_not_transf~owner.agree.gender,data=baseline_dealers_save))
+
+baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+
+#2.a.iv imputation: NA = mean
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), mean(x, na.rm  = TRUE) , x)})
+
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_factor_2F$mid_quantitysold_not_transf
+lasso_fit <- glmnet(x,y,alpha = 1)
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+summary(ols <- lm(mid_quantitysold_not_transf~maize.q1,data=baseline_dealers_save))
+
+baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+
+#2.a.v imputation: NA = median
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+baseline_dealers_factor_2F[, 1:50] <- lapply(baseline_dealers_factor_2F[, 1:50], function(x){x <- ifelse(is.na(x), median(x, na.rm  = TRUE) , x)}) #same as NA = 1 or NA = 0
+
+table(baseline_dealers_factor_2F$owner.agree.gender)
+
+x = as.matrix(baseline_dealers_factor_2F[,-c(which(colnames(baseline_dealers_factor_2F)=='mid_quantitysold_not_transf'))])
+y = baseline_dealers_factor_2F$mid_quantitysold_not_transf
+lasso_fit <- glmnet(x,y,alpha = 1)
+cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+
+summary(ols <- lm(mid_quantitysold_not_transf~owner.agree.q57,data=baseline_dealers_save))
+
+baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
+
+#2.b with >2 factors AND logical variables AND date variables AND difftime variables
+#I didn't do it to save time and because all relevant variables have been transformed into numeric/ binary variables anyway
+#For a sketch, look above at #Lasso: which dealer characteristics are correlated with dealers ratings
+
+baseline_dealers <- baseline_dealers_save
