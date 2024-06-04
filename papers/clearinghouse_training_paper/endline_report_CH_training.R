@@ -2870,7 +2870,17 @@ results_dealer_sec <- c("mid_maize.owner.agree.nr_var",          #1
                         "index_knowl_store_mid",                 #6
                         "index_knowl_seed_mid",                  #7
                         "index_selfratings_mid",                 #8
-                        "index_overallsec_mid")                  #9
+                        "index_overallsec_mid",                  #9
+                        "mid_maize.owner.agree.skill.q104_bin",  #10
+                        "mid_maize.owner.agree.skill.q105_bin",  #11
+                        "mid_maize.owner.agree.skill.q106_bin",  #12
+                        "mid_maize.owner.agree.skill.q107_bin",  #13
+                        "mid_maize.owner.agree.skill.q108_bin"  #14
+                        ,"mid_maize.owner.agree.skill.q109_bin"  #15
+                        ,"mid_maize.owner.agree.skill.q111_bin"  #16
+                        ,"mid_maize.owner.agree.skill.q112_bin"  #17
+                        ,"mid_maize.owner.agree.skill.q113_bin") #18
+
 results_dealer_sec_base <- c("maize.owner.agree.nr_var",
                              "maize.owner.agree.q19",
                              "maize.owner.agree.q44",
@@ -2879,9 +2889,18 @@ results_dealer_sec_base <- c("maize.owner.agree.nr_var",
                              "index_knowl_store_base",
                              "index_knowl_seed_base",
                              "index_selfratings_base",
-                             "index_overallsec_base")
+                             "index_overallsec_base",
+                             "maize.owner.agree.skill.q104_bin",
+                             "maize.owner.agree.skill.q105_bin",
+                             "maize.owner.agree.skill.q106_bin",
+                             "maize.owner.agree.skill.q107_bin",
+                             "maize.owner.agree.skill.q108_bin"
+                             ,"maize.owner.agree.skill.q109_bin"
+                             ,"maize.owner.agree.skill.q111_bin"
+                             ,"maize.owner.agree.skill.q112_bin"
+                             ,"maize.owner.agree.skill.q113_bin")
 
-df_means_end_D_sec <- array(NA,dim=c(5,12))
+df_means_end_D_sec <- array(NA,dim=c(5,18))
 
 for (i in 1:length(results_dealer_sec)){
   df_means_end_D_sec[1,i] <- sum(baseline_dealers[results_dealer_sec_base[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_base[i]])))
@@ -2896,7 +2915,7 @@ baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dea
 #2#
 ###
 
-df_ols_end_D_sec <- array(NA,dim=c(3,3,12))
+df_ols_end_D_sec <- array(NA,dim=c(3,3,18))
 
 baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
 baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
@@ -2944,7 +2963,16 @@ results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
                         ,"index_knowl_store_midT"
                         ,"index_knowl_seed_midT"
                         ,"index_selfratings_midT"
-                        ,"index_overallsec_midT")
+                        ,"index_overallsec_midT",                  #9
+                        "mid_maize.owner.agree.skill.q104_bin",
+                        "mid_maize.owner.agree.skill.q105_bin",
+                        "mid_maize.owner.agree.skill.q106_bin",
+                        "mid_maize.owner.agree.skill.q107_bin",
+                        "mid_maize.owner.agree.skill.q108_bin"
+                        ,"mid_maize.owner.agree.skill.q109_bin"  #15
+                        ,"mid_maize.owner.agree.skill.q111_bin"  #16
+                        ,"mid_maize.owner.agree.skill.q112_bin"  #17
+                        ,"mid_maize.owner.agree.skill.q113_bin") #18)
 results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"maize.owner.agree.q19"
                              ,"maize.owner.agree.q44"
@@ -2953,7 +2981,16 @@ results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"index_knowl_store_baseT"
                              ,"index_knowl_seed_baseT"
                              ,"index_selfratings_baseT"
-                             ,"index_overallsec_baseT")
+                             ,"index_overallsec_baseT",
+                             "maize.owner.agree.skill.q104_bin",
+                             "maize.owner.agree.skill.q105_bin",
+                             "maize.owner.agree.skill.q106_bin",
+                             "maize.owner.agree.skill.q107_bin",
+                             "maize.owner.agree.skill.q108_bin"
+                             ,"maize.owner.agree.skill.q109_bin"
+                             ,"maize.owner.agree.skill.q111_bin"
+                             ,"maize.owner.agree.skill.q112_bin"
+                             ,"maize.owner.agree.skill.q113_bin")
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -3016,7 +3053,17 @@ results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
                         ,"index_knowl_store_midC"
                         ,"index_knowl_seed_midC"
                         ,"index_selfratings_midC"
-                        ,"index_overallsec_midC")
+                        ,"index_overallsec_midC",                  #9
+                        "mid_maize.owner.agree.skill.q104_bin",
+                        "mid_maize.owner.agree.skill.q105_bin",
+                        "mid_maize.owner.agree.skill.q106_bin",
+                        "mid_maize.owner.agree.skill.q107_bin",
+                        "mid_maize.owner.agree.skill.q108_bin"                        
+                        ,"mid_maize.owner.agree.skill.q109_bin"  #15
+                        ,"mid_maize.owner.agree.skill.q111_bin"  #16
+                        ,"mid_maize.owner.agree.skill.q112_bin"  #17
+                        ,"mid_maize.owner.agree.skill.q113_bin") #18
+
 results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"maize.owner.agree.q19"
                              ,"maize.owner.agree.q44"
@@ -3025,7 +3072,17 @@ results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"index_knowl_store_baseC"
                              ,"index_knowl_seed_baseC"
                              ,"index_selfratings_baseC"
-                             ,"index_overallsec_baseC")
+                             ,"index_overallsec_baseC",
+                             "maize.owner.agree.skill.q104_bin",
+                             "maize.owner.agree.skill.q105_bin",
+                             "maize.owner.agree.skill.q106_bin",
+                             "maize.owner.agree.skill.q107_bin",
+                             "maize.owner.agree.skill.q108_bin"
+                             ,"maize.owner.agree.skill.q109_bin"
+                             ,"maize.owner.agree.skill.q111_bin"
+                             ,"maize.owner.agree.skill.q112_bin"
+                             ,"maize.owner.agree.skill.q113_bin")
+
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -3088,7 +3145,16 @@ results_dealer_sec <- c("mid_maize.owner.agree.nr_var"
                         ,"index_knowl_store_midF"
                         ,"index_knowl_seed_midF"
                         ,"index_selfratings_midF"
-                        ,"index_overallsec_midF")
+                        ,"index_overallsec_midF",                  #9
+                        "mid_maize.owner.agree.skill.q104_bin",
+                        "mid_maize.owner.agree.skill.q105_bin",
+                        "mid_maize.owner.agree.skill.q106_bin",
+                        "mid_maize.owner.agree.skill.q107_bin",
+                        "mid_maize.owner.agree.skill.q108_bin"
+                        ,"mid_maize.owner.agree.skill.q109_bin"  #15
+                        ,"mid_maize.owner.agree.skill.q111_bin"  #16
+                        ,"mid_maize.owner.agree.skill.q112_bin"  #17
+                        ,"mid_maize.owner.agree.skill.q113_bin") #18
 results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"maize.owner.agree.q19"
                              ,"maize.owner.agree.q44"
@@ -3097,7 +3163,17 @@ results_dealer_sec_base <- c("maize.owner.agree.nr_var"
                              ,"index_knowl_store_baseF"
                              ,"index_knowl_seed_baseF"
                              ,"index_selfratings_baseF"
-                             ,"index_overallsec_baseF")
+                             ,"index_overallsec_baseF",
+                             "maize.owner.agree.skill.q104_bin",
+                             "maize.owner.agree.skill.q105_bin",
+                             "maize.owner.agree.skill.q106_bin",
+                             "maize.owner.agree.skill.q107_bin",
+                             "maize.owner.agree.skill.q108_bin"
+                             ,"maize.owner.agree.skill.q109_bin"
+                             ,"maize.owner.agree.skill.q111_bin"
+                             ,"maize.owner.agree.skill.q112_bin"
+                             ,"maize.owner.agree.skill.q113_bin")
+
 
 baseline_dealers[results_dealer_sec_base] <- lapply(baseline_dealers[results_dealer_sec_base],function(x)x - mean(x,na.rm = T))
 
@@ -4361,6 +4437,13 @@ baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
 baseline_dealers$index_overall_bag_base_save <- baseline_dealers$index_overall_bag_base
 
+#6. Moisture above 13% (reviewers request)
+#"it’s important to keep moisture content low, at 13% or lower."
+baseline_dealers$mid_reading_bin <- ifelse(baseline_dealers$mid_reading > 13,1,0)
+
+baseline_dealers$reading_save_bin <- ifelse(baseline_dealers$reading_save > 13,1,0)
+
+
 ################################################################################################################################################################################
 
 ###
@@ -4372,13 +4455,15 @@ results_dealer_sec_bag <- c("mid_reading"
                             ,"mid_shelflife_Caro"
                             ,"mid_origin"
                             ,"mid_lot"
-                            ,"index_overall_bag_mid")
+                            ,"index_overall_bag_mid"
+                            ,"mid_reading_bin")
 results_dealer_sec_bag_base <- c("reading_save"
                                  ,"visible_packdate"
                                  ,"shelflife_Caro"
                                  ,"origin"
                                  ,"lot"
-                                 ,"index_overall_bag_base")
+                                 ,"index_overall_bag_base"
+                                 ,"reading_save_bin")
 
 df_means_end_D_sec_bag <- array(NA,dim=c(3,11))
 
@@ -4415,13 +4500,15 @@ results_dealer_sec_bag <- c("mid_reading"
                             ,"mid_shelflife_Caro"
                             ,"mid_origin"
                             ,"mid_lot"
-                            ,"index_overall_bag_midT")
+                            ,"index_overall_bag_midT"
+                            ,"mid_reading_bin")
 results_dealer_sec_bag_base <- c("reading"
                                  ,"visible_packdate"
                                  ,"shelflife_Caro"
                                  ,"origin"
                                  ,"lot"
-                                 ,"index_overall_bag_baseT")
+                                 ,"index_overall_bag_baseT"
+                                 ,"reading_save_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -4453,13 +4540,15 @@ results_dealer_sec_bag <- c("mid_reading"
                             ,"mid_shelflife_Caro"
                             ,"mid_origin"
                             ,"mid_lot"
-                            ,"index_overall_bag_midC")
+                            ,"index_overall_bag_midC"
+                            ,"mid_reading_bin")
 results_dealer_sec_bag_base <- c("reading"
                                  ,"visible_packdate"
                                  ,"shelflife_Caro"
                                  ,"origin"
                                  ,"lot"
-                                 ,"index_overall_bag_baseC")
+                                 ,"index_overall_bag_baseC"
+                                 ,"reading_save_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -4491,13 +4580,15 @@ results_dealer_sec_bag <- c("mid_reading"
                             ,"mid_shelflife_Caro"
                             ,"mid_origin"
                             ,"mid_lot"
-                            ,"index_overall_bag_midF")
+                            ,"index_overall_bag_midF"
+                            ,"mid_reading_bin")
 results_dealer_sec_bag_base <- c("reading"
                                  ,"visible_packdate"
                                  ,"shelflife_Caro"
                                  ,"origin"
                                  ,"lot"
-                                 ,"index_overall_bag_baseF")
+                                 ,"index_overall_bag_baseF"
+                                 ,"reading_save_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 

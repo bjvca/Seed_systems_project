@@ -2412,15 +2412,24 @@ baseline_dealers$index_overallsec_base <- index_overallsec_base$index #baseline 
 #1#
 ###
 
-results_dealer_sec <- c("mid_maize.owner.agree.nr_var","mid_maize.owner.agree.q19","mid_maize.owner.agree.q44","mid_maize.owner.agree.inspection.q121"
-                        ,"index_servicesFARM_mid"
-                        ,"index_knowl_store_mid","index_knowl_seed_mid","index_selfratings_mid"
-                        ,"index_overallsec_mid"
-                        ,"mid_maize.owner.agree.skill.q104_bin","mid_maize.owner.agree.skill.q105_bin"
-                        ,"mid_maize.owner.agree.skill.q106_bin","mid_maize.owner.agree.skill.q107_bin"
-                        ,"mid_maize.owner.agree.skill.q108_bin"
-                        ,"mid_maize.owner.agree.skill.q109_bin","mid_maize.owner.agree.skill.q111_bin"
-                        ,"mid_maize.owner.agree.skill.q112_bin","mid_maize.owner.agree.skill.q113_bin")
+results_dealer_sec <- c("mid_maize.owner.agree.nr_var"           #1   
+                        ,"mid_maize.owner.agree.q19"             #2
+                        ,"mid_maize.owner.agree.q44"             #3
+                        ,"mid_maize.owner.agree.inspection.q121" #4
+                        ,"index_servicesFARM_mid"                #5
+                        ,"index_knowl_store_mid"                 #6
+                        ,"index_knowl_seed_mid"                  #7
+                        ,"index_selfratings_mid"                 #8
+                        ,"index_overallsec_mid"                  #9
+                        ,"mid_maize.owner.agree.skill.q104_bin"  #10
+                        ,"mid_maize.owner.agree.skill.q105_bin"  #11
+                        ,"mid_maize.owner.agree.skill.q106_bin"  #12
+                        ,"mid_maize.owner.agree.skill.q107_bin"  #13
+                        ,"mid_maize.owner.agree.skill.q108_bin"  #14
+                        ,"mid_maize.owner.agree.skill.q109_bin"  #15
+                        ,"mid_maize.owner.agree.skill.q111_bin"  #16
+                        ,"mid_maize.owner.agree.skill.q112_bin"  #17
+                        ,"mid_maize.owner.agree.skill.q113_bin") #18
 
 results_dealer_sec_base <- c("maize.owner.agree.nr_var","maize.owner.agree.q19","maize.owner.agree.q44","maize.owner.agree.inspection.q121"
                              ,"index_servicesFARM_base"
@@ -3760,15 +3769,24 @@ baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(1,3))
 baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
+#6. Moisture above 13% (reviewers request)
+#"it’s important to keep moisture content low, at 13% or lower."
+baseline_dealers$mid_reading_bin <- ifelse(baseline_dealers$mid_reading > 13,1,0)
+
+baseline_dealers$reading_bin <- ifelse(baseline_dealers$reading > 13,1,0)
+
+
 ################################################################################################################################################################################
 
 ###
 #1#
 ###
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_mid","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
+                            ,"index_overall_bag_mid","mid_visible_expdate","mid_reading_bin")
 
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_base","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_base"
+                                 ,"visible_expdate","reading_bin")
 
 df_means_D_sec_bag <- array(NA,dim=c(3,11))
 
@@ -3802,9 +3820,11 @@ baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 
 df_ols_D_sec_bag <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midT","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
+                            ,"index_overall_bag_midT","mid_visible_expdate","mid_reading_bin")
 
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT"
+                                 ,"visible_expdate","reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3831,9 +3851,11 @@ baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midC","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
+                            ,"index_overall_bag_midC","mid_visible_expdate","mid_reading_bin")
 
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseC","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseC"
+                                 ,"visible_expdate","reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3860,9 +3882,11 @@ baseline_dealers$index_overall_bag_midF <- index_overall_bag_mid$index
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$farmer_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
 
-results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot","index_overall_bag_midF","mid_visible_expdate")
+results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
+                            ,"index_overall_bag_midF","mid_visible_expdate","mid_reading_bin")
 
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseF","visible_expdate")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseF"
+                                 ,"visible_expdate","reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
