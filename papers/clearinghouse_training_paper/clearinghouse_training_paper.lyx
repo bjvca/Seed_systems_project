@@ -2158,6 +2158,21 @@ At the level of the agro-dealer, enumerators were instructed to interview
  As part of this initial quality assessment process, a bag of maize seed
  was also purchased at each agro-dealer, although only 232 of the 348 sampled
  agro-dealers had seed in stock at the time of the baseline interview.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Even though repackaging seed from original larger bags from seed companies
+ into smaller bags to offer quantities that are convenient and affordable
+ to their clients is common (around half of the agro-dealers in our sample
+ report to do so) and dangerous (as important infor-mation may be lost and
+ the material used for re-packaging may affect aeration, moisture, and seed
+ viability), enumerators purchased only unopened, i.e., not repackaged bags
+ of seed, to have a comparable sample.
+\end_layout
+
+\end_inset
+
  Enumerators were also instructed to note down a series of objectively verifiabl
 e quality indicators related to storage.
  Often, this also meant that enumerators inspected stores at different locations
@@ -2230,9 +2245,11 @@ Information was also collected to provide an initial assessment of the quality
  Furthermore, with the shop manager's permission, enumerators—drawing on
  training provided to them at the outset of the study—inspected the area
  where seed was stored and noted the conditions.
- We find that 65% of agro-dealers had problems with pests such as rats or
- insects, while 16% store maize seed in open containers, thus exposing the
- seed to a range of pests and contaminants.
+ Baseline data reveals various signs that seed storage and handling are
+ sub-optimal and may affect seed quality in line with the first hypothesis.
+ For example, we find that 65% of agro-dealers had problems with pests such
+ as rats or insects, while 16% store maize seed in open containers, thus
+ exposing the seed to a range of pests and contaminants.
  Not surprisingly two thirds of the agro-dealers sampled reported that they
  had received at least one complaint about seed they sold from a customer
  during the prior season.
@@ -18534,6 +18551,150 @@ Sexpr{format(round(df_ols_end_D_sec_bag[2,2,1],digits=3),nsmall=3)}) &
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Moisture exceeds recommended level (13
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag[1,7],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag[3,1,7]<.05,"*",ifelse(df_ols_D_sec_bag[3,1,7]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag[3,2,7]<.05,"*",ifelse(df_ols_D_sec_bag[3,2,7]<.1,"+","")
+))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag[3,7],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag[1,1,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag[3,1,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_bag[3,1,7]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,1,7]<.1
+,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_bag[3,2,7]<.05,"*",ifelse(df_ols_end_D_sec_bag[3,2,7]<.1
+,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag[3,7],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag[2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag[2,1,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag[2,2,7],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
