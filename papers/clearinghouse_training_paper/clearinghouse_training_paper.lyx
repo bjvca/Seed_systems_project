@@ -1107,8 +1107,40 @@ noprefix "false"
 \end_inset
 
 .
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We also asked farmers to rate agro-dealers on general quality, location,
+ price, stock, and reputation, but these dimensions do not contribute to
+ our ratings.
+ Even though some farm-ers might trade-off lower quality for a lower price,
+ the ratings are supposed to provide in-dications of quality, not indications
+ of quality relative to price or other dimensions.
+ Other farmers might be willing to trade-off lower quality for a convenient
+ location, but our objec-tive is not to provide a rating that captures every
+ aspect why a farmer might (not) prefer a specific dealer but to make seed
+ quality better observable at the time of purchase.
+\end_layout
+
+\end_inset
+
  For example, we asked farmers to rate the maize seed that an agro-dealer
  sells on a scale of one to five stars on seed germination.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We acknowledge that it would have been ideal to ask farmers to rate agro-dealers
+ conditional on variety, but we would have needed a much larger farmer sample
+ to obtain representative variety-specific ratings, which was not feasible
+ in terms of costs and logistics.
+ That is why we assume that the ratings of different varieties at one agro-deale
+r are correlated instead.
+\end_layout
+
+\end_inset
+
  As can be seen in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1414,7 +1446,7 @@ noprefix "false"
 
 \end_inset
 
- for details on the rating computations..
+ for details on the rating computations.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1964,10 +1996,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2276,7 +2304,7 @@ The life of seed doubles with every 1% reduction in its moisture content.
  a quality indication label issued by the National Seed Certification Services
  (NSCS).
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Typically, maize seed is certified by NSCS, a division of the Department
@@ -3397,7 +3425,20 @@ Half of the farmers in our sample planted improved maize seed on at least
  or nitrogen, phosphorus, and potassium (NPK) on the randomly selected plot.
  Yields on these plots in the season preceding the baseline survey (the
  August-December 2020 season) was about 440 kilograms per acre.
- 
+\end_layout
+
+\begin_layout Standard
+For the rating system, clearinghouse treated farmers were asked about all
+ (up to 18) agro-dealers in their proximity, leading to a dyadic data set
+ of 12,003 farmer-dealer links at baseline.
+ In 36% of the cases, farmers knew the agro-dealer.
+ Considering only these in-stances, 19% had bought seed there, 5% knew someone
+ who did, and the remaining 76% were not allowed to rate.
+ This implies that reputational effects could play a role but should not
+ drive the results.
+ Farmers who bought seed at an agro-shop report to have been cus-tomers
+ for 4.6 years on average (with a minimum of 0 and a maximum of 35 years),
+ and 44% bought seed there in the previous season.
 \end_layout
 
 \begin_layout Subsection
@@ -17223,6 +17264,10 @@ noprefix "false"
  provides impact on two measures of farmer perceptions of quality.
  First, we asked farmers if they think that maize seed that can be bought
  at agro-dealers is counterfeit or adulterated.
+ We intentionally asked this question in a general manner, about maize seed
+ that you can buy at any agro-dealer, without specifying the seed variety
+ or agro-dealer, to obtain an overall idea about farmers’ sentiments regarding
+ maize seed at agro-dealers.
  At baseline, two in three farmers responded affirmatively to this question,
  indicating substantial pessimism about quality.
  Columns (2) to (5) show the impact of the clearinghouse for the full sample.
@@ -17239,13 +17284,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Second, we look at rating data to assess farmer perceptions of product quality.
+Second, we look at rating data to assess farmer perceptions of product quality,
+ conditional on specific agro-dealers.
  In particular, we look at the index of maize seed ratings that combine
  ratings for general quality, yield, drought tolerance, pest and disease
  tolerance, time of maturity, and germination of seed obtained from various
  agro-dealers.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 As the act of rating agro-dealers was an essential part of the clearinghouse
@@ -23683,7 +23729,7 @@ Sexpr{format(round(df_ols_end_F_prim[2,2,5],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Farmer thinks maize seed at agro-dealer is adulterated
+Farmer thinks maize seed at agro-dealers is adulterated
 \end_layout
 
 \begin_layout Plain Layout
