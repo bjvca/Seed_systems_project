@@ -1224,7 +1224,7 @@ df[3,1] <- "complementary input use"
 df[3,2:4] <- mid_practices[1:3,1,12]
 
 df[4,1] <- "correct expectations"
-df[4,2:4] <- mid_expectations[1:3,1,1]
+df[4,2:4] <- mid_expectations[1:3,1,5]
 
 
 
