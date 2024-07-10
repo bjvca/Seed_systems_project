@@ -3539,7 +3539,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4406,6 +4406,75 @@ Sexpr{format(round(df_ols[2,2,10],digits=2),nsmall=2)})
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of maize varieties in stock
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[1,27],digits=2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,1,27],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,1,27]<.01,"**",ifelse(df_ols[3,1,27]<.05,"*",ifelse(df_ols[3
+,1,27]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols[1,2,27],digits=2),nsmall=2)}$^{
+\backslash
+Sexpr{ifelse(df_ols[3,2,27]<.01,"**",ifelse(df_ols[3,2,27]<.05,"*",ifelse(df_ols[3
+,2,27]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages[2,27],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,1,27],digits=2),nsmall=2)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols[2,2,27],digits=2),nsmall=2)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

@@ -998,6 +998,8 @@ baseline_dealers$maize.owner.agree.skill.q105_b<-ifelse(baseline_dealers$maize.o
 baseline_dealers <- trim("reading",baseline_dealers,trim_perc=.02)
 baseline_dealers$reading_save <- baseline_dealers$reading
 
+baseline_dealers <- trim("maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02)
+
 ###loop###
 
 ###
@@ -1012,17 +1014,25 @@ balance_dealer <- c("maize.owner.agree.age"
                     ,"years_shop"
                     ,"maize.owner.agree.q10"
                     ,"maize.owner.agree.nr_var"
-                    ,"quantitysold_not_transf","tot_lost","maize.owner.agree.temp.q71","maize.owner.agree.temp.q72"
-                    ,"maize.owner.agree.q96","maize.owner.agree.skill.q105_b"
-                    ,"maize.owner.agree.inspection.q115","reading","lot"
+                    ,"quantitysold_not_transf"
+                    ,"tot_lost" #10
+                    ,"maize.owner.agree.temp.q71"
+                    ,"maize.owner.agree.temp.q72"
+                    ,"maize.owner.agree.q96"
+                    ,"maize.owner.agree.skill.q105_b"
+                    ,"maize.owner.agree.inspection.q115"
+                    ,"reading"
+                    ,"lot"
                     ,"refunds"
-                    ,"gives_credit","after_sales_service"
+                    ,"gives_credit"
+                    ,"after_sales_service" #20
                     ,"maize.owner.agree.q5"
                     ,"maize.owner.agree.q7"
                     ,"maize.owner.agree.ownership"
                     ,"maize.owner.agree.temp.q80"
                     ,"q93_bin"
-                    ,"visible_packdate")
+                    ,"visible_packdate"
+                    ,"maize.owner.agree.nr_var") #27
 
 df_averages <- array(NA,dim=c(2,50))
 
@@ -2722,7 +2732,7 @@ baseline_dealers <- baseline_dealers_save
 #############################################################################################################################################################################
 
 #1. Number of maize varieties in stock last season (incl. hybrids, OPV, landraces)
-baseline_dealers <- trim("maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02)
+#baseline_dealers <- trim("maize.owner.agree.nr_var",baseline_dealers,trim_perc=.02)
 
 baseline_dealers$mid_maize.owner.agree.nr_var <- baseline_dealers$check.owner.agree.nr_var #x
 baseline_dealers$mid_maize.owner.agree.nr_var[baseline_dealers$mid_maize.owner.agree.nr_var=="n/a"] <- NA #x
