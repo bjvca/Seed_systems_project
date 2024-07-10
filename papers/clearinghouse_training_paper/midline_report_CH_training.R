@@ -1224,6 +1224,33 @@ for (i in 1:length(attrition_farmer)){
 
 save(df_ols_attritionF,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_attritionF.Rdata",sep="/"))
 
+#Other ways to investigate attrition
+
+df_ols_ATT_mid <- array(NA,dim=c(3,3,50))
+
+baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
+
+baseline_dealers$clearing_control_new[baseline_dealers$clearing==0] <- 1 #problem here
+baseline_dealers$clearing_control_new[baseline_dealers$clearing==1] <- 0
+
+for (i in 1:length(balance_dealer)){
+  ols_ATT <- lm(as.formula(paste(balance_dealer[i],"attrition_ind_D*clearing_control_new",sep="~")), data=baseline_dealers)
+  vcov_cluster_ATT <- vcovCR(ols_ATT,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_ATT_mid[1,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[2]
+  df_ols_ATT_mid[2,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[2]
+  df_ols_ATT_mid[3,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[2]
+  
+  df_ols_ATT_mid[1,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[3]
+  df_ols_ATT_mid[2,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[3]
+  df_ols_ATT_mid[3,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[3]
+  
+  df_ols_ATT_mid[1,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[4]
+  df_ols_ATT_mid[2,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[4]
+  df_ols_ATT_mid[3,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[4]}
+
+save(df_ols_ATT_mid,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_ols_ATT_mid.Rdata",sep="/"))
+
 
 
 
@@ -1246,7 +1273,7 @@ ihs <- function(x) {
   return(y)}
 
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
-baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
+#baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
 baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
 
 #Heterogeneity analyses
@@ -1834,8 +1861,10 @@ for (i in 1:length(results_dealer_prim)){
 #3#
 ###
 
-baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
-baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+#baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+#baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+
+baseline_dealers$clearing_control <- ifelse(baseline_dealers$clearing==0,T,F)
 
 #6.
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid,sgroup = baseline_dealers$clearing_control)

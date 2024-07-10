@@ -1567,6 +1567,31 @@ for (i in 1:length(attrition_farmer_end)){
   df_ols_end_attritionF_end[2,3,i] <- coef_test(ols, vcov_cluster_shop)$SE[4]
   df_ols_end_attritionF_end[3,3,i] <- coef_test(ols, vcov_cluster_shop)$p_Satt[4]}
 
+#Other ways to investigate attrition
+
+df_ols_ATT <- array(NA,dim=c(3,3,50))
+
+baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
+
+baseline_dealers$clearing_control_new[baseline_dealers$clearing==0] <- 1 #problem here
+baseline_dealers$clearing_control_new[baseline_dealers$clearing==1] <- 0
+
+for (i in 1:length(balance_dealer)){
+  ols_ATT <- lm(as.formula(paste(balance_dealer[i],"attrition_ind_D_end*clearing_control_new",sep="~")), data=baseline_dealers)
+  vcov_cluster_ATT <- vcovCR(ols_ATT,cluster=baseline_dealers$catchID,type="CR3")
+  
+  df_ols_ATT[1,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[2]
+  df_ols_ATT[2,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[2]
+  df_ols_ATT[3,1,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[2]
+  
+  df_ols_ATT[1,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[3]
+  df_ols_ATT[2,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[3]
+  df_ols_ATT[3,2,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[3]
+  
+  df_ols_ATT[1,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$beta[4]
+  df_ols_ATT[2,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$SE[4]
+  df_ols_ATT[3,3,i] <- coef_test(ols_ATT, vcov_cluster_ATT)$p_Satt[4]}
+
 
 
 
@@ -1581,7 +1606,7 @@ for (i in 1:length(attrition_farmer_end)){
 ################################################################################################################################################################################
 
 baseline_dealers$training<-ifelse(baseline_dealers$training=="TRUE",1,0)
-baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
+#baseline_dealers$clearing<-ifelse(baseline_dealers$clearing=="TRUE",1,0)
 baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
 
 #Heterogeneity analyses
@@ -2172,9 +2197,12 @@ for (i in 1:length(results_dealer_prim)){
 ###
 #3#
 ###
+#ding
 
-baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
-baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
+baseline_dealers$clearing_control <- ifelse(baseline_dealers$clearing==0,T,F)
+
+# baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
+# baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 
 #6.
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid,sgroup = baseline_dealers$clearing_control)
