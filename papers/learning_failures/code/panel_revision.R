@@ -737,7 +737,7 @@ xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, 
 index_base <- icwIndex(xmat=xmat_base)
 all$compl_index <- index_base$index
 
-all$selector_2 <- all$Check2.check.maize.q21 == "a" | all$Check2.check.maize.q20 <= 2
+all$selector_2 <- all$overest == TRUE
 all$selector_1 <- all$compl_index < 0
 
 for (i in 1:length(outcomes)) {
@@ -759,8 +759,8 @@ mid_adoption[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
 mid_adoption[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
 mid_adoption[4,2,i] <- nobs(ols)
 
-ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$selector_2==1,])
-vcov_cluster <- vcovCR(ols,cluster=all[all$selector_2==1 ,]$shop_ID,type="CR0")
+ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$selector_1==1 & all$selector_2==1,])
+vcov_cluster <- vcovCR(ols,cluster=all[all$selector_1==1 & all$selector_2==1 ,]$shop_ID,type="CR0")
 coef_test(ols, vcov_cluster)
 mid_adoption[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
 mid_adoption[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
@@ -849,9 +849,8 @@ xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, 
 index_base <- icwIndex(xmat=xmat_base)
 all$compl_index <- index_base$index
 
+all$selector_2 <- all$overest == TRUE
 all$selector_1 <- all$compl_index < 0
-
-all$selector_2 <- all$mid_adoption_onfield
 
 end_knowledge <-  array(NA,dim=c(4,3,7))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","end_Bought_from_agro_input_shop")
@@ -876,8 +875,8 @@ for (i in 1:length(outcomes)) {
   end_knowledge[4,2,i] <- nobs(ols) 
   
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector_2==1,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_2==1,]$shop_ID,type="CR0")
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector_2==1 & all$selector_1==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_2==1 & all$selector_1==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   end_knowledge[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
   end_knowledge[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
@@ -939,8 +938,8 @@ xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, 
 index_base <- icwIndex(xmat=xmat_base)
 all$compl_index <- index_base$index
 
+all$selector_2 <- all$overest == TRUE
 all$selector_1 <- all$compl_index < 0
-all$selector_2 <- all$Check2.check.maize.q20 > 3
 
 mid_practices <-  array(NA,dim=c(4,3,12))
 #loop here over outcomes c("mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed","mid_Bought_from_agro_input_shop")
@@ -966,8 +965,8 @@ for (i in 1:length(outcomes)) {
   mid_practices[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_practices[4,2,i] <- nobs(ols) 
   
-  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$selector_2==1  ,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_2==1 ,]$shop_ID,type="CR0")
+  ols <- lm(as.formula(paste(outcomes[i],paste("treatment*clearing*training",outcomes_base[i],sep="+"), sep="~")),data=all[all$selector_2==1 & all$selector_1==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_2==1  & all$selector_1==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   mid_practices[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
   mid_practices[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
@@ -1131,7 +1130,8 @@ xmat_base <- cbind(all$correct_spacing, all$correct_seed_rate, all$organic_use, 
 index_base <- icwIndex(xmat=xmat_base)
 all$compl_index <- index_base$index
 
-all$selector <- all$compl_index < 0
+all$selector_2 <- all$overest == TRUE
+all$selector_1 <- all$compl_index < 0
 
 mid_expectations <-  array(NA,dim=c(4,3,5))
 #loop here over outcomes c
@@ -1147,16 +1147,16 @@ for (i in 1:length(outcomes)) {
   mid_expectations[3,1,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_expectations[4,1,i] <- nobs(ols)
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector==1,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$selector==1,]$shop_ID,type="CR0")
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector_1==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_1==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   mid_expectations[1,2,i] <- coef_test(ols, vcov_cluster)$beta[2]
   mid_expectations[2,2,i] <- coef_test(ols, vcov_cluster)$SE[2]
   mid_expectations[3,2,i] <- coef_test(ols, vcov_cluster)$p_Satt[2]
   mid_expectations[4,2,i] <- nobs(ols) 
   
-  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector==1  & all$corest,])
-  vcov_cluster <- vcovCR(ols,cluster=all[all$selector==1 & all$corest,]$shop_ID,type="CR0")
+  ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all[all$selector_1==1 & all$selector_2==1,])
+  vcov_cluster <- vcovCR(ols,cluster=all[all$selector_1==1  & all$selector_2==1,]$shop_ID,type="CR0")
   coef_test(ols, vcov_cluster)
   mid_expectations[1,3,i] <- coef_test(ols, vcov_cluster)$beta[2]
   mid_expectations[2,3,i] <- coef_test(ols, vcov_cluster)$SE[2]
@@ -1224,7 +1224,7 @@ df[3,1] <- "complementary input use"
 df[3,2:4] <- mid_practices[1:3,1,12]
 
 df[4,1] <- "correct expectations"
-df[4,2:4] <- mid_expectations[1:3,1,1]
+df[4,2:4] <- mid_expectations[1:3,1,5]
 
 
 
