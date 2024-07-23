@@ -1431,14 +1431,13 @@ noprefix "false"
  We find only one significant difference (at the 10-percent significance
  level) which is expected when ten comparisons are made, hence we conclude
  that the randomization was successful.
- HERE
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1529,7 +1528,7 @@ cline{2-3}
 
 \begin_layout Plain Layout
 
-Farmer's age (years) & 48.62 &  -0.25
+Farmer's age in years & 48.62 &  -0.25
 \backslash
 
 \backslash
@@ -1551,7 +1550,7 @@ Farmer's age (years) & 48.62 &  -0.25
 
 \begin_layout Plain Layout
 
-Farmer is male (1=yes) & 0.777 &  0.022 
+Farmer is male & 0.777 &  0.022 
 \backslash
 
 \backslash
@@ -1573,7 +1572,7 @@ Farmer is male (1=yes) & 0.777 &  0.022
 
 \begin_layout Plain Layout
 
-Household size (nr) & 8.69 &  0.12 
+Number of household members & 8.69 &  0.12 
 \backslash
 
 \backslash
@@ -1595,7 +1594,7 @@ Household size (nr) & 8.69 &  0.12
 
 \begin_layout Plain Layout
 
-Land for crop production (acres) & 3.35 &  0.17
+Land for crop production in acres & 3.35 &  0.17
 \backslash
 
 \backslash
@@ -1617,8 +1616,8 @@ Land for crop production (acres) & 3.35 &  0.17
 
 \begin_layout Plain Layout
 
-Farmer used improved maize seed (OPV/hybrid) for any field last season?
- (1=yes)  & 0.492 &  -0.012 
+Farmer used improved maize seed (OPV/hybrid) for any field last season &
+ 0.492 &  -0.012 
 \backslash
 
 \backslash
@@ -1640,8 +1639,7 @@ Farmer used improved maize seed (OPV/hybrid) for any field last season?
 
 \begin_layout Plain Layout
 
-Farmer used improved seed bought from agro-input shop? (1=yes) & 0.325 &
-  -0.009 
+Farmer bought improved maize seed from agro-input shop & 0.325 &  -0.009 
 \backslash
 
 \backslash
@@ -1686,7 +1684,7 @@ Farmer's rating of maize seed quality (1=poor to 5=excellent) & 3.38 &  0.08$^+$
 
 \begin_layout Plain Layout
 
-Farmer used organic manure? (1=yes) & 0.074 &  -0.009 
+Farmer used organic manure & 0.074 &  -0.009 
 \backslash
 
 \backslash
@@ -1708,7 +1706,7 @@ Farmer used organic manure? (1=yes) & 0.074 &  -0.009
 
 \begin_layout Plain Layout
 
-Land productivity (kg/acre) & 499.52 &  44.08 
+Land productivity in kg/acre & 499.52 &  44.08 
 \backslash
 
 \backslash
@@ -1730,7 +1728,7 @@ Land productivity (kg/acre) & 499.52 &  44.08
 
 \begin_layout Plain Layout
 
-Farmer sold maize? (1=yes) & 0.513 &  0.023 
+Farmer sold maize & 0.513 &  0.023 
 \backslash
 
 \backslash
@@ -1789,17 +1787,20 @@ end{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
 
-Note: First column reports sample means (and standard deviations below).
- Second column reports difference between treatment and control group means
- (and standard deviation below).
- + denotes significance at the 10-percent significance level.
- Reported standard errors are clustered at the level of randomization.
- Number of observations is 3,470.
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Column (1) reports sample means at baseline and standard deviations
+ below;  columns (2) reports differences between treatment and control group
+ means and standard errors below; they are clustered at the level of randomizati
+on; **, *, and + denote significance at the 1, 5, and 10 percent levels.
+ The number of observations is 3,470.
 \end_layout
 
 \end_inset
@@ -2184,18 +2185,18 @@ noprefix "false"
 
  summarizes the impact of the intervention on four families of outcomes:
  farmer knowledge about the importance of using complementary inputs and
- practices with using improved seed, adoption of seed of an improved variety,
- use of (complementary) inputs and good agronomic practices, and a measure
- of how well expected maize yield align with realized yields on the farmer's
+ practices when using improved seed, adoption of seed of an improved variety,
+ use of complementary inputs and good agronomic practices, and a measure
+ of how well expected maize yields align with realized yields on the farmer's
  field.
 \end_layout
 
 \begin_layout Standard
 We test farmer knowledge about the importance of using complementary inputs
- and practices through a short quiz where a number of questions were asked
- and enumerators read a set of alternative answers to farmers who then selected
+ and practices through a short quiz where enumerators asked a number of
+ questions read a set of alternative answers to farmers who then selected
  the response that they felt most appropriate.
- More details are provided below in Subsection 
+ More details are provided in Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Impact-on-knowledge"
@@ -2205,9 +2206,9 @@ noprefix "false"
 
 \end_inset
 
- where we look at detailed results for each questions; here we restrict
- attention to a knowledge index that is derived from the individual questions
- and constructed following 
+ where we look at detailed results for each question; here we restrict attention
+ to a knowledge index that is constructed from the individual questions
+ following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "doi:10.1198/016214508000000841"
@@ -2215,17 +2216,7 @@ literal "false"
 
 \end_inset
 
-—see Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Empirical strategy"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- for details on how this index is constructed.
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2236,18 +2227,16 @@ noprefix "false"
 
 \end_inset
 
- shows that farmers that were made aware of the importance of using additional
- complementary inputs and practices when using seed of an improved variety
- do significantly better on the quiz than farmers who were not made aware
- of the importance of using additional inputs and practices.
+ shows that farmers that were made aware of the importance of using complementar
+y inputs and practices when using seed of an improved variety do significantly
+ better on the quiz than farmers who were not made aware of the importance
+ of using additional inputs and practices.
 \end_layout
 
 \begin_layout Standard
-A second key outcome is adoption of seed of an improved variety.
- We use three related or even partly overlapping outcomes to capture the
- adoption of seed of an improved variety.
- Details on what variables are used to assess adoption are again deferred
- to Subsection 
+A second key outcome is the adoption of seed of an improved variety.
+ We use three related and even partly overlapping variables to capture this,
+ details on these outcomes are again deferred to Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Impact-on-adoption"
@@ -2257,7 +2246,7 @@ noprefix "false"
 
 \end_inset
 
-; here we again use a summary index.
+; here we use a summary index.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2271,13 +2260,13 @@ noprefix "false"
  shows that farmers who were made aware of the importance of using additional
  complementary inputs and practices when using seed of an improved variety
  are less likely to adopt seed of an improved variety than farmers who were
- not made aware of this (and the difference is significant at the 10-percent
- significance level).
+ not made aware of this (and the difference is significant at the 10 percent
+ level).
 \end_layout
 
 \begin_layout Standard
 The third key outcome we compare between treatment and control households
- measures input use and recommended agronomic practices used by the farmer.
+ measures the use of inputs and recommended agronomic practices by the farmer.
  Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2289,8 +2278,7 @@ noprefix "false"
 \end_inset
 
  provides details on the four inputs and six practices we included in the
- index to assess the impact of the treatment on the use of inputs and good
- agronomic practices.
+ index to assess the impact of the treatment.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2305,9 +2293,9 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Finally, we also look at the impact on farmers' expectations.
- To do so, we simply asked farmers at endline if the yield that they obtained
- in the previous season was what they expected (yes/no).
+Finally, we look at the impact on expectations.
+ To do so, we simply asked farmers if the yield that they obtained in the
+ previous season was what they expected (yes/no).
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2318,9 +2306,9 @@ noprefix "false"
 
 \end_inset
 
- shows that in the treatment group a higher share of farmers indicate that
- yields were according to expectations, but the difference is significant
- only at the 10-percent significance level.
+ shows that a higher share of farmers indicate that yields were according
+ to their expectations in the treatment group, but the difference is significant
+ only at the 10 percent level.
 \end_layout
 
 \begin_layout Standard
@@ -2371,10 +2359,10 @@ name "fig:Results"
 \begin_layout Standard
 The negative impact on adoption may seem counter-intuitive at first glance.
  Indeed, when we set up the experiment, we did not intend to reduce the
- adoption of seed of an improved variety.
+ adoption of seed of improved varieties.
  However, after considering the fact that the treatment may lead to different
- effects for different types of farmers, we realize that that the effects
- we observe in Figure 
+ effects for different types of farmers, we realize that the impacts we
+ observe in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Results"
@@ -2400,7 +2388,7 @@ name "sec:Theoretical-framework"
 \end_layout
 
 \begin_layout Standard
-We describe farmers as solving an intertemporal problem in which they allocate
+We describe farmers as solving an inter-temporal problem in which they allocate
  resources at 
 \emph on
 t
@@ -2674,8 +2662,8 @@ Yield for Variety H follows the same function, but adds a positive farmer
 \end_inset
 
 .
- However, the adoption premium only applies when the farmer uses more complement
-ary inputs 
+ However, the adoption premium only applies if the farmer uses more complementar
+y inputs 
 \begin_inset Formula $\left(X_{it}^{H}\right)$
 \end_inset
 
@@ -2698,13 +2686,13 @@ Y_{it+1}^{H}=A_{i}\left(X_{it}^{H}>X_{it}^{L}\right)+Y_{it}\left(X_{it}^{L}\righ
 \end_layout
 
 \begin_layout Standard
-Next, we introduce farmer heterogeneity depending on beliefs farmers hold
- about the relationship between yield obtained from using seed of an improved
- variety 
-\begin_inset Formula $\left(Y_{it}^{H}\right)$
+Next, we introduce farmer heterogeneity in the beliefs they hold about the
+ relationship between yield obtained from using seed of an improved variety
+ 
+\begin_inset Formula $\left(Y_{it+1}^{H}\right)$
 \end_inset
 
- and inputs used 
+ and the inputs needed to realize this yield 
 \begin_inset Formula $\left(X_{it}\right)$
 \end_inset
 
@@ -2715,30 +2703,20 @@ Next, we introduce farmer heterogeneity depending on beliefs farmers hold
 A first group of farmers—also referred to as type 1 farmers below—knows
  that, for the adoption premium to materialize, additional complementary
  inputs and practices are needed.
- From Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:three"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we know that these farmers will adopt if the value of the expected adoption
- premium 
-\begin_inset Formula $E\left(p_{t+1}A_{i}\left(X_{it}^{H}>X_{it}^{L}\right)\right)$
+ These farmers will adopt if the value of the expected adoption premium
+ 
+\begin_inset Formula $\left(E\left(p_{t+1}A_{i}\left(X_{it}^{H}>X_{it}^{L}\right)\right)\right)$
 \end_inset
 
  exceeds the cost of the seed and additional complementary inputs needed
  
-\begin_inset Formula $\left(\sum w_{t}X_{it}^{H}-\sum w_{t}X_{it}^{L}+b_{t}s_{it}^{*}\right)$
+\begin_inset Formula $\left(\sum w_{t}X_{it}^{H}-\sum w_{t}X_{it}^{L}+b_{t}s_{it}\right)$
 \end_inset
 
 .
  Informing these farmers about the true shape of the production function
- will not have an effect on adoption of improved seed, or indeed, any other
- outcome we considered in Figure 
+ will not have an effect on adoption of improved seed, or any other outcome
+ we consider in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Results"
@@ -2755,39 +2733,29 @@ noprefix "false"
 A second group of farmers—also referred to as type 2 farmers below—thinks
  that the adoption premium is not dependent on the use of complementary
  inputs and practices.
- They believe that that adoption premium is always present, that is 
-\begin_inset Formula $Y_{it+1}^{H}=A_{i}+Y_{it}\left(X_{it}\right)$
+ They believe that the adoption premium is always present 
+\begin_inset Formula $\left(Y_{it+1}^{H}=A_{i}+Y_{it}\left(X_{it}\right)\right)$
 \end_inset
 
 .
- According to Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:three"
-plural "false"
-caps "false"
-noprefix "false"
-
+ These farmers will use the same inputs for both varieties (hence 
+\begin_inset Formula $\sum w_{t}X_{it}^{H}=\sum w_{t}X_{it}^{L}$
 \end_inset
 
-, these farmers use the same inputs (hence 
-\begin_inset Formula $\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{H}=\sum\frac{w_{t}}{E(p_{t+1})}X_{it}^{L}$
-\end_inset
-
-) and will adopt if the value of the (misspecified) expected adoption premium
+) and adopt if the value of the (misspecified) expected adoption premium
  
 \begin_inset Formula $E\left(p_{t+1}A_{i}\right)$
 \end_inset
 
  exceeds the cost of seed 
-\begin_inset Formula $\left(b_{t}s_{it}^{*}\right)$
+\begin_inset Formula $\left(b_{t}s_{it}\right)$
 \end_inset
 
 .
  Informing this group of farmers about the need for complementary inputs
- is likely to reduce the likelihood of adoption, as it increases the cost
- of obtaining the premium by the cost of the additional complementary inputs
- 
+ will presumably reduce the likelihood of adoption, as it increases the
+ cost of obtaining the premium by the cost of the additional complementary
+ inputs 
 \begin_inset Formula $\left(\sum w_{t}X_{it}^{H}-\sum w_{t}X_{it}^{L}\right)$
 \end_inset
 
@@ -2796,23 +2764,10 @@ noprefix "false"
 status collapsed
 
 \begin_layout Plain Layout
-In the context of our field experiment, farmers in the control group that
- do not adopt do so because even with a misspecified mental model that overestim
-ates the benefit of using an improved seed variety, adoption is not profitable
- for them.
- Informing them about the true nature of the production function will not
- change their behavior, as the information only increases the cost side
- of the equation, making the use of improved seed even less appealing.
- Farmers who do adopt in the control group do so because the they believe
- the misspecified adoption premium exceeds the cost of the seed.
- Informing them about the true nature of the production function will reduce
- the likelihood of adoption, as the information increases the cost side
- of the equation.
- Only if the misspecified adoption premium is assumed to be large enough
- (that is exceeding the cost of the additional complementary inputs needed
- (including the seed and normalized by the price), farmers who adopt in
- the control group will also adopt after having been informed about the
- need to use complementary inputs.
+Only if the misspecified adoption premium is large enough (i.e., exceeding
+ the cost of additional complementary inputs needed (including the seed
+ and normalized by the price)), type 2 farmers who adopted will also adopt
+ after having been informed about the need to use complementary inputs.
  As such, the average treatment effect does not only depend on the share
  of farmers who hold correct or incorrect beliefs, but also on the technology
  and associated costs.
@@ -2847,11 +2802,11 @@ A third group of farmers—also referred to as type 3 farmers below—also use
 
  exceeds the cost of the seed and additional complementary inputs needed
  
-\begin_inset Formula $\left(\sum w_{t}X_{it}^{H}-\sum w_{t}X_{it}^{L}+b_{t}s_{it}^{*}\right)$
+\begin_inset Formula $\left(\sum w_{t}X_{it}^{H}-\sum w_{t}X_{it}^{L}+b_{t}s_{it}\right)$
 \end_inset
 
 .
- For such farmers, we would expect an increase in knowledge, an increase
+ For these farmers, we would expect an increase in knowledge, an increase
  in adoption, and an increase in the use of complementary inputs and practices.
  For this group of farmers, we do not expect a change in expectations.
 \begin_inset Foot
@@ -2871,7 +2826,7 @@ p between inputs and yields, so also in this group there should be no surprises.
 
 \begin_layout Standard
 The different (and sometimes opposing) effects of the intervention on these
- different groups means that Figure 
+ different groups imply that Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Results"
@@ -2900,8 +2855,7 @@ name "sec:Detailed-analysis"
 \end_layout
 
 \begin_layout Standard
-In this section, we provide a more detailed analysis than the one in Section
- 
+In this section, we provide a more detailed analysis than in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Results"
@@ -2912,7 +2866,7 @@ noprefix "false"
 \end_inset
 
 .
- As in Section 
+ We run regressions on the entire sample, as in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Results"
@@ -2922,8 +2876,8 @@ noprefix "false"
 
 \end_inset
 
-, we run regressions on the entire sample and on sub-samples to sharpen
- estimates and test model predictions.
+, and additionally on sub-samples to sharpen estimates and test model prediction
+s.
  In particular, we condition on two variables.
  First, we attempt to remove farmers who already use complementary inputs
  from our sample, as we do not expect an effect for these farmers (which
@@ -2943,9 +2897,10 @@ status collapsed
 
 \begin_layout Plain Layout
 One challenge with this strategy is that there are different complementary
- inputs and practices and some farmers may adopt some while others do not.
- As such, it is not immediately clear what complementary inputs should be
- selected to condition on.
+ inputs and practices and some farmers may adopt some while not adopting
+ others.
+ As such, it is not immediately clear which complementary inputs should
+ be selected to condition on.
  To deal with this, we created an index of the ten inputs and practices
  that are featured in the video (and measured at baseline; these are also
  considered as outcomes in Section 
@@ -2958,8 +2913,8 @@ noprefix "false"
 
 \end_inset
 
- but measured at endline).
- The index is again an 
+ when measured at endline).
+ The index is again computed according to 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "doi:10.1198/016214508000000841"
@@ -2967,7 +2922,7 @@ literal "false"
 
 \end_inset
 
- index that weighs its components by the inverse variance covariance matrix.
+ and weighs its components by the inverse variance covariance matrix.
  As the components are standardized, the index is on average approximately
  zero, and so we simply define adopters of complementary inputs and practices
  as farmers that have a baseline index above zero.
@@ -2975,15 +2930,15 @@ literal "false"
 
 \end_inset
 
- This leads to a more homogeneous subsample of individuals who are responsive
- to the treatment and an effect size that is not diluted due to the presence
- of non-responders' outcomes—this would bring the treatment group's average
- closer to the control group's average.
+ This leads to a more homogeneous subsample of individuals who are potentially
+ responsive to the treatment and an effect size that is not diluted due
+ to the presence of non-responders' outcomes—considering the entire sample
+ brings the treatment group's average closer to the control group's average.
 \end_layout
 
 \begin_layout Standard
-Second, we attempt to identify farmers who still believe in miracle seeds
- (to zoom in on the second group in our model of Section 
+Second, we attempt to identify farmers who believe in miracle seeds (to
+ zoom in on the second group in our model of Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -2999,7 +2954,7 @@ noprefix "false"
  potentially underestimating the yield premium, while farmers in the highest
  33 percent of the distribution are categorized as potentially overestimating
  the yield premium.
- The remainder are assumed to correctly estimate the yield premium.
+ The remainder is assumed to correctly estimate the yield premium.
 \end_layout
 
 \begin_layout Subsection
@@ -3015,7 +2970,7 @@ name "subsec:Impact-on-knowledge"
 
 \begin_layout Standard
 We start by re-examining whether the treated participants are able to pick
- up the relevant information from treatment video.
+ up the relevant information from the treatment video.
  According to our model in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3068,8 +3023,8 @@ noprefix "false"
 \end_inset
 
 .
- The first column (1) provides the mean in the control group (with standard
- deviations in brackets below), mainly to get an idea of effect sizes.
+ Column (1) provides the means in the control group (with standard deviations
+ in brackets below), mainly to get an idea of effect sizes.
  We see that knowledge is already high, which is likely to reduce statistical
  power for these comparisons.
  For example, 36 percent of farmers in the control group know that recommended
@@ -3084,8 +3039,8 @@ Column (2) shows the estimated difference between the treatment and control
  of farmers who did not already use complementary inputs and good agronomic
  practices at baseline.
  Finally, column (4) further reduces the sample to only those that overestimate
- yields in an attempt to isolate the second group in our model of Section
- 
+ yields in an attempt to isolate the second group of farmers in our model
+ of Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Theoretical-framework"
@@ -3102,7 +3057,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3402,7 +3357,9 @@ Sexpr{format(round(end_knowledge[2,3,7],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Observations (min) &  &  3256  &  1615 & 361 
+Observations$^
+\backslash
+dag$ &  &  3256  &  1615 & 361 
 \backslash
 
 \backslash
@@ -3448,7 +3405,7 @@ end{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -3462,8 +3419,10 @@ Note: Column (1) reports control group means post-intervention (and standard
 ry inputs and practices at baseline and overestimate returns to improved
  varieties at baseline; **, *, and + denote significance at the 1, 5, and
  10 percent levels; standard errors are clustered at the village level.
- Observations (min) indicates number of observations used in the regression
- for the index, individual outcomes have more.
+ $^
+\backslash
+dag$These are the numbers of observations in the regression with the index,
+ regressions with individual outcomes have more observations.
 \end_layout
 
 \end_inset
@@ -3479,13 +3438,12 @@ ry inputs and practices at baseline and overestimate returns to improved
 \begin_layout Standard
 We find that the treatment generally increases the likelihood that farmers
  answer correctly.
- However, the difference is only significant for the question about the
- use of fertilizer as a complementary input, and the pattern of effect sizes
- is in line with expectations (that is becoming larger with increasingly
- specific samples).
- This could be because the recognition that complementary inputs are still
- necessary to reap the benefits of improved seed may become more salient
- when the complementary inputs come at a substantial pecuniary cost.
+ However, the difference is only significant for the individual question
+ about the use of fertilizer.
+ This could be because the recognition that complementary inputs are necessary
+ to reap the benefits of improved seed may become more salient when this
+ complementary input comes at a substantial pecuniary cost.
+ Effect sizes become larger with increasingly specific samples, as expected.
 \end_layout
 
 \begin_layout Subsection
@@ -4213,7 +4171,7 @@ end{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -5612,7 +5570,7 @@ end{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -5676,7 +5634,7 @@ Impact on Expectations
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5902,7 +5860,7 @@ end{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
