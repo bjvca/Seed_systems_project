@@ -1096,13 +1096,13 @@ xmat_base <- cbind(all$expectations, all$yield_inkg, all$landproductivity)
 index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
 
-
+all_nt <- subset(all, treatment==FALSE)
 mean_expectations <-  array(NA,dim=c(4,2,9))
 #loop here over outcomes
-outcomes <- c("expectations","yield_inkg","landproductivity","index_base")
+outcomes <- c("mid_expectations_met","yield_inkg","landproductivity","index_base")
 for (i in 1:length(outcomes)) {
-  mean_expectations[1,1,i] <- mean(unlist(all[outcomes[i]]), na.rm=TRUE)
-  mean_expectations[2,1,i] <- sd(unlist(all[outcomes[i]]), na.rm=TRUE)
+  mean_expectations[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
+  mean_expectations[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
   
   vcov_cluster <- vcovCR(ols,cluster=all$shop_ID,type="CR0")

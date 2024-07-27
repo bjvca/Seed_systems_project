@@ -1528,7 +1528,7 @@ cline{2-3}
 
 \begin_layout Plain Layout
 
-Farmer's age in years & 48.62 &  -0.25
+Farmer's age in years & 48.62 &  -0.247
 \backslash
 
 \backslash
@@ -1537,7 +1537,7 @@ Farmer's age in years & 48.62 &  -0.25
 
 \begin_layout Plain Layout
 
-& (13.38) &  (0.56)
+& (13.38) &  (0.561)
 \backslash
 
 \backslash
@@ -1572,7 +1572,7 @@ Farmer is male & 0.777 &  0.022
 
 \begin_layout Plain Layout
 
-Number of household members & 8.69 &  0.12 
+Number of household members & 8.69 &  0.118 
 \backslash
 
 \backslash
@@ -1581,7 +1581,7 @@ Number of household members & 8.69 &  0.12
 
 \begin_layout Plain Layout
 
-& (3.98) &  (0.17)
+& (3.98) &  (0.171)
 \backslash
 
 \backslash
@@ -1594,7 +1594,7 @@ Number of household members & 8.69 &  0.12
 
 \begin_layout Plain Layout
 
-Land for crop production in acres & 3.35 &  0.17
+Land for crop production in acres & 3.35 &  0.172
 \backslash
 
 \backslash
@@ -1603,7 +1603,7 @@ Land for crop production in acres & 3.35 &  0.17
 
 \begin_layout Plain Layout
 
-& (4.32) &  (0.18)
+& (4.32) &  (0.180)
 \backslash
 
 \backslash
@@ -1661,7 +1661,7 @@ Farmer bought improved maize seed from agro-input shop & 0.325 &  -0.009
 
 \begin_layout Plain Layout
 
-Farmer's rating of maize seed quality (1=poor to 5=excellent) & 3.38 &  0.08$^+$
+Farmer's rating of maize seed quality (1=poor to 5=excellent) & 3.38 &  0.083$^+$
  
 \backslash
 
@@ -1749,6 +1749,11 @@ Farmer sold maize & 0.513 &  0.023
 \end_layout
 
 \begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -2315,7 +2320,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3378,7 +3383,7 @@ Sexpr{format(round(end_knowledge[2,3,7],digits=3),nsmall=3)})
 
 Observations$^
 \backslash
-dag$ &  &  3256  &  1615 & 361 
+dag$ &  &  3,256  &  1,615 & 361 
 \backslash
 
 \backslash
@@ -4172,7 +4177,7 @@ dag$
 
 \begin_layout Plain Layout
 
-&  &  2941 & 1449 & 336 
+&  &  2,941 & 1,449 & 336 
 \backslash
 
 \backslash
@@ -4972,7 +4977,7 @@ Weeding frequency
 
 & 
 \backslash
-Sexpr{format(round(mean_pract[1,1,6],digits=3),nsmall=3)}
+Sexpr{format(round(mean_pract[1,1,6],digits=2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5567,7 +5572,7 @@ Sexpr{format(round(mid_practices[2,3,12],digits=3),nsmall=3)})
 
 Observations$^
 \backslash
-dag$ &  & 2970 & 1547 & 349 
+dag$ &  & 2,970 & 1,547 & 349 
 \backslash
 
 \backslash
@@ -5716,7 +5721,7 @@ miracle seeds.
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5801,7 +5806,7 @@ Farmer harvested as much maize as expected
 
 & 
 \backslash
-Sexpr{0.15}
+Sexpr{format(round(mean_expectations[1,1,1],digits=3),nsmall=3)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5847,7 +5852,7 @@ Sexpr{ifelse(mid_expectations[3,3,1]<.01,"**",ifelse(mid_expectations[3,3,1]<.05
 
 & (
 \backslash
-Sexpr{0.36})
+Sexpr{format(round(mean_expectations[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -5904,7 +5909,7 @@ Observations
 
 \begin_layout Plain Layout
 
-&  & 3185 & 1572 &  347 
+&  & 3,185 & 1,572 &  347 
 \backslash
 
 \backslash
