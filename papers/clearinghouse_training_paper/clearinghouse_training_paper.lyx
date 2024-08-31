@@ -4764,6 +4764,41 @@ Sexpr{format(round(df_ols[2,2,16],digits=2),nsmall=2)})
 \backslash
 
 \backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F-test & & 1.42 & 1.47  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+(p-value) & & (0.13) & (0.11) 
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -4809,6 +4844,8 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
+ F-test for joint significance in a regression with the treatment status
+ on the left hand side (training or clearinghouse).
 \end_layout
 
 \end_inset
@@ -4825,7 +4862,7 @@ ion; **, *, and + denote significance at the 1, 5 and 10
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5990,6 +6027,41 @@ Sexpr{format(round(df_ols_end_farmer[2,2,16],digits=2),nsmall=2)})
 
 
 \backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F-test & & 1.67 & 1.19  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+(p-value) & & (0.05) & (0.27) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \backslash
 hline
@@ -6024,6 +6096,12 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
+ F-test for joint significance in a regression with the treatment status
+ on the left hand side (training or clearinghouse).
+ Amount of this seed farmer bought at agro-dealer was not included in the
+ regressions for the F-tests because the question was only asked if a farmer
+ bought quality maize seed at an agro-dealer, so that this variable has
+ 2406 missing observations.
 \end_layout
 
 \end_inset
@@ -6419,7 +6497,7 @@ textit{endline}}
 
 \begin_layout Plain Layout
 
-agro-dealer left the sample
+Agro-dealer left the sample
 \end_layout
 
 \begin_layout Plain Layout
@@ -18556,7 +18634,7 @@ name "footnote_quality"
 \begin_inset Float table
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

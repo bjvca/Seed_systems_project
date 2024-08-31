@@ -1279,6 +1279,14 @@ baseline_dealers$farmer<-ifelse(baseline_dealers$farmer=="TRUE",1,0)
 #Heterogeneity analyses
 #1: Specialized agro-input shops
 
+# #1.b training according to our attendance list
+# #insert above analysis but after sign
+# training_attendance <- read.csv(paste(path,"/Study design/treatments/training/training_attendance.csv", sep="/"), sep=";", stringsAsFactors = TRUE)
+# training_attendance = subset(training_attendance, select = c("shop_ID","someone_attended"))
+# baseline_dealers <- merge(baseline_dealers,training_attendance,by.x="shop_ID",by.y="shop_ID",all.x=TRUE)
+# baseline_dealers$someone_attended[baseline_dealers$training==0] <- 0
+# #baseline_dealers$training <- baseline_dealers$someone_attended
+
 #2: More competitive catchment areas table(baseline_dealers$catchID)
 baseline_dealers$small_catchID <- ifelse(baseline_dealers$catchID==16|baseline_dealers$catchID==18|baseline_dealers$catchID==19|
                                            baseline_dealers$catchID==33|baseline_dealers$catchID==34|baseline_dealers$catchID==36|

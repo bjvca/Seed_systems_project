@@ -949,6 +949,7 @@ for (i in 1:length(variables_farmer)) {
 #to use vcovCR
 library(clubSandwich)
 library(knitr)
+library(car)
 
 #Bjorn's variable: amount of sold hybird/OPV maize seed during last season in kg
 sel <- c("maize.owner.agree.long10h.q25", "maize.owner.agree.longe7h.q37", "maize.owner.agree.longe5.q50", "maize.owner.agree.longe4.q62")
@@ -1097,6 +1098,81 @@ for (i in 1:length(balance_dealer)){
 #difference in mean primary education: Bjorn counted g (Other) as 0, I as NA
 #difference in mean tarmac road: Bjorn did baseline_dealers$maize.owner.agree.q3[baseline_dealers$maize.owner.agree.q3 < 1] <- 0
 
+#Joint test (balance) https://blogs.worldbank.org/en/impactevaluations/tools-trade-joint-test-orthogonality-when-testing-balance
+model_1 <- lm(training~maize.owner.agree.age #1
+              +maize.owner.agree.gender #2
+              +finished_primary #3
+              +maize.owner.agree.q3 #4
+              +maize.owner.agree.q6 #5
+              +years_shop #6
+              +maize.owner.agree.q10 #7
+              #+maize.owner.agree.nr_var
+              +quantitysold_not_transf #9
+              +tot_lost #10
+              +maize.owner.agree.temp.q71 #11
+              #+maize.owner.agree.temp.q72
+              +maize.owner.agree.q96 #13
+              +maize.owner.agree.skill.q105_b #14
+              #+maize.owner.agree.inspection.q115
+              +reading #16 #excluded because 122 NAs
+              #+lot
+              #+refunds
+              #+gives_credit
+              #+after_sales_service
+              +maize.owner.agree.q5 #21
+              #+maize.owner.agree.q7
+              +maize.owner.agree.ownership #23
+              +maize.owner.agree.temp.q80 #24
+              #+q93_bin
+              #+visible_packdate
+              +maize.owner.agree.nr_var #27
+              , data = baseline_dealers)
+summary(model_1)
+
+test_training <- linearHypothesis(model_1, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
+                                    "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
+                                    "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
+                                    "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"))
+test_training
+
+model_2 <- lm(clearing~maize.owner.agree.age #1
+              +maize.owner.agree.gender #2
+              +finished_primary #3
+              +maize.owner.agree.q3 #4
+              +maize.owner.agree.q6 #5
+              +years_shop #6
+              +maize.owner.agree.q10 #7
+              #+maize.owner.agree.nr_var
+              +quantitysold_not_transf #9
+              +tot_lost #10
+              +maize.owner.agree.temp.q71 #11
+              #+maize.owner.agree.temp.q72
+              +maize.owner.agree.q96 #13
+              +maize.owner.agree.skill.q105_b #14
+              #+maize.owner.agree.inspection.q115
+              +reading #16 #excluded because 122 NAs
+              #+lot
+              #+refunds
+              #+gives_credit
+              #+after_sales_service
+              +maize.owner.agree.q5 #21
+              #+maize.owner.agree.q7
+              +maize.owner.agree.ownership #23
+              +maize.owner.agree.temp.q80 #24
+              #+q93_bin
+              #+visible_packdate
+              +maize.owner.agree.nr_var #27
+              , data = baseline_dealers)
+summary(model_2)
+
+test_CH <- linearHypothesis(model_2, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
+                                       "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
+                                       "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
+                                       "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"))
+test_CH
+
+
+
 #########################
 #####Balance: farmer#####
 #########################
@@ -1206,6 +1282,98 @@ for (i in 1:length(balance_farmer)){
 
 #difference in mean primary education: I first counted g (Other) as 0, now as NA
 #difference in mean bought from dealer: correct if NA=0
+
+#Joint test (balance) https://blogs.worldbank.org/en/impactevaluations/tools-trade-joint-test-orthogonality-when-testing-balance
+model_1_F <- lm(training~Check2.check.maize.q8 #1
+              +Check2.check.maize.q10 #2
+              +Check2.check.maize.q14 #3
+              +Check2.check.maize.q15 #4
+              +finishedprimary #5
+              +Check2.check.maize.q18 #6
+              +Check2.check.maize.q20 #7
+              +Check2.check.maize.q22 #8
+              +Check2.check.maize.q25a #9
+              +agro #10
+              #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg)
+              +Check2.check.maize.q25h #12
+              #+Check2.check.maize.q30a.1
+              #+adoption_onfield
+              #+Check2.check.maize.q35a
+              +Check2.check.maize.q42 #16
+              #+correctplanting
+              #+yield_inkg
+              +landproductivity #19
+              #+Check2.check.maize.q53
+              +yearsmaize #21
+              +Check2.check.maize.q43 #22
+              ,data = baseline_farmers)
+summary(model_1_F)
+
+#Check2.check.maize.q25a (9: Farmer used quality maize seed on any plot)
+#agro (10: Farmer bought this seed at agro-dealer)
+#excluding   (has 2406 NAs) solved the problem (Amount of this seed farmer bought at agro-dealer in kg)
+#Check2.check.maize.q25h has 797 NAs
+
+test_training_F <- linearHypothesis(model_1_F, c("Check2.check.maize.q8=0",
+                                    "Check2.check.maize.q10=0",
+                                    "Check2.check.maize.q14=0",
+                                    "Check2.check.maize.q15=0",
+                                    "finishedprimary=0",
+                                    "Check2.check.maize.q18=0",
+                                    "Check2.check.maize.q20=0",
+                                    "Check2.check.maize.q22=0",
+                                    "Check2.check.maize.q25a=0",
+                                    "agro=0",
+                                    "Check2.check.maize.q25h=0",
+                                    "Check2.check.maize.q42=0",
+                                    "landproductivity=0",
+                                    "yearsmaize=0",
+                                    "Check2.check.maize.q43=0"))
+
+test_training_F
+
+model_2_F <- lm(clearing~Check2.check.maize.q8 #1
+                +Check2.check.maize.q10 #2
+                +Check2.check.maize.q14 #3
+                +Check2.check.maize.q15 #4
+                +finishedprimary #5
+                +Check2.check.maize.q18 #6
+                +Check2.check.maize.q20 #7
+                +Check2.check.maize.q22 #8
+                +Check2.check.maize.q25a #9
+                +agro #10
+                #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg)
+                +Check2.check.maize.q25h #12
+                #+Check2.check.maize.q30a.1
+                #+adoption_onfield
+                #+Check2.check.maize.q35a
+                +Check2.check.maize.q42 #16
+                #+correctplanting
+                #+yield_inkg
+                +landproductivity #19
+                #+Check2.check.maize.q53
+                +yearsmaize #21
+                +Check2.check.maize.q43 #22
+                ,data = baseline_farmers)
+summary(model_2_F)
+
+test_clearing_F <- linearHypothesis(model_2_F, c("Check2.check.maize.q8=0",
+                                                 "Check2.check.maize.q10=0",
+                                                 "Check2.check.maize.q14=0",
+                                                 "Check2.check.maize.q15=0",
+                                                 "finishedprimary=0",
+                                                 "Check2.check.maize.q18=0",
+                                                 "Check2.check.maize.q20=0",
+                                                 "Check2.check.maize.q22=0",
+                                                 "Check2.check.maize.q25a=0",
+                                                 "agro=0",
+                                                 "Check2.check.maize.q25h=0",
+                                                 "Check2.check.maize.q42=0",
+                                                 "landproductivity=0",
+                                                 "yearsmaize=0",
+                                                 "Check2.check.maize.q43=0"))
+
+test_clearing_F
 
 ###################################
 #####TESTS OF SURVEY ATTRITION#####
@@ -9404,9 +9572,9 @@ summary(baseline_dealers_numeric$owner.agree.age)
 
 x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
 y = baseline_dealers_numeric$mid_quantitysold_not_transf
-lasso_fit <- glmnet(x,y,alpha = 1)
-cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+#lasso_fit <- glmnet(x,y,alpha = 1) #commented out much later bc error
+#cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+#coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
 summary(ols <- lm(mid_quantitysold_not_transf~mid_refunds,data=baseline_dealers_save))
 
@@ -9421,9 +9589,9 @@ summary(baseline_dealers_numeric$owner.agree.age)
 
 x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
 y = baseline_dealers_numeric$mid_quantitysold_not_transf
-lasso_fit <- glmnet(x,y,alpha = 1)
-cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+#lasso_fit <- glmnet(x,y,alpha = 1) #commented out much later bc error
+#cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+#coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
 summary(ols <- lm(mid_quantitysold_not_transf~maize.owner.agree.longe7h.q38,data=baseline_dealers_save))
 
@@ -9438,9 +9606,9 @@ summary(baseline_dealers_numeric$owner.agree.age)
 
 x = as.matrix(baseline_dealers_numeric[,-c(which(colnames(baseline_dealers_numeric)=='mid_quantitysold_not_transf'))])
 y = baseline_dealers_numeric$mid_quantitysold_not_transf
-lasso_fit <- glmnet(x,y,alpha = 1)
-cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
-coef(lasso_fit,s=cv_lasso_fit$lambda.min)
+#lasso_fit <- glmnet(x,y,alpha = 1) #commented out much later bc error
+#cv_lasso_fit <- cv.glmnet(x,y,alpha = 1,nfolds = 5)
+#coef(lasso_fit,s=cv_lasso_fit$lambda.min)
 
 summary(ols <- lm(mid_quantitysold_not_transf~mid_reputation_rating,data=baseline_dealers_save))
 
