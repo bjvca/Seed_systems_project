@@ -23,7 +23,7 @@ endline_farmers <- read.csv(paste(path,"/endline/data/farmer/public/endline.csv"
 
 library(dplyr)
 library(Jmisc)
-library(glmnet)
+#library(glmnet)
 endline_farmers <- rename_with(endline_farmers,toupper)
 
 baseline_farmers <- merge(baseline_farmers,endline_farmers,by.x="farmer_ID",by.y="FARMER_ID",all.x=TRUE)
