@@ -1301,8 +1301,8 @@ model_1_F <- lm(training~Check2.check.maize.q8 #1
               #+Check2.check.maize.q35a
               +Check2.check.maize.q42 #16
               #+correctplanting
-              #+yield_inkg
-              +landproductivity #19
+              +yield_inkg
+              #+landproductivity #19
               #+Check2.check.maize.q53
               +yearsmaize #21
               +Check2.check.maize.q43 #22
@@ -1326,7 +1326,7 @@ test_training_F <- linearHypothesis(model_1_F, c("Check2.check.maize.q8=0",
                                     "agro=0",
                                     "Check2.check.maize.q25h=0",
                                     "Check2.check.maize.q42=0",
-                                    "landproductivity=0",
+                                    "yield_inkg=0",
                                     "yearsmaize=0",
                                     "Check2.check.maize.q43=0"))
 
@@ -1349,8 +1349,8 @@ model_2_F <- lm(clearing~Check2.check.maize.q8 #1
                 #+Check2.check.maize.q35a
                 +Check2.check.maize.q42 #16
                 #+correctplanting
-                #+yield_inkg
-                +landproductivity #19
+                +yield_inkg
+                #+landproductivity #19
                 #+Check2.check.maize.q53
                 +yearsmaize #21
                 +Check2.check.maize.q43 #22
@@ -1369,7 +1369,7 @@ test_clearing_F <- linearHypothesis(model_2_F, c("Check2.check.maize.q8=0",
                                                  "agro=0",
                                                  "Check2.check.maize.q25h=0",
                                                  "Check2.check.maize.q42=0",
-                                                 "landproductivity=0",
+                                                 "yield_inkg=0",
                                                  "yearsmaize=0",
                                                  "Check2.check.maize.q43=0"))
 

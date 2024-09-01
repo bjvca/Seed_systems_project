@@ -3533,7 +3533,7 @@ noprefix "false"
 
 \end_inset
 
-, we find that from a total of 32 comparisons, only one is significant at
+, we find that from a total of 34 comparisons, only one is significant at
  the 5% significance level and two are significant at the 10% level.
  For outcomes at the farmer level reported in (Table 
 \begin_inset CommandInset ref
@@ -3550,10 +3550,50 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+In addition, we run linear regressions with the treatment status (training
+ or clearinghouse) on the left-hand side and the set of 17 and 16 variables
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ respectively on the right-hand side to test for joint orthogonality with
+ an F-test.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The amount of seed the farmer bought at the agro-dealer was not included
+ in the regression because the question was only asked if a farmer bought
+ quality maize seed at an agro-dealer, so that this variable has 2406 missing
+ observations.
+\end_layout
+
+\end_inset
+
+ We find no indications of problematic imbalance.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4844,8 +4884,6 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
- F-test for joint significance in a regression with the treatment status
- on the left hand side (training or clearinghouse).
 \end_layout
 
 \end_inset
@@ -4862,7 +4900,7 @@ ion; **, *, and + denote significance at the 1, 5 and 10
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6038,7 +6076,7 @@ cmidrule(lr){3-4}
 
 \begin_layout Plain Layout
 
-F-test & & 1.67 & 1.19  
+F-test & & 1.47 & 1.32  
 \backslash
 
 \backslash
@@ -6047,7 +6085,7 @@ F-test & & 1.67 & 1.19
 
 \begin_layout Plain Layout
 
-(p-value) & & (0.05) & (0.27) 
+(p-value) & & (0.11) & ( 0.18) 
 \backslash
 
 \backslash
@@ -6096,12 +6134,6 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
- F-test for joint significance in a regression with the treatment status
- on the left hand side (training or clearinghouse).
- Amount of this seed farmer bought at agro-dealer was not included in the
- regressions for the F-tests because the question was only asked if a farmer
- bought quality maize seed at an agro-dealer, so that this variable has
- 2406 missing observations.
 \end_layout
 
 \end_inset
