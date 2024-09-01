@@ -1127,12 +1127,16 @@ model_1 <- lm(training~maize.owner.agree.age #1
               #+visible_packdate
               +maize.owner.agree.nr_var #27
               , data = baseline_dealers)
+
+vcov_cluster <- vcovCR(model_1,cluster=baseline_dealers$catchID,type="CR3")
+
+
 summary(model_1)
 
 test_training <- linearHypothesis(model_1, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
                                     "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
                                     "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
-                                    "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"))
+                                    "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"), vcov. = vcov_cluster)
 test_training
 
 model_2 <- lm(clearing~maize.owner.agree.age #1
@@ -1163,12 +1167,14 @@ model_2 <- lm(clearing~maize.owner.agree.age #1
               #+visible_packdate
               +maize.owner.agree.nr_var #27
               , data = baseline_dealers)
+
+vcov_cluster <- vcovCR(model_2,cluster=baseline_dealers$catchID,type="CR3")
 summary(model_2)
 
 test_CH <- linearHypothesis(model_2, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
                                        "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
                                        "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
-                                       "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"))
+                                       "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0"), vcov. = vcov_cluster)
 test_CH
 
 
@@ -1301,12 +1307,16 @@ model_1_F <- lm(training~Check2.check.maize.q8 #1
               #+Check2.check.maize.q35a
               +Check2.check.maize.q42 #16
               #+correctplanting
-              +yield_inkg
-              #+landproductivity #19
+              #+yield_inkg
+              +landproductivity #19
               #+Check2.check.maize.q53
               +yearsmaize #21
               +Check2.check.maize.q43 #22
               ,data = baseline_farmers)
+
+
+vcov_cluster <- vcovCR(model_1_F,cluster=baseline_farmers$catchID,type="CR3")
+
 summary(model_1_F)
 
 #Check2.check.maize.q25a (9: Farmer used quality maize seed on any plot)
@@ -1326,9 +1336,9 @@ test_training_F <- linearHypothesis(model_1_F, c("Check2.check.maize.q8=0",
                                     "agro=0",
                                     "Check2.check.maize.q25h=0",
                                     "Check2.check.maize.q42=0",
-                                    "yield_inkg=0",
+                                    "landproductivity=0",
                                     "yearsmaize=0",
-                                    "Check2.check.maize.q43=0"))
+                                    "Check2.check.maize.q43=0"), vcov. = vcov_cluster )
 
 test_training_F
 
@@ -1349,12 +1359,14 @@ model_2_F <- lm(clearing~Check2.check.maize.q8 #1
                 #+Check2.check.maize.q35a
                 +Check2.check.maize.q42 #16
                 #+correctplanting
-                +yield_inkg
-                #+landproductivity #19
+                #+yield_inkg
+                +landproductivity #19
                 #+Check2.check.maize.q53
                 +yearsmaize #21
                 +Check2.check.maize.q43 #22
                 ,data = baseline_farmers)
+
+vcov_cluster <- vcovCR(model_2_F,cluster=baseline_farmers$catchID,type="CR3")
 summary(model_2_F)
 
 test_clearing_F <- linearHypothesis(model_2_F, c("Check2.check.maize.q8=0",
@@ -1369,7 +1381,7 @@ test_clearing_F <- linearHypothesis(model_2_F, c("Check2.check.maize.q8=0",
                                                  "agro=0",
                                                  "Check2.check.maize.q25h=0",
                                                  "Check2.check.maize.q42=0",
-                                                 "yield_inkg=0",
+                                                 "landproductivity=0",
                                                  "yearsmaize=0",
                                                  "Check2.check.maize.q43=0"))
 
