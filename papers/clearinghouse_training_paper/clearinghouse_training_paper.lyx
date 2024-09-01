@@ -3552,7 +3552,7 @@ noprefix "false"
 \begin_layout Standard
 In addition, we run linear regressions with the treatment status (training
  or clearinghouse) on the left-hand side and the set of 17 and 16 variables
- in 
+ in Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -3578,10 +3578,10 @@ noprefix "false"
 status collapsed
 
 \begin_layout Plain Layout
-The amount of seed the farmer bought at the agro-dealer was not included
- in the regression because the question was only asked if a farmer bought
- quality maize seed at an agro-dealer, so that this variable has 2406 missing
- observations.
+The amount of maize seed that the farmer bought at the agro-shop was not
+ included in the regression because the ques-tion was only asked if a farmer
+ bought seed at an agro-dealer, leading to 2406 missing observations for
+ this variable.
 \end_layout
 
 \end_inset
@@ -6171,6 +6171,18 @@ noprefix "false"
  reports attrition levels in the treatment and comparison groups.
  We failed to collect data from 12% of agro-dealers and 2% of farmers at
  midline, and from 14% of agro-dealers and 1% of farmers at endline.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+If an agro-dealer could not be found at endline, we investigated why: eleven
+ shops closed, ten relocated, eight were located but sell different products
+ now, three merged with other shops, one dealer did not want to be interviewed,
+ 17 agro-dealers reported another (4) or no reason (13).
+\end_layout
+
+\end_inset
+
  To test if non-response is related to one of the treatments, we regress
  the likelihood of leaving the sample on the treatment indicators.
  We find that clearinghouse treated agro-dealers are significantly less
@@ -11057,7 +11069,23 @@ To further explore the large and significant effect of the clearinghouse
  This indicates that the effect is plausibly driven by farmers who did not
  use improved maize seed at baseline, started using improved maize seed
  due to the clearinghouse and, in turn, realized higher yields.
- 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+If higher demand leads to shorter seed storage time and better seed performance,
+ higher turnover could also explain the yield effect.
+ However, only for farmers who bought maize seed at agro-input shops before
+ and after the treatment, the shortened storage time would lead to (measurably)
+ higher yields.
+ As we see that the effect is plausibly driven by farmers who did not use
+ purchased maize seed at baseline, the suggested storage-time-channel is
+ unlikely to drive the yield effect.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

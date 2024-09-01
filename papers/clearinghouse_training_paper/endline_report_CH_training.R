@@ -1114,7 +1114,7 @@ model_1 <- lm(training~maize.owner.agree.age #1
               +maize.owner.agree.q96 #13
               +maize.owner.agree.skill.q105_b #14
               #+maize.owner.agree.inspection.q115
-              +reading #16 #excluded because 122 NAs
+              +reading #16 #could be excluded because 122 NAs
               #+lot
               #+refunds
               #+gives_credit
@@ -1150,7 +1150,7 @@ model_2 <- lm(clearing~maize.owner.agree.age #1
               +maize.owner.agree.q96 #13
               +maize.owner.agree.skill.q105_b #14
               #+maize.owner.agree.inspection.q115
-              +reading #16 #excluded because 122 NAs
+              +reading #16 #could be excluded because 122 NAs
               #+lot
               #+refunds
               #+gives_credit
