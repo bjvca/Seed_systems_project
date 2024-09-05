@@ -145,12 +145,12 @@ footnotemark[1]}
 
 \end_inset
 
-The perceived quality of agricultural technology and its adoption: Experimental
- evidence from Uganda
+The (perceived) quality of agricultural technology and its adoption: Experimenta
+l evidence from Uganda
 \end_layout
 
 \begin_layout Abstract
-Recently, issues related to the perceived quality of inputs and technologies
+Recently, issues related to the (perceived) quality of inputs and technologies
  have been proposed as an important constraint to their adoption by smallholder
  farmers in low income countries.
  Taking maize seed embodying genetic gain as a case, we train random agro-dealer
@@ -223,8 +223,10 @@ Acknowledgments:
  Tabe-Ojong for their helpful comments and suggestions.
  We further thank participants of the Centre for the Study of African Economies
  Conference 2023, the Netherlands - Consultative Group for International
- Agricultural Research (NL-CGIAR) Conference, the AgEconMeeting 2022, and
- seminars at Wageningen University and KU Leuven for valuable discussions.
+ Agricultural Research (NL-CGIAR) Conference, the AgEconMeeting 2022, the
+ 32nd International Conference of Agricultural Economists (ICAE2024), the
+ 2024 NOVAFRICA Conference on Economic Development, and seminars at Wageningen
+ University and KU Leuven for valuable comments.
  This project received funding from the NL-CGIAR research programme on Seed
  Systems Development, grant number W08.240.105, funded by the Netherlands
  Organisation for Scientific Research.
@@ -232,9 +234,9 @@ Acknowledgments:
  - Vlaanderen and the Fonds de la Recherche Scientifique under EOS project
  G0G4318N.
  Additional support was provided by the CGIAR Research Program on Policies,
- Institutions, and Markets (PIM), the CGIAR Seed Equal Research Initiative,
- and the CGIAR Market Intelligence Research Initiative which are funded
- by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
+ Institutions, and Markets (PIM), and the CGIAR Seed Equal Research Initiative
+ which are funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders
+/).
 \end_layout
 
 \begin_layout Section
@@ -344,9 +346,9 @@ literal "false"
 
 .
  However, subsequent research suggests ambiguity in whether these quality
- issues are attributable to agro-dealers intentionally adulterating their
- products, or whether they lack the requisite knowledge and skills to preserve
- quality 
+ issues should be attributed to agro-dealers intentionally adulterating
+ their products, or whether they lack the requisite knowledge and skills
+ to preserve quality 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -382,7 +384,7 @@ We investigate some of these issues through a field experiment conducted
  in the nascent market for improved, high-yielding maize varieties in eastern
  Uganda.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 In the context of this study, high-yielding maize varieties refers to both
@@ -390,12 +392,6 @@ In the context of this study, high-yielding maize varieties refers to both
  While the distinction may be lost on some, it is a nuance that is recognizable
  to many colleagues working in the fields of plant breeding and seed sector
  development.
- Importantly, our definition of maize seed quality extends beyond narrow
- criteria such as varietal purity (i.e., confirming the seed is of the expected
- variety) to include broader dimensions like seed performance and germination
- rates.
- Although agro-dealer practices in seed storage and handling do not affect
- varietal purity, they can significantly impact seed performance.
 \end_layout
 
 \end_inset
@@ -430,7 +426,7 @@ literal "false"
  As a result, important information including variety name, expiry date,
  or planting instructions are lost, while the material used for re-packaging—air
 -tight polyethylene bags—affect aeration, moisture, and seed viability.
- Other agro-dealers sell from open bags, which can similarly lower seed
+ Other agro-dealers sell from open bags, which can similarly reduce seed
  viability 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -444,6 +440,24 @@ literal "false"
  to agro-dealers will increase seed quality and subsequently improve farmers'
  product experience, ultimately encouraging them to adopt improved maize
  varieties.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It is important to note that our definition of maize seed quality extends
+ beyond narrow criteria such as varietal purity (i.e., confirming the seed
+ is of the expected variety) to include broader dimensions like seed germination
+ and plant vigor.
+ This is because, while some storage and handling practices may affect varietal
+ purity (eg mixing seed, mislabeling,...), most practices we will focus on
+ in our study will not.
+ Furthermore, we think that farmers care more about seed performance than
+ about varietal purity, which may only be weakly correlated.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -452,7 +466,7 @@ However, we recognize that providing information only to agro-dealers may
  by farmers.
  Furthermore, we expect that small scale agro-dealers are subjected to less
  regulation and oversight than their larger counterparts in manufacturing,
- import, or wholesale operations that are situated further up the supply
+ import, or wholesale operations that are situated further up the seed supply
  chain.
  This means that agro-dealers may still be incentivized—even with training—to
  underinvest in quality management and preservation.
@@ -545,15 +559,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In a second hypothesis, we conjecture that making quality observable to
- both buyers and sellers will increase adoption through various mechanisms.
- First, buyers may shift from sellers that sell low quality inputs to sellers
- that provide high quality inputs.
+In a second hypothesis, we conjecture that providing a signals about the
+ quality of inputs sold by agro-dealers to both buyers and sellers will
+ increase adoption through various mechanisms.
+ First, buyers may shift from sellers that purportedly sell low quality
+ inputs to sellers that are said to provide high quality inputs.
  Second, sellers may start to compete on quality, either by increasing quality
  if there is still room for improvement, or by making the quality attribute
  of their products more salient to buyers.
  Finally, in light of the new information, farmers may adjust their perceptions
- of the quality of technologies.
+ of the quality of inputs sold by agro-dealers.
  
 \end_layout
 
@@ -564,40 +579,34 @@ The two hypotheses are tested in a randomized control trial (RCT) among
  The first hypothesis involves a fairly standard intervention where we provide
  a one day training for agro-dealership owners and managers on proper storage
  and handling of seed.
- For the second hypothesis, we build on 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "hasanain2019no"
-literal "false"
-
-\end_inset
-
- and implement a decentralized information clearinghouse that is based on
- crowd-sourced information on quality provided by agro-dealers which is
- then aggregated and made public, much like yelp.com or tripadvisor.com.
- In particular, we ask farmers to provide star ratings to agro-dealers in
- their vicinity, and use these ratings to construct scores and rank agro-dealers.
- We then disseminate these scores to farmers.
- We also provide the score, together with their relative position in the
- rankings, to the agro-dealers.
+ For the second hypothesis, we implement a decentralized information clearinghou
+se that is based on farmers' perceptions about the quality of inputs sold
+ by agro-dealers.
+ This information is then aggregated and made public, much like yelp.com
+ or tripadvisor.com.
+ In particular, we ask farmers to rate agro-dealers and the products and
+ services they offer, and use these ratings to construct scores and rank
+ agro-dealers.
+ We then disseminate these scores and rankings to both farmers and agro-dealers.
  
 \end_layout
 
 \begin_layout Standard
 We find that the information clearinghouse improves outcomes for both agro-deale
 rs and farmers.
- Clearinghouse treated agro-dealers receive more customers and have higher
- revenues from maize seed than control agro-dealers.
- Clearinghouse treated farmers are significantly more likely to use improved
- maize varieties from agro-dealers, and have higher yields than control
- farmers after two seasons.
- Impact also seems to stem from treated agro-dealers who increase their
- efforts and expand the services that they provide to farmers.
+ Agro-dealers that were exposed to the clearinghouse intervention receive
+ more customers and have higher revenues from maize seed than agro-dealers
+ in areas where the clearinghouse was not implemented.
+ Farmers in areas where the clearinghouse was rolled out are significantly
+ more likely to use improved maize varieties from agro-dealers, and have
+ higher yields than control farmers after two seasons.
+ Impact also seems to stem from clearinghouse treated agro-dealers who increase
+ their efforts and expand the services that they provide to farmers.
  Treated agro-dealers are also more likely to be registered with the Uganda
  National Agro-input Dealers Association (UNADA), perhaps to signal quality
  now that it has been made salient to farmers.
  Finally, we find that farmers in the treatment group rate maize seed of
- agro-dealers in their neighborhood better, suggesting that the clearinghouse
+ agro-dealers in their neighborhood higher, suggesting that the clearinghouse
  treatment is also effective in changing perceptions.
 \end_layout
 
@@ -617,16 +626,15 @@ literal "false"
 
 \end_inset
 
- who point out the importance of simultaneously addressing demand-side constrain
-ts to make training more effective.
+ who point out the importance of simultaneously addressing demand-side and
+ supply-side constraints.
 \end_layout
 
 \begin_layout Standard
 Our study contributes to a large literature on the effectiveness of providing
  training to small businesses in developing countries.
- Helping entrepreneurs to grow small firms by teaching them business skills
- has yielded mixed results when subjected to rigorous impact evaluation
- methods 
+ Helping small firms to grow by teaching business skills has yielded mixed
+ results when subjected to rigorous impact evaluation methods 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "eg."
@@ -668,7 +676,7 @@ Personal initiative is defined as a self-starting, future-oriented, and
 \end_inset
 
  Our study similarly shows the importance of (external) motivation in making
- trainings reach their objective.
+ trainings effective.
 \end_layout
 
 \begin_layout Standard
@@ -685,8 +693,8 @@ literal "false"
 
 \end_inset
 
- show that commuters in Nairobi choose for the safe busses after information
- on safety records of different busses was made publicly available.
+ show that commuters in Nairobi choose for safe buses after information
+ on safety records of different buses was made publicly available.
  Second, public disclosure of product information makes it possible for
  sellers to differentiate on quality, and indeed, start competing on it,
  in turn lifting the market out of the low quality equilibrium.
@@ -739,8 +747,8 @@ literal "false"
  incentives) are tested.
  We suspect that, in addition to the threat of farmers shifting to better
  rated agro-dealers, psychological factors such as professional identity
- and a sense of social obligation may even be more important drivers for
- agro-dealers to improve.
+ and a sense of social obligation may be important drivers for agro-dealers
+ to improve.
 \end_layout
 
 \begin_layout Standard
@@ -809,7 +817,7 @@ We use a haversine function to construct an adjacency matrix based on GPS
  coordinates, and agro-dealers that are less than 5 kilometer apart are
  assigned to the same catchment area.
  The 5 kilometer threshold was selected based on a visual inspection of
- a map, the size of an average village in our sample and the reported distance
+ a map, the size of an average village in our sample, and the reported distance
  between farmers and agro-dealers in survey data from a previous study of
  the maize value chain that can be found 
 \begin_inset CommandInset href
@@ -839,18 +847,18 @@ name "fn:The-haversine-function"
 We randomize at the level of the catchment area (instead of opting for randomiza
 tion at the less aggregate agro-dealer level) for three reasons.
  Firstly, randomizing at the level of the individual agro-dealer prompted
- ethical concerns and was thus ruled out a priori.
+ ethical concerns.
  Specifically, in cases where two or more agro-dealers operate in very close
  proximity to each other, treating only one of them may lead to a competitive
  (dis)advantage.
  Randomizing at the catchment level substantially reduces the risk of (dis)advan
 taging agro-dealers in this way.
- Secondly, catchment-level randomization reduces the likelihood of spillovers
- from treated to control agro-dealers.
- Thirdly, catchment-level randomization allows us to extend the evaluation
- to the measurement of treatment effects on farmers (and not just agro-dealers)
- because all farmers in the catchment area are now exposed to agro-dealers
- who all received the same treatment.
+ Secondly, and related to the first reason, catchment-level randomization
+ reduces the likelihood of spillovers from treated to control agro-dealers.
+ Thirdly, catchment-level randomization allows us measure impact of the
+ interventions at the farmer level (and not just agro-dealer level) because
+ all farmers in the catchment area are now exposed to agro-dealers who all
+ received the same treatment.
 \end_layout
 
 \begin_layout Standard
@@ -916,15 +924,7 @@ literal "false"
  factorial design.
  The power simulations focused on the individual treatments, implying that
  we are likely to be under-powered to estimate interaction effects between
- the interventions 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "lin2013agnostic,muralidharan2019factorial"
-literal "false"
-
-\end_inset
-
-
+ the interventions.
 \end_layout
 
 \begin_layout Section
@@ -1142,7 +1142,7 @@ We also asked farmers to rate agro-dealers on general quality, location,
  For example, we asked farmers to rate the maize seed that an agro-dealer
  sells on a scale of one to five stars on seed germination.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 We acknowledge that it would have been ideal to ask farmers to rate agro-dealers
@@ -1830,7 +1830,7 @@ j
  design (demeaned and interacted with the main treatment effect, see 
 \begin_inset CommandInset citation
 LatexCommand citealp
-key "lin2013agnostic,muralidharan2019factorial"
+key "lin2013agnostic,muralidharan2023factorial"
 literal "false"
 
 \end_inset
@@ -1909,7 +1909,7 @@ literal "false"
 
 .
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Each index is computed as a weighted mean of the standardized values of
@@ -2207,10 +2207,8 @@ status collapsed
 Even though repackaging seed from original larger bags from seed companies
  into smaller bags to offer quantities that are convenient and affordable
  to their clients is common (around half of the agro-dealers in our sample
- report to do so) and dangerous (as important infor-mation may be lost and
- the material used for re-packaging may affect aeration, moisture, and seed
- viability), enumerators purchased only unopened, i.e., not repackaged bags
- of seed, to have a comparable sample.
+ report to do so), the sample bags that enumerators bought were all original,
+ sealed bags.
 \end_layout
 
 \end_inset
@@ -2230,7 +2228,7 @@ At the farm household level, enumerators were instructed to interview the
  was asked to enumerate all maize plots, from which a random plot was chosen,
  and detailed data was collected on that plot.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 This was mainly done to reduce on data collection costs, time, and burden.
@@ -2292,8 +2290,8 @@ Information was also collected to provide an initial assessment of the quality
  For example, we find that 65% of agro-dealers had problems with pests such
  as rats or insects, while 16% store maize seed in open containers, thus
  exposing the seed to a range of pests and contaminants.
- Not surprisingly two thirds of the agro-dealers sampled reported that they
- had received at least one complaint about seed they sold from a customer
+ Not surprisingly, two thirds of the agro-dealers sampled reported that
+ they had received at least one complaint about seed they sold from a customer
  during the prior season.
 \end_layout
 
@@ -2305,10 +2303,20 @@ Turning to the seed samples obtained from the agro-dealers, our measurements
  suggesting potential for the growth of molds and storage pests that can
  negatively affect seed quality and performance.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-The life of seed doubles with every 1% reduction in its moisture content.
+For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "afzal2017maintaining"
+literal "false"
+
+\end_inset
+
+ report germination rates of about 85% for seed with a moisture content
+ of 12.74% versus germination rates of only 50% for the same seed with a
+ moisture content of 15.64%.
 \end_layout
 
 \end_inset
@@ -14005,9 +14013,10 @@ noprefix "false"
 
 .
  Baseline knowledge is low with only 5% of agro-dealers knowing which variety
- to recommend if a farmer complains about little rain.
- They perform best when asked about repackaging seed: 64% of agro-dealers
- know that this practice should be avoided.
+ to recommend if a farmer complains about lack of rain.
+ Highest knowledge is recorded when asked about repackaging seed: 64% of
+ agro-dealers know that this practice should be avoided.
+ This suggests ample room for improvement.
 \end_layout
 
 \begin_layout Standard
