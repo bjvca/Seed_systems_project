@@ -3920,10 +3920,10 @@ index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = base
 baseline_dealers$index_overall_bag_baseF <- index_overall_bag_base$index
 
 results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
-                            ,"index_overall_bag_midF","mid_visible_expdate","mid_reading_bin")
+                            ,"index_overall_bag_midF","mid_reading_bin")
 
 results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseF"
-                                 ,"visible_expdate","reading_bin")
+                                 ,"reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
