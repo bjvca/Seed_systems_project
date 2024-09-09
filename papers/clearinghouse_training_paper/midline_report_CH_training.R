@@ -3820,10 +3820,10 @@ baseline_dealers$reading_bin <- ifelse(baseline_dealers$reading > 13,1,0)
 ###
 
 results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
-                            ,"index_overall_bag_mid","mid_visible_expdate","mid_reading_bin")
+                            ,"index_overall_bag_mid","mid_reading_bin")
 
 results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_base"
-                                 ,"visible_expdate","reading_bin")
+                                 ,"reading_bin")
 
 df_means_D_sec_bag <- array(NA,dim=c(3,11))
 
@@ -3858,10 +3858,10 @@ baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 df_ols_D_sec_bag <- array(NA,dim=c(3,3,11))
 
 results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
-                            ,"index_overall_bag_midT","mid_visible_expdate","mid_reading_bin")
+                            ,"index_overall_bag_midT","mid_reading_bin")
 
-results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT"
-                                 ,"visible_expdate","reading_bin")
+results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseT",
+                                 "reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
@@ -3889,10 +3889,10 @@ index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = base
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
 
 results_dealer_sec_bag <- c("mid_reading","mid_visible_packdate","mid_shelflife_Caro","mid_origin","mid_lot"
-                            ,"index_overall_bag_midC","mid_visible_expdate","mid_reading_bin")
+                            ,"index_overall_bag_midC","mid_reading_bin")
 
 results_dealer_sec_bag_base <- c("reading","visible_packdate","shelflife_Caro","origin","lot","index_overall_bag_baseC"
-                                 ,"visible_expdate","reading_bin")
+                                ,"reading_bin")
 
 baseline_dealers[results_dealer_sec_bag_base] <- lapply(baseline_dealers[results_dealer_sec_bag_base],function(x)x - mean(x,na.rm = T))
 
