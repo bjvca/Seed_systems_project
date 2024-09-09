@@ -3588,18 +3588,6 @@ noprefix "false"
 , out of 32 comparisons, one is significant at the 10% level.
  In all, we conclude that these results show reasonable balance at baseline.
  We also test for joint orthogonality using F-tests.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-The amount of maize seed that the farmer bought at the agro-shop was not
- included in the regression because the question was only asked if a farmer
- bought seed at an agro-dealer, leading to 2406 missing observations for
- this variable.
-\end_layout
-
-\end_inset
-
  The tests confirms balance between treatment groups.
  
 \end_layout
@@ -3691,7 +3679,9 @@ cmidrule(lr){3-4}
 
 \begin_layout Plain Layout
 
-Respondent's age in years
+Respondent's age in years$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -3756,7 +3746,9 @@ Sexpr{format(round(df_ols[2,2,1],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Respondent is male
+Respondent is male$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -3821,7 +3813,9 @@ Sexpr{format(round(df_ols[2,2,2],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Respondent finished primary education
+Respondent finished primary education$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -3951,7 +3945,9 @@ Sexpr{format(round(df_ols[2,2,23],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Respondent received training on maize seed handling
+Respondent received training on maize seed handling$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4016,7 +4012,9 @@ Sexpr{format(round(df_ols[2,2,7],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Respondent knows how to store seed after repackaging
+Respondent knows how to store seed after repackaging$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4094,7 +4092,9 @@ Sexpr{format(round(df_ols[2,2,14],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Agro-dealer's distance to nearest tarmac road in km
+Agro-dealer's distance to nearest tarmac road in km$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4224,7 +4224,9 @@ Sexpr{format(round(df_ols[2,2,21],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Years since Agro-dealer establishment
+Years since agro-dealer establishment$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4289,7 +4291,9 @@ Sexpr{format(round(df_ols[2,2,6],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Number of customers per day
+Number of customers per day$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4354,7 +4358,9 @@ Sexpr{format(round(df_ols[2,2,5],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Quantity of maize seed sold in kg
+Quantity of maize seed sold in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4419,7 +4425,9 @@ Sexpr{format(round(df_ols[2,2,9],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Amount of maize seed lost/wasted last season in kg
+Amount of maize seed lost/wasted last season in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4841,7 +4849,7 @@ cmidrule(lr){3-4}
 
 \begin_layout Plain Layout
 
-F-test & & 1.42 & 1.47  
+F-test & & 0.76 & 1.62  
 \backslash
 
 \backslash
@@ -4850,7 +4858,7 @@ F-test & & 1.42 & 1.47
 
 \begin_layout Plain Layout
 
-(p-value) & & (0.13) & (0.11) 
+(p-value) & & (0.66) & (0.10) 
 \backslash
 
 \backslash
@@ -4899,6 +4907,10 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
+ $^
+\backslash
+dag$ indicates that the variable was pre-registered to test balance and
+ is included in the F-test.
 \end_layout
 
 \end_inset
@@ -4998,7 +5010,9 @@ cmidrule(lr){3-4}
 
 \begin_layout Plain Layout
 
-Household head's age in years
+Household head's age in years$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5063,7 +5077,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,3],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Household head is male
+Household head is male$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5128,7 +5144,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,4],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Household head finished primary education
+Household head finished primary education$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5271,7 +5289,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,1],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Homestead's distance to nearest agro-dealer in km
+Homestead's distance to nearest agro-dealer in km$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5337,7 +5357,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,2],digits=2),nsmall=2)})
 \begin_layout Plain Layout
 
 Number of people in household (incl.
- respondent)
+ respondent)$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5610,7 +5632,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,21],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Yield in kg/acre
+Yield in kg/acre$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5688,7 +5712,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,19],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Farmer used quality maize seed on any plot
+Farmer used quality maize seed on any plot$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5753,7 +5779,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,9],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Farmer bought this seed at agro-dealer
+Farmer bought this seed at agro-dealer$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5818,7 +5846,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,10],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Amount of this seed farmer bought at agro-dealer in kg
+Amount of this seed farmer bought at agro-dealer in kg$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -5883,7 +5913,9 @@ Sexpr{format(round(df_ols_end_farmer[2,2,11],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Farmer thinks maize seed at agro-dealer is adulterated
+Farmer thinks maize seed at agro-dealer is adulterated$^
+\backslash
+dag$
 \end_layout
 
 \begin_layout Plain Layout
@@ -6091,7 +6123,7 @@ cmidrule(lr){3-4}
 
 \begin_layout Plain Layout
 
-F-test & & 1.47 & 1.32  
+F-test & & 1.07 & 0.53  
 \backslash
 
 \backslash
@@ -6100,7 +6132,7 @@ F-test & & 1.47 & 1.32
 
 \begin_layout Plain Layout
 
-(p-value) & & (0.11) & (0.18) 
+(p-value) & & (0.38) & (0.85) 
 \backslash
 
 \backslash
@@ -6149,6 +6181,14 @@ Note: Column (1) reports sample means at baseline and standard deviations
 ion; **, *, and + denote significance at the 1, 5 and 10
 \backslash
 % levels.
+ $^
+\backslash
+dag$ indicates that the variable was pre-registered to test balance and
+ is included in the F-test.
+ Amount of this seed farmer bought at agro-dealer was pre-registered to
+ test balance but is not included in the F-test because the question was
+ only asked if a farmer bought seed at an agro-dealer, leading to 2406 missing
+ observations for this variable.
 \end_layout
 
 \end_inset
@@ -18735,7 +18775,7 @@ name "footnote_quality"
 \begin_inset Float table
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
