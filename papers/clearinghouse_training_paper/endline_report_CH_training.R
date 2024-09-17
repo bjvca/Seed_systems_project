@@ -1099,81 +1099,101 @@ for (i in 1:length(balance_dealer)){
 #difference in mean tarmac road: Bjorn did baseline_dealers$maize.owner.agree.q3[baseline_dealers$maize.owner.agree.q3 < 1] <- 0
 
 #Joint test (balance) https://blogs.worldbank.org/en/impactevaluations/tools-trade-joint-test-orthogonality-when-testing-balance
-model_1 <- lm(training~maize.owner.agree.age #1
-              +maize.owner.agree.gender #2
-              +finished_primary #3
-              +maize.owner.agree.q3 #4
-              +maize.owner.agree.q6 #5
-              +years_shop #6
-              +maize.owner.agree.q10 #7
+model_1 <- lm(training~maize.owner.agree.age #1 prereg
+              +maize.owner.agree.gender #2 prereg
+              +finished_primary #3 prereg
+              +maize.owner.agree.q3 #4 prereg
+              +maize.owner.agree.q6 #5 prereg
+              +years_shop #6 prereg
+              +maize.owner.agree.q10 #7 prereg
               #+maize.owner.agree.nr_var
-              +quantitysold_not_transf #9
-              +tot_lost #10
-              +maize.owner.agree.temp.q71 #11
+              +quantitysold_not_transf #9 prereg
+              +tot_lost #10 prereg
+              #+maize.owner.agree.temp.q71 #11
               #+maize.owner.agree.temp.q72
-              +maize.owner.agree.q96 #13
-              +maize.owner.agree.skill.q105_b #14
+              #+maize.owner.agree.q96 #13
+              +maize.owner.agree.skill.q105_b #14 prereg
               #+maize.owner.agree.inspection.q115
-              +reading #16 #could be excluded because 122 NAs
+              #+reading #16 #could be excluded because 122 NAs
               #+lot
               #+refunds
               #+gives_credit
               #+after_sales_service
-              +maize.owner.agree.q5 #21
+              #+maize.owner.agree.q5 #21
               #+maize.owner.agree.q7
-              +maize.owner.agree.ownership #23
-              +maize.owner.agree.temp.q80 #24
+              #+maize.owner.agree.ownership #23
+              #+maize.owner.agree.temp.q80 #24
               #+q93_bin
               #+visible_packdate
-              +maize.owner.agree.nr_var #27
+              #+maize.owner.agree.nr_var #27
               , data = baseline_dealers)
 
-#vcov_cluster <- vcovCR(model_1,cluster=baseline_dealers$catchID,type="CR3")
+vcov_cluster <- vcovCR(model_1,cluster=baseline_dealers$catchID,type="CR3")
 
 summary(model_1)
 
-test_training <- linearHypothesis(model_1, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
-                                    "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
-                                    "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
-                                    "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0")) #, vcov. = vcov_cluster
+# only included pre-registered variables eventually
+test_training <- linearHypothesis(model_1, c(
+  "maize.owner.agree.age=0", #ok
+  "maize.owner.agree.gender=0", #ok
+  "finished_primary=0", #ok
+  "maize.owner.agree.q3=0", #ok
+  "maize.owner.agree.q6=0", #ok
+  "years_shop=0", #ok
+  "maize.owner.agree.q10=0", #ok
+  "quantitysold_not_transf=0", #ok
+  "tot_lost=0", #ok
+  "maize.owner.agree.skill.q105_b=0") #ok
+  , vcov. = vcov_cluster)
 test_training
 
-model_2 <- lm(clearing~maize.owner.agree.age #1
-              +maize.owner.agree.gender #2
-              +finished_primary #3
-              +maize.owner.agree.q3 #4
-              +maize.owner.agree.q6 #5
-              +years_shop #6
-              +maize.owner.agree.q10 #7
+model_2 <- lm(clearing~maize.owner.agree.age #1 prereg
+              +maize.owner.agree.gender #2 prereg
+              +finished_primary #3 prereg
+              +maize.owner.agree.q3 #4 prereg
+              +maize.owner.agree.q6 #5 prereg
+              +years_shop #6 prereg
+              +maize.owner.agree.q10 #7 prereg
               #+maize.owner.agree.nr_var
-              +quantitysold_not_transf #9
-              +tot_lost #10
-              +maize.owner.agree.temp.q71 #11
+              +quantitysold_not_transf #9 prereg
+              +tot_lost #10 prereg
+              #+maize.owner.agree.temp.q71 #11
               #+maize.owner.agree.temp.q72
-              +maize.owner.agree.q96 #13
-              +maize.owner.agree.skill.q105_b #14
+              #+maize.owner.agree.q96 #13
+              +maize.owner.agree.skill.q105_b #14 prereg
               #+maize.owner.agree.inspection.q115
-              +reading #16 #could be excluded because 122 NAs
+              #+reading #16 #could be excluded because 122 NAs
               #+lot
               #+refunds
               #+gives_credit
               #+after_sales_service
-              +maize.owner.agree.q5 #21
+              #+maize.owner.agree.q5 #21
               #+maize.owner.agree.q7
-              +maize.owner.agree.ownership #23
-              +maize.owner.agree.temp.q80 #24
+              #+maize.owner.agree.ownership #23
+              #+maize.owner.agree.temp.q80 #24
               #+q93_bin
               #+visible_packdate
-              +maize.owner.agree.nr_var #27
+              #+maize.owner.agree.nr_var #27
               , data = baseline_dealers)
 
-#vcov_cluster <- vcovCR(model_2,cluster=baseline_dealers$catchID,type="CR3")
+vcov_cluster <- vcovCR(model_2,cluster=baseline_dealers$catchID,type="CR3")
+
 summary(model_2)
 
-test_CH <- linearHypothesis(model_2, c("maize.owner.agree.age=0","maize.owner.agree.gender=0","finished_primary=0",
-                                       "maize.owner.agree.q3=0","maize.owner.agree.q6=0","years_shop=0","maize.owner.agree.q10=0","quantitysold_not_transf=0","tot_lost=0",
-                                       "maize.owner.agree.temp.q71=0","maize.owner.agree.q96=0","maize.owner.agree.skill.q105_b=0","reading=0",
-                                       "maize.owner.agree.q5=0","maize.owner.agree.ownership=0","maize.owner.agree.temp.q80=0","maize.owner.agree.nr_var=0")) #, vcov. = vcov_cluster
+# only included pre-registered variables eventually
+test_CH <- linearHypothesis(model_2, c(
+  "maize.owner.agree.age=0", #ok
+  "maize.owner.agree.gender=0", #ok
+  "finished_primary=0", #ok
+  "maize.owner.agree.q3=0", #ok
+  "maize.owner.agree.q6=0", #ok
+  "years_shop=0", #ok
+  "maize.owner.agree.q10=0", #ok
+  "quantitysold_not_transf=0", #ok
+  "tot_lost=0", #ok
+  "maize.owner.agree.skill.q105_b=0") #ok
+  , vcov. = vcov_cluster)
+
 test_CH
 
 
@@ -1289,32 +1309,32 @@ for (i in 1:length(balance_farmer)){
 #difference in mean bought from dealer: correct if NA=0
 
 #Joint test (balance) https://blogs.worldbank.org/en/impactevaluations/tools-trade-joint-test-orthogonality-when-testing-balance
-model_1_F <- lm(training~Check2.check.maize.q8 #1
-              +Check2.check.maize.q10 #2
-              +Check2.check.maize.q14 #3
-              +Check2.check.maize.q15 #4
-              +finishedprimary #5
-              +Check2.check.maize.q18 #6
-              +Check2.check.maize.q20 #7
-              +Check2.check.maize.q22 #8
-              +Check2.check.maize.q25a #9
-              +agro #10
-              #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg)
-              +Check2.check.maize.q25h #12
+model_1_F <- lm(training~
+              #Check2.check.maize.q8 #1
+              Check2.check.maize.q10 #2 pre-reg
+              +Check2.check.maize.q14 #3 pre-reg
+              +Check2.check.maize.q15 #4 pre-reg
+              +finishedprimary #5 pre-reg
+              +Check2.check.maize.q18 #6 pre-reg
+              #+Check2.check.maize.q20 #7
+              #+Check2.check.maize.q22 #8
+              +Check2.check.maize.q25a #9 pre-reg
+              +agro #10 pre-reg
+              #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg) pre-reg
+              +Check2.check.maize.q25h #12 pre-reg
               #+Check2.check.maize.q30a.1
               #+adoption_onfield
               #+Check2.check.maize.q35a
-              +Check2.check.maize.q42 #16
+              #+Check2.check.maize.q42 #16
               #+correctplanting
-              +yield_inkg
-              #+landproductivity #19
+              #+yield_inkg
+              +landproductivity #19 pre-reg
               #+Check2.check.maize.q53
-              +yearsmaize #21
-              +Check2.check.maize.q43 #22
+              #+yearsmaize #21
+              #+Check2.check.maize.q43 #22
               ,data = baseline_farmers)
 
-
-#vcov_cluster <- vcovCR(model_1_F,cluster=baseline_farmers$catchID,type="CR3") #I think CR0
+vcov_cluster <- vcovCR(model_1_F,cluster=baseline_farmers$catchID,type="CR0") #I think CR0
 
 summary(model_1_F)
 
@@ -1323,66 +1343,60 @@ summary(model_1_F)
 #excluding   (has 2406 NAs) solved the problem (Amount of this seed farmer bought at agro-dealer in kg)
 #Check2.check.maize.q25h has 797 NAs
 
-test_training_F <- linearHypothesis(model_1_F, c("Check2.check.maize.q8=0",
-                                    "Check2.check.maize.q10=0",
-                                    "Check2.check.maize.q14=0",
-                                    "Check2.check.maize.q15=0",
-                                    "finishedprimary=0",
-                                    "Check2.check.maize.q18=0",
-                                    "Check2.check.maize.q20=0",
-                                    "Check2.check.maize.q22=0",
-                                    "Check2.check.maize.q25a=0",
-                                    "agro=0",
-                                    "Check2.check.maize.q25h=0",
-                                    "Check2.check.maize.q42=0",
-                                    "yield_inkg=0",
-                                    "yearsmaize=0",
-                                    "Check2.check.maize.q43=0")) #, vcov. = vcov_cluster 
+# only included pre-registered variables eventually
+test_training_F <- linearHypothesis(model_1_F, c(
+  "Check2.check.maize.q10=0", #ok
+  "Check2.check.maize.q14=0", #ok
+  "Check2.check.maize.q15=0", #ok
+  "finishedprimary=0", #ok
+  "Check2.check.maize.q18=0", #ok
+  "Check2.check.maize.q25a=0", #ok
+  "agro=0", #ok
+  "Check2.check.maize.q25h=0", #ok
+  "landproductivity=0") #ok
+  , vcov. = vcov_cluster)
 
 test_training_F
 
-model_2_F <- lm(clearing~Check2.check.maize.q8 #1
-                +Check2.check.maize.q10 #2
-                +Check2.check.maize.q14 #3
-                +Check2.check.maize.q15 #4
-                +finishedprimary #5
-                +Check2.check.maize.q18 #6
-                +Check2.check.maize.q20 #7
-                +Check2.check.maize.q22 #8
-                +Check2.check.maize.q25a #9
-                +agro #10
-                #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg)
-                +Check2.check.maize.q25h #12
+model_2_F <- lm(clearing~#Check2.check.maize.q8 #1
+                  Check2.check.maize.q10 #2 pre-reg
+                +Check2.check.maize.q14 #3 pre-reg
+                +Check2.check.maize.q15 #4 pre-reg
+                +finishedprimary #5 pre-reg
+                +Check2.check.maize.q18 #6 pre-reg
+                #+Check2.check.maize.q20 #7
+                #+Check2.check.maize.q22 #8
+                +Check2.check.maize.q25a #9 pre-reg
+                +agro #10 pre-reg
+                #+Check2.check.maize.q25d #11 #excluded because 2406 NAs (Amount of this seed farmer bought at agro-dealer in kg) pre-reg
+                +Check2.check.maize.q25h #12 pre-reg
                 #+Check2.check.maize.q30a.1
                 #+adoption_onfield
                 #+Check2.check.maize.q35a
-                +Check2.check.maize.q42 #16
+                #+Check2.check.maize.q42 #16
                 #+correctplanting
-                +yield_inkg
-                #+landproductivity #19
+                #+yield_inkg
+                +landproductivity #19 pre-reg
                 #+Check2.check.maize.q53
-                +yearsmaize #21
-                +Check2.check.maize.q43 #22
+                #+yearsmaize #21
+                #+Check2.check.maize.q43 #22
                 ,data = baseline_farmers)
 
-#vcov_cluster <- vcovCR(model_2_F,cluster=baseline_farmers$catchID,type="CR3") #I think CR0
+vcov_cluster <- vcovCR(model_2_F,cluster=baseline_farmers$catchID,type="CR0") #I think CR0
 summary(model_2_F)
 
-test_clearing_F <- linearHypothesis(model_2_F, c("Check2.check.maize.q8=0",
-                                                 "Check2.check.maize.q10=0",
-                                                 "Check2.check.maize.q14=0",
-                                                 "Check2.check.maize.q15=0",
-                                                 "finishedprimary=0",
-                                                 "Check2.check.maize.q18=0",
-                                                 "Check2.check.maize.q20=0",
-                                                 "Check2.check.maize.q22=0",
-                                                 "Check2.check.maize.q25a=0",
-                                                 "agro=0",
-                                                 "Check2.check.maize.q25h=0",
-                                                 "Check2.check.maize.q42=0",
-                                                 "yield_inkg=0",
-                                                 "yearsmaize=0",
-                                                 "Check2.check.maize.q43=0"))
+# only included pre-registered variables eventually
+test_clearing_F <- linearHypothesis(model_2_F, c(
+  "Check2.check.maize.q10=0", #ok
+  "Check2.check.maize.q14=0", #ok
+  "Check2.check.maize.q15=0", #ok
+  "finishedprimary=0", #ok
+  "Check2.check.maize.q18=0", #ok
+  "Check2.check.maize.q25a=0", #ok
+  "agro=0", #ok
+  "Check2.check.maize.q25h=0", #ok
+  "landproductivity=0") #ok
+  , vcov. = vcov_cluster)
 
 test_clearing_F
 
