@@ -787,12 +787,12 @@ status open
 
 \begin_layout Plain Layout
 We use a haversine function to construct an adjacency matrix based on GPS
- coordinates, and agro-dealers who are less than 5 kilometers apart are
+ coordinates, and agro-dealers who are less than five kilometers apart are
  assigned to the same catchment area.
- The 5 kilometer threshold was selected based on a visual inspection of
- a map, the size of an average village in our sample, and the reported distance
- between farmers and agro-dealers in survey data from a previous study of
- the maize value chain that can be found 
+ The five kilometer threshold was selected based on a visual inspection
+ of a map, the size of an average village in our sample, and the reported
+ distance between farmers and agro-dealers in survey data from a previous
+ study of the maize value chain that can be found 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -867,7 +867,7 @@ literal "false"
  of the time on a selection of primary outcomes.
  This corresponds to approximately 318 agro-dealers.
  Based on further simulations to study impacts at the farm-household level,
- we decide to collect information on 10 farmers per agro-dealer, leading
+ we decide to collect information on ten farmers per agro-dealer, leading
  to a sample size of 3,180 households.
 \begin_inset Foot
 status open
@@ -962,7 +962,7 @@ status collapsed
 
 \begin_layout Plain Layout
 For 80 agro-dealers, both owner and manager attended; for 50 agro-dealers,
- only the owner attended; for 10 agro-dealers, only the manager attended.
+ only the owner attended; for ten agro-dealers, only the manager attended.
 \end_layout
 
 \end_inset
@@ -1107,7 +1107,7 @@ We acknowledge that agro-dealers stock different varieties, so that asking
 s customers may face.
  It would have been ideal to ask farmers to rate agro-dealers conditional
  on variety, manufacturer, and form sold (for example, to rate “Bazooka”
- produced by Naseco in an original 2 kilogram bag).
+ produced by Naseco in an original two kilogram bag).
  However, this would have made the rating process much more tedious and
  time consuming.
  Instead, we opted to test a scalable solution that generates a general
@@ -1138,7 +1138,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1167,7 +1167,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -1429,8 +1429,8 @@ Rating dissemination to farmers
 \end_layout
 
 \begin_layout Standard
-Our ability to test the effectiveness of the clearinghouse treatment requires
- precise timing of the dissemination of these agro-dealer ratings.
+Our ability to test the effectiveness of the clearinghouse treatment depends
+ on the timing of the dissemination of these agro-dealer ratings.
  Dissemination occurred before farmers started buying seed for the next
  agricultural season, allowing treated farmers to use the new rating information
  when choosing whether and where to purchase inputs (Figure 
@@ -1460,7 +1460,7 @@ name "text about SMS"
 \end_layout
 
 \begin_layout Standard
-Farmers were sent one text message per agro-dealer in their catchment area
+Farmers received one text message per agro-dealer in their catchment area
  by SMS in one of three local languages—Lusoga, Lugwere, or Samia.
  For farmers in treatment catchment areas, the message read: 
 \end_layout
@@ -1505,17 +1505,17 @@ textit{okay/good/very good/excellent}{]}}}
 
 \begin_layout Standard
 To isolate the effect of the ratings from more general effects that may
- arise from simply sending SMS messages, we also use a placebo for the control
- group that consisted of an 
-\begin_inset Quotes qld
+ arise from sending text messages, we use a placebo for the control group
+ that consists of an 
+\begin_inset Quotes eld
 \end_inset
 
 empty
-\begin_inset Quotes qrd
+\begin_inset Quotes erd
 \end_inset
 
- SMS that only pointed out the existence of the agro-dealers in the control
- farmer's catchment area.
+ SMS that only points out the existence of agro-dealers in the control farmer's
+ catchment area.
  This also makes it more difficult for farmers to identify if they are being
  treated or not, thus reducing the likelihood of reactivity effects and
  experimenter bias.
@@ -1526,8 +1526,8 @@ In person
 \end_layout
 
 \begin_layout Standard
-In addition to the SMS messages, enumerators also re-visited the farmers
- in our sample.
+In addition to the text messages, enumerators re-visited the farmers in
+ our sample.
  For this purpose, we designed a visually appealing tablet-based application
  that cycles through all agro-dealers in the catchment area of each farmer
  and provides their ratings.
@@ -1591,10 +1591,11 @@ textit{score}{]}}}
 \end_layout
 
 \begin_layout Standard
-The application also displayed the stars associated with the score.
+The application also displayed one to five stars associated with the score.
  Again, for control group farmers, the application cycled through the agro-deale
 rs in the control areas without providing ratings to control for any effect
- that may arise from simply being reminded of the existence of agro-dealers.
+ that may arise from simply being reminded of the existence of these agro-dealer
+s.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1602,9 +1603,9 @@ Rating dissemination to agro-dealers
 \end_layout
 
 \begin_layout Standard
-Agro-dealers received their ratings from a report on laminated paper that
- was delivered to their agro-dealerships.
- The front of the report is a visually appealing certificate with a logo
+Agro-dealers received their ratings in the form of a report on laminated
+ paper that was delivered to their agro-dealerships.
+ The front of the report shows a visually appealing certificate with a logo
  and the agro-dealer's general rating (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1616,8 +1617,8 @@ noprefix "false"
 \end_inset
 
 ).
- We encouraged agro-dealers to prominently display the ratings in the agro-deale
-rship, similar to a 
+ We encouraged agro-dealers to prominently display their rating in the agro-deal
+ership, like a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1695,19 +1696,15 @@ The back of the report provides additional information, including the individual
  and the average (combined) ratings of other agro-dealers in the same catchment
  area in a table, visualized by stars.
  This shows agro-dealers their relative position in the area, potentially
- incentivizing the agro-dealer to improve their ratings through social compariso
-n and self-image effects.
-\begin_inset VSpace medskip
-\end_inset
-
-
+ motivating them to improve their ratings through social comparison and
+ self-image effects.
 \end_layout
 
 \begin_layout Standard
-The entire process of collecting and disseminating ratings was done twice,
- the first time targeting the second agricultural season of 2021 and the
- second time targeting the first agricultural season of 2022 (see Figure
- 
+The entire process of collecting and disseminating ratings was completed
+ twice, the first time targeting the second agricultural season of 2021
+ and the second time targeting the first agricultural season of 2022 (see
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "timeline"
@@ -1718,16 +1715,16 @@ noprefix "false"
 \end_inset
 
 ).
- Repeating the treatment was important to capture different dynamics of
- particular impact channels on certain outcomes.
- For instance, if seed quality is good but farmers hold pessimistic beliefs
- about the quality, disseminating information may already result in increased
+ Repeating the treatment was essential to capture the varying dynamics of
+ specific impact channels on certain outcomes.
+ For instance, if seed is good but farmers hold pessimistic beliefs about
+ its quality, disseminating information may already result in increased
  adoption and yield effects after a single season.
  However, if agro-dealers engage in counterfeiting, the threat of farmers
- switching to more honest agro-dealers may lead them to improve quality,
- which will only be reflected in subsequent ratings.
- This in turn could increase adoption, but the effect of this on yields
- will only become apparent during harvest in the second season.
+ switching to more honest competitors may lead agro-dealers to improve quality,
+ which would be reflected in subsequent ratings.
+ These higher ratings could increase adoption, but the effect on yields
+ would only become apparent during harvest in the second season.
  Repetition may also be important for the effectiveness of certain impact
  pathways.
  For instance, agro-dealers may be more likely to change their behavior
@@ -1752,8 +1749,8 @@ We estimate intention-to-treat effects on outcomes at both the agro-dealer
  level and the farmer level.
  To increase power, we condition the estimates on (mean-centered) baseline
  values of the outcome variables.
- We estimate the following specification using Ordinary Least-Squares to
- obtain the average treatment effect for agro-dealer level outcomes:
+ We estimate the following specification using Ordinary Least Squares to
+ obtain the average treatment effects for agro-dealer level outcomes:
 \end_layout
 
 \begin_layout Standard
@@ -1891,11 +1888,11 @@ d to maximize the amount of information captured in the index by giving
 
 \end_inset
 
- While these indices are useful to answer the question of overall impact
- of the intervention on a family of outcomes, it is not straightforward
- to interpret the effect size.
- Zooming in on individual outcomes within each family, effect sizes become
- more meaningful and show which variables drive the results.
+ While these indices are useful to judge the overall impact of the intervention
+ on a family of outcomes, it is not straightforward to interpret the effect
+ size.
+ Focusing on individual outcomes within each family reveals more meaningful
+ effect sizes and highlights the variables driving the results.
  This is why we also report the treatment effects on individual variables,
  though we advise care in interpretation.
 \end_layout
@@ -1923,10 +1920,10 @@ name "subsec:Sample"
 \end_layout
 
 \begin_layout Standard
-The agro-dealer sample was obtained by listing all agro-dealers in 11 districts
- in southeastern Uganda.
- After the census, which resulted in 348 eligible agro-dealers, these agro-deale
-rs were assigned to 130 catchment areas (for details, see Section 
+The agro-dealer sample was obtained by listing all agro-dealers in eleven
+ districts in southeastern Uganda.
+ After this census, the resulting 348 eligible agro-dealers were assigned
+ to 130 catchment areas (for details, see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Experimental design"
@@ -1948,12 +1945,12 @@ noprefix "false"
 
  in particular).
  This procedure led to an average of three agro-dealers per catchment area,
- ranging from a minimum of 1 to a maximum of 18.
+ ranging from a minimum of one to a maximum of 18.
 \end_layout
 
 \begin_layout Standard
-To connect agro-dealers to customers, we asked agro-dealers for the names
- of the villages where most of their customers come from.
+To connect agro-dealers to farmers, we asked them for the names of the villages
+ where most of their customers come from.
  Then enumerators were instructed to randomly sample ten households that
  grow maize in these villages.
  Consequently, about 3,500 smallholder maize farmers were sampled.
@@ -2004,6 +2001,13 @@ status open
 
 
 \backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 begin{center}
 \end_layout
 
@@ -2027,7 +2031,7 @@ hline
 
 & & 
 \backslash
-multicolumn{2}{c}{agro-dealer training} 
+multicolumn{2}{c}{Agro-dealer training} 
 \backslash
 
 \backslash
@@ -2058,7 +2062,7 @@ cline{3-4}
 
 
 \backslash
-multirow{6}{*}{clearinghouse} & 
+multirow{6}{*}{Clearinghouse} & 
 \backslash
 multirow{3}{*}{1} & 33 areas & 32 areas 
 \backslash
@@ -2163,10 +2167,10 @@ Baseline data were collected from agro-dealers in September and October
 
 \begin_layout Standard
 At the agro-dealer level, enumerators were instructed to interview the person
- who is most knowledgeable about the day-to-day operations, which was usually
- the shop manager.
+ who is most knowledgeable about the day-to-day operations of the dealership,
+ which was usually the shop manager.
  As part of the initial quality assessment process, a bag of maize seed
- was also purchased at each agro-dealer.
+ was purchased at each agro-dealer.
 \begin_inset Foot
 status collapsed
 
@@ -2195,19 +2199,17 @@ thinspace}$
 status collapsed
 
 \begin_layout Plain Layout
-Even though repackaging seed from the original larger bags from seed companies
+Even though repackaging seed from original larger bags from seed companies
  into smaller bags to offer quantities that are convenient and affordable
  to their clients is common (around half of the agro-dealers in our sample
- report to do so), the sample bags that enumerators bought were all original,
+ report to do so), the samples that enumerators bought were all original,
  sealed bags.
 \end_layout
 
 \end_inset
 
- Enumerators were also instructed to note down a series of objectively verifiabl
-e quality indicators related to storage.
- Often, this also meant that enumerators inspected stores at different locations
- that were separate from the sales outlet.
+ Enumerators also noted a series of objectively verifiable quality indicators
+ related to seed storage.
 \end_layout
 
 \begin_layout Standard
@@ -2215,14 +2217,14 @@ At the farmer level, enumerators were instructed to interview the person
  most knowledgeable about maize farming.
  However, a set of questions deals with the household head, who could or
  could not be the respondent.
- In addition to general questions about farming and input use, the farmer
- was asked to enumerate all maize plots, from which a random plot was chosen,
- and detailed data was collected on that plot.
+ In addition to general questions about farming and input use, farmers were
+ asked to enumerate all their maize plots, from which a random plot was
+ chosen, and detailed data was collected on that plot.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-This was mainly done to reduce on data collection costs, time, and burden.
+This was mainly done to reduce data collection costs, time, and burden.
  As plots were chosen randomly, averages should be representative at the
  household level.
 \end_layout
@@ -2249,7 +2251,7 @@ noprefix "false"
 \end_inset
 
 .
- The average respondent is 32 years old; 60% are male and more than 90%
+ The average respondent is 32 years old, 60% are male, and more than 90%
  finished primary education.
  In 55% of the cases, the respondent is also the owner of the agro-dealership.
 \end_layout
@@ -2261,9 +2263,9 @@ We see substantial heterogeneity among agro-dealers.
  to a small customer base and only during the planting season.
  Others have many customers, are located in towns and only sell inputs and
  equipment used in agricultural production.
- The average agro-dealership was established 5 years prior to the baseline
- survey date, is located 7 km from the nearest tarmac road, and services
- an average of 41 customers per day.
+ The average agro-dealership was established five years prior to the baseline
+ survey, is located seven kilometers from the nearest tarmac road, and services
+ 41 customers per day.
  Among the sampled agro-dealers, 74% sell only farm inputs and equipment,
  60% reported that they provide credit, and 46% that they offer advisory
  services.
@@ -2273,17 +2275,18 @@ We see substantial heterogeneity among agro-dealers.
 Information was also collected to provide an initial assessment of the quality
  of maize seed sold at the sampled agro-dealers.
  This included specific questions on seed storage and handling.
- Furthermore, with the shop manager's permission, enumerators—drawing on
- training provided to them at the outset of the study—inspected the area
- where seed was stored and carefully recorded the conditions.
+ Furthermore, with the shop manager's permission, enumerators—who were trained
+ to do so at the outset of the study—inspected the area where seed was stored
+ and carefully recorded the conditions.
  Baseline data reveals various signs that seed storage and handling are
- sub-optimal and may affect seed quality in line with the first hypothesis.
+ sub-optimal and may affect seed quality in line with our first hypothesis.
  For example, we find that 65% of agro-dealers had problems with pests such
  as rats or insects, while 16% store maize seed in open containers, thus
  exposing the seed to a range of pests and contaminants.
  Not surprisingly, two-thirds of the agro-dealers sampled reported that
  they had received at least one complaint about seed they sold from a customer
  during the prior season.
+ HERE (search e.g.)
 \end_layout
 
 \begin_layout Standard
@@ -2310,7 +2313,7 @@ literal "false"
  of 12.74% versus germination rates of only 50% for the same seed with a
  moisture content of 15.64% in a study in Pakistan.
  Experts we consulted to develop the training on proper seed handling and
- storage follow this rule of thumb: an increase of moisture by 1 percentage
+ storage follow this rule of thumb: an increase of moisture by one percentage
  point reduces shelf-life by half.
 \end_layout
 
@@ -3450,17 +3453,17 @@ noprefix "false"
  reports means in the farmer sample.
  The average household head in our sample is 49 years old; 78% are male
  and 51% have finished primary education.
- The average household size is 9 people, and the typical homestead is located
- 4 kilometers from the nearest agro-dealer and 9 kilometers from the nearest
- tarmac road.
+ The average household size is nine people, and the typical homestead is
+ located four kilometers from the nearest agro-dealer and nine kilometers
+ from the nearest tarmac road.
  The average farmer has 23 years of experience cultivating maize and cultivates
- 3 acres of land for all crops, including maize.
+ three acres of land for all crops, including maize.
 \end_layout
 
 \begin_layout Standard
 Half of the farmers in our sample planted improved maize seed on at least
- one of their plots last season, with 1 out of 3 farmers purchasing this
- seed at an agro-dealer.
+ one of their plots last season, with one out of three farmers purchasing
+ this seed at an agro-dealer.
  Only 25% applied inorganic fertilizers such as di-ammonium phosphate (DAP)
  or nitrogen, phosphorus, and potassium (NPK) on the randomly selected plot.
  Yields on these plots in the season preceding the baseline survey (the
@@ -3583,7 +3586,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -4819,7 +4822,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -4883,7 +4886,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -6062,7 +6065,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -6261,7 +6264,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -6647,7 +6650,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -6986,7 +6989,7 @@ literal "false"
  At endline, the positive effect of the clearinghouse intervention seems
  to become stronger, with the overall index now significant at the 1% level.
  The effect is driven by a 31% increase in the number of customers that
- a treated agro-dealer attracts, which translates into 6 additional customers
+ a treated agro-dealer attracts, which translates into six additional customers
  per day.
 \end_layout
 
@@ -7023,7 +7026,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -8042,7 +8045,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -8179,7 +8182,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -9498,7 +9501,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -9590,7 +9593,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -10884,7 +10887,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -11055,7 +11058,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -12343,7 +12346,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -12432,9 +12435,10 @@ used any quality maize seed (like OPV or hybrid in seed) on any of their
  Relatedly, we ask if farmers bought high-yielding maize varieties at an
  agro-dealer for any plot.
  At midline, we find a difference between the clearinghouse treatment and
- control groups of about 6 percentage points, and this amounts to an almost
+ control groups of about six percentage points, and this amounts to an almost
  20% increase relative to the baseline mean.
- At endline, the difference is about 3 percentage points, but not significant.
+ At endline, the difference is about three percentage points, but not significan
+t.
  We do not find an impact of the clearinghouse on the amount of seed that
  farmers bought at agro-dealers.
  However, note that estimates are based on a small sample size (n=599 at
@@ -12463,8 +12467,8 @@ en-pollinated maize seed.
 
  As for the more general questions above, we also ask if the seed used on
  the random plot was obtained from an agro-dealer.
- We find an almost 5 percentage point treatment effect for the clearinghouse
- at midline and an almost 4 percentage point effect at endline.
+ We find an almost five percentage point treatment effect for the clearinghouse
+ at midline and an almost four percentage point effect at endline.
  Conversely, we estimate the clearinghouse effect on the use of farmer-saved
  seed on the randomly selected plot.
  Again—and in line with our expectations—we find that farmers who were exposed
@@ -12509,7 +12513,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -13791,7 +13795,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -14025,7 +14029,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -14595,7 +14599,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -14881,7 +14885,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -15769,7 +15773,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -15933,7 +15937,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -17065,7 +17069,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -17174,7 +17178,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -17446,7 +17450,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -17652,7 +17656,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -18224,7 +18228,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -18337,7 +18341,7 @@ literal "false"
  adoption.
  Consistent with this explanation, we find that two in three farmers thought
  that maize seed at agro-dealers is counterfeit or adulterated at baseline.
- At the same time, the average agro-dealer was rated 3.4 out of 5 at baseline,
+ At the same time, the average agro-dealer was rated 3.4 out of five at baseline,
  which indicates that perceived seed quality was reasonable.
  The fact that ratings are relatively high is probably due to the fact that
  farmers who rate have experience with seed from agro-dealers.
@@ -18691,7 +18695,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -19826,7 +19830,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -19931,9 +19935,9 @@ Should more ratings lead to better ratings?
 \begin_layout Standard
 Some agro-dealers were not rated by any smallholder in the first round,
  while others were rated by up to 22 smallholders.
- If agro-dealer A is rated by 10 farmers and gets rating 3.5 and agro-dealer
- B is rated by 1 farmer and gets rating 3.6, we treat agro-dealer B as the
- better agro-dealer.
+ If agro-dealer A is rated by ten farmers and gets rating 3.5 and agro-dealer
+ B is rated by one farmer and gets rating 3.6, we treat agro-dealer B as
+ the better agro-dealer.
  Even though receiving many (few) ratings can be related to good (poor)
  quality (the lack of ratings could be nonrandom, see previous paragraph),
  there could be other reasons why agro-dealers are rated by many (few) farmers.
@@ -19958,22 +19962,22 @@ The following examples show that ratings should not depend on catchment
  a bit worse than the rest but still good, we do not want this agro-dealer
  to be rated poorly (which would be unfair towards him or her).
  On the other hand, less than 9% of agro-dealers received a rating below
- 3 out of 5, so we would throw away valuable data if we would only disseminate
- good scores without any variation.
+ three out of five, so we would throw away valuable data if we would only
+ disseminate good scores without any variation.
  Therefore, we take the distribution of ratings into account by using quintiles.
- Consequently, less agro-dealers receive rating 4 or 5, more agro-dealers
- receive rating 1 or 2.
+ Consequently, less agro-dealers receive rating four or five, more agro-dealers
+ receive rating one or two.
  This could strengthen the effect of the treatment on agro-dealer effort.
- If agro-dealers get ratings 1 or 2 instead of 4 or 5, they could feel more
- inclined to improve their scores.
+ If agro-dealers get ratings one or two instead of four or five, they could
+ feel more inclined to improve their scores.
  Consequently, the effect on seed quality itself could be larger.
  However, the clearinghouse should also have a signaling effect, which might
- be weaker if more agro-dealers are rated 1 or 2 instead of 4 or 5 (dealers
- would seem to be of worse quality to farmers).
+ be weaker if more agro-dealers are rated one or two instead of four or
+ five (dealers would seem to be of worse quality to farmers).
  Therefore, we chose words with a positive connotation as the quintile names
  for rating dissemination.
  As most agro-dealers received a good or very good rating before taking
- the distribution into account, we ensure that even a 2 is still communicated
+ the distribution into account, we ensure that even a two is still communicated
  as 
 \begin_inset Quotes eld
 \end_inset
@@ -20097,7 +20101,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -21784,7 +21788,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -21927,7 +21931,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -22768,7 +22772,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -22898,7 +22902,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -24535,7 +24539,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -24680,7 +24684,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -25672,7 +25676,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -25749,17 +25753,17 @@ How long can seed be carried over before losing viability?
 
 \bar under
 Seed can be carried over into the next seasons as you can store seed for
- 12 months.
+ twelve months.
 \end_layout
 
 \begin_layout Enumerate
-Seed cannot be carried over into the next seasons as 6 months is the longest
+Seed cannot be carried over into the next seasons as six months is the longest
  seed can be stored.
 \end_layout
 
 \begin_layout Enumerate
 This depends on the seed: hybrids cannot be carried over, OPVs can be carried
- over for 5 seasons.
+ over for five seasons.
 \end_layout
 
 \begin_layout Enumerate
@@ -25802,13 +25806,13 @@ What is the minimum recommended distance between the floor and where seed
 \end_layout
 
 \begin_layout Enumerate
-Minimum 2 inches from the floor.
+Minimum two inches from the floor.
 \end_layout
 
 \begin_layout Enumerate
 
 \bar under
-Minimum 6 inches from the floor.
+Minimum six inches from the floor.
 \end_layout
 
 \begin_layout Enumerate
@@ -26013,7 +26017,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -27708,7 +27712,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -27794,7 +27798,7 @@ status open
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -30226,7 +30230,7 @@ end{center}
 
 
 \backslash
-scriptsize
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
