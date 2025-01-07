@@ -1093,7 +1093,32 @@ endline_farmers$end_landproductivity <- endline_farmers$end_yield_inkg/endline_f
 endline_farmers$end_landproductivity_untrimmed <- endline_farmers$end_landproductivity
 endline_farmers <- trim("end_landproductivity",endline_farmers,trim_perc=.05)
 
-all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","time_plant","time_weed","treatment","clearing","training","adoption_onfield","expectations","yield_inkg","landproductivity","Check2.check.maize.q57" )],midline_farmers[c("farmer_ID","mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity", "mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity")])
+baseline_farmers$Check2.check.maize.q54 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q54))
+baseline_farmers$Check2.check.maize.q54[baseline_farmers$Check2.check.maize.q53=="No"] <- 0
+baseline_farmers$Check2.check.maize.q51 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q51))
+baseline_farmers$soldinkg <- baseline_farmers$Check2.check.maize.q54*baseline_farmers$Check2.check.maize.q51
+baseline_farmers$Check2.check.maize.q55 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q55))
+baseline_farmers$revenueUGX <- baseline_farmers$Check2.check.maize.q54*baseline_farmers$Check2.check.maize.q55
+baseline_farmers$revenueUGX[baseline_farmers$Check2.check.maize.q53=="No"] <- 0
+
+midline_farmers$check.maize.q54 <- as.numeric(as.character(midline_farmers$check.maize.q54))
+midline_farmers$check.maize.q54[midline_farmers$check.maize.q53=="No"] <- 0
+midline_farmers$check.maize.q51 <- as.numeric(as.character(midline_farmers$check.maize.q51))
+midline_farmers$mid_soldinkg <- midline_farmers$check.maize.q54*midline_farmers$check.maize.q51
+midline_farmers$check.maize.q55 <- as.numeric(as.character(midline_farmers$check.maize.q55))
+midline_farmers$mid_revenueUGX <- midline_farmers$check.maize.q54*midline_farmers$check.maize.q55
+midline_farmers$mid_revenueUGX[midline_farmers$check.maize.q53=="No"] <- 0
+
+endline_farmers$check.maize.q54 <- as.numeric(as.character(endline_farmers$check.maize.q54))
+endline_farmers$check.maize.q54[endline_farmers$check.maize.q53=="No"] <- 0
+endline_farmers$check.maize.q51 <- as.numeric(as.character(endline_farmers$check.maize.q51))
+endline_farmers$end_soldinkg <- endline_farmers$check.maize.q54*endline_farmers$check.maize.q51
+endline_farmers$check.maize.q55 <- as.numeric(as.character(endline_farmers$check.maize.q55))
+endline_farmers$end_revenueUGX <- endline_farmers$check.maize.q54*endline_farmers$check.maize.q55
+endline_farmers$end_revenueUGX[endline_farmers$check.maize.q53=="No"] <- 0
+
+
+all <- merge(merge(baseline_farmers[c("farmer_ID","shop_ID","correct_spacing", "correct_seed_rate", "organic_use", "DAP_use", "Urea_use", "times_weeding", "pesticide_use", "resowing","time_plant","time_weed","treatment","clearing","training","adoption_onfield","expectations","yield_inkg","landproductivity","Check2.check.maize.q57","soldinkg","revenueUGX" )],midline_farmers[c("farmer_ID","mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity","mid_soldinkg","mid_revenueUGX", "mid_adoption_onfield","mid_Land_Races","mid_farmer_saved_seed", "mid_Bought_from_agro_input_shop")]),endline_farmers[c("farmer_ID","end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity","end_soldinkg","end_revenueUGX")])
 ##demean orthogonal treatments
 all$clearing <- all$clearing - mean(all$clearing)
 all$training <- all$training - mean(all$training)
@@ -1103,9 +1128,9 @@ index_base <- icwIndex(xmat=xmat_base)
 all$index_base <- index_base$index
 
 all_nt <- subset(all, treatment==FALSE)
-mean_expectations <-  array(NA,dim=c(4,2,9))
+mean_expectations <-  array(NA,dim=c(4,2,6))
 #loop here over outcomes
-outcomes <- c("mid_expectations_met","yield_inkg","landproductivity","index_base")
+outcomes <- c("mid_expectations_met","yield_inkg","landproductivity","soldinkg","revenueUGX","index_base")
 for (i in 1:length(outcomes)) {
   mean_expectations[1,1,i] <- mean(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
   mean_expectations[2,1,i] <- sd(unlist(all_nt[outcomes[i]]), na.rm=TRUE)
@@ -1139,9 +1164,9 @@ all$compl_index <- index_base$index
 all$selector_2 <- all$overest == TRUE
 all$selector_1 <- all$compl_index < 0
 
-mid_expectations <-  array(NA,dim=c(4,4,5))
+mid_expectations <-  array(NA,dim=c(4,4,7))
 #loop here over outcomes c
-outcomes <- c("mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity","index_mid")
+outcomes <- c("mid_expectations_met","mid_myownfault","mid_yield_inkg","mid_landproductivity","mid_soldinkg","mid_revenueUGX","index_mid")
 for (i in 1:length(outcomes)) {
   
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
@@ -1184,9 +1209,9 @@ xmat_end <- cbind(all$end_expectations_met, all$end_yield_inkg, all$end_landprod
 index_end <- icwIndex(xmat=xmat_end)
 all$index_end <- index_end$index
 
-end_expectations <-  array(NA,dim=c(4,4,9))
+end_expectations <-  array(NA,dim=c(4,4,7))
 #loop here over outcomes c
-outcomes <- c("end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity","index_end")
+outcomes <- c("end_expectations_met","end_myownfault","end_yield_inkg","end_landproductivity","end_soldinkg","end_revenueUGX","index_end")
 for (i in 1:length(outcomes)) {
   
   ols <- lm(as.formula(paste(outcomes[i],"treatment*clearing*training", sep="~")),data=all)
@@ -1239,7 +1264,7 @@ df[3,1] <- "complementary input use"
 df[3,2:4] <- mid_practices[1:3,1,12]
 
 df[4,1] <- "correct expectations"
-df[4,2:4] <- mid_expectations[1:3,1,5]
+df[4,2:4] <- mid_expectations[1:3,1,7]
 
 
 
