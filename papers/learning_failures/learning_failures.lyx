@@ -365,11 +365,8 @@ and that each figures differently into our understanding of the conventional agr
 
 \begin_layout Standard
 There are many reasons why farmers may not move into a state of sustained adoption of a given technology.
- For a comprehensive discussion of these explanations,
- including challenges related to incomplete credit,
- labor,
- and land markets,
- readers are encouraged to consult the outstanding reviews by 
+ For explanations grounded in multiple market failures such as credit constraints or imperfect labour and land markets,
+ readers are encouraged to consult comprehensive reviews by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "magruder2018assessment"
@@ -517,7 +514,7 @@ literal "false"
 \begin_layout Standard
 We test the miracle seeds hypothesis in a field experiment with almost 3,500 maize farmers in eastern Uganda.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 The overarching study was pre-registered at the 
@@ -532,6 +529,13 @@ literal "false"
 under RCT ID 0006361.
  It was primarily designed to examine quality-related constraints to technology adoption with a series of interventions at the agro-input dealer level.
  This paper makes use of farmer-level interventions that were introduced alongside the main design and described in the pre-analysis plan.
+\begin_inset CommandInset label
+LatexCommand label
+name "fn:The-overarching-study"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1107,7 +1111,7 @@ We obtained experimental variation by recording two versions of this interventio
  for each individual recommended input or practice,
  significant complementarities exist when using improved varieties.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 For example,
@@ -1391,6 +1395,36 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Baseline data was collected in April 2021,
+ before the second agricultural season of the year that runs from July to December.
+ A follow-up round of data was collected post treatment in January and February 2022 after maize from the second season of 2021 was harvested.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We collected an addition round of post treatment data from farmers in July and August 2022 after the harvest of the first season of 2022.
+ The aim of this second follow-up was related to other hypotheses that were part of the overarching research design (see Footnote 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fn:The-overarching-study"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ As such,
+ in this study we primarily use data from the first follow-up collected in January and February 2022.
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2813,12 +2847,12 @@ thinks that the adoption premium is not dependent on the use of complementary in
 
 .
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Only if the misspecified adoption premium is large enough (i.e.,
  exceeding the cost of additional complementary inputs needed (including the seed and normalized by the price)),
- type 2 farmers who adopted will also adopt after having been informed about the need to use complementary inputs.
+ type 2 farmers who adopted under the misspecified model will also adopt after having been informed about the need to use complementary inputs.
  As such,
  the average treatment effect does not only depend on the share of farmers who hold correct or incorrect beliefs,
  but also on the technology and associated costs.
@@ -2953,7 +2987,7 @@ nolink "false"
 
 ).
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 One challenge with this strategy is that there are different complementary inputs and practices and some farmers may adopt some while not adopting others.
@@ -2972,7 +3006,7 @@ nolink "false"
 
 \end_inset
 
- when measured at endline).
+ when measured post intervention).
  The index is again computed according to 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -3008,9 +3042,7 @@ nolink "false"
 
 ).
  We do this by looking at the distribution of expected maize yields at baseline.
- Farmers in the lowest 33 percent of the distribution are categorized as potentially underestimating the yield premium,
- while farmers in the highest 33 percent of the distribution are categorized as potentially overestimating the yield premium.
- The remainder is assumed to correctly estimate the yield premium.
+ Farmers in the highest 33 percent of the distribution are then categorized as potentially overestimating the yield premium (while those in the lowest 33 percent of the distribution may have been disappointed in the past).
 \end_layout
 
 \begin_layout Subsection
@@ -3096,7 +3128,7 @@ nolink "false"
  We see that knowledge is already high,
  which is likely to reduce statistical power for these comparisons.
  For example,
- 36 percent of farmers in the control group know that recommended inputs and cultivation practices like weeding or applying fertilizer are even more important when using improved varieties.
+ 38 percent of farmers in the control group know that recommended inputs and cultivation practices like weeding or applying fertilizer are even more important when using improved varieties.
 \end_layout
 
 \begin_layout Standard
@@ -3119,12 +3151,23 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-We find that the treatment generally increases the likelihood that farmers answer correctly.
- However,
- the difference is only significant for the individual question about the use of fertilizer.
+Looking at the summary index,
+ we find that the treatment increases the likelihood that farmers answer correctly.
+ The difference is particularly significant for the individual question about the use of fertilizer.
  This could be because the recognition that complementary inputs are necessary to reap the benefits of improved seed may become more salient when this complementary input comes at a substantial pecuniary cost.
  Effect sizes become larger with increasingly specific samples,
- as expected.
+ as predicted by the theoretical model in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-framework"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3133,7 +3176,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3423,7 +3466,13 @@ Sexpr{format(round(end_knowledge[2,3,7],digits=3),nsmall=3)})
 
 Observations$^
 \backslash
-dag$ &  &  3,256  &  1,615 & 361 
+dag$ &  &  
+\backslash
+Sexpr{format(round(end_knowledge[4,1,7],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(end_knowledge[4,2,7],digits=0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(end_knowledge[4,3,7],digits=0),nsmall=0)} 
 \backslash
 
 \backslash
@@ -3704,6 +3753,35 @@ nolink "false"
  Results thus indicate that in the subgroup of farmers with inflated yield expectations,
  the intervention induces farmers to turn away from improved seed varieties toward local low-cost,
  low-yielding alternatives.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For the adoption outcomes in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ we also looked the subgroup of farmers that did not use complementary inputs and underestimate the yield premium at baseline.
+ We find that,
+ as expected,
+ the significant negative impact from the intervention disappears and in most cases the sign changes.
+ The fact that the treatment does not increase adoption for this group suggests that abandoning a plan upon receiving new information is probably easier than committing to a new plan (for instance due to credit constraints,
+ difficulties to access inputs,
+ risk aversions,etc).
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3712,7 +3790,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4205,7 +4283,13 @@ dag$
 
 \begin_layout Plain Layout
 
-&  &  2,941 & 1,449 & 336 
+&  &   
+\backslash
+Sexpr{format(round(mid_adoption[4,1,5],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(mid_adoption[4,2,5],digits=0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(mid_adoption[4,3,5],digits=0),nsmall=0)} 
 \backslash
 
 \backslash
@@ -4285,6 +4369,23 @@ dag$These are the numbers of observations in the regression with the index,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+There are indications that reduced adoption of seed of improved varieties in the treatment group also translates into lower productivity and less revenue from maize sales.
+ We find the same pattern as what was found in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Treatment-effects"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ with the negative effect becoming stronger if we restrict the sample to farmers that did not use complementary inputs and overestimated yields at baseline.
+ Results can be found in Online Appendix A.
 \end_layout
 
 \begin_layout Subsection
@@ -4424,7 +4525,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5584,10 +5685,20 @@ Sexpr{format(round(mid_practices[2,3,12],digits=3),nsmall=3)})
 
 Observations$^
 \backslash
-dag$ &  & 2,970 & 1,547 & 349 
+dag$ &  &   
+\backslash
+Sexpr{format(round(mid_practices[4,1,12],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(mid_practices[4,2,12],digits=0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(mid_practices[4,3,12],digits=0),nsmall=0)} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -5919,7 +6030,13 @@ Observations
 
 \begin_layout Plain Layout
 
-&  & 3,185 & 1,572 &  347 
+&  &  &  &   
+\backslash
+Sexpr{format(round(mid_expectations[4,1,1],digits=0),nsmall=0)}  &  
+\backslash
+Sexpr{format(round(mid_expectations[4,2,1],digits=0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(mid_expectations[4,3,1],digits=0),nsmall=0)} 
 \backslash
 
 \backslash
