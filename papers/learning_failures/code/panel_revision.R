@@ -203,15 +203,15 @@ endline_farmers$end_pesticide_use[endline_farmers$check.maize.q47=="98"] <- NA
 ##weeding nr
 baseline_farmers$Check2.check.maize.q45[baseline_farmers$Check2.check.maize.q45 == "999"] <- NA
 baseline_farmers$times_weeding<-as.numeric(as.character(baseline_farmers$Check2.check.maize.q45))
-baseline_farmers$times_weeding <- baseline_farmers$times_weeding >= 3 
+#baseline_farmers$times_weeding <- baseline_farmers$times_weeding >= 3 
 
 midline_farmers$check.maize.q45[midline_farmers$check.maize.q45 == "999"] <- NA
 midline_farmers$mid_times_weeding<-as.numeric(as.character(midline_farmers$check.maize.q45))
-midline_farmers$mid_times_weeding <- midline_farmers$mid_times_weeding >= 3 
+#mid_times_weeding <- midline_farmers$mid_times_weeding >= 3 
 
 endline_farmers$Check2.check.maize.q45[endline_farmers$check.maize.q45 == "999"] <- NA
 endline_farmers$end_times_weeding<-as.numeric(as.character(endline_farmers$check.maize.q45))
-endline_farmers$end_times_weeding <- endline_farmers$end_times_weeding >= 3 
+#endline_farmers$end_times_weeding <- endline_farmers$end_times_weeding >= 3 
 
 ##resowing
 baseline_farmers$resowing <- NA
@@ -702,6 +702,7 @@ all$training <- all$training - mean(all$training)
 xmat_base <- cbind(all$adoption_onfield,all$farmer_saved_seed,all$Bought_from_agro_input_shop)
 index_base <- icwIndex(xmat=xmat_base,revcols = c(2))
 all$index_base <- index_base$index
+#all$index_base <- rowMeans(matStand({xmat_base[, 2] <- -xmat_base[, 2]; xmat_base}))
 
 
 mean_base <-  array(NA,dim=c(4,2,5))
@@ -726,7 +727,7 @@ save(mean_base, file=paste(path,"papers/learning_failures/code/output/mean_base.
 xmat_mid <- cbind(all$mid_adoption_onfield,all$mid_farmer_saved_seed,all$mid_Bought_from_agro_input_shop)
 index_mid <- icwIndex(xmat=xmat_mid,revcols = c(2))
 all$index_mid <- index_mid$index
-#all$index_mid <- rowMeans({xmat_mid[, 2] <- -xmat_mid[, 2]; xmat_mid})
+#all$index_mid <- rowMeans(matStand({xmat_mid[, 2] <- -xmat_mid[, 2]; xmat_mid}))
 
 ### instead of conditioning on baseline adoption, try to condition on baseline 
 all$Check2.check.maize.q57[all$Check2.check.maize.q57>99] <- NA
