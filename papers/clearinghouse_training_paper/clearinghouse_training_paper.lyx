@@ -406,35 +406,6 @@ literal "false"
 \begin_layout Standard
 We investigate some of these issues through a field experiment conducted with both agro-dealers and smallholder farmers in their catchment areas in the nascent market for improved,
  high-yielding maize varieties in eastern Uganda.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-In the context of this study,
- high-yielding maize varieties refer to both open-pollinated varieties and hybrids.
- While the distinction may be lost on some,
- it is a nuance that is recognizable to many colleagues working in the fields of plant breeding and seed sector development.
- For simplicity,
- we use the term 
-\begin_inset Quotes eld
-\end_inset
-
-high-yielding varieties
-\begin_inset Quotes erd
-\end_inset
-
- to refer to genetically superior varieties,
- which may outperform in yield,
- germination rate,
- or maturity speed,
- as well as in tolerance to drought,
- pests,
- or diseases,
- among other traits.
-\end_layout
-
-\end_inset
-
  We focus partly on agro-dealers because they are an essential marketing channel for inputs and technologies in countries with large smallholder farmer populations living in remote areas with poor infrastructure.
  A reasonably dense network of semi-formal agro-dealers provides access to seed,
  fertilizer,
@@ -481,25 +452,6 @@ literal "false"
  In a first hypothesis,
  we thus posit that simply providing information to agro-dealers will increase seed quality and subsequently improve farmers' product experience,
  ultimately encouraging them to adopt high-yielding maize varieties.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-It is important to note that our definition of maize seed quality extends beyond narrow criteria such as varietal purity (in other words,
- confirming the seed is of the expected variety) to include broader dimensions like seed germination and plant vigor.
- This is because,
- while some storage and handling practices may affect varietal purity (for example,
- mixing seed,
- mislabeling,
- etc.),
- most practices we will focus on in our study would affect seed performance.
- Furthermore,
- it is not unlikely that farmers care more about seed performance than about varietal purity.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -758,6 +710,99 @@ literal "false"
 \end_layout
 
 \begin_layout Section
+Context on seeds and their quality
+\end_layout
+
+\begin_layout Standard
+In this study,
+ high-yielding maize varieties refer to both open-pollinated varieties (OPVs) and hybrids.
+ OPVs produce seeds that farmers can save and replant,
+ while hybrids must be replaced (repurchased) each season but are more responsive to complementary inputs like fertilizers,
+ delivering higher yields under optimal conditions.
+ For simplicity,
+ we use the term ‘high-yielding varieties’ to encompass both types of genetically superior seeds,
+ which may outperform other farmer-saved seeds in yield,
+ germination rate,
+ maturity speed,
+ and resilience to drought,
+ pests,
+ or diseases.
+ Recognizing that this definition is not entirely unambiguous —
+ as OPVs can be farmer-saved —
+ we also use a second definition of high-quality seed,
+ referring to seed purchased from an agro-input shop.
+\end_layout
+
+\begin_layout Standard
+As highlighted in a recent review by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "MICHELSON2023102424"
+literal "false"
+
+\end_inset
+
+,
+ seed quality is complex and multi-dimensional due to the living nature of seeds,
+ encompassing three essential dimensions.
+ First,
+ analytical purity measures the proportion of a seed sample that belongs to the intended species.
+ Second,
+ varietal purity ensures the seed is of the expected variety,
+ possessing the claimed genetic characteristics.
+ Third,
+ viability and performance assess the seed’s capacity to germinate and grow with sufficient vigor.
+\end_layout
+
+\begin_layout Standard
+This study focuses on the viability and performance dimension of maize seed quality.
+ From farmers’ perspective,
+ this dimension is particularly salient,
+ as it represents both a crucial and observable outcome 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2023102424"
+literal "false"
+
+\end_inset
+
+.
+ A key indicator of viability —
+ germination —
+ becomes evident within weeks of planting.
+ Moreover,
+ while some storage and handling practices,
+ such as seed mixing or mislabeling,
+ may affect varietal purity,
+ the practices examined in this study primarily influence seed viability and performance.
+\end_layout
+
+\begin_layout Standard
+Objectively testing seed quality is complicated,
+ but moisture is a powerful predictor of maize seed viability and performance.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "afzal2017maintaining"
+literal "false"
+
+\end_inset
+
+ report germination rates of about 85% for seeds with a moisture content of 12.7%,
+ compared to only 50% germination for the same seeds at 15.6% moisture.
+ Experts we consulted to develop the training follow this rule of thumb:
+ each one-percentage-point increase in moisture content halves the seed’s shelf life.
+ While moisture is a valuable indicator of seed quality,
+ it is one-dimensional.
+ Additional measures include lab tests for purity,
+ assessing the proportion of extraneous,
+ non-seed material in the bag;
+ germination tests using germination chambers;
+ grow-out tests for genetic purity through morphological analysis;
+ and DNA fingerprinting to verify genetic purity using single nucleotide polymorphism tests.
+\end_layout
+
+\begin_layout Section
 Experimental design
 \begin_inset CommandInset label
 LatexCommand label
@@ -779,7 +824,7 @@ We designed an experiment with two interventions (detailed in the next section) 
  and are typically host to several agro-dealers.
  Clustering agro-dealers into catchment areas is done on the basis of their geographical location.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 We use a haversine function to construct an adjacency matrix based on GPS coordinates,
@@ -882,7 +927,17 @@ literal "false"
 \end_inset
 
  factorial design.
- We lack the power to reliably detect interaction effects between the two treatments.
+ As the sample size needed to detect interactions is substantially larger than that required to detect main effects,
+ our experiment is under-powered to detect interactions,
+ and interaction estimates are likely to considerably overestimate the magnitude of the true effect 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "muralidharan2023factorial"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1084,7 +1139,7 @@ maize seed that the agro-dealer sells
 
  on a scale of one to five stars on seed germination.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 We acknowledge that agro-dealers stock different varieties,
@@ -1806,7 +1861,18 @@ literal "false"
 \begin_inset Formula $\beta$
 \end_inset
 
- is the estimated average treatment effect.
+ represents the estimated average treatment effect of receiving one treatment,
+ with the orthogonal treatment and interaction effects between the two treatments controlled for.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Please don't delete.
+ I know it's double but the reviewer seemed so confused about that.
+\end_layout
+
+\end_inset
+
  For farmer level outcomes,
  a similar equation is estimated,
  where 
@@ -2291,27 +2357,6 @@ Our measurements of moisture content in the bags of sampled seed obtained from t
  On average,
  these moisture contents were above the recommended content of 13%,
  suggesting potential for the growth of molds and storage pests that can negatively affect seed quality and performance.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Moisture is a powerful predictor of maize seed performance.
- For instance,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "afzal2017maintaining"
-literal "false"
-
-\end_inset
-
- report germination rates of about 85% for seed with a moisture content of 12.7% versus germination rates of only 50% for the same seed with a moisture content of 15.6% in a study in Pakistan.
- Experts we consulted to develop the training on proper seed handling and storage follow this rule of thumb:
- an increase of moisture by one percentage point reduces shelf-life by half.
-\end_layout
-
-\end_inset
-
  In terms of labeling for quality,
  68% of the purchased seed bags contained a printed packaging date,
  18% had an expiry date,
@@ -6807,7 +6852,7 @@ nolink "false"
  present results in a common layout.
  Column (1) provides baseline sample means with standard deviations in parentheses to help gauge effect sizes.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Note that these means are reported in levels to allow the interpretation of effect sizes,
@@ -26809,31 +26854,6 @@ nolink "false"
  However,
  because our proxies of seed quality are far from perfect and we rely on a smaller sample,
  we cannot safely conclude that the treatments did not affect seed quality.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Assessing seed quality is not only challenging for farmers,
- but also for researchers.
- Even though investigating moisture is an attempt to test the quality of seeds in a quantitative and objective way,
- this variable is one-dimensional and not perfectly correlated with seed performance.
- Additional ways to capture seed quality include lab testing to measure purity as the rate of extraneous,
- non-seed material in the bag,
- germination using a germination chamber,
- grow-out tests for genetic purity using morphological analysis,
- and DNA fingerprinting to test for genetic purity using single nucleotide polymorphisms tests.
-\begin_inset CommandInset label
-LatexCommand label
-name "footnote_quality"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
