@@ -814,24 +814,26 @@ name "section: Experimental design"
 \end_layout
 
 \begin_layout Standard
-We designed an experiment with two interventions (detailed in the next section) that aim to induce quality improvements (or perceptions thereof) in the seed market.
+We designed an experiment with two interventions (detailed in the next section) aimed at improving seed quality or its perception.
  The interventions are randomized at the agro-dealer catchment area level.
- These catchment areas are clusters of towns,
+ These catchment areas consist of clusters of towns,
  villages,
  markets,
  trading centers,
- and other key market sheds where agricultural market activity tends to operate,
- and are typically host to several agro-dealers.
- Clustering agro-dealers into catchment areas is done on the basis of their geographical location.
+ and other key hubs where agricultural market activity is concentrated.
+ Catchment areas typically include several agro-dealers,
+ clustered based on geographical proximity.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-We use a haversine function to construct an adjacency matrix based on GPS coordinates,
- and agro-dealers who are less than five kilometers apart are assigned to the same catchment area.
- The five kilometer threshold was selected based on a visual inspection of a map,
- the size of an average village in our sample,
- and the reported distance between farmers and agro-dealers in survey data from a previous study of the maize value chain that can be found 
+To define these areas,
+ we used a haversine function to construct an adjacency matrix based on GPS coordinates,
+ assigning agro-dealers less than five kilometers apart to the same catchment area.
+ The five-kilometer threshold was selected based on a visual inspection of the map,
+ the average village size in our sample,
+ and the reported distance between farmers and agro-dealers in survey data from a previous study of the maize value chain,
+ available 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -856,33 +858,56 @@ name "fn:The-haversine-function"
 \end_layout
 
 \begin_layout Standard
-We randomize at the level of the catchment area (instead of opting for randomization at the less aggregate agro-dealer level) for three reasons.
- Firstly,
- randomizing at the level of the individual agro-dealer prompted ethical concerns.
- Specifically,
- in cases where two or more agro-dealers operate in very close proximity to each other,
- treating only one of them may lead to a competitive (dis)advantage.
- Randomizing at the catchment area level substantially reduces this risk.
- Secondly,
- and related to the first reason,
- catchment area level randomization reduces the likelihood of spillovers from treated to control agro-dealers.
- Thirdly,
- catchment area level randomization allows us to measure the impact of the interventions on farmers (and not just on agro-dealers) because all farmers in the catchment area are now exposed to agro-dealers who all received the same treatment.
+We randomize at the catchment area level,
+ rather than the more granular agro-dealer level,
+ for three key reasons.
+ First,
+ randomizing at the individual agro-dealer level raises ethical concerns.
+ When two or more agro-dealers operate in close proximity,
+ treating only one could create unfair competitive advantages or disadvantages.
+ Randomizing at the catchment area level mitigates this risk.
+ Second,
+ it reduces the likelihood of spillovers from treated to control agro-dealers.
+ Third,
+ it allows us to measure the interventions’ impact on farmers —
+ not just agro-dealers —
+ as all farmers within a catchment area are exposed to agro-dealers receiving the same treatment.
 \end_layout
 
 \begin_layout Standard
-We used simulations to determine the sample sizes required to detect effects of the treatments on selected outcomes at both farmer and agro-dealer levels.
-\begin_inset Foot
+The two interventions are implemented in a field experiment with a 
+\begin_inset Formula $2^{2}$
+\end_inset
+
+ factorial design.
+ The four possible treatment combinations —
+ neither training nor clearinghouse,
+ training only,
+ clearinghouse only,
+ and both training and clearinghouse —
+ each have an equal assignment probability of 25%.
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Simulation provides a flexible and intuitive way to analyze statistical power.
- Furthermore,
- instead of relying on theoretical distributions for the outcome variables that make assumptions and return analytic solutions,
- we run simulations that (re-)sample from real data collected in previous surveys.
- In particular,
- we use data from 78 agro-dealers and 1,529 smallholder farmers in the catchment areas of these agro-dealers from three districts in eastern Uganda in July 2019.
- The data are publicly accessible 
+Please don't delete,
+ reviewer asked for this.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We used simulations to determine the sample sizes required to detect treatment effects on selected outcomes at both the farmer and agro-dealer levels.
+ Simulation offers a flexible and intuitive approach to analyzing statistical power.
+ Rather than relying on theoretical distributions that require assumptions and yield analytic solutions,
+ we conducted simulations that (re)sampled from real data collected in previous surveys.
+ Specifically,
+ we used data from 78 agro-dealers and 1,529 smallholder farmers in their catchment areas,
+ gathered from three districts in eastern Uganda in July 2019.
+ These data are publicly accessible 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -892,52 +917,65 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\end_inset
-
- The simulations show that if the number of catchment areas is larger than 112,
- our experiments will return statistically significant results 80% of the time on a selection of primary outcomes.
+ The simulations indicate that with more than 112 catchment areas,
+ our experiment achieves 80% power to detect effects on a selection of primary outcomes.
  This corresponds to approximately 318 agro-dealers.
- Based on further simulations to study impacts at the farm-household level,
- we decide to collect information on ten farmers per agro-dealer,
- leading to a sample size of 3,180 households.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-More detailed information,
- including the expected treatment effect sizes,
- can be found in the pre-analysis plan which was pre-registered at the 
-\begin_inset CommandInset href
-LatexCommand href
-name "AEA RCT registry"
-target "https://www.socialscienceregistry.org/trials/6361"
-literal "false"
+ Further simulations at the farm-household level guided our decision to sample ten farmers per agro-dealer,
+ resulting in a total sample size of 3,180 households.
+ These figures represent the minimum required sample size;
+ the actual sample size,
+ including the number of agro-dealers and farmers per treatment arm,
+ is detailed in the Sample Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sample"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
- under RCT ID 0006361.
+.
 \end_layout
 
-\end_inset
-
- The two interventions are combined in a field experiment that takes the form of a 
-\begin_inset Formula $2^{2}$
-\end_inset
-
- factorial design.
- As the sample size needed to detect interactions is substantially larger than that required to detect main effects,
- our experiment is under-powered to detect interactions,
- and interaction estimates are likely to considerably overestimate the magnitude of the true effect 
+\begin_layout Standard
+As detecting interaction effects requires a substantially larger sample size than detecting main effects,
+ our experiment is underpowered to identify interactions.
+ Consequently,
+ interaction estimates are likely to overstate the true effect magnitude 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 key "muralidharan2023factorial"
 literal "false"
 
 \end_inset
 
 .
+ More detailed information about our power simulations,
+ including expected treatment effect sizes,
+ is available in the 
+\begin_inset CommandInset href
+LatexCommand href
+name "pre-analysis plan"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+,
+ pre-registered with the AEA RCT registry under RCT ID 0006361.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Please don't delete,
+ reviewer asked for this.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
