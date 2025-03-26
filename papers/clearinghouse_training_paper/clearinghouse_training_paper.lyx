@@ -3644,12 +3644,8 @@ Only 25% of farmers applied inorganic fertilizers,
  average yields on these plots were approximately 440 kilograms per acre.
 \end_layout
 
-\begin_layout Standard
-Here
-\end_layout
-
 \begin_layout Subsection
-Orthogonality tests of randomization balance
+Randomization balance
 \begin_inset CommandInset label
 LatexCommand label
 name "5.3 Orthogonality tests of randomization balance"
@@ -3660,7 +3656,7 @@ name "5.3 Orthogonality tests of randomization balance"
 \end_layout
 
 \begin_layout Standard
-We include standard orthogonality tables with pre-registered variables for both agro-dealers and farmers to test if treatment and control groups are comparable in terms of a set of baseline characteristics (Tables 
+We present standard orthogonality tables with pre-registered variables for both agro-dealers and farmers to assess the comparability of treatment and control groups across a set of baseline characteristics (Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -3684,12 +3680,12 @@ nolink "false"
 
 ,
  respectively).
- Some of these characteristics are unlikely to be affected by the intervention,
- while others are drawn from the set of outcome variables that will be used to measure the intervention's impact and explore the underlying mechanisms at play in the next sections.
+ Some of these characteristics are unlikely to be influenced by the intervention,
+ while others are part of the outcome variables used to measure its impact and explore the underlying mechanisms in the following sections.
 \end_layout
 
 \begin_layout Standard
-For outcomes at the agro-dealer level reported in Table 
+For agro-dealer-level outcomes in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -3701,9 +3697,9 @@ nolink "false"
 \end_inset
 
 ,
- we find that from a total of 34 comparisons,
- only one is significant at the 5% significance level and two are significant at the 10% level.
- For outcomes at the farmer level reported in Table 
+ only one of 34 comparisons is significant at the 5% level,
+ and two at the 10% level.
+ At the farmer level in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_farmer"
@@ -3715,11 +3711,9 @@ nolink "false"
 \end_inset
 
 ,
- out of 32 comparisons,
- one is significant at the 10% level.
- We conclude that this shows reasonable balance at baseline.
- We also test for joint orthogonality using F-tests,
- which confirm balance between treatment groups.
+ one of 32 comparisons is significant at the 10% level.
+ These results indicate reasonable balance at baseline.
+ Joint orthogonality tests using F-tests further confirm balance between treatment groups.
 \end_layout
 
 \begin_layout Standard
@@ -6236,33 +6230,35 @@ nolink "false"
 
 \end_inset
 
- reports attrition levels in the treatment and comparison groups.
- We failed to collect data from 12% of agro-dealers and 2% of farmers at midline,
- and from 14% of agro-dealers and 1% of farmers at endline.
+ presents attrition rates for the treatment and comparison groups.
+ At midline,
+ data was missing for 12% of agro-dealers and 2% of farmers,
+ while at endline,
+ 14% of agro-dealers and 1% of farmers were not surveyed.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-If an agro-dealer could not be found at endline,
- we investigated why:
+For agro-dealers lost at endline,
+ the reasons were:
  eleven shops closed,
  ten relocated,
- eight were located but sell different products now,
+ eight changed their product offerings,
  three merged with other shops,
- one agro-dealer did not want to be interviewed,
- 17 agro-dealers reported another (four) or no reason (13).
+ one refused to be interviewed,
+ and 17 cited other (four) or no specific reasons (13).
 \end_layout
 
 \end_inset
 
- To test if non-response is related to one of the treatments,
- we regress the likelihood of leaving the sample on the treatment indicators.
- We find that information clearinghouse treated agro-dealers are significantly less likely to leave the sample.
+ To assess whether non-response is linked to treatment,
+ we regressed the likelihood of leaving the sample on the treatment indicators,
+ finding that agro-dealers in the information clearinghouse treatment were significantly less likely to drop out.
 \end_layout
 
 \begin_layout Standard
 To examine this differential attrition,
- we run regressions with the variables that were pre-registered to test balance (see Table 
+ we regress the pre-registered balance variables (see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -6273,10 +6269,10 @@ nolink "false"
 
 \end_inset
 
-) as dependent variables and a binary variable that takes the value one if an agro-dealer left the sample,
- a binary variable that takes the value one if an agro-dealer belongs to the clearinghouse control group,
- and the interaction between these two indicators as independent variables.
- The results can be found in Appendix 
+) on a binary variable indicating whether an agro-dealer left the sample,
+ a binary variable indicating whether an agro-dealer belonged to the clearinghouse control group,
+ and their interaction.
+ Results are shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "A.6 Differential attrition tests"
@@ -6288,10 +6284,8 @@ nolink "false"
 \end_inset
 
 .
- Column (2) shows that agro-dealers who left the sample at midline operate closer to the nearest tarmac road.
- This is the only significant difference between agro-dealers who left and those who did not at midline,
- when differential attrition was most pronounced,
- see Table 
+ Column (2) reveals that agro-dealers who left the sample at midline operated closer to the nearest tarmac road —
+ the only significant difference between those who left and those who stayed when attrition was most pronounced (see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Survey-attrition"
@@ -6302,19 +6296,21 @@ nolink "false"
 
 \end_inset
 
-.
- At endline however,
- agro-dealers who left the sample were younger,
+).
+ By endline,
+ however,
+ those who left were younger,
  more likely to be female,
- and their shops were less long in business,
- more likely to be specialized,
- and operated closer to the nearest tarmac road,
+ had less established businesses,
+ were more likely to operate specialized shops,
+ and still tended to be closer to a tarmac road,
  see column (5).
- This implies that agro-dealers who left are different from those who stayed,
- independent of whether they have been exposed to the information clearinghouse or not.
- We conjecture that these agro-dealers were more vulnerable when COVID-19 hit and went out of business.
- Columns (3) and (6) show that clearinghouse control and treated agro-dealers do not differ much,
- which is also described in Subsection 
+ This suggests that agro-dealers who left differed from those who remained,
+ regardless of exposure to the information clearinghouse,
+ possibly indicating greater vulnerability when COVID-19 hit,
+ leading to business closures.
+ Columns (3) and (6) show minimal differences between clearinghouse control and treated agro-dealers,
+ consistent with Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "5.3 Orthogonality tests of randomization balance"
@@ -6326,20 +6322,21 @@ nolink "false"
 \end_inset
 
 .
- When we look at the interaction between the two indicators,
- we observe that there are few differences between agro-dealers who both left the sample 
+ Examining the interaction between the indicators reveals few differences between agro-dealers who left the sample 
 \shape italic
 and
 \shape default
- belong to the information clearinghouse control group and those who do not,
- so we conclude that differential attrition is unlikely to bias our estimates.
+ belonged to the clearinghouse control group and those who did not,
+ suggesting that differential attrition is unlikely to bias our estimates.
 \end_layout
 
 \begin_layout Standard
-As in biomedical RCTs where differential attrition rates may be due to excess mortality in the control group,
- the attritors are likely the ones that would have benefited most from the treatment.
- As such,
- the unadjusted selection-contaminated estimates provide lower bounds for the true treatment effect 
+As in biomedical RCTs,
+ where differential attrition may result from higher mortality in the control group,
+ those who drop out are likely the ones who would have benefited most from the treatment.
+ Consequently,
+ the unadjusted,
+ selection-contaminated estimates represent lower bounds of the true treatment effect 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1257/aer.96.3.847,duflo2007using"
