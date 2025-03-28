@@ -711,26 +711,91 @@ literal "false"
 
 \begin_layout Section
 Context on seeds and their quality
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This section has been reviewed and rewritten by David.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 In this study,
- high-yielding maize varieties refer to both open-pollinated varieties (OPVs) and hybrids.
- OPVs produce seeds that farmers can save and replant,
- while hybrids must be replaced (repurchased) each season but are more responsive to complementary inputs like fertilizers,
- delivering higher yields under optimal conditions.
- For simplicity,
- we use the term ‘high-yielding varieties’ to encompass both types of genetically superior seeds,
- which may outperform other farmer-saved seeds in yield,
- germination rate,
- maturity speed,
- and resilience to drought,
+ the term 
+\begin_inset Quotes eld
+\end_inset
+
+high-yielding maize varieties
+\begin_inset Quotes erd
+\end_inset
+
+ refers to both open-pollinated varieties (OPVs) and hybrids that have been genetically improved through public or private sector breeding programs.
+ While the difference between these two types of maize is based on their reproductive biology,
+ there are also economic implications 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Morrisetal1998,SPIELMAN2016111"
+literal "false"
+
+\end_inset
+
+.
+ We explain the terminology and our rationale for using this terminology below,
+ recognizing that our explanation is a simplification of much more complex biological phenomena.
+\end_layout
+
+\begin_layout Standard
+Maize hybrids tend to confer a significant advantage in terms of vigor—
+robust growth,
+ high yields,
+ and uniform yield performance,
+ even under suboptimal conditions.
+ This is due to the expression of heterosis that results from crossing distinct inbred parent lines to produce genetically superior progeny (F1) that is planted by the farmer.
+ However,
+ this vigor declines dramatically if farmers save and plant grain that was set aside from harvest.
+ Instead,
+ the farmer must purchase fresh (F1) seed each season to continue to realize the benefits of heterosis.
+ The combination of vigor and purchase frequency can incentivize public investment in hybrid maize improvement,
+ seed production,
+ and marketing.
+\end_layout
+
+\begin_layout Standard
+OPVs,
+ on the other hand,
+ are typically less vigorous than hybrids.
+ Although they are also less susceptible to genetic degeneration and can be saved and planted across several generations without loss of vigor,
+ their yield performance is typically lower than hybrids.
+ Moreover,
+ OPV seed saving practices—
+and thus less frequent purchases of fresh seed—
+tend to reduce these private investment incentives.
+\end_layout
+
+\begin_layout Standard
+Relatedly,
+ we use the term 
+\begin_inset Quotes eld
+\end_inset
+
+farmer-saved seed
+\begin_inset Quotes erd
+\end_inset
+
+ in this study to refer to seed that is of an unknown progeny or quality.
+ They may be seed saved from the harvest of F1 hybrids or OPVs,
+ and they may be n generations old.
+ They may have been stored under suboptimal conditions between seasons,
+ exposed to moisture,
  pests,
- or diseases.
- Recognizing that this definition is not entirely unambiguous —
- as OPVs can be farmer-saved —
- we also use a second definition of high-quality seed,
- referring to seed purchased from an agro-input shop.
+ or diseases,
+ and,
+ as a result of both genetic and physical factors,
+ perform poorly relative to fresh hybrid or OPV seed purchased from an agro-input shop.
 \end_layout
 
 \begin_layout Standard
@@ -756,7 +821,7 @@ literal "false"
 
 \begin_layout Standard
 This study focuses on the viability and performance dimension of maize seed quality.
- From farmers’ perspective,
+ From a farmer’s perspective,
  this dimension is particularly salient,
  as it represents both a crucial and observable outcome 
 \begin_inset CommandInset citation
@@ -767,9 +832,9 @@ literal "false"
 \end_inset
 
 .
- A key indicator of viability —
- germination —
- becomes evident within weeks of planting.
+ A key indicator of viability—
+germination—
+becomes evident within weeks of planting.
  Moreover,
  while some storage and handling practices,
  such as seed mixing or mislabeling,
@@ -795,11 +860,11 @@ literal "false"
  While moisture is a valuable indicator of seed quality,
  it is one-dimensional.
  Additional measures include lab tests for purity,
- assessing the proportion of extraneous,
+ which assesses the proportion of extraneous,
  non-seed material in the bag;
  germination tests using germination chambers;
- grow-out tests for genetic purity through morphological analysis;
- and DNA fingerprinting to verify genetic purity using single nucleotide polymorphism tests.
+ grow-out tests to assess genetic purity through morphological analysis;
+ and genotyping (DNA fingerprinting) to verify genetic purity using single nucleotide polymorphism tests.
 \end_layout
 
 \begin_layout Section
@@ -5759,7 +5824,7 @@ Sexpr{format(round(df_ols_end_farmer[2,2,19],digits=2),nsmall=2)})
 
 \begin_layout Plain Layout
 
-Farmer used quality maize seed on any plot$^
+Farmer used high-yielding maize varieties on any plot$^
 \backslash
 dag$
 \end_layout
@@ -13105,7 +13170,7 @@ S$Due to the skewness of this variable,
 
 \begin_layout Standard
 Moving up on the causal chain,
- we test if the interventions affect the use of quality maize seed as a second important family of outcomes at the smallholder level.
+ we test if the interventions affect the use of high-yielding maize varieties as a second important family of outcomes at the smallholder level.
  For the agro-dealer training,
  we do not find any significant effect at either midline or endline.
  The effect of the clearinghouse treatment on overall use (or 
@@ -13125,7 +13190,7 @@ Zooming in on individual outcomes,
 \begin_inset Quotes eld
 \end_inset
 
-used any quality maize seed (like an OPV or hybrid seed) on any of their plots
+used any high-yielding maize variety (like an OPV or hybrid seed) on any of their plots
 \begin_inset Quotes erd
 \end_inset
 
@@ -13149,7 +13214,7 @@ used any quality maize seed (like an OPV or hybrid seed) on any of their plots
 
 \begin_layout Standard
 Next,
- we turn our attention to the use of quality maize seed on a randomly selected plot.
+ we turn our attention to the use of high-yielding maize varieties on a randomly selected plot.
  For the use of seed from either hybrid maize varieties or OPVs,
  we find positive treatment effects of the clearinghouse,
  although the coefficients are insignificant.
@@ -19110,7 +19175,7 @@ literal "false"
 \begin_layout Standard
 The information clearinghouse clearly affected the market for maize seed in our study area:
  sellers and buyers started behaving in line with our theory of change.
- Agro-dealers reported more business and smallholders reported increased use of quality maize varieties,
+ Agro-dealers reported more business and smallholders reported increased use of high-yielding maize varieties,
  in turn increasing production outcomes.
  This effect appears to partly stem from agro-dealers who expanded their service offerings and started signaling quality to customers to outperform their competitors.
  We find some evidence that this treatment induced farmers to switch between agro-dealers,
@@ -28955,7 +29020,7 @@ Which statement do you agree most with?
 
 \begin_deeper
 \begin_layout Enumerate
-You should repackage all your seed to visually verify that you are selling good quality seed.
+You should repackage all your seed to visually verify that you are selling high-yielding varieties.
 \end_layout
 
 \begin_layout Enumerate
