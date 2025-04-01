@@ -1202,7 +1202,7 @@ Rating collection and computation
 
 \begin_layout Standard
 At baseline data collection (April 2021),
- sampled farmers rated all agro-dealers in their catchment area across multiple characteristics.
+ sampled farmers were asked to rate all agro-dealers in their catchment area across multiple characteristics.
  Enumerators used a tablet-based application to guide farmers through the list of agro-dealers,
  providing common names,
  store location descriptions,
@@ -1218,6 +1218,11 @@ nolink "false"
 \end_inset
 
 ).
+ Farmers could rate an agro-dealer only if they met one of two conditions:
+ either they had purchased seed from the agro-dealer themselves or they knew someone who had.
+ Ideally,
+ only farmers with firsthand experience would provide ratings,
+ but limiting responses in this way risked generating too few observations for a reliable signal.
 \end_layout
 
 \begin_layout Standard
@@ -2453,7 +2458,7 @@ inspected seed storage areas and carefully documented the conditions.
  which may impact seed quality,
  aligning with our first hypothesis.
  For instance,
- 65% of agro-dealers reported issues with pests such as rats or insects,
+ enumerators reported that 65% of agro-dealers had issues with pests such as rats or insects,
  while 16% stored maize seed in open containers,
  exposing it to potential contamination.
  Unsurprisingly,
@@ -2504,6 +2509,12 @@ Typically,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+From these baseline data,
+ we conclude that this market has an inherent quality problem—
+it is not merely a matter of perception.
 \end_layout
 
 \begin_layout Standard
@@ -3787,7 +3798,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6857,11 +6868,11 @@ Note:
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Ratings
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection*
 Correlating ratings and quality indicators
 \end_layout
 
@@ -6896,65 +6907,10 @@ nolink "false"
 
 \end_inset
 
-).
- Additionally,
- farmers rated not only the seeds from agro-input shops but also those used on randomly selected maize fields,
- using the same questions.
- These seed ratings are positively correlated with farmers’ crop yields (Table 
+ in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Ratings & quality indicators on randomly selected field - Farmer level"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-While alternative explanations for these significant correlations are possible —
- for instance,
- specialized shops may have more capital and appear more “polished,” prompting higher ratings regardless of seed quality —
- the overall pattern supports our claim that farmers are assessing seed quality.
- Although farmers’ perceptions may not be perfectly accurate given the many factors influencing agricultural production,
- the information clearinghouse ratings offer a valid and reliable signal.
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Subsection
-Correlating ratings and quality indicators
-\end_layout
-
-\begin_layout Standard
-One concern is that smallholder farmers may consider factors like customer service rather than seed quality when rating agro-input shops or base their assessments on the agro-dealer’s reputation or personal relationship with them.
- To address this,
- we test whether the ratings —
- specifically,
- the index of endline ratings computed following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- —
- correlate with objective indicators of seller and seed quality,
- also measured at endline.
- We find that specialized agro-input shops,
- which exclusively sell farm inputs,
- receive higher ratings,
- as do dealers with better seed handling practices,
- objectively observed by our enumerators (Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Ratings & quality indicators - Agro-dealer level"
+reference "appendix A.3 Comparison of ratings by purchase channel"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6977,6 +6933,17 @@ nolink "false"
 
 \end_inset
 
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Comparison of ratings by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
 ).
 \end_layout
 
@@ -6989,617 +6956,115 @@ While alternative explanations for these significant correlations are possible �
  the information clearinghouse ratings offer a valid and reliable signal.
 \end_layout
 
-\begin_layout Standard
-...
+\begin_layout Subsubsection*
+Comparison of ratings by purchase channel
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Ratings & quality indicators - Agro-dealer level
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Ratings & quality indicators - Agro-dealer level"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-&  Ratings
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-2}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Agro-dealer only sells farm inputs
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,12]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,12]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,12],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of labor-intensive seed handling practices$^1$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,13]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,13]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,13],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of capital-intensive seed handling practices$^2$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,14],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,14]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,14]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,14],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of all seed handling practices$^3$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,15],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,15]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,15]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,15],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Agro-dealer received seed related complaint from customer
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,16],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,16]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,16]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,16],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Shop received warning after inspection
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,17],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,17]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,17]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,17],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- $^1$The index of labor-intensive seed handling practices contains 6 variables:
- whether seed is stored in dedicated area,
- in correct lighting,
- on correct surface,
- not in open containers,
- whether shop has no pest problem,
- cleanness and professionality rating by enumerator.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^2$The index of capital-intensive seed handling practices contains 6 variables:
- whether roof is leak-proof,
- roof is insulated,
- walls are insulated,
- shop is ventilated,
- shop displays official certificate,
- expired seed is handled correctly.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^3$The index of all seed handling practices contains 12 variables:
- the ones included in the index of capital-intensive practices and the ones included in the index of labor-intensive practices.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+Farmers could rate an agro-dealer only if they met one of two conditions:
+ either they had purchased seed from the agro-dealer themselves or they knew someone who had.
+ Ideally,
+ only farmers with firsthand experience would provide ratings,
+ but limiting responses in this way risked generating too few observations for a reliable signal,
+ as an average of three agro-dealers was rated by 10 farmers per catchment area,
+ and at baseline,
+ 68% of farmers did not use high-yielding maize varieties purchased from an agro-dealer on any plot.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Ratings & yield on randomly selected field - Farmer level
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Ratings & quality indicators on randomly selected field - Farmer level"
-
-\end_inset
-
-
-\end_layout
+While this decision was made at the experiment’s design stage and cannot be revised ex post,
+ we can compare endline ratings between farmers who purchased seed from the agro-dealer and those who did not but knew someone who had.
+ The vast majority (93%) of ratings came from farmers who had purchased seed,
+ while only 7% were provided by those who had not.
+ This alleviates concerns that ratings are driven by farmers without firsthand experience or by reputation and hearsay effects.
+ While the mean ratings differ slightly (3.6 for farmers who bought seed vs.
+ 3.7 for those who did not),
+ the density plots are similar,
+ see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Comparison of ratings by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& Yield in kg/acre
-\backslash
-textsubscript{endline} 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-2}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's seed ratings
-\backslash
-textsubscript{midline}$^1$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_farmer[1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_farmer[3,1]<.01,"**",ifelse(df_ols_end_quality_farmer[3,1]<.05,"*",ifelse(df_ols_end_quality_farmer[3,1]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_farmer[2,1],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's seed ratings
-\backslash
-textsubscript{endline}$^1$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_farmer[1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_farmer[3,2]<.01,"**",ifelse(df_ols_end_quality_farmer[3,2]<.05,"*",ifelse(df_ols_end_quality_farmer[3,2]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_farmer[2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- $^1$The index of farmer's seed ratings contains 6 ratings:
- general quality,
- yield,
- drought tolerance,
- pest/disease tolerance,
- speed of maturing,
- and germination.
-\end_layout
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Comparison of ratings by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
+.
 \end_layout
+
+\begin_layout Standard
+@Bjorn,
+ I could also stack all the ratings from base-,
+ mid-,
+ and endline if you think that's better?
+\end_layout
+
+\begin_layout Subsubsection*
+Comparison of individual ratings
+\end_layout
+
+\begin_layout Standard
+We asked farmers to evaluate maize seed sold by this agro-dealer across six dimensions:
+ General quality,
+ Yield as advertised,
+ Drought tolerance as advertised,
+ Pest/disease tolerance as advertised,
+ Speed of maturing as advertised,
+ and Germination.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Comparison of individual ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Moisture in randomly selected seed bag in percent
-\backslash
-textsubscript{endline}
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[1,4,22],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_quality_dealer[3,4,22]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,22]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_quality_dealer[2,4,22],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Comparison of ratings by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
+ presents the distribution of farmers’ ratings for these attributes.
+ A red dashed vertical line denotes the mean rating for each.
+ The figure reveals variation across attributes,
+ with some displaying more concentrated distributions and others exhibiting greater dispersion.
+\end_layout
 
+\begin_layout Standard
+The attributes most strongly correlated with 
+\begin_inset Quotes eld
+\end_inset
+
+General quality
+\begin_inset Quotes erd
+\end_inset
+
+ rating are “Yield as advertised” (0.54) and “Germination” (0.38).
+ These variables also show the smallest mean absolute differences (0.47 for “Yield as advertised” and 0.55 for “Germination”),
+ suggesting that farmers primarily consider these two dimensions when assessing overall quality.
+ This indicates that farmers are particularly attentive to yield and germination and that their summary assessments align most closely with these factors.
 \end_layout
 
 \begin_layout Section
@@ -22011,6 +21476,735 @@ textit{and} belong to the clearinghouse control group and those who do not,
 \backslash
 % levels.
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparison of ratings
+\begin_inset CommandInset label
+LatexCommand label
+name "appendix A.3 Comparison of ratings by purchase channel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Correlating ratings and quality indicators - Agro-dealer level
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ratings & quality indicators - Agro-dealer level"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&  Ratings
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-2}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-dealer only sells farm inputs
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,12]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,12]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,12]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,12],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of labor-intensive seed handling practices$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,13]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,13]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,13]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,13],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of capital-intensive seed handling practices$^2$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,14]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,14]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,14]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,14],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of all seed handling practices$^3$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,15]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,15]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,15]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,15],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-dealer received seed related complaint from customer
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,16]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,16]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,16]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,16],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Shop received warning after inspection
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,17],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,17]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,17]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,17]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,17],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ $^1$The index of labor-intensive seed handling practices contains 6 variables:
+ whether seed is stored in dedicated area,
+ in correct lighting,
+ on correct surface,
+ not in open containers,
+ whether shop has no pest problem,
+ cleanness and professionality rating by enumerator.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The index of capital-intensive seed handling practices contains 6 variables:
+ whether roof is leak-proof,
+ roof is insulated,
+ walls are insulated,
+ shop is ventilated,
+ shop displays official certificate,
+ expired seed is handled correctly.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^3$The index of all seed handling practices contains 12 variables:
+ the ones included in the index of capital-intensive practices and the ones included in the index of labor-intensive practices.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Correlating ratings and yield on randomly selected field - Farmer level
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ratings & quality indicators on randomly selected field - Farmer level"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Yield in kg/acre
+\backslash
+textsubscript{endline} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-2}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's seed ratings
+\backslash
+textsubscript{midline}$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_farmer[1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_farmer[3,1]<.01,"**",ifelse(df_ols_end_quality_farmer[3,1]<.05,"*",ifelse(df_ols_end_quality_farmer[3,1]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_farmer[2,1],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's seed ratings
+\backslash
+textsubscript{endline}$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_farmer[1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_farmer[3,2]<.01,"**",ifelse(df_ols_end_quality_farmer[3,2]<.05,"*",ifelse(df_ols_end_quality_farmer[3,2]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_farmer[2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ $^1$The index of farmer's seed ratings contains 6 ratings:
+ general quality,
+ yield,
+ drought tolerance,
+ pest/disease tolerance,
+ speed of maturing,
+ and germination.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Moisture in randomly selected seed bag in percent
+\backslash
+textsubscript{endline}
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[1,4,22],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_quality_dealer[3,4,22]<.01,"**",ifelse(df_ols_end_quality_dealer[3,4,22]<.05,"*",ifelse(df_ols_end_quality_dealer[3,4,22]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_quality_dealer[2,4,22],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename comparison_plot.png
+	lyxscale 10
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of ratings by purchase channel
+\begin_inset CommandInset label
+LatexCommand label
+name "Comparison of ratings by purchase channel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename six_plots.png
+	lyxscale 10
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of individual endline ratings
+\begin_inset CommandInset label
+LatexCommand label
+name "Comparison of individual ratings"
 
 \end_inset
 
