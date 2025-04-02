@@ -9753,3 +9753,176 @@ baseline_dealers_factor_2F <- baseline_dealers_factor_2F_save
 #For a sketch, look above at #Lasso: which dealer characteristics are correlated with dealers ratings
 
 baseline_dealers <- baseline_dealers_save
+
+#################################################################################################################
+
+#For Information clearinghouse ratings subsection
+
+#rm(list=ls())
+#path <- "/Users/carolinemiehe/Desktop/from_now_on/prof/GitHub_repositories/Seed_systems_project"
+
+library(ggplot2)
+library(patchwork)
+
+endline_rating_dyads <- read.csv(paste(path,"endline/data/farmer/public/endline_rating_dyads.csv",sep="/"))
+endline_rating_dyads[endline_rating_dyads == "n/a"] <- NA
+endline_rating_dyads[endline_rating_dyads == "999"] <- NA
+endline_rating_dyads[endline_rating_dyads == "98"] <- NA
+
+vars <- c("quality_rating","seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+          ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")
+endline_rating_dyads[vars] <- lapply(endline_rating_dyads[vars], function(x) as.numeric(as.character(x)))
+
+endline_rating_dyads$score <-  rowMeans(endline_rating_dyads[c("quality_rating","seed_quality_general_rating","seed_yield_rating","seed_drought_rating"
+                                                               ,"seed_disease_rating","seed_maturing_rating","seed_germinate_rating")],na.rm=T)
+
+num_na_rows <- sum(rowSums(is.na(endline_rating_dyads[vars])) == length(vars))
+num_na_rows
+
+table(endline_rating_dyads$bought_at_dealer)
+sum(!is.na(endline_rating_dyads$score) & endline_rating_dyads$bought_at_dealer == "Yes")
+sum(!is.na(endline_rating_dyads$score) & endline_rating_dyads$bought_at_dealer == "No")
+
+mean(endline_rating_dyads$score[endline_rating_dyads$bought_at_dealer == "Yes"],na.rm=T)
+mean(endline_rating_dyads$score[endline_rating_dyads$bought_at_dealer == "No"],na.rm=T)
+
+
+
+#Comparison of ratings by purchase channel:
+
+# Filter out observations where score is NA
+yes_data <- endline_rating_dyads[endline_rating_dyads$bought_at_dealer == "Yes" & !is.na(endline_rating_dyads$score), ]
+no_data <- endline_rating_dyads[endline_rating_dyads$bought_at_dealer == "No" & !is.na(endline_rating_dyads$score), ]
+
+# Calculate means and counts (only non-NA observations)
+mean_yes <- mean(yes_data$score, na.rm = TRUE)
+mean_no <- mean(no_data$score, na.rm = TRUE)
+n_yes <- nrow(yes_data)
+n_no <- nrow(no_data)
+
+# Compute density limits
+density_yes <- density(yes_data$score, na.rm = TRUE)
+density_no <- density(no_data$score, na.rm = TRUE)
+max_density <- max(c(density_yes$y, density_no$y))  # Get the highest density value
+
+# Get common x-axis limits
+x_min <- min(endline_rating_dyads$score, na.rm = TRUE)
+x_max <- max(endline_rating_dyads$score, na.rm = TRUE)
+
+# Create plot for "Yes"
+plot_yes <- ggplot(yes_data, aes(x = score)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black", alpha = 0.6) +
+  geom_density(color = "blue", size = 1) +
+  geom_vline(xintercept = mean_yes, color = "red", linetype = "dashed", size = 1) +
+  geom_text(x = mean_yes, y = max_density * 0.05, label = paste0("Mean = ", round(mean_yes, 2)),
+            color = "red", angle = 90, vjust = -0.5) +
+  labs(x = "Endline rating", y = "Density",
+       title = paste0("Farmer purchased seed from agro-dealer (n = ", n_yes, ")")) +
+  xlim(x_min, x_max) +  # Ensuring same x-axis limits
+  ylim(0, max_density) +  # Ensuring same y-axis limits
+  theme_minimal()
+
+# Create plot for "No"
+plot_no <- ggplot(no_data, aes(x = score)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black", alpha = 0.6) +
+  geom_density(color = "blue", size = 1) +
+  geom_vline(xintercept = mean_no, color = "red", linetype = "dashed", size = 1) +
+  geom_text(x = mean_no, y = max_density * 0.05, label = paste0("Mean = ", round(mean_no, 2)),
+            color = "red", angle = 90, vjust = -0.5) +
+  labs(x = "Endline rating", y = "Density",
+       title = paste0("Farmer did not purchase seed from agro-dealer (n = ", n_no, ")")) +
+  xlim(x_min, x_max) +  # Ensuring same x-axis limits
+  ylim(0, max_density) +  # Ensuring same y-axis limits
+  theme_minimal()
+
+# Arrange plots side by side
+combined_plot <- plot_yes + plot_no + plot_layout(guides = "collect")
+
+# Display the plot
+print(combined_plot)
+
+# Save the plot
+ggsave(file.path(path, "papers", "clearinghouse_training_paper", "comparison_plot.png"),
+       combined_plot, width = 12, height = 6, dpi = 300)
+
+
+
+#Comparison of rating dimensions
+
+mean(endline_rating_dyads$seed_quality_general_rating,na.rm=T)
+mean(endline_rating_dyads$seed_yield_rating,na.rm=T)
+mean(endline_rating_dyads$seed_drought_rating,na.rm=T)
+mean(endline_rating_dyads$seed_disease_rating,na.rm=T)
+mean(endline_rating_dyads$seed_maturing_rating,na.rm=T)
+mean(endline_rating_dyads$seed_germinate_rating,na.rm=T)
+
+# Define the variables and their display names
+vars <- c("seed_quality_general_rating", "seed_yield_rating", "seed_drought_rating",
+          "seed_disease_rating", "seed_maturing_rating", "seed_germinate_rating")
+
+var_labels <- c("General quality", "Yield as advertised", "Drought tolerance as advertised", 
+                "Pest/disease tolerance as advertised", "Speed of maturing as advertised", "Germination")
+
+# Create an empty list to store plots
+plots <- list()
+
+for (i in seq_along(vars)) {
+  var_name <- vars[i]
+  var_label <- var_labels[i]
+  
+  # Filter out missing values
+  data_filtered <- endline_rating_dyads[!is.na(endline_rating_dyads[[var_name]]), ]
+  
+  # Calculate mean for this specific variable
+  mean_value <- mean(data_filtered[[var_name]], na.rm = TRUE)
+  
+  # Count observations
+  n_obs <- nrow(data_filtered)
+  
+  # Create the plot
+  plot <- ggplot(data_filtered, aes(x = .data[[var_name]])) +
+    geom_histogram(aes(y = ..density..), binwidth = 1, fill = "lightblue", color = "black", alpha = 0.6) + 
+    geom_vline(xintercept = mean_value, color = "red", linetype = "dashed", size = 1) + 
+    annotate("text", x = mean_value, y = 0.7, label = paste0("Mean = ", round(mean_value, 2)), 
+             color = "red", angle = 0, hjust = -0.1) +  
+    labs(x = paste0(var_label, " (n = ", n_obs, ")"), y = "Density") +  # Add n to x-axis label
+    ylim(0, 0.75) +  
+    theme_minimal()
+  
+  plots[[i]] <- plot
+}
+
+# Arrange the plots in a single vertical column
+final_plot <- wrap_plots(plots, ncol = 1)
+
+# Display the plot
+print(final_plot)
+
+# Save the plot with increased height
+ggsave(file.path(path, "papers", "clearinghouse_training_paper", "six_plots.png"), 
+       final_plot, width = 8, height = 18, dpi = 300)
+
+
+
+endline_rating_dyads$yield_difference <- abs(endline_rating_dyads$seed_quality_general_rating - endline_rating_dyads$seed_yield_rating)
+endline_rating_dyads$drought_difference <- abs(endline_rating_dyads$seed_quality_general_rating - endline_rating_dyads$seed_drought_rating)
+endline_rating_dyads$disease_difference <- abs(endline_rating_dyads$seed_quality_general_rating - endline_rating_dyads$seed_disease_rating)
+endline_rating_dyads$maturing_difference <- abs(endline_rating_dyads$seed_quality_general_rating - endline_rating_dyads$seed_maturing_rating)
+endline_rating_dyads$germinate_difference <- abs(endline_rating_dyads$seed_quality_general_rating - endline_rating_dyads$seed_germinate_rating)
+
+#Variables with lower mean absolute differences are more similar
+# Compute mean absolute differences
+diffs <- sapply(vars[-1], function(v) {
+  mean(abs(endline_rating_dyads[[v]] - endline_rating_dyads$seed_quality_general_rating), na.rm = TRUE)
+})
+diffs
+
+#The variable with the highest correlation with “seed_quality_general_rating” is the most similar
+vars <- c("seed_quality_general_rating", "seed_yield_rating", "seed_drought_rating",
+          "seed_disease_rating", "seed_maturing_rating", "seed_germinate_rating")
+
+# Compute correlations
+cor_matrix <- cor(endline_rating_dyads[, vars], use = "pairwise.complete.obs")
+
+# Extract correlations with "seed_quality_general_rating"
+cor_matrix["seed_quality_general_rating", -1]

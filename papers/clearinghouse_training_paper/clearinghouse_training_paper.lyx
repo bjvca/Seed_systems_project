@@ -1201,10 +1201,10 @@ Rating collection and computation
 \end_layout
 
 \begin_layout Standard
-At baseline data collection (April 2021),
- sampled farmers were asked to rate all agro-dealers in their catchment area across multiple characteristics.
- Enumerators used a tablet-based application to guide farmers through the list of agro-dealers,
- providing common names,
+During baseline data collection (April 2021),
+ sampled farmers were asked to rate agro-dealers in their catchment area based on multiple characteristics.
+ Enumerators used a tablet-based application to guide them through the list of agro-dealers,
+ displaying common names,
  store location descriptions,
  and storefront pictures obtained during the agro-dealer census (see Subsection 
 \begin_inset CommandInset ref
@@ -1219,14 +1219,11 @@ nolink "false"
 
 ).
  Farmers could rate an agro-dealer only if they met one of two conditions:
- either they had purchased seed from the agro-dealer themselves or they knew someone who had.
- Ideally,
- only farmers with firsthand experience would provide ratings,
- but limiting responses in this way risked generating too few observations for a reliable signal.
+ either they had personally purchased seed from the agro-dealer or knew someone who had.
 \end_layout
 
 \begin_layout Standard
-Farmers familiar with an agro-dealer rated them using the questions listed in Table 
+Eligible farmers then rated the agro-dealer using the questions listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "questions"
@@ -6869,7 +6866,7 @@ Note:
 \end_layout
 
 \begin_layout Subsection
-Ratings
+Information clearinghouse ratings
 \end_layout
 
 \begin_layout Subsubsection*
@@ -6877,10 +6874,10 @@ Correlating ratings and quality indicators
 \end_layout
 
 \begin_layout Standard
-One concern is that smallholder farmers may consider factors like customer service rather than seed quality when rating agro-input shops or base their assessments on the agro-dealer’s reputation or personal relationship with them.
+One concern is that smallholder farmers may base their ratings of agro-input shops on factors such as customer service rather than seed quality or rely on the agro-dealer’s reputation or personal relationship with them.
  To address this,
- we test whether the ratings —
- specifically,
+ we test whether the ratings—
+specifically,
  the index of endline ratings computed following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -6889,10 +6886,13 @@ literal "false"
 
 \end_inset
 
- —
- correlate with objective indicators of seller and seed quality,
+—
+correlate with objective indicators of seller and seed quality,
  also measured at endline.
- We find that specialized agro-input shops,
+\end_layout
+
+\begin_layout Standard
+We find that specialized agro-input shops,
  which exclusively sell farm inputs,
  receive higher ratings,
  as do dealers with better seed handling practices,
@@ -6910,7 +6910,7 @@ nolink "false"
  in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "appendix A.3 Comparison of ratings by purchase channel"
+reference "appendix A.3 Information clearinghouse ratings"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6920,7 +6920,7 @@ nolink "false"
 
 ).
  Additionally,
- farmers rated not only the seeds from agro-input shops but also those used on randomly selected maize fields,
+ farmers not only rated seeds purchased from agro-input shops but also those used on randomly selected maize fields,
  using the same questions.
  These seed ratings are positively correlated with farmers’ crop yields (Table 
 \begin_inset CommandInset ref
@@ -6936,7 +6936,7 @@ nolink "false"
  in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "appendix A.3 Comparison of ratings by purchase channel"
+reference "appendix A.3 Information clearinghouse ratings"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6948,12 +6948,12 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-While alternative explanations for these significant correlations are possible —
- for instance,
- specialized shops may have more capital and appear more “polished,” prompting higher ratings regardless of seed quality —
- the overall pattern supports our claim that farmers are assessing seed quality.
- Although farmers’ perceptions may not be perfectly accurate given the many factors influencing agricultural production,
- the information clearinghouse ratings offer a valid and reliable signal.
+While alternative explanations for these significant correlations exist—
+for instance,
+ specialized shops may have more capital and appear more “polished,” leading to higher ratings regardless of seed quality—
+the overall pattern supports our claim that farmers are assessing seed quality.
+ Although their perceptions may not be perfectly accurate given the many factors influencing agricultural production,
+ the information clearinghouse ratings provide a valid and reliable signal.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -6961,26 +6961,22 @@ Comparison of ratings by purchase channel
 \end_layout
 
 \begin_layout Standard
-Farmers could rate an agro-dealer only if they met one of two conditions:
+Farmers could rate an agro-dealer if they met one of two conditions:
  either they had purchased seed from the agro-dealer themselves or they knew someone who had.
  Ideally,
  only farmers with firsthand experience would provide ratings,
- but limiting responses in this way risked generating too few observations for a reliable signal,
- as an average of three agro-dealers was rated by 10 farmers per catchment area,
- and at baseline,
- 68% of farmers did not use high-yielding maize varieties purchased from an agro-dealer on any plot.
+ but restricting responses in this way risked generating too few observations for a reliable signal.
+ While this decision was made at the experiment’s design stage and cannot be revised ex post,
+ we can compare endline ratings between farmers who purchased seed from the agro-dealer and those who did not but knew someone who had.
 \end_layout
 
 \begin_layout Standard
-While this decision was made at the experiment’s design stage and cannot be revised ex post,
- we can compare endline ratings between farmers who purchased seed from the agro-dealer and those who did not but knew someone who had.
- The vast majority (93%) of ratings came from farmers who had purchased seed,
- while only 7% were provided by those who had not.
- This alleviates concerns that ratings are driven by farmers without firsthand experience or by reputation and hearsay effects.
+The vast majority (93%) of ratings came from farmers who had purchased seed,
+ while only 7% were provided by those without direct purchase experience.
+ This alleviates concerns that ratings are primarily driven by reputation or hearsay effects.
  While the mean ratings differ slightly (3.6 for farmers who bought seed vs.
  3.7 for those who did not),
- the density plots are similar,
- see Figure 
+ the density plots are similar (see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Comparison of ratings by purchase channel"
@@ -6994,7 +6990,7 @@ nolink "false"
  in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "appendix A.3 Comparison of ratings by purchase channel"
+reference "appendix A.3 Information clearinghouse ratings"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7002,22 +6998,15 @@ nolink "false"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-@Bjorn,
- I could also stack all the ratings from base-,
- mid-,
- and endline if you think that's better?
+).
 \end_layout
 
 \begin_layout Subsubsection*
-Comparison of individual ratings
+Comparison of rating dimensions
 \end_layout
 
 \begin_layout Standard
-We asked farmers to evaluate maize seed sold by this agro-dealer across six dimensions:
+We asked farmers to evaluate maize seed sold by an agro-dealer across six dimensions:
  General quality,
  Yield as advertised,
  Drought tolerance as advertised,
@@ -7038,7 +7027,7 @@ nolink "false"
  in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "appendix A.3 Comparison of ratings by purchase channel"
+reference "appendix A.3 Information clearinghouse ratings"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7046,25 +7035,36 @@ nolink "false"
 
 \end_inset
 
- presents the distribution of farmers’ ratings for these attributes.
- A red dashed vertical line denotes the mean rating for each.
- The figure reveals variation across attributes,
- with some displaying more concentrated distributions and others exhibiting greater dispersion.
+ presents the distribution of farmers’ ratings for these attributes along with their mean values.
 \end_layout
 
 \begin_layout Standard
-The attributes most strongly correlated with 
-\begin_inset Quotes eld
-\end_inset
-
+The figure reveals variation across attributes,
+ with some showing more concentrated distributions and others exhibiting greater dispersion.
+ The attributes most strongly correlated with the 
+\shape italic
 General quality
-\begin_inset Quotes erd
-\end_inset
-
- rating are “Yield as advertised” (0.54) and “Germination” (0.38).
- These variables also show the smallest mean absolute differences (0.47 for “Yield as advertised” and 0.55 for “Germination”),
- suggesting that farmers primarily consider these two dimensions when assessing overall quality.
- This indicates that farmers are particularly attentive to yield and germination and that their summary assessments align most closely with these factors.
+\shape default
+ rating are 
+\shape italic
+Yield as advertised
+\shape default
+ (0.54) and 
+\shape italic
+Germination
+\shape default
+ (0.38).
+ These two attributes also have the smallest mean absolute differences (0.47 for 
+\shape italic
+Yield as advertised
+\shape default
+ and 0.55 for 
+\shape italic
+Germination
+\shape default
+),
+ suggesting that farmers primarily consider them when assessing overall quality.
+ This indicates that yield and germination are the key factors farmers prioritize in their evaluations.
 \end_layout
 
 \begin_layout Section
@@ -21500,10 +21500,10 @@ textit{and} belong to the clearinghouse control group and those who do not,
 \end_layout
 
 \begin_layout Subsection
-Comparison of ratings
+Information clearinghouse ratings
 \begin_inset CommandInset label
 LatexCommand label
-name "appendix A.3 Comparison of ratings by purchase channel"
+name "appendix A.3 Information clearinghouse ratings"
 
 \end_inset
 
@@ -22201,7 +22201,7 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of individual endline ratings
+Comparison of rating dimensions at endline
 \begin_inset CommandInset label
 LatexCommand label
 name "Comparison of individual ratings"
