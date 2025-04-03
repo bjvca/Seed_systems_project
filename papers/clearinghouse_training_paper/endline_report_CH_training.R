@@ -9929,6 +9929,9 @@ cor_matrix["seed_quality_general_rating", -1]
 
 ################################################################################################################
 
+
+#within & between dealers
+
 library(lme4)
 
 # Fit a mixed-effects model with a random intercept for shop_ID
@@ -9942,6 +9945,54 @@ within_variance <- sigma(model)^2  # Residual variance (within variance)
 # Print variance components
 cat("Between-agro-dealer variance:", between_variance, "\n")
 cat("Within-agro-dealer variance:", within_variance, "\n")
+
+# Total variance
+total_variance <- between_variance + within_variance
+cat("Total variance:", total_variance, "\n")
+
+# Compute ICC
+ICC <- between_variance / total_variance
+cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+
+
+#within & between farmers
+
+# Fit a mixed-effects model with a random intercept for farmer_ID
+model <- lmer(score ~ (1 | farmer_ID), data = endline_rating_dyads)
+
+# Extract variance components
+variance_components <- as.data.frame(VarCorr(model))
+between_variance <- variance_components$vcov[1]  # Variance of random intercepts (between variance)
+within_variance <- sigma(model)^2  # Residual variance (within variance)
+
+# Print variance components
+cat("Between-farmer variance:", between_variance, "\n")
+cat("Within-farmer variance:", within_variance, "\n")
+
+# Total variance
+total_variance <- between_variance + within_variance
+cat("Total variance:", total_variance, "\n")
+
+# Compute ICC
+ICC <- between_variance / total_variance
+cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+
+
+#within & between CAs
+
+endline_rating_dyads <- merge(endline_rating_dyads, baseline_dealers[c("shop_ID","catchID")], by="shop_ID", all.x=TRUE)
+
+# Fit a mixed-effects model with a random intercept for catchID
+model <- lmer(score ~ (1 | catchID), data = endline_rating_dyads)
+
+# Extract variance components
+variance_components <- as.data.frame(VarCorr(model))
+between_variance <- variance_components$vcov[1]  # Variance of random intercepts (between variance)
+within_variance <- sigma(model)^2  # Residual variance (within variance)
+
+# Print variance components
+cat("Between-catchment area variance:", between_variance, "\n")
+cat("Within-catchment area variance:", within_variance, "\n")
 
 # Total variance
 total_variance <- between_variance + within_variance
