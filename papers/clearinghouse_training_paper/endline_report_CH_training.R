@@ -9926,3 +9926,27 @@ cor_matrix <- cor(endline_rating_dyads[, vars], use = "pairwise.complete.obs")
 
 # Extract correlations with "seed_quality_general_rating"
 cor_matrix["seed_quality_general_rating", -1]
+
+################################################################################################################
+
+library(lme4)
+
+# Fit a mixed-effects model with a random intercept for shop_ID
+model <- lmer(score ~ (1 | shop_ID), data = endline_rating_dyads)
+
+# Extract variance components
+variance_components <- as.data.frame(VarCorr(model))
+between_variance <- variance_components$vcov[1]  # Variance of random intercepts (between variance)
+within_variance <- sigma(model)^2  # Residual variance (within variance)
+
+# Print variance components
+cat("Between-agro-dealer variance:", between_variance, "\n")
+cat("Within-agro-dealer variance:", within_variance, "\n")
+
+# Total variance
+total_variance <- between_variance + within_variance
+cat("Total variance:", total_variance, "\n")
+
+# Compute ICC
+ICC <- between_variance / total_variance
+cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
