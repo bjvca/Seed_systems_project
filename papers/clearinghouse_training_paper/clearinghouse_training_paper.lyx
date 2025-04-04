@@ -7340,7 +7340,8 @@ Impact on agro-dealers
 \end_layout
 
 \begin_layout Standard
-We start by testing if the interventions affected general business operations of agro-dealers (Table 
+We begin by assessing whether the interventions affected the overall business operations of agro-dealers,
+ as reported in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Business volume"
@@ -7351,24 +7352,17 @@ nolink "false"
 
 \end_inset
 
-).
- A measure of sales volume was constructed by asking agro-dealers how much of a specific maize variety they sold in the previous season.
- We restrict attention to the four most popular high-yielding varieties,
- two of which are hybrids (Longe 7H and Longe 10H) and two of which are open pollinated varieties (OPVs) (Longe 4 and Longe 5).
- The total quantity sold is the combined sum of the quantities sold for these four varieties.
- We also asked agro-dealers about the sales price of the four varieties at the start of the season and then calculated the simple average.
- We calculate revenue (expressed in million Ugandan shillings) by first multiplying prices with quantities sold and then summing over the four varieties.
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-One dollar was about 3600 Ugandan shillings at the time of the study.
-\end_layout
-
-\end_inset
-
- We also include the number of customers that bought maize seed on an average day at the start of the season,
- as well as the number of maize varieties the agro-dealer had in stock.
+.
+ Sales volume was measured by asking agro-dealers how much of each maize variety they sold in the previous season.
+ We restrict attention to the four most popular high-yielding varieties—
+two hybrids (Longe 7H and Longe 10H) and two OPVs (Longe 4 and Longe 5).
+ Total sales volume is defined as the sum of quantities sold across these four varieties.
+ Agro-dealers also reported the sales price of each variety at the start of the season,
+ and we use the simple average of these prices.
+ Revenue (expressed in million Ugandan shillings) is calculated by multiplying the quantity sold by the price for each variety and summing across all four.
+ At the time of the study,
+ one US dollar was equivalent to approximately 3,600 Ugandan shillings.
+ Additional outcomes include the average number of customers purchasing maize seed per day at the start of the season and the number of maize varieties the agro-dealer had in stock.
 \end_layout
 
 \begin_layout Standard
@@ -7383,35 +7377,34 @@ nolink "false"
 
 \end_inset
 
- shows that we do not find an impact of training agro-dealers on their business operations.
+ shows no evidence that training agro-dealers influenced their business operations.
  At both midline and endline,
- the impact on the index is not significantly different from zero.
- No particular pattern emerges to explain these insignificant results,
- and there is little significance among the outcome variables when estimated separately.
- At midline,
- we find a negative impact of the training on the average sales price.
- At endline,
- the training seems to have reduced amounts sold,
- which is also reflected in a lower revenue.
+ the estimated effects on the business volume index are not statistically different from zero.
+ The lack of impact is largely consistent across individual outcome measures,
+ with no clear pattern emerging.
 \end_layout
 
 \begin_layout Standard
-We do find a positive impact of the information clearinghouse intervention on agro-dealer operations.
+We find that the information clearinghouse intervention positively affected agro-dealer operations.
  At midline,
- the business operations index is significantly higher among agro-dealers in the clearinghouse treatment group.
- Looking at individual outcomes,
- treated agro-dealers sold more maize seed at a higher price,
- albeit not significantly so.
- However,
- in combination,
- this led to revenues that are almost 20% higher,
- and this difference is significant at the 10% level.
+ agro-dealers in the clearinghouse treatment group scored significantly higher on the business operations 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ index.
+ Although maize seed sales and prices are not individually significant,
+ their combined effect yields a nearly 20% increase in revenue,
+ significant at the 10% level.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 For sufficiently large values,
- the coefficients of regressions with a dependent variable that has been transformed using the inverse hyperbolic sine can be interpreted as elasticities 
+ coefficients from regressions using inverse hyperbolic sine-transformed dependent variables can be interpreted as elasticities 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "https://doi.org/10.1111/obes.12325"
@@ -7424,11 +7417,51 @@ literal "false"
 
 \end_inset
 
- At endline,
- the positive effect of the information clearinghouse intervention seems to become stronger,
- with the effect on the overall index now being significant at the 1% level.
- The effect is driven by a 31% increase in the number of customers that a treated agro-dealer attracts,
- which translates into six additional customers per day.
+ By endline,
+ the intervention’s effect appears even stronger,
+ with the overall index significantly higher at the 1% level.
+ This result is primarily driven by a 31% increase in the number of customers served—
+equivalent to approximately six additional customers per day for treated agro-dealers.
+\end_layout
+
+\begin_layout Standard
+Only the endline result is robust to using indices constructed following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+,
+ which average standardized outcomes with equal weights.
+ This method treats all components equally,
+ regardless of their relevance or precision,
+ often resulting in less efficient estimates.
+ In contrast,
+ the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ index accounts for the covariance structure among outcomes and assigns optimal weights to maximize statistical power,
+ down-weighting highly correlated components.
+ Using this more efficient approach—
+also pre-specified in our 
+\begin_inset CommandInset href
+LatexCommand href
+name "pre-analysis plan"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+—
+we find significant and consistent effects at both midline and endline,
+ reinforcing the conclusion that the information clearinghouse intervention improved agro-dealer business performance.
 \end_layout
 
 \begin_layout Standard
@@ -7437,7 +7470,7 @@ placement document
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7579,7 +7612,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity of maize seed sold in kg$^
+Maize seed sales volume in kg$^
 \backslash
 S$$^
 \backslash
@@ -8667,9 +8700,9 @@ S$Due to the skewness of this variable,
 \end_layout
 
 \begin_layout Standard
-The next set of results focuses on the effect of the interventions on operations related to two particular varieties,
- specifically,
- the most recently released hybrid (Longe 10H) in Table 
+The next set of results examines the impact of the interventions on agro-dealer operations related to two specific maize varieties:
+ the most recently released hybrid,
+ Longe 10H (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Longe 10H"
@@ -8680,7 +8713,9 @@ nolink "false"
 
 \end_inset
 
- and the most recently released OPV (Longe 5) in Table 
+),
+ and the most recently released OPV,
+ Longe 5 (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Longe 5"
@@ -8691,30 +8726,45 @@ nolink "false"
 
 \end_inset
 
-.
- In addition to the already described business operation outcomes,
- we include outcomes related to stock management,
- given that seed quality decreases with shelf-life.
- We asked agro-dealers how much of the particular seed was carried over from the previous season.
- Many agro-dealers reported that they did not carry over any seed,
- leading to low baseline means.
- Furthermore,
- we asked the agro-dealers to estimate how much they bought from any provider during the same season.
- For both varieties,
- this is slightly more than what agro-dealers reported to have sold.
- We expect our treatments to decrease the amount of seed carried forward and increase the amount of fresh seed procured from providers.
- We also asked the agro-dealers to estimate how much of their seed stock was lost or wasted during the season,
- and how often they ran out of stock.
- We expect the interventions to reduce both losses and stock-outs.
+).
+ In addition to the general business outcomes described earlier,
+ we include stock management indicators,
+ given that seed quality deteriorates with shelf-life.
+ Agro-dealers were asked how much seed of the respective variety was carried over from the previous season—
+a measure with generally low baseline means,
+ as many reported carrying no seed over.
+ We also collected estimates of how much seed was procured from suppliers during the season,
+ which slightly exceeded reported sales for both varieties.
+ We expect the interventions to reduce carryover and increase the volume of freshly sourced seed.
+ In addition,
+ agro-dealers reported how much seed was lost or wasted and how often they experienced stock-outs.
+ We expect the interventions to mitigate both outcomes.
 \end_layout
 
 \begin_layout Standard
-For both varieties,
- we do not find significant effects of the training nor the clearinghouse treatment at midline.
- At endline however,
- all individual coefficient estimates move in the expected direction for the information clearinghouse,
- and when outcomes are combined in an index,
- the effect is positive and statistically significant.
+At midline,
+ we find no significant effects of either the training or the clearinghouse intervention.
+ By endline,
+ however,
+ all coefficients for the information clearinghouse group move in the expected direction,
+ and the combined 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ index shows a positive and statistically significant effect.
+ These results are robust to index construction using the method of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -8832,7 +8882,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^
+Sales volume in kg$^
 \backslash
 S$$^
 \backslash
@@ -9851,7 +9901,7 @@ cmidrule(lr){6-8}
 
 
 \backslash
-textbf{Overall index}
+textbf{Overall Anderson index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -9973,6 +10023,143 @@ Sexpr{format(round(df_ols_end_D_secL10H_B[2,1,1],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,1],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall Kling et al.
+ index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_secL10H_B[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL10H_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_secL10H_B[3,1,2]<.05,"*",ifelse(df_ols_D_secL10H_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL10H_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_secL10H_B[3,2],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL10H_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_secL10H_B[3,1,2]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_secL10H_B[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_secL10H_B[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,2],digits=3),nsmall=3)}) & 
 \backslash
 
 \backslash
@@ -10221,7 +10408,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Quantity sold in kg$^
+Sales volume in kg$^
 \backslash
 S$$^
 \backslash
@@ -11216,7 +11403,7 @@ cmidrule(lr){6-8}
 
 
 \backslash
-textbf{Overall index}
+textbf{Overall Anderson index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -11352,6 +11539,143 @@ Sexpr{format(round(df_ols_end_D_secL5_B[2,2,1],digits=3),nsmall=3)}) &
 
 
 \backslash
+textbf{Overall Kling et al.
+ index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_secL5_B[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL5_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_secL5_B[3,1,2]<.05,"*",ifelse(df_ols_D_secL5_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL5_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL5_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_secL5_B[3,2],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL5_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_secL5_B[3,1,2]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL5_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_secL5_B[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_secL5_B[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[2,2,2],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 cmidrule(lr){2-2} 
 \backslash
 cmidrule(lr){3-5} 
@@ -11469,6 +11793,10 @@ $^1$The comparisons were only made for agro-dealers that had Longe 5 in stock at
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+HERE
 \end_layout
 
 \begin_layout Standard
@@ -29139,7 +29467,7 @@ cmidrule(lr){6-8}
 
 
 \backslash
-textbf{Overall index}
+textbf{Overall Anderson index}
 \end_layout
 
 \begin_layout Plain Layout
@@ -29264,6 +29592,147 @@ Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,1],digits=3),nsmall=3)}) &
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Overall Kling et al.
+ index}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag_B[1,2],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_B[3,1,2]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_sec_bag_B[3,2],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[1,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,1,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_bag_B[3,1,2]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,1,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag_B[3,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_sec_bag_B[2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[2,1,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,2],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

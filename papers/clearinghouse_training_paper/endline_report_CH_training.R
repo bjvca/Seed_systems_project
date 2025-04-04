@@ -2127,6 +2127,47 @@ icwIndex <- function(	xmat,
 #we also tried a function developed by Bjorn that sets NA=O (see email 13/07/2023)
 #results are roughly robust to these different approaches
 
+
+#include Kling index as robustness check (Kling, J. R., J. B. Liebman, and L. F. Katz. 2007. “Experimental analysis of neighborhood effects.” Econometrica 75 (1): 83–119.)
+#p. 89
+# The summary index Y is defined to be the equally
+# weighted average of z-scores of its components, with the sign of each measure
+# oriented (as indicated in the notes to Table II) so that more beneficial
+# outcomes have higher scores. The z-scores are calculated by subtracting the
+# control group mean and dividing by the control group standard deviation.11
+# Thus, each component of the index has mean 0 and standard deviation 1 for
+# the control group.
+
+Kling_index <- function(xmat, revcols = NULL, sgroup = rep(TRUE, nrow(xmat))) {
+  # Ensure xmat is a matrix or data frame
+  if (!is.matrix(xmat) && !is.data.frame(xmat)) {
+    stop("xmat must be a matrix or data frame")
+  }
+  
+  # Subset the sgroup
+  control_data <- xmat[sgroup, , drop = FALSE]
+  
+  # Compute mean and standard deviation for each component in the sgroup
+  means <- apply(control_data, 2, mean, na.rm = TRUE)
+  sds <- apply(control_data, 2, sd, na.rm = TRUE)
+  
+  # Compute z-scores for all observations
+  z_scores <- sweep(xmat, 2, means, FUN = "-")
+  z_scores <- sweep(z_scores, 2, sds, FUN = "/")
+  
+  # Reverse sign for specified columns
+  if (!is.null(revcols)) {
+    z_scores[, revcols] <- -z_scores[, revcols]
+  }
+  
+  # Compute the summary index as the equally weighted average of z-scores
+  summary_index <- rowMeans(z_scores, na.rm = TRUE)
+  
+  # Return as a list
+  return(list(index = summary_index))
+}
+
+
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid) #x
 baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #x
 
@@ -3796,6 +3837,9 @@ variables_overall_Longe10H_base <- cbind(baseline_dealers$maize.owner.agree.long
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid, revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe10H_mid <- index_overall_Longe10H_mid$index #x
 
+index_overall_Longe10H_mid_Kling <- Kling_index(xmat=variables_overall_Longe10H_mid, revcols = c(1,4,5)) #x
+baseline_dealers$index_overall_Longe10H_mid_Kling <- index_overall_Longe10H_mid_Kling$index #x
+
 index_overall_Longe10H_base <- icwIndex(xmat=variables_overall_Longe10H_base, revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe10H_base <- index_overall_Longe10H_base$index #baseline index for mean
 
@@ -3806,7 +3850,7 @@ baseline_dealers$index_overall_Longe10H_base <- index_overall_Longe10H_base$inde
 #1#
 ###
 
-results_dealer_secL10H_B <- c("index_overall_Longe10H_mid")
+results_dealer_secL10H_B <- c("index_overall_Longe10H_mid","index_overall_Longe10H_mid_Kling")
 
 df_means_end_D_secL10H_B <- array(NA,dim=c(3,11))
 
@@ -3828,9 +3872,12 @@ baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$training_control, revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe10H_midT <- index_overall_Longe10H_mid$index
 
+index_overall_Longe10H_mid_Kling <- Kling_index(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$training_control, revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe10H_midT_Kling <- index_overall_Longe10H_mid_Kling$index
+
 df_ols_end_D_secL10H_B <- array(NA,dim=c(3,3,11))
 
-results_dealer_secL10H_B <- c("index_overall_Longe10H_midT")
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midT","index_overall_Longe10H_midT_Kling")
 
 for (i in 1:length(results_dealer_secL10H_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
@@ -3851,7 +3898,10 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$clearing_control, revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe10H_midC <- index_overall_Longe10H_mid$index
 
-results_dealer_secL10H_B <- c("index_overall_Longe10H_midC")
+index_overall_Longe10H_mid_Kling <- Kling_index(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$clearing_control, revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe10H_midC_Kling <- index_overall_Longe10H_mid_Kling$index
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midC","index_overall_Longe10H_midC_Kling")
 
 for (i in 1:length(results_dealer_secL10H_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
@@ -3872,7 +3922,10 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 index_overall_Longe10H_mid <- icwIndex(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$farmer_control, revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe10H_midF <- index_overall_Longe10H_mid$index
 
-results_dealer_secL10H_B <- c("index_overall_Longe10H_midF")
+index_overall_Longe10H_mid_Kling <- Kling_index(xmat=variables_overall_Longe10H_mid,sgroup = baseline_dealers$farmer_control, revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe10H_midF_Kling <- index_overall_Longe10H_mid_Kling$index
+
+results_dealer_secL10H_B <- c("index_overall_Longe10H_midF","index_overall_Longe10H_midF_Kling")
 
 for (i in 1:length(results_dealer_secL10H_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL10H_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_secL10H_B_base[i],sep="+")),data=baseline_dealers)
@@ -4257,6 +4310,9 @@ variables_overall_Longe5_mid <- cbind(baseline_dealers$mid_maize.owner.agree.lon
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,revcols = c(1,4,5)) #x
 baseline_dealers$index_overall_Longe5_mid <- index_overall_Longe5_mid$index #x
 
+index_overall_Longe5_mid_Kling <- Kling_index(xmat=variables_overall_Longe5_mid,revcols = c(1,4,5)) #x
+baseline_dealers$index_overall_Longe5_mid_Kling <- index_overall_Longe5_mid_Kling$index #x
+
 variables_overall_Longe5_base <- cbind(baseline_dealers$maize.owner.agree.longe5.q46,
                                       baseline_dealers$maize.owner.agree.longe5.q47,
                                       baseline_dealers$maize.owner.agree.longe5.q50,
@@ -4274,7 +4330,7 @@ baseline_dealers$index_overall_Longe5_base <- index_overall_Longe5_base$index #x
 #1#
 ###
 
-results_dealer_secL5_B <- c("index_overall_Longe5_mid")
+results_dealer_secL5_B <- c("index_overall_Longe5_mid","index_overall_Longe5_mid_Kling")
 
 df_means_end_D_secL5_B <- array(NA,dim=c(3,11))
 
@@ -4297,9 +4353,12 @@ baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$training_control,revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe5_midT <- index_overall_Longe5_mid$index
 
+index_overall_Longe5_mid_Kling <- Kling_index(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$training_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midT_Kling <- index_overall_Longe5_mid_Kling$index
+
 df_ols_end_D_secL5_B <- array(NA,dim=c(3,3,11))
 
-results_dealer_secL5_B <- c("index_overall_Longe5_midT")
+results_dealer_secL5_B <- c("index_overall_Longe5_midT","index_overall_Longe5_midT_Kling")
 
 for (i in 1:length(results_dealer_secL5_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
@@ -4321,7 +4380,10 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe5_midC <- index_overall_Longe5_mid$index
 
-results_dealer_secL5_B <- c("index_overall_Longe5_midC")
+index_overall_Longe5_mid_Kling <- Kling_index(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midC_Kling <- index_overall_Longe5_mid_Kling$index
+
+results_dealer_secL5_B <- c("index_overall_Longe5_midC","index_overall_Longe5_midC_Kling")
 
 for (i in 1:length(results_dealer_secL5_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
@@ -4343,7 +4405,10 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 index_overall_Longe5_mid <- icwIndex(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$farmer_control,revcols = c(1,4,5))
 baseline_dealers$index_overall_Longe5_midF <- index_overall_Longe5_mid$index
 
-results_dealer_secL5_B <- c("index_overall_Longe5_midF")
+index_overall_Longe5_mid_Kling <- Kling_index(xmat=variables_overall_Longe5_mid,sgroup = baseline_dealers$farmer_control,revcols = c(1,4,5))
+baseline_dealers$index_overall_Longe5_midF_Kling <- index_overall_Longe5_mid_Kling$index
+
+results_dealer_secL5_B <- c("index_overall_Longe5_midF","index_overall_Longe5_midF_Kling")
 
 for (i in 1:length(results_dealer_secL5_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_secL5_B[i],"training_demeaned*clearing_demeaned*farmer",sep="~"),results_dealer_secL5_base[i],sep="+")),data=baseline_dealers)
@@ -4663,6 +4728,9 @@ variables_overall_bag_base <- cbind(baseline_dealers$reading,baseline_dealers$vi
 index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,revcols = c(1,3)) #x
 baseline_dealers$index_overall_bag_mid <- index_overall_bag_mid$index #x
 
+index_overall_bag_mid_Kling <- Kling_index(xmat=variables_overall_bag_mid,revcols = c(1,3)) #x
+baseline_dealers$index_overall_bag_mid_Kling <- index_overall_bag_mid_Kling$index #x
+
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,revcols = c(1,3))
 baseline_dealers$index_overall_bag_base <- index_overall_bag_base$index
 
@@ -4721,6 +4789,9 @@ baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$training_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_midT <- index_overall_bag_mid$index
 
+index_overall_bag_mid_Kling <- Kling_index(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$training_control,revcols = c(1,3))
+baseline_dealers$index_overall_bag_midT_Kling <- index_overall_bag_mid_Kling$index
+
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$training_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseT <- index_overall_bag_base$index
 
@@ -4762,6 +4833,9 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 #5.
 index_overall_bag_mid <- icwIndex(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_midC <- index_overall_bag_mid$index
+
+index_overall_bag_mid_Kling <- Kling_index(xmat=variables_overall_bag_mid,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
+baseline_dealers$index_overall_bag_midC_Kling <- index_overall_bag_mid_Kling$index
 
 index_overall_bag_base <- icwIndex(xmat=variables_overall_bag_base,sgroup = baseline_dealers$clearing_control,revcols = c(1,3))
 baseline_dealers$index_overall_bag_baseC <- index_overall_bag_base$index
@@ -4850,7 +4924,7 @@ for (i in 1:length(results_dealer_sec_bag)){
 #1#
 ###
 
-results_dealer_sec_bag_B <- c("index_overall_bag_mid")
+results_dealer_sec_bag_B <- c("index_overall_bag_mid","index_overall_bag_mid_Kling")
 
 df_means_end_D_sec_bag_B <- array(NA,dim=c(3,11))
 
@@ -4868,7 +4942,7 @@ df_means_end_D_sec_bag_B[2,1] <- sd(baseline_dealers$index_overall_bag_base_save
 
 df_ols_end_D_sec_bag_B <- array(NA,dim=c(3,3,11))
 
-results_dealer_sec_bag_B <- c("index_overall_bag_midT")
+results_dealer_sec_bag_B <- c("index_overall_bag_midT","index_overall_bag_midT_Kling")
 
 for (i in 1:length(results_dealer_sec_bag_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training*clearing_demeaned*farmer_demeaned",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
@@ -4883,7 +4957,7 @@ for (i in 1:length(results_dealer_sec_bag_B)){
 #3#
 ###
 
-results_dealer_sec_bag_B <- c("index_overall_bag_midC")
+results_dealer_sec_bag_B <- c("index_overall_bag_midC","index_overall_bag_midC_Kling")
 
 for (i in 1:length(results_dealer_sec_bag_B)){
   #ols <- lm(as.formula(paste(paste(results_dealer_sec_bag_B[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_dealer_sec_bag_B_base[i],sep="+")),data=baseline_dealers)
@@ -5008,44 +5082,6 @@ index_dealer_endchain_mid <- icwIndex(xmat=variables_dealer_endchain_mid)
 baseline_dealers$index_dealer_endchain_mid <- index_dealer_endchain_mid$index
 
 ##########
-#include Kling index as robustness check (Kling, J. R., J. B. Liebman, and L. F. Katz. 2007. “Experimental analysis of neighborhood effects.” Econometrica 75 (1): 83–119.)
-#p. 89
-# The summary index Y is defined to be the equally
-# weighted average of z-scores of its components, with the sign of each measure
-# oriented (as indicated in the notes to Table II) so that more beneficial
-# outcomes have higher scores. The z-scores are calculated by subtracting the
-# control group mean and dividing by the control group standard deviation.11
-# Thus, each component of the index has mean 0 and standard deviation 1 for
-# the control group.
-
-Kling_index <- function(xmat, revcols = NULL, sgroup = rep(TRUE, nrow(xmat))) {
-  # Ensure xmat is a matrix or data frame
-  if (!is.matrix(xmat) && !is.data.frame(xmat)) {
-    stop("xmat must be a matrix or data frame")
-  }
-  
-  # Subset the sgroup
-  control_data <- xmat[sgroup, , drop = FALSE]
-  
-  # Compute mean and standard deviation for each component in the sgroup
-  means <- apply(control_data, 2, mean, na.rm = TRUE)
-  sds <- apply(control_data, 2, sd, na.rm = TRUE)
-  
-  # Compute z-scores for all observations
-  z_scores <- sweep(xmat, 2, means, FUN = "-")
-  z_scores <- sweep(z_scores, 2, sds, FUN = "/")
-  
-  # Reverse sign for specified columns
-  if (!is.null(revcols)) {
-    z_scores[, revcols] <- -z_scores[, revcols]
-  }
-  
-  # Compute the summary index as the equally weighted average of z-scores
-  summary_index <- rowMeans(z_scores, na.rm = TRUE)
-  
-  # Return as a list
-  return(list(index = summary_index))
-}
 
 index_dealer_endchain_mid_Kling <- Kling_index(xmat=variables_dealer_endchain_mid)
 baseline_dealers$index_dealer_endchain_mid_Kling <- index_dealer_endchain_mid_Kling$index
