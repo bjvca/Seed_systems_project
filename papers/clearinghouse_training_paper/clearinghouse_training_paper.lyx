@@ -2050,16 +2050,22 @@ literal "false"
 \end_inset
 
 .
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Each index is computed as a weighted mean of the standardized outcome variables.
+ Each index is computed as a weighted mean of the standardized outcome variables.
  The weights in this efficient generalized least squares estimator are designed to maximize the information captured by assigning lower weights to highly correlated outcomes.
-\end_layout
+ As a robustness check,
+ we also compute summary indices following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
 
 \end_inset
 
+.
+ Here,
+ each index is constructed as the equally weighted average of the z-scores of its components,
+ where z-scores are calculated by subtracting the control group mean and dividing by the control group standard deviation.
+ The sign of each component is oriented such that higher values reflect more beneficial outcomes.
  While these indices provide a useful measure of the intervention’s overall impact on a family of outcomes,
  interpreting effect sizes is not always straightforward.
  Examining individual outcomes within each family offers more meaningful effect sizes and identifies the key drivers of the results.
@@ -6980,11 +6986,6 @@ nolink "false"
 ).
 \end_layout
 
-\begin_layout Standard
-Between-farmer variance:
- 0.1033332
-\end_layout
-
 \begin_layout Subsubsection*
 Within and between agro-dealer rating variation
 \end_layout
@@ -7158,13 +7159,11 @@ name "section: Results"
 \end_layout
 
 \begin_layout Standard
-We now present impact of the two interventions on both agro-dealer level outcomes and farmer level outcomes.
- We separately report effects after one agricultural season (referred to as impact at midline) and after two seasons (referred to as impact at endline).
-\end_layout
-
-\begin_layout Standard
-For reasons of transparency and replicability,
- all outcome variables are described in the registered pre-analysis plan which can be found in the 
+We now present the impacts of the two interventions on outcomes at both the agro-dealer and farmer levels.
+ Effects are reported separately after one agricultural season (midline) and after two seasons (endline).
+ To ensure transparency and replicability,
+ all outcome variables were pre-specified in the registered pre-analysis plan,
+ available on the 
 \begin_inset CommandInset href
 LatexCommand href
 name "American Economic Association's registry for RCTs"
@@ -7174,9 +7173,8 @@ literal "false"
 \end_inset
 
 .
- In addition,
- before midline data collection,
- the entire econometric analysis was run on simulated data and also registered in a 
+ Prior to midline data collection,
+ the full econometric analysis was run using simulated data and documented in a 
 \begin_inset CommandInset href
 LatexCommand href
 name "mock report"
@@ -7185,7 +7183,9 @@ literal "false"
 
 \end_inset
 
- 
+.
+ A mock report is a dynamic document that integrates analytical code,
+ allowing simulated data to be seamlessly replaced with real data as it becomes available 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "humphreys2013fishing"
@@ -7194,15 +7194,7 @@ literal "false"
 \end_inset
 
 .
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-A mock report is a dynamic report that integrates all code,
- such that when midline and endline data become available,
- one simply has to replace the simulated data with the real data.
- We use the knitr engine to integrate R code in \SpecialChar LaTeX
- 
+ We use the knitr engine to embed R code within LaTeX 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "xie2017dynamic"
@@ -7211,13 +7203,9 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\end_inset
-
  All documents,
  code,
- and data are under revision control and publicly accessible in a 
+ and data are version-controlled and publicly available in a 
 \begin_inset CommandInset href
 LatexCommand href
 name "GitHub repository"
@@ -7226,32 +7214,23 @@ literal "false"
 
 \end_inset
 
- which provides time-stamped records of all changes made over the course of the project.
+,
+ which provides time-stamped records of all changes made throughout the project.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-The presentation of results in this paper differs somewhat from the way it was pre-registered and presented in the mock report (and midline report,
+The presentation of results in this paper deviates slightly from the pre-registered and earlier versions (including the mock report,
+ midline report,
  endline report,
- and previous versions of this manuscript).
- In particular,
- we reorganized the presentation of results to match a structure where we first look at impact on outcomes at the end of the causal chain and then look at impact on intermediate outcomes to explore potential mechanisms.
- While this change does affect the construction of some of the pre-registered indices,
- overall conclusions remain the same.
- Several pre-registered tables can be found in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "A.5 Outcome variables and results as they were pre-registered"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- The analysis that follows the pre-registered structure can be found in the project history on GitHub,
- for instance 
+ and previous manuscript drafts).
+ Specifically,
+ we reorganized the structure to first present impacts on outcomes at the end of the causal chain,
+ followed by intermediate outcomes to examine potential mechanisms.
+ While this reordering modifies the construction of some pre-specified indices,
+ the main conclusions remain unchanged.
+ Analyses adhering to the original pre-analysis plan remain available in the project history on GitHub,
+ for example 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
@@ -7291,30 +7270,24 @@ nolink "false"
 
 \end_inset
 
- present results in a common layout.
- Column (1) provides baseline sample means with standard deviations in parentheses to help gauge effect sizes.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Note that these means are reported in levels to allow the interpretation of effect sizes,
- even though we may report the difference between treatment and control groups after using inverse hyperbolic sine transformations.
+ present results in a consistent format.
+ Column (1) reports baseline sample means,
+ with standard deviations in parentheses,
+ to facilitate interpretation of effect sizes.
+ These means are presented in levels,
+ even when treatment effects are estimated using inverse hyperbolic sine-transformed outcomes.
+ Column (2) reports the midline treatment effect of the agro-dealer training,
+ and column (3) presents the corresponding effect of the information clearinghouse.
+ Standard errors are reported in parentheses beneath the coefficient estimates.
+ Column (4) displays the number of observations used in the midline estimations.
+ Columns (5) and (6) report endline treatment effects for the training and clearinghouse interventions,
+ respectively,
+ again with standard errors shown in parentheses.
+ Column (7) indicates the number of observations included in the endline analyses.
 \end_layout
 
-\end_inset
-
- In column (2),
- we provide the treatment effect of the agro-dealer training at midline,
- while column (3) reports the treatment effect of the information clearinghouse at midline.
- Standard errors are reported in parentheses below the coefficient estimates.
- Column (4) reports the number of observations used in the estimations at midline.
- Columns (5) and (6) report treatment effects of the training and the clearinghouse treatment respectively at endline,
- that is,
- after two seasons.
- Again,
- we report standard errors in parentheses below the coefficient estimates.
- Column (7) reports the number of observations used in the endline estimations.
- As noted in Section 
+\begin_layout Standard
+As detailed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "section: Empirical strategy"
@@ -7326,7 +7299,7 @@ nolink "false"
 \end_inset
 
 ,
- we account for multiple hypothesis testing by aggregating different outcomes within families into overall summary indices,
+ we adjust for multiple hypothesis testing by grouping outcomes into broader families and constructing summary indices,
  following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -7336,20 +7309,25 @@ literal "false"
 \end_inset
 
 .
- Results for these indices are reported at the bottom of the tables.
+ As a robustness check,
+ we additionally report indices constructed according to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+.
+ Both appear at the bottom of the tables.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-In the regressions with these overall indices,
- we do not control for the baseline values because this would imply having the result only for agro-dealers and farmers who have no missing values for any of the variables constituting these indices at midline/endline 
-\shape italic
-\emph on
-and
-\shape default
-\emph default
- at baseline,
- severely reducing statistical power.
+In regressions using these overall indices,
+ we do not control for baseline values,
+ as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline,
+ substantially reducing statistical power.
 \end_layout
 
 \end_inset
@@ -11436,6 +11414,45 @@ To further explore the large and significant effect of the clearinghouse on yiel
  and,
  in turn,
  realized higher yields.
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+The summary index Y is defined to be the equally
+\end_layout
+
+\begin_layout Standard
+weighted average of z-scores of its components,
+ with the sign of each measure
+\end_layout
+
+\begin_layout Standard
+oriented (as indicated in the notes to Table II) so that more beneficial
+\end_layout
+
+\begin_layout Standard
+outcomes have higher scores.
+ The z-scores are calculated by subtracting the
+\end_layout
+
+\begin_layout Standard
+control group mean and dividing by the control group standard deviation.11
+\end_layout
+
+\begin_layout Standard
+Thus,
+ each component of the index has mean 0 and standard deviation 1 for
+\end_layout
+
+\begin_layout Standard
+the control group.
+\end_layout
+
+\begin_layout Standard
+...
 \end_layout
 
 \begin_layout Standard
