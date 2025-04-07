@@ -1,3 +1,5 @@
+rm(list=ls())
+
 set.seed(12345)
 library(pracma)
 library(randomizr)  
@@ -9,99 +11,99 @@ trim <- function(var, dataset, trim_perc=.05) {
 }
 
 
-### this is executed in the /report subdirectory, need to ..
-path <- strsplit(getwd(), "/Study design")[[1]]
-
-shops <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
-farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
- 
-#merge each shop to all farmers 
-
-
- ### make in long format
-connector <- reshape(farmers[c("id.agro1","id.agro2", "id.agro3","ID")], varying = c("id.agro1","id.agro2", "id.agro3"), direction="long", idvar="ID")
-#connector <- subset(connector, time == "agro1")
-connector <- connector[c("ID","id")]
-names(connector) <- c("farmID", "shopID")
-connector <- subset(connector, shopID != "n/a")
-connector <- subset(connector, shopID != "")
-### merge in GPS coordinates from the farmers
-
-
-connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/farmers_gps.csv")[c("ID","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="farmID", by.y="ID")
-names(connector) <- c("farmID","shopID","farmer_lat","farmer_long")
-connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="shopID", by.y="id.agro")
-names(connector) <- c("farmID","shopID","farmer_lat","farmer_long","shop_lat","shop_long")
-
-connector$farmer_lat <- as.numeric(as.character(connector$farmer_lat))
-connector$farmer_long <- as.numeric(as.character(connector$farmer_long))
-connector$shop_lat <- as.numeric(as.character(connector$shop_lat))
-connector$shop_long <- as.numeric(as.character(connector$shop_long))
-
-connector <- subset(connector, !is.na(farmer_lat))
-
-###now get distance between shops and farmers
-connector$dist <- NA
-for (i in 1:nrow(connector)) {
-connector$dist[i] <- haversine(c(connector$farmer_lat[i] ,connector$farmer_long[i]),c(connector$shop_lat[i],connector$shop_long[1]))*1000
-}
-
-summary(aggregate(connector$dist, by=list(connector$farmID), mean)[,2])
-### median distance of catchment area is 16km
-summary(aggregate(connector$dist, by=list(connector$farmID), min)[,2])
-### even if we define catchement by minimum distance we still get median of >12 km
-
-shops <- read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")]
-names(shops) <- c("shopID","shop_lat","shop_long")
-
-### we found that a few locations are taken at the hotel where enumerators stay - remove these
-shops$shop_lat[shops$shop_lat  > 0.604217379 &
-shops$shop_lat  < 0.613710477 &
-shops$shop_long > 33.47659906 &
-shops$shop_long < 33.4922358] <- NA
-
-shops$shop_long[is.na(shops$shop_lat) &
-shops$shop_long > 33.47659906 &
-shops$shop_long < 33.4922358]   <- NA
-
-shops <- subset(shops, !is.na(shop_long)) 
-shops$shopID <- factor(shops$shopID)
-
-#So how many catchment areas can we define when shops need to be at least 16 km apart?
-shops$catchmentID <- NA
-counter <- 1
-
-for (shop_1 in names(table(shops$shopID))) {
-shops$catchmentID[shops$shopID == shop_1] <- counter
-for (shop_2 in names(table(shops$shopID))) {
-### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
-if ( haversine(c(shops$shop_lat[shops$shopID == shop_1] ,shops$shop_long[shops$shopID == shop_1]),c(shops$shop_lat[shops$shopID == shop_2],shops$shop_long[shops$shopID == shop_2])) < 5) {
-if (is.na(shops$catchmentID[shops$shopID == shop_2])) {
- shops$catchmentID[shops$shopID == shop_2] <- counter
-} else {
- shops$catchmentID[shops$shopID == shop_1]  <- shops$catchmentID[shops$shopID == shop_2] 
-}
-
-}
-}
-counter <- counter + 1
-}
-dim(table(shops$catchmentID))
-library(leaflet)
-
-pal <- colorFactor(
-  palette = 'Dark2',
-  domain = shops$catchmentID
-)
-
-
-m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~shop_long, lat=~shop_lat,radius= 8, color=~pal(catchmentID), popup = ~as.character(catchmentID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
-
-
-shops <- shops[c("shopID","catchmentID")]
-write.csv(shops, file = paste(path,"stack surveys/data/work/shops.csv", sep ="/") )
-
-#Now run power analysis agains -  copied from power.R
+# ### this is executed in the /report subdirectory, need to ..
+# path <- strsplit(getwd(), "/Study design")[[1]]
+# 
+# shops <- read.csv(paste(path,"stack surveys/data/agro_input_dealers.csv", sep ="/"))
+# farmers <- read.csv(paste(path,"stack surveys/data/farmers.csv", sep ="/"))
+#  
+# #merge each shop to all farmers 
+# 
+# 
+#  ### make in long format
+# connector <- reshape(farmers[c("id.agro1","id.agro2", "id.agro3","ID")], varying = c("id.agro1","id.agro2", "id.agro3"), direction="long", idvar="ID")
+# #connector <- subset(connector, time == "agro1")
+# connector <- connector[c("ID","id")]
+# names(connector) <- c("farmID", "shopID")
+# connector <- subset(connector, shopID != "n/a")
+# connector <- subset(connector, shopID != "")
+# ### merge in GPS coordinates from the farmers
+# 
+# 
+# connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/farmers_gps.csv")[c("ID","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="farmID", by.y="ID")
+# names(connector) <- c("farmID","shopID","farmer_lat","farmer_long")
+# connector <- merge(connector, read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")], by.x="shopID", by.y="id.agro")
+# names(connector) <- c("farmID","shopID","farmer_lat","farmer_long","shop_lat","shop_long")
+# 
+# connector$farmer_lat <- as.numeric(as.character(connector$farmer_lat))
+# connector$farmer_long <- as.numeric(as.character(connector$farmer_long))
+# connector$shop_lat <- as.numeric(as.character(connector$shop_lat))
+# connector$shop_long <- as.numeric(as.character(connector$shop_long))
+# 
+# connector <- subset(connector, !is.na(farmer_lat))
+# 
+# ###now get distance between shops and farmers
+# connector$dist <- NA
+# for (i in 1:nrow(connector)) {
+# connector$dist[i] <- haversine(c(connector$farmer_lat[i] ,connector$farmer_long[i]),c(connector$shop_lat[i],connector$shop_long[1]))*1000
+# }
+# 
+# summary(aggregate(connector$dist, by=list(connector$farmID), mean)[,2])
+# ### median distance of catchment area is 16km
+# summary(aggregate(connector$dist, by=list(connector$farmID), min)[,2])
+# ### even if we define catchement by minimum distance we still get median of >12 km
+# 
+# shops <- read.csv("/home/bjvca/data/projects/PIMMVC/data/raw_non_public/RawData_Shops_ids.csv")[c("id.agro","hh.maize._gps_latitude","hh.maize._gps_longitude")]
+# names(shops) <- c("shopID","shop_lat","shop_long")
+# 
+# ### we found that a few locations are taken at the hotel where enumerators stay - remove these
+# shops$shop_lat[shops$shop_lat  > 0.604217379 &
+# shops$shop_lat  < 0.613710477 &
+# shops$shop_long > 33.47659906 &
+# shops$shop_long < 33.4922358] <- NA
+# 
+# shops$shop_long[is.na(shops$shop_lat) &
+# shops$shop_long > 33.47659906 &
+# shops$shop_long < 33.4922358]   <- NA
+# 
+# shops <- subset(shops, !is.na(shop_long)) 
+# shops$shopID <- factor(shops$shopID)
+# 
+# #So how many catchment areas can we define when shops need to be at least 16 km apart?
+# shops$catchmentID <- NA
+# counter <- 1
+# 
+# for (shop_1 in names(table(shops$shopID))) {
+# shops$catchmentID[shops$shopID == shop_1] <- counter
+# for (shop_2 in names(table(shops$shopID))) {
+# ### key parameter is chosen here: distance to define a catchment area. Here we assume that if shops are less then 5 km apart, they serve the same catchment area
+# if ( haversine(c(shops$shop_lat[shops$shopID == shop_1] ,shops$shop_long[shops$shopID == shop_1]),c(shops$shop_lat[shops$shopID == shop_2],shops$shop_long[shops$shopID == shop_2])) < 5) {
+# if (is.na(shops$catchmentID[shops$shopID == shop_2])) {
+#  shops$catchmentID[shops$shopID == shop_2] <- counter
+# } else {
+#  shops$catchmentID[shops$shopID == shop_1]  <- shops$catchmentID[shops$shopID == shop_2] 
+# }
+# 
+# }
+# }
+# counter <- counter + 1
+# }
+# dim(table(shops$catchmentID))
+# library(leaflet)
+# 
+# pal <- colorFactor(
+#   palette = 'Dark2',
+#   domain = shops$catchmentID
+# )
+# 
+# 
+# m <- leaflet() %>% setView(lat = 0.65, lng = 33.62, zoom=11)  %>%  addTiles(group="OSM") %>% addTiles(urlTemplate = "https://mts1.google.com/vt/lyrs=s&hl=en&src=app&x={x}&y={y}&z={z}&s=G",  group="Google", attribution = 'Google')  %>% addProviderTiles(providers$OpenTopoMap, group="Topography") %>% addCircleMarkers(data=shops, lng=~shop_long, lat=~shop_lat,radius= 8, color=~pal(catchmentID), popup = ~as.character(catchmentID))   %>%  addLayersControl(baseGroups=c('OSM','Google','Topography'))
+# 
+# 
+# shops <- shops[c("shopID","catchmentID")]
+# write.csv(shops, file = paste(path,"stack surveys/data/work/shops.csv", sep ="/") )
+# 
+# #Now run power analysis agains -  copied from power.R
 
 ####################################################
  #######Power analysis for the standard design########
