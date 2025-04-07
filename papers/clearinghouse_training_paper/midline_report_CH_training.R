@@ -6239,6 +6239,9 @@ variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
 index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
 baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
 
+index_overall_yieldetc_mid_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_mid_Kling <- index_overall_yieldetc_mid_Kling$index
+
 ###new overall indices for new tables in new structure of paper
 #Effects on farmer outcomes at end of causal chain
 variables_farmer_adoption_mid <- cbind(baseline_farmers$mid_adoption_onfield
@@ -6249,19 +6252,39 @@ variables_farmer_adoption_mid <- cbind(baseline_farmers$mid_adoption_onfield
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid)
 baseline_farmers$index_farmer_adoption_mid <- index_farmer_adoption_mid$index
 
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid)
+baseline_farmers$index_farmer_adoption_mid_Kling <- index_farmer_adoption_mid_Kling$index
+
+#index_farmer_perceptions_mid placeholder
+baseline_farmers$index_farmer_perceptions_mid=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
+baseline_farmers$index_farmer_perceptions_midT=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
+baseline_farmers$index_farmer_perceptions_midC=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
+baseline_farmers$index_farmer_perceptions_midF=sample(na.omit(baseline_farmers$index_practices_mid),nrowF,replace = T) #took any index as basis
+
 ################################################################################################################################################################################
 
 ###
 #1#
 ###
 
-results_farmer_nobase <- c("index_ratingsF_mid","index_ratingsshopF_mid","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_mid","index_overallsecF_mid","index_overallsec_plotF_mid"
-                           ,"index_overall_seedonplot_mid","index_overall_yieldetc_mid","mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_mid")
+results_farmer_nobase <- c("index_ratingsF_mid"
+                           ,"index_ratingsshopF_mid"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_mid"
+                           ,"index_overallprimF_mid"
+                           ,"index_overallsecF_mid"
+                           ,"index_overallsec_plotF_mid"
+                           ,"index_overall_seedonplot_mid"
+                           ,"index_overall_yieldetc_mid" #11
+                           ,"mid_Check2.check.maize.q56"
+                           ,"index_farmer_adoption_mid"
+                           ,"index_farmer_perceptions_mid"
+                           ,"index_overall_yieldetc_mid_Kling"
+                           ,"index_farmer_adoption_mid_Kling")
 
-df_means_F_nobase <- array(NA,dim=c(3,15))
+df_means_F_nobase <- array(NA,dim=c(3,150))
 
 for (i in 1:length(results_farmer_nobase)){
   df_means_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
@@ -6274,7 +6297,7 @@ save(df_means_F_nobase,file=paste(path,"papers/clearinghouse_training_paper/outp
 #2#
 ###
 
-df_ols_F_nobase <- array(NA,dim=c(3,3,15))
+df_ols_F_nobase <- array(NA,dim=c(3,3,150))
 
 baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
@@ -6299,14 +6322,31 @@ baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
 index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
+index_overall_yieldetc_midT_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_overall_yieldetc_midT_Kling <- index_overall_yieldetc_midT_Kling$index
+
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_farmer_adoption_midT <- index_farmer_adoption_mid$index
 
-results_farmer_nobase <- c("index_ratingsF_midT","index_ratingsshopF_midT","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_midT","index_overallsecF_midT","index_overallsec_plotF_midT"
-                           ,"index_overall_seedonplot_midT","index_overall_yieldetc_midT","mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midT")
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_farmer_adoption_midT_Kling <- index_farmer_adoption_mid_Kling$index
+
+results_farmer_nobase <- c("index_ratingsF_midT"
+                           ,"index_ratingsshopF_midT"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_mid"
+                           ,"index_overallprimF_midT"
+                           ,"index_overallsecF_midT"
+                           ,"index_overallsec_plotF_midT"
+                           ,"index_overall_seedonplot_midT"
+                           ,"index_overall_yieldetc_midT" #11
+                           ,"mid_Check2.check.maize.q56"
+                           ,"index_farmer_adoption_midT"
+                           ,"index_farmer_perceptions_midT"
+                           ,"index_overall_yieldetc_midT_Kling"
+                           ,"index_farmer_adoption_midT_Kling") #15
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_farmers)
@@ -6343,14 +6383,31 @@ baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
+index_overall_yieldetc_midC_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_overall_yieldetc_midC_Kling <- index_overall_yieldetc_midC_Kling$index
+
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_farmer_adoption_midC <- index_farmer_adoption_mid$index
 
-results_farmer_nobase <- c("index_ratingsF_midC","index_ratingsshopF_midC","mid_farmerswitched"
-                           ,"mid_Check2.check.maize.q51a","mid_myownfault","index_skillsF_mid"
-                           ,"index_overallprimF_midC","index_overallsecF_midC","index_overallsec_plotF_midC"
-                           ,"index_overall_seedonplot_midC","index_overall_yieldetc_midC","mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midC")
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_farmer_adoption_midC_Kling <- index_farmer_adoption_mid_Kling$index
+
+results_farmer_nobase <- c("index_ratingsF_midC"
+                           ,"index_ratingsshopF_midC"
+                           ,"mid_farmerswitched"
+                           ,"mid_Check2.check.maize.q51a"
+                           ,"mid_myownfault"
+                           ,"index_skillsF_mid"
+                           ,"index_overallprimF_midC"
+                           ,"index_overallsecF_midC"
+                           ,"index_overallsec_plotF_midC"
+                           ,"index_overall_seedonplot_midC"
+                           ,"index_overall_yieldetc_midC" #11
+                           ,"mid_Check2.check.maize.q56"
+                           ,"index_farmer_adoption_midC"
+                           ,"index_farmer_perceptions_midC"
+                           ,"index_overall_yieldetc_midC_Kling"
+                           ,"index_farmer_adoption_midC_Kling") 
 
 for (i in 1:length(results_farmer_nobase)){
   ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers)

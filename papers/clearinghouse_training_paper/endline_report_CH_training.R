@@ -7564,6 +7564,9 @@ variables_overall_yieldetc_mid <- cbind(baseline_farmers$mid_landproductivity
 index_overall_yieldetc_mid <- icwIndex(xmat=variables_overall_yieldetc_mid)
 baseline_farmers$index_overall_yieldetc_mid <- index_overall_yieldetc_mid$index
 
+index_overall_yieldetc_mid_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid)
+baseline_farmers$index_overall_yieldetc_mid_Kling <- index_overall_yieldetc_mid_Kling$index
+
 #also baseline because mean
 variables_overall_yieldetc_base <- cbind(baseline_farmers$landproductivity
                                         ,baseline_farmers$soldinkg
@@ -7588,6 +7591,9 @@ variables_farmer_adoption_base <- cbind(baseline_farmers$adoption_onfield
 
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid)
 baseline_farmers$index_farmer_adoption_mid <- index_farmer_adoption_mid$index
+
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid)
+baseline_farmers$index_farmer_adoption_mid_Kling <- index_farmer_adoption_mid_Kling$index
 
 index_farmer_adoption_base <- icwIndex(xmat=variables_farmer_adoption_base)
 baseline_farmers$index_farmer_adoption_base <- index_farmer_adoption_base$index
@@ -7624,11 +7630,13 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"index_overall_yieldetc_mid"   #11
                            ,"mid_Check2.check.maize.q56_not_transf"   #12
                            ,"index_farmer_adoption_mid"
-                           ,"index_farmer_perceptions_mid")
+                           ,"index_farmer_perceptions_mid"
+                           ,"index_overall_yieldetc_mid_Kling" #15
+                           ,"index_farmer_adoption_mid_Kling") #16
 
 #                          ,"mid_bought_last_season"      #13
 
-df_means_end_F_nobase <- array(NA,dim=c(5,15))
+df_means_end_F_nobase <- array(NA,dim=c(5,150))
 
 for (i in 1:length(results_farmer_nobase)){
   df_means_end_F_nobase[1,i] <- sum(baseline_farmers[results_farmer_nobase[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[results_farmer_nobase[i]])))
@@ -7673,7 +7681,7 @@ df_means_end_F_nobase[2,14] <- sd(baseline_farmers$index_farmer_perceptions_base
 #2#
 ###
 
-df_ols_end_F_nobase <- array(NA,dim=c(3,3,15))
+df_ols_end_F_nobase <- array(NA,dim=c(3,3,150))
 
 baseline_farmers$training_control[baseline_farmers$training==0] <- TRUE
 baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
@@ -7702,8 +7710,14 @@ baseline_farmers$index_overallsecF_midT <- index_overallsecF_midT$index
 index_overall_yieldetc_midT <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_overall_yieldetc_midT <- index_overall_yieldetc_midT$index
 
+index_overall_yieldetc_midT_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_overall_yieldetc_midT_Kling <- index_overall_yieldetc_midT_Kling$index
+
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_farmer_adoption_midT <- index_farmer_adoption_mid$index
+
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_farmer_adoption_midT_Kling <- index_farmer_adoption_mid_Kling$index
 
 index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,sgroup = baseline_farmers$training_control,revcols = c(1))
 baseline_farmers$index_farmer_perceptions_midT <- index_farmer_perceptions_mid$index
@@ -7718,10 +7732,12 @@ results_farmer_nobase <- c("index_ratingsF_midT"
                            ,"index_overallsecF_midT"
                            ,"index_overallsec_plotF_midT"
                            ,"index_overall_seedonplot_midT"
-                           ,"index_overall_yieldetc_midT"
+                           ,"index_overall_yieldetc_midT" #11
                            ,"mid_Check2.check.maize.q56"
-                           ,"index_farmer_adoption_midT"
-                           ,"index_farmer_perceptions_midT")
+                           ,"index_farmer_adoption_midT" #13
+                           ,"index_farmer_perceptions_midT"
+                           ,"index_overall_yieldetc_midT_Kling" #15
+                           ,"index_farmer_adoption_midT_Kling") 
 
 #                           ,"mid_bought_last_season"
 
@@ -7764,8 +7780,14 @@ baseline_farmers$index_overallsecF_midC <- index_overallsecF_midC$index
 index_overall_yieldetc_midC <- icwIndex(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_overall_yieldetc_midC <- index_overall_yieldetc_midC$index
 
+index_overall_yieldetc_midC_Kling <- Kling_index(xmat=variables_overall_yieldetc_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_overall_yieldetc_midC_Kling <- index_overall_yieldetc_midC_Kling$index
+
 index_farmer_adoption_mid <- icwIndex(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_farmer_adoption_midC <- index_farmer_adoption_mid$index
+
+index_farmer_adoption_mid_Kling <- Kling_index(xmat=variables_farmer_adoption_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_farmer_adoption_midC_Kling <- index_farmer_adoption_mid_Kling$index
 
 index_farmer_perceptions_mid <- icwIndex(xmat=variables_farmer_perceptions_mid,sgroup = baseline_farmers$clearing_control,revcols = c(1))
 baseline_farmers$index_farmer_perceptions_midC <- index_farmer_perceptions_mid$index
@@ -7783,7 +7805,9 @@ results_farmer_nobase <- c("index_ratingsF_midC"
                            ,"index_overall_yieldetc_midC"
                            ,"mid_Check2.check.maize.q56"
                            ,"index_farmer_adoption_midC"
-                           ,"index_farmer_perceptions_midC")
+                           ,"index_farmer_perceptions_midC"
+                           ,"index_overall_yieldetc_midC_Kling"
+                           ,"index_farmer_adoption_midC_Kling")
 
 #                          ,"mid_bought_last_season"
 
@@ -9954,7 +9978,7 @@ plot_no <- ggplot(no_data, aes(x = score)) +
 combined_plot <- plot_yes + plot_no + plot_layout(guides = "collect")
 
 # Display the plot
-print(combined_plot)
+#print(combined_plot)
 
 # Save the plot
 ggsave(file.path(path, "papers", "clearinghouse_training_paper", "comparison_plot.png"),
@@ -10011,7 +10035,7 @@ for (i in seq_along(vars)) {
 final_plot <- wrap_plots(plots, ncol = 1)
 
 # Display the plot
-print(final_plot)
+#print(final_plot)
 
 # Save the plot with increased height
 ggsave(file.path(path, "papers", "clearinghouse_training_paper", "six_plots.png"), 
@@ -10058,16 +10082,16 @@ between_variance <- variance_components$vcov[1]  # Variance of random intercepts
 within_variance <- sigma(model)^2  # Residual variance (within variance)
 
 # Print variance components
-cat("Between-agro-dealer variance:", between_variance, "\n")
-cat("Within-agro-dealer variance:", within_variance, "\n")
+#cat("Between-agro-dealer variance:", between_variance, "\n")
+#cat("Within-agro-dealer variance:", within_variance, "\n")
 
 # Total variance
 total_variance <- between_variance + within_variance
-cat("Total variance:", total_variance, "\n")
+#cat("Total variance:", total_variance, "\n")
 
 # Compute ICC
 ICC <- between_variance / total_variance
-cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+#cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
 
 
 #within & between farmers
@@ -10081,16 +10105,16 @@ between_variance <- variance_components$vcov[1]  # Variance of random intercepts
 within_variance <- sigma(model)^2  # Residual variance (within variance)
 
 # Print variance components
-cat("Between-farmer variance:", between_variance, "\n")
-cat("Within-farmer variance:", within_variance, "\n")
+#cat("Between-farmer variance:", between_variance, "\n")
+#cat("Within-farmer variance:", within_variance, "\n")
 
 # Total variance
 total_variance <- between_variance + within_variance
-cat("Total variance:", total_variance, "\n")
+#cat("Total variance:", total_variance, "\n")
 
 # Compute ICC
 ICC <- between_variance / total_variance
-cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+#cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
 
 
 #within & between CAs
@@ -10106,13 +10130,13 @@ between_variance <- variance_components$vcov[1]  # Variance of random intercepts
 within_variance <- sigma(model)^2  # Residual variance (within variance)
 
 # Print variance components
-cat("Between-catchment area variance:", between_variance, "\n")
-cat("Within-catchment area variance:", within_variance, "\n")
+#cat("Between-catchment area variance:", between_variance, "\n")
+#cat("Within-catchment area variance:", within_variance, "\n")
 
 # Total variance
 total_variance <- between_variance + within_variance
-cat("Total variance:", total_variance, "\n")
+#cat("Total variance:", total_variance, "\n")
 
 # Compute ICC
 ICC <- between_variance / total_variance
-cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+#cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
