@@ -525,7 +525,7 @@ for (f in 1:length(possible.fs)){
        clusters1 <- return(temp)  #here we get the treatment in again
         }
      clusters1$Y0 <- clusters1$yield_kg_per_acre
-     tau <- 56.91028
+     tau <- 56.91028 #tried 67.90197 because real CH yield effect: mean*TE=540.974*(((55.606+443.013)/443.013)-1)
      clusters1$Y1 <- clusters1$Y0 + tau
      clusters1$Y.sim <- clusters1$Y1*clusters1$Z.sim + clusters1$Y0*(1-clusters1$Z.sim)
      fit.sim <- lm(Y.sim ~ Z.sim, data=clusters1)
