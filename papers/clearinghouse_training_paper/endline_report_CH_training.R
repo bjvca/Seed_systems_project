@@ -5099,6 +5099,9 @@ variables_dealer_knowledge_base <- cbind(baseline_dealers$index_knowl_store_base
 index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid)
 baseline_dealers$index_dealer_knowledge_mid <- index_dealer_knowledge_mid$index
 
+index_dealer_knowledge_mid_Kling <- Kling_index(xmat=variables_dealer_knowledge_mid)
+baseline_dealers$index_dealer_knowledge_mid_Kling <- index_dealer_knowledge_mid_Kling$index
+
 index_dealer_knowledge_base <- icwIndex(xmat=variables_dealer_knowledge_base)
 baseline_dealers$index_dealer_knowledge_base <- index_dealer_knowledge_base$index
 
@@ -5131,12 +5134,13 @@ results_dealer_sec_nobase <- c("index_motivation_mid",          #1
                                "index_overallsec_mid",          #4
                                "index_overall_off_mid",         #5
                                "mid_reading",                   #6
-                               "index_dealer_endchain_mid",
-                               "index_dealer_knowledge_mid",
+                               "index_dealer_endchain_mid",     #7
+                               "index_dealer_knowledge_mid",    #8
                                "index_dealer_efforts_mid",
-                               "index_dealer_endchain_mid_Kling")
+                               "index_dealer_endchain_mid_Kling",
+                               "index_dealer_knowledge_mid_Kling")
 
-df_means_end_D_sec_nobase <- array(NA,dim=c(5,10))
+df_means_end_D_sec_nobase <- array(NA,dim=c(5,100))
 
 for (i in 1:length(results_dealer_sec_nobase)){
   df_means_end_D_sec_nobase[1,i] <- sum(baseline_dealers[results_dealer_sec_nobase[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[results_dealer_sec_nobase[i]])))
@@ -5179,7 +5183,7 @@ df_means_end_D_sec_nobase[2,10] <- sd(baseline_dealers$index_dealer_endchain_mid
 #2#
 ###
 
-df_ols_end_D_sec_nobase <- array(NA,dim=c(3,3,10))
+df_ols_end_D_sec_nobase <- array(NA,dim=c(3,3,100))
 
 baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
 baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
@@ -5221,6 +5225,9 @@ identical(baseline_dealers$kling_test,baseline_dealers$index_dealer_endchain_mid
 index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_dealer_knowledge_midT <- index_dealer_knowledge_mid$index
 
+index_dealer_knowledge_mid_Kling <- Kling_index(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_dealer_knowledge_midT_Kling <- index_dealer_knowledge_mid_Kling$index
+
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_dealer_efforts_midT <- index_dealer_efforts_mid$index
 
@@ -5233,7 +5240,8 @@ results_dealer_sec_nobase <- c("index_motivation_midT"
                                ,"index_dealer_endchain_midT", #7
                                "index_dealer_knowledge_midT",
                                "index_dealer_efforts_midT",
-                               "index_dealer_endchain_midT_Kling") #10
+                               "index_dealer_endchain_midT_Kling",
+                               "index_dealer_knowledge_midT_Kling") #10
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -5271,6 +5279,9 @@ baseline_dealers$index_dealer_endchain_midC_Kling <- index_dealer_endchain_mid_K
 index_dealer_knowledge_mid <- icwIndex(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_dealer_knowledge_midC <- index_dealer_knowledge_mid$index
 
+index_dealer_knowledge_mid_Kling <- Kling_index(xmat=variables_dealer_knowledge_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_dealer_knowledge_midC_Kling <- index_dealer_knowledge_mid_Kling$index
+
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_dealer_efforts_midC <- index_dealer_efforts_mid$index
 
@@ -5283,7 +5294,8 @@ results_dealer_sec_nobase <- c("index_motivation_midC"
                                ,"index_dealer_endchain_midC", #7
                                "index_dealer_knowledge_midC",
                                "index_dealer_efforts_midC",
-                               "index_dealer_endchain_midC_Kling") #10
+                               "index_dealer_endchain_midC_Kling",
+                               "index_dealer_knowledge_midC_Kling") #10
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
