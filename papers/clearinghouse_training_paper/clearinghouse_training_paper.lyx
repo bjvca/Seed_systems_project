@@ -15166,6 +15166,17 @@ literal "false"
 
 ,
  are employed.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The significant TE of the training at midline disappears when both knowledge indices are also computed with Kling et al.
+ (not just the overall index).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -15998,34 +16009,105 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Agro-dealer efforts,
- services,
- and practices
+Agro-dealer practices and services
 \end_layout
 
 \begin_layout Standard
-The information clearinghouse provides agro-dealers with an incentive to become better than their direct competitors to attract more farmers 
+While the agro-dealer training was designed to equip participants with the knowledge to improve their practices and services,
+ the information clearinghouse aimed to create incentives by motivating agro-dealers to outperform competitors in order to attract more customers.
+ One potential channel for differentiation is through improved seed storage and handling,
+ which in turn enhances seed quality.
+ Achieving proper seed management requires a mix of capital investment and labor-intensive practices.
+ The training also promoted a range of recommendations accessible to agro-dealers with different resource constraints—
+some with excess labor,
+ others with financial means to invest.
+\end_layout
+
+\begin_layout Standard
+To assess changes in these practices,
+ we construct two indices.
+ The first captures labor-intensive seed handling and storage practices.
+ It includes six variables assessed through visual inspection by our enumerators:
+ whether seed is stored (1) in a dedicated area,
+ (2) under appropriate lighting,
+ (3) on suitable surfaces,
+ (4) not in open containers,
+ (5) whether a pest problem is present,
+ and (6) the overall cleanliness and professionalism of the agro-dealership.
+ The second index reflects capital-intensive practices,
+ based on six variables:
+ whether the roof is (1) leak-proof,
+ (2) insulated,
+ (3) whether the walls are insulated,
+ (4) whether the store is ventilated,
+ (5) whether an official certificate is displayed,
+ and (6) whether expired seed is handled correctly.
+ All but the last variable were observed or confirmed by enumerators;
+ the final item is self-reported.
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer efforts"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows that neither the agro-dealer training nor the information clearinghouse significantly affected these indices.
+ These null results remain robust to alternative index construction following 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "laneetal"
+LatexCommand citet
+key "kling2007experimental"
 literal "false"
 
 \end_inset
 
 .
- Furthermore,
- the performance feedback provided through the treatment may motivate agro-dealers to become better and increase quality through behavioral channels such as social comparison and self-image effects 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "virgin_atlantic"
-literal "false"
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Null effect on seed handling practices is robust to excluding 
+\begin_inset Quotes eld
+\end_inset
+
+shop displays official certificate
+\begin_inset Quotes erd
+\end_inset
+
+ (signal) and 
+\begin_inset Quotes eld
+\end_inset
+
+expired seed is handled correctly
+\begin_inset Quotes erd
+\end_inset
+
+ (self-reported).
+ Also no effect on *all* practices (labor- and capital-intensive).
+\end_layout
 
 \end_inset
 
-.
- Agro-dealers could attempt to improve quality by changing the way they store and handle seed.
- In addition,
- and they may increase effort and start providing more or better services in an attempt to (indirectly) affect ratings.
+
+\end_layout
+
+\begin_layout Standard
+Here
+\end_layout
+
+\begin_layout Standard
+So they collect knowledge and then don't do anything with it?
+\end_layout
+
+\begin_layout Standard
+On the other hand,
+ they may increase effort and start providing more or better services in an attempt to (indirectly) affect ratings.
  For example,
  if farmers complain about low yields,
  agro-dealers may provide training/advice and recommend complementary inputs to get optimal results.
@@ -16037,23 +16119,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on dealer efforts"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we provide evidence that agro-dealers who are exposed to the clearinghouse indeed invest more effort than agro-dealers in the control group.
- The table shows results for one overall index and four individual indices that each capture different dimensions of effort,
- services,
- and practices.
- The first index focuses on effort and service provision as reported by agro-dealers themselves,
+The first index focuses on effort and service provision as reported by agro-dealers themselves,
  and is composed of seven variables:
  whether the agro-dealer (1) offers explanations on how to use the seed they sell to farmers,
  (2) recommends complementary inputs to get optimal results from high-yielding varieties,
@@ -16075,48 +16141,6 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-To handle and store seed correctly,
- a combination of investments and labor-intensive practices is necessary.
- During the agro-dealer training,
- we also recommended a mix of practices within the reach of different types of agro-dealers,
- some of which may have excess labor while others may have access to money to invest.
- A third index groups a set of labor-intensive seed handling and storage practices.
- It contains six variables:
- whether seed is stored (1) in a dedicated area,
- (2) in correct lighting,
- (3) on appropriate surfaces,
- and (4) not in open containers,
- (5) whether the agro-dealer has a pest problem,
- and (6) how clean and professional the agro-dealership looks.
- These data were collected by enumerators through visual inspection.
- A fourth index summarizes capital-intensive seed handling practices,
- based on six variables:
- whether the roof is (1) leak-proof,
- (2) insulated,
- (3) whether the walls are insulated,
- (4) whether the agro-dealership is ventilated,
- (5) whether the agro-dealership displays any official certificate,
- and (6) whether expired seed is handled correctly.
- Most of these variables were collected or at least confirmed by enumerators through visual inspection.
- Only one of them (whether expired seed is handled correctly) is self-reported.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-To test whether social desirability affects this result,
- we exclude the last variable from the index and rerun the analysis,
- given that agro-dealers might report that they handle expired seed correctly but,
- in reality,
- choose not to do so for strategic reasons such as cost management.
- Doing this does not change the coefficients for the index of capital-intensive seed handling practices.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 We find that the information clearinghouse intervention increases agro-dealer effort and services,
  especially at midline,
  where the coefficient of the overall index is significant at the 1% level.
@@ -16125,6 +16149,26 @@ We find that the information clearinghouse intervention increases agro-dealer ef
  We see that the impact persists until endline,
  where the significant effect on the overall index seems to be driven by the self-reported measure of effort.
  We do not find that the agro-dealer training improves services or practices.
+\end_layout
+
+\begin_layout Standard
+Overall:
+ In Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer efforts"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ we provide evidence that agro-dealers who are exposed to the clearinghouse indeed invest more effort than agro-dealers in the control group.
+ The table shows results for one overall index and four individual indices that each capture different dimensions of effort,
+ services,
+ and practices.
 \end_layout
 
 \begin_layout Standard
@@ -16275,8 +16319,293 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
+Index of labor-intensive seed handling practices$^1$$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_prim[1,6],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,6]<.05,"*",ifelse(df_ols_D_prim[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,6]<.05,"*",ifelse(df_ols_D_prim[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,6],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[1,1,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_prim[3,1,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_prim[3,1,6]<.05,"*",ifelse(df_ols_end_D_prim[3,1,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[1,2,6],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_prim[3,2,6]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_prim[3,2,6]<.05,"*",ifelse(df_ols_end_D_prim[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_prim[3,6],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_prim[2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[2,1,6],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[2,2,6],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of capital-intensive seed handling practices$^2$$^
+\backslash
+dag$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_prim[1,5],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,1,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,1,5]<.05,"*",ifelse(df_ols_D_prim[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_D_prim[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_prim[3,2,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_D_prim[3,2,5]<.05,"*",ifelse(df_ols_D_prim[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_D_prim[3,5],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[1,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_prim[3,1,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_prim[3,1,5]<.05,"*",ifelse(df_ols_end_D_prim[3,1,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[1,2,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_prim[3,2,5]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_D_prim[3,2,5]<.05,"*",ifelse(df_ols_end_D_prim[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_D_prim[3,5],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_D_prim[2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_D_prim[2,2,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[2,1,5],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_prim[2,2,5],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 Index of dealer efforts and services,
- self-reported$^1$$^
+ self-reported$^3$$^
 \backslash
 dag$
 \end_layout
@@ -16413,7 +16742,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,8],digits=3),nsmall=3)}) &
 \begin_layout Plain Layout
 
 Index of dealer efforts and services,
- according to farmers$^2$$^
+ according to farmers$^4$$^
 \backslash
 dag$
 \end_layout
@@ -16537,291 +16866,6 @@ Sexpr{format(round(df_ols_end_D_sec[2,1,5],digits=3),nsmall=3)})
 & (
 \backslash
 Sexpr{format(round(df_ols_end_D_sec[2,2,5],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of labor-intensive seed handling practices$^3$$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_prim[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,1,6]<.05,"*",ifelse(df_ols_D_prim[3,1,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,2,6]<.05,"*",ifelse(df_ols_D_prim[3,2,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_prim[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_prim[3,1,6]<.05,"*",ifelse(df_ols_end_D_prim[3,1,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_prim[3,2,6]<.05,"*",ifelse(df_ols_end_D_prim[3,2,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_prim[3,6],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_prim[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[2,2,6],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of capital-intensive seed handling practices$^4$$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_prim[1,5],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,1,5]<.05,"*",ifelse(df_ols_D_prim[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_D_prim[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_prim[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_D_prim[3,2,5]<.05,"*",ifelse(df_ols_D_prim[3,2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_D_prim[3,5],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[1,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,1,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_prim[3,1,5]<.05,"*",ifelse(df_ols_end_D_prim[3,1,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[1,2,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_prim[3,2,5]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_D_prim[3,2,5]<.05,"*",ifelse(df_ols_end_D_prim[3,2,5]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_D_prim[3,5],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_D_prim[2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_D_prim[2,2,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[2,1,5],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_prim[2,2,5],digits=3),nsmall=3)}) & 
 \backslash
 
 \backslash
@@ -17076,7 +17120,37 @@ dag$ indicates that the variable is included in the overall index;
 
 \begin_layout Plain Layout
 
-$^1$The index of dealer efforts and services,
+$^1$The index of labor-intensive seed handling practices contains 6 variables:
+ whether seed is stored in dedicated area,
+ in correct lighting,
+ on correct surface,
+ not in open containers,
+ whether shop has no pest problem,
+ cleanness and professionality rating by enumerator.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^2$The index of capital-intensive seed handling practices contains 6 variables:
+ whether roof is leak-proof,
+ roof is insulated,
+ walls are insulated,
+ shop is ventilated,
+ shop displays official certificate,
+ expired seed is handled correctly.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^3$The index of dealer efforts and services,
  self-reported contains 7 variables:
  whether shop offers explanations,
  complementary input recommendations,
@@ -17093,7 +17167,7 @@ $^1$The index of dealer efforts and services,
 
 \begin_layout Plain Layout
 
-$^2$The index of dealer efforts and services,
+$^4$The index of dealer efforts and services,
  according to farmers contains 7 variables:
  whether shop offers refund/insurance,
  credit,
@@ -17104,36 +17178,6 @@ $^2$The index of dealer efforts and services,
  sells small quantities.
  The answers are aggregated at dealer level,
  then the index is computed.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^3$The index of labor-intensive seed handling practices contains 6 variables:
- whether seed is stored in dedicated area,
- in correct lighting,
- on correct surface,
- not in open containers,
- whether shop has no pest problem,
- cleanness and professionality rating by enumerator.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^4$The index of capital-intensive seed handling practices contains 6 variables:
- whether roof is leak-proof,
- roof is insulated,
- walls are insulated,
- shop is ventilated,
- shop displays official certificate,
- expired seed is handled correctly.
 \backslash
 
 \backslash
