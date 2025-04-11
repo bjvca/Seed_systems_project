@@ -1803,9 +1803,14 @@ index_overall_prim_dealer_base <- icwIndex(xmat=variables_overall_prim_dealer_ba
 baseline_dealers$index_overall_prim_dealer_base <- index_overall_prim_dealer_base$index
 
 
-results_dealer_prim <- c("mid_quantitysold","mid_av_salesprices","mid_revenue"
-                         ,"mid_maize.owner.agree.q7","index_practices_cap_mid"
-                         ,"index_practices_lab_mid","index_practices_all_mid","index_efforts_mid"
+results_dealer_prim <- c("mid_quantitysold"
+                         ,"mid_av_salesprices"
+                         ,"mid_revenue"
+                         ,"mid_maize.owner.agree.q7"
+                         ,"index_practices_cap_mid"
+                         ,"index_practices_lab_mid"
+                         ,"index_practices_all_mid"
+                         ,"index_efforts_mid" #8
                          ,"index_overall_prim_dealer_mid")
 results_dealer_prim_base <- c("quantitysold","av_salesprices","revenue"
                               ,"maize.owner.agree.q7","index_practices_cap_base"
@@ -3657,16 +3662,16 @@ baseline_dealers$mid_maize.owner.agree.inspection.q119<-as.numeric(as.character(
 
 #8. Overall index of secondary OFFICIAL agro-input dealer outcome variables
 variables_overall_off_mid <- cbind(baseline_dealers$mid_maize.owner.agree.inspection.q114,baseline_dealers$mid_maize.owner.agree.inspection.q115
-                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q118
-                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q119,baseline_dealers$mid_maize.owner.agree.inspection.q117) #x
+                                   ,baseline_dealers$mid_maize.owner.agree.inspection.q116,baseline_dealers$mid_maize.owner.agree.inspection.q117
+                                   ,baseline_dealers$mid_maize.owner.agree.temp.q81) #x
 variables_overall_off_base <- cbind(baseline_dealers$maize.owner.agree.inspection.q114,baseline_dealers$maize.owner.agree.inspection.q115
-                                    ,baseline_dealers$maize.owner.agree.inspection.q116,baseline_dealers$maize.owner.agree.inspection.q118
-                                    ,baseline_dealers$maize.owner.agree.inspection.q119,baseline_dealers$maize.owner.agree.inspection.q117)
+                                    ,baseline_dealers$maize.owner.agree.inspection.q116,baseline_dealers$maize.owner.agree.inspection.q117
+                                    ,baseline_dealers$maize.owner.agree.temp.q81)
 
-index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,revcols = c(4,5)) #x
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid) #x
 baseline_dealers$index_overall_off_mid <- index_overall_off_mid$index #x
 
-index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,revcols = c(4,5))
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base)
 baseline_dealers$index_overall_off_base <- index_overall_off_base$index
 
 ################################################################################################################################################################################
@@ -3702,10 +3707,10 @@ baseline_dealers$training_control[baseline_dealers$training==0] <- TRUE
 baseline_dealers$training_control[baseline_dealers$training==1] <- FALSE
 
 #8.
-index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$training_control,revcols = c(4,5))
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_off_midT <- index_overall_off_mid$index
 
-index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$training_control,revcols = c(4,5))
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_overall_off_baseT <- index_overall_off_base$index
 
 df_ols_D_sec_off <- array(NA,dim=c(3,3,11))
@@ -3737,10 +3742,10 @@ baseline_dealers$clearing_control[baseline_dealers$clearing==0] <- TRUE
 baseline_dealers$clearing_control[baseline_dealers$clearing==1] <- FALSE
 
 #8.
-index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$clearing_control,revcols = c(4,5))
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_off_midC <- index_overall_off_mid$index
 
-index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$clearing_control,revcols = c(4,5))
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_overall_off_baseC <- index_overall_off_base$index
 
 results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
@@ -3770,10 +3775,10 @@ baseline_dealers$farmer_control[baseline_dealers$farmer==0] <- TRUE
 baseline_dealers$farmer_control[baseline_dealers$farmer==1] <- FALSE
 
 #8.
-index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$farmer_control,revcols = c(4,5))
+index_overall_off_mid <- icwIndex(xmat=variables_overall_off_mid,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_off_midF <- index_overall_off_mid$index
 
-index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$farmer_control,revcols = c(4,5))
+index_overall_off_base <- icwIndex(xmat=variables_overall_off_base,sgroup = baseline_dealers$farmer_control)
 baseline_dealers$index_overall_off_baseF <- index_overall_off_base$index
 
 results_dealer_sec_off <- c("mid_maize.owner.agree.inspection.q114","mid_maize.owner.agree.inspection.q115","mid_maize.owner.agree.inspection.q116","mid_maize.owner.agree.inspection.q117"
@@ -4200,10 +4205,14 @@ baseline_dealers$index_dealer_knowledge_mid_Kling <- index_dealer_knowledge_mid_
 variables_dealer_efforts_mid <- cbind(baseline_dealers$index_efforts_mid,
                                       baseline_dealers$index_servicesFARM_mid,
                                       baseline_dealers$index_practices_lab_mid,
-                                      baseline_dealers$index_practices_cap_mid)
+                                      baseline_dealers$index_practices_cap_mid,
+                                      baseline_dealers$index_overall_off_mid)
 
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid)
 baseline_dealers$index_dealer_efforts_mid <- index_dealer_efforts_mid$index
+
+index_dealer_efforts_mid_Kling <- Kling_index(xmat=variables_dealer_efforts_mid)
+baseline_dealers$index_dealer_efforts_mid_Kling <- index_dealer_efforts_mid_Kling$index
 
 ################################################################################################################################################################################
 
@@ -4221,7 +4230,8 @@ results_dealer_sec_nobase <- c("index_motivation_mid"
                                ,"index_dealer_knowledge_mid"
                                ,"index_dealer_efforts_mid"
                                ,"index_dealer_endchain_mid_Kling"
-                               ,"index_dealer_knowledge_mid_Kling")
+                               ,"index_dealer_knowledge_mid_Kling"
+                               ,"index_dealer_efforts_mid_Kling") #12
 
 df_means_D_sec_nobase <- array(NA,dim=c(3,100))
 
@@ -4265,6 +4275,9 @@ baseline_dealers$index_dealer_knowledge_midT_Kling <- index_dealer_knowledge_mid
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$training_control)
 baseline_dealers$index_dealer_efforts_midT <- index_dealer_efforts_mid$index
 
+index_dealer_efforts_mid_Kling <- Kling_index(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$training_control)
+baseline_dealers$index_dealer_efforts_midT_Kling <- index_dealer_efforts_mid_Kling$index
+
 results_dealer_sec_nobase <- c("index_motivation_midT"
                                ,"index_ratings_midT"
                                ,"index_overall_prim_dealer_midT"
@@ -4275,7 +4288,8 @@ results_dealer_sec_nobase <- c("index_motivation_midT"
                                ,"index_dealer_knowledge_midT"
                                ,"index_dealer_efforts_midT"
                                ,"index_dealer_endchain_midT_Kling"
-                               ,"index_dealer_knowledge_midT_Kling")
+                               ,"index_dealer_knowledge_midT_Kling"
+                               ,"index_dealer_efforts_midT_Kling")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training*clearing_demeaned*farmer_demeaned",sep="~")),data=baseline_dealers)
@@ -4319,6 +4333,9 @@ baseline_dealers$index_dealer_knowledge_midC_Kling <- index_dealer_knowledge_mid
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$clearing_control)
 baseline_dealers$index_dealer_efforts_midC <- index_dealer_efforts_mid$index
 
+index_dealer_efforts_mid_Kling <- Kling_index(xmat=variables_dealer_efforts_mid,sgroup = baseline_dealers$clearing_control)
+baseline_dealers$index_dealer_efforts_midC_Kling <- index_dealer_efforts_mid_Kling$index
+
 results_dealer_sec_nobase <- c("index_motivation_midC"
                                ,"index_ratings_midC"
                                ,"index_overall_prim_dealer_midC"
@@ -4329,7 +4346,8 @@ results_dealer_sec_nobase <- c("index_motivation_midC"
                                ,"index_dealer_knowledge_midC"
                                ,"index_dealer_efforts_midC"
                                , "index_dealer_endchain_midC_Kling"
-                               ,"index_dealer_knowledge_midC_Kling")
+                               ,"index_dealer_knowledge_midC_Kling"
+                               ,"index_dealer_efforts_midC_Kling")
 
 for (i in 1:length(results_dealer_sec_nobase)){
   ols <- lm(as.formula(paste(results_dealer_sec_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_dealers)
