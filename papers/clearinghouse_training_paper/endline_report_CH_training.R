@@ -5116,7 +5116,7 @@ variables_dealer_efforts_base <- cbind(baseline_dealers$index_efforts_base,
                                       baseline_dealers$index_servicesFARM_base,
                                       baseline_dealers$index_practices_lab_base,
                                       baseline_dealers$index_practices_cap_base,
-                                      baseline_dealers$index_overall_off)
+                                      baseline_dealers$index_overall_off_base)
 
 index_dealer_efforts_mid <- icwIndex(xmat=variables_dealer_efforts_mid)
 baseline_dealers$index_dealer_efforts_mid <- index_dealer_efforts_mid$index
