@@ -7498,10 +7498,14 @@ baseline_farmers$index_ratingsshopF_base <- index_ratingsshopF_base$index
 
 
 #3. switching OK!
-baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$CHECK.MAIZE.Q25I=="2",1,0)
-#baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="3"]<-NA
-baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$CHECK.MAIZE.Q25I)] <- 0
-baseline_farmers$mid_farmerswitched[baseline_farmers$attrition_ind_F_end==1] <- NA
+# baseline_farmers$mid_farmerswitched<-ifelse(baseline_farmers$CHECK.MAIZE.Q25I=="2",1,0)
+# #baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="3"]<-NA
+# baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$CHECK.MAIZE.Q25I)] <- 0
+# baseline_farmers$mid_farmerswitched[baseline_farmers$attrition_ind_F_end==1] <- NA
+
+baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="1"]<-1
+baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="2"]<-0
+baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="3"]<-NA
 
 #4. Did you harvest as much maize from this plot as you expected? OK!
 baseline_farmers$mid_Check2.check.maize.q51a <- baseline_farmers$CHECK.MAIZE.Q51A

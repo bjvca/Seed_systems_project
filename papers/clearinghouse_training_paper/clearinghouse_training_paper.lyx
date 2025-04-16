@@ -7008,6 +7008,13 @@ nolink "false"
 
 \begin_layout Subsubsection*
 Within and between agro-dealer rating variation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:rating variation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7490,7 +7497,7 @@ placement document
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15147,14 +15154,9 @@ nolink "false"
 \end_inset
 
 ).
- Notably,
- we observe significant knowledge effects from the clearinghouse treatment,
- particularly in areas related to seed storage and handling.
- This effect strengthens over time,
- which is expected given the repeated nature of the clearinghouse treatment.
- These findings suggest that the clearinghouse treatment,
- with its focus on seed quality,
- motivates agro-dealers to actively seek information on better practices for seed storage and handling.
+ We observe knowledge effects from the clearinghouse,
+ significant at the 10% level.
+ These findings suggest that this treatment motivates agro-dealers to seek information on seed storage.
  The results remain robust when alternative index construction methods,
  as proposed by 
 \begin_inset CommandInset citation
@@ -18731,10 +18733,17 @@ Switching
 \end_layout
 
 \begin_layout Standard
-An important potential mechanism underlying the effect of the information clearinghouse is the possibility that farmers switch from lower rated agro-dealers to higher rated ones.
- To explore this mechanism,
- we asked farmers if they switched agro-dealers since the previous season.
- Results in Table 
+An important potential mechanism through which the information clearinghouse may affect outcomes is by encouraging farmers to switch from lower-rated to higher-rated agro-dealers.
+ To examine this,
+ we asked farmers whether they had changed agro-dealers since the previous season.
+ Importantly,
+ the analysis is restricted to farmers who purchased maize seed from an agro-input shop for any plot both during the reference season (i.e.,
+ baseline or midline) and at either midline or endline,
+ as meaningful switching is only possible for these farmers.
+\end_layout
+
+\begin_layout Standard
+Results in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "switchingfarmers"
@@ -18745,12 +18754,39 @@ nolink "false"
 
 \end_inset
 
- indicate that only 17% of farmers reported switching at baseline.
- However,
- at midline,
- a significantly higher share of farmers in the clearinghouse treatment group reported switching agro-dealers.
- Also at endline,
- we find a higher propensity for switching among information clearinghouse treated farmers.
+ indicate that 59% of farmers who bought maize seed at both baseline and midline reported switching agro-dealers between those two seasons.
+ A smaller share of farmers in the clearinghouse treatment group reported switching at midline,
+ and the difference is statistically significant at the 10% level.
+ Contrary to expectations,
+ the information clearinghouse did not prompt farmers to switch agro-dealers.
+ Instead,
+ it appears to have reinforced confidence in their previous choice,
+ reducing the likelihood of switching.
+ This is consistent with the relatively small variation in ratings across agro-dealers (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:rating variation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ suggesting limited differentiation and thus making switching less attractive.
+ By endline,
+ no significant differences in switching behavior are observed between control and treatment groups.
+ These results are consistent with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "false"
+
+\end_inset
+
+,
+ who implement a similar crowdsourced information platform in the artificial insemination market for livestock in Pakistan and find that farmers do not switch to higher-quality providers.
 \end_layout
 
 \begin_layout Standard
@@ -19018,8 +19054,7 @@ cmidrule(lr){6-8}
 \begin_layout Plain Layout
 
 Max.
- number of obs.
- & & & & 3407 & & & 3441
+ number of obs.$^1$ & & & & 1270 & & & 1410
 \backslash
 
 \backslash
@@ -19080,11 +19115,17 @@ Note:
 %,
  and 10
 \backslash
-% levels;
- $^
+% levels.
 \backslash
-dag$ indicates that the variable is included in the overall index;
- larger indices indicate more desirable outcomes.
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Comparisons are restricted to farmers who purchased maize seed from an agro-input shop for any plot at mid- or endline and during the season before that (i.e.,
+ base- or midline).
 \backslash
 
 \backslash
@@ -19099,6 +19140,10 @@ dag$ indicates that the variable is included in the overall index;
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Here
 \end_layout
 
 \begin_layout Standard
@@ -20578,7 +20623,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -21074,6 +21119,18 @@ Sexpr{format(round(df_ols_end_mech[4,2,2],digits=0),nsmall=0)}
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
