@@ -15194,7 +15194,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Effects on agro-dealer outcomes:
- Knowledge
+ Knowledge 
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects on dealer knowledge"
@@ -16224,7 +16224,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Effects on agro-dealer outcomes:
- Efforts
+ Efforts 
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects on dealer efforts"
@@ -17530,7 +17530,7 @@ placement document
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -18729,458 +18729,11 @@ S$Due to the skewness of this variable,
 \end_layout
 
 \begin_layout Subsection
-Switching
+Seed quality
 \end_layout
 
 \begin_layout Standard
-An important potential mechanism through which the information clearinghouse may affect outcomes is by encouraging farmers to switch from lower-rated to higher-rated agro-dealers.
- To examine this,
- we asked farmers whether they had changed agro-dealers since the previous season.
- Importantly,
- the analysis is restricted to farmers who purchased maize seed from an agro-input shop for any plot both during the reference season (i.e.,
- baseline or midline) and at either midline or endline,
- as meaningful switching is only possible for these farmers.
-\end_layout
-
-\begin_layout Standard
-Results in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "switchingfarmers"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- indicate that 59% of farmers who bought maize seed at both baseline and midline reported switching agro-dealers between those two seasons.
- A smaller share of farmers in the clearinghouse treatment group reported switching at midline,
- and the difference is statistically significant at the 10% level.
- Contrary to expectations,
- the information clearinghouse did not prompt farmers to switch agro-dealers.
- By endline,
- no significant differences in switching behavior are observed between control and treatment groups.
-\end_layout
-
-\begin_layout Standard
-Here
-\end_layout
-
-\begin_layout Standard
-One possible explanation for low switching is insufficient market integration,
- as farmers often buy exclusively from a small set of local agro-dealers sellers due to a lack of close competitors and high costs associated with finding and transacting with other sellers (Jensen & Miller,
- 2018).
- As catchment areas are relatively small (with agro-dealers less than five kilometers apart are assigned to the same one),
- some might argue that the information clearinghouse does not sufficiently remove these barriers to increase the market’s ability to reallocate profit and market share towards high-quality agro-dealers.
- However,
- as we see minimal spatial differences in ratings across catchment areas and considerable variation in ratings within the catchment areas (see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:rating variation"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-),
- we do not believe that the lack of market integration explains the lack of switching.
-\end_layout
-
-\begin_layout Standard
-Instead,
- the information clearinghouse appears to have reinforced confidence in farmers' previous choice,
- reducing the likelihood of switching.
- This is consistent with the relatively small variation in ratings across agro-dealers (see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:rating variation"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-),
- suggesting limited differentiation and thus making switching less attractive.
- These results are also consistent with 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "hasanain2019no"
-literal "false"
-
-\end_inset
-
-,
- who implement a similar crowdsourced information platform in the artificial insemination for livestock market in Pakistan and find that farmers do not switch to higher-quality providers.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects on farmer outcomes:
- Switching behavior
-\begin_inset CommandInset label
-LatexCommand label
-name "switchingfarmers"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH & obs.
- & training & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer switched to different agro-input shop
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,1,3]<.05,"*",ifelse(df_ols_F_nobase[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_F_nobase[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_nobase[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-5} 
-\backslash
-cmidrule(lr){6-8}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.$^1$ & & & & 1270 & & & 1410
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Column (1) reports midline means and standard deviations below (because this variable was not collected at baseline);
-  columns (2),
- (3),
- (5),
- and (6) report differences between treatment and control groups and standard errors below;
- they are clustered at the level of randomization;
- columns (4) and (7) report the number of observations;
- **,
- *,
- and + denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$Comparisons are restricted to farmers who purchased maize seed from an agro-input shop for any plot at mid- or endline and during the season before that (i.e.,
- base- or midline).
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Quality
-\end_layout
-
-\begin_layout Standard
-To investigate whether the reported increases in customer numbers,
- sales,
- and revenues can be attributed to improvements in the quality of maize seed sold by agro-dealers,
- we assess the effects of the agro-dealer training and the information clearinghouse on seed quality,
- as shown in Table 
+We assess the effects of the agro-dealer training and the information clearinghouse on maize seed quality in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on bag of maize seed bought at dealer"
@@ -19192,19 +18745,18 @@ nolink "false"
 \end_inset
 
 .
- Enumerators were instructed to randomly purchase a bag of seed from each agro-dealer and evaluate it across several quality attributes.
- First,
- we measured the moisture content of the seed and found that the clearinghouse treatment reduced moisture as expected,
- although the estimate is imprecise.
- We also examined the integrity of the packaging and checked for key information,
- such as the packaging date and lot number.
- Given that seed quality deteriorates with shelf-life,
- we included the number of days since the packaging date,
- or,
- if the packaging date was missing,
+ Enumerators were instructed to randomly purchase a seed bag from each agro-dealer and evaluate it based on several quality attributes.
+ Specifically,
+ we measured the seed’s moisture content,
+ examined packaging integrity,
+ and checked for key information such as the packaging date and lot number.
+ Because seed quality declines over time,
+ we included the number of days since the packaging date—
+or,
+ if missing,
  the number of days since the expiry date minus six months.
- We find no significant effects of the information clearinghouse treatment or agro-dealer training on the quality proxies for the seed sold by the agro-dealers.
- This null result is robust to alternative index construction following 
+ We find no significant effects of either the training or the clearinghouse on seed quality.
+ This null result is robust to alternative index constructions following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "kling2007experimental"
@@ -19228,7 +18780,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Effects on agro-dealer outcomes:
- Bag of maize seed
+ Seed quality
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects on bag of maize seed bought at dealer"
@@ -20566,6 +20118,121 @@ $^2$The comparisons were only made for agro-dealers where the enumerator was abl
 \end_layout
 
 \begin_layout Standard
+Because not all agro-dealers had seed in stock,
+ the realized sample size was smaller than planned:
+ 232 observations at baseline,
+ 179 at midline,
+ and 265 at endline,
+ compared to a target of 348.
+ To assess whether the null result reflects a true absence of effect or insufficient statistical power,
+ we assume that the estimated clearinghouse effect—
+a 0.22 percentage point reduction in seed moisture content at endline—
+represents the true effect.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "power_moisture"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents a power curve plotting sample size on the x-axis and statistical power—
+the probability of detecting the estimated effect at a 5% significance level,
+ given the observed baseline variability in moisture content—
+on the y-axis.
+ The curve indicates that the null result is unlikely to be driven by the reduced endline sample size of 265.
+ Even with a larger sample,
+ the observed effect size would not have been detectable with high reliability.
+ We therefore conclude that there is no evidence of an effect of the information clearinghouse on seed quality,
+ as proxied by moisture content.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename power.jpeg
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power curve for seed moisture at endline
+\begin_inset CommandInset label
+LatexCommand label
+name "power_moisture"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As a robustness check,
+ we supplement the analysis with additional indicators of seed quality.
+ Specifically,
+ we include binary variables indicating whether an agro-dealer received a seed-related customer complaint,
+ a warning following an inspection,
+ or had products confiscated during an inspection.
+ These outcomes are available for larger samples than seed moisture content.
+ We find no evidence that either the training or the information clearinghouse affected these alternative indicators.
+ This reinforces the conclusion that neither intervention improved seed quality.
+ The results are consistent with the absence of effects on quality-enhancing seed handling practices reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer efforts"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement document
 alignment document
@@ -20578,7 +20245,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Effects on agro-dealer outcomes:
- Alternative quality indicators
+ Alternative seed quality indicators
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects on dealer memberships, licenses, inspections"
@@ -21475,113 +21142,14 @@ dag$ indicates that the variable is included in the overall index;
 
 \end_layout
 
-\begin_layout Standard
-However,
- because not all agro-dealers had seed in stock,
- the available sample size was smaller than initially planned:
- 232 observations at baseline,
- 179 at midline,
- and 265 at endline,
- compared to a full sample of 348 observations.
- To determine whether the null result reflects a true absence of effect or insufficient statistical power,
- we assume that the estimated clearinghouse treatment effect of 0.22 percentage point decrease in seed moisture content at endline is the true treatment effect and include a power curve that plots sample sizes on the x-axis and statistical power—
-the probability of detecting the estimated 0.22 percentage point decrease,
- given a conventional 5% significance level and the observed variability in the baseline moisture variable—
-on the y-axis,
- see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "power_moisture"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- The power curve suggests that the null effect is not likely due to the smaller endline sample size of 265.
- Based on the baseline distribution,
- we would not have been able to reliably detect an effect of this size even with a larger sample.
- Consequently,
- we conclude that there is no evidence of an impact of the information clearinghouse on seed quality,
- as measured by moisture content.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename power.jpeg
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Power curve for endline moisture
-\begin_inset CommandInset label
-LatexCommand label
-name "power_moisture"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Fortunately,
- we complement this analysis with additional indicators of seed quality—
-including agro-dealer practices and farmer perceptions of quality—
-variables that are measured with greater precision and larger sample sizes,
- which are explored in the following sections.
-\end_layout
-
 \begin_layout Subsection
-Perceptions
+Seed quality perception
 \end_layout
 
 \begin_layout Standard
-Finally,
+Despite having no effect on real quality,
  the clearinghouse may change farmer perceptions of the quality of seed sold by agro-dealers.
- Table 
+ In Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects of clearinghouse on farmer perceptions"
@@ -21592,57 +21160,13 @@ nolink "false"
 
 \end_inset
 
- shows the impact on two measures of farmer perceptions of quality.
- First,
- we asked farmers if they think that maize seed that can be bought at agro-dealers is counterfeit or adulterated.
- We intentionally kept this question general—
-that is,
- about maize seed which can be bought at any agro-dealer without specifying a particular variety—
-to obtain an overall idea about farmers’ sentiments regarding maize seed at agro-dealers.
- At baseline,
- two in three farmers responded affirmatively to this question,
- indicating substantial pessimism about quality.
- Columns (2) to (5) show the impact of the information clearinghouse for the full sample.
- The treatment does not significantly affect farmer perceptions as measured by this variable at midline or endline.
- However,
- we expect the effect of the clearinghouse on perceptions to be strongest for farmers who did not use high-yielding maize varieties at baseline.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Note that this subgroup analysis was not pre-registered and is of exploratory nature.
-\end_layout
-
-\end_inset
-
- Therefore,
- we repeat the analysis for this subgroup of farmers in columns (6) to (9).
- At midline,
- farmers who did not adopt at baseline and live in areas exposed to the information clearinghouse are 12.5 percentage points less likely to think that agro-dealers sell adulterated seed than similar farmers in areas not assigned to the treatment.
-\end_layout
-
-\begin_layout Standard
-Second,
- we investigate rating data to assess farmer perceptions of product quality,
- conditional on specific agro-dealers.
- In particular,
- we look at the index of maize seed ratings that combines scores for general quality,
+,
+ we investigate the index of maize seed ratings that combines scores for general quality,
  yield,
  drought tolerance,
  pest and disease tolerance,
  time of maturity,
  and germination of seed obtained from various agro-dealers.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-As the act of rating agro-dealers was an essential part of the clearinghouse treatment,
- we only collect ratings in control areas at endline,
- implying that we can test this hypothesis only at endline.
-\end_layout
-
-\end_inset
-
  These ratings are aggregated at the farmer level (since one farmer generally rates multiple agro-dealers),
  and then,
  the index is calculated.
@@ -21658,11 +21182,44 @@ To compute this index at the farmer level,
 
 \end_inset
 
+ Note that treatment and control groups can only be compared at endline.
+ At base- and midline,
+ only clearinghouse treated farmers rated dealers in their proximity because being confronted with these questions and the act of rating agro-dealers was an essential part of the clearinghouse treatment,
+ we only collect ratings in control areas at endline.
+\end_layout
+
+\begin_layout Standard
+Column (2) shows the impact of the information clearinghouse for the full sample.
  We see that the index is positively and significantly affected by the information clearinghouse treatment,
- even though the effect is only significant at the 10% level.
- If we restrict the sample to farmers who did not adopt high-yielding maize varieties at baseline,
- the treatment effect on the ratings is significant at the 5% level.
- The impact on the overall index that combines the two perception related indicators is also significant for this sub-sample.
+ with the effect being significant at the 10% level.
+ However,
+ we expect the effect of the clearinghouse on perceptions to be strongest for farmers who did not use high-yielding maize varieties at baseline.
+ Therefore,
+ we repeat the analysis for this subgroup of farmers in column (4).
+ The treatment effect on the ratings is significant at the 5% level for the restricted sample.
+\end_layout
+
+\begin_layout Standard
+We conclude that the information clearinghouse changes farmer perceptions of the quality of seed sold by agro-dealers.
+ There are two explanations for this result.
+ The treatment itself may have changed perceptions:
+ the agro-dealer ratings that farmers were confronted with (via SMS,
+ in-person visits by enumerators,
+ and the SeedAdvisor certificate) might have been better than the beliefs these farmers held before the treatment,
+ improving their perceptions of seed quality.
+ Another explanation is that we saw that treated agro-dealers improved service provision and signaled product quality in response to the clearinghouse treatment in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer efforts"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ These services and signals could have also changed farmers' perceptions.
 \end_layout
 
 \begin_layout Standard
@@ -21682,6 +21239,354 @@ Effects of the clearinghouse on farmer outcomes:
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects of clearinghouse on farmer perceptions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{full sample}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{sub-sample}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+textit{baseline} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & CH & obs.
+ & CH & obs.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's seed ratings of agro-dealers in area$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_mech[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_mech[3,2,2]<.01,"**",ifelse(df_ols_end_mech[3,2,2]<.05,"*",ifelse(df_ols_end_mech[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_mech[4,2,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)}) &  & (
+\backslash
+Sexpr{format(round(df_ols_end_mech[2,2,2],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of obs.
+ & & & 3441 & & 1741 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports the baseline mean and standard deviation below;
+  column (2) reports the difference between treatment and control group and the standard error below;
+ it is clustered at the level of randomization;
+ column (3) reports the number of observations;
+ columns (4) and (5) mirror this structure for the sub-sample of farmers that did not adopt at baseline,
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels;
+ larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's maize seed ratings contains 6 ratings:
+ general quality,
+ yield,
+ drought tolerance,
+ pest/disease tolerance,
+ time of maturity,
+ germination.
+ The ratings are aggregated at farmer level (one farmer rates multiple agro-dealers),
+ then the index is computed.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+checked
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effects of the clearinghouse on farmer outcomes:
+ Perceptions
+\begin_inset CommandInset label
+LatexCommand label
+name "Effects of clearinghouse on farmer perceptions-1"
 
 \end_inset
 
@@ -22342,6 +22247,465 @@ $^1$The index of farmer's maize seed ratings contains 6 ratings:
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Switching
+\end_layout
+
+\begin_layout Standard
+An final potential mechanism through which the information clearinghouse may affect outcomes is by encouraging farmers to switch from lower-rated to higher-rated agro-dealers.
+ To examine this,
+ we asked farmers whether they had changed agro-dealers since the previous season.
+ Importantly,
+ the analysis is restricted to farmers who purchased maize seed from an agro-input shop for any plot both at either midline or endline and during the reference season (i.e.,
+ baseline or midline),
+ as meaningful switching is only possible for these farmers.
+\end_layout
+
+\begin_layout Standard
+Results in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "switchingfarmers"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ indicate that 59% of farmers who bought maize seed at both baseline and midline reported switching agro-dealers between those two seasons.
+ A smaller share of farmers in the clearinghouse treatment group reported switching at midline,
+ and the difference is statistically significant at the 10% level.
+ Contrary to expectations,
+ the information clearinghouse did not prompt farmers to switch agro-dealers.
+ By endline,
+ no significant differences in switching behavior are observed between control and treatment groups.
+\end_layout
+
+\begin_layout Standard
+One possible explanation for low switching is insufficient market integration,
+ as farmers often buy exclusively from a small set of local agro-dealers sellers due to a lack of close competitors and high costs associated with finding and transacting with other sellers (Jensen & Miller,
+ 2018).
+ As catchment areas are relatively small (with agro-dealers less than five kilometers apart are assigned to the same one),
+ some might argue that the information clearinghouse does not sufficiently remove these barriers to increase the market’s ability to reallocate profit and market share towards high-quality agro-dealers.
+ However,
+ as we see minimal spatial differences in ratings across catchment areas and considerable variation in ratings within the catchment areas (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:rating variation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ we do not believe that the lack of market integration explains the lack of switching.
+\end_layout
+
+\begin_layout Standard
+Instead,
+ the information clearinghouse appears to have reinforced confidence in farmers' previous choice,
+ reducing the likelihood of switching.
+ This is consistent with the relatively small variation in ratings across agro-dealers (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:rating variation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ suggesting limited differentiation and thus making switching less attractive.
+ These results are also consistent with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "false"
+
+\end_inset
+
+,
+ who implement a similar crowdsourced information platform in the artificial insemination for livestock market in Pakistan and find that farmers do not switch to higher-quality providers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effects on farmer outcomes:
+ Switching behavior
+\begin_inset CommandInset label
+LatexCommand label
+name "switchingfarmers"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{endline}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & training & CH & obs.
+ & training & CH & obs.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-5} 
+\backslash
+cmidrule(lr){6-8}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer switched to different agro-input shop
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,1,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,1,3]<.05,"*",ifelse(df_ols_F_nobase[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_F_nobase[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[3,3],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,1,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,1,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,1,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,3],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-5} 
+\backslash
+cmidrule(lr){6-8}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of obs.$^1$ & & & & 1270 & & & 1410
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports midline means and standard deviations below (because this variable was not collected at baseline);
+  columns (2),
+ (3),
+ (5),
+ and (6) report differences between treatment and control groups and standard errors below;
+ they are clustered at the level of randomization;
+ columns (4) and (7) report the number of observations;
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Comparisons are restricted to farmers who purchased maize seed from an agro-input shop for any plot at mid- or endline and during the season before that (i.e.,
+ base- or midline).
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "section: Conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
 \begin_layout Standard
 This improvement in farmers' opinions and ratings may reflect a real increase in the quality of seed if the clearinghouse improved agro-dealers' seed handling practices,
  in turn improving seed quality.
@@ -22412,15 +22776,8 @@ literal "false"
  rectifying incorrect perceptions of smallholders must have played an important role in increasing their adoption.
 \end_layout
 
-\begin_layout Section
-Conclusion
-\begin_inset CommandInset label
-LatexCommand label
-name "section: Conclusion"
-
-\end_inset
-
-
+\begin_layout Standard
+...
 \end_layout
 
 \begin_layout Standard
