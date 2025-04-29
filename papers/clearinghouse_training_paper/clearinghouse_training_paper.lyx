@@ -7221,15 +7221,6 @@ literal "false"
 \end_inset
 
 .
- We use the knitr engine to embed R code within LaTeX 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "xie2017dynamic"
-literal "false"
-
-\end_inset
-
-.
  All documents,
  code,
  and data are version-controlled and publicly available in a 
@@ -15039,19 +15030,19 @@ name "section: Discussion"
 
 \begin_layout Standard
 The mechanism underlying the agro-dealer training is relatively straightforward:
- the intervention aims to improve agro-dealer knowledge and behavior through learning,
- driven by exposure to new and relevant information.
+ the intervention seeks to improve agro-dealers’ knowledge and behavior through exposure to new and relevant information.
  In contrast,
- the information clearinghouse is a multifaceted intervention that simultaneously addresses several potentially interconnected information frictions.
- If maize seed quality is generally adequate but some farmers perceive agro-dealers as offering substandard products,
- the clearinghouse can help correct these misperceptions.
- If seed quality varies across agro-dealers,
- the clearinghouse provides farmers with information that allows them to switch to those offering higher-quality products.
- Furthermore,
- the rating system introduces a competitive incentive,
- encouraging agro-dealers to outperform their competitors by either improving product quality or credibly signaling the superior quality of their offerings.
+ the information clearinghouse is a multifaceted intervention that simultaneously targets multiple,
+ potentially interconnected information frictions.
+ If the agro-dealer ratings farmers encounter are more favorable than their prior beliefs,
+ the clearinghouse may enhance perceptions of seed quality.
+ If seed quality varies across sellers,
+ the clearinghouse may enable farmers to identify and switch to those offering higher-quality products.
+ Additionally,
+ the rating system may create competitive pressure,
+ motivating agro-dealers to improve actual product quality or to credibly signal superior quality.
  In this section,
- we examine the relative importance of these different impact pathways.
+ we explore the relative importance of these distinct impact channels.
 \end_layout
 
 \begin_layout Subsection
@@ -15997,17 +15988,19 @@ literal "false"
 
 \end_inset
 
-.
+,
+ who show that smallholder maize farmers did not change their practices in response to a supply-side extension intervention,
+ likely because they were unwilling to incur additional costs and effort without a credible market incentive for quality improvements.
  In our context,
- additional knowledge at the agro-dealer level is only valuable if farmers are able to observe and recognize its practical benefits (see also 
+ additional knowledge at the agro-dealer level is only valuable if market incentives manage quality 
 \begin_inset CommandInset citation
-LatexCommand citealp
+LatexCommand citep
 key "hoffmann2021observability"
 literal "false"
 
 \end_inset
 
-).
+.
 \end_layout
 
 \begin_layout Subsection
@@ -21227,7 +21220,7 @@ nolink "false"
 
 ,
  treated agro-dealers enhanced service provision and signaled product quality in response to the clearinghouse treatment.
- These improvements in service and quality signals may also have influenced farmers’ perceptions.
+ These improvements in service and quality signals may also have mediated the effect on farmers’ perceptions.
 \end_layout
 
 \begin_layout Standard
@@ -22255,13 +22248,11 @@ Switching
 \end_layout
 
 \begin_layout Standard
-An final potential mechanism through which the information clearinghouse may affect outcomes is by encouraging farmers to switch from lower-rated to higher-rated agro-dealers.
+A final potential mechanism through which the information clearinghouse may influence outcomes is by encouraging farmers to switch from lower-rated to higher-rated agro-dealers.
  To examine this,
  we asked farmers whether they had changed agro-dealers since the previous season.
- Importantly,
- the analysis is restricted to farmers who purchased maize seed from an agro-input shop for any plot both at either midline or endline and during the reference season (i.e.,
- baseline or midline),
- as meaningful switching is only possible for these farmers.
+ The analysis is restricted to farmers who purchased maize seed from an agro-input shop for at least one plot both at either midline or endline and during the reference season (baseline or midline),
+ as meaningful switching is only possible for this group.
 \end_layout
 
 \begin_layout Standard
@@ -22276,23 +22267,32 @@ nolink "false"
 
 \end_inset
 
- indicate that 59% of farmers who bought maize seed at both baseline and midline reported switching agro-dealers between those two seasons.
- A smaller share of farmers in the clearinghouse treatment group reported switching at midline,
- and the difference is statistically significant at the 10% level.
- Contrary to expectations,
- the information clearinghouse did not prompt farmers to switch agro-dealers.
+ show that 59% of farmers who purchased maize seed at both baseline and midline reported switching agro-dealers between those two seasons.
+ However,
+ farmers in the clearinghouse treatment group were significantly less likely to report switching at midline,
+ with the difference statistically significant at the 10% level.
  By endline,
- no significant differences in switching behavior are observed between control and treatment groups.
+ there were no significant differences in switching behavior between treatment and control groups.
+ Contrary to expectations,
+ the information clearinghouse did not encourage farmers to change agro-dealers.
 \end_layout
 
 \begin_layout Standard
-One possible explanation for low switching is insufficient market integration,
- as farmers often buy exclusively from a small set of local agro-dealers sellers due to a lack of close competitors and high costs associated with finding and transacting with other sellers (Jensen & Miller,
- 2018).
- As catchment areas are relatively small (with agro-dealers less than five kilometers apart are assigned to the same one),
- some might argue that the information clearinghouse does not sufficiently remove these barriers to increase the market’s ability to reallocate profit and market share towards high-quality agro-dealers.
+One possible explanation for the low switching rate is limited market integration.
+ Farmers often rely on a small set of local agro-dealers due to a lack of nearby competitors and the high costs associated with identifying and transacting with alternative sellers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/aer.20161965"
+literal "false"
+
+\end_inset
+
+.
+ Because catchment areas are relatively small—
+with agro-dealers less than five kilometers apart assigned to the same area—
+one might argue that the clearinghouse did not sufficiently reduce these frictions to enable reallocation of market share toward higher-quality agro-dealers.
  However,
- as we see minimal spatial differences in ratings across catchment areas and considerable variation in ratings within the catchment areas (see 
+ given the minimal spatial variation in ratings across catchment areas and the substantial variation within them (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:rating variation"
@@ -22304,14 +22304,14 @@ nolink "false"
 \end_inset
 
 ),
- we do not believe that the lack of market integration explains the lack of switching.
+ we do not believe limited market integration explains the lack of switching.
 \end_layout
 
 \begin_layout Standard
 Instead,
- the information clearinghouse appears to have reinforced confidence in farmers' previous choice,
+ the clearinghouse appears to have reinforced farmers’ confidence in their previous choices,
  reducing the likelihood of switching.
- This is consistent with the relatively small variation in ratings across agro-dealers (see 
+ This interpretation is consistent with the relatively small variation in ratings across agro-dealers (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:rating variation"
@@ -22323,8 +22323,8 @@ nolink "false"
 \end_inset
 
 ),
- suggesting limited differentiation and thus making switching less attractive.
- These results are also consistent with 
+ which suggests limited differentiation and makes switching less attractive.
+ These findings are also in line with 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -22333,7 +22333,7 @@ literal "false"
 \end_inset
 
 ,
- who implement a similar crowdsourced information platform in the artificial insemination for livestock market in Pakistan and find that farmers do not switch to higher-quality providers.
+ who implemented a similar crowdsourced information platform in Pakistan’s artificial insemination for livestock market and likewise found no evidence that farmers switched to higher-quality providers.
 \end_layout
 
 \begin_layout Standard
@@ -22701,149 +22701,188 @@ name "section: Conclusion"
 \end_layout
 
 \begin_layout Standard
-...
+This study hypothesizes that seed quality deteriorates either due to agro-dealers’ limited knowledge or because asymmetric information increases farmers’ search costs and weakens agro-dealers’ incentives to maintain quality.
+ To address these challenges,
+ we propose two interventions:
+ a training program to improve agro-dealers’ seed handling practices and an information clearinghouse featuring crowd-sourced ratings of seed quality based on farmers’ experiences.
+ We evaluate the impact of these interventions on a range of agro-dealer and farmer outcomes using an experimental design that enables causal inference and sheds light on the underlying mechanisms.
 \end_layout
 
 \begin_layout Standard
-This improvement in farmers' opinions and ratings may reflect a real increase in the quality of seed if the clearinghouse improved agro-dealers' seed handling practices,
- in turn improving seed quality.
- However,
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on bag of maize seed bought at dealer"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-shows that we do not find clear evidence that the information clearinghouse treatment affected a set of (imperfect) quality proxies of the seed agro-dealers sell.
- Furthermore,
- looking at Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on dealer efforts"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we find no evidence that agro-dealers change seed handling or storage in response to the clearinghouse treatment.
- As such,
- the change in quality perceptions does not seem to reflect a real change in quality.
-\end_layout
-
-\begin_layout Standard
-An alternative explanation is that the quality of maize seed at most agro-dealers in our sample is sufficient but (non-adopting) farmers misperceive it.
- This is in line with 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "MICHELSON2021102579"
-literal "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- who establish that input quality is generally good but farmers’ beliefs are often incorrect,
- meaning that simply rectifying their misperception would increase adoption.
- Consistent with this explanation,
- we find that two in three farmers thought that maize seed at agro-dealers is counterfeit or adulterated at baseline.
- At the same time,
- the average agro-dealer was rated 3.4 out of five at baseline,
- which indicates that perceived seed quality was reasonable.
- An explanation for this discrepancy could be that the full sample (including farmers who never purchased seed at agro-dealers) was asked about the prevalence of counterfeit or adulterated maize seed at agro-dealers,
- while the farmers who rate have experience with seed from agro-dealers.
- Because of the information clearinghouse treatment,
- mostly non-adopting pessimistic farmers notice that adopting peers do not share their pessimism,
- and they adjust their perceptions.
- Furthermore,
- the clearinghouse affects several measures of adoption already at midline.
- If we assume that changing agro-dealer behavior and farmers noticing the resulting change in seed quality takes some time,
- rectifying incorrect perceptions of smallholders must have played an important role in increasing their adoption.
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-In this study,
- we hypothesize that seed quality deteriorates because agro-dealers lack knowledge and/or because asymmetric information results in excessive search costs for farmers and reduced incentives for agro-dealers.
- Our hypothesized solutions to these problems are a training to inform agro-dealers about correct seed handling and storage practices as well as an information clearinghouse based on crowd-sourced ratings of the quality of seed that agro-dealers sell to farmers.
- We explore the impact of these solutions on a range of agro-dealer and farmer outcomes with an experimental design that allows for causal attribution and investigation of several underlying mechanisms.
-\end_layout
-
-\begin_layout Standard
-Results show that training agro-dealers is generally ineffective:
- our training does not change agro-dealer knowledge about proper seed storage and handling,
- their day-to-day operations,
- or the seed they sell to farmers.
- Nor does the training affect farmers' perceptions of seed quality purchased from these agro-dealers or subsequent use of high-yielding seed.
- The takeaway from these results is that training agro-dealers seems insufficient without additional incentives.
-\end_layout
-
-\begin_layout Standard
-This is where the clearinghouse results come into play.
- They suggest that if agro-dealers have the right incentives,
- they may actively seek out the necessary knowledge to improve their operations and stay ahead of their competitors.
- If agro-dealers are exposed to both incentives and information,
- they handle and store seed better and attract more business.
-\end_layout
-
-\begin_layout Standard
-Recently,
+We find that training agro-dealers does not result in meaningful learning or improvements in seed handling practices or service provision.
+ Consequently,
+ we observe no effects on the quality of seed sold,
+ agro-dealers’ business performance,
+ nor on the adoption of high-yielding maize varieties and harvest outcomes among their customers.
+ These findings suggest that training alone is unlikely to generate improvements in contexts where sellers lack access to markets that reward higher quality.
+ This is consistent with evidence from the maize output market.
  
 \begin_inset CommandInset citation
 LatexCommand citet
-key "dar2020private"
+key "hoffmann2021observability"
 literal "false"
 
 \end_inset
 
- showed that an information intervention targeted at private input suppliers is effective in changing their behavior and in increasing farmer level adoption,
- which seems to contradict our null result for the training at first sight.
- However,
- their information treatment is very different from ours:
- instead of training these suppliers in seed handling and storage at the agro-input shop,
- they give them access to a new seed variety for their own learning,
- hoping that they will spread this information to their clients who will use it on the farm.
- Moreover,
+ show that food safety—
+a critical but non-observable attribute of maize quality—
+is not reflected in prices,
+ implying weak incentives for quality management.
+ Similarly,
  
 \begin_inset CommandInset citation
 LatexCommand citet
-key "dar2020private"
+key "bold2022"
 literal "false"
 
 \end_inset
 
- find that business incentives and reputational concerns play a key role when agro-dealers share information and give advice,
- which is in line with our finding that incentives matter.
+ find that smallholder farmers did not adopt improved practices in response to an extension intervention aimed at raising maize quality,
+ likely because they were unwilling to incur additional efforts and costs without credible market rewards for quality improvements.
 \end_layout
 
 \begin_layout Standard
-The information clearinghouse clearly affected the market for maize seed in our study area:
- sellers and buyers started behaving in line with our theory of change.
- Agro-dealers reported more business and smallholders reported increased use of high-yielding maize varieties,
- in turn increasing production outcomes.
- This effect appears to partly stem from agro-dealers who expanded their service offerings and started signaling quality to customers to outperform their competitors.
- We find some evidence that this treatment induced farmers to switch between agro-dealers,
- but most of the impact on farmer outcomes seems to be driven by the clearinghouse improving farmers' opinions of agro-dealers and their products.
+In contrast,
+ the information clearinghouse proved effective in generating competitive incentives.
+ We find compelling evidence that agro-dealers responded to the intervention by adjusting their behavior to outperform competitors and attract more customers.
+ However,
+ despite a quality problem at baseline,
+ agro-dealers did not invest in seed handling practices that would directly improve quality.
+ Instead,
+ they prioritized signaling quality and enhancing customer service to influence their ratings indirectly.
+ As a result,
+ we observe no improvements in actual seed quality.
+ Nonetheless,
+ whether through the direct effects of the intervention or through improved service and quality signaling,
+ agro-dealers in the clearinghouse treatment arm attracted more business,
+ even without enhancing the quality of their products.
 \end_layout
 
 \begin_layout Standard
-The significant impact of the clearinghouse indicates that farmers cannot judge the quality of maize seed at the time of purchase.
+Three main rationales may explain why agro-dealers do not prioritize seed handling practices that would directly improve quality.
+ First,
+ returns on investments in quality are likely to materialize only in the longer term,
+ as farmers must purchase,
+ plant,
+ and assess the performance of improved seeds—
+feedback that would be reflected in ratings only after a delay.
+ Bayesian learning about quality takes time,
+ and opportunities to update beliefs remain limited—
+even in Uganda,
+ where two agricultural seasons per year offer repeated learning cycles.
+ Amid the uncertainty caused by the COVID-19 pandemic,
+ agro-dealers may have prioritized short-term gains by focusing on enhanced customer service and quality signaling rather than on practices that contribute to building a long-term reputation for seed quality.
+\end_layout
+
+\begin_layout Standard
+Second,
+ information clearinghouse treated agro-dealers may be willing to improve seed handling practices but lack the technical knowledge to do so effectively.
+ Low baseline knowledge supports this possibility.
+ Relatedly,
+ some may believe that they have limited influence over seed quality or consider it to be the responsibility of seed wholesalers or producers.
+ Because a subset of agro-dealers in our factorial design received both the training and the clearinghouse interventions,
+ we can examine the interaction between the two treatments to explore this hypothesis.
+ When exposed to both incentives and information,
+ agro-dealers appear more likely to improve their operations—
+handling and storing seed more effectively and attracting more business—
+suggesting that knowledge may indeed be a limiting factor.
+ However,
+ this exploratory finding should be interpreted with caution,
+ as detecting interaction effects typically requires a substantially larger sample size than detecting main effects,
+ and our experiment is underpowered to do so reliably.
+\end_layout
+
+\begin_layout Standard
+Third,
+ agro-dealers may believe that farmers are unable to assess seed quality,
+ even after use,
+ and therefore that improvements in quality through better storage and handling would not lead to higher ratings.
+ The clearinghouse intervention is based on the assumption that,
+ while individual farmers cannot assess seed quality at the time of purchase and struggle to do so after one or two uses due to confounding factors such as inputs,
+ rainfall,
+ soil quality,
+ pest and disease pressure,
+ and management practices,
+ groups of farmers can effectively evaluate quality after planting and harvesting,
+ implying that maize seeds are experience goods.
+ We assume that ratings are distributed around the true mean,
+ so that aggregating the experiences of many farmers operating under similar conditions (many N) provides a reliable signal of quality,
+ reducing the need for individual farmers to learn through repeated trials over multiple seasons (many T).
+ Accordingly,
+ a clearinghouse based on peer ratings was expected to generate valuable information that farmers could use to inform their adoption and purchase decisions.
+\end_layout
+
+\begin_layout Standard
+Contrary to this assumption,
+ agro-dealers may believe that maize seeds are credence goods and that farmers are unable to draw a causal link between seed quality and outcomes such as plant emergence,
+ growth,
+ and harvest,
+ due to numerous confounding factors,
+ the complexity of their interactions,
+ and the stochastic nature of some of them.
+ This belief may explain why agro-dealers do not improve seed handling practices:
+ if farmers are unlikely to recognize the benefits,
+ such efforts would go unnoticed,
+ making enhancements in service provision and quality signaling seem more effective.
+ This rationale also aligns with the null result for the agro-dealer training—
+additional knowledge is only valuable if customers can perceive its benefits 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hoffmann2021observability,bold2022"
+literal "false"
+
+\end_inset
+
+—
+suggesting that pessimistic beliefs about farmers’ ability to assess quality may underlie the lack of behavioral change.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Alternative 4th rationale that we don't mention:
+ agro-dealers improve practices (they stop mixing/ faking seed) and quality (varietal purity) dimension that we don't measure in response to CH (as it casts doubt on our decisions not to measure these).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Turning to farmer outcomes,
+ we find that farmers do not switch to higher-rated agro-dealers,
+ but they appear to trust the information provided by the clearinghouse:
+ the intervention improved their perceptions of seed quality—
+likely because the ratings exceeded their prior beliefs—
+and farmers were convinced enough to adjust their adoption behavior and increase their use of high-yielding maize varieties,
+ resulting in positive effects on harvest and sales outcomes.
+\end_layout
+
+\begin_layout Standard
+Notably,
+ the impact on perceptions is strongest among farmers who were not using high-yielding maize varieties at baseline.
+ These same farmers also drive the observed yield effects,
+ having adopted in response to the clearinghouse intervention and subsequently achieved higher production.
+ These initially non-adopting farmers,
+ who tend to be more structurally disadvantaged and vulnerable,
+ appear to benefit the most from the intervention.
+ While one might argue that the clearinghouse could expose farmers to low-quality agro-dealers,
+ the intervention prompted a shift away from farmer-saved seed toward high-yielding varieties.
+ Even in the presence of seed quality concerns at baseline and without measurable improvements at the agro-dealer level,
+ this behavioral shift led to substantial productivity gains.
+ This suggests that,
+ despite quality issues,
+ the seeds accessed through agro-dealers still outperformed farmer-saved alternatives.
+ The clearinghouse helped pessimistic non-adopters update their beliefs by observing that their adopting peers held more favorable views,
+ thereby reducing perceived risk and lowering the threshold for engaging with the formal seed market.
+\end_layout
+
+\begin_layout Standard
+...Here
+\end_layout
+
+\begin_layout Standard
+The significant impact of the clearinghouse indicates that farmers cannot judge the quality of maize seed at the time of purchase and are generally open to signals that help them.
  If the quality of a product cannot be easily assessed at the point of sale,
  one solution is to make sure customers do not have to,
  through regulation and quality assurance.
@@ -22856,6 +22895,23 @@ The significant impact of the clearinghouse indicates that farmers cannot judge 
  As a result,
  seed certification provides farmers with a relatively weak and unreliable indication of quality.
  A decentralized approach that relies on crowd-sourced quality signals such as the information clearinghouse may be more effective.
+ Furthermore,
+ such signals only reach farmers at the point of sale,
+ non-adopting farmers not.
+\end_layout
+
+\begin_layout Standard
+This partly explains the rich body of research on the role of peer effects in technology adoption:
+ combining own experience with the experience of others in a similar location is therefore likely to provide a good signal about seed quality 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/aer.100.1.35,https://doi.org/10.1111/j.1468-0297.2006.01115.x,foster1995learning"
+literal "false"
+
+\end_inset
+
+.
+ A clearinghouse that relies on peer ratings is expected to increase data points that farmers can use when making adoption decisions.
 \end_layout
 
 \begin_layout Standard
@@ -22872,56 +22928,49 @@ Furthermore,
 \end_layout
 
 \begin_layout Standard
-A key assumption underlying the clearinghouse mechanisms is that,
- while individual farmers cannot assess the quality of seed at the time of purchase,
- collective experience does provide useful information.
- This is because farmers can learn from experience and use this information when making decisions in subsequent seasons.
- Empirically,
- however,
- farmers may have difficulties drawing a causal link between seed quality,
- on the one hand,
- and plant emergence,
- growth,
- and harvest,
- on the other hand,
- given the extensive set of confounding variables at play (rainfall,
- soil quality,
- pest and disease pressure,
- inputs,
- management,
- and plant genetics),
- the complexity of genotype-by-environment-by-management interactions,
- and the stochastic nature of many of these variables.
- In addition,
- Bayesian learning takes time,
- and opportunities to learn are limited,
- despite Uganda having two agricultural seasons.
- This partly explains the rich body of research on the role of peer effects in technology adoption:
- combining own experience with the experience of others in a similar location is therefore likely to provide a good signal about seed quality 
+Finally,
+ while the crowd-sourced information clearinghouse tested in this study may also be feasible at scale,
+ the idea cannot not be approached naively.
+ First and foremost,
+ a clearinghouse is only useful if farmers ratings predict quality sufficiently.
+ Just as with restaurants,
+ individual tastes may differ and a rating is only an indication that individuals my niot agree with.
+ Still,
+ an strong correlation is necessary to to create positive long term effects.
+ Further research on the experience and ceredence good nature of maize seeds.
+ with no strong correspondence between the assessments and the true measured quality 
+\end_layout
+
+\begin_layout Standard
+random ratings
+\end_layout
+
+\begin_layout Standard
+The result that the quality of maize seed at agro-dealers in our sample is not in line with the perception thereof of farmers is in line with 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/aer.100.1.35,https://doi.org/10.1111/j.1468-0297.2006.01115.x,foster1995learning"
+LatexCommand citet
+key "MICHELSON2021102579"
 literal "false"
 
 \end_inset
 
-.
- A clearinghouse that relies on peer ratings is expected to increase data points that farmers can use when making adoption decisions.
+,
+ who established that farmer beliefs about fertilizer quality are inconsistent with the truth,
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+,
+ who find that farmers routinely misperceive or misreport input quality.
+ + Ashour
 \end_layout
 
 \begin_layout Standard
-While the complexity of real-world conditions and the intricate dynamics involved necessitate comprehensive,
- multifaceted approaches,
- it is challenging to isolate the specific components of the intervention that drive the observed outcomes.
- The clearinghouse treatment targets the interaction between buyers and sellers and makes information available to all partners.
- Future research could differentiate between the actors receiving the rating information to determine whether the impact is primarily driven by the information provided to smallholder farmers or to agro-dealers.
-\end_layout
-
-\begin_layout Standard
-Finally,
- while the crowd-sourced information clearinghouse tested in this study may also be feasible at scale,
- the idea cannot not be approached naively.
- There is considerable controversy surrounding the credibility of reviewing platforms and the ability of sellers on these platforms to improve their ratings with payments to customers,
+There is considerable controversy surrounding the credibility of reviewing platforms and the ability of sellers on these platforms to improve their ratings with payments to customers,
  automated bot reviews,
  and other strategic practices.
  There are also more practical considerations,
