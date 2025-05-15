@@ -18743,6 +18743,162 @@ S$Due to the skewness of this variable,
 
 \end_layout
 
+\begin_layout Subsubsection*
+Understanding agro-dealers’ disregard for seed quality management
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I ended up moving this section after all - not because of any rules about how long a conclusion should be,
+ but because I felt these rationales were distracting from our main messages.
+ The punchlines weren’t landing clearly anymore.
+ Also,
+ I didn’t want any mention of the credence-good angle in the conclusion,
+ since that could open the door for critiques we don’t need to highlight right at the end.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Three main rationales may explain why agro-dealers do not prioritize seed handling practices that would directly improve quality.
+ First,
+ returns on investments in quality are likely to materialize only in the longer term,
+ as farmers must purchase,
+ plant,
+ and assess the performance of improved seeds—
+feedback that would be reflected in ratings only after a delay.
+ Bayesian learning about quality takes time,
+ and opportunities to update beliefs remain limited—
+even in Uganda,
+ where two agricultural seasons per year offer repeated learning cycles.
+ Amid the uncertainty caused by the COVID-19 pandemic,
+ agro-dealers may have prioritized short-term gains by focusing on enhanced customer service and quality signaling rather than on practices that contribute to building a long-term reputation for seed quality.
+\end_layout
+
+\begin_layout Standard
+Second,
+ information clearinghouse treated agro-dealers may be willing to improve seed handling practices but lack the technical knowledge to do so effectively.
+ Low baseline knowledge supports this possibility.
+ Relatedly,
+ some may believe that they have limited influence over seed quality or consider it to be the responsibility of seed wholesalers or producers.
+ Because a subset of agro-dealers in our factorial design received both the training and the clearinghouse interventions,
+ we can examine the interaction between the two treatments to explore this hypothesis.
+ When exposed to both incentives and information,
+ agro-dealers appear more likely to improve their operations—
+handling and storing seed more effectively and attracting more business—
+suggesting that knowledge may indeed be a limiting factor.
+ However,
+ this exploratory finding should be interpreted with caution,
+ as detecting interaction effects typically requires a substantially larger sample size than detecting main effects,
+ and our experiment is underpowered to do so reliably.
+\end_layout
+
+\begin_layout Standard
+Third,
+ agro-dealers may believe that farmers are unable to assess seed quality,
+ even after use,
+ and therefore that improvements in quality through better storage and handling would not lead to higher ratings.
+ The clearinghouse intervention is based on the assumption that,
+ while individual farmers cannot assess seed quality at the time of purchase and struggle to do so after one or two uses due to confounding factors such as inputs,
+ rainfall,
+ soil quality,
+ pest and disease pressure,
+ and management practices,
+ groups of farmers can effectively evaluate quality after planting and harvesting,
+ implying that maize seeds are experience goods.
+ This assumption is consistent with the prevailing consensus in the literature 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2023102424"
+literal "false"
+
+\end_inset
+
+.
+ We assume that ratings are distributed around the true mean,
+ so that aggregating the experiences of many farmers operating under similar conditions (many N) provides a reliable signal of quality,
+ reducing the need for individual farmers to learn through repeated trials over multiple seasons (many T).
+ Accordingly,
+ a clearinghouse based on peer ratings was expected to generate valuable information that farmers could use to inform their adoption and purchase decisions.
+\end_layout
+
+\begin_layout Standard
+Contrary to this assumption,
+ agro-dealers may believe that maize seeds are credence goods and that farmers are unable to draw a causal link between seed quality and outcomes such as plant emergence,
+ growth,
+ and harvest,
+ due to numerous confounding factors,
+ the complexity of their interactions,
+ and the stochastic nature of some of them.
+ This belief would align with evidence from other agricultural inputs—
+not including maize seed—
+suggesting that farmers’ beliefs often poorly reflect actual quality (
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "MICHELSON2021102579"
+literal "false"
+
+\end_inset
+
+;
+ 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "https://doi.org/10.1111/ajae.12466"
+literal "false"
+
+\end_inset
+
+ for fertilizer;
+ 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "doi:10.1080/00220388.2018.1464143"
+literal "false"
+
+\end_inset
+
+ for herbicides;
+ 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "wossen2022misperceiving"
+literal "false"
+
+\end_inset
+
+ for cassava seed),
+ and may explain why agro-dealers do not improve seed handling practices:
+ if farmers are unlikely to recognize the benefits,
+ such efforts would go unnoticed,
+ making enhancements in service provision and quality signaling seem more effective.
+ This rationale also aligns with the null result for the agro-dealer training—
+additional knowledge is only valuable if customers can perceive its benefits 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hoffmann2021observability,bold2022"
+literal "false"
+
+\end_inset
+
+—
+suggesting that pessimistic beliefs about farmers’ ability to assess quality may underlie the lack of behavioral change.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Alternative 4th rationale that we don't mention:
+ agro-dealers improve practices (they stop mixing/ faking seed) and quality (varietal purity) dimension that we don't measure in response to CH (as it casts doubt on our decisions not to measure these).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Seed quality
 \end_layout
@@ -21250,7 +21406,7 @@ nolink "false"
 placement document
 alignment document
 wide false
-sideways true
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -21383,7 +21539,7 @@ cmidrule(lr){5-6}
 
 \begin_layout Plain Layout
 
-Index of farmer's seed ratings of agro-dealers in area$^1$
+Index of farmer's seed ratings of agro-dealers$^1$
 \end_layout
 
 \begin_layout Plain Layout
@@ -22363,7 +22519,7 @@ literal "false"
 placement document
 alignment document
 wide false
-sideways true
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -22394,7 +22550,7 @@ status open
 
 
 \backslash
-small
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -22473,7 +22629,7 @@ cmidrule(lr){6-8}
 
 \begin_layout Plain Layout
 
-Farmer switched to different agro-input shop
+Farmer switched to different shop
 \end_layout
 
 \begin_layout Plain Layout
@@ -22661,7 +22817,7 @@ end{center}
 
 
 \backslash
-footnotesize
+scriptsize
 \end_layout
 
 \begin_layout Plain Layout
@@ -22760,7 +22916,7 @@ literal "false"
 \end_inset
 
  find that smallholder farmers did not adopt improved practices in response to an extension intervention aimed at raising maize quality,
- likely because they were unwilling to incur additional efforts and costs without credible market rewards for quality improvements.
+ likely because they were unwilling to incur additional efforts and costs without credible market rewards for improved quality.
 \end_layout
 
 \begin_layout Standard
@@ -22769,7 +22925,11 @@ In contrast,
  We find compelling evidence that agro-dealers responded to the intervention by adjusting their behavior to outperform competitors and attract more customers.
  However,
  despite a quality problem at baseline,
- agro-dealers did not invest in seed handling practices that would directly improve quality.
+ agro-dealers did not prioritize seed handling practices that directly improve quality—
+either because returns to such investments are delayed,
+ because they lack the necessary knowledge,
+ or because they believe farmers cannot reliably assess seed quality,
+ making these efforts unlikely to pay off.
  Instead,
  they prioritized signaling quality and enhancing customer service to influence their ratings indirectly.
  As a result,
@@ -22778,143 +22938,6 @@ In contrast,
  whether through the direct effects of the intervention or through improved service and quality signaling,
  agro-dealers in the clearinghouse treatment arm attracted more business,
  even without enhancing the quality of their products.
-\end_layout
-
-\begin_layout Standard
-Three main rationales may explain why agro-dealers do not prioritize seed handling practices that would directly improve quality.
- First,
- returns on investments in quality are likely to materialize only in the longer term,
- as farmers must purchase,
- plant,
- and assess the performance of improved seeds—
-feedback that would be reflected in ratings only after a delay.
- Bayesian learning about quality takes time,
- and opportunities to update beliefs remain limited—
-even in Uganda,
- where two agricultural seasons per year offer repeated learning cycles.
- Amid the uncertainty caused by the COVID-19 pandemic,
- agro-dealers may have prioritized short-term gains by focusing on enhanced customer service and quality signaling rather than on practices that contribute to building a long-term reputation for seed quality.
-\end_layout
-
-\begin_layout Standard
-Second,
- information clearinghouse treated agro-dealers may be willing to improve seed handling practices but lack the technical knowledge to do so effectively.
- Low baseline knowledge supports this possibility.
- Relatedly,
- some may believe that they have limited influence over seed quality or consider it to be the responsibility of seed wholesalers or producers.
- Because a subset of agro-dealers in our factorial design received both the training and the clearinghouse interventions,
- we can examine the interaction between the two treatments to explore this hypothesis.
- When exposed to both incentives and information,
- agro-dealers appear more likely to improve their operations—
-handling and storing seed more effectively and attracting more business—
-suggesting that knowledge may indeed be a limiting factor.
- However,
- this exploratory finding should be interpreted with caution,
- as detecting interaction effects typically requires a substantially larger sample size than detecting main effects,
- and our experiment is underpowered to do so reliably.
-\end_layout
-
-\begin_layout Standard
-Third,
- agro-dealers may believe that farmers are unable to assess seed quality,
- even after use,
- and therefore that improvements in quality through better storage and handling would not lead to higher ratings.
- The clearinghouse intervention is based on the assumption that,
- while individual farmers cannot assess seed quality at the time of purchase and struggle to do so after one or two uses due to confounding factors such as inputs,
- rainfall,
- soil quality,
- pest and disease pressure,
- and management practices,
- groups of farmers can effectively evaluate quality after planting and harvesting,
- implying that maize seeds are experience goods.
- This assumption is consistent with the prevailing consensus in the literature 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "MICHELSON2023102424"
-literal "false"
-
-\end_inset
-
-.
- We assume that ratings are distributed around the true mean,
- so that aggregating the experiences of many farmers operating under similar conditions (many N) provides a reliable signal of quality,
- reducing the need for individual farmers to learn through repeated trials over multiple seasons (many T).
- Accordingly,
- a clearinghouse based on peer ratings was expected to generate valuable information that farmers could use to inform their adoption and purchase decisions.
-\end_layout
-
-\begin_layout Standard
-Contrary to this assumption,
- agro-dealers may believe that maize seeds are credence goods and that farmers are unable to draw a causal link between seed quality and outcomes such as plant emergence,
- growth,
- and harvest,
- due to numerous confounding factors,
- the complexity of their interactions,
- and the stochastic nature of some of them.
- This belief would align with evidence from other agricultural inputs—
-not including maize seed—
-suggesting that farmers’ beliefs often poorly reflect actual quality (
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "MICHELSON2021102579"
-literal "false"
-
-\end_inset
-
-;
- 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "https://doi.org/10.1111/ajae.12466"
-literal "false"
-
-\end_inset
-
- for fertilizer;
- 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "doi:10.1080/00220388.2018.1464143"
-literal "false"
-
-\end_inset
-
- for herbicides;
- 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "wossen2022misperceiving"
-literal "false"
-
-\end_inset
-
- for cassava seed),
- and may explain why agro-dealers do not improve seed handling practices:
- if farmers are unlikely to recognize the benefits,
- such efforts would go unnoticed,
- making enhancements in service provision and quality signaling seem more effective.
- This rationale also aligns with the null result for the agro-dealer training—
-additional knowledge is only valuable if customers can perceive its benefits 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "hoffmann2021observability,bold2022"
-literal "false"
-
-\end_inset
-
-—
-suggesting that pessimistic beliefs about farmers’ ability to assess quality may underlie the lack of behavioral change.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Alternative 4th rationale that we don't mention:
- agro-dealers improve practices (they stop mixing/ faking seed) and quality (varietal purity) dimension that we don't measure in response to CH (as it casts doubt on our decisions not to measure these).
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -22933,7 +22956,7 @@ Notably,
  These same farmers also drive the observed yield effects,
  as they adopted in response to the clearinghouse intervention and subsequently achieved higher production.
  These initially non-adopting farmers,
- who tend to be more structurally disadvantaged and vulnerable,
+ who tend to be more disadvantaged and vulnerable,
  appear to benefit the most from the intervention.
  While one might argue that the clearinghouse could expose farmers to low-quality agro-dealers,
  the intervention prompted a shift away from farmer-saved seed toward high-yielding varieties.
@@ -22979,15 +23002,11 @@ those not using high-yielding maize varieties at baseline—
 highlights another key distinction between quality signaling through marketing,
  formal quality assurance,
  and the information clearinghouse.
- Branding,
- packaging,
- standards,
- and certification systems primarily reach farmers who visit agro-dealers and are exposed to these signals at the point of sale.
+ Most signals primarily reach farmers who visit agro-dealers and are exposed to these signals at the point of sale.
  In contrast,
  the clearinghouse ratings were delivered directly to farmers through enumerator visits and SMS.
  This kind of direct outreach is especially valuable for non-adopters,
- who often hold more pessimistic beliefs about seed quality.
- Quality signaling mechanisms designed to promote adoption among vulnerable non-adopting farmers should therefore include strategies to reach them directly.
+ and quality signaling mechanisms designed to promote adoption among vulnerable non-adopting farmers should therefore include strategies to reach them directly.
  The clearinghouse demonstrates that these farmers are generally responsive to credible,
  accessible signals that support better decision-making.
 \end_layout
@@ -23047,7 +23066,7 @@ literal "false"
 \end_inset
 
 ,
- the position of maize seed along the experience–credence good continuum remains an unresolved empirical question.
+ the position of maize seed along the experience-credence good continuum remains an unresolved empirical question.
  While our study finds that clearinghouse ratings correlate with objective indicators of seed quality,
  the experiment was not designed to assess this relationship conclusively.
  Accurate measurement of both the actual quality of seed used and farmers’ beliefs about that quality—
@@ -23068,7 +23087,7 @@ by incentivizing customers,
  For instance,
  evidence suggests that female agro-dealers tend to receive less favorable evaluations 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 key "de2024gender"
 literal "false"
 
@@ -26755,7 +26774,7 @@ name "A.5 Effect on agro-dealer knowledge - Individual variables"
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float table
@@ -26763,7 +26782,7 @@ placement document
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
