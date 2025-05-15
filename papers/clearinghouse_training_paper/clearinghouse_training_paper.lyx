@@ -7057,7 +7057,7 @@ We now analyze the variation in ratings both across farmers for the same agro-de
 status collapsed
 
 \begin_layout Plain Layout
-Note that we employ quintiles to ensure that scores are not disseminated without variation,
+Note that we employ quintiles to ensure that ratings are not disseminated without variation,
  see Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21333,7 +21333,7 @@ nolink "false"
 
 ,
  we examine an index of maize seed ratings,
- which combines scores for general quality,
+ which combines ratings for general quality,
  yield,
  drought tolerance,
  pest and disease resistance,
@@ -23078,7 +23078,7 @@ is critical to understanding the extent to which quality issues,
 
 \begin_layout Standard
 Additionally,
- there is ongoing debate about the credibility of rating platforms and the extent to which sellers can strategically manipulate their scores—
+ there is ongoing debate about the credibility of rating platforms and the extent to which sellers can strategically manipulate their ratings—
 by incentivizing customers,
  using automated bot reviews,
  or employing other tactics.
@@ -23131,6 +23131,26 @@ options "../../Study design/IFPRI_Style"
 \begin_layout Section
 \start_of_appendix
 Appendix
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I have not been able to eliminate the white pages,
+ likely because I am forcing the floating sideways tables into specific positions.
+ Since sideways tables typically require their own separate page,
+ this seems unavoidable.
+ The tables are too large to be displayed in portrait orientation.
+\end_layout
+
+\begin_layout Plain Layout
+Also,
+ it would be nice if the figures in the appendix were labeled with an ‘A’ prefix,
+ just like the tables.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -23168,7 +23188,7 @@ arabic{table}}
 \end_layout
 
 \begin_layout Subsection
-Details about rating computations
+Rating computations
 \begin_inset CommandInset label
 LatexCommand label
 name "A.2 Rating computation: details"
@@ -23179,22 +23199,24 @@ name "A.2 Rating computation: details"
 \end_layout
 
 \begin_layout Paragraph*
-What to do if a treated agro-dealer does not receive a single rating?
+What if a treated agro-dealer does not receive a single rating?
 \end_layout
 
 \begin_layout Standard
-If a shop in a treated catchment area is not rated by a single farmer because,
- for example,
- no farmer in our sample knows him or her,
- we could fill in the catchment area mean as his or her rating.
+If a shop in a treated catchment area is not rated by any farmer—
+for example,
+ because no farmer in our sample is familiar with it—
+one option would be to assign it the average rating of all agro-dealers in the same catchment area.
  However,
- this is not as innocent as it seems because it is likely that the lack of ratings is not random.
- Poor quality agro-dealers have less customers,
- so their likelihood to get rated is lower.
- Giving them average catchment area ratings inflates the ratings of these low quality agro-dealers.
+ this approach is problematic,
+ as the absence of ratings is unlikely to be random.
+ Lower-quality agro-dealers tend to have fewer customers,
+ making them less likely to be rated.
+ Assigning them the catchment area average would artificially inflate their ratings.
  Instead,
- we simply told farmers that we do not have information about this shop (implicitly informing them that it exists).
- 16 of 193 treated agro-dealers were not rated by a single farmer in the first round.
+ we informed farmers that we had no information about the shop (implicitly signaling its existence).
+ In the first round,
+ 16 out of 193 treated agro-dealers were not rated by any farmer.
 \end_layout
 
 \begin_layout Paragraph*
@@ -23202,111 +23224,78 @@ Should more ratings lead to better ratings?
 \end_layout
 
 \begin_layout Standard
-Some agro-dealers were not rated by any smallholder in the first round,
- while others were rated by up to 22 smallholders.
- If agro-dealer A is rated by ten farmers and gets rating 3.5 and agro-dealer B is rated by one farmer and gets rating 3.6,
- we treat agro-dealer B as the better agro-dealer.
- Even though receiving many (few) ratings can be related to good (poor) quality (the lack of ratings could be nonrandom,
- see previous paragraph),
- there could be other reasons why agro-dealers are rated by many (few) farmers.
- Furthermore,
- giving higher ratings to better-known agro-dealers could harm new agro-dealers entering the market and agro-dealers who are discriminated,
- for example,
- due to their gender.
- Also on TripAdvisor,
- having more reviews than a rival hotel does not lead to a better rating.
+Some agro-dealers were not rated by any farmer in the first round,
+ while others received up to 22 ratings.
+ If agro-dealer A is rated by ten farmers with an average of 3.5,
+ and agro-dealer B is rated by one farmer with a rating of 3.6,
+ agro-dealer B is treated as having the higher rating.
+ While the number of ratings may correlate with quality (see previous paragraph),
+ there may also be other reasons why some agro-dealers are rated by more or fewer farmers.
+ Moreover,
+ favoring agro-dealers with more ratings could disadvantage new entrants or those subject to discrimination,
+ such as based on gender.
 \end_layout
 
 \begin_layout Paragraph*
-Should ratings depend on catchment area agro-dealer performance?
+Should ratings reflect catchment area performance?
 \end_layout
 
 \begin_layout Standard
-The following examples show that ratings should not depend on catchment area averages.
- In an area with poor quality agro-dealers in which one agro-dealer is a bit better than the rest but still poor,
- we do not want this agro-dealer to be rated well (that is,
- expose farmers to poor quality agro-dealers).
- Similarly,
- in an area with good agro-dealers in which one agro-dealer is a bit worse than the rest but still good,
- we do not want this agro-dealer to be rated poorly (which would be unfair towards him or her).
- On the other hand,
- less than 9% of agro-dealers received a rating below three out of five,
- so we would throw away valuable data if we would only disseminate good scores without any variation.
- Therefore,
- we take the distribution of ratings into account by using quintiles.
- Consequently,
- less agro-dealers receive rating four or five,
- more agro-dealers receive rating one or two.
- This could strengthen the effect of the treatment on agro-dealer effort.
- If agro-dealers get ratings one or two instead of four or five,
- they could feel more inclined to improve their scores.
- Consequently,
- the effect on seed quality itself could be larger.
+The following examples illustrate why ratings should not depend on catchment area averages.
+ In an area where most agro-dealers are of low quality,
+ an agro-dealer who is slightly better than the rest—
+but still poor—
+should not receive a high rating,
+ as this would expose farmers to substandard providers.
+ Conversely,
+ in a high-quality area,
+ an agro-dealer who performs slightly worse than others—
+but still well overall—
+should not be rated poorly,
+ as this would be unfair.
  However,
- the clearinghouse should also have a signaling effect,
- which might be weaker if more agro-dealers are rated one or two instead of four or five (agro-dealers would seem to be of worse quality to farmers).
- Therefore,
- we chose words with a positive connotation as the quintile names for rating dissemination.
- As most agro-dealers received a good or very good rating before taking the distribution into account,
- we ensure that even a two is still communicated as 
-\begin_inset Quotes eld
-\end_inset
-
-good
-\begin_inset Quotes erd
-\end_inset
-
- to farmers to not weaken the signaling effect.
- That is why the first quintile is translated to 
-\begin_inset Quotes eld
-\end_inset
-
-okay
-\begin_inset Quotes erd
-\end_inset
-
- and gets one star,
- the second one is named 
-\begin_inset Quotes eld
-\end_inset
-
-good
-\begin_inset Quotes erd
-\end_inset
-
- and receives two stars,
- the third quintile is 
-\begin_inset Quotes eld
-\end_inset
-
-very good
-\begin_inset Quotes erd
-\end_inset
-
- and gets three stars,
- the fourth and fifth quintiles are 
-\begin_inset Quotes eld
-\end_inset
-
-excellent
-\begin_inset Quotes erd
-\end_inset
-
- and awarded with four and five stars.
- This way of considering the distribution of the original ratings when choosing the names also helps us to disseminate ratings as truthfully,
- purely,
- and as closely to reality as possible.
-\end_layout
-
-\begin_layout Paragraph*
-Are female agro-dealers rated worse than male agro-dealers?
+ fewer than 9% of agro-dealers received a rating below three out of five,
+ so limiting dissemination to only high ratings would result in the loss of valuable variation.
 \end_layout
 
 \begin_layout Standard
-Because we found significant differences between the ratings of female (41% of agro-dealers) and male agro-dealers (59% of agro-dealers) after controlling for some potentially confounding variables like education and for several indications of quality,
- we have no reason to believe that these differences in perception can be explained by differences in real quality.
- Instead,
- it is likely that women are perceived to be worse due to discrimination 
+To address this,
+ ratings are transformed into quintiles based on their distribution.
+ As a result,
+ fewer agro-dealers receive ratings of four or five,
+ and more receive ratings of one or two.
+ This adjustment may increase treatment effects on agro-dealer effort:
+ receiving a one or two instead of a four or five may motivate agro-dealers to improve their performance.
+\end_layout
+
+\begin_layout Standard
+At the same time,
+ the clearinghouse is meant to serve a signaling function,
+ which could be undermined if most agro-dealers appear to be of low quality.
+ That is why the quintile labels were chosen to carry positive connotations.
+ Since most agro-dealers received good or very good initial ratings,
+ even a two-star rating is still communicated to farmers as “good.” Specifically,
+ the first quintile is labeled “okay” and assigned one star,
+ the second “good” with two stars,
+ the third “very good” with three stars,
+ and the fourth and fifth quintiles are both labeled “excellent,” receiving four and five stars respectively.
+ By anchoring the labels in the distribution of original ratings,
+ this approach also ensures that the disseminated ratings remain as truthful,
+ fair,
+ and accurate as possible.
+\end_layout
+
+\begin_layout Paragraph*
+Are female agro-dealers rated worse than male agro-Dealers?
+\end_layout
+
+\begin_layout Standard
+Because significant differences were observed between the ratings of female agro-dealers (41% of the sample) and male agro-dealers (59%),
+ even after controlling for potential confounders such as education and multiple quality indicators,
+ these differences are unlikely to reflect true disparities in performance.
+ Rather,
+ they appear to stem from biased perceptions,
+ likely driven by discrimination 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de2024gender"
@@ -23314,16 +23303,12 @@ literal "false"
 
 \end_inset
 
-,
- so we adjusted the ratings of female agro-dealers accordingly to prevent any harm from our intervention.
- We regressed all seed quality attributes on the gender dummy and added the resulting coefficients to the initial ratings of female agro-dealers.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+.
+ To mitigate potential harm from the intervention,
+ the ratings of female agro-dealers were adjusted accordingly.
+ Specifically,
+ each seed quality attribute was regressed on a gender dummy,
+ and the resulting coefficients were added to the initial ratings of female agro-dealers.
 \end_layout
 
 \begin_layout Subsection
@@ -23338,23 +23323,8 @@ name "A.6 Differential attrition tests"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename Table_A1.png
-	scale 60
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 \begin_inset Float table
-placement document
+placement H
 alignment document
 wide false
 sideways true
@@ -25761,18 +25731,6 @@ textit{and} belong to the clearinghouse control group and those who do not,
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Information clearinghouse ratings
 \begin_inset CommandInset label
@@ -25786,7 +25744,7 @@ name "appendix A.3 Information clearinghouse ratings"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -25811,8 +25769,8 @@ centering
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename six_plots.png
-	lyxscale 10
-	scale 45
+	lyxscale 9
+	scale 40
 
 \end_inset
 
@@ -25845,7 +25803,7 @@ name "Comparison of individual ratings"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -25888,7 +25846,7 @@ name "Comparison of ratings by purchase channel"
 
 \begin_layout Standard
 \begin_inset Float table
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -26249,7 +26207,7 @@ $^3$The index of all seed handling practices contains 12 variables:
 
 \begin_layout Standard
 \begin_inset Float table
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -26762,27 +26720,12 @@ name "A.5 Effect on agro-dealer knowledge - Individual variables"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename Table_A7.png
-	scale 60
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
 \begin_inset Float table
-placement document
+placement H
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -28517,18 +28460,6 @@ dag$ indicates that the variable is included in the overall index;
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
 \end_inset
 
 
