@@ -10261,3 +10261,101 @@ total_variance <- between_variance + within_variance
 # Compute ICC
 ICC <- between_variance / total_variance
 #cat("Intraclass Correlation Coefficient (ICC):", ICC, "\n")
+
+
+
+
+
+
+
+
+
+
+#Adverse selection: did bad apples drop, i.e., did bad dealers exit?
+baseline_dealers <- read.csv(paste(path,"/baseline/data/agro_input/public/baseline_dealer.csv",sep="/"), stringsAsFactors=TRUE)
+baseline_dealers$moisture_base <- baseline_dealers$reading
+baseline_dealers <- baseline_dealers[, c("shop_ID", "clearing","moisture_base")]
+
+reviews_seed_base <- read.csv(paste(path,"/baseline/data/agro_input/public/reviews_seed.csv",sep="/"), stringsAsFactors=TRUE)
+reviews_seed_base$score_base <- reviews_seed_base$score
+reviews_seed_base$score_c_base <- reviews_seed_base$score_corrected
+reviews_seed_base <- reviews_seed_base[, c("shop_ID", "score_base", "score_c_base")]
+dealers <- merge(baseline_dealers,reviews_seed_base, by="shop_ID", all.x=TRUE, all.y=TRUE)
+
+reviews_seed_mid <- read.csv(paste(path,"/midline/data/agro_input/public/reviews_seed.csv",sep="/"), stringsAsFactors=TRUE)
+reviews_seed_mid$score_mid <- reviews_seed_mid$score
+reviews_seed_mid$score_c_mid <- reviews_seed_mid$score_corrected
+reviews_seed_mid <- reviews_seed_mid[, c("shop_ID", "score_mid", "score_c_mid")]
+dealers <- merge(dealers,reviews_seed_mid, by="shop_ID", all.x=TRUE, all.y=TRUE)
+
+reviews_seed_end <- read.csv(paste(path,"/endline/data/agro_input/public/reviews_seed.csv",sep="/"), stringsAsFactors=TRUE)
+reviews_seed_end$score_end <- reviews_seed_end$score
+reviews_seed_end$score_c_end <- reviews_seed_end$score_corrected
+reviews_seed_end <- reviews_seed_end[, c("shop_ID", "score_end", "score_c_end")]
+dealers <- merge(dealers,reviews_seed_end, by="shop_ID", all.x=TRUE, all.y=TRUE)
+
+endline_dealers <- read.csv(paste(path,"/endline/data/agro_input/public/dealer_endline.csv",sep="/"), stringsAsFactors=TRUE)
+endline_dealers$attrition_ind_D_end <- 0
+endline_dealers$attrition_ind_D_end[endline_dealers$checq=="No"] <- 1
+endline_dealers$attrition_ind_D_end[is.na(endline_dealers$checq)] <- 0
+table(endline_dealers$attrition_ind_D_end)
+endline_dealers <- endline_dealers[, c("shop_ID", "attrition_ind_D_end")]
+dealers <- merge(dealers,endline_dealers, by="shop_ID", all.x=TRUE, all.y=TRUE)
+
+mean(dealers$score_base[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_base[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+mean(dealers$score_c_base[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_c_base[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_base) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_base ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_c_base) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_c_base ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+mean(dealers$score_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+mean(dealers$score_c_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_c_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_mid) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_mid ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_c_mid) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_c_mid ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+mean(dealers$score_end[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_end[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+mean(dealers$score_c_end[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$score_c_end[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_end) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_end ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$score_c_end) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(score_c_end ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+midline_dealers <- read.csv(paste(path,"/midline/data/agro_input/public/midline_dealer.csv",sep="/"), stringsAsFactors=TRUE)
+midline_dealers$moisture_mid <- midline_dealers$reading
+midline_dealers <- midline_dealers[, c("shop_ID","moisture_mid")]
+
+dealers <- merge(dealers,midline_dealers, by="shop_ID", all.x=TRUE, all.y=TRUE)
+
+mean(dealers$moisture_base[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$moisture_base[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+mean(dealers$moisture_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==1],na.rm=TRUE)
+mean(dealers$moisture_mid[dealers$clearing==1 & dealers$attrition_ind_D_end==0],na.rm=TRUE)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$moisture_base) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(moisture_base ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
+
+subset_data <- dealers[dealers$clearing == 1 & !is.na(dealers$moisture_mid) & !is.na(dealers$attrition_ind_D_end), ]
+t.test(moisture_mid ~ attrition_ind_D_end, data = subset_data)
+table(subset_data$attrition_ind_D_end)
