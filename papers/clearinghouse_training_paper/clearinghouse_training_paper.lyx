@@ -127,7 +127,9 @@ author{Caroline Miehe
 thanks{NOVAFRICA,
  NOVA University Lisbon,
  Lisbon,
- Portugal},
+ Portugal,
+ corresponding author:
+ caroline.miehe@novasbe.pt},
  Robert Sparrow
 \backslash
 thanks{Development Economics Group,
@@ -146,18 +148,16 @@ thanks{International Institute of Social Studies,
  Spielman
 \backslash
 thanks{Innovation Policy and Scaling Unit,
- International Food Policy Research Institute,
+ IFPRI,
  Washington,
  D.C.,
  United States},
  Bjorn Van Campenhout
 \backslash
 thanks{Innovation Policy and Scaling Unit,
- International Food Policy Research Institute,
+ IFPRI,
  Leuven,
- Belgium;
- corresponding author:
- b.vancampenhout@cgiar.org}}
+ Belgium}}
 \end_layout
 
 \end_inset
@@ -172,30 +172,42 @@ The (perceived) quality of agricultural technology and its adoption:
 \end_layout
 
 \begin_layout Abstract
-Recently,
- issues related to the (perceived) quality of inputs and technologies have been proposed as an important constraint to their adoption by smallholder farmers in low income countries.
- Taking maize seed embodying genetic gain as a case,
- we train random agro-dealers to test whether under-adoption by farmers is caused by low quality due to sellers’ lack of knowledge about proper storage and handling.
- In a second hypothesis,
- we randomly introduce an information clearinghouse similar to popular crowd-sourced review platforms like yelp.com or trustpilot.com to test whether information asymmetries crowd out quality seed.
- We find that the clearinghouse treatment improves outcomes for both agro-dealers and farmers,
- with agro-dealers receiving more customers and reporting higher revenues from maize seed sales and farmers reporting significantly increased use of high-yielding maize seed varieties obtained from agro-dealers,
- leading to higher maize productivity after two seasons.
- The primary mechanisms behind this impact appear to be an increased effort to signal quality by agro-dealers and a general restoration of trust in the market for high-yielding seed.
- The agro-dealer training does not have a clear impact on agro-dealers,
- nor on farmers in associated catchment areas.
+Concerns about the (perceived) quality of agricultural technologies are increasingly recognized as a key constraint to their adoption by smallholder farmers in low-income countries.
+ Focusing on high-yielding maize varieties,
+ we test two hypotheses through a randomized controlled trial involving 350 agro-dealers and 3,500 farmers in Uganda.
+ First,
+ we assess whether limited adoption stems from poor seed quality due to agro-dealers’ lack of knowledge,
+ addressed through a seed handling and storage training.
+ Second,
+ we examine whether information asymmetries disincentivize quality provision by introducing a crowd-sourced information clearinghouse similar to review platforms like Yelp.
+ We find that the clearinghouse intervention improves outcomes for both sellers and buyers.
+ Although agro-dealers do not enhance practices that directly affect seed quality,
+ they increase efforts to signal quality and improve customer service,
+ resulting in more business.
+ Farmers do not shift to higher-rated sellers,
+ but the intervention improves perceptions of seed quality,
+ leading to higher adoption and improved harvest and sales outcomes.
+ In contrast,
+ the training yields no measurable impacts on agro-dealers or associated farmers.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
 
 \series bold
-Note:
+Notes:
 
 \series default
- Author order is alphabetical.
- The experiment on which this paper is based is registered in the American Economic Association's registry for randomized controlled trials as AEARCTR-0006361.
- This project received clearance from Makerere University's School of Social Sciences Research Ethics Committee (08.20.436/PR1) as well as from the International Food Policy Research Institute's Institutional Review Board (DSGD-20-0829).
- The research was also registered at the Ugandan National Commission for Science and Technology (SS603ES).
+ Author names are listed in alphabetical order.
+ The experiment underlying this paper is registered in the American Economic Association's registry for randomized controlled trials (AEARCTR-0006361).
+ The study received ethical clearance from the Research and Ethics Committee of the School of Social Sciences at Makerere University (08.20.436/PR1) and from the Institutional Review Board of the International Food Policy Research Institute (DSGD-20-0829).
+ It is also registered with the Uganda National Council for Science and Technology (SS603ES).
 \end_layout
 
 \begin_layout Abstract
@@ -205,27 +217,32 @@ Keywords:
 
 \series default
  information asymmetries,
+ market transparency,
  information clearinghouse,
- perceptions,
- knowledge,
+ training,
  agricultural technology adoption,
  agricultural input quality,
- agro-dealers
+ agro-dealers,
+ smallholder farmers,
+ randomized controlled trial,
+ Uganda
 \end_layout
 
 \begin_layout Abstract
 
 \series bold
-JEL Codes:
+JEL Classifications:
 
 \series default
+ C93,
+ D80,
  D82,
  D83,
  O13,
  O33,
+ Q10,
  Q12,
- Q16,
- C93
+ Q16
 \end_layout
 
 \begin_layout Abstract
@@ -234,31 +251,37 @@ JEL Codes:
 Acknowledgments:
 
 \series default
- We would like to thank Charles Marc Wanume,
+ We are grateful to Charles Marc Wanume,
  Leocardia Nabwire,
  Richard Ariong,
- and Wilberforce Walukano for their support in the field.
- We would also like to express our gratitude to Johan Swinnen,
+ and Wilberforce Walukano for their invaluable support in the field.
+ We thank Johan Swinnen,
  Eva-Marie Meemken,
  Francesco Cecchi,
  and Martin Paul Jr.
- Tabe-Ojong for their helpful comments and suggestions.
- We further thank participants of seminars at Wageningen University and KU Leuven,
- and of the Centre for the Study of African Economies Conference 2023,
- the Netherlands - Consultative Group for International Agricultural Research (NL-CGIAR) Conference,
+ Tabe-Ojong for their insightful comments and suggestions.
+ We also gratefully acknowledge constructive feedback from participants at seminars held at KU Leuven,
+ Wageningen University,
+ UCLouvain,
+ and the Lisbon Micro Group,
+ as well as from attendees of the Netherlands–Consultative Group for International Agricultural Research (NL-CGIAR) Conference 2022,
  the AgEconMeeting 2022,
- the 32nd International Conference of Agricultural Economists (ICAE2024),
- and the 2024 NOVAFRICA Conference on Economic Development for valuable comments.
- This project received funding from the NL-CGIAR research programme on Seed Systems Development,
- grant number W08.240.105,
+ the Integrated Seed Sector Development Africa Synthesis Conference 2022,
+ the Centre for the Study of African Economies Conference 2023,
+ the 32nd International Conference of Agricultural Economists 2024,
+ and the NOVAFRICA Conference 2024.
+\end_layout
+
+\begin_layout Abstract
+This project received funding from the NL-CGIAR research programme on Seed Systems Development (grant number W08.240.105),
  funded by the Netherlands Organisation for Scientific Research.
- The research was also supported by the Fonds Wetenschappelijk Onderzoek - Vlaanderen and the Fonds de la Recherche Scientifique under EOS project G0G4318N.
- Additional support was provided by the CGIAR Research Program on Policies,
+ Additional financial support was provided by the Fonds Wetenschappelijk Onderzoek – Vlaanderen and the Fonds de la Recherche Scientifique under EOS project G0G4318N.
+ We also acknowledge support from the CGIAR Research Program on Policies,
  Institutions,
  and Markets (PIM),
- and the CGIAR Seed Equal Research Initiative which are funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
- Furthermore,
- Caroline Miehe benefited from funding from Fundação para a Ciência e a Tecnologia/Aga Khan Development Network (FCT/AKDN),
+ and the CGIAR Seed Equal Research Initiative,
+ both funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
+ Caroline Miehe further benefited from funding from the Fundação para a Ciência e a Tecnologia/Aga Khan Development Network (FCT/AKDN),
  project INFANTANDMATERNALHEALTH.
 \end_layout
 
