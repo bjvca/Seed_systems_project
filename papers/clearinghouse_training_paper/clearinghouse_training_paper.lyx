@@ -15384,7 +15384,7 @@ literal "false"
 ,
  are employed.
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 The significant TE of the training at midline disappears when both knowledge indices are also computed with Kling et al.
@@ -16216,7 +16216,7 @@ literal "false"
  who show that smallholder maize farmers did not change their practices in response to a supply-side extension intervention,
  likely because they were unwilling to incur additional costs and effort without a credible market incentive for quality improvements.
  In our context,
- additional knowledge at the agro-dealer level is only valuable if market incentives manage quality 
+ additional knowledge at the agro-dealer level is only valuable if increased quality is rewarded 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hoffmann2021observability"
@@ -16233,9 +16233,7 @@ Agro-dealer efforts
 
 \begin_layout Standard
 To test whether agro-dealers adjust their behavior in response to training or exposure to the information clearinghouse,
- we examine their efforts.
- Specifically,
- we analyze seed handling practices (both labor- and capital-intensive),
+ we look at seed handling practices (both labor- and capital-intensive),
  service provision (as reported by agro-dealers and farmers),
  and quality-signaling practices,
  as summarized in Table 
@@ -18989,8 +18987,18 @@ Second,
  agro-dealers appear more likely to improve their operations – handling and storing seed more effectively and attracting more business – suggesting that knowledge may indeed be a limiting factor.
  However,
  this exploratory finding should be interpreted with caution,
- as detecting interaction effects typically requires a substantially larger sample size than detecting main effects,
- and our experiment is underpowered to do so reliably.
+ as our experiment is not powered to look at interaction effects as mentioned earlier in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "section: Experimental design"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -20481,7 +20489,11 @@ $^2$The comparisons were only made for agro-dealers where the enumerator was abl
 \end_layout
 
 \begin_layout Standard
-Because not all agro-dealers had seed in stock,
+Looking at individual outcomes in the index,
+ we do find a (non-signifciant) negative effect on moisture content as a result of the clearinghouse interventions.
+ As moisture content was pre-registered as a key outcome that could be objectively measured,
+ we further explored if this represents a true null effect.
+ Because not all agro-dealers had seed in stock,
  the realized sample size was smaller than planned:
  232 observations at baseline,
  179 at midline,
@@ -20503,8 +20515,8 @@ nolink "false"
  presents a power curve plotting sample size on the x-axis and statistical power – the probability of detecting the estimated effect at a 5% significance level,
  given the observed baseline variability in moisture content – on the y-axis.
  The curve indicates that the null result is unlikely to be driven by the reduced endline sample size of 265.
- Even with a larger sample,
- the observed effect size would not have been detectable with high reliability.
+ Even with a much larger sample,
+ the observed effect size would not have been detectable.
  We therefore conclude that there is no evidence of an effect of the information clearinghouse on seed quality,
  as proxied by moisture content.
 \end_layout
@@ -20574,8 +20586,19 @@ As a robustness check,
  we include binary variables indicating whether an agro-dealer received a seed-related customer complaint,
  a warning following an inspection,
  or had products confiscated during an inspection.
- These outcomes are available for larger samples than seed moisture content.
- We find no evidence that either the training or the information clearinghouse affected these alternative indicators.
+ These outcomes are available for larger samples than the outcomes derived from the seed packs in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on bag of maize seed bought at dealer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ We find no evidence that either the training nor the information clearinghouse affected these alternative indicators.
  This reinforces the conclusion that neither intervention improved seed quality.
  The results are consistent with the absence of effects on quality-enhancing seed handling practices reported in Table 
 \begin_inset CommandInset ref
@@ -21546,8 +21569,8 @@ To compute this index,
  Notably,
  treatment and control groups can only be compared at endline,
  as at baseline and midline,
- only clearinghouse-treated farmers rated dealers in their proximity.
- The act of rating agro-dealers was an integral part of the clearinghouse treatment.
+ only clearinghouse-treated farmers rated dealers in their proximity;
+ The act of rating agro-dealers was considered an integral part of the clearinghouse treatment.
 \end_layout
 
 \begin_layout Standard
@@ -22695,7 +22718,7 @@ literal "false"
 \end_inset
 
 ,
- who implemented a similar crowdsourced information platform in Pakistan’s artificial insemination for livestock market and likewise found no evidence that farmers switched to higher-quality providers.
+ who implemented a similar crowd-sourced information platform in Pakistan’s artificial insemination for livestock market and likewise found no evidence that farmers switched to higher-quality providers.
 \end_layout
 
 \begin_layout Standard
@@ -23087,7 +23110,7 @@ literal "false"
 \end_inset
 
  show that food safety – a critical but non-observable attribute of maize quality – is not reflected in prices,
- implying weak incentives for quality management.
+ implying weak incentives for quality improvement by producers and intermediaries.
  Similarly,
  
 \begin_inset CommandInset citation
@@ -23136,7 +23159,7 @@ Notably,
  as they adopted in response to the clearinghouse intervention and subsequently achieved higher production.
  These initially non-adopting farmers,
  who tend to be more disadvantaged and vulnerable,
- appear to benefit the most from the intervention.
+ appear to benefit most from the intervention.
  While one might argue that the clearinghouse could expose farmers to low-quality agro-dealers,
  the intervention prompted a shift away from farmer-saved seed toward high-yielding varieties.
  Even in the presence of seed quality concerns at baseline and without measurable improvements at the agro-dealer level,
@@ -23167,8 +23190,8 @@ literal "false"
  inspections,
  and certification systems.
  However,
- in settings where institutional capacity to implement and enforce these systems is limited,
- their effectiveness is often weak.
+ in settings where institutional capacity to implement and enforce these systems is weak,
+ their effectiveness is often limited.
  A decentralized approach that draws on crowd-sourced information,
  such as the clearinghouse,
  may provide a more effective alternative.
@@ -23199,11 +23222,12 @@ true?
 
 \end_inset
 
- – verifying that seed corresponds to the declared variety and possesses the claimed genetic traits – peer-generated ratings provide signals on other quality dimensions that are highly relevant to smallholders.
+ – verifying that seed corresponds to the declared variety and possesses the claimed genetic traits – peer-generated ratings provide signals on other quality dimensions that are potentially more relevant to smallholders.
  These include viability and performance,
  which reflect the seed’s ability to germinate and grow vigorously and are particularly salient from farmers’ perspectives.
  In contexts where seed handling and storage are poor,
- seed may be varietally pure yet lack viability and performance.
+ seed variety may be pure,
+ yet lack viability and performance.
  Moreover,
  although formal quality assurance relies on objective measures such as DNA fingerprinting and is,
  if properly implemented,
@@ -23339,6 +23363,13 @@ setcounter{table}{0}
 
 
 \backslash
+setcounter{figure}{0} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 setcounter{page}{1}
 \end_layout
 
@@ -23351,6 +23382,17 @@ renewcommand{
 thetable}{A
 \backslash
 arabic{table}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thefigure}{A
+\backslash
+arabic{figure}}
 \end_layout
 
 \end_inset
@@ -25913,25 +25955,10 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename six_plots.png
 	lyxscale 9
@@ -25975,6 +26002,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename comparison_plot.png
 	lyxscale 10
@@ -26015,7 +26043,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
