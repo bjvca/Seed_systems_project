@@ -172,6 +172,27 @@ The (perceived) quality of agricultural technology and its adoption:
 \end_layout
 
 \begin_layout Abstract
+Concerns about the (perceived) quality of agricultural technologies constrain adoption by smallholder farmers.
+ We conduct a randomized trial with 350 agro-dealers and 3,500 farmers in Uganda to evaluate two interventions.
+ A seed handling training targets knowledge gaps,
+ while a crowd-sourced review platform,
+ modeled after Yelp,
+ addresses information asymmetries.
+ The clearinghouse improves customer service and signaling efforts by agro-dealers,
+ resulting in higher sales.
+ It also raises farmers’ perceptions of seed quality,
+ leading to increased adoption of improved maize and better harvest and sales outcomes.
+ The results highlight the potential of reputation-based mechanisms to enhance input market performance in low-income settings.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For ReStat,
+ the abstract can only be 100 words.
+ 
+\end_layout
+
+\begin_layout Plain Layout
 Concerns about the (perceived) quality of agricultural technologies are increasingly recognized as a key constraint to their adoption by smallholder farmers in low-income countries.
  Focusing on high-yielding maize varieties,
  we test two hypotheses through a randomized controlled trial involving 350 agro-dealers and 3,500 farmers in Uganda.
@@ -189,6 +210,11 @@ Concerns about the (perceived) quality of agricultural technologies are increasi
  leading to higher adoption and improved harvest and sales outcomes.
  In contrast,
  the training yields no measurable impacts on agro-dealers or associated farmers.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
@@ -383,7 +409,7 @@ literal "false"
 
  test maize seed samples purchased by mystery shoppers from retailers along the Ugandan supply chain and find evidence of improper handling and storage,
  rather than adulteration.
- Very recently,
+ More recently,
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -420,14 +446,15 @@ literal "false"
  hinder farmers’ ability to learn about the profitability of high-yielding maize,
  slowing adoption over time.
  This illustrates a broader challenge:
- it is difficult to infer input quality from one or two uses.
+ it is difficult to infer input quality after trying just once or twice.
  Agricultural production depends on complex,
  stochastic interactions among inputs,
  soil,
  weather,
  pests,
- and management practices – making it hard to attribute performance to seed quality.
- When identifying high-quality sellers is costly and learning from experience is slow and noisy,
+ and management practices,
+ making it hard to attribute performance to seed quality.
+ When identifying high-quality seed (supliers) is costly and learning from experience is slow and noisy,
  farmers have little incentive to search.
  In equilibrium,
  this leads to low search effort and persistent exposure to poor-quality inputs,
@@ -441,11 +468,11 @@ We examine these quality concerns through a randomized controlled trial (RCT) in
  these vendors may also constitute weak links in the supply chain.
  Their small scale and semi-formal operations may imply limited knowledge of appropriate handling and storage practices.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset CommandInset citation
@@ -500,9 +527,16 @@ However,
  In the prevailing market equilibrium,
  agro-dealers may rationally underinvest in seed quality if they believe buyers are unable to credibly assess quality ex ante (at the time of purchase) and struggle to link outcomes such as yield to seed quality ex post (after one or two uses),
  given the complex nature of agricultural production.
- As a result,
- agro-dealers may remain disincentivized to invest in proper handling and storage if they expect that quality improvements will go unnoticed and fail to generate additional demand.
- In the extreme,
+ 
+\end_layout
+
+\begin_layout Standard
+However,
+ training alone may be insufficient to address the underlying information asymmetry.
+ In the prevailing market equilibrium,
+ agro-dealers may have little incentive to invest in seed quality if they believe buyers cannot credibly assess quality at the time of purchase and find it difficult to attribute outcomes like yield to seed quality after trying a seed variety once or twice,
+ due to the complex and uncertain nature of agricultural production.
+ More so,
  profit-maximizing sellers may engage in strategic adulteration – such as blending high-yielding or fresh seed with older seed,
  local varieties,
  or even grain – to reduce costs,
@@ -513,8 +547,9 @@ However,
 \begin_layout Standard
 Our second hypothesis posits that providing a signal of seed quality – accessible to both buyers and sellers – will increase adoption.
  To test this,
- we implement a decentralized information clearinghouse based on farmers’ ratings of agro-dealers and their products.
- These ratings are aggregated into scores and rankings and disseminated to farmers.
+ we implement a decentralized information clearinghouse based on farmers’ crowd-sourced ratings of agro-dealers and their products.
+ These ratings are aggregated into scores and rankings,
+ and disseminated to farmers.
  Agro-dealers also receive a certificate displaying their rating,
  making the information visible beyond the study sample and increasing exposure,
  much like platforms such as Yelp or TripAdvisor.
@@ -522,7 +557,7 @@ Our second hypothesis posits that providing a signal of seed quality – accessi
 
 \begin_layout Standard
 This second intervention rests on the assumption that,
- while individual farmers cannot reliably assess seed quality at the time of purchase and often struggle to do so after one or two uses,
+ while individual farmers cannot reliably assess seed quality at the time of purchase and often struggle to do so after one or two trials,
  groups of farmers can effectively evaluate it after planting and harvesting,
  consistent with the prevailing consensus in the literature 
 \begin_inset CommandInset citation
@@ -566,7 +601,7 @@ The rating system may help overcome information frictions that hinder technology
  If ratings exceed farmers’ prior beliefs,
  the information clearinghouse improves perceptions of seed quality.
  If quality varies across sellers,
- it lowers search costs,
+ the clearinghouse lowers search costs,
  enabling farmers to identify and switch to higher-quality providers.
  By increasing the likelihood that quality investments are rewarded,
  the system also creates competitive pressure and incentives,
@@ -575,12 +610,11 @@ The rating system may help overcome information frictions that hinder technology
 
 \begin_layout Standard
 We test the two hypotheses through an RCT involving 350 agro-dealers and 3,500 associated smallholder maize farmers in eastern Uganda over two agricultural seasons.
- The information clearinghouse improved outcomes for both groups.
+ The information clearinghouse improved key outcomes for both groups.
  Agro-dealers adjusted their behavior in response but did not improve seed handling practices that directly affect quality.
  Instead,
  they focused on signaling quality and enhancing customer service to boost their ratings.
- As a result,
- they attracted more business,
+ They also attracted more business,
  though seed quality remained unchanged.
  On the farmer side,
  we find no switching to higher-rated sellers,
@@ -666,7 +700,7 @@ literal "false"
 
  show that the spread of mobile phones in India enabled consumers to learn about non-local boat-builders,
  driving market integration,
- improved product quality,
+ improving product quality,
  and lower quality-adjusted prices.
  High-quality firms expanded while low-quality firms exited.
  Closely related to our context,
@@ -764,7 +798,7 @@ literal "false"
 
 \end_inset
 
- evaluates a anti-misconduct information campaign targeting both customers and vendors.
+ evaluates an anti-misconduct information campaign targeting both customers and vendors.
  The intervention reduces unethical behavior,
  increases market activity,
  raises consumer welfare,
@@ -785,7 +819,7 @@ status collapsed
 
 \end_inset
 
-Relatedly,
+Related,
  beyond examining seller (agro-dealer) behavior,
  our paper contributes to the literature on how buyers respond to increased market transparency,
  as our information clearinghouse sought to reduce search costs for farmers.
@@ -1050,7 +1084,11 @@ farmer-saved seed
 
  in this study to refer to seed that is of an unknown progeny or quality.
  They may be seed saved from the harvest of F1 hybrids or OPVs,
- and they may be n generations old.
+ and they may be 
+\emph on
+n
+\emph default
+ generations old.
  They may have been stored under suboptimal conditions between seasons,
  exposed to moisture,
  pests,
@@ -1159,7 +1197,7 @@ name "section: Experimental design"
 \end_layout
 
 \begin_layout Standard
-We designed an experiment with two interventions (detailed in the next section) aimed at improving seed quality or its perception.
+We designed an experiment with two interventions (explained in detail in the next section) aimed at improving (perceived) seed quality.
  The interventions are randomized at the agro-dealer catchment area level.
  These catchment areas consist of clusters of towns,
  villages,
@@ -1214,7 +1252,7 @@ We randomize at the catchment area level,
  Second,
  it reduces the likelihood of spillovers from treated to control agro-dealers.
  Third,
- it allows us to measure the interventions’ impact on farmers  –  not just agro-dealers  –  as all farmers within a catchment area are exposed to agro-dealers receiving the same treatment.
+ it allows us to measure the interventions’ impact on farmers  –  not just agro-dealers  – as all farmers within a catchment area are exposed to agro-dealers receiving the same treatment.
 \end_layout
 
 \begin_layout Standard
@@ -1227,17 +1265,6 @@ The two interventions are implemented in a field experiment with a
  training only,
  clearinghouse only,
  and both training and clearinghouse  –  each have an equal assignment probability of 25%.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Please don't delete,
- reviewer asked for this.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1281,10 +1308,8 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-As detecting interaction effects requires a substantially larger sample size than detecting main effects,
- our experiment is underpowered to identify interactions.
- Consequently,
- interaction estimates are likely to overstate the true effect magnitude 
+As detecting realistic interaction effects generally requires a substantially larger sample size than detecting main effects in a crossed design,
+ our experiment is underpowered to identify interactions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "muralidharan2023factorial"
@@ -1293,6 +1318,11 @@ literal "false"
 \end_inset
 
 .
+ This may lead to false negatives.
+ However,
+ low power also increases the likelihood of false discoveries;
+ as such,
+ a significant effect should be interpreted with caution.
  More detailed information about our power simulations,
  including expected treatment effect sizes,
  is available in the 
@@ -1306,17 +1336,6 @@ literal "false"
 
 ,
  pre-registered with the AEA RCT registry under RCT ID 0006361.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Please don't delete,
- reviewer asked for this.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1813,6 +1832,8 @@ A potential concern with asking treated farmers to rate agro-dealers is that it 
  However,
  they were not asked to provide ratings,
  as the act of rating could make seed quality more salient  –  a key aspect of the treatment.
+ This approach also reduced the likelihood of farmers discerning their treatment status,
+ minimizing reactivity effects and experimenter bias.
 \end_layout
 
 \begin_layout Standard
@@ -1927,8 +1948,8 @@ textit{okay/good/very good/excellent}{]}}}
 \begin_layout Standard
 To isolate the effect of ratings from the general impact of receiving SMS messages,
  control farmers received a placebo message that simply highlighted the existence of agro-dealers in their catchment area.
- This approach also reduced the likelihood of farmers discerning their treatment status,
- minimizing reactivity effects and experimenter bias.
+ As mentioned above,
+ this also helps in minimizing reactivity effects and experimenter bias.
 \end_layout
 
 \begin_layout Standard
@@ -1936,7 +1957,7 @@ In addition to the text messages,
  enumerators revisited farmers in our sample,
  using a visually engaging tablet-based application to display agro-dealer ratings.
  The app cycled through all agro-dealers in each farmer’s catchment area and generated the following message,
- accompanied by a corresponding visual of one to five stars ,
+ accompanied by a corresponding visual of one to five stars,
  ensuring accessibility and ease of interpretation:
 \end_layout
 
@@ -2020,7 +2041,7 @@ nolink "false"
 \end_inset
 
 ).
- We encouraged them to display the certificate prominently,
+ We encouraged agro-dealers to display the certificate prominently,
  similar to a 
 \begin_inset Quotes eld
 \end_inset
@@ -2033,8 +2054,6 @@ Certificate of Excellence
  Six months after delivering the final report,
  during endline data collection,
  we asked our field enumerators whether they had seen the SeedAdvisor certificate.
- This was an independent observation,
- not a self-reported measure by the agro-dealers.
  A total of 56% of enumerators confirmed seeing the certificate.
 \end_layout
 
@@ -2103,16 +2122,6 @@ This means the rating information is accessible not only to sampled farmers in t
  This increased visibility could amplify the certificate’s impact on treated agro-dealers’ businesses.
  Furthermore,
  the prospect of greater exposure may incentivize agro-dealers to adjust their behavior in response to the treatment.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Please don't delete this paragraph.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2125,7 +2134,7 @@ The back of the report provides further insights,
  and germination.
  It also includes a table showing the average (combined) ratings of other agro-dealers in the same catchment area,
  visualized with stars.
- This comparison reveals the agro-dealer’s relative standing,
+ This comparison reveals the agro-dealer’s relative ranking,
  potentially encouraging improvements through social comparison and self-image effects.
 \end_layout
 
@@ -2241,17 +2250,6 @@ literal "false"
 
  represents the estimated intention-to-treat effect of being assigned to one treatment,
  controlling for the orthogonal treatment and its interaction effects with the main treatment.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Please don't delete.
- I know it's double but the reviewer seemed so confused about that.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2325,17 +2323,6 @@ literal "false"
  outcomes that are demeaned and divided by the control group standard deviation).
  The weights in this efficient generalized least squares estimator are determined based on the inverse of the covariance matrix of the transformed outcomes,
  maximizing the information captured by assigning lower weights to highly correlated outcomes.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Please don't delete or move to appendix,
- reviewer requested this much detail.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2361,7 +2348,7 @@ While these indices provide a useful measure of the intervention’s overall imp
  Examining individual outcomes within each family offers more meaningful effect sizes and identifies the key drivers of the results.
  Therefore,
  we also report treatment effects on individual variables,
- though we caution against over-interpretation.
+ though we are careful when interpreting significance of individual outcomes as evidence of impact.
 \end_layout
 
 \begin_layout Section
@@ -2650,9 +2637,9 @@ end{center}
 \end_layout
 
 \begin_layout Standard
-Baseline data were collected from agro-dealers in September and October 2020 and from farmers in April 2021.
- Midline data for both farmers and agro-dealers were gathered in January and February 2022,
- while endline data were collected in July and August 2022.
+Baseline data was collected from agro-dealers in September and October 2020 and from farmers in April 2021.
+ Midline data for both farmers and agro-dealers was gathered in January and February 2022,
+ while endline data was collected in July and August 2022.
 \end_layout
 
 \begin_layout Standard
@@ -2726,7 +2713,7 @@ There is substantial heterogeneity among agro-dealers.
  Others are larger,
  located in towns,
  and specialize exclusively in agricultural inputs and equipment,
- serving a broader clientele.
+ serving a larger clientele.
  On average,
  agro-dealerships were established five years before the baseline survey,
  are situated seven kilometers from the nearest tarmac road,
@@ -2738,7 +2725,7 @@ There is substantial heterogeneity among agro-dealers.
 \end_layout
 
 \begin_layout Standard
-Data were also collected to assess the initial quality of maize seed sold at the sampled agro-dealers,
+Data was also collected to assess the initial quality of maize seed sold at the sampled agro-dealers,
  including specific questions on seed storage and handling.
  With the shop manager’s permission,
  enumerators – who were trained at the outset of the study – inspected seed storage areas and carefully documented the conditions.
@@ -2779,7 +2766,7 @@ Our measurements of moisture content in sampled seed bags from agro-dealers reve
  On average,
  moisture levels exceeded the recommended threshold of 13%,
  increasing the risk of mold growth and storage pests that could compromise seed quality and performance.
- An even more conservative thresholds indicates that maize seed is at-risk of losing viability from 12% of moisture content on.
+ An even more conservative thresholds indicates that maize seed is at risk of losing viability from 12% of moisture content on.
  Regarding quality labeling,
  68% of purchased seed bags displayed a printed packaging date,
  18% included an expiry date,
@@ -3985,17 +3972,6 @@ Half of the farmers in our sample planted high-yielding maize seed on at least o
  some farmers retained their own seed or acquired it through farmer-to-farmer exchanges with neighbors,
  relatives,
  or other local growers.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Please don't delete,
- reviewer requested this.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4076,7 +4052,7 @@ nolink "false"
 
 ,
  one of 32 comparisons is significant at the 10% level.
- These results indicate reasonable balance at baseline.
+ These results indicate balance at baseline.
  Joint orthogonality tests using F-tests further confirm balance between treatment groups.
 \end_layout
 
@@ -7221,7 +7197,7 @@ Yield as advertised
 Germination
 \shape default
 ),
- suggesting that farmers primarily consider them when assessing overall quality.
+ suggesting that farmers primarily consider these when assessing overall quality.
  This indicates that yield and germination are the key factors farmers prioritize in their evaluations.
 \end_layout
 
@@ -7240,7 +7216,8 @@ Farmers could rate an agro-dealer if they met one of two conditions:
 \end_layout
 
 \begin_layout Standard
-The vast majority (93%) of ratings came from farmers who had purchased seed,
+Fortunately,
+ the vast majority (93%) of ratings came from farmers who had purchased seed,
  while only 7% were provided by those without direct purchase experience.
  This alleviates concerns that ratings are primarily driven by reputation or hearsay effects.
  While the mean ratings differ slightly (3.6 for farmers who bought seed vs.
@@ -7449,8 +7426,8 @@ name "section: Results"
 We now present the impacts of the two interventions on outcomes at both the agro-dealer and farmer levels.
  Effects are reported separately after one agricultural season (midline) and after two seasons (endline).
  To ensure transparency and replicability,
- all outcome variables were pre-specified in the registered pre-analysis plan,
- available on the 
+ all outcome variables were pre-specified in a registered pre-analysis plan,
+ available in the 
 \begin_inset CommandInset href
 LatexCommand href
 name "American Economic Association's registry for RCTs"
@@ -7554,14 +7531,13 @@ nolink "false"
  to facilitate interpretation of effect sizes.
  These means are presented in levels,
  even when treatment effects are estimated using inverse hyperbolic sine-transformed outcomes.
- Column (2) reports the midline treatment effect of the agro-dealer training,
+ Column (2) reports the treatment effect of the agro-dealer training at midline,
  and column (3) presents the corresponding effect of the information clearinghouse.
  Standard errors are reported in parentheses beneath the coefficient estimates.
  Column (4) displays the number of observations used in the midline estimations.
- Columns (5) and (6) report endline treatment effects for the training and clearinghouse interventions,
- respectively,
+ Columns (5) and (6) report treatment effects for the training and clearinghouse interventions at endline,
  again with standard errors shown in parentheses.
- Column (7) indicates the number of observations included in the endline analyses.
+ Column (7) indicates the number of observations included in the endline estimations.
 \end_layout
 
 \begin_layout Standard
@@ -7599,13 +7575,13 @@ literal "false"
 .
  Both appear at the bottom of the tables.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 In regressions using these overall indices,
  we do not control for baseline values,
- as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline,
- substantially reducing statistical power.
+ as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline;
+ The loss in statistical power outweighs the gain in precision from controlling for baseline outcomes.
 \end_layout
 
 \end_inset
@@ -7664,7 +7640,7 @@ nolink "false"
 \begin_layout Standard
 We find that the information clearinghouse intervention positively affected agro-dealer operations.
  At midline,
- agro-dealers in the clearinghouse treatment group scored significantly higher on the business operations 
+ agro-dealers in the clearinghouse treatment group scored significantly higher on the business operations index constructed following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -7672,7 +7648,7 @@ literal "false"
 
 \end_inset
 
- index.
+.
  Although maize seed sales and prices are not individually significant,
  their combined effect yields a nearly 20% increase in revenue,
  significant at the 10% level.
@@ -12096,7 +12072,7 @@ nolink "false"
  and total revenue from maize sales – as well as the amount of grain retained for use as seed in the following season.
  While we expect positive treatment effects on harvest and sales outcomes,
  the quantity retained for seed enters the index with a negative sign,
- as greater retention indicates ongoing reliance on self-saved seed.
+ as greater retention indicates ongoing reliance on saved seed.
 \end_layout
 
 \begin_layout Standard
@@ -12104,7 +12080,7 @@ The coefficient estimates for the overall index reveal no significant effect of 
  though only after two seasons of implementation.
  At endline,
  farmers in clearinghouse areas report higher production and productivity than control farmers in non-clearinghouse areas.
- The yield effect is statistically significant at the 1% level and corresponds to 13% of the baseline mean.
+ The yield effect is statistically significant at the 1% level and corresponds to a 13% increase over baseline mean.
  Finally,
  consistent with expectations,
  clearinghouse-treated farmers retain less maize for seed at midline.
