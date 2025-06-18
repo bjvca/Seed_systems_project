@@ -172,49 +172,16 @@ The (perceived) quality of agricultural technology and its adoption:
 \end_layout
 
 \begin_layout Abstract
-Concerns about the (perceived) quality of agricultural technologies constrain adoption by smallholder farmers.
- We conduct a randomized trial with 350 agro-dealers and 3,500 farmers in Uganda to evaluate two interventions.
- A seed handling training targets knowledge gaps,
- while a crowd-sourced review platform,
- modeled after Yelp,
- addresses information asymmetries.
- The clearinghouse improves customer service and signaling efforts by agro-dealers,
- resulting in higher sales.
- It also raises farmers’ perceptions of seed quality,
- leading to increased adoption of improved maize and better harvest and sales outcomes.
- The results highlight the potential of reputation-based mechanisms to enhance input market performance in low-income settings.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-For ReStat,
- the abstract can only be 100 words.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Concerns about the (perceived) quality of agricultural technologies are increasingly recognized as a key constraint to their adoption by smallholder farmers in low-income countries.
- Focusing on high-yielding maize varieties,
- we test two hypotheses through a randomized controlled trial involving 350 agro-dealers and 3,500 farmers in Uganda.
- First,
- we assess whether limited adoption stems from poor seed quality due to agro-dealers’ lack of knowledge,
- addressed through a seed handling and storage training.
- Second,
- we examine whether information asymmetries disincentivize quality provision by introducing a crowd-sourced information clearinghouse similar to review platforms like Yelp.
- We find that the clearinghouse intervention improves outcomes for both sellers and buyers.
- Although agro-dealers do not enhance practices that directly affect seed quality,
- they increase efforts to signal quality and improve customer service,
- resulting in more business.
- Farmers do not shift to higher-rated sellers,
- but the intervention improves perceptions of seed quality,
- leading to higher adoption and improved harvest and sales outcomes.
+Concerns about the quality of agricultural technologies limit adoption among smallholder farmers.
+ We conduct a randomized controlled trial with 350 agro-dealers and 3,500 maize farmers in Uganda to evaluate two interventions.
+ A seed handling training aims to close agro-dealers’ knowledge gaps,
+ while a crowd-sourced review platform targets information asymmetries by aggregating farmer feedback.
+ The platform improves customer service and incentivizes quality signaling by agro-dealers,
+ increasing their sales.
+ It also enhances farmers’ perceptions of seed quality,
+ raising adoption of high-yielding maize varieties and improving harvest outcomes.
  In contrast,
- the training yields no measurable impacts on agro-dealers or associated farmers.
-\end_layout
-
-\end_inset
-
-
+ the training has no measurable effects on agro-dealers or farmers.
 \end_layout
 
 \begin_layout Abstract
@@ -454,7 +421,7 @@ literal "false"
  pests,
  and management practices,
  making it hard to attribute performance to seed quality.
- When identifying high-quality seed (supliers) is costly and learning from experience is slow and noisy,
+ When identifying high-quality seed (suppliers) is costly and learning from experience is slow and noisy,
  farmers have little incentive to search.
  In equilibrium,
  this leads to low search effort and persistent exposure to poor-quality inputs,
@@ -599,7 +566,7 @@ $T$
 \begin_layout Standard
 The rating system may help overcome information frictions that hinder technology adoption through several channels.
  If ratings exceed farmers’ prior beliefs,
- the information clearinghouse improves perceptions of seed quality.
+ the information clearinghouse improves perceptions of seed quality – especially among non-adopting farmers with limited experience of high-yielding maize varieties.
  If quality varies across sellers,
  the clearinghouse lowers search costs,
  enabling farmers to identify and switch to higher-quality providers.
@@ -676,16 +643,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-2.
- Seller behavior (exit)
-\end_layout
-
-\end_inset
-
 Second,
  our paper contributes to the literature on how sellers react to increased market transparency.
  Several studies show that reducing information frictions can lead to the exit of lower-quality sellers,
@@ -758,16 +715,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-3.
- Seller behavior (quality upgrading)
-\end_layout
-
-\end_inset
-
 Other studies show that public quality disclosure and greater market transparency prompt sellers to differentiate on quality and compete over it,
  consistent with a reduction in moral hazard.
  
@@ -809,16 +756,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-4.
- Buyer behavior
-\end_layout
-
-\end_inset
-
 Related,
  beyond examining seller (agro-dealer) behavior,
  our paper contributes to the literature on how buyers respond to increased market transparency,
@@ -2766,7 +2703,6 @@ Our measurements of moisture content in sampled seed bags from agro-dealers reve
  On average,
  moisture levels exceeded the recommended threshold of 13%,
  increasing the risk of mold growth and storage pests that could compromise seed quality and performance.
- An even more conservative thresholds indicates that maize seed is at risk of losing viability from 12% of moisture content on.
  Regarding quality labeling,
  68% of purchased seed bags displayed a printed packaging date,
  18% included an expiry date,
@@ -7203,6 +7139,13 @@ Germination
 
 \begin_layout Subsubsection*
 Comparison of ratings by purchase channel
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:by purchase channel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7575,12 +7518,12 @@ literal "false"
 .
  Both appear at the bottom of the tables.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 In regressions using these overall indices,
  we do not control for baseline values,
- as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline;
+ as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline.
  The loss in statistical power outweighs the gain in precision from controlling for baseline outcomes.
 \end_layout
 
@@ -15384,7 +15327,7 @@ literal "false"
 ,
  are employed.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The significant TE of the training at midline disappears when both knowledge indices are also computed with Kling et al.
@@ -21569,7 +21512,7 @@ To compute this index,
  Notably,
  treatment and control groups can only be compared at endline,
  as at baseline and midline,
- only clearinghouse-treated farmers rated dealers in their proximity;
+ only clearinghouse-treated farmers rated dealers in their proximity.
  The act of rating agro-dealers was considered an integral part of the clearinghouse treatment.
 \end_layout
 
@@ -21593,6 +21536,22 @@ We conclude that the information clearinghouse affects farmer perceptions of the
  in-person visits by enumerators,
  and the SeedAdvisor certificate – could have been more favorable than farmers’ prior beliefs,
  thereby improving their perceptions of seed quality.
+ Importantly,
+ the group of farmers who provided ratings (primarily adopters with firsthand experience of the seed,
+ see Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) differs from the group of farmers who received the ratings (all sampled farmers,
+ both adopters and non-adopters),
+ increasing the likelihood that the ratings farmers are exposed to diverge from their prior beliefs.
  Second,
  as demonstrated in Table 
 \begin_inset CommandInset ref
