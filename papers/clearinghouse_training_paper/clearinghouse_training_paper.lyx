@@ -12,6 +12,18 @@
 \usepackage{booktabs}
 \emergencystretch 3em
 \usepackage{multirow}
+\hypersetup{pagebackref=true}
+
+% Make hyperref back-references readable in the bibliography (Natbib/BibTeX)
+\renewcommand*{\backref}[1]{}%
+\renewcommand*{\backrefalt}[4]{%
+  \ifcase #1 %
+    % No citations
+  \or
+    \space(cited on page~#2)%
+  \else
+    \space(cited on pages~#2)%
+  \fi}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -41,6 +53,8 @@ knitr
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize 12
 \spacing single
 \use_hyperref true
@@ -51,7 +65,7 @@ knitr
 \pdf_breaklinks true
 \pdf_pdfborder true
 \pdf_colorlinks true
-\pdf_backref false
+\pdf_backref page
 \pdf_pdfusetitle true
 \pdf_quoted_options "linkcolor=black, urlcolor=blue, citecolor=blue, pdfstartview={FitH}, hyperfootnotes=false, unicode=true"
 \papersize default
@@ -280,7 +294,7 @@ We thank Erwin Bulte,
  Wageningen University,
  UCLouvain,
  and the Lisbon Micro Group,
- as well as from attendees of the Netherlands–Consultative Group for International Agricultural Research (NL-CGIAR) Conference 2022,
+ as well as from attendees of the Netherlands-Consultative Group for International Agricultural Research (NL-CGIAR) Conference 2022,
  the AgEconMeeting 2022,
  the Integrated Seed Sector Development Africa Synthesis Conference 2022,
  the Centre for the Study of African Economies Conference 2023,
@@ -297,8 +311,7 @@ This project received funding from the NL-CGIAR research programme on Seed Syste
  and Markets (PIM),
  and the CGIAR Seed Equal Research Initiative,
  both funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
- Caroline Miehe further benefited from funding from the Fundação para a Ciência e a Tecnologia/Aga Khan Development Network (FCT/AKDN),
- project INFANTANDMATERNALHEALTH.
+ Caroline Miehe further benefited from funding from the Fundação para a Ciência e a Tecnologia/Aga Khan Development Network (FCT/AKDN).
 \end_layout
 
 \begin_layout Abstract
@@ -1402,7 +1415,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2014,7 +2027,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -2235,7 +2248,7 @@ Since randomization occurs at the catchment area level,
  we apply the original form of the sandwich estimator without small-sample corrections.
  For agro-dealer-level outcomes,
  with approximately 350 observations in the same 130 clusters,
- we use the Bell–McCaffrey adjustment to account for the smaller sample size 
+ we use the Bell-McCaffrey adjustment to account for the smaller sample size 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "imbenskole"
@@ -4013,7 +4026,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5285,7 +5298,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6643,7 +6656,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
