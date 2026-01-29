@@ -465,6 +465,15 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+At the same time,
+ agro-dealers face weak incentives to credibly reveal quality in the absence of a centralized reputation mechanism.
+ Because quality is costly to verify and signaling is difficult to sustain in settings with infrequent transactions and noisy outcomes,
+ high-quality sellers struggle to separate from low-quality competitors.
+ Together,
+ these forces sustain a low-transparency equilibrium characterized by persistent information frictions.
+\end_layout
+
+\begin_layout Standard
 We examine these quality concerns through a randomized controlled trial (RCT) involving agro-dealers and associated farmers in the emerging market for high-yielding maize varieties in eastern Uganda.
  Agro-dealers are a critical distribution channel for agricultural technologies in contexts where smallholders often live in remote areas with limited infrastructure.
  While a reasonably dense network of agro-dealers improves access to inputs,
@@ -672,7 +681,7 @@ literal "false"
 \begin_layout Standard
 Second,
  our paper contributes to the literature on how sellers react to increased market transparency.
- Several studies show that reducing information frictions can lead to the exit of lower-quality sellers,
+ Several studies show that reducing information frictions can lead to the exit of lower-quality sellers (or a reduction in their maize seed offerings),
  consistent with a reduction in adverse selection.
  
 \begin_inset CommandInset citation
@@ -814,6 +823,18 @@ literal "false"
  even with improved ability to screen for quality,
  farmers did not switch to higher-quality sellers,
  contributing further evidence on the limits of demand-side adjustment in response to enhanced transparency.
+ Instead,
+ they learn and update their beliefs as a result of the clearinghouse information,
+ consistent with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "doi:10.1086/734133"
+literal "false"
+
+\end_inset
+
+'s findings,
+ which show that the anti-misconduct intervention substantially improves consumers’ perceptions of vendor honesty.
 \begin_inset Note Note
 status collapsed
 
@@ -1415,7 +1436,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1517,7 +1538,7 @@ Since agro-dealers stock different seed varieties,
  “Bazooka” by Naseco in an original two-kilogram bag),
  but this would have made the process overly complex and time-consuming.
  Instead,
- we developed a scalable solution to produce a general signal of seed quality at the agro-dealer level.
+ we developed a potentially scalable solution to produce a general signal of seed quality at the agro-dealer level.
 \end_layout
 
 \end_inset
@@ -2005,7 +2026,13 @@ nolink "false"
 \end_inset
 
 ).
- We encouraged agro-dealers to display the certificate prominently,
+ By receiving the certificate,
+ agro-dealers were informed that farmers in their catchment area rated seed quality and that aggregated ratings were disseminated,
+ while farmer identities remained anonymous.
+\end_layout
+
+\begin_layout Standard
+We encouraged agro-dealers to display the certificate prominently,
  similar to a 
 \begin_inset Quotes eld
 \end_inset
@@ -2027,7 +2054,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -21192,6 +21219,14 @@ nolink "false"
  Instead,
  the clearinghouse appears to have reinforced farmers’ confidence in their previous choices,
  reducing the likelihood of switching.
+\end_layout
+
+\begin_layout Standard
+Farmers did not switch presumably because the information clearinghouse primarily affected baseline non-users of high-yielding maize varieties and operated through improved perceptions of seed quality rather than active supplier reallocation.
+ In addition,
+ geographic proximity,
+ transport costs,
+ and existing purchasing relationships may have constrained switching across agro-dealers.
  This finding is in line with 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -21628,11 +21663,32 @@ In contrast,
 \end_layout
 
 \begin_layout Standard
+*Our findings,
+ together with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Hsu2024"
+literal "false"
+
+\end_inset
+
+,
+ suggest that improving product quality at the agro-dealer level is difficult to achieve through transparency alone.
+ While agro-dealers can adjust observable margins such as service quality and signaling,
+ their ability to affect seed quality may be constrained by upstream production and supply chain conditions.
+ This points to a structural limitation of transparency interventions at the agro-dealer level and suggests that improving input quality likely requires complementary upstream reforms.* ???
+\end_layout
+
+\begin_layout Standard
 Turning to farmer outcomes,
  we find that farmers do not switch to higher-rated agro-dealers,
  but they appear to trust the information provided by the clearinghouse:
  the intervention improved their perceptions of seed quality – likely because the ratings exceeded their prior beliefs – and farmers were convinced enough to adjust their adoption behavior and increase their use of high-yielding maize varieties,
  resulting in positive effects on harvest and sales outcomes.
+ While we do not directly observe farmers’ baseline subjective beliefs about seed quality,
+ the combination of improved perceptions,
+ increased adoption,
+ and the absence of dealer switching provides indirect evidence consistent with belief updating.
 \end_layout
 
 \begin_layout Standard
@@ -21736,7 +21792,7 @@ literal "false"
 
 \begin_layout Standard
 Finally,
- while the crowd-sourced information clearinghouse tested in this study is scalable,
+ while the crowd-sourced information clearinghouse tested in this study is potentially scalable,
  its implementation should be approached thoughtfully.
  Sustained,
  positive market impacts are more likely if farmers’ aggregated ratings strongly reflect actual seed quality.
