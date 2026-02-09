@@ -1190,6 +1190,10 @@ Level channel:
  thereby affecting the threshold for initial engagement with agro-dealers.
 \end_layout
 
+\begin_layout Standard
+NEG BIAS
+\end_layout
+
 \begin_layout Subsection
 Required assumptions
 \end_layout
@@ -1276,6 +1280,7 @@ Under the conditional welfare assumption,
 
 \begin_layout Enumerate
 Treatment effects occur without improvements in underlying seed performance or agro-dealer switching.
+ + risk reduction + all other 
 \end_layout
 
 \begin_layout Section
@@ -1774,38 +1779,22 @@ nolink "false"
 .
 \end_layout
 
-\begin_layout Standard
-HERE
-\end_layout
-
 \begin_layout Subsubsection*
 Rating dissemination to farmers
 \end_layout
 
 \begin_layout Standard
-The effectiveness of the treatment relied on the timely dissemination of agro-dealer ratings.
- Ratings were shared before farmers began purchasing seed for the next agricultural season,
- allowing treated farmers to consider this information when deciding whether and where to buy inputs (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "timeline"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
- Dissemination occurred via short message service (SMS) and in person.
+The treatment relied on timely dissemination of agro-dealer ratings before the next agricultural season,
+ allowing farmers to incorporate this information into seed purchasing decisions.
+ Dissemination occurred through short message service (SMS) and in-person visits.
 \end_layout
 
 \begin_layout Standard
 Farmers received one SMS per agro-dealer in their catchment area,
- delivered in one of three local languages  –  Lusoga,
+ delivered in one of three local languages – Lusoga,
  Lugwere,
  or Samia.
- For farmers in treatment catchment areas,
+ For farmers in treatment areas,
  the message read:
 \end_layout
 
@@ -1849,19 +1838,14 @@ textit{okay/good/very good/excellent}{]}}}
 \end_layout
 
 \begin_layout Standard
-To isolate the effect of ratings from the general impact of receiving SMS messages,
- control farmers received a placebo message that simply highlighted the existence of agro-dealers in their catchment area.
- As mentioned above,
- this also helps in minimizing reactivity effects and experimenter bias.
+Control farmers received a placebo message that merely highlighted the existence of agro-dealers in their catchment area.
 \end_layout
 
 \begin_layout Standard
-In addition to the text messages,
- enumerators revisited farmers in our sample,
- using a visually engaging tablet-based application to display agro-dealer ratings.
- The app cycled through all agro-dealers in each farmer’s catchment area and generated the following message,
- accompanied by a corresponding visual of one to five stars,
- ensuring accessibility and ease of interpretation:
+In addition to SMS dissemination,
+ enumerators revisited farmers and displayed agro-dealer ratings using a tablet-based application.
+ The application cycled through all agro-dealers in the catchment area,
+ presenting this message accompanied by a one-to-five-star visual rating:
 \end_layout
 
 \begin_layout Quote
@@ -1922,8 +1906,9 @@ textit{score}{]}}}
 
 \begin_layout Standard
 For control group farmers,
- the app similarly cycled through agro-dealers in their catchment area but withheld ratings,
- controlling for any effects that might arise from simply reminding farmers of these agro-dealers’ existence.
+ the application similarly cycled through agro-dealers in the catchment area without displaying ratings.
+ Together with the placebo SMS,
+ this design isolates the effects of rating information from potential reactivity or salience effects arising from reminding farmers of the existence of agro-dealers in their area.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1931,8 +1916,8 @@ Rating dissemination to agro-dealers
 \end_layout
 
 \begin_layout Standard
-Agro-dealers received their ratings as a laminated report delivered directly to their shops.
- The front showcased an eye-catching certificate with a logo and the agro-dealer’s overall rating (Figure 
+Agro-dealers received their ratings in the form of a report.
+ The front page displayed a certificate with a logo and the agro-dealer’s overall rating (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "SeedAdvisor certificate"
@@ -1944,18 +1929,26 @@ nolink "false"
 \end_inset
 
 ).
- By receiving the certificate,
- agro-dealers were informed that farmers in their catchment area rated seed performance and that aggregated ratings were disseminated,
- while farmer identities remained anonymous.
+ The back page provided more detailed information,
+ presenting ratings for seed sold by the agro-dealer across the six key dimensions and a table displaying average ratings of other agro-dealers in the same catchment area.
 \end_layout
 
 \begin_layout Standard
-Agro-dealers received their ratings as a laminated certificate and were encouraged to display it prominently in their shops.
- During endline data collection,
- field enumerators recorded whether the certificate was visible;
- 56% reported having seen it.
- This implies that the aggregated peer ratings may have been visible not only to sampled farmers and their social networks but also to other farmers visiting agro-dealers,
- potentially extending exposure to the same belief-updating signal beyond the study sample.
+Agro-dealers were able to display the certificate.
+ At endline,
+ it was visible in 56% of shops.
+ As a result,
+ ratings may have been observed by non-sampled farmers,
+ extending exposure beyond the study sample.
+ Because randomization occurred at the agro-dealer catchment area level,
+ any such additional exposure is contained within treated areas and does not threaten identification.
+\end_layout
+
+\begin_layout Standard
+The ratings collection,
+ computation,
+ and dissemination process was implemented twice:
+ for the second agricultural season of 2021 and the first agricultural season of 2022.
 \end_layout
 
 \begin_layout Standard
@@ -2016,31 +2009,6 @@ name "SeedAdvisor certificate"
 
 \end_layout
 
-\begin_layout Standard
-The back of the report provides further insights,
- presenting individual ratings for the seed sold by the agro-dealer across key dimensions:
- overall quality,
- yield,
- drought and disease resistance,
- maturation speed,
- and germination.
- It also includes a table showing the average (combined) ratings of other agro-dealers in the same catchment area,
- visualized with stars.
- This comparison reveals the agro-dealer’s relative ranking.
-\end_layout
-
-\begin_layout Standard
-The ratings collection and dissemination process was carried out twice:
- first for the second agricultural season of 2021 and again for the first agricultural season of 2022.
- Repeating the treatment was essential to capture the dynamics of different potential impact channels.
- For instance,
- if seed performance is high but farmers hold pessimistic beliefs,
- providing information once may already increase adoption after a single season.
- Repetition may also reinforce belief updating by providing consistent signals over time.
- To prevent end-game effects,
- neither farmers nor agro-dealers were informed of the treatment’s duration.
-\end_layout
-
 \begin_layout Section
 Empirical strategy
 \begin_inset CommandInset label
@@ -2053,7 +2021,7 @@ name "section: Empirical strategy"
 \end_layout
 
 \begin_layout Standard
-We use Ordinary Least Squares to estimate the following specification and obtain intention-to-treat effects for agro-dealer-level outcomes:
+We estimate intention-to-treat effects using Ordinary Least Squares:
 \end_layout
 
 \begin_layout Standard
@@ -2072,7 +2040,7 @@ where
 \begin_inset Formula $Y_{ij}$
 \end_inset
 
- represents the outcome for agro-dealer 
+ is the outcome for farmer 
 \emph on
 i
 \emph default
@@ -2080,26 +2048,23 @@ i
 \emph on
 j
 \emph default
- at midline or endline,
+,
  
 \begin_inset Formula $Y_{0ij}$
 \end_inset
 
- denotes the corresponding mean-centered baseline value of the outcome variable (included to increase statistical power),
+ is the corresponding mean-centered baseline outcome,
  
 \begin_inset Formula $T_{j}$
 \end_inset
 
- is a binary indicator for the treatment status of catchment area 
-\emph on
-j
-\emph default
-,
- 
+ is a binary indicator for treatment assignment,
+ and 
 \begin_inset Formula $X_{ij}$
 \end_inset
 
- is a vector of controls for the orthogonal treatments in the factorial design (demeaned and interacted with the main treatment effect;
+ includes controls for orthogonal treatments in the factorial design,
+ as the study was embedded in a larger project with additional cross-randomized interventions (demeaned and interacted with the main treatment effect;
  see 
 \begin_inset CommandInset citation
 LatexCommand citealp
@@ -2108,28 +2073,21 @@ literal "false"
 
 \end_inset
 
-),
- and 
-\begin_inset Formula $\varepsilon_{ij}$
-\end_inset
-
- is an error term that may be correlated within catchment areas.
+).
  The coefficient 
 \begin_inset Formula $\beta$
 \end_inset
 
- represents the estimated intention-to-treat effect of being assigned to one treatment,
- controlling for the orthogonal treatment and its interaction effects with the main treatment.
+ captures the intention-to-treat effect.
 \end_layout
 
 \begin_layout Standard
-For farmer-level outcomes,
- we estimate a similar equation,
+We estimate analogous specifications for agro-dealer-level outcomes,
  where 
 \begin_inset Formula $Y_{ij}$
 \end_inset
 
- now represents the outcome for farmer 
+ denotes the outcome for agro-dealer 
 \emph on
 i
 \emph default
@@ -2137,24 +2095,16 @@ i
 \emph on
 j
 \emph default
- at midline or endline,
- 
-\begin_inset Formula $Y_{0ij}$
-\end_inset
-
- is the corresponding baseline outcome,
- and all other terms are defined as in the agro-dealer regression above.
+.
 \end_layout
 
 \begin_layout Standard
 Since randomization occurs at the catchment area level,
- we use cluster-robust variance-covariance matrices that cluster standard errors at this level.
+ we cluster standard errors accordingly.
  For farmer-level outcomes,
- where we have nearly 3,500 observations across 130 clusters,
- we apply the original form of the sandwich estimator without small-sample corrections.
+ we use the conventional sandwich estimator without small-sample corrections.
  For agro-dealer-level outcomes,
- with approximately 350 observations in the same 130 clusters,
- we use the Bell-McCaffrey adjustment to account for the smaller sample size 
+ we apply the Bell-McCaffrey adjustment to account for the smaller number of observations 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "imbenskole"
@@ -2166,20 +2116,15 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We adhere to several pre-registered principles for variable construction.
- To mitigate the influence of outliers,
- we apply trimming to continuous variables – removing the top and bottom 1% of the distribution for agro-dealer-level outcomes and 2.5% for farmer-level outcomes.
- If a variable is skewed,
- defined by an adjusted Fisher–Pearson coefficient of skewness exceeding 1.96,
- we apply an inverse hyperbolic sine transformation.
- Additionally,
- outcomes for which 95% of observations share the same value within the relevant sample are excluded from the analysis.
+We trim continuous outcomes to limit the influence of outliers and apply inverse hyperbolic sine transformations to skewed variables.
+ Outcomes with limited variation,
+ defined as having 95% or more of observations at a single value within the relevant sample,
+ are excluded from the analysis.
 \end_layout
 
 \begin_layout Standard
 To account for multiple hypothesis testing,
- we aggregate related outcomes into summary indices,
- following 
+ we aggregate related outcomes into summary indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -2187,16 +2132,9 @@ literal "false"
 
 \end_inset
 
-.
- After adjusting the sign of each outcome so that a positive direction indicates a “better” outcome,
- each summary index is calculated as a weighted mean of several standardized outcomes (i.e.,
- outcomes that are demeaned and divided by the control group standard deviation).
- The weights in this efficient generalized least squares estimator are determined based on the inverse of the covariance matrix of the transformed outcomes,
- maximizing the information captured by assigning lower weights to highly correlated outcomes.
-\end_layout
-
-\begin_layout Standard
-As a robustness check,
+,
+ which assigns lower weights to highly correlated outcomes and thereby concentrates information.
+ As a robustness check,
  we also compute summary indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -2206,19 +2144,9 @@ literal "false"
 \end_inset
 
 .
- Here,
- each index is constructed as the equally weighted average of the z-scores of its components,
- where z-scores are calculated by subtracting the control group mean and dividing by the control group standard deviation.
- The sign of each component is oriented such that higher values reflect “better” outcomes.
-\end_layout
-
-\begin_layout Standard
-While these indices provide a useful measure of the intervention’s overall impact on a family of outcomes,
- interpreting effect sizes is not always straightforward.
- Examining individual outcomes within each family offers more meaningful effect sizes and identifies the key drivers of the results.
- Therefore,
- we also report treatment effects on individual variables,
- though we are careful when interpreting significance of individual outcomes as evidence of impact.
+ While these indices capture overall effects across outcome families,
+ we also report treatment effects on individual outcomes to aid interpretation,
+ with individual significance treated cautiously.
 \end_layout
 
 \begin_layout Section
@@ -2244,29 +2172,13 @@ name "subsec:Sample"
 \end_layout
 
 \begin_layout Standard
-The agro-dealer sample was compiled by listing all agro-dealers across eleven districts in southeastern Uganda.
- 
-\shape italic
-Agro-dealers
-\shape default
- are businesses or individuals that distribute and sell agricultural inputs such as high-yielding seed varieties,
- fertilizers,
- pesticides,
- veterinary products,
- and farming equipment.
- We started with official records of registered agro-dealers and supplemented this with extensive field visits to identify new and informal dealers,
- ensuring a comprehensive listing.
- This approach allowed us to capture nearly all agro-dealers in the sampled districts,
- covering a full range of business sizes – small,
- medium,
- and large.
- To account for seasonal variability and market fluctuations,
- we made an additional effort to include agro-dealers who sell seeds exclusively during the planting season.
+The agro-dealer sample was constructed by listing all agro-dealers across eleven districts in southeastern Uganda,
+ drawing on official records of registered agro-dealers and extensive field visits to identify new and informal ones.
 \end_layout
 
 \begin_layout Standard
 Following this census,
- the 348 eligible agro-dealers were assigned to 130 catchment areas (see Section 
+ the 348 eligible agro-dealers were assigned to 130 catchment areas (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsection: Experimental design"
@@ -2277,277 +2189,45 @@ nolink "false"
 
 \end_inset
 
-,
- particularly Footnote 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fn:The-haversine-function"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
  for details).
- This process resulted in an average of three agro-dealers per catchment area,
+ Of the 130 catchment areas,
+ 65 were assigned to treatment,
+ covering 193 agro-dealers,
+ and 65 to control,
+ covering 155 agro-dealers.
+ Across all catchment areas,
+ the average number of agro-dealers per area was three,
  with the number ranging from one to 18.
 \end_layout
 
 \begin_layout Standard
 To link agro-dealers with farmers,
- we asked agro-dealers to name the villages where most of their customers reside.
+ agro-dealers identified the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from these villages,
- resulting in a sample of approximately 3,500 smallholder maize farmers.
- The allocation of farmers,
- agro-dealers,
- and catchment areas to the various treatment cells in the factorial design is summarized in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "factorialdesign"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
+ yielding a sample of approximately 3,500 smallholder farmers.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Factorial design
-\begin_inset CommandInset label
-LatexCommand label
-name "factorialdesign"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rcll} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 
-\backslash
-multicolumn{2}{c}{Agro-dealer training} 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 
-\backslash
-multicolumn{1}{c}{1} & 
-\backslash
-multicolumn{1}{c}{0} 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{3-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multirow{6}{*}{Clearinghouse} & 
-\backslash
-multirow{3}{*}{1} & 33 areas & 32 areas 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-&& 96 agro-dealers & 97 agro-dealers
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-&& 960 farmers & 970 farmers 
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{3-4}  & 
-\backslash
-multirow{3}{*}{0} & 33 areas & 32 areas 
-\backslash
-
-\backslash
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-&& 70 agro-dealers & 85 agro-dealers
-\backslash
-
-\backslash
-  
-\end_layout
-
-\begin_layout Plain Layout
-
-&& 700 farmers & 850 farmers 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Baseline data was collected from agro-dealers in September and October 2020 and from farmers in April 2021.
- Midline data for both farmers and agro-dealers was gathered in January and February 2022,
- while endline data was collected in July and August 2022.
+Baseline data were collected from agro-dealers in September-October 2020 and from farmers in April 2021;
+ midline data were collected in January-February 2022,
+ and endline data in July-August 2022.
 \end_layout
 
 \begin_layout Standard
 At the agro-dealer level,
- enumerators were instructed to interview the individual most knowledgeable about the day-to-day operations of the agro-dealership,
- typically the shop manager.
- As part of the initial quality assessment,
- a bag of Longe 10H maize seed was purchased from each agro-dealer.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Only 232 of the 348 sampled agro-dealers had seed in stock at the time of the baseline interview.
- While repackaging seed from larger company-supplied bags into smaller,
- more affordable quantities is common – reported by about half of the agro-dealers in our sample – all seed samples purchased by enumerators came in original,
- sealed bags.
-\end_layout
-
-\end_inset
-
- Additionally,
- enumerators recorded a series of objectively verifiable indicators related to seed storage conditions.
+ enumerators interviewed the individual most knowledgeable about day-to-day operations,
+ purchased a maize seed bag,
+ and recorded indicators related to seed storage conditions.
+ At the farmer level,
+ enumerators interviewed the individual most knowledgeable about maize farming.
+ In addition to general questions,
+ farmers listed all maize plots,
+ from which one was randomly selected for detailed data collection,
+ yielding household-representative averages.
 \end_layout
 
 \begin_layout Standard
-At the farmer level,
- enumerators were instructed to interview the individual most knowledgeable about maize farming.
- However,
- a specific set of questions pertained to the household head,
- who may or may not have been the respondent.
- In addition to general questions on farming and input use,
- farmers were asked to list all their maize plots,
- from which one was randomly selected for detailed data collection.
- This approach was primarily implemented to reduce data collection costs,
- time,
- and respondent burden.
- Since plots were chosen randomly,
- the resulting averages should be representative at the household level.
+HERE
 \end_layout
 
 \begin_layout Subsection
@@ -13009,7 +12689,7 @@ placement document
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17937,6 +17617,19 @@ nolink "false"
  if missing,
  the number of days since the expiry date minus six months.
  We find no significant effects of either the training or the clearinghouse on seed quality.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Only 232 of the 348 sampled agro-dealers had seed in stock at the time of the baseline interview.
+ While repackaging seed from larger company-supplied bags into smaller,
+ more affordable quantities is common – reported by about half of the agro-dealers in our sample – all seed samples purchased by enumerators came in original,
+ sealed bags.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
