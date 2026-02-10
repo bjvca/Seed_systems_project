@@ -830,7 +830,7 @@ baseline_farmers$adoption_onfield <- baseline_farmers$improved
 baseline_farmers$adoption_onfield[baseline_farmers$hybridbutsaved==1] <- 0
 #baseline_farmers$adoption_onfield[baseline_farmers$OPVbutfourthormore_timeused==1] <- 0
 baseline_farmers$adoption_onfield[baseline_farmers$OPVbutsaved==1] <- 0
-#hereq31
+#hereq31.
 
 baseline_farmers$Check2.check.maize.q36<-ifelse(baseline_farmers$Check2.check.maize.q36=="Yes",1,0)
 baseline_farmers$Check2.check.maize.q36b<-ifelse(baseline_farmers$Check2.check.maize.q36b=="Yes",1,0)
