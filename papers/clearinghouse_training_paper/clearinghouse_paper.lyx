@@ -1525,7 +1525,7 @@ Rating collection and computation
 \end_layout
 
 \begin_layout Standard
-Treated farmers were asked to rate agro-dealers in their area.
+Treated farmers were asked to rate maize seed sold by agro-dealers in their area.
  Farmers could rate an agro-dealer only if they had either personally purchased seed from that agro-dealer or knew someone who had,
  allowing them to report perceived seed performance based on direct or indirect experience.
  Enumerators guided farmers through the list of agro-dealers using a tablet-based application displaying names,
@@ -3733,7 +3733,7 @@ hline
 
 \begin_layout Plain Layout
 
-& mean & treatment
+& mean & treated
 \backslash
 
 \backslash
@@ -4694,7 +4694,7 @@ hline
 
 \begin_layout Plain Layout
 
-& mean & treatment 
+& mean & treated 
 \backslash
 
 \backslash
@@ -5650,35 +5650,33 @@ nolink "false"
 
 \end_inset
 
- presents attrition rates for the treatment and comparison groups.
+ reports attrition rates for treatment and comparison groups.
  At midline,
- data was missing for 12% of agro-dealers and 2% of farmers,
- while at endline,
+ 12% of agro-dealers and 2% of farmers were missing;
+ at endline,
  14% of agro-dealers and 1% of farmers were not surveyed.
+ To assess whether attrition was linked to treatment,
+ we regressed the likelihood of leaving the sample on the treatment indicator and found that treated agro-dealers were significantly less likely to drop out.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-For agro-dealers lost at endline,
- the reasons were:
+Reasons for agro-dealer attrition at endline were:
  eleven shops closed,
  ten relocated,
- eight changed their product offerings,
+ eight changed product offerings,
  three merged with other shops,
  one refused to be interviewed,
- and 17 cited other (four) or no specific reasons (13).
+ and 17 reported other (4) or no specific reasons (13).
 \end_layout
 
 \end_inset
 
- To assess whether non-response is linked to treatment,
- we regressed the likelihood of leaving the sample on the treatment indicators,
- finding that agro-dealers in the information clearinghouse treatment were significantly less likely to drop out.
+
 \end_layout
 
 \begin_layout Standard
-To examine this differential attrition,
- we regress the pre-registered balance variables (see Table 
+Differential attrition was further assessed by regressing pre-registered balance variables (see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "balance_dealer"
@@ -5689,10 +5687,9 @@ nolink "false"
 
 \end_inset
 
-) on a binary variable indicating whether an agro-dealer left the sample,
- a binary variable indicating whether an agro-dealer belonged to the clearinghouse control group,
- and their interaction.
- Results are shown in Appendix 
+) on indicators for leaving the sample,
+ for belonging to the control group,
+ and on their interaction (Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "A.6 Differential attrition tests"
@@ -5703,74 +5700,11 @@ nolink "false"
 
 \end_inset
 
-.
- Column (2) reveals that agro-dealers who left the sample at midline operated closer to the nearest tarmac road  –  the only significant difference between those who left and those who stayed when attrition was most pronounced (see Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Survey-attrition"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
 ).
- By endline,
- however,
- those who left were younger,
- more likely to be female,
- had less established businesses,
- were more likely to operate specialized shops,
- and still tended to be closer to a tarmac road,
- see column (5).
- This suggests that agro-dealers who left differed from those who remained,
- regardless of exposure to the information clearinghouse,
- possibly indicating greater vulnerability when COVID-19 hit,
- leading to business closures.
- Columns (3) and (6) show minimal differences between clearinghouse control and treated agro-dealers,
- consistent with Subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "5.3 Orthogonality tests of randomization balance"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- Examining the interaction between the indicators reveals few differences between agro-dealers who left the sample 
-\shape italic
-and
-\shape default
- belonged to the clearinghouse control group and those who did not,
- suggesting that differential attrition is unlikely to bias our estimates.
-\end_layout
-
-\begin_layout Standard
-As in biomedical RCTs,
- where differential attrition may result from higher mortality in the control group,
- those who drop out are likely the ones who would have benefited most from the treatment.
- Consequently,
- the unadjusted,
- selection-contaminated estimates represent lower bounds of the true treatment effect 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/aer.96.3.847,duflo2007using"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-In any case,
- we do not observe differential attrition at the farmer level.
- Since our primary outcomes are measured among farmers,
- this implies that attrition is unlikely to bias the main treatment effects.
+ Results indicate that attrition among agro-dealers is unlikely to bias our estimates.
+ No differential attrition was observed at the farmer level;
+ since primary outcomes are measured among farmers,
+ attrition is unlikely to meaningfully affect the main treatment effects.
 \end_layout
 
 \begin_layout Standard
@@ -5822,7 +5756,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rccc}
+begin{tabular}{rcccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5832,28 +5766,6 @@ begin{tabular}{rccc}
 hline
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & training & CH
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5864,12 +5776,38 @@ cmidrule(lr){3-4}
 
 & 
 \backslash
-multicolumn{3}{c}{
+multicolumn{2}{c}{
 \backslash
-textit{midline}} 
+textit{midline}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}} 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean  & treated & mean & treated
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-3} 
+\backslash
+cmidrule(lr){4-5}
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -5893,18 +5831,25 @@ Sexpr{format(round(df_averages_attritionD[1,1],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_attritionD[1,1,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(df_ols_attritionD[3,1,1]<.01,"**",ifelse(df_ols_attritionD[3,1,1]<.05,"*",ifelse(df_ols_attritionD[3,1,1]<.1,"+","")))}}$
+Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
 \backslash
-Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$
+Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritionD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
 \backslash
 
 \backslash
@@ -5922,14 +5867,26 @@ Sexpr{format(round(df_averages_attritionD[2,1],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_attritionD[2,1,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -5956,149 +5913,9 @@ Sexpr{format(round(df_averages_attritionF[1,1],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_attritionF[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_attritionF[3,1,1]<.01,"**",ifelse(df_ols_attritionF[3,1,1]<.05,"*",ifelse(df_ols_attritionF[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_attritionF[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_attritionF[3,2,1]<.01,"**",ifelse(df_ols_attritionF[3,2,1]<.05,"*",ifelse(df_ols_attritionF[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionF[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{3}{c}{
-\backslash
-textit{endline}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Agro-dealer left the sample
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionD_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritionD_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritionD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer left the sample
 \end_layout
 
 \begin_layout Plain Layout
@@ -6106,15 +5923,6 @@ Farmer left the sample
 & 
 \backslash
 Sexpr{format(round(df_averages_attritionF_end[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_attritionF_end[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_attritionF_end[3,1,1]<.01,"**",ifelse(df_ols_end_attritionF_end[3,1,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,1,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -6134,14 +5942,21 @@ Sexpr{ifelse(df_ols_end_attritionF_end[3,2,1]<.01,"**",ifelse(df_ols_end_attriti
 
 & (
 \backslash
-Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_end_attritionF_end[2,1,1],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -6192,8 +6007,8 @@ footnotesize
 \begin_layout Plain Layout
 
 Note:
- Column (1) reports sample means at mid- or endline and standard deviations below;
-  columns (2)-(3) report differences between treatment and control groups and standard errors below;
+ Columns (1) and (3) report sample means at mid- and endline and standard deviations below;
+  columns (2) and (4) report differences between treatment and control groups and standard errors below;
  they are clustered at the level of randomization;
  **,
  *,
@@ -6216,46 +6031,54 @@ Note:
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-needed?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
-Information clearinghouse ratings
-\end_layout
-
-\begin_layout Subsubsection*
-Comparison of rating dimensions
+Rating data
 \end_layout
 
 \begin_layout Standard
-We asked farmers to evaluate maize seed sold by an agro-dealer across six dimensions:
- General quality,
- Yield as advertised,
- Drought tolerance as advertised,
- Pest/disease tolerance as advertised,
- Speed of maturing as advertised,
- and Germination.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Comparison of individual ratings"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
+At endline,
+ the dyadic rating dataset comprises 16,823 farmer-dealer links.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In 61% of cases,
+ farmers reported knowing the dealer they were asked to rate.
+ Among those who knew the dealer,
+ 21% had personally purchased seed there.
+ Among those without direct purchase experience,
+ 2% reported knowing someone who had purchased seed from that dealer.
+\end_layout
 
 \end_inset
 
- in Appendix 
+ Among farmers who provided at least one rating,
+ the average farmer rated 1.4 agro-dealers (min = 1,
+ max = 10).
+ The average agro-dealer was rated by 6.7 farmers (min = 0,
+ max = 30).
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Restricting to dealers who received at least one rating,
+ the average number of farmers per dealer is 7.085 (min = 1,
+ max = 30).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because ratings could be provided either by farmers who had personally purchased seed from the agro-dealer or by those who knew someone who had,
+ the signal may reflect indirect information rather than firsthand performance experience.
+ In practice,
+ 93% of ratings were provided by farmers with direct purchase experience,
+ and ratings are nearly identical between purchasers and non-purchasers (see Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "appendix A.3 Information clearinghouse ratings"
@@ -6266,78 +6089,14 @@ nolink "false"
 
 \end_inset
 
- presents the distribution of farmers’ ratings for these attributes along with their mean values.
+ for details).
+ This suggests that the aggregate signal predominantly reflects direct experience.
 \end_layout
 
 \begin_layout Standard
-The figure reveals variation across attributes,
- with some showing more concentrated distributions and others exhibiting greater dispersion.
- The attributes most strongly correlated with the 
-\shape italic
-General quality
-\shape default
- rating are 
-\shape italic
-Yield as advertised
-\shape default
- (0.54) and 
-\shape italic
-Germination
-\shape default
- (0.38).
- These two attributes also have the smallest mean absolute differences (0.47 for 
-\shape italic
-Yield as advertised
-\shape default
- and 0.55 for 
-\shape italic
-Germination
-\shape default
-),
- suggesting that farmers primarily consider these when assessing overall quality.
- This indicates that yield and germination are the key factors farmers prioritize in their evaluations.
-\end_layout
-
-\begin_layout Subsubsection*
-Comparison of ratings by purchase channel
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:by purchase channel"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Farmers could rate an agro-dealer if they met one of two conditions:
- either they had purchased seed from the agro-dealer themselves or they knew someone who had.
- Ideally,
- only farmers with firsthand experience would provide ratings,
- but restricting responses in this way risked generating too few observations for a reliable signal.
- While this decision was made at the experiment’s design stage and cannot be revised ex post,
- we can compare endline ratings between farmers who purchased seed from the agro-dealer and those who did not but knew someone who had.
-\end_layout
-
-\begin_layout Standard
-Fortunately,
- the vast majority (93%) of ratings came from farmers who had purchased seed,
- while only 7% were provided by those without direct purchase experience.
- This alleviates concerns that ratings are primarily driven by reputation or hearsay effects.
- While the mean ratings differ slightly (3.6 for farmers who bought seed vs.
- 3.7 for those who did not),
- the density plots are similar (see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Comparison of ratings by purchase channel"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- in Appendix 
+Ratings may also reflect factors unrelated to seed performance,
+ such as customer service or personal relationships.
+ Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "appendix A.3 Information clearinghouse ratings"
@@ -6348,46 +6107,14 @@ nolink "false"
 
 \end_inset
 
-).
-\end_layout
-
-\begin_layout Subsubsection*
-Correlating ratings and quality indicators
-\end_layout
-
-\begin_layout Standard
-There is concern that smallholder farmers may base their ratings of agro-input shops on factors such as customer service rather than seed quality or rely on the agro-dealer’s reputation or personal relationship with them.
- To address this,
- we test whether the ratings – specifically,
- the index of endline ratings computed following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- – correlate with objective indicators of seller and seed quality,
- also measured at endline.
+ provides suggestive evidence that ratings are associated with observable characteristics plausibly related to seller and seed performance:
+ specialized agro-shops and dealers with better seed handling practices receive higher ratings,
+ and seed ratings on randomly selected fields are positively correlated with maize yields.
+ These patterns are consistent with ratings reflecting farmers’ assessments of seed performance rather than purely non-performance attributes.
 \end_layout
 
 \begin_layout Standard
-We find that specialized agro-input shops,
- which exclusively sell farm inputs,
- receive higher ratings,
- as do dealers with better seed handling practices,
- objectively observed by our enumerators (Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Ratings & quality indicators - Agro-dealer level"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- in Appendix 
+Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "appendix A.3 Information clearinghouse ratings"
@@ -6398,40 +6125,8 @@ nolink "false"
 
 \end_inset
 
-).
- Additionally,
- farmers not only rated seeds purchased from agro-input shops but also those used on randomly selected maize fields,
- using the same questions.
- These seed ratings are positively correlated with farmers’ crop yields (Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Ratings & quality indicators on randomly selected field - Farmer level"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "appendix A.3 Information clearinghouse ratings"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-While alternative explanations for these significant correlations exist – for instance,
- specialized shops may have more capital and appear more “polished,” leading to higher ratings regardless of seed quality – the overall pattern supports our claim that farmers are assessing seed quality.
- Although their perceptions may not be perfectly accurate given the many factors influencing agricultural production,
- the information clearinghouse ratings provide a valid and reliable signal.
+ provides additional detail on the rating data,
+ including the distribution of ratings across the six performance dimensions and their inter-correlations.
 \end_layout
 
 \begin_layout Section
@@ -6446,7 +6141,7 @@ name "section: Results"
 \end_layout
 
 \begin_layout Standard
-We now present the impacts of the two interventions on outcomes at both the agro-dealer and farmer levels.
+We now present the impacts of the intervention on outcomes at both the farmer and agro-dealer levels.
  Effects are reported separately after one agricultural season (midline) and after two seasons (endline).
  To ensure transparency and replicability,
  all outcome variables were pre-specified in a registered pre-analysis plan,
@@ -20763,6 +20458,13 @@ name "section: Conclusion"
 \end_layout
 
 \begin_layout Standard
+Advantages etc.:
+ compared to advertisement agnostic (if bad quality - Bold et al.,
+ bad ratings) + compared to certification:
+ decentralized 
+\end_layout
+
+\begin_layout Standard
 This study hypothesizes that seed quality deteriorates either due to agro-dealers’ limited knowledge or because asymmetric information increases farmers’ search costs and weakens agro-dealers’ incentives to maintain quality.
  To address these challenges,
  we propose two interventions:
@@ -21411,6 +21113,67 @@ name "A.6 Differential attrition tests"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+To examine this differential attrition,
+ we regress the pre-registered balance variables (see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) on a binary variable indicating whether an agro-dealer left the sample,
+ a binary variable indicating whether an agro-dealer belonged to the control group,
+ and their interaction.
+ Column (2) reveals that agro-dealers who left the sample at midline operated closer to the nearest tarmac road  –  the only significant difference between those who left and those who stayed when attrition was most pronounced (see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Survey-attrition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ By endline,
+ however,
+ those who left were younger,
+ more likely to be female,
+ had less established businesses,
+ were more likely to operate specialized shops,
+ and still tended to be closer to a tarmac road,
+ see column (5).
+ This suggests that agro-dealers who left differed from those who remained,
+ regardless of exposure to the treatment,
+ possibly indicating greater vulnerability when COVID-19 hit,
+ leading to business closures.
+ Columns (3) and (6) show minimal differences between control and treated agro-dealers,
+ consistent with Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "5.3 Orthogonality tests of randomization balance"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Examining the interaction between the indicators reveals few differences between agro-dealers who left the sample 
+\shape italic
+and
+\shape default
+ belonged to the clearinghouse control group and those who did not,
+ suggesting that differential attrition is unlikely to bias our estimates.
 \end_layout
 
 \begin_layout Standard
@@ -23833,6 +23596,72 @@ name "appendix A.3 Information clearinghouse ratings"
 
 \end_layout
 
+\begin_layout Subsubsection*
+Comparison of rating dimensions
+\end_layout
+
+\begin_layout Standard
+We asked farmers to evaluate maize seed sold by an agro-dealer across six dimensions:
+ General quality,
+ Yield as advertised,
+ Drought tolerance as advertised,
+ Pest/disease tolerance as advertised,
+ Speed of maturing as advertised,
+ and Germination.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Comparison of individual ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Information clearinghouse ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the distribution of farmers’ ratings for these attributes along with their mean values.
+\end_layout
+
+\begin_layout Standard
+The figure reveals variation across attributes,
+ with some showing more concentrated distributions and others exhibiting greater dispersion.
+ The attributes most strongly correlated with the 
+\shape italic
+General quality
+\shape default
+ rating are 
+\shape italic
+Yield as advertised
+\shape default
+ (0.54) and 
+\shape italic
+Germination
+\shape default
+ (0.38).
+ These two attributes also have the smallest mean absolute differences (0.47 for 
+\shape italic
+Yield as advertised
+\shape default
+ and 0.55 for 
+\shape italic
+Germination
+\shape default
+),
+ suggesting that farmers primarily consider these when assessing overall quality.
+ This indicates that yield and germination are the key factors farmers prioritize in their evaluations.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -23877,6 +23706,59 @@ name "Comparison of individual ratings"
 
 \end_layout
 
+\begin_layout Subsubsection*
+Comparison of ratings by purchase channel
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:by purchase channel-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Farmers could rate an agro-dealer if they met one of two conditions:
+ either they had purchased seed from the agro-dealer themselves or they knew someone who had.
+ Ideally,
+ only farmers with firsthand experience would provide ratings,
+ but restricting responses in this way risked generating too few observations for a reliable signal.
+ While this decision was made at the experiment’s design stage and cannot be revised ex post,
+ we can compare endline ratings between farmers who purchased seed from the agro-dealer and those who did not but knew someone who had.
+\end_layout
+
+\begin_layout Standard
+Fortunately,
+ the vast majority (93%) of ratings came from farmers who had purchased seed,
+ while only 7% were provided by those without direct purchase experience.
+ This alleviates concerns that ratings are primarily driven by reputation or hearsay effects.
+ While the mean ratings differ slightly (3.6 for farmers who bought seed vs.
+ 3.7 for those who did not),
+ the density plots are similar (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Comparison of ratings by purchase channel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Information clearinghouse ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -23919,6 +23801,89 @@ name "Comparison of ratings by purchase channel"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Correlating ratings and quality indicators
+\end_layout
+
+\begin_layout Standard
+There is concern that smallholder farmers may base their ratings of agro-input shops on factors such as customer service rather than seed quality or rely on the agro-dealer’s reputation or personal relationship with them.
+ To address this,
+ we test whether the ratings – specifically,
+ the index of endline ratings computed following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ – correlate with objective indicators of seller and seed quality,
+ also measured at endline.
+\end_layout
+
+\begin_layout Standard
+We find that specialized agro-input shops,
+ which exclusively sell farm inputs,
+ receive higher ratings,
+ as do dealers with better seed handling practices,
+ objectively observed by our enumerators (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ratings & quality indicators - Agro-dealer level"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Information clearinghouse ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Additionally,
+ farmers not only rated seeds purchased from agro-input shops but also those used on randomly selected maize fields,
+ using the same questions.
+ These seed ratings are positively correlated with farmers’ crop yields (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ratings & quality indicators on randomly selected field - Farmer level"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "appendix A.3 Information clearinghouse ratings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+While alternative explanations for these significant correlations exist – for instance,
+ specialized shops may have more capital and appear more “polished,” leading to higher ratings regardless of seed quality – the overall pattern supports our claim that farmers are assessing seed quality.
+ Although their perceptions may not be perfectly accurate given the many factors influencing agricultural production,
+ the information clearinghouse ratings provide a valid and reliable signal.
 \end_layout
 
 \begin_layout Standard
