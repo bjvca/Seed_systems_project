@@ -1360,7 +1360,7 @@ The conceptual framework generates a set of testable implications that guide the
 
 \begin_layout Enumerate
 The treatment shifts average perceived seed performance,
- with stronger effects among for farmers who have not previously purchased seed from agro-dealers.
+ with stronger effects among farmers who have not previously purchased seed from agro-dealers.
 \end_layout
 
 \begin_layout Enumerate
@@ -6141,138 +6141,20 @@ name "section: Results"
 \end_layout
 
 \begin_layout Standard
-We now present the impacts of the intervention on outcomes at both the farmer and agro-dealer levels.
- Effects are reported separately after one agricultural season (midline) and after two seasons (endline).
- To ensure transparency and replicability,
- all outcome variables were pre-specified in a registered pre-analysis plan,
- available in the 
-\begin_inset CommandInset href
-LatexCommand href
-name "American Economic Association's registry for RCTs"
-target "https://www.socialscienceregistry.org/trials/6361"
-literal "false"
-
-\end_inset
-
-.
- Prior to midline data collection,
- the full econometric analysis was run using simulated data and documented in a 
-\begin_inset CommandInset href
-LatexCommand href
-name "mock report"
-target "https://github.com/bjvca/Seed_systems_project/tree/master/papers/mock_report"
-literal "false"
-
-\end_inset
-
-.
- A mock report is a dynamic document that integrates analytical code,
- allowing simulated data to be seamlessly replaced with real data as it becomes available 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "humphreys2013fishing"
-literal "false"
-
-\end_inset
-
-.
- All documents,
- code,
- and data are version-controlled and publicly available in a 
-\begin_inset CommandInset href
-LatexCommand href
-name "GitHub repository"
-target "https://github.com/bjvca/Seed_systems_project"
-literal "false"
-
-\end_inset
-
-,
- which provides time-stamped records of all changes made throughout the project.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-The presentation of results in this paper deviates slightly from the pre-registered and earlier versions (including the mock report,
- midline report,
- endline report,
- and previous manuscript drafts).
- Specifically,
- we reorganized the structure to first present impacts on outcomes at the end of the causal chain,
- followed by intermediate outcomes to examine potential mechanisms.
- While this reordering modifies the construction of some pre-specified indices,
- the main conclusions remain unchanged.
- Analyses adhering to the original pre-analysis plan remain available in the project history on GitHub,
- for example 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "https://github.com/bjvca/Seed_systems_project/blob/96170af9ac893eabbde0785016a990a26707652c/papers/clearinghouse_training_paper/clearinghouse_training_paper.pdf"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on dealer outcomes at end of causal chain: Business volume"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects of clearinghouse on farmer perceptions"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- present results in a consistent format.
+We present the treatment effects on outcomes at both the farmer and agro-dealer levels after one agricultural season (midline) and two seasons (endline).
  Column (1) reports baseline sample means,
- with standard deviations in parentheses,
- to facilitate interpretation of effect sizes.
+ with standard deviations in parentheses.
  These means are presented in levels,
- even when treatment effects are estimated using inverse hyperbolic sine-transformed outcomes.
- Column (2) reports the treatment effect of the agro-dealer training at midline,
- and column (3) presents the corresponding effect of the information clearinghouse.
- Standard errors are reported in parentheses beneath the coefficient estimates.
- Column (4) displays the number of observations used in the midline estimations.
- Columns (5) and (6) report treatment effects for the training and clearinghouse interventions at endline,
- again with standard errors shown in parentheses.
- Column (7) indicates the number of observations included in the endline estimations.
+ even when treatment effects are estimated using inverse hyperbolic sine transformations.
+ Columns (2) and (4) report treatment effects at midline and endline,
+ respectively,
+ with standard errors in parentheses,
+ and columns (3) and (5) report the corresponding number of observations for each regression.
 \end_layout
 
 \begin_layout Standard
-As detailed in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "section: Empirical strategy"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we address multiple hypothesis testing by grouping outcomes into broader families and constructing summary indices,
- following 
+To address multiple hypothesis testing,
+ outcomes are aggregated into indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "anderson2008multiple"
@@ -6280,30 +6162,22 @@ literal "false"
 
 \end_inset
 
-;
- these indices are reported at the bottom of the tables.
+,
+ reported at the bottom of the tables.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 In regressions using these overall indices,
  we do not control for baseline values,
- as doing so would limit the sample to agro-dealers and farmers with complete data for all constituent variables at baseline and midline/endline.
- The loss in statistical power outweighs the gain in precision from controlling for baseline outcomes.
+ as doing so would restrict the sample to units with complete data for all constituent variables at baseline and the respective follow-up wave (midline or endline),
+ thereby substantially reducing statistical power.
 \end_layout
 
 \end_inset
 
  As a robustness check,
- we additionally report indices constructed according to 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- in Appendix 
+ Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "robustness"
@@ -6314,7 +6188,448 @@ nolink "false"
 
 \end_inset
 
+ reports indices constructed following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
 .
+\end_layout
+
+\begin_layout Standard
+All outcome variables were pre-specified in a registered pre-analysis plan at the 
+\begin_inset CommandInset href
+LatexCommand href
+name "AEA's registry for RCTs"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+.
+ The full econometric analysis was run on simulated data prior to outcome data collection and documented in a 
+\begin_inset CommandInset href
+LatexCommand href
+name "mock report"
+target "https://github.com/bjvca/Seed_systems_project/tree/master/papers/mock_report"
+literal "false"
+
+\end_inset
+
+.
+ All documents,
+ code,
+ and data are publicly available in a version-controlled 
+\begin_inset CommandInset href
+LatexCommand href
+name "GitHub repository"
+target "https://github.com/bjvca/Seed_systems_project"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The presentation of results differs slightly from the pre-registered structure due to a reordering of outcomes,
+ which modifies the construction of some pre-specified indices but leaves the main conclusions unchanged.
+ Analyses adhering strictly to the pre-analysis plan remain publicly available in the project repository (see,
+ for example,
+ the archived version linked 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://github.com/bjvca/Seed_systems_project/blob/96170af9ac893eabbde0785016a990a26707652c/papers/clearinghouse_training_paper/clearinghouse_training_paper.pdf"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Perceived seed performance
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects of clearinghouse on farmer perceptions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports treatment effects on farmers’ perceived performance of maize seed sold by agro-dealers.
+ Perceived performance is measured using an index that combines ratings across six performance dimensions for agro-dealers in the farmer’s catchment area,
+ aggregated at the farmer level.
+ Because the index requires farmers to provide non-missing ratings on all six dimensions for at least one agro-dealer,
+ the estimation sample is smaller than the full survey sample.
+ Treatment effects can be estimated only at endline,
+ as only treated farmers provided ratings at baseline and midline.
+\end_layout
+
+\begin_layout Standard
+The treatment increases the perception index by 0.09 standard deviations in the full sample,
+ with the effect significant at the 10% level (Column (2)).
+\end_layout
+
+\begin_layout Standard
+We next examine heterogeneity by prior purchasing experience at agro-dealers,
+ proxied by whether farmers used high-yielding maize seed purchased from an agro-dealer on any plot in the season preceding baseline.
+ The treatment effect is larger among farmers without prior purchasing experience (Column (4)).
+ Importantly,
+ the farmers who provided ratings – primarily those with firsthand purchasing experience – differ from those who received them,
+ which include both purchasers and non-purchasers.
+ This asymmetry increases the likelihood that the information encountered diverged from prior beliefs.
+\end_layout
+
+\begin_layout Standard
+Overall,
+ these findings are consistent with the rating information being more favorable than farmers’ prior beliefs,
+ leading to an upward revision in the perceived performance of maize seed sold by agro-dealers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Treatment effects on farmers’ perceived seed performance
+\begin_inset CommandInset label
+LatexCommand label
+name "Effects of clearinghouse on farmer perceptions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{full sample}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{sub-sample}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+textit{baseline} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & treated & obs.
+ & treated & obs.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Index of farmer's seed ratings of agro-dealers$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_mech[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_mech[3,2,2]<.01,"**",ifelse(df_ols_end_mech[3,2,2]<.05,"*",ifelse(df_ols_end_mech[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_mech[4,2,2],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)}) &  & (
+\backslash
+Sexpr{format(round(df_ols_end_mech[2,2,2],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports the baseline mean and standard deviation below;
+  column (2) reports the difference between treatment and control group and the standard error below;
+ it is clustered at the level of randomization;
+ column (3) reports the number of observations;
+ columns (4) and (5) mirror this structure for the sub-sample of farmers who did not use high-yielding maize seed purchased from an agro-dealer on any plot at baseline,
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels;
+ larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$The index of farmer's maize seed ratings contains 6 ratings:
+ general quality,
+ yield,
+ drought tolerance,
+ pest/disease tolerance,
+ time of maturity,
+ germination.
+ The ratings are aggregated at farmer level (one farmer rates multiple agro-dealers),
+ then the index is computed.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Max.
+ number of obs.
+ & & & 3441 & & 1741 
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+HERE
 \end_layout
 
 \begin_layout Subsection
@@ -18851,1180 +19166,6 @@ dag$ indicates that the variable is included in the overall index;
 \backslash
 
 \backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Seed quality perception
-\end_layout
-
-\begin_layout Standard
-Although the clearinghouse had no effect on actual seed quality,
- it may influence farmers' perceptions thereof.
- In Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects of clearinghouse on farmer perceptions"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we examine an index of maize seed ratings,
- which combines ratings for general quality,
- yield,
- drought tolerance,
- pest and disease resistance,
- time to maturity,
- and germination,
- based on seed obtained from various agro-dealers.
- These ratings are aggregated at the farmer level,
- as each farmer typically rates multiple agro-dealers,
- and the index is subsequently calculated.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-To compute this index,
- we restrict the sample to farmers who have rated at least one agro-dealer in their catchment area across all index components.
- This restriction reduces the sample size,
- affecting statistical power.
-\end_layout
-
-\end_inset
-
- Notably,
- treatment and control groups can only be compared at endline,
- as at baseline and midline,
- only clearinghouse-treated farmers rated dealers in their proximity.
- The act of rating agro-dealers was considered an integral part of the clearinghouse treatment.
-\end_layout
-
-\begin_layout Standard
-Column (2) presents the impact of the information clearinghouse on the full sample.
- The results show that the index is positively and significantly affected by the treatment,
- with the effect significant at the 10% level.
- However,
- we anticipate that the clearinghouse’s impact on perceptions will be most pronounced among farmers who did not use high-yielding maize varieties at baseline.
- To explore this,
- we repeat the analysis for this subgroup in column (4).
- The treatment effect on the ratings is significant at the 5% level for the restricted sample.
-\end_layout
-
-\begin_layout Standard
-We conclude that the information clearinghouse affects farmer perceptions of the quality of seed sold by agro-dealers.
- Two primary explanations account for this result.
- First,
- the treatment itself may have altered perceptions:
- the agro-dealer ratings that farmers encountered – via SMS,
- in-person visits by enumerators,
- and the SeedAdvisor certificate – could have been more favorable than farmers’ prior beliefs,
- thereby improving their perceptions of seed quality.
- Importantly,
- the group of farmers who provided ratings (primarily adopters with firsthand experience of the seed,
- see Subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:by purchase channel"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-) differs from the group of farmers who received the ratings (all sampled farmers,
- both adopters and non-adopters),
- increasing the likelihood that the ratings farmers are exposed to diverge from their prior beliefs.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Also:
-\end_layout
-
-\begin_layout Plain Layout
-Bjorn:
- I have issues with this sentence:
- If ratings exceed farmers’ prior beliefs,
- the information clearinghouse improves perceptions of seed quality.
- 
-\end_layout
-
-\begin_layout Plain Layout
-But if ratings are lower than farmers beliefs,
- the reverse will happen.
- And since ratings are crowd sourced,
- about half will have higher beliefs,
- and about half have lower beliefs...
- Unless the distribution of beliefs is skewed,
- which is the case.
-\end_layout
-
-\begin_layout Plain Layout
-In our case,
- the distribution is skewed to the left (longer tail on the left),
- so the median is left of the mean,
- that is more farmers will be below the mean.
- So this would support our theory - unless of course we used median scores instead of means...
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-Caro:
- Beliefs:
- increasing level (mean) vs.
- decreasing uncertainty (distribution)
-\end_layout
-
-\begin_layout Plain Layout
-Pessimistic ->;
- optimistic <-;
- mean enforced
-\end_layout
-
-\end_inset
-
- Second,
- as demonstrated in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Effects on dealer efforts"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- treated agro-dealers enhanced service provision and signaled product quality in response to the clearinghouse treatment.
- These improvements in service and quality signals may also have mediated the effect on farmers’ perceptions.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects of the clearinghouse on farmer outcomes:
- Seed quality perception
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects of clearinghouse on farmer perceptions"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{full sample}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{sub-sample}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-textit{baseline} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{endline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{endline}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & CH & obs.
- & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's seed ratings of agro-dealers$^1$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_mech[3,2,2]<.01,"**",ifelse(df_ols_end_mech[3,2,2]<.05,"*",ifelse(df_ols_end_mech[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[4,2,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)}) &  & (
-\backslash
-Sexpr{format(round(df_ols_end_mech[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & 3441 & & 1741 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Column (1) reports the baseline mean and standard deviation below;
-  column (2) reports the difference between treatment and control group and the standard error below;
- it is clustered at the level of randomization;
- column (3) reports the number of observations;
- columns (4) and (5) mirror this structure for the sub-sample of farmers that did not adopt at baseline,
- **,
- *,
- and + denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels;
- larger indices indicate more desirable outcomes.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$The index of farmer's maize seed ratings contains 6 ratings:
- general quality,
- yield,
- drought tolerance,
- pest/disease tolerance,
- time of maturity,
- germination.
- The ratings are aggregated at farmer level (one farmer rates multiple agro-dealers),
- then the index is computed.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effects of the clearinghouse on farmer outcomes:
- Perceptions
-\begin_inset CommandInset label
-LatexCommand label
-name "Effects of clearinghouse on farmer perceptions-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& & 
-\backslash
-multicolumn{4}{c}{
-\backslash
-textit{
-\backslash
-underline{full sample}}} & 
-\backslash
-multicolumn{4}{c}{
-\backslash
-textit{
-\backslash
-underline{sub-sample}}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-textit{baseline} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{endline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{endline}} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & CH & obs.
- & CH & obs.
-  & CH & obs.
-  & CH & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6} 
-\backslash
-cmidrule(lr){7-8} 
-\backslash
-cmidrule(lr){9-10}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer thinks seed at agro-dealer is adulterated$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_prim[1,6],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_prim[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_prim[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_prim[3,2,6]<.05,"*",ifelse(df_ols_F_prim[3,2,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_prim[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[1,2,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_prim[3,2,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_prim[3,2,6]<.05,"*",ifelse(df_ols_end_F_prim[3,2,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_prim[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_mech[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_mech[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_mech[3,2,1]<.05,"*",ifelse(df_ols_mech[3,2,1]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(df_ols_mech[4,2,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_mech[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_mech[3,2,1]<.05,"*",ifelse(df_ols_end_mech[3,2,1]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(df_ols_end_mech[4,2,1],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_prim[2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_prim[2,2,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_prim[2,2,6],digits=3),nsmall=3)}) &  & (
-\backslash
-Sexpr{format(round(df_ols_mech[2,2,1],digits=3),nsmall=3)}) &  & (
-\backslash
-Sexpr{format(round(df_ols_end_mech[2,2,1],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Index of farmer's seed ratings of agro-dealers in area$^1$$^
-\backslash
-dag$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,1],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,1],digits=0),nsmall=0)} & & & 
-\backslash
-Sexpr{format(round(df_ols_end_mech[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_mech[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_mech[3,2,2]<.05,"*",ifelse(df_ols_end_mech[3,2,2]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(df_ols_end_mech[4,2,2],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)}) &  & &  & (
-\backslash
-Sexpr{format(round(df_ols_end_mech[2,2,2],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6} 
-\backslash
-cmidrule(lr){7-8} 
-\backslash
-cmidrule(lr){9-10}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Overall index}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,14],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,14],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,14]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,14]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,14]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,14],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[1,2,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_mech[3,2,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_mech[3,2,4]<.05,"*",ifelse(df_ols_end_mech[3,2,4]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(df_ols_end_mech[4,2,4],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,14],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,14],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_mech[2,2,4],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6} 
-\backslash
-cmidrule(lr){7-8} 
-\backslash
-cmidrule(lr){9-10}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.
- & & & 3407 & & 3441 & & 1719 & & 1741 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Column (1) reports baseline means and standard deviations below;
-  columns (2) and (4) report differences between treatment and control groups and standard errors below;
- they are clustered at the level of randomization;
- columns (3) and (5) report number of observations;
- columns (6) to (9) mirror this structure for the sub-sample of farmers that did not adopt at baseline,
- **,
- *,
- and + denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels;
- $^
-\backslash
-dag$ indicates that the variable is included in the overall index;
- larger indices indicate more desirable outcomes.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$The index of farmer's maize seed ratings contains 6 ratings:
- general quality,
- yield,
- drought tolerance,
- pest/disease tolerance,
- time of maturity,
- germination.
- The ratings are aggregated at farmer level (one farmer rates multiple agro-dealers),
- then the index is computed.
- Note that treatment and control groups can only be compared at endline.
- At base- and midline,
- only clearinghouse treated farmers rated dealers in their proximity because being confronted with these questions is part of the treatment.
- Hence control dealers were not rated and this line is left blank at midline.
- At endline,
- all farmers rated all agro-dealers,
- so that this variable can be investigated.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
