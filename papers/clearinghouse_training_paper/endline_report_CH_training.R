@@ -1217,6 +1217,8 @@ baseline_farmers$agro <- ifelse(baseline_farmers$Check2.check.maize.q25b=="d",1,
 baseline_farmers$agro[is.na(baseline_farmers$Check2.check.maize.q25b)] <- NA
 baseline_farmers$agro[baseline_farmers$Check2.check.maize.q25a==0] = 0
 
+baseline_farmers$agro_save <- baseline_farmers$agro
+
 baseline_farmers <- trim("Check2.check.maize.q25d",baseline_farmers,trim_perc=.05)
 
 ###loop###
@@ -6184,8 +6186,8 @@ for (i in 1:length(results_farmer_prim)){
 #impact pathway: do farmers that did not adopt at baseline are less likely to think seed is adulterated? 
 i <- 6
 
-ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
-vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers[baseline_farmers$agro_save==0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
 
 df_ols_end_mech  <- array(NA,dim=c(4,3,11))
 
@@ -7926,8 +7928,8 @@ for (i in 1:length(results_farmer_nobase)){
 
 #impact pathway: do farmers that did not adopt at baseline rate agro-input dealers lower? 
 i <- 1
-ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
-vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$agro_save==0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
 
 df_ols_end_mech[1,2,2] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,2] <- coef_test(ols, vcov_cluster)$SE[3]
@@ -7935,8 +7937,8 @@ df_ols_end_mech[3,2,2] <- coef_test(ols, vcov_cluster)$p_Satt[3]
 df_ols_end_mech[4,2,2] <- nobs(ols)
 
 i <- 2
-ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
-vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$agro_save==0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
 
 df_ols_end_mech[1,2,3] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,3] <- coef_test(ols, vcov_cluster)$SE[3]
@@ -7944,8 +7946,8 @@ df_ols_end_mech[3,2,3] <- coef_test(ols, vcov_cluster)$p_Satt[3]
 df_ols_end_mech[4,2,3] <- nobs(ols)
 
 i <- 14
-ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,])
-vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$Check2.check.maize.q25a<0,]$catchID,type="CR0")
+ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$agro_save==0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
 
 df_ols_end_mech[1,2,4] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,4] <- coef_test(ols, vcov_cluster)$SE[3]
