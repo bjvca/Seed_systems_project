@@ -7803,7 +7803,7 @@ placement document
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8635,17 +8635,12 @@ S$Due to the skewness of this variable,
 
 \end_layout
 
-\begin_layout Standard
-HERE
-\end_layout
-
 \begin_layout Subsection
-Impact on farmers
+Productivity and harvest outcomes
 \end_layout
 
 \begin_layout Standard
-We begin by examining harvest-related outcomes for farmers,
- with results presented in Table 
+We examine harvest outcomes for farmers (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on farmer outcomes at end of causal chain: Harvest"
@@ -8656,42 +8651,30 @@ nolink "false"
 
 \end_inset
 
-.
- Specifically,
- we analyze maize production,
+),
+ measured on a randomly selected maize plot and including production,
  plot size,
- and yield (i.e.,
- production per unit of land) on a randomly selected maize plot.
- We also assess market participation – measured by the quantity sold,
+ yield,
+ the value of maize production at market prices net of seed costs,
+ the quantity of maize retained for use as seed in the following season,
+ and quantity sold,
  sales price,
- and total revenue from maize sales – as well as the amount of grain retained for use as seed in the following season.
- While we expect positive treatment effects on harvest and sales outcomes,
- the quantity retained for seed enters the index with a negative sign,
- as greater retention indicates ongoing reliance on saved seed.
+ and total maize revenue.
 \end_layout
 
 \begin_layout Standard
-The coefficient estimates for the overall index reveal no significant effect of the agro-dealer training and a positive effect of the clearinghouse,
- though only after two seasons of implementation.
- At endline,
- farmers in clearinghouse areas report higher production and productivity than control farmers in non-clearinghouse areas.
- The yield effect is statistically significant at the 1% level and corresponds to a 13% increase over baseline mean.
- Finally,
- consistent with expectations,
- clearinghouse-treated farmers retain less maize for seed at midline.
+The overall index shows a positive treatment effect at endline.
+ Treated farmers achieve higher yields,
+ increasing by 56 kilograms per acre (13% over the baseline mean,
+ significant at the 1% level).
+ The value of maize production net of seed costs is 66,000 UGX higher for treated farmers (approximately 18 USD at the time of the survey).
+ Treated farmers retain less maize for seed at midline,
+ indicating reduced reliance on farmer-saved seed.
 \end_layout
 
 \begin_layout Standard
-To further investigate whether the previously documented large effect of the clearinghouse on yields is primarily driven by increased adoption,
- we examine yield gains across farmer subgroups.
- Restricting the analysis to farmers who had not adopted at baseline yields a coefficient of 56.44 with a standard error of 17.38,
- significant at the 1% level.
- For farmers who had already adopted at baseline,
- the estimated effect is 30.79 with a standard error of 20.38,
- which is not statistically significant.
- These results suggest that the yield gains are plausibly driven by farmers who were not using high-yielding maize seed at baseline,
- adopted it as a result of the clearinghouse treatment,
- and subsequently achieved higher yields.
+We detect no effects on quantity sold or total maize revenue,
+ consistent with the low baseline level of maize sales and suggesting that additional output is consumed within the household rather than sold.
 \end_layout
 
 \begin_layout Standard
@@ -8706,8 +8689,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effects on farmer outcomes:
- Harvest on specific maize plot
+Treatment effects on farmers’ harvest on specific maize plot
 \begin_inset CommandInset label
 LatexCommand label
 name "Effects on farmer outcomes at end of causal chain: Harvest"
@@ -8744,7 +8726,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rccccccc}
+begin{tabular}{rccccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8768,11 +8750,11 @@ multicolumn{1}{c}{
 \backslash
 textit{baseline}} & 
 \backslash
-multicolumn{3}{c}{
+multicolumn{2}{c}{
 \backslash
 textit{midline}} & 
 \backslash
-multicolumn{3}{c}{
+multicolumn{2}{c}{
 \backslash
 textit{endline}}
 \backslash
@@ -8783,8 +8765,8 @@ textit{endline}}
 
 \begin_layout Plain Layout
 
-& mean & training & CH & obs.
- & training & CH & obs.
+& mean & treated & obs.
+ & treated & obs.
  
 \backslash
 
@@ -8798,9 +8780,9 @@ textit{endline}}
 \backslash
 cmidrule(lr){2-2} 
 \backslash
-cmidrule(lr){3-5} 
+cmidrule(lr){3-4} 
 \backslash
-cmidrule(lr){6-8}
+cmidrule(lr){5-6}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8825,20 +8807,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,1],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,1]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,1]<.01,"**"
@@ -8854,20 +8822,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,1]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,1],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,1]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,1]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -8906,26 +8860,12 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,1],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,1],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -8959,20 +8899,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,7],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,7]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,7],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,7]<.01,"**"
@@ -8988,20 +8914,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,7]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,7],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,7]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,7]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9040,26 +8952,12 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,7],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,7],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,7],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -9095,20 +8993,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,2],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,2]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,2],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,2]<.01,"**"
@@ -9124,20 +9008,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,2]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,2],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,2]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,2]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9176,13 +9046,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,2],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,2],digits=3),nsmall=3)})
 \end_layout
 
@@ -9195,14 +9058,206 @@ Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,2],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,2],digits=3),nsmall=3)})
+Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,2],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Production minus cost of seed in UGX$^1$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_sec_yieldetc[1,8],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_sec_yieldetc[3,2,8]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_sec_yieldetc[3,8],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,2,8],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,2,8]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_sec_yieldetc[3,2,8]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_sec_yieldetc[3,8],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
 
 & (
 \backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,2],digits=3),nsmall=3)}) & 
+Sexpr{format(round(df_means_end_F_sec_yieldetc[2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,8],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,8],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Amount kept as seed in kg$^
+\backslash
+S$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,12],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,2,12]<.05,"*",ifelse(df_ols_F_nobase[3,2,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[3,12],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,12]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,12],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,12],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -9246,20 +9301,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,3],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,3]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,3],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,3]<.01,"**"
@@ -9275,20 +9316,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,3]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,3]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,3]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9327,26 +9354,12 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,3],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,3],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -9380,20 +9393,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,6],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,6]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,6]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,6],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,6]<.01,"**"
@@ -9409,20 +9408,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,6]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,6],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,6],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,6]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,6]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,6]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9461,26 +9446,12 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,6],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,6],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,6],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,6],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -9518,20 +9489,6 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[1,4],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_sec_yieldetc[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_sec_yieldetc[3,1,4]<.05,"*",ifelse(df_ols_F_sec_yieldetc[3,1,4]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[1,2,4],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,4]<.01,"**"
@@ -9547,20 +9504,6 @@ Sexpr{ifelse(df_ols_F_sec_yieldetc[3,2,4]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_sec_yieldetc[3,4],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[1,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_sec_yieldetc[3,1,4]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_sec_yieldetc[3,1,4]<.05,"*",ifelse(df_ols_end_F_sec_yieldetc[3,1,4]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9599,26 +9542,12 @@ Sexpr{format(round(df_means_end_F_sec_yieldetc[2,4],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_sec_yieldetc[2,1,4],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,1,4],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -9638,149 +9567,13 @@ Sexpr{format(round(df_ols_end_F_sec_yieldetc[2,2,4],digits=3),nsmall=3)}) &
 
 \begin_layout Plain Layout
 
-Amount kept as seed in kg$^
-\backslash
-S$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,12],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,1,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,1,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,1,12]<.05,"*",ifelse(df_ols_F_nobase[3,1,12]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,2,12]<.05,"*",ifelse(df_ols_F_nobase[3,2,12]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_nobase[3,12],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,12]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,12]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,12]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,12]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,12],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,1,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,12],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 cmidrule(lr){2-2} 
 \backslash
-cmidrule(lr){3-5} 
+cmidrule(lr){3-4} 
 \backslash
-cmidrule(lr){6-8}
+cmidrule(lr){5-6}
 \end_layout
 
 \begin_layout Plain Layout
@@ -9805,20 +9598,6 @@ Sexpr{format(round(df_means_end_F_nobase[1,11],digits=3),nsmall=3)}
 
 & 
 \backslash
-Sexpr{format(round(df_ols_F_nobase[1,1,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,1,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,1,11]<.05,"*",ifelse(df_ols_F_nobase[3,1,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_ols_F_nobase[1,2,11],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(df_ols_F_nobase[3,2,11]<.01,"**"
@@ -9834,20 +9613,6 @@ Sexpr{ifelse(df_ols_F_nobase[3,2,11]<.01,"**"
 & 
 \backslash
 Sexpr{format(round(df_means_F_nobase[3,11],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,1,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,1,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,1,11]<.05,"*",ifelse(df_ols_end_F_nobase[3,1,11]<.1,"+","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -9886,26 +9651,12 @@ Sexpr{format(round(df_means_end_F_nobase[2,11],digits=3),nsmall=3)})
 
 & (
 \backslash
-Sexpr{format(round(df_ols_F_nobase[2,1,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
 Sexpr{format(round(df_ols_F_nobase[2,2,11],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 &
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,1,11],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
@@ -9929,9 +9680,9 @@ Sexpr{format(round(df_ols_end_F_nobase[2,2,11],digits=3),nsmall=3)}) &
 \backslash
 cmidrule(lr){2-2} 
 \backslash
-cmidrule(lr){3-5} 
+cmidrule(lr){3-4} 
 \backslash
-cmidrule(lr){6-8}
+cmidrule(lr){5-6}
 \end_layout
 
 \begin_layout Plain Layout
@@ -9942,7 +9693,7 @@ cmidrule(lr){6-8}
 
 Max.
  number of obs.
- & & & & 3407 & & & 3441
+ & & & 3407 & & 3441
 \backslash
 
 \backslash
@@ -9987,12 +9738,9 @@ footnotesize
 
 Note:
  Column (1) reports baseline means and standard deviations below;
-  columns (2),
- (3),
- (5),
- and (6) report differences between treatment and control groups and standard errors below;
+  columns (2) and (4) report differences between treatment and control groups and standard errors below;
  they are clustered at the level of randomization;
- columns (4) and (7) report the number of observations;
+ columns (3) and (5) report the number of observations;
  **,
  *,
  and + denote significance at the 1
@@ -10028,6 +9776,20 @@ S$Due to the skewness of this variable,
 
 \end_layout
 
+\begin_layout Plain Layout
+
+$^1$Production in UGX,
+ measured as the number of maize bags harvested,
+ multiplied by the market value per bag in UGX,
+ minus the cost of maize seed used in UGX,
+ calculated as the quantity of seed used in kg,
+ multiplied by the cost per kg of seed in UGX.
+\backslash
+
+\backslash
+
+\end_layout
+
 \end_inset
 
 
@@ -10036,6 +9798,10 @@ S$Due to the skewness of this variable,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+HERE
 \end_layout
 
 \begin_layout Section
