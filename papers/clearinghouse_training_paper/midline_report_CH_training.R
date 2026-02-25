@@ -5833,6 +5833,7 @@ baseline_farmers$costforseed_new <- ihs(baseline_farmers$costforseed_new)
 baseline_farmers <- trim("costforseed_new",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_costforseed_new <- baseline_farmers$mid_Check2.check.maize.q38_untrimmed*baseline_farmers$mid_Check2.check.maize.q39_untrimmed
+baseline_farmers$mid_costforseed_new_untrimmed <- baseline_farmers$mid_costforseed_new
 baseline_farmers$mid_costforseed_new <- ihs(baseline_farmers$mid_costforseed_new)
 baseline_farmers <- trim("mid_costforseed_new",baseline_farmers,trim_perc=.05)
 
@@ -6023,6 +6024,20 @@ baseline_farmers$mid_yield_inkg <- baseline_farmers$mid_Check2.check.maize.q50*b
 baseline_farmers$mid_yield_inkg_untrimmed <- baseline_farmers$mid_yield_inkg
 baseline_farmers <- trim("mid_yield_inkg",baseline_farmers,trim_perc=.05)
 
+baseline_farmers$mid_Check2.check.maize.q52 <- as.numeric(as.character(baseline_farmers$check.maize.q52))
+
+baseline_farmers$mid_yield_inbags <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q50))
+baseline_farmers$mid_marketvalue_bag <- as.numeric(as.character(baseline_farmers$mid_Check2.check.maize.q52))
+baseline_farmers$mid_yield_inUGX <- baseline_farmers$mid_yield_inbags*baseline_farmers$mid_marketvalue_bag
+
+#Amount seed used in kg (q38)
+#Cost of 1 kg seed in UGX (q39)
+
+baseline_farmers$mid_profit_inUGX <- baseline_farmers$mid_yield_inUGX - baseline_farmers$mid_costforseed_new_untrimmed
+baseline_farmers <- trim("mid_profit_inUGX",baseline_farmers,trim_perc=.05)
+baseline_farmers$profit_inUGX <- baseline_farmers$yield_inUGX - baseline_farmers$costforseed_new_untrimmed
+baseline_farmers <- trim("profit_inUGX",baseline_farmers,trim_perc=.05)
+
 #2. yield
 baseline_farmers <- trim("Check2.check.maize.q29",baseline_farmers,trim_perc=.05)
 
@@ -6094,11 +6109,11 @@ baseline_farmers$index_overall_yieldetc_base <- index_overall_yieldetc_base$inde
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
                                  ,"mid_revenueUGX","index_overall_yieldetc_mid","mid_price_per_kg"
-                                 ,"mid_Check2.check.maize.q29")
+                                 ,"mid_Check2.check.maize.q29","mid_profit_inUGX")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
                                       ,"revenueUGX","index_overall_yieldetc_base","price_per_kg"
-                                      ,"Check2.check.maize.q29")
+                                      ,"Check2.check.maize.q29","profit_inUGX")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -6129,11 +6144,11 @@ df_ols_F_sec_yieldetc <- array(NA,dim=c(3,3,11))
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
                                  ,"mid_revenueUGX","index_overall_yieldetc_midT","mid_price_per_kg"
-                                 ,"mid_Check2.check.maize.q29")
+                                 ,"mid_Check2.check.maize.q29","mid_profit_inUGX")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
                                       ,"revenueUGX","index_overall_yieldetc_baseT","price_per_kg"
-                                      ,"Check2.check.maize.q29")
+                                      ,"Check2.check.maize.q29","profit_inUGX")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -6162,11 +6177,11 @@ baseline_farmers$index_overall_yieldetc_baseC <- index_overall_yieldetc_baseC$in
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
                                  ,"mid_revenueUGX","index_overall_yieldetc_midC","mid_price_per_kg"
-                                 ,"mid_Check2.check.maize.q29")
+                                 ,"mid_Check2.check.maize.q29","mid_profit_inUGX")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
                                       ,"revenueUGX","index_overall_yieldetc_baseC","price_per_kg"
-                                      ,"Check2.check.maize.q29")
+                                      ,"Check2.check.maize.q29","profit_inUGX")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
@@ -6195,11 +6210,11 @@ baseline_farmers$index_overall_yieldetc_baseF <- index_overall_yieldetc_baseF$in
 
 results_farmer_sec_yieldetc <- c("mid_yield_inkg","mid_landproductivity","mid_soldinkg"
                                  ,"mid_revenueUGX","index_overall_yieldetc_midF","mid_price_per_kg"
-                                 ,"mid_Check2.check.maize.q29")
+                                 ,"mid_Check2.check.maize.q29","mid_profit_inUGX")
 
 results_farmer_sec_yieldetc_base <- c("yield_inkg","landproductivity","soldinkg"
                                       ,"revenueUGX","index_overall_yieldetc_baseF","price_per_kg"
-                                      ,"Check2.check.maize.q29")
+                                      ,"Check2.check.maize.q29","profit_inUGX")
 
 baseline_farmers[results_farmer_sec_yieldetc_base] <- lapply(baseline_farmers[results_farmer_sec_yieldetc_base],function(x)x - mean(x,na.rm = T))
 
