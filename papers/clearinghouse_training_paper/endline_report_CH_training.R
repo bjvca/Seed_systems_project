@@ -1035,11 +1035,12 @@ balance_dealer <- c("maize.owner.agree.age"
                     ,"visible_packdate"
                     ,"maize.owner.agree.nr_var") #27
 
-df_averages <- array(NA,dim=c(2,50))
+df_averages <- array(NA,dim=c(3,50))
 
 for (i in 1:length(balance_dealer)){
   df_averages[1,i] <- sum(baseline_dealers[balance_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))
-  df_averages[2,i] <- sqrt(var(baseline_dealers[balance_dealer[i]], na.rm=T))}
+  df_averages[2,i] <- sqrt(var(baseline_dealers[balance_dealer[i]], na.rm=T))
+  df_averages[3,i] <- (nrow(baseline_dealers)-sum(is.na(baseline_dealers[balance_dealer[i]])))}
 
 ###
 #2#
@@ -1249,11 +1250,12 @@ balance_farmer <- c("Check2.check.maize.q8"
 #1#
 ###
 
-df_averages_farmer <- array(NA,dim=c(2,50))
+df_averages_farmer <- array(NA,dim=c(3,50))
 
 for (i in 1:length(balance_farmer)){
   df_averages_farmer[1,i] <- sum(baseline_farmers[balance_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[balance_farmer[i]])))
-  df_averages_farmer[2,i] <- sqrt(var(baseline_farmers[balance_farmer[i]], na.rm=T))}
+  df_averages_farmer[2,i] <- sqrt(var(baseline_farmers[balance_farmer[i]], na.rm=T))
+  df_averages_farmer[3,i] <- (nrow(baseline_farmers)-sum(is.na(baseline_farmers[balance_farmer[i]])))}
 
 ###
 #2#
@@ -1443,11 +1445,12 @@ attrition_dealer <- c("attrition_ind_D")
 #1#
 ###
 
-df_averages_attritionD <- array(NA,dim=c(2,25))
+df_averages_attritionD <- array(NA,dim=c(3,25))
 
 for (i in 1:length(attrition_dealer)){
   df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
-  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))}
+  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
+  df_averages_attritionD[3,i] <- (nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))}
 
 ###
 #2#
@@ -1534,11 +1537,12 @@ attrition_dealer_end <- c("attrition_ind_D_end")
 #1#
 ###
 
-df_averages_attritionD_end <- array(NA,dim=c(2,25))
+df_averages_attritionD_end <- array(NA,dim=c(3,25))
 
 for (i in 1:length(attrition_dealer_end)){
   df_averages_attritionD_end[1,i] <- sum(baseline_dealers[attrition_dealer_end[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer_end[i]])))
-  df_averages_attritionD_end[2,i] <- sqrt(var(baseline_dealers[attrition_dealer_end[i]], na.rm=T))}
+  df_averages_attritionD_end[2,i] <- sqrt(var(baseline_dealers[attrition_dealer_end[i]], na.rm=T))
+  df_averages_attritionD_end[3,i] <- (nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer_end[i]])))}
 
 ###
 #2#
@@ -1634,11 +1638,12 @@ attrition_farmer <- c("attrition_ind_F")
 #1#
 ###
 
-df_averages_attritionF <- array(NA,dim=c(2,25))
+df_averages_attritionF <- array(NA,dim=c(3,25))
 
 for (i in 1:length(attrition_farmer)){
   df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
-  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))}
+  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
+  df_averages_attritionF[3,i] <- (nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))}
 
 ###
 #2#
@@ -1719,11 +1724,12 @@ attrition_farmer_end <- c("attrition_ind_F_end")
 #1#
 ###
 
-df_averages_attritionF_end <- array(NA,dim=c(2,25))
+df_averages_attritionF_end <- array(NA,dim=c(3,25))
 
 for (i in 1:length(attrition_farmer_end)){
   df_averages_attritionF_end[1,i] <- sum(baseline_farmers[attrition_farmer_end[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer_end[i]])))
-  df_averages_attritionF_end[2,i] <- sqrt(var(baseline_farmers[attrition_farmer_end[i]], na.rm=T))}
+  df_averages_attritionF_end[2,i] <- sqrt(var(baseline_farmers[attrition_farmer_end[i]], na.rm=T))
+  df_averages_attritionF_end[3,i] <- (nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer_end[i]])))}
 
 ###
 #2#

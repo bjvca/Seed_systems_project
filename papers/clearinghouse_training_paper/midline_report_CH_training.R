@@ -1066,7 +1066,7 @@ perc_lostD_farmer <- sum(number_lostD_farmer/number_allD_farmer*100)
 
 attrition_dealer <- c("attrition_ind_D")
 
-df_averages_attritionD <- array(NA,dim=c(2,25))
+df_averages_attritionD <- array(NA,dim=c(3,25))
 df_ols_attritionD <- array(NA,dim=c(3,3,25))
 
 ###
@@ -1075,7 +1075,8 @@ df_ols_attritionD <- array(NA,dim=c(3,3,25))
 
 for (i in 1:length(attrition_dealer)){
   df_averages_attritionD[1,i] <- sum(baseline_dealers[attrition_dealer[i]], na.rm=T)/(nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))
-  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))}
+  df_averages_attritionD[2,i] <- sqrt(var(baseline_dealers[attrition_dealer[i]], na.rm=T))
+  df_averages_attritionD[3,i] <- (nrow(baseline_dealers)-sum(is.na(baseline_dealers[attrition_dealer[i]])))}
 
 save(df_averages_attritionD,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_averages_attritionD.Rdata",sep="/"))
 
@@ -1171,7 +1172,7 @@ perc_lostF_training <- sum(number_lostF_training/number_allF_training*100)
 perc_lostF_clearing <- sum(number_lostF_clearing/number_allF_clearing*100)
 perc_lostF_farmer <- sum(number_lostF_farmer/number_allF_farmer*100)
 
-df_averages_attritionF <- array(NA,dim=c(2,25))
+df_averages_attritionF <- array(NA,dim=c(3,25))
 df_ols_attritionF <- array(NA,dim=c(3,3,25))
 
 attrition_farmer <- c("attrition_ind_F")
@@ -1182,7 +1183,8 @@ attrition_farmer <- c("attrition_ind_F")
 
 for (i in 1:length(attrition_farmer)){
   df_averages_attritionF[1,i] <- sum(baseline_farmers[attrition_farmer[i]], na.rm=T)/(nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))
-  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))}
+  df_averages_attritionF[2,i] <- sqrt(var(baseline_farmers[attrition_farmer[i]], na.rm=T))
+  df_averages_attritionF[3,i] <- (nrow(baseline_farmers)-sum(is.na(baseline_farmers[attrition_farmer[i]])))}
 
 save(df_averages_attritionF,file=paste(path,"papers/clearinghouse_training_paper/output_CH_training/df_averages_attritionF.Rdata",sep="/"))
 

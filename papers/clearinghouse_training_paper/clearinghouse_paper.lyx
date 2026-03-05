@@ -1149,8 +1149,7 @@ Under the conditional welfare assumption,
 \end_layout
 
 \begin_layout Enumerate
-Treatment effects occur without improvements in underlying seed performance or agro-dealer switching.
- + all other alternative mechanisms
+Treatment effects occur without improvements in seed performance or agro-dealer switching.
 \end_layout
 
 \begin_layout Section
@@ -3491,7 +3490,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcc}
+begin{tabular}{rccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3509,7 +3508,8 @@ hline
 
 \begin_layout Plain Layout
 
-& mean & treated
+& mean & treated & obs.
+ 
 \backslash
 
 \backslash
@@ -3522,7 +3522,9 @@ hline
 \backslash
 cmidrule(lr){2-2} 
 \backslash
-cmidrule(lr){3-3}
+cmidrule(lr){3-3} 
+\backslash
+cmidrule(lr){4-4}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3550,6 +3552,18 @@ Sexpr{format(round(df_averages_farmer[1,3],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols_end_farmer[1,2,3],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols_end_farmer[3,2,3]<.01,"**",ifelse(df_ols_end_farmer[3,2,3]<.05,"*",ifelse(df_ols_end_farmer[3,2,3]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,3],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -3598,7 +3612,14 @@ Sexpr{format(round(df_averages_farmer[1,4],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,4],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,4]<.01,"**",ifelse(df_ols_end_farmer[3,2,4]<.05,"*",ifelse(df_ols_end_farmer[3,2,4]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,4]<.01,"**",ifelse(df_ols_end_farmer[3,2,4]<.05,"*",ifelse(df_ols_end_farmer[3,2,4]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,4],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3647,7 +3668,14 @@ Sexpr{format(round(df_averages_farmer[1,5],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,5],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,5]<.01,"**",ifelse(df_ols_end_farmer[3,2,5]<.05,"*",ifelse(df_ols_end_farmer[3,2,5]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,5]<.01,"**",ifelse(df_ols_end_farmer[3,2,5]<.05,"*",ifelse(df_ols_end_farmer[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,5],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3707,7 +3735,14 @@ Sexpr{format(round(df_averages_farmer[1,1],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,1],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,1]<.01,"**",ifelse(df_ols_end_farmer[3,2,1]<.05,"*",ifelse(df_ols_end_farmer[3,2,1]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,1]<.01,"**",ifelse(df_ols_end_farmer[3,2,1]<.05,"*",ifelse(df_ols_end_farmer[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,1],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3756,7 +3791,14 @@ Sexpr{format(round(df_averages_farmer[1,2],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,2],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,2]<.01,"**",ifelse(df_ols_end_farmer[3,2,2]<.05,"*",ifelse(df_ols_end_farmer[3,2,2]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,2]<.01,"**",ifelse(df_ols_end_farmer[3,2,2]<.05,"*",ifelse(df_ols_end_farmer[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,2],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3806,7 +3848,14 @@ Sexpr{format(round(df_averages_farmer[1,6],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,6],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,6]<.01,"**",ifelse(df_ols_end_farmer[3,2,6]<.05,"*",ifelse(df_ols_end_farmer[3,2,6]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,6]<.01,"**",ifelse(df_ols_end_farmer[3,2,6]<.05,"*",ifelse(df_ols_end_farmer[3,2,6]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,6],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3853,7 +3902,14 @@ Sexpr{format(round(df_averages_farmer[1,7],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,7],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,7]<.01,"**",ifelse(df_ols_end_farmer[3,2,7]<.05,"*",ifelse(df_ols_end_farmer[3,2,7]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,7]<.01,"**",ifelse(df_ols_end_farmer[3,2,7]<.05,"*",ifelse(df_ols_end_farmer[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,7],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3913,7 +3969,14 @@ Sexpr{format(round(df_averages_farmer[1,8],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,8],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,8]<.01,"**",ifelse(df_ols_end_farmer[3,2,8]<.05,"*",ifelse(df_ols_end_farmer[3,2,8]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,8]<.01,"**",ifelse(df_ols_end_farmer[3,2,8]<.05,"*",ifelse(df_ols_end_farmer[3,2,8]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,8],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -3960,7 +4023,14 @@ Sexpr{format(round(df_averages_farmer[1,21],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,21],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,21]<.01,"**",ifelse(df_ols_end_farmer[3,2,21]<.05,"*",ifelse(df_ols_end_farmer[3,2,21]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,21]<.01,"**",ifelse(df_ols_end_farmer[3,2,21]<.05,"*",ifelse(df_ols_end_farmer[3,2,21]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,21],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4009,7 +4079,14 @@ Sexpr{format(round(df_averages_farmer[1,19],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,19],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,19]<.01,"**",ifelse(df_ols_end_farmer[3,2,19]<.05,"*",ifelse(df_ols_end_farmer[3,2,19]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,19]<.01,"**",ifelse(df_ols_end_farmer[3,2,19]<.05,"*",ifelse(df_ols_end_farmer[3,2,19]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,19],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4071,7 +4148,14 @@ Sexpr{format(round(df_averages_farmer[1,9],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,9],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,9]<.01,"**",ifelse(df_ols_end_farmer[3,2,9]<.05,"*",ifelse(df_ols_end_farmer[3,2,9]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,9]<.01,"**",ifelse(df_ols_end_farmer[3,2,9]<.05,"*",ifelse(df_ols_end_farmer[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,9],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4120,7 +4204,14 @@ Sexpr{format(round(df_averages_farmer[1,10],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,10],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,10]<.01,"**",ifelse(df_ols_end_farmer[3,2,10]<.05,"*",ifelse(df_ols_end_farmer[3,2,10]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,10]<.01,"**",ifelse(df_ols_end_farmer[3,2,10]<.05,"*",ifelse(df_ols_end_farmer[3,2,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,10],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4169,7 +4260,14 @@ Sexpr{format(round(df_averages_farmer[1,11],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,11],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,11]<.01,"**",ifelse(df_ols_end_farmer[3,2,11]<.05,"*",ifelse(df_ols_end_farmer[3,2,11]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,11]<.01,"**",ifelse(df_ols_end_farmer[3,2,11]<.05,"*",ifelse(df_ols_end_farmer[3,2,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,11],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4218,7 +4316,14 @@ Sexpr{format(round(df_averages_farmer[1,12],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,12],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,12]<.01,"**",ifelse(df_ols_end_farmer[3,2,12]<.05,"*",ifelse(df_ols_end_farmer[3,2,12]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,12]<.01,"**",ifelse(df_ols_end_farmer[3,2,12]<.05,"*",ifelse(df_ols_end_farmer[3,2,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,12],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4265,7 +4370,14 @@ Sexpr{format(round(df_averages_farmer[1,22],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,22],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,22]<.01,"**",ifelse(df_ols_end_farmer[3,2,22]<.05,"*",ifelse(df_ols_end_farmer[3,2,22]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,22]<.01,"**",ifelse(df_ols_end_farmer[3,2,22]<.05,"*",ifelse(df_ols_end_farmer[3,2,22]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,22],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4312,7 +4424,14 @@ Sexpr{format(round(df_averages_farmer[1,16],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols_end_farmer[1,2,16],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols_end_farmer[3,2,16]<.01,"**",ifelse(df_ols_end_farmer[3,2,16]<.05,"*",ifelse(df_ols_end_farmer[3,2,16]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols_end_farmer[3,2,16]<.01,"**",ifelse(df_ols_end_farmer[3,2,16]<.05,"*",ifelse(df_ols_end_farmer[3,2,16]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_farmer[3,16],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4377,6 +4496,7 @@ Note:
  Column (1) reports sample means at baseline and standard deviations below;
   column (2) reports differences between treatment and control groups and standard errors below;
  they are clustered at the level of randomization;
+ column (3) reports the number of observations;
  **,
  *,
  and + denote significance at the 1
@@ -4452,7 +4572,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcc}
+begin{tabular}{rccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4470,7 +4590,7 @@ hline
 
 \begin_layout Plain Layout
 
-& mean & treated 
+& mean & treated & obs.
 \backslash
 
 \backslash
@@ -4483,7 +4603,9 @@ hline
 \backslash
 cmidrule(lr){2-2} 
 \backslash
-cmidrule(lr){3-3}
+cmidrule(lr){3-3} 
+\backslash
+cmidrule(lr){4-4}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4511,6 +4633,13 @@ Sexpr{format(round(df_averages[1,1],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,1],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,1]<.01,"**",ifelse(df_ols[3,2,1]<.05,"*",ifelse(df_ols[3,2,1]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,1],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4560,6 +4689,13 @@ Sexpr{format(round(df_averages[1,2],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,2],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,2]<.01,"**",ifelse(df_ols[3,2,2]<.05,"*",ifelse(df_ols[3,2,2]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,2],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4608,7 +4744,14 @@ Sexpr{format(round(df_averages[1,3],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols[1,2,3],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols[3,2,3]<.01,"**",ifelse(df_ols[3,2,3]<.05,"*",ifelse(df_ols[3,2,3]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols[3,2,3]<.01,"**",ifelse(df_ols[3,2,3]<.05,"*",ifelse(df_ols[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,3],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4656,6 +4799,13 @@ Sexpr{format(round(df_averages[1,23],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,23],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,23]<.01,"**",ifelse(df_ols[3,2,23]<.05,"*",ifelse(df_ols[3,2,23]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,23],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4705,6 +4855,13 @@ Sexpr{format(round(df_averages[1,7],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,7],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,7]<.01,"**",ifelse(df_ols[3,2,7]<.05,"*",ifelse(df_ols[3,2,7]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,7],digits=0),nsmall=)}
 \backslash
 
 \backslash
@@ -4754,6 +4911,13 @@ Sexpr{format(round(df_averages[1,14],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,14],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,14]<.01,"**",ifelse(df_ols[3,2,14]<.05,"*",ifelse(df_ols[3,2,14]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,14],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4816,6 +4980,13 @@ Sexpr{format(round(df_averages[1,4],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,4],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,4]<.01,"**",ifelse(df_ols[3,2,4]<.05,"*",ifelse(df_ols[3,2,4]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,4],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4863,6 +5034,13 @@ Sexpr{format(round(df_averages[1,21],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,21],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,21]<.01,"**",ifelse(df_ols[3,2,21]<.05,"*",ifelse(df_ols[3,2,21]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,21],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4912,6 +5090,13 @@ Sexpr{format(round(df_averages[1,6],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,6],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,6]<.01,"**",ifelse(df_ols[3,2,6]<.05,"*",ifelse(df_ols[3,2,6]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,6],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -4960,7 +5145,14 @@ Sexpr{format(round(df_averages[1,5],digits=2),nsmall=2)}
 \backslash
 Sexpr{format(round(df_ols[1,2,5],digits=2),nsmall=2)}$^{
 \backslash
-Sexpr{ifelse(df_ols[3,2,5]<.01,"**",ifelse(df_ols[3,2,5]<.05,"*",ifelse(df_ols[3,2,5]<.1,"+","")))}}$ 
+Sexpr{ifelse(df_ols[3,2,5]<.01,"**",ifelse(df_ols[3,2,5]<.05,"*",ifelse(df_ols[3,2,5]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,5],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -5010,6 +5202,13 @@ Sexpr{format(round(df_averages[1,9],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,9],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,9]<.01,"**",ifelse(df_ols[3,2,9]<.05,"*",ifelse(df_ols[3,2,9]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,9],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -5059,6 +5258,13 @@ Sexpr{format(round(df_averages[1,10],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,10],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,10]<.01,"**",ifelse(df_ols[3,2,10]<.05,"*",ifelse(df_ols[3,2,10]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,10],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -5106,6 +5312,13 @@ Sexpr{format(round(df_averages[1,27],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,27],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,27]<.01,"**",ifelse(df_ols[3,2,27]<.05,"*",ifelse(df_ols[3,2,27]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,27],digits=),nsmall=2)}
 \backslash
 
 \backslash
@@ -5170,6 +5383,13 @@ Sexpr{format(round(df_averages[1,11],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,11],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,11]<.01,"**",ifelse(df_ols[3,2,11]<.05,"*",ifelse(df_ols[3,2,11]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
 \backslash
 
 \backslash
@@ -5217,6 +5437,13 @@ Sexpr{format(round(df_averages[1,24],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,24],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,24]<.01,"**",ifelse(df_ols[3,2,24]<.05,"*",ifelse(df_ols[3,2,24]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
 \backslash
 
 \backslash
@@ -5264,6 +5491,13 @@ Sexpr{format(round(df_averages[1,13],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,13],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,13]<.01,"**",ifelse(df_ols[3,2,13]<.05,"*",ifelse(df_ols[3,2,13]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
 \backslash
 
 \backslash
@@ -5313,6 +5547,13 @@ Sexpr{format(round(df_averages[1,16],digits=2),nsmall=2)}
 Sexpr{format(round(df_ols[1,2,16],digits=2),nsmall=2)}$^{
 \backslash
 Sexpr{ifelse(df_ols[3,2,16]<.01,"**",ifelse(df_ols[3,2,16]<.05,"*",ifelse(df_ols[3,2,16]<.1,"+","")))}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
 \backslash
 
 \backslash
@@ -5377,6 +5618,7 @@ Note:
  Column (1) reports sample means at baseline and standard deviations below;
   column (2) reports differences between treatment and control groups and standard errors below;
  they are clustered at the level of randomization;
+ column (3) reports the number of observations;
  **,
  *,
  and + denote significance at the 1
@@ -5809,6 +6051,420 @@ Note:
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+with nobs,
+ but that makes 348 dealers vs.
+ 3470 farmers very salient:
+ 
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Attrition
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Survey-attrition-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{endline}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean  & treated & obs.
+ & mean & treated & obs.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-4} 
+\backslash
+cmidrule(lr){5-7}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Agro-dealer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionD[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionD[3,2,1]<.01,"**",ifelse(df_ols_attritionD[3,2,1]<.05,"*",ifelse(df_ols_attritionD[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionD_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritionD_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionD_end[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionD[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionD[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionD_end[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionD_end[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer left the sample
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_attritionF[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_attritionF[3,2,1]<.01,"**",ifelse(df_ols_attritionF[3,2,1]<.05,"*",ifelse(df_ols_attritionF[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[1,1],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_attritionF_end[3,2,1]<.01,"**",ifelse(df_ols_end_attritionF_end[3,2,1]<.05,"*",ifelse(df_ols_end_attritionF_end[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[3,1],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionF[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_attritionF[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_averages_attritionF_end[2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_attritionF_end[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Columns (1) and (4) report sample means at mid- and endline and standard deviations below;
+  columns (2) and (5) report differences between treatment and control groups and standard errors below;
+ they are clustered at the level of randomization;
+ columns (3) and (6) report the number of observations;
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Rating data
 \end_layout
@@ -5918,18 +6574,7 @@ name "section: Results"
 
 \begin_layout Standard
 We present the treatment effects on outcomes at both the farmer and agro-dealer levels after one agricultural season (midline) and two seasons (endline).
- Column (1) reports baseline sample means,
- with standard deviations in parentheses.
- These means are presented in levels,
- even when treatment effects are estimated using inverse hyperbolic sine transformations.
- Columns (2) and (4) report treatment effects at midline and endline,
- respectively,
- with standard errors in parentheses,
- and columns (3) and (5) report the corresponding number of observations for each regression.
-\end_layout
-
-\begin_layout Standard
-To address multiple hypothesis testing,
+ To address multiple hypothesis testing,
  outcomes are aggregated into indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -11978,10 +12623,6 @@ $^2$The comparisons were only made for agro-dealers where the enumerator was abl
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection
-ALL other
 \end_layout
 
 \begin_layout Section
