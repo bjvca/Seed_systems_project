@@ -6199,7 +6199,7 @@ i <- 6
 ols <- lm(as.formula(paste(paste(results_farmer_prim[i],"training_demeaned*clearing*farmer_demeaned",sep="~"),results_farmer_prim_base[i],sep="+")),data=baseline_farmers[baseline_farmers$agro_save==0,])
 vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
 
-df_ols_end_mech  <- array(NA,dim=c(4,3,11))
+df_ols_end_mech  <- array(NA,dim=c(4,3,17))
 
 df_ols_end_mech[1,2,1] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,1] <- coef_test(ols, vcov_cluster)$SE[3]
@@ -7570,6 +7570,11 @@ variables_ratingsF_mid <- cbind(baseline_farmers$mid_seed_quality_general_rating
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid)
 baseline_farmers$index_ratingsF_mid <- index_ratingsF_mid$index
 
+index_ratingsF_mid_Kling <- Kling_index(xmat=variables_ratingsF_mid)
+baseline_farmers$index_ratingsF_mid_Kling <- index_ratingsF_mid_Kling$index
+
+#here
+
 #for mean:
 variables_ratingsF_base <- cbind(baseline_farmers$seed_quality_general_rating,baseline_farmers$seed_yield_rating
                                 ,baseline_farmers$seed_drought_rating,baseline_farmers$seed_disease_rating
@@ -7577,6 +7582,9 @@ variables_ratingsF_base <- cbind(baseline_farmers$seed_quality_general_rating,ba
 
 index_ratingsF_base <- icwIndex(xmat=variables_ratingsF_base)
 baseline_farmers$index_ratingsF_base <- index_ratingsF_base$index
+
+index_ratingsF_base_Kling <- Kling_index(xmat=variables_ratingsF_base)
+baseline_farmers$index_ratingsF_base_Kling <- index_ratingsF_base_Kling$index
 
 # baseline_farmers$index_ratingsF_mid <- rowMeans(baseline_farmers[c("mid_seed_quality_general_rating","mid_seed_yield_rating",
 #                                                                     "mid_seed_drought_rating","mid_seed_disease_rating",
@@ -7771,7 +7779,8 @@ results_farmer_nobase <- c("index_ratingsF_mid"            #1
                            ,"index_farmer_adoption_mid"
                            ,"index_farmer_perceptions_mid"
                            ,"index_overall_yieldetc_mid_Kling" #15
-                           ,"index_farmer_adoption_mid_Kling") #16
+                           ,"index_farmer_adoption_mid_Kling" #16
+                           ,"index_ratingsF_mid_Kling") 
 
 #                          ,"mid_bought_last_season"      #13
 
@@ -7814,7 +7823,8 @@ df_means_end_F_nobase[2,13] <- sd(baseline_farmers$index_farmer_adoption_base,na
 df_means_end_F_nobase[1,14] <- mean(baseline_farmers$index_farmer_perceptions_base,na.rm = T)
 df_means_end_F_nobase[2,14] <- sd(baseline_farmers$index_farmer_perceptions_base,na.rm = T)
 
-
+df_means_end_F_nobase[1,17] <- mean(baseline_farmers$index_ratingsF_base_Kling,na.rm = T)
+df_means_end_F_nobase[2,17] <- sd(baseline_farmers$index_ratingsF_base_Kling,na.rm = T)
 
 ###
 #2#
@@ -7828,6 +7838,9 @@ baseline_farmers$training_control[baseline_farmers$training==1] <- FALSE
 #1.
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
 baseline_farmers$index_ratingsF_midT <- index_ratingsF_mid$index
+
+index_ratingsF_mid_Kling <- Kling_index(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$training_control)
+baseline_farmers$index_ratingsF_midT_Kling <- index_ratingsF_mid_Kling$index
 
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$training_control)
@@ -7876,7 +7889,8 @@ results_farmer_nobase <- c("index_ratingsF_midT"
                            ,"index_farmer_adoption_midT" #13
                            ,"index_farmer_perceptions_midT"
                            ,"index_overall_yieldetc_midT_Kling" #15
-                           ,"index_farmer_adoption_midT_Kling") 
+                           ,"index_farmer_adoption_midT_Kling"
+                           ,"index_ratingsF_midT_Kling") 
 
 #                           ,"mid_bought_last_season"
 
@@ -7898,6 +7912,9 @@ baseline_farmers$clearing_control[baseline_farmers$clearing==1] <- FALSE
 #1.
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
 baseline_farmers$index_ratingsF_midC <- index_ratingsF_mid$index
+
+index_ratingsF_mid_Kling <- Kling_index(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$clearing_control)
+baseline_farmers$index_ratingsF_midC_Kling <- index_ratingsF_mid_Kling$index
 
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$clearing_control)
@@ -7946,7 +7963,8 @@ results_farmer_nobase <- c("index_ratingsF_midC"
                            ,"index_farmer_adoption_midC"
                            ,"index_farmer_perceptions_midC"
                            ,"index_overall_yieldetc_midC_Kling"
-                           ,"index_farmer_adoption_midC_Kling")
+                           ,"index_farmer_adoption_midC_Kling"
+                           ,"index_ratingsF_midC_Kling")
 
 #                          ,"mid_bought_last_season"
 
@@ -7968,6 +7986,15 @@ df_ols_end_mech[1,2,2] <- coef_test(ols, vcov_cluster)$beta[3]
 df_ols_end_mech[2,2,2] <- coef_test(ols, vcov_cluster)$SE[3]
 df_ols_end_mech[3,2,2] <- coef_test(ols, vcov_cluster)$p_Satt[3]
 df_ols_end_mech[4,2,2] <- nobs(ols)
+
+i <- 17
+ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$agro_save==0,])
+vcov_cluster <- vcovCR(ols,cluster=baseline_farmers[baseline_farmers$agro_save==0,]$catchID,type="CR0")
+
+df_ols_end_mech[1,2,17] <- coef_test(ols, vcov_cluster)$beta[3]
+df_ols_end_mech[2,2,17] <- coef_test(ols, vcov_cluster)$SE[3]
+df_ols_end_mech[3,2,17] <- coef_test(ols, vcov_cluster)$p_Satt[3]
+df_ols_end_mech[4,2,17] <- nobs(ols)
 
 i <- 2
 ols <- lm(as.formula(paste(results_farmer_nobase[i],"training_demeaned*clearing*farmer_demeaned",sep="~")),data=baseline_farmers[baseline_farmers$agro_save==0,])
@@ -7998,6 +8025,9 @@ baseline_farmers$farmer_control[baseline_farmers$farmer==1] <- FALSE
 #1.
 index_ratingsF_mid <- icwIndex(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
 baseline_farmers$index_ratingsF_midF <- index_ratingsF_mid$index
+
+index_ratingsF_mid_Kling <- Kling_index(xmat=variables_ratingsF_mid,sgroup = baseline_farmers$farmer_control)
+baseline_farmers$index_ratingsF_midF_Kling <- index_ratingsF_mid_Kling$index
 
 #2.
 index_ratingsshopF_mid <- icwIndex(xmat=variables_ratingsshopF_mid,sgroup = baseline_farmers$farmer_control)
@@ -8038,7 +8068,8 @@ results_farmer_nobase <- c("index_ratingsF_midF"
                            ,"index_overall_yieldetc_midF"
                            ,"mid_Check2.check.maize.q56"
                            ,"index_farmer_adoption_midF"
-                           ,"index_farmer_perceptions_midF")
+                           ,"index_farmer_perceptions_midF"
+                           )
 
 #                           ,"mid_bought_last_season"
 
