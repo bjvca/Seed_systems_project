@@ -372,16 +372,6 @@ high-yielding maize varieties
 \end_inset
 
  refers to both open-pollinated varieties (OPVs) and hybrids that have been genetically improved through breeding programs.
- Relatedly,
- we use the term 
-\begin_inset Quotes eld
-\end_inset
-
-farmer-saved seed
-\begin_inset Quotes erd
-\end_inset
-
- in this study to refer to seed that is of an unknown progeny or quality and performs poorly relative to fresh hybrid or OPV seed purchased from an agro-input shop.
  We explain the terminology and our rationale for using this terminology in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -427,9 +417,28 @@ literal "false"
 \end_inset
 
  show using DNA fingerprinting that seed quality declines along the supply chain relative to samples from seed companies.
- Whether due to counterfeiting or mishandling,
- such quality concerns increase farmers’ uncertainty about the performance of seed purchased from agro-dealers.
- 
+ Recent evidence further suggests that the formal seed certification system fails to provide farmers with a reliable signal of seed quality 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "https://doi.org/10.1111/1477-9552.70002"
+literal "false"
+
+\end_inset
+
+.
+ Such quality concerns increase farmers’ uncertainty about the performance of seed purchased from agro-dealers,
+ a critical distribution channel for agricultural technologies.
+ Agro-dealers are highly local,
+ small-scale businesses that sell seeds and other inputs such as agrochemicals and serve as an important interface between seed suppliers and farmers.
+ The crucial role of Agro-dealers has been highlighted by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "dar2020private"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -458,49 +467,127 @@ literal "false"
  pests,
  and management practices.
  As a result,
- farmers may find it difficult to infer whether observed yields reflect seed performance or other production factors,
- slowing their learning about the profitability of improved seed and discouraging engagement with agro-dealers in favor of outside options such as farmer-saved seed.
+ individual farmers may find it difficult to infer whether observed yields reflect seed performance or other production factors,
+ slowing their learning about the profitability of improved seed and discouraging engagement with agro-dealers in favor of available alternatives such as farmer-saved seed.
 \end_layout
 
 \begin_layout Standard
-here
+At the same time,
+ information about seed performance is dispersed across many farmers who each observe only their own outcomes.
+ While farmers may exchange experiences within their social networks,
+ these conversations typically involve small numbers of peers and may not capture the broader distribution of experiences with seed sold by agro-dealers.
+ As a result,
+ farmers rarely observe enough independent experiences to form reliable expectations about seed performance.
+ This fragmentation of information limits the extent to which farmers can learn collectively about seed performance in local markets.
 \end_layout
 
 \begin_layout Standard
-In this paper we study whether providing farmers with aggregated information about other farmers’ experiences can influence these beliefs and affect adoption decisions.
- We implement a decentralized information clearinghouse that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings summarizing the experiences of multiple farmers.
+This paper studies whether aggregating information about other farmers’ experiences can help resolve uncertainty about seed performance and influence adoption decisions.
+ We introduce a system that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings summarizing the experiences of multiple farmers.
  These ratings are disseminated to both farmers and agro-dealers before the following planting season.
- While individual experiences may provide limited information about seed performance,
- aggregating experiences across many farmers operating under similar conditions can provide a more informative signal.
- When this aggregated signal differs from farmers’ prior beliefs,
- it may lead them to revise their perceptions of seed performance and adjust their purchasing decisions.
+ By aggregating experiences across many farmers operating under similar conditions,
+ the system provides a signal about seed performance that individual farmers may find difficult to obtain through their own experimentation.
+ Unlike marketing claims,
+ certification,
+ or regulatory quality assurance systems,
+ the ratings are based on farmers’ realized production outcomes and therefore reflect actual seed performance in local farming conditions.
 \end_layout
 
 \begin_layout Standard
-We test this approach in a randomized controlled trial involving approximately 350 agro-dealers and 3,500 smallholder maize farmers in eastern Uganda over two agricultural seasons.
- Exposure to aggregated peer ratings increases farmers’ perceived performance of seed sold by agro-dealers and leads to higher adoption of high-yielding maize seed purchased from these sellers.
- Treated farmers achieve higher yields and greater production value on maize plots.
+We test this approach in a randomized controlled trial (RCT) involving approximately 3,500 smallholder farmers and associated 350 agro-dealers in the market for high-yielding maize varieties in eastern Uganda over two agricultural seasons.
+ Exposure to aggregated peer ratings increases farmers’ perceptions of the performance of seed sold by agro-dealers and leads to higher adoption of high-yielding maize seed purchased from these sellers.
+ Treated farmers also achieve higher productivity and improved harvest outcomes.
  At the same time,
  we find no evidence that the intervention improves the underlying performance of seed sold by agro-dealers or induces farmers to switch between agro-dealers.
- These findings are consistent with the intervention affecting farmers’ beliefs about seed performance rather than changes in seed quality or seller selection.
+ These findings are consistent with the intervention affecting farmers’ beliefs about seed performance rather than changes in seed performance or seller selection.
 \end_layout
 
 \begin_layout Standard
-This paper contributes to the literature on agricultural technology adoption by highlighting the role of beliefs about input performance in shaping farmers’ engagement with input markets.
- While previous work has documented quality problems in seed systems and the importance of input quality for agricultural productivity (Michelson et al.,
- 2023),
- much less is known about how farmers’ perceptions of input performance affect adoption decisions.
- Our results show that providing aggregated peer information about seed performance can shift farmers’ beliefs,
- increase adoption of improved seed purchased from agro-dealers,
- and improve productivity outcomes.
- More broadly,
- the findings illustrate how information generated within farmer communities can influence technology adoption in environments where input performance is uncertain.
- By aggregating farmers’ experiences into a structured signal,
- such information can complement individual learning and shape adoption decisions even when the underlying quality of inputs does not change.
+By providing evidence on how aggregating peer information about seed performance can effectively influence farmers’ beliefs and adoption decisions,
+ our study contributes to the literature on agricultural technology adoption.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1257/jep.36.1.33"
+literal "false"
+
+\end_inset
+
+ review key barriers to adoption,
+ while 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "MICHELSON2023102424"
+literal "false"
+
+\end_inset
+
+ highlight the role of input quality uncertainty.
+ Our paper advances this literature in three ways.
+ First,
+ most studies focus on regulatory seed quality assurance systems such as certification.
+ We test an innovative intervention with several advantages relative to other sources of information about seed performance:
+ it captures multiple dimensions of seed quality that matter to farmers,
+ reaches farmers who do not typically purchase from agro-dealers,
+ is decentralized and does not rely on institutional capacity or government trust,
+ and is agnostic with respect to seed performance,
+ yielding insights for both public policy and the private sector.
+ Second,
+ together with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "dar2020private"
+literal "false"
+
+\end_inset
+
+,
+ our study is among the few that connect the farmer perspective with the agro-dealer perspective,
+ providing a fuller picture than studies focusing on buyers or sellers alone.
+ Third,
+ the combination of positive treatment effects on perceptions,
+ adoption,
+ and productivity suggests that farmers’ prior beliefs about seed performance were overly pessimistic.
+ These pessimistic beliefs help explain why adoption of agro-dealer seed remains below welfare-optimal levels.
+ While overly pessimistic beliefs have been documented in fertilizer markets 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
+literal "false"
+
+\end_inset
+
+,
+ we provide the first evidence of this mechanism in seed markets.
 \end_layout
 
 \begin_layout Standard
-The remainder of the paper proceeds as follows.
+More broadly,
+ our paper relates to a literature on the impact of crowd-sourced quality information on market outcomes.
+ The rise of digital platforms and e-commerce has enabled consumers to share feedback widely,
+ and a growing body of research examines the effects of such reviews 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/0022051041409075,https://doi.org/10.1111/j.1756-2171.2006.tb00067.x,10.1257/jel.48.4.935,reimers2021digitization"
+literal "false"
+
+\end_inset
+
+.
+ In smallholder agriculture,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "false"
+
+\end_inset
+
+ show that crowd-sourced information on the quality and pricing of artificial livestock insemination services in Pakistan increases insemination success by improving veterinarian effort.
+\end_layout
+
+\begin_layout Standard
+The rest of this paper is organized as follows.
  Section 2 presents the conceptual framework.
  Section 3 describes the experimental design.
  Section 4 outlines the empirical strategy.
@@ -510,138 +597,10 @@ The remainder of the paper proceeds as follows.
 \end_layout
 
 \begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-These challenges raise the question of whether information aggregated from the experiences of multiple farmers can help update beliefs about seed performance.
- In this paper,
- we study whether providing farmers with such aggregated peer information affects perceptions of seed quality and adoption decisions.
- We implement a decentralized information clearinghouse that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings that summarize the experiences of multiple farmers.
-\end_layout
-
-\begin_layout Standard
-When farmers are uncertain about the expected performance of seed relative to outside options such as farmer-saved seed,
- adoption decisions depend critically on their beliefs about seed performance.
-\end_layout
-
-\begin_layout Standard
-In such settings characterized by seed performance uncertainty,
- the decision to purchase seed from an agro-dealer depends on farmers’ beliefs about the expected performance of such seed relative to available alternatives,
- such as farmer-saved seed,
- taking into account the resources required for purchase.
-\end_layout
-
-\begin_layout Standard
-Hence we propose an alternative mechanism that supports farmers in identifying quality at the time of purchase.
- We aggregate the experiences of farmers who have purchased seed from agro-dealers provides a summary signal of that performance.
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-We test this approach through a randomized controlled trial (RCT) involving farmers and associated agro-dealers in the emerging market for high-yielding maize varieties in eastern Uganda.
- Agro-dealers are a critical distribution channel for agricultural technologies in contexts where smallholders often live in remote areas with limited infrastructure.
- While a reasonably dense network of agro-dealers improves access to inputs.
- 
-\end_layout
-
-\begin_layout Standard
-Our second hypothesis posits that providing a signal of seed quality – accessible to both buyers and sellers – will increase adoption.
- To test this,
- we implement a decentralized information clearinghouse based on farmers’ crowd-sourced ratings of agro-dealers and their products.
- These ratings are aggregated into scores and rankings,
- and disseminated to farmers.
- Agro-dealers also receive a certificate displaying their rating,
- making the information visible beyond the study sample and increasing exposure,
- much like platforms such as Yelp or TripAdvisor.
-\end_layout
-
-\begin_layout Standard
-This second intervention rests on the assumption that,
- while individual farmers cannot reliably assess seed quality at the time of purchase and often struggle to do so after one or two trials,
- groups of farmers can effectively evaluate it after planting and harvesting,
- consistent with the prevailing consensus in the literature 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "MICHELSON2023102424"
-literal "false"
-
-\end_inset
-
-.
- Specifically,
- we assume that individual ratings are noisy but unbiased signals distributed around the true mean,
- so that aggregating ratings across many farmers operating under similar conditions (large 
-\begin_inset ERT
-status open
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
-
-$N$
-\end_layout
-
-\end_inset
-
-) provides a good signal of quality.
- This reduces the need for individual farmers to learn through repeated use over multiple seasons (large 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$T$
-\end_layout
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-The rating system may help overcome information frictions that hinder technology adoption through several channels.
- If ratings exceed farmers’ prior beliefs,
- the information clearinghouse improves perceptions of seed quality – especially among non-adopting farmers with limited experience of high-yielding maize varieties.
-\end_layout
-
-\begin_layout Standard
-We test the two hypotheses through an RCT involving 350 agro-dealers and 3,500 associated smallholder maize farmers in eastern Uganda over two agricultural seasons.
- The information clearinghouse improved key outcomes for both groups.
- Agro-dealers adjusted their behavior in response but did not improve seed handling practices that directly affect quality.
- Instead,
- they focused on signaling quality and enhancing customer service to boost their ratings.
- They also attracted more business,
- though seed quality remained unchanged.
- On the farmer side,
- we find no switching to higher-rated sellers,
- but the intervention improved perceptions of seed quality – likely because ratings exceeded prior beliefs – which increased adoption of high-yielding maize and improved harvest and sales outcomes.
- In contrast,
- the agro-dealer training had no meaningful effect:
- it failed to enhance knowledge,
- seed handling,
- or service,
- and did not impact seed quality,
- agro-dealer business,
- or farmer outcomes.
-\end_layout
-
-\begin_layout Standard
-Our study contributes to several strands of the literature.
-\end_layout
-
-\begin_layout Standard
-added value of this study:
- buyer and seller perspective.
-\end_layout
-
-\begin_layout Standard
-Furthermore,
- our paper contributes to a growing literature on using crowd-sourced quality information to reduce information asymmetries and increase market transparency.
- The rise of digital platforms and e-commerce has enabled consumers to widely share feedback,
- spurring research on the impact of such reviews.
- 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.1257/0022051041409075"
@@ -686,69 +645,11 @@ literal "false"
 \end_inset
 
  find that crowd-based Amazon star ratings for books generate over ten times the consumer welfare impact of traditional review outlets.
- In the context of smallholder agriculture,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "hasanain2019no"
-literal "false"
+\end_layout
 
 \end_inset
 
- implement a crowd-sourced clearinghouse on the quality and pricing of artificial livestock insemination services in Pakistan.
- Peer signals lead to a 25% increase in insemination success without price changes,
- driven by veterinarians exerting greater effort in response to enhanced transparency,
- rather than farmers switching to higher-quality providers.
-\end_layout
 
-\begin_layout Standard
-Lastly,
- our study deepens the understanding of agricultural technology adoption.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1257/jep.36.1.33"
-literal "false"
-
-\end_inset
-
- review key barriers to adoption,
- while 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "MICHELSON2023102424"
-literal "false"
-
-\end_inset
-
- emphasize the importance of input quality constraints in particular.
- Our paper advances this literature by highlighting the role of supply-side quality constraints in limiting the uptake of improved agricultural inputs.
- It also shows that decentralized institutions – such as peer-based rating systems – can complement formal regulation in low-governance settings,
- with important implications for both public policy and private sector.
-\end_layout
-
-\begin_layout Standard
-Also,
- we are the first to prove that beliefs are too pessimistic.
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-A welfare-oriented pitch:
- the paper provides evidence consistent with farmers being below the welfare-optimal level of agro-dealer seed adoption because of overly pessimistic beliefs.
- Aggregated peer ratings move behavior in a direction associated with higher yields and net output.
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-added value of this study:
- buyer and seller perspective.
 \end_layout
 
 \begin_layout Standard
@@ -1012,9 +913,14 @@ Farmers hold prior beliefs about seed performance at agro-dealers that are suffi
 \end_layout
 
 \begin_layout Enumerate
-Learning about seed performance through own experience is sufficiently noisy,
+Individual learning about seed performance through own experience is sufficiently noisy,
  slow,
  and costly that beliefs do not rapidly self-correct.
+\end_layout
+
+\begin_layout Enumerate
+Individual experiences provide noisy but approximately unbiased signals around the true mean,
+ so that aggregating experiences across many farmers produces an informative signal about seed performance.
 \end_layout
 
 \begin_layout Enumerate
