@@ -210,6 +210,10 @@ Concerns about the (perceived) quality of agricultural technologies are increasi
 \end_layout
 
 \begin_layout Abstract
+Conclusion
+\end_layout
+
+\begin_layout Abstract
 \begin_inset Newpage newpage
 \end_inset
 
@@ -222,9 +226,9 @@ Concerns about the (perceived) quality of agricultural technologies are increasi
 Notes:
 
 \series default
- Author names are listed in alphabetical order.
- The experiment underlying this paper is registered in the American Economic Association's registry for randomized controlled trials (AEARCTR-0006361).
- The study received ethical clearance from the Research and Ethics Committee of the School of Social Sciences at Makerere University (08.20.436/PR1) and from the Institutional Review Board of the International Food Policy Research Institute (DSGD-20-0829).
+ Authors are listed in alphabetical order.
+ The experiment underlying this paper is registered in the American Economic Association’s registry for randomized controlled trials (AEARCTR-0006361).
+ The study received ethical approval from the Research and Ethics Committee of the School of Social Sciences at Makerere University (08.20.436/PR1) and from the Institutional Review Board of the International Food Policy Research Institute (DSGD-20-0829).
  It is also registered with the Uganda National Council for Science and Technology (SS603ES).
 \end_layout
 
@@ -234,16 +238,17 @@ Notes:
 Keywords:
 
 \series default
- information asymmetries,
- market transparency,
- information clearinghouse,
- training,
  agricultural technology adoption,
+ improved seed,
  agricultural input quality,
+ performance uncertainty,
+ beliefs,
+ aggregated peer information,
  agro-dealers,
  smallholder farmers,
  randomized controlled trial,
- Uganda
+ Uganda,
+ Sub-Saharan Africa
 \end_layout
 
 \begin_layout Abstract
@@ -253,7 +258,6 @@ JEL Classifications:
 
 \series default
  D83,
- D82,
  O33,
  Q12,
  Q16,
@@ -269,8 +273,7 @@ Acknowledgments:
  We are grateful to Charles Marc Wanume,
  Leocardia Nabwire,
  Richard Ariong,
- and Wilberforce Walukano for their invaluable support in the field.
- 
+ and Wilberforce Walukano for invaluable field support.
 \begin_inset Note Note
 status collapsed
 
@@ -285,33 +288,34 @@ We thank Erwin Bulte,
  Lore Vandewalle,
  Martin Paul Jr.
  Tabe-Ojong,
- and Miet Maertens for their insightful comments and suggestions.
+ and Miet Maertens for insightful comments and suggestions.
 \end_layout
 
 \end_inset
 
- We also gratefully acknowledge constructive feedback from participants at seminars held at KU Leuven,
+ We also thank participants at seminars at KU Leuven,
  Wageningen University,
  UCLouvain,
- and the Lisbon Micro Group,
- as well as from attendees of the Netherlands-Consultative Group for International Agricultural Research (NL-CGIAR) Conference 2022,
+ the Lisbon Micro Group,
+ and the University of Antwerp,
+ as well as at the Netherlands-Consultative Group for International Agricultural Research (NL-CGIAR) Conference 2022,
  the AgEconMeeting 2022,
  the Integrated Seed Sector Development Africa Synthesis Conference 2022,
  the Centre for the Study of African Economies Conference 2023,
- the 32nd International Conference of Agricultural Economists 2024,
- and the NOVAFRICA Conference 2024.
+ the International Conference of Agricultural Economists 2024,
+ the NOVAFRICA Conference 2024,
+ and the Christmas Meeting of Belgian Economists 2025 for helpful feedback.
 \end_layout
 
 \begin_layout Abstract
-This project received funding from the NL-CGIAR research programme on Seed Systems Development (grant number W08.240.105),
+This project received funding from the NL-CGIAR research programme on Seed Systems Development (grant W08.240.105),
  funded by the Netherlands Organisation for Scientific Research.
  Additional financial support was provided by the Fonds Wetenschappelijk Onderzoek – Vlaanderen and the Fonds de la Recherche Scientifique under EOS project G0G4318N.
  We also acknowledge support from the CGIAR Research Program on Policies,
  Institutions,
- and Markets (PIM),
- and the CGIAR Seed Equal Research Initiative,
+ and Markets and the CGIAR Seed Equal Research Initiative,
  both funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
- Caroline Miehe further benefited from funding from the Fundação para a Ciência e a Tecnologia/Aga Khan Development Network (FCT/AKDN).
+ Caroline Miehe further acknowledges funding from the Fundação para a Ciência e a Tecnologia/Aga Khan Development Network.
 \end_layout
 
 \begin_layout Abstract
@@ -323,6 +327,31 @@ This project received funding from the NL-CGIAR research programme on Seed Syste
 
 \begin_layout Section
 Introduction
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Research question(s):
+\end_layout
+
+\begin_layout Plain Layout
+* the impact of intervention (aggregated peer ratings) on beliefs,
+ adoption,
+ productivity
+\end_layout
+
+\begin_layout Plain Layout
+* how to help farmers form expectations about seed performance successfully?
+ how to signal seed performance successfully?
+\end_layout
+
+\begin_layout Plain Layout
+* how to increase (agro-dealer seed) adoption?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -352,7 +381,7 @@ literal "false"
 An important additional explanation is that farmers have uncertain beliefs about the performance of agricultural inputs sold by agro-dealers 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "MICHELSON2021102579"
+key "MICHELSON2021102579,MICHELSON2023102424"
 literal "false"
 
 \end_inset
@@ -368,7 +397,38 @@ literal "false"
 
 .
  For example,
- in the market for high-yielding maize seed in Uganda,
+ in the market for high-yielding maize seed
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In this study,
+ the term 
+\begin_inset Quotes eld
+\end_inset
+
+high-yielding maize varieties
+\begin_inset Quotes erd
+\end_inset
+
+ refers to both open-pollinated varieties (OPVs) and hybrids that have been genetically improved through breeding programs.
+ We explain the terminology and our rationale for using this terminology in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "A.1 Context on seeds and their quality"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ in Uganda,
  several studies document substantial performance uncertainty.
  
 \begin_inset CommandInset citation
@@ -440,10 +500,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-here
-\end_layout
-
-\begin_layout Standard
 In such settings,
  several approaches aim to help farmers form expectations about seed performance.
  Seed companies seek to signal performance through labeling,
@@ -462,7 +518,7 @@ literal "false"
  including certification,
  are intended to ensure seed performance,
  but they are costly and their effectiveness is often constrained where institutional capacity for implementation and enforcement is limited.
- While evidence from Nigeria shows that the availability of certified seed is associated with positive but declining marginal effects on certified seed use 
+ While evidence from Nigeria shows that the availability of certified seed is associated with positive marginal effects on certified seed use 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "TAKESHIMA2025104268"
@@ -488,13 +544,12 @@ literal "false"
 
 \begin_layout Standard
 Furthermore,
- seed company signals and certification reach farmers only at the point of sale,
- when they visit agro-dealers,
- limiting their relevance for farmers who rarely engage with the formal seed market.
+ seed company signals and certification reach farmers only when they visit agro-dealers,
+ limiting their relevance for shaping expectations among farmers who rarely engage with the formal seed market.
  Moreover,
  in contexts where seed handling and storage may be poor 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 key "BARRIGA2020104928"
 literal "false"
 
@@ -503,114 +558,37 @@ literal "false"
 ,
  a seed batch may be certified or quality declared and carry credible labeling,
  branding,
- or packaging,
+ and packaging,
  yet still perform poorly in terms of germination and yield.
 \end_layout
 
 \begin_layout Standard
-here
+We propose a simple alternative approach.
+ Building on a well-established literature documenting the importance of peers in agricultural technology adoption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "foster1995learning,https://doi.org/10.1111/j.1468-0297.2006.01115.x,10.1257/aer.100.1.35"
+literal "false"
+
+\end_inset
+
+,
+ we test whether aggregating information on peers’ experiences can help farmers form expectations about seed performance.
+ We introduce a system that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings that summarize the experiences of multiple farmers facing similar conditions.
+ These ratings are disseminated to both farmers and agro-dealers,
+ providing a summary signal about seed performance at agro-dealers that individual farmers may find difficult to obtain through their own experimentation or social networks.
 \end_layout
 
 \begin_layout Standard
-In conclusion,
- interventions and policies that align farmers’ beliefs about seed performance with reality are still lacking.
-\end_layout
-
-\begin_layout Standard
-Seed certification and quality control guarantee varietal identity and purity
-\end_layout
-
-\begin_layout Standard
-there has not been indentified an intervention or policy that works,
- effectively moved beliefs,
- adoption and agricuçtural productivity to the welfar optimal level.
- 
-\end_layout
-
-\begin_layout Standard
-This paper studies whether aggregated peer information can improve farmers’ beliefs and adoption decisions in a setting where learning about seed performance at agro-dealers is noisy,
- slow,
- and costly.
- When farmers’ beliefs about seed performance are imprecise or biased,
- information interventions can shape belief formation.
- In particular,
- information that aggregates the experiences of farmers who have purchased seed from agro-dealers provides a summary signal of that performance.
- As a result,
- such information primarily affects the precision of beliefs rather than their level.
- For these farmers,
- aggregated peer information does more than reduce noise:
- when it differs from prior beliefs,
- it can shift expectations about seed performance and thereby affect the threshold for initial engagement with agro-dealers.
-\end_layout
-
-\begin_layout Standard
-For farmers who have previously purchased seed from agro-dealers,
- aggregated peer information mainly affects the precision of beliefs.
- By reducing uncertainty around seed performance,
- information can increase confidence.
- While this does not change average beliefs,
- greater precision can increase adoption by reducing hesitation or perceived ambiguity around seed purchase.
-\end_layout
-
-\begin_layout Standard
-For farmers who have not previously purchased seed from agro-dealers,
- aggregated peer information can affect adoption by shifting beliefs about seed performance.
- When the aggregated signal is more favorable than prior beliefs,
- it increases the likelihood of adoption;
- when it is less favorable,
- it decreases adoption.
-\end_layout
-
-\begin_layout Standard
-peer assessments by farmers operating under similar conditions may better reflect the dimensions of seed quality that matter most to farmers.
- A substantial body of research underscores the importance of peer effects in technology adoption (Foster and Rosenzweig,
- 1995;
- Bandiera and Rasul,
- 2006;
- Conley and Udry,
- 2010).
- Drawing on both personal experience and the experiences of others in similar environments is therefore likely to yield especially valuable signals about seed quality.
-\end_layout
-
-\begin_layout Standard
-farm-household survey panel data
-\end_layout
-
-\begin_layout Standard
-also,
- causal evidence,
- RCT
-\end_layout
-
-\begin_layout Standard
-Hence we propose an altaernative inherently simple but carefully designed intervention that addresses these limitations:
- This paper studies whether aggregating information about other farmers’ experiences can help resolve uncertainty about seed performance,
- influence beliefs,
- adoption decisions,
- and eventually productivty.
- We introduce a system that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings summarizing the experiences of multiple farmers.
- These ratings are disseminated to both farmers and agro-dealers before the following planting season.
- By aggregating experiences across many farmers operating under similar conditions,
- the system provides a signal about seed performance that individual farmers may find difficult to obtain through their own experimentation.
- Unlike marketing or regulatory quality assurance systems,
- the ratings are based on farmers’ realized production outcomes and therefore reflect actual seed performance in local farming conditions.
-\end_layout
-
-\begin_layout Standard
-The rating system studied in this paper addresses several of these limitations.
- By aggregating the experiences of farmers who planted seed purchased from agro-dealers,
- the system provides a signal based on realized seed performance under local conditions,
- capturing the full range of seed quality dimensions that matter to farmers.
- These ratings are communicated directly through SMS and enumerator visits,
- allowing the information to reach farmers who do not typically purchase seed from agro-dealers.
- Because the signal is generated by farmers rather than regulatory institutions,
- it does not rely on institutional capacity or government trust.
-\end_layout
-
-\begin_layout Standard
-Finally,
- the intervention is agnostic with respect to seed performance.
- If seed sold by agro-dealers performs poorly – as suggested in some studies 
+Aggregated peer ratings address key limitations of existing approaches.
+ They are based on farmers’ realized production outcomes and therefore reflect seed performance under local conditions.
+ They are disseminated directly to farmers,
+ allowing the information to reach those who do not typically visit agro-dealers.
+ The system is decentralized and does not rely on institutional capacity.
+ Finally,
+ it is agnostic with respect to seed performance:
+ if seed sold by agro-dealers performs poorly,
+ as suggested in some studies 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon,BARRIGA2020104928,Ilukor2025"
@@ -618,77 +596,59 @@ literal "false"
 
 \end_inset
 
- – aggregated ratings will reflect this rather than systematically steering farmers toward low-performing sellers.
-\end_layout
-
-\begin_layout Standard
-We test this approach in a randomized controlled trial (RCT) involving approximately 3,500 smallholder farmers and associated 350 agro-dealers in the market for high-yielding maize varieties in eastern Uganda over two agricultural seasons.
- We do not only test whether the intervention works,
- but collect data that allows us to understand how and why exactly it works and all mechanisms along the way.
- We collect detailed farm household plot data on beliefs,
- several measures of adoption but also data that allows us to exclude aletrnative mechanisms such as swicthing and objectibe seed performace.
- Furthermore,
- we do not stop investigating the causal chain at adoption,
- but collect data on yield,
- productivity,m income etc.
- to get a full picture.
- Second,
- together with 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "dar2020private"
-literal "false"
-
-\end_inset
-
 ,
- our study is among the few that connect the farmer perspective with the agro-dealer perspective,
- providing a fuller picture than studies focusing on buyers or sellers alone..
- WIth a well-powered sample of 3,500 smallholder farmers and associated 350 agro-dealers we are in best hape to investigate effects on all this.
+ the ratings will reflect this rather than steer farmers toward low-performing sellers.
 \end_layout
 
 \begin_layout Standard
-Exposure to aggregated peer ratings increases farmers’ perceptions of the performance of seed sold by agro-dealers and leads to higher adoption of high-yielding maize seed purchased from these sellers.
- Treated farmers also achieve higher productivity and improved harvest outcomes.
- At the same time,
- we find no evidence that the intervention improves the underlying performance of seed sold by agro-dealers or induces farmers to switch between agro-dealers.
- These findings are consistent with the intervention affecting farmers’ beliefs about seed performance rather than changes in seed performance or seller selection.
+We hypothesize that aggregated peer information reduces uncertainty and increases confidence among farmers with prior agro-dealer purchasing experience,
+ and shifts beliefs about seed performance among those without prior purchasing experience.
+ These changes in beliefs affect adoption decisions and,
+ ultimately,
+ agricultural productivity.
 \end_layout
 
 \begin_layout Standard
-By providing evidence on how aggregating peer information about seed performance can effectively influence farmers’ beliefs and adoption decisions,
- our study contributes to the literature on agricultural technology adoption.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1257/jep.36.1.33"
-literal "false"
+We test this approach in a randomized controlled trial (RCT) involving approximately 3,500 smallholder farmers and 350 agro-dealers in the market for high-yielding maize seed in eastern Uganda.
+ The randomized design allows us to estimate causal effects,
+ while three rounds of detailed data enable us to understand how and why the intervention affects behavior.
+ We track outcomes along the full causal chain,
+ from farmers’ perceptions and adoption decisions to agricultural productivity.
+ Additional data on farmers’ choice of agro-dealers,
+ agro-dealer practices and services,
+ and objective indicators of seed performance allow us to rule out alternative mechanisms.
+\end_layout
 
-\end_inset
+\begin_layout Standard
+Aggregated peer ratings increase farmers’ perceptions of the performance of seed sold by agro-dealers and lead to higher adoption of high-yielding maize seed and higher productivity.
+ We find no evidence that the intervention improves the underlying performance of seed sold by agro-dealers or induces farmers to switch between sellers,
+ consistent with the intervention working through farmers’ beliefs about seed performance.
+\end_layout
 
- review key barriers to adoption,
- while 
+\begin_layout Standard
+This paper contributes to the literature on agricultural technology adoption,
+ particularly on the role of input quality uncertainty 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 key "MICHELSON2023102424"
 literal "false"
 
 \end_inset
 
- highlight the role of input quality uncertainty.
- Our paper advances this literature in three ways.
+ and farmers’ beliefs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
+literal "false"
+
+\end_inset
+
+.
+ We advance this literature in three ways.
  First,
- most studies focus on regulatory seed quality assurance systems such as certification.
- We test an innovative intervention with several advantages relative to other sources of information about seed performance:
- it captures multiple dimensions of seed quality that matter to farmers,
- reaches farmers who do not typically purchase from agro-dealers,
- is decentralized and does not rely on institutional capacity or government trust,
- and is agnostic with respect to seed performance,
- yielding insights for both public policy and the private sector.
- Great intervention.
- Probably scalable (smartphoens).
- Identify an intervention that reduces performance uncertainty and increases adoption.
- and *how* it works.
+ we introduce an intervention that addresses limitations of existing seed performance signals,
+ improves farmers’ beliefs about seed performance,
+ and increases adoption and productivity.
  Second,
  together with 
 \begin_inset CommandInset citation
@@ -699,13 +659,13 @@ literal "false"
 \end_inset
 
 ,
- our study is among the few that connect the farmer perspective with the agro-dealer perspective,
- providing a fuller picture than studies focusing on buyers or sellers alone.
+ our study is among the few to connect farmer and agro-dealer perspectives,
+ providing a more complete picture than studies focusing on buyers or sellers alone.
  Third,
  the combination of positive treatment effects on perceptions,
  adoption,
- and productivity suggests that farmers’ prior beliefs about seed performance were overly pessimistic.
- These pessimistic beliefs help explain why adoption of agro-dealer seed remains below welfare-optimal levels.
+ and productivity suggests that farmers’ prior beliefs about seed performance were overly pessimistic,
+ helping to explain why adoption of agro-dealer seed remains below optimal levels.
  While overly pessimistic beliefs have been documented in fertilizer markets 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -720,7 +680,7 @@ literal "false"
 
 \begin_layout Standard
 More broadly,
- our paper relates to a literature on the impact of crowd-sourced quality information on market outcomes.
+ this paper relates to a literature on the impact of crowd-sourced quality information on market outcomes.
  The rise of digital platforms and e-commerce has enabled consumers to share feedback widely,
  and a growing body of research examines the effects of such reviews 
 \begin_inset CommandInset citation
@@ -744,34 +704,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The rest of this paper is organized as follows.
- Section 2 presents the conceptual framework.
- Section 3 describes the experimental design.
- Section 4 outlines the empirical strategy.
- Section 5 describes the data.
- Section 6 presents the results,
- and Section 7 concludes.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-In this study,
- the term 
-\begin_inset Quotes eld
-\end_inset
-
-high-yielding maize varieties
-\begin_inset Quotes erd
-\end_inset
-
- refers to both open-pollinated varieties (OPVs) and hybrids that have been genetically improved through breeding programs.
- We explain the terminology and our rationale for using this terminology in Appendix 
+The remainder of the paper is organized as follows.
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "A.1 Context on seeds and their quality"
+reference "2 Conceptual framework"
 plural "false"
 caps "false"
 noprefix "false"
@@ -779,15 +716,67 @@ nolink "false"
 
 \end_inset
 
-.
-\end_layout
+ presents the conceptual framework,
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "3 Experimental design"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
+ describes the experimental design,
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "4 Empirical strategy"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
+ outlines the empirical strategy,
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "5 Data"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ describes the data,
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "6 Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the results,
+ and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "7 Conclusion"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ concludes.
 \begin_inset Note Note
 status collapsed
 
@@ -843,15 +832,15 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\begin_layout Section
+Conceptual framework
+\begin_inset CommandInset label
+LatexCommand label
+name "2 Conceptual framework"
+
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Conceptual framework
 \begin_inset Note Note
 status collapsed
 
@@ -1174,6 +1163,13 @@ Treatment effects occur without improvements in seed performance or agro-dealer 
 
 \begin_layout Section
 Experimental design
+\begin_inset CommandInset label
+LatexCommand label
+name "3 Experimental design"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1902,7 +1898,7 @@ name "SeedAdvisor certificate"
 Empirical strategy
 \begin_inset CommandInset label
 LatexCommand label
-name "section: Empirical strategy"
+name "4 Empirical strategy"
 
 \end_inset
 
@@ -2042,7 +2038,7 @@ literal "false"
 Data
 \begin_inset CommandInset label
 LatexCommand label
-name "section: Data"
+name "5 Data"
 
 \end_inset
 
@@ -6585,7 +6581,7 @@ nolink "false"
 Results
 \begin_inset CommandInset label
 LatexCommand label
-name "section: Results"
+name "6 Results"
 
 \end_inset
 
@@ -12875,6 +12871,11 @@ literal "false"
 This study highlights the potential for aggregated peer information to improve market functioning in environments where buyers face uncertainty about input performance and learning from own experience is slow and noisy.
  By pooling information from multiple users,
  such signals can complement individual learning and help farmers form more accurate beliefs about input performance.
+\end_layout
+
+\begin_layout Standard
+Intro + external validity:
+ other countries & inputs + probably scalable (smartphones).
 \end_layout
 
 \begin_layout Standard
