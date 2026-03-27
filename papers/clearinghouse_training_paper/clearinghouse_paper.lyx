@@ -752,9 +752,13 @@ is that not a bit exaggerated?
 
 .
  Finally,
- it is agnostic with respect to seed performance:
- if seed sold by agro-dealers performs poorly,
- as suggested in some studies 
+ the system is agnostic with respect to actual seed performance:
+ if seed performs poorly,
+ ratings will reflect this.
+ However,
+ we hypothesize that the predominant direction of belief distortion is pessimistic —
+ farmers' beliefs about seed quality are likely more negative than the experience of those who actually use the seed,
+ due to the outsized influence of negative narratives in environments where quality problems have been documented
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bold2017lemon,BARRIGA2020104928,Ilukor2025"
@@ -762,29 +766,19 @@ literal "false"
 
 \end_inset
 
-,
- the ratings will reflect this rather than steer farmers toward low-performing sellers.
+.
 \end_layout
 
 \begin_layout Standard
-We hypothesize that aggregated peer information reduces uncertainty and increases confidence among farmers with prior agro-dealer purchasing experience,
- and shifts beliefs about seed performance among those without prior purchasing experience.
- These changes in beliefs affect adoption decisions and,
- ultimately,
- agricultural productivity.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-But we also hypothesize that it will affect agro-dealer behavior,
- no?
- They would try to get higher ratings,
- which in the aggregate would increase ratings.
-\end_layout
-
-\end_inset
-
-
+We hypothesize that farmers' beliefs about seed performance at agro-dealers are overly pessimistic relative to the assessments of farmers with direct purchasing experience.
+ In our baseline data,
+ 68% of farmers believe agro-dealer seed is adulterated,
+ yet among farmers who actually purchased and used such seed,
+ ratings are overwhelmingly positive.
+ This gap likely reflects the outsized influence of negative narratives about seed quality on the beliefs of farmers without direct experience.
+ We test whether disseminating the experience-based assessments of actual purchasers to the broader farming population corrects this pessimism,
+ increases adoption,
+ and improves productivity.
 \end_layout
 
 \begin_layout Standard
@@ -1093,13 +1087,8 @@ Farmers’ prior beliefs about the expected performance of seed from agro-dealer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-While the framework remains agnostic about the direction of belief bias,
- several strands of evidence suggest that farmers’ beliefs may be overly pessimistic relative to true seed performance.
- Evidence from fertilizer markets shows that farmers often underestimate input quality relative to objective measures 
+We hypothesize that farmers’ beliefs are overly pessimistic relative to the perceptions of farmers with direct purchasing experience.
+ Evidence from fertilizer markets shows that farmers often underestimate input quality relative to objective measures
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
@@ -1108,7 +1097,7 @@ literal "false"
 \end_inset
 
 ,
- and recent work on maize seed in Uganda suggests that farmers’ perceptions may be more pessimistic than warranted by measured performance 
+ and recent work on maize seed in Uganda suggests that farmers’ perceptions may be more pessimistic than warranted by the perceptions of farmers with direct purchasing experience
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -1121,7 +1110,7 @@ literal "false"
  negative information is more salient,
  spreads faster,
  and receives disproportionate weight in social learning under noisy production conditions,
- which can skew belief formation toward pessimism 
+ which can skew belief formation toward pessimism
 \begin_inset CommandInset citation
 LatexCommand citep
 key "neg_bias,vaish2008not,10.1257/aer.100.1.35,hornik2015information"
@@ -1132,9 +1121,7 @@ literal "false"
 .
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
@@ -9754,6 +9741,27 @@ $^1$Production in UGX,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+A back-of-envelope calculation suggests that the adoption margin alone cannot fully account for these yield gains.
+ Even assuming improved varieties yield 50 percent more than farmer-saved seed,
+ the roughly 4 percentage point shift toward agro-dealer sourcing explains only about a quarter of the observed 56 kg/acre increase.
+ However,
+ the treatment also increases inorganic fertilizer use by approximately 5 percentage points (significant at both midline and endline) and reduces intercropping at midline.
+ These complementary input responses are consistent with
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Bulte2025"
+literal "false"
+
+\end_inset
+
+,
+ who show that uncertainty about seed performance depresses investment in complementary inputs.
+ By reducing such uncertainty,
+ the ratings intervention encourages farmers to invest more in inputs whose returns depend on seed quality.
+ The productivity gains therefore reflect both the direct effect of shifting toward improved varieties and increased complementary input use among farmers who are more confident about the seed they plant.
 \end_layout
 
 \begin_layout Subsection
