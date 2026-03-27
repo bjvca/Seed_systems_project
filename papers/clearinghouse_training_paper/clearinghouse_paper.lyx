@@ -614,6 +614,15 @@ We hypothesize that farmers' beliefs about seed performance at agro-dealers are 
 \end_layout
 
 \begin_layout Standard
+In addition to this demand-side channel,
+ the intervention may also operate through a supply-side channel.
+ By making seed performance assessments visible,
+ the rating system creates accountability pressure on agro-dealers.
+ Agro-dealers who are aware that their customers' experiences are being aggregated and disseminated may respond by adjusting their behavior,
+ particularly along dimensions that are visible to farmers and likely to influence future ratings.
+\end_layout
+
+\begin_layout Standard
 We test this approach in a randomized controlled trial (RCT) involving approximately 3,500 smallholder farmers and 350 agro-dealers in the market for high-yielding maize seed in eastern Uganda.
  The randomized design allows us to estimate causal effects,
  while three rounds of detailed data enable us to understand how and why the intervention affects behavior.
@@ -621,13 +630,15 @@ We test this approach in a randomized controlled trial (RCT) involving approxima
  from farmers’ perceptions and adoption decisions to agricultural productivity.
  Additional data on farmers’ choice of agro-dealers,
  agro-dealer practices and services,
- and objective indicators of seed performance allow us to rule out alternative mechanisms.
+ and objective indicators of seed performance allow us to examine alternative mechanisms.
 \end_layout
 
 \begin_layout Standard
 Aggregated peer ratings increase farmers’ perceptions of the performance of seed sold by agro-dealers and lead to higher adoption of high-yielding maize seed and higher productivity.
- We find no evidence that the intervention improves the underlying performance of seed sold by agro-dealers or induces farmers to switch between sellers,
- consistent with the intervention working through farmers’ beliefs about seed performance.
+ On the supply side,
+ agro-dealers respond to the rating system by improving service provision and signaling professionalism,
+ though not by changing seed handling or storage practices.
+ We find no evidence that the intervention induces farmers to switch between sellers or improves the underlying performance of seed sold by agro-dealers.
 \end_layout
 
 \begin_layout Standard
@@ -666,7 +677,8 @@ literal "false"
 
 ,
  our study is among the few to connect farmer and agro-dealer perspectives,
- providing a more complete picture than studies focusing on buyers or sellers alone.
+ documenting both demand-side belief updating among farmers and supply-side behavioral responses among agro-dealers,
+ and providing a more complete picture than studies focusing on buyers or sellers alone.
  Third,
  the combination of positive treatment effects on perceptions,
  adoption,
@@ -1057,6 +1069,42 @@ Farmers without prior purchasing experience:
 \end_layout
 
 \begin_layout Subsection
+Supply-side responses to aggregated peer information
+\end_layout
+
+\begin_layout Standard
+The rating system also creates reputational incentives for agro-dealers.
+ When aggregated peer assessments of seed performance are disseminated to farmers,
+ agro-dealers face implicit accountability pressure:
+ their customers' experiences are being collected,
+ summarized,
+ and shared with potential future buyers.
+ This transparency may induce agro-dealers to adjust their behavior along dimensions they expect to influence future ratings and customer satisfaction.
+\end_layout
+
+\begin_layout Standard
+A key prediction is that agro-dealers will invest in visible,
+ relatively low-cost adjustments rather than costly,
+ less visible ones.
+ Service quality improvements -- such as offering advice on complementary inputs,
+ providing after-sales support,
+ or accepting flexible payment arrangements -- are directly observable to farmers and likely to shape their purchasing experience.
+ Similarly,
+ signaling professionalism through membership in professional associations or displaying official certificates is visible and relatively inexpensive.
+ In contrast,
+ investments in seed handling and storage infrastructure are costly,
+ largely invisible to farmers,
+ and unlikely to affect ratings in the short run.
+\end_layout
+
+\begin_layout Standard
+This supply-side response can complement the demand-side channel.
+ While belief updating increases farmers' willingness to purchase from agro-dealers,
+ improved services and credibility signaling may reinforce the purchasing experience,
+ further increasing farmer satisfaction and the perceived value of engaging with agro-dealers.
+\end_layout
+
+\begin_layout Subsection
 Assumptions
 \end_layout
 
@@ -1145,6 +1193,13 @@ Under the conditional welfare assumption,
 
 \begin_layout Enumerate
 Treatment effects occur without improvements in seed performance or agro-dealer switching.
+\end_layout
+
+\begin_layout Enumerate
+The treatment induces agro-dealers to adjust their behavior along visible dimensions,
+ such as service provision and quality signaling,
+ rather than along less visible dimensions,
+ such as seed handling and storage practices.
 \end_layout
 
 \begin_layout Section
@@ -10331,566 +10386,13 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Alternative mechanisms
-\end_layout
-
-\begin_layout Subsubsection
-Search costs and agro-dealer switching
+Agro-dealer behavioral responses
 \end_layout
 
 \begin_layout Standard
-One alternative explanation for the treatment effects is that the intervention reduces farmers’ search costs.
- The treatment may enable farmers to identify agro-dealers selling higher-performing products and switch to them,
- potentially leading to the exit of agro-dealers selling lower-performing products and thereby reducing adverse selection in the market.
- Similar dynamics are documented in settings where increased transparency allows buyers to screen sellers 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/aer.20161965,laneetal,NBERw33082,Hsu2024"
-literal "false"
-
-\end_inset
-
-,
- as well as in a recent literature showing that reducing non-price search frictions can improve market functioning in low- and middle-income countries 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "NBERw28100,Rudder2024,NBERw33221,Startz2024,10.1093/ej/ueaf009"
-literal "false"
-
-\end_inset
-
-.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-This relates to a recent literature on non-price search frictions in low- and middle-income countries.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw28100"
-literal "false"
-
-\end_inset
-
- examine how search and information frictions affect global e-commerce using data from AliExpress,
- showing through a randomized experiment that accumulated sales help overcome these barriers.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Startz2024"
-literal "false"
-
-\end_inset
-
- estimates that eliminating search frictions faced by Nigerian importers would raise welfare from imported goods by approximately 5%.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw33221"
-literal "false"
-
-\end_inset
-
- study an SMS-based platform that connects buyers and sellers in Ugandan agricultural markets,
- finding that reduced search costs led to greater market integration,
- increased trade,
- and price convergence.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1093/ej/ueaf009"
-literal "false"
-
-\end_inset
-
- show that Tanzanian small and medium firms randomly listed in a “yellow pages” telephone directory expand their communication networks and increase sales.
- However,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Rudder2024"
-literal "false"
-
-\end_inset
-
- find that such exposure does not increase the number of new trading partners but instead enhances firms’ reputations,
- enabling them to secure better terms from existing partners.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted:
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "laneetal"
-literal "false"
-
-\end_inset
-
- show that in Kenya,
- passengers chose safer buses after safety information was publicly disclosed.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw33082"
-literal "false"
-
-\end_inset
-
- find that randomized referrals between supplier and client firms in China’s writing brush industry lowered search costs,
- boosting transactions,
- firm performance,
- and product quality as firms reallocated to better partners.
- In our context,
- however,
- even with improved ability to screen for quality,
- farmers did not switch to higher-quality sellers,
- contributing further evidence on the limits of demand-side adjustment in response to enhanced transparency.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1257/aer.20161965"
-literal "false"
-
-\end_inset
-
- show that the spread of mobile phones in India enabled consumers to learn about non-local boat-builders,
- driving market integration,
- improving product quality,
- and lower quality-adjusted prices.
- High-quality firms expanded while low-quality firms exited.
- Closely related to our context,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Hsu2024"
-literal "false"
-
-\end_inset
-
- train farmers in rural Kenya to identify quality-verified hybrid maize seeds.
- While this intervention benefits farmers,
- local sellers do not respond by upgrading quality or adjusting prices.
- Instead,
- many exit the market – likely because better-informed buyers reduce profit margins,
- and upgrading quality may be too costly.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I'D LEAVE THIS OUT:
-\end_layout
-
-\begin_layout Plain Layout
-Other studies show that the presence of a high-quality seller can strengthen reputational incentives for competitors,
- motivating them to improve quality to remain viable.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1162/rest_a_00758"
-literal "false"
-
-\end_inset
-
- find that the entry of a chain store offering high-quality,
- low-cost drugs in India prompted incumbent retailers to raise drug quality and reduce prices.
- Similarly,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "bjorkman2022can"
-literal "false"
-
-\end_inset
-
- examine Uganda’s antimalarial drug market and show that the random introduction of a retailer selling authentic,
- underpriced medication decreased the prevalence of counterfeit drugs among incumbents,
- while simultaneously improving overall drug quality and lowering prices.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To assess whether the intervention operates through this alternative channel,
- we examine whether treated farmers are more likely to switch agro-dealers between seasons.
- The analysis is restricted to farmers who purchase maize seed from an agro-input shop for at least one plot in both the reference season (baseline or midline) and the subsequent season (midline or endline),
- as switching is only meaningful for farmers who purchase seed in both periods.
-\end_layout
-
-\begin_layout Standard
-Results in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "switchingfarmers"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- show that 59% of farmers who purchase maize seed at both baseline and midline switch agro-dealers between those two seasons.
- The treatment does not increase switching.
- If anything,
- treated farmers are slightly less likely to switch at midline,
- with the difference statistically significant at the 10% level.
- By endline,
- switching rates are statistically indistinguishable between treatment and control groups.
-\end_layout
-
-\begin_layout Standard
-These results provide no evidence that the intervention reduces search frictions or induces reallocation across agro-dealers.
- Instead,
- the findings are more consistent with the belief-updating mechanism outlined in the conceptual framework:
- the intervention appears to influence whether farmers engage with agro-dealers rather than which agro-dealer they choose.
- This finding is consistent with 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "hasanain2019no"
-literal "false"
-
-\end_inset
-
-,
- who implement a similar crowd-sourced information platform in Pakistan’s artificial insemination for livestock market and find no evidence that farmers switch to higher-performance veterinarians.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Treatment effects on farmers’ switching behavior
-\begin_inset CommandInset label
-LatexCommand label
-name "switchingfarmers"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{2}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & treated & obs.
- & treated & obs.
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Farmer switched to different shop
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,3],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_F_nobase[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_F_nobase[3,3],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,3]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-
-	,ifelse(df_ols_end_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,3]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,3],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,3],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,3],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Max.
- number of obs.$^1$ & & & 1270 & & 1410
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Column (1) reports midline means and standard deviations below (because this variable was not collected at baseline);
-  columns (2) and (4) report differences between treatment and control groups and standard errors below;
- they are clustered at the level of randomization;
- columns (3) and (5) report the number of observations;
- **,
- *,
- and + denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-$^1$Comparisons are restricted to farmers who purchased maize seed from an agro-input shop for any plot at mid- or endline and during the season before that (i.e.,
- base- or midline).
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Moral hazard and agro-dealer responses
-\end_layout
-
-\begin_layout Paragraph
-Agro-dealers’ practices
-\end_layout
-
-\begin_layout Standard
-Another alternative explanation for the treatment effects is that the intervention reduces moral hazard among agro-dealers.
- By increasing market transparency and competitive pressure,
- the intervention may incentivize agro-dealers to improve practices that affect seed performance.
+We next examine whether the rating system induces behavioral responses among agro-dealers.
+ By increasing market transparency and creating accountability pressure,
+ the intervention may incentivize agro-dealers to adjust their practices.
  Evidence from other contexts shows that public quality disclosure induces sellers to compete over quality 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -11938,8 +11440,557 @@ $^5$The index of quality signaling practices includes 5 variables:
 
 \end_layout
 
-\begin_layout Paragraph
-Seed performance
+\begin_layout Subsection
+Alternative mechanisms
+\end_layout
+
+\begin_layout Subsubsection
+Search costs and agro-dealer switching
+\end_layout
+
+\begin_layout Standard
+One alternative explanation for the treatment effects is that the intervention reduces farmers’ search costs.
+ The treatment may enable farmers to identify agro-dealers selling higher-performing products and switch to them,
+ potentially leading to the exit of agro-dealers selling lower-performing products and thereby reducing adverse selection in the market.
+ Similar dynamics are documented in settings where increased transparency allows buyers to screen sellers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/aer.20161965,laneetal,NBERw33082,Hsu2024"
+literal "false"
+
+\end_inset
+
+,
+ as well as in a recent literature showing that reducing non-price search frictions can improve market functioning in low- and middle-income countries 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "NBERw28100,Rudder2024,NBERw33221,Startz2024,10.1093/ej/ueaf009"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This relates to a recent literature on non-price search frictions in low- and middle-income countries.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NBERw28100"
+literal "false"
+
+\end_inset
+
+ examine how search and information frictions affect global e-commerce using data from AliExpress,
+ showing through a randomized experiment that accumulated sales help overcome these barriers.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Startz2024"
+literal "false"
+
+\end_inset
+
+ estimates that eliminating search frictions faced by Nigerian importers would raise welfare from imported goods by approximately 5%.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NBERw33221"
+literal "false"
+
+\end_inset
+
+ study an SMS-based platform that connects buyers and sellers in Ugandan agricultural markets,
+ finding that reduced search costs led to greater market integration,
+ increased trade,
+ and price convergence.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1093/ej/ueaf009"
+literal "false"
+
+\end_inset
+
+ show that Tanzanian small and medium firms randomly listed in a “yellow pages” telephone directory expand their communication networks and increase sales.
+ However,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Rudder2024"
+literal "false"
+
+\end_inset
+
+ find that such exposure does not increase the number of new trading partners but instead enhances firms’ reputations,
+ enabling them to secure better terms from existing partners.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+deleted:
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "laneetal"
+literal "false"
+
+\end_inset
+
+ show that in Kenya,
+ passengers chose safer buses after safety information was publicly disclosed.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NBERw33082"
+literal "false"
+
+\end_inset
+
+ find that randomized referrals between supplier and client firms in China’s writing brush industry lowered search costs,
+ boosting transactions,
+ firm performance,
+ and product quality as firms reallocated to better partners.
+ In our context,
+ however,
+ even with improved ability to screen for quality,
+ farmers did not switch to higher-quality sellers,
+ contributing further evidence on the limits of demand-side adjustment in response to enhanced transparency.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1257/aer.20161965"
+literal "false"
+
+\end_inset
+
+ show that the spread of mobile phones in India enabled consumers to learn about non-local boat-builders,
+ driving market integration,
+ improving product quality,
+ and lower quality-adjusted prices.
+ High-quality firms expanded while low-quality firms exited.
+ Closely related to our context,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Hsu2024"
+literal "false"
+
+\end_inset
+
+ train farmers in rural Kenya to identify quality-verified hybrid maize seeds.
+ While this intervention benefits farmers,
+ local sellers do not respond by upgrading quality or adjusting prices.
+ Instead,
+ many exit the market – likely because better-informed buyers reduce profit margins,
+ and upgrading quality may be too costly.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I'D LEAVE THIS OUT:
+\end_layout
+
+\begin_layout Plain Layout
+Other studies show that the presence of a high-quality seller can strengthen reputational incentives for competitors,
+ motivating them to improve quality to remain viable.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1162/rest_a_00758"
+literal "false"
+
+\end_inset
+
+ find that the entry of a chain store offering high-quality,
+ low-cost drugs in India prompted incumbent retailers to raise drug quality and reduce prices.
+ Similarly,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bjorkman2022can"
+literal "false"
+
+\end_inset
+
+ examine Uganda’s antimalarial drug market and show that the random introduction of a retailer selling authentic,
+ underpriced medication decreased the prevalence of counterfeit drugs among incumbents,
+ while simultaneously improving overall drug quality and lowering prices.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To assess whether the intervention operates through this alternative channel,
+ we examine whether treated farmers are more likely to switch agro-dealers between seasons.
+ The analysis is restricted to farmers who purchase maize seed from an agro-input shop for at least one plot in both the reference season (baseline or midline) and the subsequent season (midline or endline),
+ as switching is only meaningful for farmers who purchase seed in both periods.
+\end_layout
+
+\begin_layout Standard
+Results in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "switchingfarmers"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ show that 59% of farmers who purchase maize seed at both baseline and midline switch agro-dealers between those two seasons.
+ The treatment does not increase switching.
+ If anything,
+ treated farmers are slightly less likely to switch at midline,
+ with the difference statistically significant at the 10% level.
+ By endline,
+ switching rates are statistically indistinguishable between treatment and control groups.
+\end_layout
+
+\begin_layout Standard
+These results provide no evidence that the intervention reduces search frictions or induces reallocation across agro-dealers.
+ Instead,
+ the findings are more consistent with the belief-updating mechanism outlined in the conceptual framework:
+ the intervention appears to influence whether farmers engage with agro-dealers rather than which agro-dealer they choose.
+ This finding is consistent with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hasanain2019no"
+literal "false"
+
+\end_inset
+
+,
+ who implement a similar crowd-sourced information platform in Pakistan’s artificial insemination for livestock market and find no evidence that farmers switch to higher-performance veterinarians.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Treatment effects on farmers’ switching behavior
+\begin_inset CommandInset label
+LatexCommand label
+name "switchingfarmers"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{2}{c}{
+\backslash
+textit{endline}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & treated & obs.
+ & treated & obs.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer switched to different shop
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[1,3],digits=3),nsmall=3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_F_nobase[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_F_nobase[3,3],digits=0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,3]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+
+	,ifelse(df_ols_end_F_nobase[3,2,3]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,3]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[3,3],digits=0),nsmall=0)}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_means_end_F_nobase[2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,3],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,3],digits=3),nsmall=3)}) & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-4} 
+\backslash
+cmidrule(lr){5-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Max.
+ number of obs.$^1$ & & & 1270 & & 1410
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports midline means and standard deviations below (because this variable was not collected at baseline);
+  columns (2) and (4) report differences between treatment and control groups and standard errors below;
+ they are clustered at the level of randomization;
+ columns (3) and (5) report the number of observations;
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^1$Comparisons are restricted to farmers who purchased maize seed from an agro-input shop for any plot at mid- or endline and during the season before that (i.e.,
+ base- or midline).
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also examine whether the intervention affects the underlying performance of seed sold by agro-dealers.
 \end_layout
 
 \begin_layout Standard
@@ -11984,10 +12035,9 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-The intervention therefore did not improve the performance of seed sold by agro-dealers through reduced moral hazard in seed handling and storage practices.
- Instead,
- agro-dealers appear to respond primarily by expanding services and signaling professionalism to customers.
- These responses are consistent with agro-dealers adjusting visible aspects of their operations in response to the rating system rather than improving the performance of the seed they sell.
+Consistent with the absence of treatment effects on seed handling and storage practices documented above,
+ the intervention did not improve the underlying performance of seed sold by agro-dealers.
+ These findings reinforce the interpretation that agro-dealers respond to the rating system by adjusting visible aspects of their operations rather than by improving seed quality.
 \end_layout
 
 \begin_layout Standard
