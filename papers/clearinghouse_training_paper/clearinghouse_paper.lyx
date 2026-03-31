@@ -12542,151 +12542,100 @@ We now model the supply-side channel.
 
 ,
  so the intervention can affect experienced seed performance by inducing agro-dealers to change their effort.
- An agro-dealer can invest effort along 
-\begin_inset Formula $K$
+\end_layout
+
+\begin_layout Standard
+Let
+\begin_inset Formula $e \geq 0$
 \end_inset
 
- dimensions.
- Let 
-\begin_inset Formula $e_{k}\geq0$
+ denote dealer effort (e.g.,
+ investment in handling,
+ storage,
+ and seed preservation),
+ with convex cost
+\begin_inset Formula $c(e)$
 \end_inset
 
- denote effort on dimension 
-\begin_inset Formula $k$
+.
+ Effort improves seed quality:
+\begin_inset Formula $\theta = \theta_{0} + f(e)$
+\end_inset
+
+ with
+\begin_inset Formula $f' > 0$
+\end_inset
+
+.
+ In the absence of the intervention (
+\begin_inset Formula $T = 0$
+\end_inset
+
+),
+ agro-dealers have no reputational incentive to invest effort beyond the baseline.
+ Under the intervention (
+\begin_inset Formula $T = 1$
+\end_inset
+
+),
+ ratings are collected and disseminated,
+ so higher quality translates into higher ratings and increased future demand
+\begin_inset Formula $R(\theta)$
+\end_inset
+
+ with
+\begin_inset Formula $R' > 0$
+\end_inset
+
+.
+ The dealer chooses effort to maximize:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\max_{e} \quad T \cdot R(\theta_{0} + f(e)) + (1-T) \cdot R(\theta_{0}) - c(e)
+\label{eq:dealer_max}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When
+\begin_inset Formula $T = 1$
 \end_inset
 
 ,
- with convex cost 
-\begin_inset Formula $c_{k}(e_{k})$
-\end_inset
-
-.
- The rating signal that farmers observe depends on how the agro-dealer's effort maps into the purchasing experience.
- Let 
-\begin_inset Formula $v_{k}\in[0,1]$
-\end_inset
-
- denote the visibility of dimension
-\begin_inset Formula $k$
-\end_inset
-
- to customers.
- The agro-dealer's expected rating is:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-r=r_{0}+\sum^{K}_{k=1}v_{k}\cdot e_{k}+\eta\label{eq:rating}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $r_{0}$
-\end_inset
-
- is the baseline rating absent effort adjustments and 
-\begin_inset Formula $\eta$
-\end_inset
-
- is noise.
- Only effort on visible dimensions (high 
-\begin_inset Formula $v_{k}$
-\end_inset
-
-) affects ratings.
-\end_layout
-
-\begin_layout Standard
-Under the clearinghouse intervention,
- ratings are collected and disseminated with probability 
-\begin_inset Formula $\pi>0$
-\end_inset
-
-.
- A higher rating increases future demand,
- generating revenue 
-\begin_inset Formula $R(r)$
-\end_inset
-
- with 
-\begin_inset Formula $R'(r)>0$
-\end_inset
-
-.
- The agro-dealer chooses effort to maximize expected profit:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\max_{\{e_{k}\}}\quad\pi\cdot R\left(r_{0}+\sum_{k}v_{k}e_{k}\right)+(1-\pi)\cdot R(r_{0})-\sum_{k}c_{k}(e_{k})\label{eq:dealer_max}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The first-order condition for dimension
-\begin_inset Formula $k$
-\end_inset
-
- is:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\pi\cdot R'(\cdot)\cdot v_{k}=c_{k}'(e^{*}_{k})\label{eq:foc}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Optimal effort 
-\begin_inset Formula $e^{*}_{k}$
-\end_inset
-
- is increasing in 
-\begin_inset Formula $\pi$
-\end_inset
-
- (the intervention induces effort by setting 
-\begin_inset Formula $\pi>0$
-\end_inset
-
-) and in visibility 
-\begin_inset Formula $v_{k}$
+ the first-order condition is
+\begin_inset Formula $R'(\cdot) \cdot f'(e^{*}) = c'(e^{*})$
 \end_inset
 
 ,
- and decreasing in marginal cost 
-\begin_inset Formula $c_{k}'$
+ yielding positive effort
+\begin_inset Formula $e^{*} > 0$
 \end_inset
 
 .
- Crucially,
- some dimensions of dealer effort can affect underlying seed quality 
-\begin_inset Formula $\theta_{0}$
+ When
+\begin_inset Formula $T = 0$
 \end_inset
 
-:
- improved handling and storage practices (proper containers,
- moisture control,
- ventilation) can preserve seed viability and reduce quality deterioration along the supply chain.
- If the supply-side channel operates,
- and if dealers invest in these quality-relevant dimensions,
- we should observe improvements in objective measures of seed quality.
+,
+ the marginal return to effort is zero,
+ so
+\begin_inset Formula $e^{*} = 0$
+\end_inset
+
+.
+ If dealers respond to the intervention by increasing effort,
+ seed quality
+\begin_inset Formula $\theta$
+\end_inset
+
+ improves,
+ and this should be detectable in objective measures of seed performance.
 \end_layout
 
 \begin_layout Subsubsection*
