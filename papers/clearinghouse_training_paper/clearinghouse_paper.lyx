@@ -12530,150 +12530,6 @@ Non-purchasers:
 \end_layout
 
 \begin_layout Subsubsection*
-Predictions
-\end_layout
-
-\begin_layout Standard
-The model generates the following testable predictions,
- corresponding to the testable implications in Section 2.8:
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Prediction 1 (Perceptions).
-
-\series default
- The treatment shifts perceived seed performance upward.
- The effect is larger for non-purchasers than purchasers,
- because 
-\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
-\end_inset
-
-.
- This follows from Assumptions 3 (imprecise/biased priors),
- 5 (informative signal),
- and 6 (credible signal).
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Prediction 2 (Adoption).
-
-\series default
- From Equation
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:adoption"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- adoption increases when 
-\begin_inset Formula $\tilde{\mu}_{i}-\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- rises above 
-\begin_inset Formula $c$
-\end_inset
-
-.
- The treatment relaxes this constraint through two channels:
- a higher posterior mean 
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- (level effect) and a lower posterior variance 
-\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- (precision effect).
- For non-purchasers,
- both channels operate:
- the large upward shift in 
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- combined with reduced uncertainty makes them most likely to cross the adoption threshold.
- For purchasers,
- the level effect is small (their prior is already close to the signal),
- but the precision effect still operates:
- reduced 
-\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- lowers the risk penalty 
-\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
-\end_inset
-
-,
- which can increase adoption at the margin.
- This follows from Assumptions 1 (outside options create a meaningful margin) and 3.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Prediction 3 (Productivity).
-
-\series default
- If 
-\begin_inset Formula $\theta>0$
-\end_inset
-
- (agro-dealer seed outperforms the outside option on average),
- then farmers who switch to agro-dealer seed achieve higher yields.
- Moreover,
- farmers who are more confident about seed quality may invest more in complementary inputs,
- amplifying productivity gains.
- This requires Assumption 7 (the signal moves beliefs toward truth,
- so that behavioral changes are welfare-improving).
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Prediction 4 (Discriminating between channels).
-
-\series default
- The two channels generate distinct heterogeneity patterns.
- Under the demand-side channel,
- the intervention shifts beliefs
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- toward
-\begin_inset Formula $\theta$
-\end_inset
-
-,
- with the shift largest for non-purchasers (whose priors are furthest from
-\begin_inset Formula $\theta$
-\end_inset
-
-).
- Treatment effects on adoption and productivity should therefore concentrate among non-purchasers.
- Under the supply-side channel,
- the intervention shifts
-\begin_inset Formula $\theta$
-\end_inset
-
- itself through
-\begin_inset Formula $f(\mathbf{e})$
-\end_inset
-
-.
- Since this changes the objective purchasing experience,
- effects should be similar across purchasers and non-purchasers — all farmers benefit from improved dealer services regardless of their prior beliefs.
- Finding treatment effects concentrated among non-purchasers is therefore evidence that the demand-side belief correction channel dominates.
-\end_layout
-
-\begin_layout Subsubsection*
 Supply-side channel: agro-dealer effort choice
 \end_layout
 
@@ -12867,7 +12723,140 @@ Mapping these to the empirical setting:
 \end_layout
 
 \begin_layout Subsubsection*
-Supply-side predictions
+Predictions
+\end_layout
+
+\begin_layout Standard
+The integrated model generates the following testable predictions,
+ corresponding to the testable implications in Section 2.8.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 1 (Perceptions).
+
+\series default
+ The treatment shifts perceived seed performance upward.
+ The effect is larger for non-purchasers than purchasers,
+ because
+\begin_inset Formula $\alpha_{NP}(s - \mu_{NP}) > \alpha_{P}(s - \mu_{P})$
+\end_inset
+
+.
+ This follows from Assumptions 3 (imprecise/biased priors),
+ 5 (informative signal),
+ and 6 (credible signal).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 2 (Adoption).
+
+\series default
+ From Equation
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:adoption"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ adoption increases when
+\begin_inset Formula $\tilde{\mu}_{i} - \frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+ rises above
+\begin_inset Formula $c$
+\end_inset
+
+.
+ The treatment relaxes this constraint through a higher posterior mean
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ (level effect) and a lower posterior variance
+\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+ (precision effect).
+ For non-purchasers,
+ both channels operate:
+ the large upward shift in
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ combined with reduced uncertainty makes them most likely to cross the adoption threshold.
+ For purchasers,
+ the level effect is small,
+ but the precision effect still operates:
+ reduced
+\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+ lowers the risk penalty
+\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+,
+ which can increase adoption at the margin.
+ This follows from Assumptions 1 and 3.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 3 (Productivity).
+
+\series default
+ If
+\begin_inset Formula $\theta > 0$
+\end_inset
+
+,
+ farmers who switch to agro-dealer seed achieve higher yields.
+ Reduced uncertainty may also increase investment in complementary inputs,
+ amplifying productivity gains.
+ This requires Assumption 7.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 4 (Discriminating between channels).
+
+\series default
+ The two channels generate distinct heterogeneity patterns.
+ Under the demand-side channel,
+ the intervention shifts beliefs
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ toward
+\begin_inset Formula $\theta$
+\end_inset
+
+,
+ with the largest shift for non-purchasers.
+ Treatment effects on adoption and productivity should therefore concentrate among non-purchasers.
+ Under the supply-side channel,
+ the intervention shifts
+\begin_inset Formula $\theta$
+\end_inset
+
+ itself through
+\begin_inset Formula $f(\mathbf{e})$
+\end_inset
+
+.
+ Since this changes the objective purchasing experience,
+ effects should be similar across purchasers and non-purchasers.
+ Finding treatment effects concentrated among non-purchasers is evidence that the demand-side belief correction channel dominates.
 \end_layout
 
 \begin_layout Standard
@@ -12877,39 +12866,6 @@ Prediction 5a (Visible,
  low-cost dimensions).
 
 \series default
- The treatment increases agro-dealer effort on service provision and professionalism signaling,
- which are visible to customers and inexpensive to adjust.
- This follows directly from Equation
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:foc"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- with high
-\begin_inset Formula $v_{k}$
-\end_inset
-
- and low
-\begin_inset Formula $c_{k}'$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Prediction 5b (Costly,
- invisible dimensions).
-
-\series default
- The treatment has no effect on seed handling and storage infrastructure,
- which is largely invisible to customers and costly to change.
  From Equation
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12922,23 +12878,40 @@ nolink "false"
 \end_inset
 
 ,
- when
-\begin_inset Formula $v_{k}\approx0$
+ the treatment increases agro-dealer effort on service provision and signaling (high
+\begin_inset Formula $v_{k}$
 \end_inset
 
- or
+,
+ low
 \begin_inset Formula $c_{k}'$
 \end_inset
 
- is large,
-\begin_inset Formula $e^{*}_{k}\approx0$
+).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 5b (Costly,
+ invisible dimensions).
+
+\series default
+ The treatment has no effect on seed handling and storage infrastructure (low
+\begin_inset Formula $v_{k}$
 \end_inset
 
- regardless of
-\begin_inset Formula $\pi$
+,
+ high
+\begin_inset Formula $c_{k}'$
 \end_inset
 
-.
+,
+ so
+\begin_inset Formula $e_{k}^{*} \approx 0$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -12951,17 +12924,18 @@ Prediction 5c (No effect on underlying seed quality).
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is determined upstream in the supply chain and is not directly under the agro-dealer's control.
+ is determined upstream and is not under the agro-dealer's control.
  The supply-side channel operates through
 \begin_inset Formula $f(\mathbf{e})$
 \end_inset
 
- — the purchasing experience — not through
+,
+ not through
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- itself.
- Objective measures of seed quality should therefore show no treatment effect.
+.
+ Objective measures of seed quality should show no treatment effect.
 \end_layout
 
 \begin_layout Subsection
