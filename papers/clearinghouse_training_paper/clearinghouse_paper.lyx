@@ -12102,6 +12102,486 @@ arabic{figure}}
 \end_layout
 
 \begin_layout Subsection
+Formal model of belief updating and adoption
+\begin_inset CommandInset label
+LatexCommand label
+name "A.0 Formal model"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This appendix formalizes the conceptual framework in Section 2 as a Bayesian updating model.
+ The model makes explicit how aggregated peer ratings affect beliefs and adoption decisions differently for farmers with and without prior purchasing experience,
+ and links each prediction to the assumptions stated in the main text.
+\end_layout
+
+\begin_layout Subsubsection*
+Setup
+\end_layout
+
+\begin_layout Standard
+Let
+\begin_inset Formula $\theta$
+\end_inset
+
+ denote the true performance of seed sold by agro-dealers relative to the farmer's outside option (e.g.,
+ farmer-saved seed).
+ A farmer adopts seed from an agro-dealer if the expected net benefit exceeds a threshold:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+E_{i}[\theta] - c > 0
+\label{eq:adoption}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula $c > 0$
+\end_inset
+
+ captures the cost of purchasing relative to the outside option.
+ This setup requires that farmers have meaningful outside options [Assumption 1] and that baseline market institutions do not resolve the information problem [Assumption 2].
+\end_layout
+
+\begin_layout Subsubsection*
+Prior beliefs
+\end_layout
+
+\begin_layout Standard
+Farmer
+\begin_inset Formula $i$
+\end_inset
+
+ holds a prior belief about
+\begin_inset Formula $\theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\theta \mid \mathcal{I}_{i} \sim \mathcal{N}(\mu_{i}, \sigma_{i}^{2})
+\label{eq:prior}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ is the prior mean and
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ is the prior variance,
+ both conditional on farmer
+\begin_inset Formula $i$
+\end_inset
+
+'s information set
+\begin_inset Formula $\mathcal{I}_{i}$
+\end_inset
+
+.
+ We distinguish two types of farmers based on prior purchasing experience.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Purchasers
+\series default
+ (
+\begin_inset Formula $i \in P$
+\end_inset
+
+) have direct experience with agro-dealer seed.
+ Their priors are informed by own production outcomes,
+ so
+\begin_inset Formula $\mu_{P}$
+\end_inset
+
+ is relatively close to
+\begin_inset Formula $\theta$
+\end_inset
+
+ and
+\begin_inset Formula $\sigma_{P}^{2}$
+\end_inset
+
+ is moderate [Assumption 4:
+ own learning is noisy but informative].
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Non-purchasers
+\series default
+ (
+\begin_inset Formula $i \in NP$
+\end_inset
+
+) lack direct experience.
+ Their priors are formed from locally shared information,
+ which may be incomplete or skewed by the disproportionate salience of negative narratives.
+ We allow for the possibility that
+\begin_inset Formula $\mu_{NP} < \theta$
+\end_inset
+
+ (pessimistic bias) and
+\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+\end_inset
+
+ (greater imprecision) [Assumption 3:
+ beliefs are sufficiently imprecise or biased for updating to matter].
+\end_layout
+
+\begin_layout Subsubsection*
+The signal from aggregated peer ratings
+\end_layout
+
+\begin_layout Standard
+The intervention provides farmer
+\begin_inset Formula $i$
+\end_inset
+
+ with a signal
+\begin_inset Formula $s$
+\end_inset
+
+ that aggregates the experiences of
+\begin_inset Formula $n$
+\end_inset
+
+ farmers who purchased seed from agro-dealers:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+s = \theta + \varepsilon, \quad \varepsilon \sim \mathcal{N}\left(0, \frac{\sigma_{\varepsilon}^{2}}{n}\right)
+\label{eq:signal}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula $\sigma_{\varepsilon}^{2}$
+\end_inset
+
+ is the variance of individual production outcomes around
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Aggregating across
+\begin_inset Formula $n$
+\end_inset
+
+ farmers reduces the noise in the signal by a factor of
+\begin_inset Formula $n$
+\end_inset
+
+ [Assumption 5:
+ individual experiences are approximately unbiased,
+ so aggregation produces an informative signal].
+ The signal is perceived as credible [Assumption 6].
+\end_layout
+
+\begin_layout Subsubsection*
+Bayesian updating
+\end_layout
+
+\begin_layout Standard
+Upon receiving the signal
+\begin_inset Formula $s$
+\end_inset
+
+,
+ farmer
+\begin_inset Formula $i$
+\end_inset
+
+ updates beliefs according to Bayes' rule.
+ The posterior mean is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\tilde{\mu}_{i} = (1 - \alpha_{i}) \mu_{i} + \alpha_{i} s, \quad \text{where} \quad \alpha_{i} = \frac{\sigma_{i}^{2}}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n}
+\label{eq:posterior}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the posterior variance is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\tilde{\sigma}_{i}^{2} = \frac{\sigma_{i}^{2} \cdot \sigma_{\varepsilon}^{2}/n}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n} < \sigma_{i}^{2}
+\label{eq:posterior_var}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The weight
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ placed on the signal is increasing in prior uncertainty
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ and in signal precision
+\begin_inset Formula $n/\sigma_{\varepsilon}^{2}$
+\end_inset
+
+.
+ Since
+\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+\end_inset
+
+,
+ non-purchasers place more weight on the signal:
+\begin_inset Formula $\alpha_{NP} > \alpha_{P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Differential effects by purchasing experience
+\end_layout
+
+\begin_layout Standard
+The shift in the posterior mean for farmer
+\begin_inset Formula $i$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\tilde{\mu}_{i} - \mu_{i} = \alpha_{i}(s - \mu_{i})
+\label{eq:belief_shift}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This has two components:
+ the weight
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and the gap between signal and prior
+\begin_inset Formula $(s - \mu_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Purchasers:
+\series default
+
+\begin_inset Formula $\alpha_{P}$
+\end_inset
+
+ is small (prior is relatively precise) and
+\begin_inset Formula $s - \mu_{P}$
+\end_inset
+
+ is small (prior is already close to
+\begin_inset Formula $\theta$
+\end_inset
+
+,
+ and
+\begin_inset Formula $s \approx \theta$
+\end_inset
+
+).
+ The belief shift is therefore small.
+ The main effect is a reduction in posterior variance (precision gain).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Non-purchasers:
+\series default
+
+\begin_inset Formula $\alpha_{NP}$
+\end_inset
+
+ is large (prior is imprecise) and,
+ if beliefs are pessimistic (
+\begin_inset Formula $\mu_{NP} < \theta$
+\end_inset
+
+),
+\begin_inset Formula $s - \mu_{NP}$
+\end_inset
+
+ is large and positive.
+ Both components work in the same direction,
+ producing a large upward shift in the posterior mean (level shift).
+\end_layout
+
+\begin_layout Subsubsection*
+Predictions
+\end_layout
+
+\begin_layout Standard
+The model generates the following testable predictions,
+ corresponding to the testable implications in Section 2.8:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 1 (Perceptions).
+
+\series default
+ The treatment shifts perceived seed performance upward.
+ The effect is larger for non-purchasers than purchasers,
+ because
+\begin_inset Formula $\alpha_{NP}(s - \mu_{NP}) > \alpha_{P}(s - \mu_{P})$
+\end_inset
+
+.
+ This follows from Assumptions 3 (imprecise/biased priors),
+ 5 (informative signal),
+ and 6 (credible signal).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 2 (Adoption).
+
+\series default
+ From Equation
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:adoption"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ adoption increases when
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ rises above the threshold
+\begin_inset Formula $c$
+\end_inset
+
+.
+ Non-purchasers,
+ who experience the largest belief shift,
+ are most likely to cross this threshold.
+ Purchasers may also increase adoption if reduced uncertainty (lower
+\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+) increases confidence.
+ This follows from Assumptions 1 (outside options create a meaningful margin) and 3.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 3 (Productivity).
+
+\series default
+ If
+\begin_inset Formula $\theta > 0$
+\end_inset
+
+ (agro-dealer seed outperforms the outside option on average),
+ then farmers who switch to agro-dealer seed achieve higher yields.
+ Moreover,
+ farmers who are more confident about seed quality may invest more in complementary inputs,
+ amplifying productivity gains.
+ This requires Assumption 7 (the signal moves beliefs toward truth,
+ so that behavioral changes are welfare-improving).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 4 (No switching or quality change).
+
+\series default
+ The model predicts changes in
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ (beliefs) and in adoption decisions.
+ It does not predict changes in
+\begin_inset Formula $\theta$
+\end_inset
+
+ itself (underlying seed quality) or in which agro-dealer farmers purchase from.
+ Finding no treatment effect on these outcomes is consistent with the belief-updating mechanism.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 5 (Supply-side).
+
+\series default
+ The model above is silent on supply-side responses.
+ However,
+ if agro-dealers anticipate that future ratings will be collected and disseminated,
+ they face an incentive to invest in dimensions that affect customer satisfaction and ratings.
+ They will prefer adjustments that are visible and low-cost (service provision,
+ signaling) over those that are costly and less visible (storage infrastructure).
+ This prediction is not derived from the Bayesian model but follows from standard reputational incentive arguments.
+\end_layout
+
+\begin_layout Subsection
 Context on seeds and their quality
 \begin_inset CommandInset label
 LatexCommand label
