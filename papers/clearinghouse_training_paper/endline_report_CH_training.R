@@ -2095,10 +2095,10 @@ matStand <- function(x, sgroup = rep(TRUE, nrow(x))){
 ###3. Define groupings/areas/domains of outcomes: each outcome is assigned to one of these areas
 variables_practices_cap_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2) #x
+                                     ,baseline_dealers$mid_goodpractice_expired2) #x
 variables_practices_cap_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2)
+                                      ,baseline_dealers$goodpractice_expired2)
 
 
 ###4. Create index: weighted average of outcomes for individual i in area j
@@ -2237,21 +2237,21 @@ baseline_dealers$index_practices_lab_base <- index_practices_lab_base$index
 #8. Index of all seed handling and storage practices observed by enumerator
 variables_practices_all_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2
+                                     ,baseline_dealers$mid_goodpractice_expired2
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q69,baseline_dealers$mid_maize.owner.agree.temp.q71
                                      ,baseline_dealers$mid_lighting,baseline_dealers$mid_surface
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q80,baseline_dealers$mid_maize.owner.agree.temp.q82) #x
 variables_practices_all_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2
+                                      ,baseline_dealers$goodpractice_expired2
                                       ,baseline_dealers$maize.owner.agree.temp.q69,baseline_dealers$maize.owner.agree.temp.q71
                                       ,baseline_dealers$lighting,baseline_dealers$surface,baseline_dealers$maize.owner.agree.temp.q80
                                       ,baseline_dealers$maize.owner.agree.temp.q82)
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(8,11)) #x
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(7,10)) #x
 baseline_dealers$index_practices_all_mid <- index_practices_all_mid$index #x
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(7,10))
 baseline_dealers$index_practices_all_base <- index_practices_all_base$index
 
 #9. Index of efforts of dealer and services offered by dealer
@@ -2392,10 +2392,10 @@ index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = 
 baseline_dealers$index_practices_lab_baseT <- index_practices_lab_base$index
 
 #8.
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$training_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$training_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midT <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$training_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$training_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseT <- index_practices_all_base$index
 
 #9.
@@ -2471,10 +2471,10 @@ index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = 
 baseline_dealers$index_practices_lab_baseC <- index_practices_lab_base$index
 
 #8.
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$clearing_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$clearing_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midC <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$clearing_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$clearing_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseC <- index_practices_all_base$index
 
 #9.
@@ -2543,10 +2543,10 @@ index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = 
 baseline_dealers$index_practices_lab_baseF <- index_practices_lab_base$index
 
 #8.
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$farmer_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$farmer_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midF <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$farmer_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$farmer_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseF <- index_practices_all_base$index
 
 #9.
@@ -2652,10 +2652,10 @@ baseline_dealers=subset(baseline_dealers,small_catchID=="0")
 
 variables_practices_cap_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2) #x
+                                     ,baseline_dealers$mid_goodpractice_expired2) #x
 variables_practices_cap_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2)
+                                      ,baseline_dealers$goodpractice_expired2)
 
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid) #x
 baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #x
@@ -2678,21 +2678,21 @@ baseline_dealers$index_practices_lab_base <- index_practices_lab_base$index
 
 variables_practices_all_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2
+                                     ,baseline_dealers$mid_goodpractice_expired2
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q69,baseline_dealers$mid_maize.owner.agree.temp.q71
                                      ,baseline_dealers$mid_lighting,baseline_dealers$mid_surface
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q80,baseline_dealers$mid_maize.owner.agree.temp.q82) #x
 variables_practices_all_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2
+                                      ,baseline_dealers$goodpractice_expired2
                                       ,baseline_dealers$maize.owner.agree.temp.q69,baseline_dealers$maize.owner.agree.temp.q71
                                       ,baseline_dealers$lighting,baseline_dealers$surface,baseline_dealers$maize.owner.agree.temp.q80
                                       ,baseline_dealers$maize.owner.agree.temp.q82)
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(8,11)) #x
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(7,10)) #x
 baseline_dealers$index_practices_all_mid <- index_practices_all_mid$index #x
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(7,10))
 baseline_dealers$index_practices_all_base <- index_practices_all_base$index
 
 variables_efforts_mid <- cbind(baseline_dealers$mid_alwaysexplains,baseline_dealers$mid_alwaysrecom,baseline_dealers$mid_extension
@@ -2777,10 +2777,10 @@ baseline_dealers$index_practices_lab_midT <- index_practices_lab_mid$index
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$training_control,revcols = c(2,5))
 baseline_dealers$index_practices_lab_baseT <- index_practices_lab_base$index
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$training_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$training_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midT <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$training_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$training_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseT <- index_practices_all_base$index
 
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$training_control,revcols = c(6))
@@ -2845,10 +2845,10 @@ baseline_dealers$index_practices_lab_midC <- index_practices_lab_mid$index
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$clearing_control,revcols = c(2,5))
 baseline_dealers$index_practices_lab_baseC <- index_practices_lab_base$index
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$clearing_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$clearing_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midC <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$clearing_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$clearing_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseC <- index_practices_all_base$index
 
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$clearing_control,revcols = c(6))
@@ -2909,10 +2909,10 @@ baseline_dealers$index_practices_lab_midF <- index_practices_lab_mid$index
 index_practices_lab_base <- icwIndex(xmat=variables_practices_lab_base,sgroup = baseline_dealers$farmer_control,revcols = c(2,5))
 baseline_dealers$index_practices_lab_baseF <- index_practices_lab_base$index
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$farmer_control,revcols = c(8,11))
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,sgroup = baseline_dealers$farmer_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_midF <- index_practices_all_mid$index
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$farmer_control,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,sgroup = baseline_dealers$farmer_control,revcols = c(7,10))
 baseline_dealers$index_practices_all_baseF <- index_practices_all_base$index
 
 index_efforts_mid <- icwIndex(xmat=variables_efforts_mid,sgroup = baseline_dealers$farmer_control,revcols = c(6))
@@ -5559,10 +5559,10 @@ baseline_dealers=subset(baseline_dealers,small_catchID=="0")
 
 variables_practices_cap_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2) #x
+                                     ,baseline_dealers$mid_goodpractice_expired2) #x
 variables_practices_cap_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2)
+                                      ,baseline_dealers$goodpractice_expired2)
 
 index_practices_cap_mid <- icwIndex(xmat=variables_practices_cap_mid) #x
 baseline_dealers$index_practices_cap_mid <- index_practices_cap_mid$index #x
@@ -5585,21 +5585,21 @@ baseline_dealers$index_practices_lab_base <- index_practices_lab_base$index
 
 variables_practices_all_mid <- cbind(baseline_dealers$mid_maize.owner.agree.temp.q72,baseline_dealers$mid_maize.owner.agree.temp.q73
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q74,baseline_dealers$mid_maize.owner.agree.temp.q75
-                                     ,baseline_dealers$mid_maize.owner.agree.temp.q81,baseline_dealers$mid_goodpractice_expired2
+                                     ,baseline_dealers$mid_goodpractice_expired2
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q69,baseline_dealers$mid_maize.owner.agree.temp.q71
                                      ,baseline_dealers$mid_lighting,baseline_dealers$mid_surface
                                      ,baseline_dealers$mid_maize.owner.agree.temp.q80,baseline_dealers$mid_maize.owner.agree.temp.q82) #x
 variables_practices_all_base <- cbind(baseline_dealers$maize.owner.agree.temp.q72,baseline_dealers$maize.owner.agree.temp.q73
                                       ,baseline_dealers$maize.owner.agree.temp.q74,baseline_dealers$maize.owner.agree.temp.q75
-                                      ,baseline_dealers$maize.owner.agree.temp.q81,baseline_dealers$goodpractice_expired2
+                                      ,baseline_dealers$goodpractice_expired2
                                       ,baseline_dealers$maize.owner.agree.temp.q69,baseline_dealers$maize.owner.agree.temp.q71
                                       ,baseline_dealers$lighting,baseline_dealers$surface,baseline_dealers$maize.owner.agree.temp.q80
                                       ,baseline_dealers$maize.owner.agree.temp.q82)
 
-index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(8,11)) #x
+index_practices_all_mid <- icwIndex(xmat=variables_practices_all_mid,revcols = c(7,10)) #x
 baseline_dealers$index_practices_all_mid <- index_practices_all_mid$index #x
 
-index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(8,11))
+index_practices_all_base <- icwIndex(xmat=variables_practices_all_base,revcols = c(7,10))
 baseline_dealers$index_practices_all_base <- index_practices_all_base$index
 
 variables_efforts_mid <- cbind(baseline_dealers$mid_alwaysexplains,baseline_dealers$mid_alwaysrecom,baseline_dealers$mid_extension
