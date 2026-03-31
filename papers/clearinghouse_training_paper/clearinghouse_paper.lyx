@@ -12127,9 +12127,47 @@ Let
 \begin_inset Formula $\theta$
 \end_inset
 
- denote the true performance of seed sold by agro-dealers relative to the farmer's outside option (e.g.,
+ denote the performance of seed sold by agro-dealers as experienced by farmers,
+ relative to the outside option (e.g.,
  farmer-saved seed).
- Farmers are risk-averse and evaluate the uncertain return to agro-dealer seed against the outside option.
+ We decompose experienced performance as
+\begin_inset Formula $\theta = \theta_{0} + f(\mathbf{e})$
+\end_inset
+
+,
+ where
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ is baseline seed quality and
+\begin_inset Formula $f(\mathbf{e})$
+\end_inset
+
+ captures how agro-dealer effort
+\begin_inset Formula $\mathbf{e}$
+\end_inset
+
+ (service provision,
+ signaling,
+ handling practices) affects the purchasing experience.
+ The intervention can thus affect farmer outcomes through two channels:
+ by shifting farmers' beliefs about
+\begin_inset Formula $\theta$
+\end_inset
+
+ (demand side) or by shifting
+\begin_inset Formula $\theta$
+\end_inset
+
+ itself through
+\begin_inset Formula $f(\mathbf{e})$
+\end_inset
+
+ (supply side).
+\end_layout
+
+\begin_layout Standard
+Farmers are risk-averse and evaluate the uncertain return to agro-dealer seed against the outside option.
  A farmer adopts if the certainty equivalent of agro-dealer seed exceeds a threshold:
 \end_layout
 
@@ -12600,38 +12638,54 @@ Prediction 3 (Productivity).
 \begin_layout Standard
 
 \series bold
-Prediction 4 (No switching or quality change).
+Prediction 4 (Discriminating between channels).
 
 \series default
- The model predicts changes in 
+ The two channels generate distinct heterogeneity patterns.
+ Under the demand-side channel,
+ the intervention shifts beliefs
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
- (beliefs) and in adoption decisions.
- It does not predict changes in 
+ toward
 \begin_inset Formula $\theta$
 \end_inset
 
- itself (underlying seed quality) or in which agro-dealer farmers purchase from.
- Finding no treatment effect on these outcomes is consistent with the belief-updating mechanism.
+,
+ with the shift largest for non-purchasers (whose priors are furthest from
+\begin_inset Formula $\theta$
+\end_inset
+
+).
+ Treatment effects on adoption and productivity should therefore concentrate among non-purchasers.
+ Under the supply-side channel,
+ the intervention shifts
+\begin_inset Formula $\theta$
+\end_inset
+
+ itself through
+\begin_inset Formula $f(\mathbf{e})$
+\end_inset
+
+.
+ Since this changes the objective purchasing experience,
+ effects should be similar across purchasers and non-purchasers — all farmers benefit from improved dealer services regardless of their prior beliefs.
+ Finding treatment effects concentrated among non-purchasers is therefore evidence that the demand-side belief correction channel dominates.
 \end_layout
 
 \begin_layout Subsubsection*
-Supply-side extension:
- agro-dealer effort choice
+Supply-side channel: agro-dealer effort choice
 \end_layout
 
 \begin_layout Standard
-The demand-side model takes seed performance
-\begin_inset Formula $\theta$
+We now model the supply-side channel.
+ Recall that
+\begin_inset Formula $\theta = \theta_{0} + f(\mathbf{e})$
 \end_inset
 
- as given.
- We now extend it to allow agro-dealers to respond to the rating system.
-\end_layout
-
-\begin_layout Standard
-An agro-dealer can invest effort along
+,
+ so the intervention can affect experienced seed performance by inducing agro-dealers to change their effort.
+ An agro-dealer can invest effort along
 \begin_inset Formula $K$
 \end_inset
 
@@ -12893,15 +12947,21 @@ nolink "false"
 Prediction 5c (No effect on underlying seed quality).
 
 \series default
- If seed quality (authenticity,
- purity) is determined upstream in the supply chain and is not directly under the agro-dealer's control,
- then
-\begin_inset Formula $\theta$
+ Underlying seed quality
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
- does not respond to the intervention.
- The supply-side channel affects the purchasing experience,
- not the product itself.
+ is determined upstream in the supply chain and is not directly under the agro-dealer's control.
+ The supply-side channel operates through
+\begin_inset Formula $f(\mathbf{e})$
+\end_inset
+
+ — the purchasing experience — not through
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ itself.
+ Objective measures of seed quality should therefore show no treatment effect.
 \end_layout
 
 \begin_layout Subsection
