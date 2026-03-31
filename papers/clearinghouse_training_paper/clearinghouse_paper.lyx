@@ -12123,7 +12123,7 @@ Setup
 \end_layout
 
 \begin_layout Standard
-Let
+Let 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -12134,39 +12134,40 @@ Let
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-E_{i}[\theta] - \frac{\rho}{2}\sigma_{i}^{2} - c > 0
-\label{eq:adoption}
+E_{i}[\theta]-\frac{\rho}{2}\sigma^{2}_{i}-c>0\label{eq:adoption}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where
-\begin_inset Formula $c > 0$
+where 
+\begin_inset Formula $c>0$
 \end_inset
 
  captures the cost of purchasing relative to the outside option,
-\begin_inset Formula $\sigma_{i}^{2}$
+ 
+\begin_inset Formula $\sigma^{2}_{i}$
 \end_inset
 
- is farmer
+ is farmer 
 \begin_inset Formula $i$
 \end_inset
 
-'s subjective uncertainty about
+'s subjective uncertainty about 
 \begin_inset Formula $\theta$
 \end_inset
 
 ,
- and
-\begin_inset Formula $\rho > 0$
+ and 
+\begin_inset Formula $\rho>0$
 \end_inset
 
- is the coefficient of absolute risk aversion.
+ is the coefficient of absolute risk aversion (CARA).
  The mean-variance formulation follows from assuming CARA utility with normally distributed beliefs.
  Under risk aversion,
  adoption depends on both the level of expected performance and the precision of beliefs:
@@ -12180,11 +12181,11 @@ Prior beliefs
 \end_layout
 
 \begin_layout Standard
-Farmer
+Farmer 
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior belief about
+ holds a prior belief about 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -12192,31 +12193,31 @@ Farmer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\theta \mid \mathcal{I}_{i} \sim \mathcal{N}(\mu_{i}, \sigma_{i}^{2})
-\label{eq:prior}
+\theta\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{i},\sigma^{2}_{i})\label{eq:prior}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where
+where 
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
- is the prior mean and
-\begin_inset Formula $\sigma_{i}^{2}$
+ is the prior mean and 
+\begin_inset Formula $\sigma^{2}_{i}$
 \end_inset
 
  is the prior variance,
- both conditional on farmer
+ both conditional on farmer 
 \begin_inset Formula $i$
 \end_inset
 
-'s information set
+'s information set 
 \begin_inset Formula $\mathcal{I}_{i}$
 \end_inset
 
@@ -12230,21 +12231,21 @@ where
 Purchasers
 \series default
  (
-\begin_inset Formula $i \in P$
+\begin_inset Formula $i\in P$
 \end_inset
 
 ) have direct experience with agro-dealer seed.
  Their priors are informed by own production outcomes,
- so
+ so 
 \begin_inset Formula $\mu_{P}$
 \end_inset
 
- is relatively close to
+ is relatively close to 
 \begin_inset Formula $\theta$
 \end_inset
 
- and
-\begin_inset Formula $\sigma_{P}^{2}$
+ and 
+\begin_inset Formula $\sigma^{2}_{P}$
 \end_inset
 
  is moderate [Assumption 4:
@@ -12257,18 +12258,18 @@ Purchasers
 Non-purchasers
 \series default
  (
-\begin_inset Formula $i \in NP$
+\begin_inset Formula $i\in NP$
 \end_inset
 
 ) lack direct experience.
  Their priors are formed from locally shared information,
  which may be incomplete or skewed by the disproportionate salience of negative narratives.
- We allow for the possibility that
-\begin_inset Formula $\mu_{NP} < \theta$
+ We allow for the possibility that 
+\begin_inset Formula $\mu_{NP}<\theta$
 \end_inset
 
- (pessimistic bias) and
-\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+ (pessimistic bias) and 
+\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
 
  (greater imprecision) [Assumption 3:
@@ -12280,15 +12281,15 @@ The signal from aggregated peer ratings
 \end_layout
 
 \begin_layout Standard
-The intervention provides farmer
+The intervention provides farmer 
 \begin_inset Formula $i$
 \end_inset
 
- with a signal
+ with a signal 
 \begin_inset Formula $s$
 \end_inset
 
- that aggregates the experiences of
+ that aggregates the experiences of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -12296,31 +12297,31 @@ The intervention provides farmer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-s = \theta + \varepsilon, \quad \varepsilon \sim \mathcal{N}\left(0, \frac{\sigma_{\varepsilon}^{2}}{n}\right)
-\label{eq:signal}
+s=\theta+\varepsilon,\quad\varepsilon\sim\mathcal{N}\left(0,\frac{\sigma^{2}_{\varepsilon}}{n}\right)\label{eq:signal}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where
-\begin_inset Formula $\sigma_{\varepsilon}^{2}$
+where 
+\begin_inset Formula $\sigma^{2}_{\varepsilon}$
 \end_inset
 
- is the variance of individual production outcomes around
+ is the variance of individual production outcomes around 
 \begin_inset Formula $\theta$
 \end_inset
 
 .
- Aggregating across
+ Aggregating across 
 \begin_inset Formula $n$
 \end_inset
 
- farmers reduces the noise in the signal by a factor of
+ farmers reduces the noise in the signal by a factor of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -12335,12 +12336,12 @@ Bayesian updating
 \end_layout
 
 \begin_layout Standard
-Upon receiving the signal
+Upon receiving the signal 
 \begin_inset Formula $s$
 \end_inset
 
 ,
- farmer
+ farmer 
 \begin_inset Formula $i$
 \end_inset
 
@@ -12349,11 +12350,11 @@ Upon receiving the signal
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\tilde{\mu}_{i} = (1 - \alpha_{i}) \mu_{i} + \alpha_{i} s, \quad \text{where} \quad \alpha_{i} = \frac{\sigma_{i}^{2}}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n}
-\label{eq:posterior}
+\tilde{\mu}_{i}=(1-\alpha_{i})\mu_{i}+\alpha_{i}s,\quad\text{where}\quad\alpha_{i}=\frac{\sigma^{2}_{i}}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n}\label{eq:posterior}
 \end{equation}
+
 \end_inset
 
 
@@ -12364,37 +12365,38 @@ and the posterior variance is:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\tilde{\sigma}_{i}^{2} = \frac{\sigma_{i}^{2} \cdot \sigma_{\varepsilon}^{2}/n}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n} < \sigma_{i}^{2}
-\label{eq:posterior_var}
+\tilde{\sigma}^{2}_{i}=\frac{\sigma^{2}_{i}\cdot\sigma^{2}_{\varepsilon}/n}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n}<\sigma^{2}_{i}\label{eq:posterior_var}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-The weight
+The weight 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
- placed on the signal is increasing in prior uncertainty
-\begin_inset Formula $\sigma_{i}^{2}$
+ placed on the signal is increasing in prior uncertainty 
+\begin_inset Formula $\sigma^{2}_{i}$
 \end_inset
 
- and in signal precision
-\begin_inset Formula $n/\sigma_{\varepsilon}^{2}$
+ and in signal precision 
+\begin_inset Formula $n/\sigma^{2}_{\varepsilon}$
 \end_inset
 
 .
- Since
-\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+ Since 
+\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
 
 ,
  non-purchasers place more weight on the signal:
-\begin_inset Formula $\alpha_{NP} > \alpha_{P}$
+ 
+\begin_inset Formula $\alpha_{NP}>\alpha_{P}$
 \end_inset
 
 .
@@ -12405,7 +12407,7 @@ Differential effects by purchasing experience
 \end_layout
 
 \begin_layout Standard
-The shift in the posterior mean for farmer
+The shift in the posterior mean for farmer 
 \begin_inset Formula $i$
 \end_inset
 
@@ -12413,11 +12415,11 @@ The shift in the posterior mean for farmer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\tilde{\mu}_{i} - \mu_{i} = \alpha_{i}(s - \mu_{i})
-\label{eq:belief_shift}
+\tilde{\mu}_{i}-\mu_{i}=\alpha_{i}(s-\mu_{i})\label{eq:belief_shift}
 \end{equation}
+
 \end_inset
 
 
@@ -12425,12 +12427,12 @@ The shift in the posterior mean for farmer
 
 \begin_layout Standard
 This has two components:
- the weight
+ the weight 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
- and the gap between signal and prior
-\begin_inset Formula $(s - \mu_{i})$
+ and the gap between signal and prior 
+\begin_inset Formula $(s-\mu_{i})$
 \end_inset
 
 .
@@ -12440,22 +12442,23 @@ This has two components:
 
 \series bold
 Purchasers:
-\series default
 
+\series default
+ 
 \begin_inset Formula $\alpha_{P}$
 \end_inset
 
- is small (prior is relatively precise) and
-\begin_inset Formula $s - \mu_{P}$
+ is small (prior is relatively precise) and 
+\begin_inset Formula $s-\mu_{P}$
 \end_inset
 
- is small (prior is already close to
+ is small (prior is already close to 
 \begin_inset Formula $\theta$
 \end_inset
 
 ,
- and
-\begin_inset Formula $s \approx \theta$
+ and 
+\begin_inset Formula $s\approx\theta$
 \end_inset
 
 ).
@@ -12467,18 +12470,20 @@ Purchasers:
 
 \series bold
 Non-purchasers:
-\series default
 
+\series default
+ 
 \begin_inset Formula $\alpha_{NP}$
 \end_inset
 
  is large (prior is imprecise) and,
  if beliefs are pessimistic (
-\begin_inset Formula $\mu_{NP} < \theta$
+\begin_inset Formula $\mu_{NP}<\theta$
 \end_inset
 
 ),
-\begin_inset Formula $s - \mu_{NP}$
+ 
+\begin_inset Formula $s-\mu_{NP}$
 \end_inset
 
  is large and positive.
@@ -12503,8 +12508,8 @@ Prediction 1 (Perceptions).
 \series default
  The treatment shifts perceived seed performance upward.
  The effect is larger for non-purchasers than purchasers,
- because
-\begin_inset Formula $\alpha_{NP}(s - \mu_{NP}) > \alpha_{P}(s - \mu_{P})$
+ because 
+\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
 \end_inset
 
 .
@@ -12531,28 +12536,28 @@ nolink "false"
 \end_inset
 
 ,
- adoption increases when
-\begin_inset Formula $\tilde{\mu}_{i} - \frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+ adoption increases when 
+\begin_inset Formula $\tilde{\mu}_{i}-\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
 \end_inset
 
- rises above
+ rises above 
 \begin_inset Formula $c$
 \end_inset
 
 .
  The treatment relaxes this constraint through two channels:
- a higher posterior mean
+ a higher posterior mean 
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
- (level effect) and a lower posterior variance
-\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+ (level effect) and a lower posterior variance 
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
  (precision effect).
  For non-purchasers,
  both channels operate:
- the large upward shift in
+ the large upward shift in 
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
@@ -12560,12 +12565,12 @@ nolink "false"
  For purchasers,
  the level effect is small (their prior is already close to the signal),
  but the precision effect still operates:
- reduced
-\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+ reduced 
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
- lowers the risk penalty
-\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+ lowers the risk penalty 
+\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
 \end_inset
 
 ,
@@ -12579,8 +12584,8 @@ nolink "false"
 Prediction 3 (Productivity).
 
 \series default
- If
-\begin_inset Formula $\theta > 0$
+ If 
+\begin_inset Formula $\theta>0$
 \end_inset
 
  (agro-dealer seed outperforms the outside option on average),
@@ -12598,12 +12603,12 @@ Prediction 3 (Productivity).
 Prediction 4 (No switching or quality change).
 
 \series default
- The model predicts changes in
+ The model predicts changes in 
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
  (beliefs) and in adoption decisions.
- It does not predict changes in
+ It does not predict changes in 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -12612,7 +12617,8 @@ Prediction 4 (No switching or quality change).
 \end_layout
 
 \begin_layout Subsubsection*
-Supply-side extension: agro-dealer effort choice
+Supply-side extension:
+ agro-dealer effort choice
 \end_layout
 
 \begin_layout Standard
@@ -12631,7 +12637,7 @@ An agro-dealer can invest effort along
 
  dimensions.
  Let
-\begin_inset Formula $e_{k} \geq 0$
+\begin_inset Formula $e_{k}\geq0$
 \end_inset
 
  denote effort on dimension
@@ -12646,7 +12652,7 @@ An agro-dealer can invest effort along
 .
  The rating signal that farmers observe depends on how the agro-dealer's effort maps into the purchasing experience.
  Let
-\begin_inset Formula $v_{k} \in [0, 1]$
+\begin_inset Formula $v_{k}\in[0,1]$
 \end_inset
 
  denote the visibility of dimension
@@ -12658,11 +12664,11 @@ An agro-dealer can invest effort along
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-r = r_{0} + \sum_{k=1}^{K} v_{k} \cdot e_{k} + \eta
-\label{eq:rating}
+r=r_{0}+\sum^{K}_{k=1}v_{k}\cdot e_{k}+\eta\label{eq:rating}
 \end{equation}
+
 \end_inset
 
 
@@ -12688,7 +12694,7 @@ where
 \begin_layout Standard
 Under the clearinghouse intervention,
  ratings are collected and disseminated with probability
-\begin_inset Formula $\pi > 0$
+\begin_inset Formula $\pi>0$
 \end_inset
 
 .
@@ -12698,7 +12704,7 @@ Under the clearinghouse intervention,
 \end_inset
 
  with
-\begin_inset Formula $R'(r) > 0$
+\begin_inset Formula $R'(r)>0$
 \end_inset
 
 .
@@ -12706,11 +12712,11 @@ Under the clearinghouse intervention,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\max_{\{e_{k}\}} \quad \pi \cdot R\left(r_{0} + \sum_{k} v_{k} e_{k}\right) + (1-\pi) \cdot R(r_{0}) - \sum_{k} c_{k}(e_{k})
-\label{eq:dealer_max}
+\max_{\{e_{k}\}}\quad\pi\cdot R\left(r_{0}+\sum_{k}v_{k}e_{k}\right)+(1-\pi)\cdot R(r_{0})-\sum_{k}c_{k}(e_{k})\label{eq:dealer_max}
 \end{equation}
+
 \end_inset
 
 
@@ -12725,11 +12731,11 @@ The first-order condition for dimension
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\pi \cdot R'(\cdot) \cdot v_{k} = c_{k}'(e_{k}^{*})
-\label{eq:foc}
+\pi\cdot R'(\cdot)\cdot v_{k}=c_{k}'(e^{*}_{k})\label{eq:foc}
 \end{equation}
+
 \end_inset
 
 
@@ -12739,7 +12745,7 @@ The first-order condition for dimension
 This yields three immediate results.
  First,
  optimal effort
-\begin_inset Formula $e_{k}^{*}$
+\begin_inset Formula $e^{*}_{k}$
 \end_inset
 
  is increasing in
@@ -12749,16 +12755,16 @@ This yields three immediate results.
  (the probability that ratings are collected):
  the intervention,
  by setting
-\begin_inset Formula $\pi > 0$
+\begin_inset Formula $\pi>0$
 \end_inset
 
  where previously
-\begin_inset Formula $\pi = 0$
+\begin_inset Formula $\pi=0$
 \end_inset
 
 ,
  induces positive effort on all dimensions with
-\begin_inset Formula $v_{k} > 0$
+\begin_inset Formula $v_{k}>0$
 \end_inset
 
 .
@@ -12863,7 +12869,7 @@ nolink "false"
 
 ,
  when
-\begin_inset Formula $v_{k} \approx 0$
+\begin_inset Formula $v_{k}\approx0$
 \end_inset
 
  or
@@ -12871,7 +12877,7 @@ nolink "false"
 \end_inset
 
  is large,
-\begin_inset Formula $e_{k}^{*} \approx 0$
+\begin_inset Formula $e^{*}_{k}\approx0$
 \end_inset
 
  regardless of
