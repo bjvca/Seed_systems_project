@@ -12131,7 +12131,7 @@ Let
  relative to the outside option (e.g.,
  farmer-saved seed).
  We decompose experienced performance as
-\begin_inset Formula $\theta = \theta_{0} + f(\mathbf{e})$
+\begin_inset Formula $\theta=\theta_{0}+f(\mathbf{e})$
 \end_inset
 
 ,
@@ -12530,38 +12530,39 @@ Non-purchasers:
 \end_layout
 
 \begin_layout Subsubsection*
-Supply-side channel: agro-dealer effort choice
+Supply-side channel:
+ agro-dealer effort choice
 \end_layout
 
 \begin_layout Standard
 We now model the supply-side channel.
- Recall that
-\begin_inset Formula $\theta = \theta_{0} + f(\mathbf{e})$
+ Recall that 
+\begin_inset Formula $\theta=\theta_{0}+f(\mathbf{e})$
 \end_inset
 
 ,
  so the intervention can affect experienced seed performance by inducing agro-dealers to change their effort.
- An agro-dealer can invest effort along
+ An agro-dealer can invest effort along 
 \begin_inset Formula $K$
 \end_inset
 
  dimensions.
- Let
+ Let 
 \begin_inset Formula $e_{k}\geq0$
 \end_inset
 
- denote effort on dimension
+ denote effort on dimension 
 \begin_inset Formula $k$
 \end_inset
 
 ,
- with convex cost
+ with convex cost 
 \begin_inset Formula $c_{k}(e_{k})$
 \end_inset
 
 .
  The rating signal that farmers observe depends on how the agro-dealer's effort maps into the purchasing experience.
- Let
+ Let 
 \begin_inset Formula $v_{k}\in[0,1]$
 \end_inset
 
@@ -12585,16 +12586,16 @@ r=r_{0}+\sum^{K}_{k=1}v_{k}\cdot e_{k}+\eta\label{eq:rating}
 \end_layout
 
 \begin_layout Standard
-where
+where 
 \begin_inset Formula $r_{0}$
 \end_inset
 
- is the baseline rating absent effort adjustments and
+ is the baseline rating absent effort adjustments and 
 \begin_inset Formula $\eta$
 \end_inset
 
  is noise.
- Only effort on visible dimensions (high
+ Only effort on visible dimensions (high 
 \begin_inset Formula $v_{k}$
 \end_inset
 
@@ -12603,17 +12604,17 @@ where
 
 \begin_layout Standard
 Under the clearinghouse intervention,
- ratings are collected and disseminated with probability
+ ratings are collected and disseminated with probability 
 \begin_inset Formula $\pi>0$
 \end_inset
 
 .
  A higher rating increases future demand,
- generating revenue
+ generating revenue 
 \begin_inset Formula $R(r)$
 \end_inset
 
- with
+ with 
 \begin_inset Formula $R'(r)>0$
 \end_inset
 
@@ -12652,30 +12653,30 @@ The first-order condition for dimension
 \end_layout
 
 \begin_layout Standard
-Optimal effort
-\begin_inset Formula $e_{k}^{*}$
+Optimal effort 
+\begin_inset Formula $e^{*}_{k}$
 \end_inset
 
- is increasing in
+ is increasing in 
 \begin_inset Formula $\pi$
 \end_inset
 
- (the intervention induces effort by setting
-\begin_inset Formula $\pi > 0$
+ (the intervention induces effort by setting 
+\begin_inset Formula $\pi>0$
 \end_inset
 
-) and in visibility
+) and in visibility 
 \begin_inset Formula $v_{k}$
 \end_inset
 
 ,
- and decreasing in marginal cost
+ and decreasing in marginal cost 
 \begin_inset Formula $c_{k}'$
 \end_inset
 
 .
  Crucially,
- some dimensions of dealer effort can affect underlying seed quality
+ some dimensions of dealer effort can affect underlying seed quality 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
@@ -12706,7 +12707,7 @@ Prediction 1 (Perceptions).
  The treatment shifts perceived seed performance upward.
  The effect is larger for non-purchasers than purchasers,
  because
-\begin_inset Formula $\alpha_{NP}(s - \mu_{NP}) > \alpha_{P}(s - \mu_{P})$
+\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
 \end_inset
 
 .
@@ -12734,7 +12735,7 @@ nolink "false"
 
 ,
  adoption increases when
-\begin_inset Formula $\tilde{\mu}_{i} - \frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+\begin_inset Formula $\tilde{\mu}_{i}-\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
 \end_inset
 
  rises above
@@ -12747,7 +12748,7 @@ nolink "false"
 \end_inset
 
  (level effect) and a lower posterior variance
-\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
  (precision effect).
@@ -12762,11 +12763,11 @@ nolink "false"
  the level effect is small,
  but the precision effect still operates:
  reduced
-\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
  lowers the risk penalty
-\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
 \end_inset
 
 ,
@@ -12781,7 +12782,7 @@ Prediction 3 (Productivity).
 
 \series default
  If
-\begin_inset Formula $\theta > 0$
+\begin_inset Formula $\theta>0$
 \end_inset
 
 ,
