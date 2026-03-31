@@ -12129,13 +12129,14 @@ Let
 
  denote the true performance of seed sold by agro-dealers relative to the farmer's outside option (e.g.,
  farmer-saved seed).
- A farmer adopts seed from an agro-dealer if the expected net benefit exceeds a threshold:
+ Farmers are risk-averse and evaluate the uncertain return to agro-dealer seed against the outside option.
+ A farmer adopts if the certainty equivalent of agro-dealer seed exceeds a threshold:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula
 \begin{equation}
-E_{i}[\theta] - c > 0
+E_{i}[\theta] - \frac{\rho}{2}\sigma_{i}^{2} - c > 0
 \label{eq:adoption}
 \end{equation}
 \end_inset
@@ -12148,7 +12149,29 @@ where
 \begin_inset Formula $c > 0$
 \end_inset
 
- captures the cost of purchasing relative to the outside option.
+ captures the cost of purchasing relative to the outside option,
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ is farmer
+\begin_inset Formula $i$
+\end_inset
+
+'s subjective uncertainty about
+\begin_inset Formula $\theta$
+\end_inset
+
+,
+ and
+\begin_inset Formula $\rho > 0$
+\end_inset
+
+ is the coefficient of absolute risk aversion.
+ The mean-variance formulation follows from assuming CARA utility with normally distributed beliefs.
+ Under risk aversion,
+ adoption depends on both the level of expected performance and the precision of beliefs:
+ even at the same expected return,
+ greater uncertainty discourages adoption.
  This setup requires that farmers have meaningful outside options [Assumption 1] and that baseline market institutions do not resolve the information problem [Assumption 2].
 \end_layout
 
@@ -12509,22 +12532,44 @@ nolink "false"
 
 ,
  adoption increases when
-\begin_inset Formula $\tilde{\mu}_{i}$
+\begin_inset Formula $\tilde{\mu}_{i} - \frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
 \end_inset
 
- rises above the threshold
+ rises above
 \begin_inset Formula $c$
 \end_inset
 
 .
- Non-purchasers,
- who experience the largest belief shift,
- are most likely to cross this threshold.
- Purchasers may also increase adoption if reduced uncertainty (lower
+ The treatment relaxes this constraint through two channels:
+ a higher posterior mean
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ (level effect) and a lower posterior variance
 \begin_inset Formula $\tilde{\sigma}_{i}^{2}$
 \end_inset
 
-) increases confidence.
+ (precision effect).
+ For non-purchasers,
+ both channels operate:
+ the large upward shift in
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ combined with reduced uncertainty makes them most likely to cross the adoption threshold.
+ For purchasers,
+ the level effect is small (their prior is already close to the signal),
+ but the precision effect still operates:
+ reduced
+\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+ lowers the risk penalty
+\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}_{i}^{2}$
+\end_inset
+
+,
+ which can increase adoption at the margin.
  This follows from Assumptions 1 (outside options create a meaningful margin) and 3.
 \end_layout
 
