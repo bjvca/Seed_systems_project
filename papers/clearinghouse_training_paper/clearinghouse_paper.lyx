@@ -888,40 +888,40 @@ Smallholder farmers choose between purchasing seed from agro-dealers and relying
 \end_layout
 
 \begin_layout Standard
-Let
+Let 
 \begin_inset Formula $\theta$
 \end_inset
 
  denote the performance of seed sold by agro-dealers as experienced by farmers,
  relative to the outside option.
- We decompose experienced performance as
-\begin_inset Formula $\theta = \theta_{0} + f(e)$
+ We decompose experienced performance as 
+\begin_inset Formula $\theta=\theta_{0}+f(e)$
 \end_inset
 
 ,
- where
+ where 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is baseline seed quality and
+ is baseline seed quality and 
 \begin_inset Formula $f(e)$
 \end_inset
 
- captures how agro-dealer effort
+ captures how agro-dealer effort 
 \begin_inset Formula $e$
 \end_inset
 
  (e.g.,
  investment in handling and storage) affects seed quality.
- The intervention can thus affect farmer outcomes by shifting beliefs about
+ The intervention can thus affect farmer outcomes by shifting beliefs about 
 \begin_inset Formula $\theta$
 \end_inset
 
- (demand side) or by shifting
+ (demand side) or by shifting 
 \begin_inset Formula $\theta$
 \end_inset
 
- itself through
+ itself through 
 \begin_inset Formula $f(e)$
 \end_inset
 
@@ -930,7 +930,7 @@ Let
 
 \begin_layout Standard
 Farmers are risk-averse.
- Farmer
+ Farmer 
 \begin_inset Formula $i$
 \end_inset
 
@@ -938,32 +938,33 @@ Farmers are risk-averse.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-E_{i}[\theta] - \frac{\rho}{2}\sigma_{i}^{2} - c > 0
-\label{eq:adoption_main}
+E_{i}[\theta]-\frac{\rho}{2}\sigma^{2}_{i}-c>0\label{eq:adoption_main}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where
-\begin_inset Formula $\sigma_{i}^{2}$
+where 
+\begin_inset Formula $\sigma^{2}_{i}$
 \end_inset
 
- is subjective uncertainty about
+ is subjective uncertainty about 
 \begin_inset Formula $\theta$
 \end_inset
 
 ,
-\begin_inset Formula $\rho > 0$
+ 
+\begin_inset Formula $\rho>0$
 \end_inset
 
- is the coefficient of absolute risk aversion (CARA utility with normal beliefs),
- and
-\begin_inset Formula $c > 0$
+ is the coefficient of absolute risk aversion,
+ and 
+\begin_inset Formula $c>0$
 \end_inset
 
  is the cost of purchasing relative to the outside option.
@@ -977,7 +978,7 @@ Learning about seed performance from own experience is noisy,
  slow,
  and costly:
  agricultural outcomes depend on many factors beyond seed quality,
- and performance signals arrive only once per season
+ and performance signals arrive only once per season 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "laajaj_macours_forthcoming"
@@ -987,7 +988,7 @@ literal "false"
 
 .
  We hypothesize that the resulting belief uncertainty,
- compounded by the disproportionate salience of negative information
+ compounded by the disproportionate salience of negative information 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "neg_bias,vaish2008not,hornik2015information"
@@ -996,12 +997,12 @@ literal "false"
 \end_inset
 
 ,
- pushes non-purchasers’ beliefs below the true
+ pushes non-purchasers’ beliefs below the true 
 \begin_inset Formula $\theta$
 \end_inset
 
 .
- Evidence from fertilizer markets
+ Evidence from fertilizer markets 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
@@ -1009,7 +1010,7 @@ literal "false"
 
 \end_inset
 
- and from maize seed in Uganda
+ and from maize seed in Uganda 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -1031,68 +1032,78 @@ When beliefs are imprecise or biased,
 \end_layout
 
 \begin_layout Standard
-Farmer
+Farmer 
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior
-\begin_inset Formula $\theta \mid \mathcal{I}_{i} \sim \mathcal{N}(\mu_{i}, \sigma_{i}^{2})$
+ holds a prior 
+\begin_inset Formula $\theta\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{i},\sigma^{2}_{i})$
 \end_inset
 
 .
- We distinguish two types.
+ We distinguish two types:
 
 \series bold
- Purchasers
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Purchasers
 \series default
  (
-\begin_inset Formula $i \in P$
+\begin_inset Formula $i\in P$
 \end_inset
 
 ) have priors informed by own experience:
+ 
 \begin_inset Formula $\mu_{P}$
 \end_inset
 
- is close to
+ is close to 
 \begin_inset Formula $\theta$
 \end_inset
 
- and
-\begin_inset Formula $\sigma_{P}^{2}$
+ and 
+\begin_inset Formula $\sigma^{2}_{P}$
 \end_inset
 
  is moderate.
+\end_layout
+
+\begin_layout Itemize
 
 \series bold
- Non-purchasers
+Non-purchasers
 \series default
  (
-\begin_inset Formula $i \in NP$
+\begin_inset Formula $i\in NP$
 \end_inset
 
 ) lack direct experience:
- we allow
-\begin_inset Formula $\mu_{NP} < \theta$
+ we allow 
+\begin_inset Formula $\mu_{NP}<\theta$
 \end_inset
 
- (pessimistic bias) and
-\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+ (pessimistic bias) and 
+\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
 
  (greater uncertainty).
 \end_layout
 
 \begin_layout Standard
-The intervention provides a signal
-\begin_inset Formula $s = \theta + \varepsilon$
+The intervention provides a signal 
+\begin_inset Formula $s=\theta+\varepsilon$
 \end_inset
 
- with
-\begin_inset Formula $\varepsilon \sim \mathcal{N}(0, \sigma_{\varepsilon}^{2}/n)$
+ with 
+\begin_inset Formula $\varepsilon\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon}/n)$
 \end_inset
 
 ,
- where
+ where 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1101,50 +1112,50 @@ The intervention provides a signal
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\tilde{\mu}_{i} = (1 - \alpha_{i})\mu_{i} + \alpha_{i} s, \quad \tilde{\sigma}_{i}^{2} = \frac{\sigma_{i}^{2} \cdot \sigma_{\varepsilon}^{2}/n}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n}, \quad \alpha_{i} = \frac{\sigma_{i}^{2}}{\sigma_{i}^{2} + \sigma_{\varepsilon}^{2}/n}
-\label{eq:updating_main}
+\tilde{\mu}_{i}=(1-\alpha_{i})\mu_{i}+\alpha_{i}s,\quad\tilde{\sigma}^{2}_{i}=\frac{\sigma^{2}_{i}\cdot\sigma^{2}_{\varepsilon}/n}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n},\quad\alpha_{i}=\frac{\sigma^{2}_{i}}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n}\label{eq:updating_main}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-The weight
+The weight 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
  on the signal is increasing in prior uncertainty.
- Since
-\begin_inset Formula $\sigma_{NP}^{2} > \sigma_{P}^{2}$
+ Since 
+\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
 
 ,
  non-purchasers place more weight on the signal.
- The belief shift
-\begin_inset Formula $\tilde{\mu}_{i} - \mu_{i} = \alpha_{i}(s - \mu_{i})$
+ The belief shift 
+\begin_inset Formula $\tilde{\mu}_{i}-\mu_{i}=\alpha_{i}(s-\mu_{i})$
 \end_inset
 
  is therefore larger for non-purchasers on both dimensions:
- they weight the signal more heavily (larger
+ they weight the signal more heavily (larger 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
 ) and the gap between signal and prior is larger (
-\begin_inset Formula $s - \mu_{NP} > s - \mu_{P}$
+\begin_inset Formula $s-\mu_{NP}>s-\mu_{P}$
 \end_inset
 
  if beliefs are pessimistic).
  For purchasers,
- the main effect is a precision gain (lower
-\begin_inset Formula $\tilde{\sigma}_{i}^{2}$
+ the main effect is a precision gain (lower 
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
 );
  for non-purchasers,
- it is a level shift (higher
+ it is a level shift (higher 
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
@@ -1165,78 +1176,80 @@ The rating system also creates reputational incentives for agro-dealers.
 \end_layout
 
 \begin_layout Standard
-Let
-\begin_inset Formula $e \geq 0$
+Let 
+\begin_inset Formula $e\geq0$
 \end_inset
 
- denote dealer effort with convex cost
+ denote dealer effort with convex cost 
 \begin_inset Formula $c(e)$
 \end_inset
 
 .
  Effort improves seed quality:
-\begin_inset Formula $\theta = \theta_{0} + f(e)$
+ 
+\begin_inset Formula $\theta=\theta_{0}+f(e)$
 \end_inset
 
- with
-\begin_inset Formula $f’ > 0$
+ with 
+\begin_inset Formula $f’>0$
 \end_inset
 
 .
  Without the intervention (
-\begin_inset Formula $T = 0$
+\begin_inset Formula $T=0$
 \end_inset
 
 ),
  dealers have no reputational incentive beyond the baseline.
  Under the intervention (
-\begin_inset Formula $T = 1$
+\begin_inset Formula $T=1$
 \end_inset
 
 ),
- higher quality translates into higher ratings and increased demand
+ higher quality translates into higher ratings and increased demand 
 \begin_inset Formula $R(\theta)$
 \end_inset
 
- with
-\begin_inset Formula $R’ > 0$
+ with 
+\begin_inset Formula $R’>0$
 \end_inset
 
 :
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\max_{e} \quad T \cdot R(\theta_{0} + f(e)) + (1-T) \cdot R(\theta_{0}) - c(e)
-\label{eq:dealer_main}
+\max_{e}\quad T\cdot R(\theta_{0}+f(e))+(1-T)\cdot R(\theta_{0})-c(e)\label{eq:dealer_main}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-When
-\begin_inset Formula $T = 1$
+When 
+\begin_inset Formula $T=1$
 \end_inset
 
 ,
- the first-order condition
-\begin_inset Formula $R’ \cdot f’(e^{*}) = c’(e^{*})$
+ the first-order condition 
+\begin_inset Formula $R’\cdot f’(e^{*})=c’(e^{*})$
 \end_inset
 
- yields
-\begin_inset Formula $e^{*} > 0$
+ yields 
+\begin_inset Formula $e^{*}>0$
 \end_inset
 
 .
- When
-\begin_inset Formula $T = 0$
+ When 
+\begin_inset Formula $T=0$
 \end_inset
 
 ,
-\begin_inset Formula $e^{*} = 0$
+ 
+\begin_inset Formula $e^{*}=0$
 \end_inset
 
 .
@@ -1253,7 +1266,7 @@ Testable predictions
 \end_layout
 
 \begin_layout Standard
-Table
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:predictions"
@@ -1300,13 +1313,11 @@ status open
 
 \begin_layout Plain Layout
 
-
 \backslash
 small
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 begin{center}
@@ -1314,14 +1325,12 @@ begin{center}
 
 \begin_layout Plain Layout
 
-
 \backslash
 begin{tabular}{p{0.6cm}p{3.8cm}p{3.5cm}p{3.5cm}p{2.5cm}}
 \end_layout
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \backslash
@@ -1329,7 +1338,6 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
-
  & Prediction & Demand-side channel & Supply-side channel & Empirical test
 \backslash
 
@@ -1339,14 +1347,13 @@ hline
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \end_layout
 
 \begin_layout Plain Layout
-
-1 & Perceptions improve & Belief shift, larger for non-purchasers ($
+1 & Perceptions improve & Belief shift,
+ larger for non-purchasers ($
 \backslash
 alpha_{NP} >
 \backslash
@@ -1358,7 +1365,6 @@ alpha_{P}$) & No direct prediction & Table 5
 \end_layout
 
 \begin_layout Plain Layout
-
 2 & Adoption increases & Concentrated among non-purchasers (level shift + precision gain) & Similar across all farmers ($
 \backslash
 theta$ itself changes) & Table 6
@@ -1369,7 +1375,6 @@ theta$ itself changes) & Table 6
 \end_layout
 
 \begin_layout Plain Layout
-
 3 & Productivity improves & Via adoption of better seed + complementary inputs & Via improved seed quality & Table 8
 \backslash
 
@@ -1378,7 +1383,6 @@ theta$ itself changes) & Table 6
 \end_layout
 
 \begin_layout Plain Layout
-
 4 & Agro-dealer switching & No (general signal about agro-dealer seed) & Possible (differential reputation) & Table 10
 \backslash
 
@@ -1387,7 +1391,6 @@ theta$ itself changes) & Table 6
 \end_layout
 
 \begin_layout Plain Layout
-
 5 & Seed quality & No change ($
 \backslash
 theta_0$ unchanged) & Improves ($f(e^*) > 0$) & Table 11
@@ -1399,7 +1402,6 @@ theta_0$ unchanged) & Improves ($f(e^*) > 0$) & Table 11
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \backslash
@@ -1407,14 +1409,12 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 end{tabular}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 end{center}
@@ -1431,14 +1431,13 @@ status open
 
 \begin_layout Plain Layout
 
-
 \backslash
 footnotesize
 \end_layout
 
 \begin_layout Plain Layout
-
-Note: Predictions 4 and 5 discriminate between channels.
+Note:
+ Predictions 4 and 5 discriminate between channels.
  Finding no switching and no quality improvement is evidence that the demand-side belief correction channel dominates.
  Prediction 3 requires that ratings move beliefs toward truth (conditional welfare assumption),
  so that adoption changes are welfare-improving.
@@ -1452,7 +1451,6 @@ Note: Predictions 4 and 5 discriminate between channels.
 \end_inset
 
 
-\end_layout
 \end_layout
 
 \begin_layout Section
