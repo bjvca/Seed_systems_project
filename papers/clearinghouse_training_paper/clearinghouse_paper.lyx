@@ -870,21 +870,231 @@ name "2 Conceptual framework"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-=== ORIGINAL VERBAL CONCEPTUAL FRAMEWORK (preserved for co-author reference) ===
+This section develops a conceptual framework for farmers’ decisions to purchase seed from agro-dealers in settings characterized by seed performance uncertainty and constrained learning from own experience.
+ In such settings,
+ beliefs about seed performance are central to purchase decisions,
+ and aggregated peer information can influence behavior by shaping perceived performance.
 \end_layout
 
-\begin_layout Plain Layout
-The original sections 2.1-2.8 (verbal framework with separate Assumptions and Testable Implications subsections) have been replaced by the formal model below.
- The original text is preserved here for reference.
+\begin_layout Subsection
+Purchasing seed from agro-dealers with outside options
 \end_layout
+
+\begin_layout Standard
+Smallholder farmers typically have access to agro-dealers while also facing multiple alternative channels for sourcing seed,
+ including farmer-saved seed,
+ informal exchanges,
+ and seed distributed through public or non-governmental programs.
+ The presence of these outside options implies that purchasing seed from an agro-dealer is a choice.
+\end_layout
+
+\begin_layout Subsection
+Learning from own experience
+\end_layout
+
+\begin_layout Standard
+Learning about seed performance from own experience is noisy,
+ slow,
+ and costly.
+ Agricultural outcomes depend on many factors – such as rainfall,
+ soil conditions,
+ pest pressure,
+ complementary inputs,
+ and management practices – some of which are stochastic and others of which interact.
+ After a single season,
+ farmers therefore cannot determine whether the yield they observe reflects seed performance or the realization of other production conditions,
+ making individual learning noisy.
+ Because performance signals arrive only once per agricultural season,
+ learning from own experience is slow.
+ Moreover,
+ seed choice typically requires committing land and labor for an entire season,
+ making experimentation costly.
+\end_layout
+
+\begin_layout Subsection
+Beliefs about agro-dealer seed performance
+\end_layout
+
+\begin_layout Standard
+The decision to purchase seed from an agro-dealer depends on farmers’ beliefs about the expected performance of such seed relative to available alternatives,
+ taking into account the resources required for purchase.
+ When expected performance is perceived to be uncertain or low,
+ farmers may avoid engaging with agro-dealers and instead rely on outside options,
+ such as farmer-saved seed.
+\end_layout
+
+\begin_layout Standard
+Farmers’ prior beliefs about the expected performance of seed from agro-dealers are shaped by their own past experiences as well as by locally shared information.
+ Such locally shared information typically reflects a small number of neighbors or acquaintances and may be incomplete,
+ selectively transmitted,
+ or idiosyncratic.
+ As a result,
+ it may not reflect average seed performance.
+ Given the learning constraints described above,
+ such beliefs are difficult to correct:
+ after a single season,
+ farmers often cannot determine whether an observed outcome reflects seed performance or other production conditions.
+ As a result,
+ imprecise or biased beliefs about seed performance can persist.
+\end_layout
+
+\begin_layout Standard
+We hypothesize that farmers’ beliefs are overly pessimistic relative to the perceptions of farmers with direct purchasing experience.
+ Evidence from fertilizer markets shows that farmers often underestimate input quality relative to objective measures
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
+literal "false"
 
 \end_inset
 
+,
+ and recent work on maize seed in Uganda suggests that farmers’ perceptions may be more pessimistic than warranted by the perceptions of farmers with direct purchasing experience
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BARRIGA2020104928"
+literal "false"
 
+\end_inset
+
+.
+ Insights from psychology and economics further point in this direction:
+ negative information is more salient,
+ spreads faster,
+ and receives disproportionate weight in social learning under noisy production conditions,
+ which can skew belief formation toward pessimism
+\begin_inset CommandInset citation
+LatexCommand citep
+key "neg_bias,vaish2008not,10.1257/aer.100.1.35,hornik2015information"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Belief updating through aggregated peer information
+\end_layout
+
+\begin_layout Standard
+When farmers’ beliefs about seed performance are imprecise or biased,
+ information interventions can shape belief formation.
+ In particular,
+ information that aggregates the experiences of farmers who have purchased seed from agro-dealers provides a summary signal of that performance and may complement or substitute for individual learning.
+ The way such information affects beliefs depends on farmers’ prior purchasing experience.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Farmers with prior purchasing experience:
+
+\series default
+ For farmers who have previously purchased seed from agro-dealers,
+ aggregated peer information complements own learning by pooling outcomes across many purchasers operating under similar conditions.
+ From a Bayesian perspective,
+ this increases the effective sample size underlying belief formation and mitigates the learning constraints described above.
+ As a result,
+ such information primarily affects the precision of beliefs rather than their level.
+ The aggregate signal these farmers receive is,
+ by construction,
+ a structured summary of the experiences of farmers who have purchased seed from agro-dealers,
+ thereby reducing the influence of any single realization and drawing individual beliefs closer to the cross-farmer average.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Farmers without prior purchasing experience:
+
+\series default
+ For farmers who have not previously purchased seed from agro-dealers,
+ beliefs about seed performance are formed largely in the absence of own learning and may instead reflect locally shared narratives.
+ For these farmers,
+ aggregated peer information does more than reduce noise:
+ when it differs from prior beliefs,
+ it can shift expectations about seed performance and thereby affect the threshold for initial engagement with agro-dealers.
+\end_layout
+
+\begin_layout Subsection
+Adoption decisions under belief uncertainty
+\end_layout
+
+\begin_layout Standard
+Adoption decisions reflect how farmers translate beliefs about seed performance into purchasing behavior,
+ taking into account both the level of perceived performance and the uncertainty surrounding it.
+ As in the previous subsection,
+ the adoption response differs by farmers’ prior experience purchasing seed from agro-dealers.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Farmers with prior purchasing experience:
+
+\series default
+ For farmers who have previously purchased seed from agro-dealers,
+ aggregated peer information mainly affects the precision of beliefs.
+ By reducing uncertainty around seed performance,
+ information can increase confidence.
+ While this does not change average beliefs,
+ greater precision can increase adoption by reducing hesitation or perceived ambiguity around seed purchase.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Farmers without prior purchasing experience:
+
+\series default
+ For farmers who have not previously purchased seed from agro-dealers,
+ aggregated peer information can affect adoption by shifting beliefs about seed performance.
+ When the aggregated signal is more favorable than prior beliefs,
+ it increases the likelihood of adoption;
+ when it is less favorable,
+ it decreases adoption.
+\end_layout
+
+\begin_layout Subsection
+Supply-side responses to aggregated peer information
+\end_layout
+
+\begin_layout Standard
+The rating system also creates reputational incentives for agro-dealers.
+ When aggregated peer assessments of seed performance are disseminated to farmers,
+ agro-dealers face implicit accountability pressure:
+ their customers’ experiences are being collected,
+ summarized,
+ and shared with potential future buyers.
+ This transparency may induce agro-dealers to adjust their behavior along dimensions they expect to influence future ratings and customer satisfaction.
+\end_layout
+
+\begin_layout Standard
+A key prediction is that agro-dealers will invest in visible,
+ relatively low-cost adjustments rather than costly,
+ less visible ones.
+ Service quality improvements -- such as offering advice on complementary inputs,
+ providing after-sales support,
+ or accepting flexible payment arrangements -- are directly observable to farmers and likely to shape their purchasing experience.
+ Similarly,
+ signaling professionalism through membership in professional associations or displaying official certificates is visible and relatively inexpensive.
+ In contrast,
+ investments in seed handling and storage infrastructure are costly,
+ largely invisible to farmers,
+ and unlikely to affect ratings in the short run.
+\end_layout
+
+\begin_layout Standard
+If both channels operate,
+ they may reinforce each other.
+ Belief updating increases farmers’ willingness to purchase from agro-dealers,
+ while improved services and credibility signaling would reinforce the purchasing experience,
+ further increasing farmer satisfaction and the perceived value of engaging with agro-dealers.
+\end_layout
+
+\begin_layout Subsection
+Formal model
 \end_layout
 
 \begin_layout Standard
