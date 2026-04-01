@@ -1189,7 +1189,30 @@ Formal model
 \end_layout
 
 \begin_layout Standard
-This section develops a model of how aggregated peer information affects farmers’ adoption decisions and agro-dealer behavior.
+This section develops a model of how aggregated peer information affects farmers’ adoption
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+purchasing?
+\end_layout
+
+\end_inset
+
+ decisions and agro-dealer behavior.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think we should mention that this is useful for organizing the empirical analysis,
+ but that we do not intent to provide a novel theoretical result.
+ This would help set appropriate expectations for readers and more accurately position the paper's contribution as primarily empirical.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1199,8 +1222,43 @@ Seed purchasing under uncertainty
 \begin_layout Standard
 Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options such as farmer-saved seed,
  informal exchanges,
- or seed from public programs.
+ or seed from public programs
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+or non-governmental programs?
+\end_layout
+
+\end_inset
+
+.
  The decision depends on beliefs about the performance of agro-dealer seed relative to these alternatives.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This first paragraph is about farmers and their beliefs,
+ the second one about agro-dealers and their seed performance,
+ and the third one about farmers and their uncertainty - is this the best way to organize this?
+\end_layout
+
+\begin_layout Plain Layout
+I think the first paragraph could logically follow the second,
+ as 
+\begin_inset Quotes eld
+\end_inset
+
+unobservable to the farmer at the time of purchase
+\begin_inset Quotes erd
+\end_inset
+
+ kind of explains why the decision depends on beliefs?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1209,7 +1267,33 @@ Let
 \end_inset
 
  denote the true performance of seed sold by agro-dealers relative to the farmer's outside option.
- This is the actual performance the farmer would realize if they planted the seed —
+ This is the actual
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I would only use 
+\begin_inset Quotes eld
+\end_inset
+
+true
+\begin_inset Quotes erd
+\end_inset
+
+ or only use 
+\begin_inset Quotes eld
+\end_inset
+
+actual
+\begin_inset Quotes erd
+\end_inset
+
+ - I think mixing the two could confuse the reader.
+\end_layout
+
+\end_inset
+
+ performance the farmer would realize if they planted the seed —
  it is real but unobservable to the farmer at the time of purchase.
  We decompose 
 \begin_inset Formula $\theta$
@@ -1224,7 +1308,20 @@ Let
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is the intrinsic performance of the seed as produced by the seed company —
+ is the intrinsic performance of the seed as produced by the seed company
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+as it is arrives at the agro-dealer,
+ right?
+ performance could be harmed after leaving the seed company and before arriving at the agro-dealer,
+ right?
+\end_layout
+
+\end_inset
+
+ —
  determined upstream in the supply chain and outside the agro-dealer's control —
  and 
 \begin_inset Formula $d(e)\geq0$
@@ -1258,7 +1355,110 @@ Farmers are risk-averse.
 \begin_inset Formula $i$
 \end_inset
 
- adopts seed from an agro-dealer if the certainty equivalent exceeds the cost:
+ adopts seed from an agro-dealer if the certainty equivalent
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+the 
+\begin_inset Quotes eld
+\end_inset
+
+the certainty equivalent
+\begin_inset Quotes erd
+\end_inset
+
+?
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+if E_{i}[
+\backslash
+theta]-
+\backslash
+frac{
+\backslash
+rho}{2}
+\backslash
+sigma^{2}_{i}>c,
+ right?
+ So if the expected performance minus that doubt parameter exceed the cost,
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ right?
+ I think we need a better term for 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+expected performance minus that subjective uncertainty
+\begin_inset Quotes erd
+\end_inset
+
+ than 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+certainty equivalent
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ exceeds the cost:
 \end_layout
 
 \begin_layout Standard
@@ -1292,12 +1492,129 @@ where
 \end_inset
 
  is the cost of purchasing relative to the outside option.
- Adoption depends on both the level of expected performance and the precision of beliefs:
+ Adoption depends on both the level of expected performance
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E_{i}[
+\backslash
+theta] - right?
+\end_layout
+
+\end_inset
+
+ and the precision of beliefs
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+=
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+sigma^{2}_{i} = 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+subjective uncertainty?
+\end_layout
+
+\end_inset
+
+:
  even at the same expected return,
  greater uncertainty discourages adoption.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think this paragraph is lost here.
+ And I think 
+\begin_inset Quotes eld
+\end_inset
+
+Seed has properties of a credence good
+\begin_inset Quotes erd
+\end_inset
+
+ is too strong.
+ I suggest re-introducing the 
+\begin_inset Quotes eld
+\end_inset
+
+setup
+\begin_inset Quotes erd
+\end_inset
+
+ subsection that you had earlier,
+ where we describe how true seed performance is determined (the paragraph 
+\begin_inset Quotes eld
+\end_inset
+
+Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ denote the true performance of seed sold by agro-dealers...
+\begin_inset Quotes erd
+\end_inset
+
+ here) and that learning about seed performance from own experience is noisy,
+ slow,
+ and costly (like in my framework).
+ Then continue with your 
+\begin_inset Quotes eld
+\end_inset
+
+3.1 Seed purchasing under uncertainty
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Seed has properties of a credence good:
  because yields depend on many factors beyond the seed itself,
  farmers cannot fully assess seed performance even after use 
@@ -1321,7 +1638,17 @@ literal "false"
 \end_inset
 
 ,
- pushing non-purchasers’ beliefs below the true 
+ pushing non-purchasers’ beliefs
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+you refer to non-purchasers here without having introduced them (happens in the next section)
+\end_layout
+
+\end_inset
+
+ below the true 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -1365,7 +1692,37 @@ The intervention can affect farmer outcomes by shifting farmers' beliefs about
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
- about it.
+ about it
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Why does the notification change from expectation 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E_{i}[
+\backslash
+theta] to belief 
+\backslash
+mu_{i}?
+ Isnt that the same?
+ Or does mu somehow include the subjective uncertainty?
+\end_layout
+
+\end_inset
+
+.
  When beliefs are imprecise or biased,
  aggregated peer information can shape belief formation.
  The way it does so depends on farmers’ prior purchasing experience.
@@ -1378,6 +1735,48 @@ Farmer
 
  holds a prior 
 \begin_inset Formula $\theta\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{i},\sigma^{2}_{i})$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Sorry if this is stupid because I don't understand notation,
+ but is the farmer's prior now also 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+theta?
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
 \end_inset
 
 .
@@ -1438,7 +1837,17 @@ As such,
  even though learning by doing is noisy,
  we assume that farmers that have experience with seed from agro-dealers do have more informative priors;
  seed should be situated somewhere on the continuum between an experience and a credence good.
- 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+again,
+ I find the second half of the sentence not well placed here 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1446,7 +1855,33 @@ The intervention provides a signal
 \begin_inset Formula $s=\theta+\varepsilon$
 \end_inset
 
- with 
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+shouldn't this be the sum of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E_{i}[
+\backslash
+theta]
+\end_layout
+
+\end_inset
+
+with 
 \begin_inset Formula $\varepsilon\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon}/n)$
 \end_inset
 
@@ -1475,7 +1910,18 @@ The weight
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
- on the signal is increasing in prior uncertainty.
+ on the signal is increasing in prior uncertainty
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+subjective uncertainty?
+ just to keep the terminology consistent...
+\end_layout
+
+\end_inset
+
+.
  Since 
 \begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
@@ -1511,7 +1957,29 @@ The weight
 \end_layout
 
 \begin_layout Subsection
-Supply-side responses
+Supply-side responses 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think it could even make sense to introduce the 
+\begin_inset Quotes eld
+\end_inset
+
+Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ denote the true performance of seed sold by agro-dealers
+\begin_inset Quotes erd
+\end_inset
+
+ paragraph only here...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1572,6 +2040,16 @@ Let
 \begin_inset Formula $R_{0}’>0$
 \end_inset
 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+what does this final term mean?
+\end_layout
+
+\end_inset
+
 .
  Under the intervention,
  ratings are collected and disseminated,
@@ -1583,6 +2061,35 @@ Let
  denote demand under the rating system,
  with 
 \begin_inset Formula $R_{1}’(\theta)>R_{0}’(\theta)$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think this is supposed to mean that the return to quality is higher under the intervention but to me it looks like the return (independent of quality) is higher under the intervention.
+ I think 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(
+\backslash
+theta) is supposed to show that returns are higher even if quality is constant,
+ but to me the text is not clear that way,
+ sorry.
+\end_layout
+
 \end_inset
 
  —
@@ -1620,7 +2127,25 @@ The first-order condition is
 .
  If dealers respond to the intervention by investing in seed preservation,
  degradation falls and seed performance improves —
- this should be detectable in objective measures such as moisture content and packaging integrity.
+ this should be detectable in objective measures such as moisture content and packaging integrity
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I wouldn't put 
+\begin_inset Quotes eld
+\end_inset
+
+such as
+\begin_inset Quotes erd
+\end_inset
+
+ examples into our model...
+\end_layout
+
+\end_inset
+
+.
  If both channels operate,
  they may reinforce each other:
  belief updating increases farmers’ willingness to engage with agro-dealers,
@@ -1651,6 +2176,16 @@ Prediction 1 (Perceptions).
  This follows from priors being imprecise or biased,
  the aggregated signal being informative,
  and farmers perceiving the ratings as credible.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I'd delete the last sentence.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1659,7 +2194,7 @@ Prediction 1 (Perceptions).
 Prediction 2 (Adoption).
 
 \series default
- From Equation
+ From Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:adoption_main"
@@ -1677,6 +2212,66 @@ nolink "false"
 
  rises above 
 \begin_inset Formula $c$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+huh?
+ now 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+tilde
+\backslash
+mu and
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E_[
+\backslash
+theta] are used interchangbly ?
+ 
+\end_layout
+
 \end_inset
 
 .
@@ -1709,7 +2304,27 @@ nolink "false"
 
 ,
  which can increase adoption at the margin.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Is it necessary to repeat the predictions for purchasers and non-purchasers?
+\end_layout
+
+\end_inset
+
  This follows from farmers having meaningful outside options and holding imprecise or biased priors.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Again,
+ I'd delete the last sentence.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1725,7 +2340,19 @@ Prediction 3 (Productivity).
 ,
  farmers who switch to agro-dealer seed achieve higher yields.
  Reduced uncertainty may also increase investment in complementary inputs,
- amplifying productivity gains.
+ amplifying productivity gains
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+<—
+ I would delete this sentence,
+ it is not core of *our* model.
+\end_layout
+
+\end_inset
+
+.
  This requires that,
  on average,
  peer ratings move beliefs closer to the true performance of agro-dealer seed relative to outside options.
@@ -1738,11 +2365,65 @@ Prediction 4 (Agro-dealer switching).
 
 \series default
  The two channels differ in their predictions about switching between agro-dealers.
- Under the demand-side channel,
+ Under the demand-side channel 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+demand-side channel
+\begin_inset Quotes erd
+\end_inset
+
+ has not been mentioned before - predictions 4-5 mention the different channels,
+ so they need to be introduced first,
+ no?
+ Also,
+ predictions 1-3 do not mention them,
+ which is a bit inconsistent,
+ no?
+ they're only about the demand-side channel,
+ but supply-side changes would also affects perceptions;
+ adoption;
+ and productivity (just after switching and quality changes in the causal chain,
+ not before) - that's missing if you want to develop these hypotheses equally strong,
+ isn't it?
+ I'm not going to say it again,
+ but perhaps keeping the supply-side requires too much effort to be integrated fully...
+\end_layout
+
+\end_inset
+
+,
  peer ratings provide information about the average performance of seed sold by agro-dealers in the farmer's area,
  shifting beliefs about agro-dealer seed in general rather than about any specific dealer.
  This predicts no increase in switching.
- Under the supply-side channel,
+ Under the supply-side channel
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+as mentioned on the phone this morning,
+ I think this has nothing to do with the 
+\begin_inset Quotes eld
+\end_inset
+
+supply-side channel
+\begin_inset Quotes erd
+\end_inset
+
+,
+ i.e.,
+ 3.3 which predicts dealers to increase efforts.
+ I think switching is only possible if the intervention reduces search costs,
+ which is an entirely different channel altogether (see Hassanain et al.)
+\end_layout
+
+\end_inset
+
+,
  ratings make performance differences across dealers visible,
  potentially inducing farmers to reallocate purchases toward higher-rated dealers.
  This predicts increased switching.
