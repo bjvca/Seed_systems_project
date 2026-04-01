@@ -1526,10 +1526,10 @@ The intervention can also affect farmer outcomes by inducing dealers to reduce d
  itself.
  This is because the rating system also creates reputational incentives for agro-dealers.
  When ratings are disseminated to farmers,
- agro-dealers face accountability pressure:
+ agro-dealers’ performance becomes visible to potential buyers:
  their customers’ experiences are collected,
  summarized,
- and shared with potential buyers.
+ and shared.
 \end_layout
 
 \begin_layout Standard
@@ -1560,62 +1560,58 @@ Let
 \end_inset
 
 .
- Without the intervention (
-\begin_inset Formula $T=0$
+ Without the intervention,
+ dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
+ Let
+\begin_inset Formula $R_{0}(\theta)$
 \end_inset
 
-),
- dealers have no reputational incentive to invest in preservation.
- Under the intervention (
-\begin_inset Formula $T=1$
-\end_inset
-
-),
- better-preserved seed translates into higher ratings and increased demand 
-\begin_inset Formula $R(\theta)$
-\end_inset
-
- with 
-\begin_inset Formula $R’>0$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\max_{e}\quad T\cdot R(\theta_{0}-d(e))+(1-T)\cdot R(\theta_{0}-d(0))-c(e)\label{eq:dealer_main}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When 
-\begin_inset Formula $T=1$
-\end_inset
-
-,
- the first-order condition 
-\begin_inset Formula $T\cdot R’(\cdot)\cdot(-d’(e^{*}))=c’(e^{*})$
-\end_inset
-
- yields 
-\begin_inset Formula $e^{*}>0$
+ denote the baseline demand that depends on quality through these informal channels,
+ with
+\begin_inset Formula $R_{0}’ > 0$
 \end_inset
 
 .
- When 
-\begin_inset Formula $T=0$
+ Under the intervention,
+ ratings are collected and disseminated,
+ amplifying the reputational return to quality.
+ Let
+\begin_inset Formula $R_{1}(\theta)$
+\end_inset
+
+ denote demand under the rating system,
+ with
+\begin_inset Formula $R_{1}’(\theta) > R_{0}’(\theta)$
+\end_inset
+
+ — the marginal return to quality is higher when performance is publicly visible.
+ The dealer chooses effort to maximize:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+\max_{e} \quad R_{T}(\theta_{0} - d(e)) - c(e)
+\label{eq:dealer_main}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first-order condition is
+\begin_inset Formula $R_{T}’(\cdot) \cdot (-d’(e^{*})) = c’(e^{*})$
+\end_inset
+
+.
+ Since
+\begin_inset Formula $R_{1}’ > R_{0}’$
 \end_inset
 
 ,
- the marginal return to effort is zero,
- so 
-\begin_inset Formula $e^{*}=0$
+ optimal effort is higher under the intervention:
+\begin_inset Formula $e_{1}^{*} > e_{0}^{*}$
 \end_inset
 
 .
