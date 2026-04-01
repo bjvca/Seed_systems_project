@@ -1211,44 +1211,75 @@ Smallholder farmers choose between purchasing seed from agro-dealers and relying
 \end_layout
 
 \begin_layout Standard
-Let 
+Let
 \begin_inset Formula $\theta$
 \end_inset
 
- denote the performance of seed sold by agro-dealers as experienced by farmers,
- relative to the outside option.
- We decompose experienced performance as 
-\begin_inset Formula $\theta=\theta_{0}+f(e)$
+ denote the true performance of seed sold by agro-dealers relative to the farmer's outside option.
+ This is the actual performance the farmer would realize if they planted the seed — it is real but unobservable to the farmer at the time of purchase.
+ We decompose
+\begin_inset Formula $\theta$
+\end_inset
+
+ as
+\begin_inset Formula $\theta = \theta_{0} - d(e)$
 \end_inset
 
 ,
- where 
+ where
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is baseline seed quality and 
-\begin_inset Formula $f(e)$
+ is the intrinsic quality of the seed as produced by the seed company — determined upstream in the supply chain and outside the agro-dealer's control — and
+\begin_inset Formula $d(e) \geq 0$
 \end_inset
 
- captures how agro-dealer effort 
+ captures quality degradation due to handling and storage,
+ with
+\begin_inset Formula $d'(e) < 0$
+\end_inset
+
+.
+ Higher dealer effort
 \begin_inset Formula $e$
 \end_inset
 
  (e.g.,
- investment in handling and storage) affects seed quality.
- The intervention can thus affect farmer outcomes by shifting beliefs about 
+ proper containers,
+ moisture control,
+ ventilation) reduces degradation,
+ preserving seed performance closer to its intrinsic quality
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+.
+ The intervention can thus affect farmer outcomes through two channels:
+ by shifting farmers' beliefs about
 \begin_inset Formula $\theta$
 \end_inset
 
- (demand side) or by shifting 
+ (demand side) or by inducing dealers to reduce degradation
+\begin_inset Formula $d(e)$
+\end_inset
+
+,
+ raising
 \begin_inset Formula $\theta$
 \end_inset
 
- itself through 
-\begin_inset Formula $f(e)$
+ itself (supply side).
+ The farmer does not observe
+\begin_inset Formula $\theta$
 \end_inset
 
- (supply side).
+ directly;
+ instead,
+ they hold a belief
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ about it,
+ which is what the intervention aims to update.
 \end_layout
 
 \begin_layout Standard
@@ -1499,89 +1530,99 @@ The rating system also creates reputational incentives for agro-dealers.
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $e\geq0$
+Let
+\begin_inset Formula $e \geq 0$
 \end_inset
 
- denote dealer effort with convex cost 
+ denote dealer effort in seed preservation (proper containers,
+ moisture control,
+ ventilation),
+ with convex cost
 \begin_inset Formula $c(e)$
 \end_inset
 
 .
- Effort improves seed quality:
- 
-\begin_inset Formula $\theta=\theta_{0}+f(e)$
+ Recall that
+\begin_inset Formula $\theta = \theta_{0} - d(e)$
 \end_inset
 
- with 
-\begin_inset Formula $f’>0$
+ with
+\begin_inset Formula $d’(e) < 0$
+\end_inset
+
+:
+ higher effort reduces degradation,
+ preserving seed performance closer to
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
 .
  Without the intervention (
-\begin_inset Formula $T=0$
+\begin_inset Formula $T = 0$
 \end_inset
 
 ),
- dealers have no reputational incentive beyond the baseline.
+ dealers have no reputational incentive to invest in preservation.
  Under the intervention (
-\begin_inset Formula $T=1$
+\begin_inset Formula $T = 1$
 \end_inset
 
 ),
- higher quality translates into higher ratings and increased demand 
+ better-preserved seed translates into higher ratings and increased demand
 \begin_inset Formula $R(\theta)$
 \end_inset
 
- with 
-\begin_inset Formula $R’>0$
+ with
+\begin_inset Formula $R’ > 0$
 \end_inset
 
 :
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{equation}
-\max_{e}\quad T\cdot R(\theta_{0}+f(e))+(1-T)\cdot R(\theta_{0})-c(e)\label{eq:dealer_main}
+\max_{e} \quad T \cdot R(\theta_{0} - d(e)) + (1-T) \cdot R(\theta_{0} - d(0)) - c(e)
+\label{eq:dealer_main}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-When 
-\begin_inset Formula $T=1$
+When
+\begin_inset Formula $T = 1$
 \end_inset
 
 ,
- the first-order condition 
-\begin_inset Formula $R’\cdot f’(e^{*})=c’(e^{*})$
+ the first-order condition
+\begin_inset Formula $T \cdot R’(\cdot) \cdot (-d’(e^{*})) = c’(e^{*})$
 \end_inset
 
- yields 
-\begin_inset Formula $e^{*}>0$
+ yields
+\begin_inset Formula $e^{*} > 0$
 \end_inset
 
 .
- When 
-\begin_inset Formula $T=0$
+ When
+\begin_inset Formula $T = 0$
 \end_inset
 
 ,
- 
-\begin_inset Formula $e^{*}=0$
+ the marginal return to effort is zero,
+ so
+\begin_inset Formula $e^{*} = 0$
 \end_inset
 
 .
- If dealers respond to the intervention by increasing effort,
- seed quality improves and this should be detectable in objective measures.
+ If dealers respond to the intervention by investing in seed preservation,
+ degradation falls and seed performance improves —
+ this should be detectable in objective measures such as moisture content and packaging integrity.
  If both channels operate,
  they may reinforce each other:
  belief updating increases farmers’ willingness to engage with agro-dealers,
- while improved quality strengthens the purchasing experience.
+ while better seed preservation strengthens the actual purchasing experience.
 \end_layout
 
 \begin_layout Subsection
@@ -1716,7 +1757,7 @@ theta$ itself changes) & Table 6
 \begin_layout Plain Layout
 5 & Seed quality & No change ($
 \backslash
-theta_0$ unchanged) & Improves ($f(e^*) > 0$) & Table 11
+theta_0$ unchanged) & Improves ($d(e^*) < d(0)$) & Table 11
 \backslash
 
 \backslash
@@ -12725,8 +12766,8 @@ Let
  denote the performance of seed sold by agro-dealers as experienced by farmers,
  relative to the outside option (e.g.,
  farmer-saved seed).
- We decompose experienced performance as
-\begin_inset Formula $\theta=\theta_{0}+f(\mathbf{e})$
+ We decompose performance as
+\begin_inset Formula $\theta = \theta_{0} - d(e)$
 \end_inset
 
 ,
@@ -12734,28 +12775,27 @@ Let
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is baseline seed quality and
-\begin_inset Formula $f(\mathbf{e})$
+ is the intrinsic quality of the seed as produced by the seed company and
+\begin_inset Formula $d(e) \geq 0$
 \end_inset
 
- captures how agro-dealer effort
-\begin_inset Formula $\mathbf{e}$
+ captures quality degradation due to handling and storage,
+ with
+\begin_inset Formula $d'(e) < 0$
 \end_inset
 
- (service provision,
- signaling,
- handling practices) affects the purchasing experience.
- The intervention can thus affect farmer outcomes through two channels:
- by shifting farmers' beliefs about
+.
+ Higher dealer effort preserves seed performance closer to
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+.
+ The intervention can thus affect farmer outcomes by shifting beliefs about
 \begin_inset Formula $\theta$
 \end_inset
 
- (demand side) or by shifting
-\begin_inset Formula $\theta$
-\end_inset
-
- itself through
-\begin_inset Formula $f(\mathbf{e})$
+ (demand side) or by inducing dealers to reduce degradation
+\begin_inset Formula $d(e)$
 \end_inset
 
  (supply side).
@@ -13131,12 +13171,12 @@ Supply-side channel:
 
 \begin_layout Standard
 We now model the supply-side channel.
- Recall that 
-\begin_inset Formula $\theta=\theta_{0}+f(\mathbf{e})$
+ Recall that
+\begin_inset Formula $\theta = \theta_{0} - d(e)$
 \end_inset
 
 ,
- so the intervention can affect experienced seed performance by inducing agro-dealers to change their effort.
+ so the intervention can affect seed performance by inducing agro-dealers to reduce degradation through increased effort.
 \end_layout
 
 \begin_layout Standard
@@ -13153,13 +13193,12 @@ Let
 \end_inset
 
 .
- Effort improves seed quality:
- 
-\begin_inset Formula $\theta=\theta_{0}+f(e)$
+ Effort reduces seed degradation:
+\begin_inset Formula $\theta = \theta_{0} - d(e)$
 \end_inset
 
- with 
-\begin_inset Formula $f'>0$
+ with
+\begin_inset Formula $d'(e) < 0$
 \end_inset
 
 .
@@ -13168,18 +13207,17 @@ Let
 \end_inset
 
 ),
- agro-dealers have no reputational incentive to invest effort beyond the baseline.
+ agro-dealers have no reputational incentive to invest in seed preservation.
  Under the intervention (
 \begin_inset Formula $T=1$
 \end_inset
 
 ),
- ratings are collected and disseminated,
- so higher quality translates into higher ratings and increased future demand 
+ better-preserved seed translates into higher ratings and increased future demand
 \begin_inset Formula $R(\theta)$
 \end_inset
 
- with 
+ with
 \begin_inset Formula $R'>0$
 \end_inset
 
@@ -13188,45 +13226,45 @@ Let
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{equation}
-\max_{e}\quad T\cdot R(\theta_{0}+f(e))+(1-T)\cdot R(\theta_{0})-c(e)\label{eq:dealer_max}
+\max_{e} \quad T \cdot R(\theta_{0} - d(e)) + (1-T) \cdot R(\theta_{0} - d(0)) - c(e)
+\label{eq:dealer_max}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-When 
+When
 \begin_inset Formula $T=1$
 \end_inset
 
 ,
- the first-order condition is 
-\begin_inset Formula $R'(\cdot)\cdot f'(e^{*})=c'(e^{*})$
+ the first-order condition is
+\begin_inset Formula $R'(\cdot) \cdot (-d'(e^{*})) = c'(e^{*})$
 \end_inset
 
 ,
- yielding positive effort 
+ yielding positive effort
 \begin_inset Formula $e^{*}>0$
 \end_inset
 
 .
- When 
+ When
 \begin_inset Formula $T=0$
 \end_inset
 
 ,
  the marginal return to effort is zero,
- so 
+ so
 \begin_inset Formula $e^{*}=0$
 \end_inset
 
 .
- If dealers respond to the intervention by increasing effort,
- seed quality 
+ If dealers respond to the intervention by investing in seed preservation,
+ seed performance 
 \begin_inset Formula $\theta$
 \end_inset
 
