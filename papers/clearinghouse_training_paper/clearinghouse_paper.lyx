@@ -1297,9 +1297,9 @@ where
 \end_layout
 
 \begin_layout Standard
-Seed performance has properties of a credence good:
+Seed has properties of a credence good:
  because yields depend on many factors beyond the seed itself,
- farmers cannot fully assess seed performance even after use
+ farmers cannot fully assess seed performance even after use 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "laajaj_macours_forthcoming"
@@ -1308,11 +1308,10 @@ literal "false"
 \end_inset
 
 .
- Individual learning is therefore noisy,
+ Individual learning about seed is therefore noisy,
  slow,
  and difficult to self-correct.
- We hypothesize that this belief uncertainty,
- compounded by the disproportionate salience of negative information
+ We hypothesize that this is compounded by the disproportionate salience of negative information 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "neg_bias,vaish2008not,hornik2015information"
@@ -1321,12 +1320,12 @@ literal "false"
 \end_inset
 
 ,
- pushes non-purchasers’ beliefs below the true
+ pushing non-purchasers’ beliefs below the true 
 \begin_inset Formula $\theta$
 \end_inset
 
 .
- Evidence from fertilizer markets
+ Evidence from fertilizer markets 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
@@ -1334,7 +1333,7 @@ literal "false"
 
 \end_inset
 
- and from maize seed in Uganda
+ and from maize seed in Uganda 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -1343,7 +1342,6 @@ literal "false"
 \end_inset
 
  is consistent with this hypothesis.
- Aggregated peer information addresses this learning constraint by pooling many farmers’ noisy experiences into an informative signal.
 \end_layout
 
 \begin_layout Subsection
@@ -1435,6 +1433,14 @@ Non-purchasers
 \end_layout
 
 \begin_layout Standard
+As such,
+ even though learning by doing is noisy,
+ we assume that farmers that have experience with seed from agro-dealers do have more informative priors;
+ seed should be situated somewhere on the continuum between an experience and a credence good.
+ 
+\end_layout
+
+\begin_layout Standard
 The intervention provides a signal 
 \begin_inset Formula $s=\theta+\varepsilon$
 \end_inset
@@ -1449,7 +1455,7 @@ The intervention provides a signal
 \end_inset
 
  is the number of raters.
- Bayesian updating yields posterior mean and variance:
+ Standard Normal-Normal bayesian updating yields posterior mean and variance:
 \end_layout
 
 \begin_layout Standard
@@ -1527,7 +1533,7 @@ The intervention can also affect farmer outcomes by inducing dealers to reduce d
 \end_layout
 
 \begin_layout Standard
-Let
+Let 
 \begin_inset Formula $e\geq0$
 \end_inset
 
