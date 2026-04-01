@@ -1105,6 +1105,7 @@ Baseline market institutions do not provide strong or universally trusted perfor
 
 \begin_layout Enumerate
 Farmers hold prior beliefs about seed performance at agro-dealers that are sufficiently imprecise and/or biased for belief updating to affect adoption decisions.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -1562,56 +1563,58 @@ Let
 .
  Without the intervention,
  dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
- Let
+ Let 
 \begin_inset Formula $R_{0}(\theta)$
 \end_inset
 
  denote the baseline demand that depends on quality through these informal channels,
- with
-\begin_inset Formula $R_{0}’ > 0$
+ with 
+\begin_inset Formula $R_{0}’>0$
 \end_inset
 
 .
  Under the intervention,
  ratings are collected and disseminated,
  amplifying the reputational return to quality.
- Let
+ Let 
 \begin_inset Formula $R_{1}(\theta)$
 \end_inset
 
  denote demand under the rating system,
- with
-\begin_inset Formula $R_{1}’(\theta) > R_{0}’(\theta)$
+ with 
+\begin_inset Formula $R_{1}’(\theta)>R_{0}’(\theta)$
 \end_inset
 
- — the marginal return to quality is higher when performance is publicly visible.
+ —
+ the marginal return to quality is higher when performance is publicly visible.
  The dealer chooses effort to maximize:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula
+\begin_inset Formula 
 \begin{equation}
-\max_{e} \quad R_{T}(\theta_{0} - d(e)) - c(e)
-\label{eq:dealer_main}
+\max_{e}\quad R_{T}(\theta_{0}-d(e))-c(e)\label{eq:dealer_main}
 \end{equation}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-The first-order condition is
-\begin_inset Formula $R_{T}’(\cdot) \cdot (-d’(e^{*})) = c’(e^{*})$
+The first-order condition is 
+\begin_inset Formula $R_{T}’(\cdot)\cdot(-d’(e^{*}))=c’(e^{*})$
 \end_inset
 
 .
- Since
-\begin_inset Formula $R_{1}’ > R_{0}’$
+ Since 
+\begin_inset Formula $R_{1}’>R_{0}’$
 \end_inset
 
 ,
  optimal effort is higher under the intervention:
-\begin_inset Formula $e_{1}^{*} > e_{0}^{*}$
+ 
+\begin_inset Formula $e^{*}_{1}>e^{*}_{0}$
 \end_inset
 
 .
@@ -1629,10 +1632,38 @@ Testable predictions
 \end_layout
 
 \begin_layout Standard
-Table 
+The integrated model generates the following testable predictions,
+ corresponding to the testable implications in Section 2.8.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 1 (Perceptions).
+
+\series default
+ The treatment shifts perceived seed performance upward.
+ The effect is larger for non-purchasers than purchasers,
+ because
+\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
+\end_inset
+
+.
+ This follows from Assumptions 3 (imprecise/biased priors),
+ 5 (informative signal),
+ and 6 (credible signal).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 2 (Adoption).
+
+\series default
+ From Equation
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:predictions"
+reference "eq:adoption"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1640,180 +1671,101 @@ nolink "false"
 
 \end_inset
 
- summarizes the predictions of the model and their empirical counterparts.
+,
+ adoption increases when
+\begin_inset Formula $\tilde{\mu}_{i}-\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
+\end_inset
+
+ rises above
+\begin_inset Formula $c$
+\end_inset
+
+.
+ The treatment relaxes this constraint through a higher posterior mean
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ (level effect) and a lower posterior variance
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
+\end_inset
+
+ (precision effect).
+ For non-purchasers,
+ both channels operate:
+ the large upward shift in
+\begin_inset Formula $\tilde{\mu}_{i}$
+\end_inset
+
+ combined with reduced uncertainty makes them most likely to cross the adoption threshold.
+ For purchasers,
+ the level effect is small,
+ but the precision effect still operates:
+ reduced
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
+\end_inset
+
+ lowers the risk penalty
+\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
+\end_inset
+
+,
+ which can increase adoption at the margin.
+ This follows from Assumptions 1 and 3.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status open
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\series bold
+Prediction 3 (Productivity).
 
-\begin_layout Plain Layout
-Model predictions and empirical tests
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:predictions"
-
+\series default
+ If
+\begin_inset Formula $\theta>0$
 \end_inset
 
-
+,
+ farmers who switch to agro-dealer seed achieve higher yields.
+ Reduced uncertainty may also increase investment in complementary inputs,
+ amplifying productivity gains.
+ This requires Assumption 7.
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Prediction 4 (Agro-dealer switching).
+
+\series default
+ The two channels differ in their predictions about switching between agro-dealers.
+ Under the demand-side channel,
+ peer ratings provide information about the average performance of seed sold by agro-dealers in the farmer's area,
+ shifting beliefs about agro-dealer seed in general rather than about any specific dealer.
+ This predicts no increase in switching.
+ Under the supply-side channel,
+ ratings create differential reputational pressure across dealers,
+ potentially inducing farmers to reallocate purchases toward higher-rated dealers.
+ This predicts increased switching.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Prediction 5 (Seed quality).
+
+\series default
+ The two channels generate different predictions about objective seed quality.
+ Under the demand-side channel,
+ the intervention shifts beliefs but not the product:
+ seed quality
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-begin{tabular}{p{0.6cm}p{3.8cm}p{3.5cm}p{3.5cm}p{2.5cm}}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
- & Prediction & Demand-side channel & Supply-side channel & Empirical test
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-1 & Perceptions improve & Belief shift,
- larger for non-purchasers ($
-\backslash
-alpha_{NP} >
-\backslash
-alpha_{P}$) & No direct prediction & Table 5
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-2 & Adoption increases & Concentrated among non-purchasers (level shift + precision gain) & Similar across all farmers ($
-\backslash
-theta$ itself changes) & Table 6
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-3 & Productivity improves & Via adoption of better seed & Via improved seed performance & Table 8
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-4 & Agro-dealer switching & No (general signal about agro-dealer seed) & Possible (differential reputation) & Table 10
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-5 & Seed quality & No change ($
-\backslash
-theta_0$ unchanged) & Improves ($d(e^*) < d(0)$) & Table 11
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-Note:
- Predictions 4 and 5 discriminate between channels.
- Finding no switching and no quality improvement is evidence that the demand-side belief correction channel dominates.
- Prediction 3 requires that ratings move beliefs toward truth (conditional welfare assumption),
- so that adoption changes are welfare-improving.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ is unchanged.
+ Under the supply-side channel,
+ if agro-dealers respond to accountability pressure by investing in handling and storage practices,
+ objective seed quality can improve.
+ Finding no treatment effect on objective seed quality is evidence against a supply-side channel operating through quality improvement,
+ and is consistent with the demand-side belief correction channel doing most of the work.
 \end_layout
 
 \begin_layout Section
