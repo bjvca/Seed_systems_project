@@ -1276,7 +1276,25 @@ Let
 \begin_inset Formula $\theta$
 \end_inset
 
- denote the performance of seed sold by agro-dealers relative to the farmer's outside option.
+ denote the performance of seed sold by agro-dealer
+\begin_inset Formula $j$
+\end_inset
+
+ relative to the farmer's outside option.
+ There are
+\begin_inset Formula $J$
+\end_inset
+
+ dealers in farmer
+\begin_inset Formula $i$
+\end_inset
+
+'s area,
+ each with performance
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+.
  This is the actual
 \begin_inset Note Note
 status collapsed
@@ -1319,16 +1337,20 @@ true
 \begin_inset Formula $\theta$
 \end_inset
 
- as 
-\begin_inset Formula $\theta=\theta_{0}-d(e)$
+ as
+\begin_inset Formula $\theta_{j} = \theta_{0j} - d(e_{j})$
 \end_inset
 
 ,
- where 
-\begin_inset Formula $\theta_{0}$
+ where
+\begin_inset Formula $\theta_{0j}$
 \end_inset
 
- is the intrinsic performance of the seed as produced by the seed company
+ is the intrinsic performance of the seed at dealer
+\begin_inset Formula $j$
+\end_inset
+
+ as produced by the seed company
 \begin_inset Note Note
 status open
 
@@ -1484,36 +1506,47 @@ certainty equivalent
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{equation}
-E_{i}[\theta]-\frac{\rho}{2}\sigma^{2}_{i}-c>0\label{eq:adoption_main}
+\max_{j} \; E_{i}[\theta_{j}] - \frac{\rho}{2}\sigma^{2}_{ij} - c_{j} > 0
+\label{eq:adoption_main}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where 
-\begin_inset Formula $\sigma^{2}_{i}$
+where
+\begin_inset Formula $\sigma^{2}_{ij}$
 \end_inset
 
- is subjective uncertainty about 
-\begin_inset Formula $\theta$
+ is farmer
+\begin_inset Formula $i$
 \end_inset
 
-,
- 
-\begin_inset Formula $\rho>0$
+'s subjective uncertainty about dealer
+\begin_inset Formula $j$
+\end_inset
+
+'s seed performance,
+\begin_inset Formula $\rho > 0$
 \end_inset
 
  is the coefficient of absolute risk aversion,
- and 
-\begin_inset Formula $c>0$
+ and
+\begin_inset Formula $c_{j} > 0$
 \end_inset
 
- is the cost of purchasing relative to the outside option.
+ is the cost of purchasing from dealer
+\begin_inset Formula $j$
+\end_inset
+
+ relative to the outside option.
+ The farmer's decision has two margins:
+ whether to buy from any agro-dealer (extensive margin),
+ and if so,
+ from which one (dealer choice).
  Adoption depends on both the level of expected performance
 \begin_inset Note Note
 status collapsed
@@ -1873,8 +1906,12 @@ again,
 \end_layout
 
 \begin_layout Standard
-The intervention provides a signal 
-\begin_inset Formula $s=\theta+\varepsilon$
+The intervention provides farmer
+\begin_inset Formula $i$
+\end_inset
+
+ with a signal about the average performance of agro-dealer seed in their area,
+\begin_inset Formula $s = \bar{\theta} + \varepsilon$
 \end_inset
 
  
@@ -1976,6 +2013,61 @@ subjective uncertainty?
 \end_inset
 
 ) combined with a precision gain.
+\end_layout
+
+\begin_layout Subsection
+Search cost reduction and dealer sorting
+\end_layout
+
+\begin_layout Standard
+The intervention provides dealer-specific ratings
+\begin_inset Formula $s_{j}$
+\end_inset
+
+,
+ not just an aggregate signal about agro-dealer seed in general.
+ This dealer-level information can reduce search costs by revealing which dealers offer better seed,
+ enabling farmers to sort across dealers — the canonical mechanism in crowd-sourced information platforms such as Yelp or TripAdvisor.
+\end_layout
+
+\begin_layout Standard
+The signal
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ conveys two types of information.
+ First,
+ the average signal across dealers,
+\begin_inset Formula $\bar{s} = \frac{1}{J}\sum_{j} s_{j}$
+\end_inset
+
+,
+ provides information about the general performance of agro-dealer seed — this is the belief-updating channel described above.
+ Second,
+ the variation in signals across dealers,
+\begin_inset Formula $s_{j} - \bar{s}$
+\end_inset
+
+,
+ reveals performance differences and enables sorting.
+\end_layout
+
+\begin_layout Standard
+Whether sorting occurs depends on the dispersion in
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+ across dealers.
+ If performance varies substantially across dealers and ratings reveal this variation,
+ farmers can switch to higher-rated dealers — predicting increased switching.
+ If,
+ however,
+ ratings are uniformly positive across dealers — as in our setting,
+ where over 91% of ratings exceed 3 out of 5 — the signal contains little dealer-specific information,
+ and the sorting channel is weak.
+ In this case,
+ the ratings primarily convey that agro-dealer seed performs well in general,
+ and the intervention operates through the belief-updating channel rather than through search cost reduction.
 \end_layout
 
 \begin_layout Subsection
