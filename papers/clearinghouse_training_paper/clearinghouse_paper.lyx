@@ -1659,22 +1659,40 @@ Belief updating through aggregated peer information
 \end_layout
 
 \begin_layout Standard
-The intervention can affect farmer outcomes by shifting farmers' beliefs about 
-\begin_inset Formula $\theta$
+The intervention can affect farmer outcomes by shifting farmers' beliefs about
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
 .
- The farmer does not observe 
-\begin_inset Formula $\theta$
+ The farmer does not observe
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
  directly;
  instead,
- they hold a belief 
+ they hold a belief
+\begin_inset Formula $\mu_{ij}$
+\end_inset
+
+ about each dealer's seed performance.
+ Since the updating logic is the same for each dealer,
+ we suppress the subscript
+\begin_inset Formula $j$
+\end_inset
+
+ in what follows and write
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
- about it
+ and
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ for farmer
+\begin_inset Formula $i$
+\end_inset
+
+'s belief about a given dealer
 \begin_inset Note Note
 status collapsed
 
