@@ -1209,7 +1209,7 @@ Smallholder farmers choose between purchasing seed from agro-dealers and relying
  informal exchanges,
  non-governmental organizations or seed from public agricultural extension programs
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 or non-governmental programs?
@@ -1790,12 +1790,12 @@ Farmer
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior belief about each dealer
+ holds a prior belief about each dealer 
 \begin_inset Formula $j$
 \end_inset
 
 :
-\begin_inset Formula $\theta_{j} \mid \mathcal{I}_{i} \sim \mathcal{N}(\mu_{ij}, \sigma^{2}_{ij})$
+\begin_inset Formula $\theta_{j}\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{ij},\sigma^{2}_{ij})$
 \end_inset
 
 
@@ -1861,14 +1861,15 @@ Purchasers
 \end_inset
 
 ) have priors informed by own experience:
+ 
 \begin_inset Formula $\mu_{Pj}$
 \end_inset
 
- is close to
+ is close to 
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
- and
+ and 
 \begin_inset Formula $\sigma^{2}_{Pj}$
 \end_inset
 
@@ -1885,12 +1886,12 @@ Non-purchasers
 \end_inset
 
 ) lack direct experience:
- we allow
-\begin_inset Formula $\mu_{NPj} < \theta_{j}$
+ we allow 
+\begin_inset Formula $\mu_{NPj}<\theta_{j}$
 \end_inset
 
- (pessimistic bias) and
-\begin_inset Formula $\sigma^{2}_{NPj} > \sigma^{2}_{Pj}$
+ (pessimistic bias) and 
+\begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
 
  (greater uncertainty).
@@ -1935,47 +1936,61 @@ The intervention provides farmer
 \end_inset
 
 .
- The signal aggregates the experiences of
+ The signal aggregates the experiences of 
 \begin_inset Formula $n_{j}$
 \end_inset
 
- farmers who purchased from dealer
+ farmers who purchased from dealer 
 \begin_inset Formula $j$
 \end_inset
 
 :
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+shouldn't this be the sum of E_{i}[
+\backslash
+theta].
+ B:
+ I have made it more explicit what it is
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula
-\begin{equation}
-s_{j} = \frac{1}{n_{j}} \sum_{k=1}^{n_{j}} (\theta_{j} + \varepsilon_{k}) = \theta_{j} + \bar{\varepsilon}_{j}
-\label{eq:signal}
-\end{equation}
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-where
+\begin_inset Formula 
+\begin{equation}
+s_{j}=\frac{1}{n_{j}}\sum^{n_{j}}_{k=1}(\theta_{j}+\varepsilon_{k})=\theta_{j}+\bar{\varepsilon}_{j}\label{eq:signal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
 \begin_inset Formula $\varepsilon_{k}$
 \end_inset
 
- is the noise in rater
+ is the noise in rater 
 \begin_inset Formula $k$
 \end_inset
 
 's individual experience (reflecting weather,
  soil,
  management,
- and other factors beyond seed quality) and
-\begin_inset Formula $\bar{\varepsilon}_{j} \sim \mathcal{N}(0, \sigma_{\varepsilon}^{2}/n_{j})$
+ and other factors beyond seed quality) and 
+\begin_inset Formula $\bar{\varepsilon}_{j}\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon}/n_{j})$
 \end_inset
 
 .
  Averaging across raters reduces noise:
- more raters produce a more precise signal about dealer
+ more raters produce a more precise signal about dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1995,7 +2010,7 @@ where
 \end_layout
 
 \begin_layout Standard
-The weight
+The weight 
 \begin_inset Formula $\alpha_{ij}$
 \end_inset
 
@@ -2011,34 +2026,34 @@ subjective uncertainty?
 \end_inset
 
 .
- Since
-\begin_inset Formula $\sigma^{2}_{NPj} > \sigma^{2}_{Pj}$
+ Since 
+\begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
 
 ,
  non-purchasers place more weight on the signal.
- The belief shift
-\begin_inset Formula $\tilde{\mu}_{ij} - \mu_{ij} = \alpha_{ij}(s_{j} - \mu_{ij})$
+ The belief shift 
+\begin_inset Formula $\tilde{\mu}_{ij}-\mu_{ij}=\alpha_{ij}(s_{j}-\mu_{ij})$
 \end_inset
 
  is therefore larger for non-purchasers on both dimensions:
- they weight the signal more heavily (larger
+ they weight the signal more heavily (larger 
 \begin_inset Formula $\alpha_{ij}$
 \end_inset
 
 ) and the gap between signal and prior is larger (
-\begin_inset Formula $s_{j} - \mu_{NPj} > s_{j} - \mu_{Pj}$
+\begin_inset Formula $s_{j}-\mu_{NPj}>s_{j}-\mu_{Pj}$
 \end_inset
 
  if beliefs are pessimistic).
  For purchasers,
- the main effect is a precision gain (lower
+ the main effect is a precision gain (lower 
 \begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
 \end_inset
 
 );
  for non-purchasers,
- it is a level shift (higher
+ it is a level shift (higher 
 \begin_inset Formula $\tilde{\mu}_{ij}$
 \end_inset
 
