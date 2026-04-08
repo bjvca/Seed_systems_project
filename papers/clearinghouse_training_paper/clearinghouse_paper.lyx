@@ -1795,6 +1795,7 @@ Farmer
 \end_inset
 
 :
+ 
 \begin_inset Formula $\theta_{j}\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{ij},\sigma^{2}_{ij})$
 \end_inset
 
@@ -2304,7 +2305,7 @@ The first-order condition is
  If dealers respond to the intervention by investing in seed preservation,
  degradation falls and seed performance improves
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I wouldn't put 
@@ -2339,7 +2340,7 @@ The model identifies three channels through which the intervention could affect 
  search cost reduction (Section 3.3),
  and supply-side quality improvement (Section 3.4).
  Each channel generates distinct predictions across five outcomes,
- summarized in Table
+ summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:predictions"
@@ -2353,7 +2354,7 @@ nolink "false"
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Prediction 1 (Perceptions).
@@ -2362,7 +2363,7 @@ Prediction 1 (Perceptions).
  Under the belief updating channel,
  the treatment shifts perceived seed performance upward,
  with the effect larger for non-purchasers than purchasers (
-\begin_inset Formula $\alpha_{NPj}(s_{j} - \mu_{NPj}) > \alpha_{Pj}(s_{j} - \mu_{Pj})$
+\begin_inset Formula $\alpha_{NPj}(s_{j}-\mu_{NPj})>\alpha_{Pj}(s_{j}-\mu_{Pj})$
 \end_inset
 
 ).
@@ -2370,10 +2371,11 @@ Prediction 1 (Perceptions).
  there is no direct prediction on perceptions.
  Under the supply-side channel,
  if dealers improve seed quality,
- perceptions may also improve — but the effect would not be concentrated among non-purchasers.
+ perceptions may also improve,
+ but the effect would not be concentrated among non-purchasers.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Prediction 2 (Adoption).
@@ -2383,11 +2385,11 @@ Prediction 2 (Adoption).
  but with different heterogeneity patterns.
  Under belief updating,
  adoption effects are concentrated among non-purchasers,
- who experience both a level shift in
+ who experience both a level shift in 
 \begin_inset Formula $\tilde{\mu}_{ij}$
 \end_inset
 
- and a precision gain in
+ and a precision gain in 
 \begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
 \end_inset
 
@@ -2397,7 +2399,7 @@ Prediction 2 (Adoption).
  Concentration of adoption effects among non-purchasers is therefore evidence that belief updating is the dominant channel.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Prediction 3 (Productivity).
@@ -2413,7 +2415,7 @@ Prediction 3 (Productivity).
  peer ratings move beliefs closer to the true performance of agro-dealer seed relative to outside options.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Prediction 4 (Switching).
@@ -2422,15 +2424,17 @@ Prediction 4 (Switching).
  The three channels differ in their predictions about switching between agro-dealers.
  Under belief updating,
  peer ratings provide information about the average performance of agro-dealer seed in the farmer's area,
- shifting beliefs about agro-dealer seed in general rather than about any specific dealer — predicting no increase in switching.
+ shifting beliefs about agro-dealer seed in general rather than about any specific dealer,
+ predicting no increase in switching.
  Under the search cost channel,
  dealer-specific ratings reveal performance differences,
- enabling farmers to switch to higher-rated dealers — predicting increased switching.
+ enabling farmers to switch to higher-rated dealers,
+ predicting increased switching.
  The supply-side channel has no direct prediction on switching.
  Finding no switching is evidence against the search cost channel.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Prediction 5 (Seed quality).
@@ -2439,14 +2443,14 @@ Prediction 5 (Seed quality).
  The three channels differ in their predictions about objective seed quality.
  Under belief updating and search cost reduction,
  the intervention shifts beliefs or dealer choice but not the product itself:
- seed quality
+ seed quality 
 \begin_inset Formula $\theta_{0j}$
 \end_inset
 
  is unchanged.
  Under the supply-side channel,
  if agro-dealers respond to reputational incentives by investing in handling and storage,
- degradation
+ degradation 
 \begin_inset Formula $d(e_{j})$
 \end_inset
 
@@ -2460,7 +2464,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2487,13 +2491,11 @@ status open
 
 \begin_layout Plain Layout
 
-
 \backslash
 small
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 begin{center}
@@ -2501,14 +2503,12 @@ begin{center}
 
 \begin_layout Plain Layout
 
-
 \backslash
 begin{tabular}{p{2.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
 \end_layout
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \backslash
@@ -2516,7 +2516,6 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
-
  & Belief updating & Search cost reduction & Supply-side
 \backslash
 
@@ -2526,14 +2525,13 @@ hline
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \end_layout
 
 \begin_layout Plain Layout
-
-Perceptions & Improve, larger for non-purchasers & No prediction & May improve,
+Perceptions & Improve,
+ larger for non-purchasers & No prediction & May improve,
  uniform across farmers
 \backslash
 
@@ -2542,8 +2540,9 @@ Perceptions & Improve, larger for non-purchasers & No prediction & May improve,
 \end_layout
 
 \begin_layout Plain Layout
-
-Adoption & Increases, concentrated among non-purchasers & Increases, uniform & Increases,
+Adoption & Increases,
+ concentrated among non-purchasers & Increases,
+ uniform & Increases,
  uniform
 \backslash
 
@@ -2552,7 +2551,6 @@ Adoption & Increases, concentrated among non-purchasers & Increases, uniform & I
 \end_layout
 
 \begin_layout Plain Layout
-
 Productivity & Higher yields (via adoption + complementary inputs) & Higher yields (via better matching) & Higher yields (via better seed)
 \backslash
 
@@ -2561,7 +2559,6 @@ Productivity & Higher yields (via adoption + complementary inputs) & Higher yiel
 \end_layout
 
 \begin_layout Plain Layout
-
 Switching & No change & Increases & No prediction
 \backslash
 
@@ -2570,7 +2567,6 @@ Switching & No change & Increases & No prediction
 \end_layout
 
 \begin_layout Plain Layout
-
 Seed quality & No change & No change & Improves ($d(e_{j})$ falls)
 \backslash
 
@@ -2580,7 +2576,6 @@ Seed quality & No change & No change & Improves ($d(e_{j})$ falls)
 
 \begin_layout Plain Layout
 
-
 \backslash
 hline
 \backslash
@@ -2588,14 +2583,12 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 end{tabular}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 end{center}
@@ -2612,14 +2605,13 @@ status open
 
 \begin_layout Plain Layout
 
-
 \backslash
 footnotesize
 \end_layout
 
 \begin_layout Plain Layout
-
-Note: Predictions 2,
+Note:
+ Predictions 2,
  4,
  and 5 discriminate between channels.
  Concentration of effects among non-purchasers (P2),
@@ -2635,7 +2627,6 @@ Note: Predictions 2,
 \end_inset
 
 
-\end_layout
 \end_layout
 
 \begin_layout Section
