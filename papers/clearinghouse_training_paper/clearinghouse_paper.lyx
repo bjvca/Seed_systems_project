@@ -2334,7 +2334,23 @@ Testable predictions
 \end_layout
 
 \begin_layout Standard
-The model generates the following testable predictions.
+The model identifies three channels through which the intervention could affect outcomes:
+ belief updating (Section 3.2),
+ search cost reduction (Section 3.3),
+ and supply-side quality improvement (Section 3.4).
+ Each channel generates distinct predictions across five outcomes,
+ summarized in Table
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:predictions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2343,26 +2359,18 @@ The model generates the following testable predictions.
 Prediction 1 (Perceptions).
 
 \series default
- The treatment shifts perceived seed performance upward.
- The effect is larger for non-purchasers than purchasers,
- because 
-\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
+ Under the belief updating channel,
+ the treatment shifts perceived seed performance upward,
+ with the effect larger for non-purchasers than purchasers (
+\begin_inset Formula $\alpha_{NPj}(s_{j} - \mu_{NPj}) > \alpha_{Pj}(s_{j} - \mu_{Pj})$
 \end_inset
 
-.
- This follows from priors being imprecise or biased,
- the aggregated signal being informative,
- and farmers perceiving the ratings as credible.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I'd delete the last sentence.
-\end_layout
-
-\end_inset
-
-
+).
+ Under the search cost channel,
+ there is no direct prediction on perceptions.
+ Under the supply-side channel,
+ if dealers improve seed quality,
+ perceptions may also improve — but the effect would not be concentrated among non-purchasers.
 \end_layout
 
 \begin_layout Standard
@@ -2371,137 +2379,22 @@ I'd delete the last sentence.
 Prediction 2 (Adoption).
 
 \series default
- From Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:adoption_main"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
+ All three channels predict increased adoption,
+ but with different heterogeneity patterns.
+ Under belief updating,
+ adoption effects are concentrated among non-purchasers,
+ who experience both a level shift in
+\begin_inset Formula $\tilde{\mu}_{ij}$
 \end_inset
 
-,
- adoption increases when 
-\begin_inset Formula $\tilde{\mu}_{i}-\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- rises above 
-\begin_inset Formula $c$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-huh?
- now 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\backslash
-tilde
-\backslash
-mu and
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-E_[
-\backslash
-theta] are used interchangbly ?
- 
-\end_layout
-
+ and a precision gain in
+\begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
 \end_inset
 
 .
- The treatment relaxes this constraint through a higher posterior mean 
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- (level effect) and a lower posterior variance 
-\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- (precision effect).
- For non-purchasers,
- both channels operate:
- the large upward shift in 
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- combined with reduced uncertainty makes them most likely to cross the adoption threshold.
- For purchasers,
- the level effect is small,
- but the precision effect still operates:
- reduced 
-\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
-\end_inset
-
- lowers the risk penalty 
-\begin_inset Formula $\frac{\rho}{2}\tilde{\sigma}^{2}_{i}$
-\end_inset
-
-,
- which can increase adoption at the margin.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Is it necessary to repeat the predictions for purchasers and non-purchasers?
-\end_layout
-
-\end_inset
-
- This follows from farmers having meaningful outside options and holding imprecise or biased priors.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Again,
- I'd delete the last sentence.
-\end_layout
-
-\end_inset
-
-
+ Under the search cost and supply-side channels,
+ effects are more uniform across purchasers and non-purchasers.
+ Concentration of adoption effects among non-purchasers is therefore evidence that belief updating is the dominant channel.
 \end_layout
 
 \begin_layout Standard
@@ -2510,27 +2403,12 @@ Again,
 Prediction 3 (Productivity).
 
 \series default
- If 
-\begin_inset Formula $\theta>0$
-\end_inset
-
-,
- farmers who switch to agro-dealer seed achieve higher yields.
- Reduced uncertainty may also increase investment in complementary inputs,
- amplifying productivity gains
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-<—
- I would delete this sentence,
- it is not core of *our* model.
-\end_layout
-
-\end_inset
-
-.
- This requires that,
+ All three channels predict higher yields:
+ belief updating through adoption of improved varieties,
+ search cost reduction through better dealer matching,
+ and supply-side through improved seed quality.
+ This prediction does not discriminate between channels.
+ It requires that,
  on average,
  peer ratings move beliefs closer to the true performance of agro-dealer seed relative to outside options.
 \end_layout
@@ -2538,72 +2416,18 @@ status collapsed
 \begin_layout Standard
 
 \series bold
-Prediction 4 (Agro-dealer switching).
+Prediction 4 (Switching).
 
 \series default
- The two channels differ in their predictions about switching between agro-dealers.
- Under the demand-side channel 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-demand-side channel
-\begin_inset Quotes erd
-\end_inset
-
- has not been mentioned before - predictions 4-5 mention the different channels,
- so they need to be introduced first,
- no?
- Also,
- predictions 1-3 do not mention them,
- which is a bit inconsistent,
- no?
- they're only about the demand-side channel,
- but supply-side changes would also affects perceptions;
- adoption;
- and productivity (just after switching and quality changes in the causal chain,
- not before) - that's missing if you want to develop these hypotheses equally strong,
- isn't it?
- I'm not going to say it again,
- but perhaps keeping the supply-side requires too much effort to be integrated fully...
-\end_layout
-
-\end_inset
-
-,
- peer ratings provide information about the average performance of seed sold by agro-dealers in the farmer's area,
- shifting beliefs about agro-dealer seed in general rather than about any specific dealer.
- This predicts no increase in switching.
- Under the supply-side channel
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-as mentioned on the phone this morning,
- I think this has nothing to do with the 
-\begin_inset Quotes eld
-\end_inset
-
-supply-side channel
-\begin_inset Quotes erd
-\end_inset
-
-,
- i.e.,
- 3.3 which predicts dealers to increase efforts.
- I think switching is only possible if the intervention reduces search costs,
- which is an entirely different channel altogether (see Hassanain et al.)
-\end_layout
-
-\end_inset
-
-,
- ratings make performance differences across dealers visible,
- potentially inducing farmers to reallocate purchases toward higher-rated dealers.
- This predicts increased switching.
+ The three channels differ in their predictions about switching between agro-dealers.
+ Under belief updating,
+ peer ratings provide information about the average performance of agro-dealer seed in the farmer's area,
+ shifting beliefs about agro-dealer seed in general rather than about any specific dealer — predicting no increase in switching.
+ Under the search cost channel,
+ dealer-specific ratings reveal performance differences,
+ enabling farmers to switch to higher-rated dealers — predicting increased switching.
+ The supply-side channel has no direct prediction on switching.
+ Finding no switching is evidence against the search cost channel.
 \end_layout
 
 \begin_layout Standard
@@ -2612,19 +2436,206 @@ supply-side channel
 Prediction 5 (Seed quality).
 
 \series default
- The two channels generate different predictions about objective seed quality.
- Under the demand-side channel,
- the intervention shifts beliefs but not the product:
- seed quality 
-\begin_inset Formula $\theta_{0}$
+ The three channels differ in their predictions about objective seed quality.
+ Under belief updating and search cost reduction,
+ the intervention shifts beliefs or dealer choice but not the product itself:
+ seed quality
+\begin_inset Formula $\theta_{0j}$
 \end_inset
 
  is unchanged.
  Under the supply-side channel,
- if agro-dealers respond to reputational incentives by investing in handling and storage practices,
- objective seed quality can improve.
- Finding no treatment effect on objective seed quality is evidence against a supply-side channel operating through quality improvement,
- and is consistent with the demand-side belief correction channel doing most of the work.
+ if agro-dealers respond to reputational incentives by investing in handling and storage,
+ degradation
+\begin_inset Formula $d(e_{j})$
+\end_inset
+
+ falls and objective seed quality improves.
+ Finding no treatment effect on objective seed quality is evidence against the supply-side channel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Model predictions by channel and outcome
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:predictions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{2.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Belief updating & Search cost reduction & Supply-side
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Perceptions & Improve, larger for non-purchasers & No prediction & May improve,
+ uniform across farmers
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Adoption & Increases, concentrated among non-purchasers & Increases, uniform & Increases,
+ uniform
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Productivity & Higher yields (via adoption + complementary inputs) & Higher yields (via better matching) & Higher yields (via better seed)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Switching & No change & Increases & No prediction
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Seed quality & No change & No change & Improves ($d(e_{j})$ falls)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note: Predictions 2,
+ 4,
+ and 5 discriminate between channels.
+ Concentration of effects among non-purchasers (P2),
+ absence of switching (P4),
+ and absence of quality improvement (P5) jointly identify belief updating as the dominant channel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 \end_layout
 
 \begin_layout Section
