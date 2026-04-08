@@ -1718,6 +1718,13 @@ theta] to belief
 mu_{i}?
  Isnt that the same?
  Or does mu somehow include the subjective uncertainty?
+ B:
+ E_i[θ] and μ_i are the same thing —
+ both are farmer i's expected value of seed performance.
+ μ_i does NOT include subjective uncertainty;
+ that's captured separately by σ²_i.
+ We switch notation because in the Bayesian updating we need to track how the mean shifts from μ_i to μ̃_i after seeing the signal,
+ which is cleaner than writing Ẽ_i[θ].
 \end_layout
 
 \end_inset
@@ -1740,7 +1747,15 @@ literal "false"
 .
  Individual learning about seed is therefore noisy,
  slow,
- and difficult to self-correct.
+ and difficult to self-correct 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "AHMAD2022176"
+literal "false"
+
+\end_inset
+
+.
  We hypothesize that this is compounded by the disproportionate salience of negative information 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1755,7 +1770,9 @@ literal "false"
 status collapsed
 
 \begin_layout Plain Layout
-you refer to non-purchasers here without having introduced them (happens in the next section)
+you refer to non-purchasers here without having introduced them (happens in the next section):
+ B:
+ solved
 \end_layout
 
 \end_inset
@@ -1795,7 +1812,7 @@ Farmer
 \begin_inset Formula $\theta\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{i},\sigma^{2}_{i})$
 \end_inset
 
-º
+
 \begin_inset Note Note
 status collapsed
 
@@ -1832,7 +1849,11 @@ theta?
 \uwave default
 \noun default
 \color inherit
- 
+ B:
+ this is standard Bayesian notation for a prior.
+ The notation θ | I ~ N(μ,
+ σ²) reads "θ conditional on information set I is distributed Normal with mean μ and variance σ²." It describes what the agent believes about the unknown parameter θ,
+ not the parameter itself.
 \end_layout
 
 \end_inset
@@ -1893,14 +1914,25 @@ Non-purchasers
 \begin_layout Standard
 As such,
  even though learning by doing is noisy,
- we assume that farmers that have experience with seed from agro-dealers do have more informative priors;
- seed should be situated somewhere on the continuum between an experience and a credence good.
+ we assume that farmers that have experience with seed from agro-dealers do have more informative priors —
+ seed also has an experience good component 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "foster1995learning"
+literal "false"
+
+\end_inset
+
+.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
 again,
- I find the second half of the sentence not well placed here 
+ I find the second half of the sentence not well placed here.
+ B:
+ Better now?
+ 
 \end_layout
 
 \end_inset
@@ -1909,17 +1941,18 @@ again,
 \end_layout
 
 \begin_layout Standard
-The intervention provides farmer
+The intervention provides farmer 
 \begin_inset Formula $i$
 \end_inset
 
  with a signal about the average performance of agro-dealer seed in their area,
+ 
 \begin_inset Formula $s=\bar{\theta}+\varepsilon$
 \end_inset
 
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 shouldn't this be the sum of 
