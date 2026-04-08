@@ -212,20 +212,88 @@ Peer Information,
 \begin_layout Abstract
 Many smallholder farmers in low- and middle-income countries do not adopt modern agricultural inputs sold by agro-dealers due to uncertainty about their performance.
  We introduce a system that aggregates farmers’ evaluations of seed into ratings and disseminates them to farmers and agro-dealers,
- providing a summary signal of seed performance based on peers’ experiences.
-   Such a system could affect outcomes through three channels:
+ providing a summary signal of seed performance based on peers’ experiences
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I feel 
+\begin_inset Quotes eld
+\end_inset
+
+farmers’ evaluations of seed
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+based on peers’ experiences
+\begin_inset Quotes erd
+\end_inset
+
+ in the same sentence in double
+\end_layout
+
+\end_inset
+
+.
+ Such a system could affect outcomes through three channels:
  correcting farmers’ beliefs and reducing their uncertainty about seed performance (belief updating),
  helping farmers identify better dealers (search cost reduction),
- or inducing dealers to improve seed preservation (supply-side response).
+ or inducing dealers to improve seed preservation (supply-side response)
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+major:
+ I would call this channel 
+\begin_inset Quotes eld
+\end_inset
+
+adverse selection reduction
+\begin_inset Quotes erd
+\end_inset
+
+ or similar - I think it is not consistent to be that specific with the two other channels (belief updating/ search cost reduction) and then name the third one vaguely after the actor/ seller that reacts (supply-side)
+\end_layout
+
+\end_inset
+
+.
  We test this approach in a randomized controlled trial involving 3,500 farmers and 350 agro-dealers in the market for high-yielding maize seed in Uganda.
  We find strong evidence for the first channel:
  exposure to peer ratings increases farmers’ perceptions of seed performance,
  with effects concentrated among farmers without prior purchasing experience —
  those whose beliefs are most likely to diverge from the experiences of actual purchasers.
  This leads to higher adoption of high-yielding maize seed and 13% higher yields,
- reflecting both a shift toward improved varieties and increased investment in complementary inputs.
+ reflecting both a shift toward improved varieties and increased investment in complementary inputs 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I do not think the part after the comma should make it to our abstract
+\end_layout
+
+\end_inset
+
+.
  We find no evidence that the intervention induces farmers to switch between dealers or improves underlying seed performance,
- ruling out the sorting and supply-side channels.
+ ruling out the sorting and supply-side channels 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ stick to the original names here (reduction in search cost/ adverse selection) to not confuse the reader?
+\end_layout
+
+\end_inset
+
+.
  The concentration of effects among non-purchasers suggests that the gap between these farmers’ beliefs and purchasers’ reported experiences is a binding constraint on adoption.
 \end_layout
 
@@ -394,6 +462,21 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+major:
+ I feel this paragraph is now about performance uncertainty (3 channels),
+ not about poorly informed and potentially biased beliefs (channel 1).
+ Only the final sentence was about beliefs,
+ so I deleted it.
+ I changed how I felt it was right,
+ here is Bjorn's original:
+ 
+\begin_inset Quotes eld
+\end_inset
+
 An important additional explanation is that farmers hold poorly informed and potentially biased beliefs about the performance of agricultural inputs supplied by agro-dealers,
  the primary distribution channel for improved seed varieties 
 \begin_inset CommandInset citation
@@ -478,6 +561,116 @@ literal "false"
 
 ,
  which can push beliefs toward pessimism.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+An important additional explanation is that farmers are uncertain about the performance of agricultural inputs supplied by agro-dealers,
+ the primary distribution channel for improved seed varieties 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,MICHELSON2023102424,dar2020private"
+literal "false"
+
+\end_inset
+
+.
+ For instance,
+ in the market for high-yielding maize seed in Uganda,
+ several studies document substantial performance uncertainty:
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In this study,
+ the term 
+\begin_inset Quotes eld
+\end_inset
+
+high-yielding maize varieties
+\begin_inset Quotes erd
+\end_inset
+
+ refers to both open-pollinated varieties (OPVs) and hybrids that have been genetically improved through breeding programs.
+ We explain the terminology and our rationale for using this terminology in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "A.1 Context on seeds and their quality"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bold2017lemon"
+literal "false"
+
+\end_inset
+
+ find that locally sold hybrid seed contains less than 50% authentic seed.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "BARRIGA2020104928"
+literal "false"
+
+\end_inset
+
+ document improper handling and storage of maize seed purchased from retailers,
+ while 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Ilukor2025"
+literal "false"
+
+\end_inset
+
+ show that seed quality declines along the supply chain relative to samples obtained directly from seed companies.
+ These studies document that seed quality varies substantially across sellers and over time,
+ but this variation is largely invisible to farmers at the point of purchase
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I think this sentence is incorrect because:
+ Bold et al.
+ do not document variation across sellers or over time (one season only).
+ Barriga & Fiala find variation in performance that increases further down the supply chain,
+ but explicitly finds no difference across sellers (again,
+ only one year,
+ not over time).
+ The SPIA report also does not document seed quality variation across sellers or over time.
+ It is my understanding that these studies document that average performance/quality is lower than it should be (which is what I wrote:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+several studies document substantial performance uncertainty
+\begin_inset Quotes erd
+\end_inset
+
+),
+ not that it across sellers and over time.
+\end_layout
+
+\end_inset
+
+.
+ This uncertainty directly discourages adoption by increasing the perceived riskiness of purchasing from agro-dealers.
 \end_layout
 
 \begin_layout Standard
@@ -505,10 +698,23 @@ literal "false"
  show more that agricultural learning is inherently multidimensional and that even with intensive exposure,
  peer-to-peer transfer of knowledge about input performance faces severe frictions.
  These learning constraints allow poorly informed or biased beliefs to persist.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ again,
+ I would delete this last sentence about beliefs if the intro should be about all three channels.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Existing mechanisms that aim to provide credible signals about seed performance have important limitations.
+Credible signals that reduce performance uncertainty could address this,
+ but existing mechanisms to signal seed performance at agro-dealers have major limitations.
  Seed companies signal quality through labeling and packaging,
  but farmers struggle to identify low-quality seed without specific training 
 \begin_inset CommandInset citation
@@ -546,7 +752,6 @@ literal "false"
 \begin_layout Standard
 In this paper,
  we test a decentralized alternative:
- rather than relying on top-down certification,
  we aggregate the experiences of farmers themselves into a signal of seed performance.
  Building on a well-established literature documenting the importance of peers in agricultural technology adoption 
 \begin_inset CommandInset citation
@@ -558,6 +763,17 @@ literal "false"
 
 ,
  we test whether aggregating peers’ experiences can reduce the uncertainty and pessimism that characterize farmers’ beliefs about seed performance.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ again,
+ this is still about beliefs
+\end_layout
+
+\end_inset
+
  We introduce a system that collects farmers’ evaluations of maize seed purchased from agro-dealers and aggregates them into ratings that summarize the experiences of multiple farmers facing similar conditions.
  These ratings are disseminated to both farmers and agro-dealers,
  providing a summary signal about seed performance at agro-dealers that individual farmers may find difficult to obtain through their own experimentation or social networks.
@@ -585,16 +801,64 @@ A rating system that aggregates and disseminates farmers' purchasing experiences
  farmers may hold poorly informed beliefs about seed performance —
  either more pessimistic than warranted,
  or simply imprecise.
- Disseminating aggregated peer experiences could correct pessimistic beliefs among non-purchasers and reduce uncertainty among all farmers,
+ Disseminating aggregated peer experiences could correct pessimistic beliefs among non-purchasers 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I think readers perhaps do not understand what we mean by purchasers and non-purchasers.
+ For the abstract (where you also use this term twice) and for the intro,
+ I suggest using 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Farmers with/without prior purchasing experience
+\begin_inset Quotes erd
+\end_inset
+
+ instead,
+ then use 
+\series default
+
+\begin_inset Quotes eld
+\end_inset
+
+(non-)purchasers
+\begin_inset Quotes erd
+\end_inset
+
+ in the framework/model,
+ later,
+ when everyone understood what we mean by that...
+\end_layout
+
+\end_inset
+
+ and reduce uncertainty among all farmers,
  increasing adoption —
- especially among risk-averse farmers for whom imprecise beliefs raise the perceived riskiness of purchasing.
+ especially among risk-averse farmers for whom imprecise beliefs raise the perceived riskiness of purchasing
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ is the part after —
+ needed?
+\end_layout
+
+\end_inset
+
+.
  Second,
  if seed performance varies across dealers but farmers lack the information to distinguish between them,
  dealer-specific ratings could reduce search costs and enable farmers to switch to higher-performing sellers.
  Third,
  by making dealers' performance visible,
  ratings could create reputational incentives to invest in seed preservation,
- improving the quality of seed on the shelf.
+ improving the performance of seed on the shelf.
  These channels are not mutually exclusive,
  but they generate distinct empirical predictions that allow us to assess their relative importance.
 \end_layout
@@ -611,7 +875,34 @@ We test this approach in a randomized controlled trial (RCT) involving approxima
 \end_layout
 
 \begin_layout Standard
+On the demand side 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+minor:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+In line with belief updating,
+\begin_inset Quotes erd
+\end_inset
+
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
 On the demand side,
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
+,
  exposure to peer ratings improves farmers’ perceptions of seed performance and increases adoption of high-yielding maize seed,
  with effects concentrated among farmers without prior purchasing experience.
  Treated farmers achieve 13% higher yields,
@@ -648,10 +939,46 @@ literal "false"
  experience-based,
  and reaches farmers who do not engage with formal markets —
  and show that it improves adoption and productivity,
- with the strongest evidence for the demand-side belief correction channel.
+ with the strongest evidence for the belief updating channel.
  Second,
  by tracking outcomes on both sides of the market,
- we examine how demand-side belief updating among farmers and supply-side behavioral responses among agro-dealers may operate as complementary channels,
+ we examine how demand-side belief updating among farmers and supply-side behavioral responses among agro-dealers may operate as complementary channels
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I don't think we actually investigate the complementarity of these channels,
+ we treat them as quite distinct,
+ no?
+ Also,
+ search costs are missing here,
+ no?
+ I would stick to my 
+\begin_inset Quotes eld
+\end_inset
+
+Second,
+ together with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "dar2020private"
+literal "false"
+
+\end_inset
+
+,
+ our study is among the few to connect farmer and agro-dealer perspectives,
+ providing a more complete picture than studies focusing on buyers or sellers alone.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+,
  providing a more complete picture than studies focusing on buyers or sellers alone 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -663,6 +990,36 @@ literal "false"
 .
  Third,
  the concentration of effects among farmers without prior purchasing experience provides direct evidence that the gap between these farmers’ beliefs and purchasers’ reported experiences is a binding constraint on adoption in seed markets.
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ may I add:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+While overly pessimistic beliefs have been documented in fertilizer markets 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
+literal "false"
+
+\end_inset
+
+,
+ we provide the first evidence of this mechanism in seed markets.
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -680,14 +1037,68 @@ literal "false"
 
 .
  In these settings,
- the primary channel is sorting:
+ the primary channel is sorting
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ direct contradiction with previous sentence:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+while sellers adjust their behavior in response to public quality signals
+\begin_inset Quotes erd
+\end_inset
+
+ = reduction is adverse selection and not sorting,
+ no?
+ Also 
+\begin_inset Quotes eld
+\end_inset
+
+affects both sides of the market
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
  reviews help consumers identify the best seller among many.
  Our study shows that in a very different setting —
  a low-information,
  offline agricultural input market —
  crowd-sourced ratings operate through a different channel.
  Because the binding constraint is not which dealer to choose but whether to engage with agro-dealers at all,
- the ratings primarily affect the extensive margin through belief correction rather than the intensive margin through sorting.
+ the ratings primarily affect the extensive margin through belief correction rather than the intensive margin through sorting
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ I don't think that's true - online review platforms can also convince 
+\begin_inset Quotes eld
+\end_inset
+
+non-purchasers
+\begin_inset Quotes erd
+\end_inset
+
+ in these settings,
+ no?
+ Dranove & Jin say that quality disclosure effects are stronger for first-time choosers (consumers picking a health plan for the first time),
+ which is the extensive margin,
+ no?
+ I think we have to be confident before writing the things you claim here...
+\end_layout
+
+\end_inset
+
+.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -698,6 +1109,26 @@ literal "false"
 
  find a related pattern in Pakistan,
  where crowd-sourced information on livestock insemination services improves veterinarian effort but does not induce farmers to switch providers.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minor:
+ you write 
+\begin_inset Quotes eld
+\end_inset
+
+related pattern
+\begin_inset Quotes erd
+\end_inset
+
+ but veterinarian effort is the other channel (your supply side channel),
+ no?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
