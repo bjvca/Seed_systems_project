@@ -1946,7 +1946,7 @@ The intervention provides farmer
 
 :
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 shouldn't this be the sum of E_{i}[
@@ -1964,7 +1964,7 @@ theta].
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-s_{j}=\frac{1}{n_{j}}\sum^{n_{j}}_{k=1}(\theta_{j}+\varepsilon_{k})=\theta_{j}+\bar{\varepsilon}_{j}\label{eq:signal}
+s_{j}=\frac{1}{n_{j}}\sum^{n_{j}}_{k=1}(\theta_{j}+\varepsilon_{k})=\bar{\theta}_{j}+\bar{\varepsilon}_{j}\label{eq:signal}
 \end{equation}
 
 \end_inset
@@ -2014,13 +2014,15 @@ The weight
 \begin_inset Formula $\alpha_{ij}$
 \end_inset
 
- on the signal is increasing in prior uncertainty
+ on the signal is increasing in prior subjective uncertainty
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
 subjective uncertainty?
  just to keep the terminology consistent...
+ B:
+ ok
 \end_layout
 
 \end_inset
@@ -2112,9 +2114,7 @@ Whether sorting occurs depends on the dispersion in
  predicting increased switching.
  If,
  however,
- ratings are uniformly positive across dealers —
- as in our setting,
- where over 91% of ratings exceed 3 out of 5 —
+ ratings are uniformly positive across dealers,
  the signal contains little dealer-specific information,
  and the sorting channel is weak.
  In this case,
@@ -2150,12 +2150,12 @@ Let
 
 \begin_layout Standard
 The intervention can also affect farmer outcomes by inducing dealers to reduce degradation 
-\begin_inset Formula $d(e)$
+\begin_inset Formula $d(e_{j})$
 \end_inset
 
 ,
  raising 
-\begin_inset Formula $\theta$
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
  itself.
@@ -2169,23 +2169,27 @@ The intervention can also affect farmer outcomes by inducing dealers to reduce d
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $e\geq0$
+\begin_inset Formula $e_{j}\geq0$
 \end_inset
 
- denote dealer effort in seed preservation (proper containers,
+ denote dealer 
+\begin_inset Formula $j$
+\end_inset
+
+'s effort in seed preservation (proper containers,
  moisture control,
  ventilation),
  with convex cost 
-\begin_inset Formula $c(e)$
+\begin_inset Formula $c(e_{j})$
 \end_inset
 
 .
  Recall that 
-\begin_inset Formula $\theta=\theta_{0}-d(e)$
+\begin_inset Formula $\theta_{j}=\theta_{0}-d(e_{j})$
 \end_inset
 
  with 
-\begin_inset Formula $d’(e)<0$
+\begin_inset Formula $d’(e_{j})<0$
 \end_inset
 
 :
