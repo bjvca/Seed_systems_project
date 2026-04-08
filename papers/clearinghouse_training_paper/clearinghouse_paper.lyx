@@ -1674,25 +1674,7 @@ The intervention can affect farmer outcomes by shifting farmers' beliefs about
 \begin_inset Formula $\mu_{ij}$
 \end_inset
 
- about each dealer's seed performance.
- Since the updating logic is the same for each dealer,
- we suppress the subscript 
-\begin_inset Formula $j$
-\end_inset
-
- in what follows and write 
-\begin_inset Formula $\mu_{i}$
-\end_inset
-
- and 
-\begin_inset Formula $\sigma^{2}_{i}$
-\end_inset
-
- for farmer 
-\begin_inset Formula $i$
-\end_inset
-
-'s belief about a given dealer
+ about each dealer's seed performance
 \begin_inset Note Note
 status collapsed
 
@@ -1808,8 +1790,12 @@ Farmer
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior 
-\begin_inset Formula $\theta\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{i},\sigma^{2}_{i})$
+ holds a prior belief about each dealer
+\begin_inset Formula $j$
+\end_inset
+
+:
+\begin_inset Formula $\theta_{j} \mid \mathcal{I}_{i} \sim \mathcal{N}(\mu_{ij}, \sigma^{2}_{ij})$
 \end_inset
 
 
@@ -1875,16 +1861,15 @@ Purchasers
 \end_inset
 
 ) have priors informed by own experience:
- 
-\begin_inset Formula $\mu_{P}$
+\begin_inset Formula $\mu_{Pj}$
 \end_inset
 
- is close to 
-\begin_inset Formula $\theta$
+ is close to
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
- and 
-\begin_inset Formula $\sigma^{2}_{P}$
+ and
+\begin_inset Formula $\sigma^{2}_{Pj}$
 \end_inset
 
  is moderate.
@@ -1900,12 +1885,12 @@ Non-purchasers
 \end_inset
 
 ) lack direct experience:
- we allow 
-\begin_inset Formula $\mu_{NP}<\theta$
+ we allow
+\begin_inset Formula $\mu_{NPj} < \theta_{j}$
 \end_inset
 
- (pessimistic bias) and 
-\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
+ (pessimistic bias) and
+\begin_inset Formula $\sigma^{2}_{NPj} > \sigma^{2}_{Pj}$
 \end_inset
 
  (greater uncertainty).
@@ -2001,7 +1986,7 @@ where
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\tilde{\mu}_{i}=(1-\alpha_{i})\mu_{i}+\alpha_{i}s,\quad\tilde{\sigma}^{2}_{i}=\frac{\sigma^{2}_{i}\cdot\sigma^{2}_{\varepsilon}/n}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n},\quad\alpha_{i}=\frac{\sigma^{2}_{i}}{\sigma^{2}_{i}+\sigma^{2}_{\varepsilon}/n}\label{eq:updating_main}
+\tilde{\mu}_{ij}=(1-\alpha_{ij})\mu_{ij}+\alpha_{ij}s_{j},\quad\tilde{\sigma}^{2}_{ij}=\frac{\sigma^{2}_{ij}\cdot\sigma^{2}_{\varepsilon}/n_{j}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}},\quad\alpha_{ij}=\frac{\sigma^{2}_{ij}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}}\label{eq:updating_main}
 \end{equation}
 
 \end_inset
@@ -2010,8 +1995,8 @@ where
 \end_layout
 
 \begin_layout Standard
-The weight 
-\begin_inset Formula $\alpha_{i}$
+The weight
+\begin_inset Formula $\alpha_{ij}$
 \end_inset
 
  on the signal is increasing in prior uncertainty
@@ -2026,35 +2011,35 @@ subjective uncertainty?
 \end_inset
 
 .
- Since 
-\begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
+ Since
+\begin_inset Formula $\sigma^{2}_{NPj} > \sigma^{2}_{Pj}$
 \end_inset
 
 ,
  non-purchasers place more weight on the signal.
- The belief shift 
-\begin_inset Formula $\tilde{\mu}_{i}-\mu_{i}=\alpha_{i}(s-\mu_{i})$
+ The belief shift
+\begin_inset Formula $\tilde{\mu}_{ij} - \mu_{ij} = \alpha_{ij}(s_{j} - \mu_{ij})$
 \end_inset
 
  is therefore larger for non-purchasers on both dimensions:
- they weight the signal more heavily (larger 
-\begin_inset Formula $\alpha_{i}$
+ they weight the signal more heavily (larger
+\begin_inset Formula $\alpha_{ij}$
 \end_inset
 
 ) and the gap between signal and prior is larger (
-\begin_inset Formula $s-\mu_{NP}>s-\mu_{P}$
+\begin_inset Formula $s_{j} - \mu_{NPj} > s_{j} - \mu_{Pj}$
 \end_inset
 
  if beliefs are pessimistic).
  For purchasers,
- the main effect is a precision gain (lower 
-\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
+ the main effect is a precision gain (lower
+\begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
 \end_inset
 
 );
  for non-purchasers,
- it is a level shift (higher 
-\begin_inset Formula $\tilde{\mu}_{i}$
+ it is a level shift (higher
+\begin_inset Formula $\tilde{\mu}_{ij}$
 \end_inset
 
 ) combined with a precision gain.
