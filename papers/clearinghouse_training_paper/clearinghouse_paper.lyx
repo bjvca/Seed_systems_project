@@ -2202,10 +2202,14 @@ Let
  Without the intervention,
  dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
  Let 
-\begin_inset Formula $R_{0}(\theta)$
+\begin_inset Formula $R_{0}(\theta_{j})$
 \end_inset
 
- denote the baseline demand that depends on quality through these informal channels,
+ denote the baseline demand for dealer
+\begin_inset Formula $j$
+\end_inset
+
+ that depends on quality through these informal channels,
  with 
 \begin_inset Formula $R_{0}’>0$
 \end_inset
@@ -2225,12 +2229,12 @@ what does this final term mean?
  ratings are collected and disseminated,
  amplifying the reputational return to quality.
  Let 
-\begin_inset Formula $R_{1}(\theta)$
+\begin_inset Formula $R_{1}(\theta_{j})$
 \end_inset
 
  denote demand under the rating system,
- with 
-\begin_inset Formula $R_{1}’(\theta)>R_{0}’(\theta)$
+ with
+\begin_inset Formula $R_{1}’(\theta_{j}) > R_{0}’(\theta_{j})$
 \end_inset
 
 
@@ -2270,7 +2274,7 @@ theta) is supposed to show that returns are higher even if quality is constant,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\max_{e}\quad R_{T}(\theta_{0}-d(e))-c(e)\label{eq:dealer_main}
+\max_{e_{j}}\quad R_{T}(\theta_{0j}-d(e_{j}))-c(e_{j})\label{eq:dealer_main}
 \end{equation}
 
 \end_inset
@@ -2280,18 +2284,17 @@ theta) is supposed to show that returns are higher even if quality is constant,
 
 \begin_layout Standard
 The first-order condition is 
-\begin_inset Formula $R_{T}’(\cdot)\cdot(-d’(e^{*}))=c’(e^{*})$
+\begin_inset Formula $R_{T}’(\cdot) \cdot (-d’(e_{j}^{*})) = c’(e_{j}^{*})$
 \end_inset
 
 .
- Since 
-\begin_inset Formula $R_{1}’>R_{0}’$
+ Since
+\begin_inset Formula $R_{1}’ > R_{0}’$
 \end_inset
 
 ,
  optimal effort is higher under the intervention:
- 
-\begin_inset Formula $e^{*}_{1}>e^{*}_{0}$
+\begin_inset Formula $e_{j1}^{*} > e_{j0}^{*}$
 \end_inset
 
 .
