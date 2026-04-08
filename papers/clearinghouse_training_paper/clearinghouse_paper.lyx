@@ -1945,47 +1945,56 @@ The intervention provides farmer
 \begin_inset Formula $i$
 \end_inset
 
- with a signal about the average performance of agro-dealer seed in their area,
- 
-\begin_inset Formula $s=\bar{\theta}+\varepsilon$
+ with a signal about the performance of seed at dealer
+\begin_inset Formula $j$
 \end_inset
 
- 
-\begin_inset Note Note
-status open
+.
+ The signal aggregates the experiences of
+\begin_inset Formula $n_{j}$
+\end_inset
 
-\begin_layout Plain Layout
-shouldn't this be the sum of 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-E_{i}[
-\backslash
-theta]
+ farmers who purchased from dealer
+\begin_inset Formula $j$
+\end_inset
+
+:
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula
+\begin{equation}
+s_{j} = \frac{1}{n_{j}} \sum_{k=1}^{n_{j}} (\theta_{j} + \varepsilon_{k}) = \theta_{j} + \bar{\varepsilon}_{j}
+\label{eq:signal}
+\end{equation}
 \end_inset
 
-with 
-\begin_inset Formula $\varepsilon\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon}/n)$
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula $\varepsilon_{k}$
 \end_inset
 
-,
- where 
-\begin_inset Formula $n$
+ is the noise in rater
+\begin_inset Formula $k$
 \end_inset
 
- is the number of raters.
+'s individual experience (reflecting weather,
+ soil,
+ management,
+ and other factors beyond seed quality) and
+\begin_inset Formula $\bar{\varepsilon}_{j} \sim \mathcal{N}(0, \sigma_{\varepsilon}^{2}/n_{j})$
+\end_inset
+
+.
+ Averaging across raters reduces noise:
+ more raters produce a more precise signal about dealer
+\begin_inset Formula $j$
+\end_inset
+
+'s true seed performance.
  Standard Normal-Normal bayesian updating yields posterior mean and variance:
 \end_layout
 
