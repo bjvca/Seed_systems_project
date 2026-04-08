@@ -1073,7 +1073,7 @@ affects both sides of the market
  a low-information,
  offline agricultural input market —
  crowd-sourced ratings operate through a different channel.
- Because the binding constraint is not which dealer to choose but whether to engage with agro-dealers at all,
+ Because the binding constraint is not which agro-dealer to choose but whether to engage with agro-dealers at all,
  the ratings primarily affect the extensive margin through belief correction rather than the intensive margin through sorting
 \begin_inset Note Comment
 status collapsed
@@ -1595,7 +1595,7 @@ The treatment induces agro-dealers to adjust their behavior along visible dimens
 \end_layout
 
 \begin_layout Section
-Formal model
+Conceptual model
 \end_layout
 
 \begin_layout Standard
@@ -1604,31 +1604,43 @@ This section develops a simple model of how aggregated peer information affects 
 status collapsed
 
 \begin_layout Plain Layout
-purchasing?
- B:
+C:
+ purchasing?
+\end_layout
+
+\begin_layout Plain Layout
+B:
  why purchasing?
  We always talked about adoption,
  and that is what we measure
+\end_layout
+
+\begin_layout Plain Layout
+C:
+ see next paragraph:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options...
+\begin_inset Quotes erd
+\end_inset
+
+ - but we could circumvent this by writing 
+\begin_inset Quotes eld
+\end_inset
+
+farmer and agro-dealer behavior/outcomes
+\begin_inset Quotes erd
+\end_inset
+
+?
 \end_layout
 
 \end_inset
 
  decisions and agro-dealer behavior.
  The model generates a set of predictions that helps us organize the empirical analysis.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I think we should mention that this is useful for organizing the empirical analysis,
- but that we do not intent to provide a novel theoretical result.
- This would help set appropriate expectations for readers and more accurately position the paper's contribution as primarily empirical.
- - B:like this?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1638,31 +1650,16 @@ Setup
 \begin_layout Standard
 Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options such as farmer-saved seed,
  informal exchanges,
- non-governmental organizations or seed from public agricultural extension programs
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-or non-governmental programs?
- B:
- like this?
-\end_layout
-
-\end_inset
-
-.
+ and seed distributed through public or non-governmental programs.
  The decision depends on beliefs about the performance of agro-dealer seed relative to these alternatives.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-This first paragraph is about farmers and their beliefs,
- the second one about agro-dealers and their seed performance,
- and the third one about farmers and their uncertainty - is this the best way to organize this?
-\end_layout
-
-\begin_layout Plain Layout
-I think the first paragraph could logically follow the second,
+C:
+ This first paragraph is about farmers and their beliefs,
+ the second one about agro-dealers and their seed performance - is this the best way to organize this?
+ I think the first paragraph could logically follow the second,
  as 
 \begin_inset Quotes eld
 \end_inset
@@ -1672,8 +1669,17 @@ unobservable to the farmer at the time of purchase
 \end_inset
 
  kind of explains why the decision depends on beliefs?
- - huh?
+\end_layout
+
+\begin_layout Plain Layout
+B:
+ huh?
  where exactly are these paragraphs?
+\end_layout
+
+\begin_layout Plain Layout
+C:
+ I am referring to the first and second paragraph in this subsection (3.1 Setup)
 \end_layout
 
 \end_inset
@@ -1695,7 +1701,7 @@ Let
 \begin_inset Formula $J$
 \end_inset
 
- dealers in farmer 
+ agro-dealers in farmer 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1705,44 +1711,8 @@ Let
 \end_inset
 
 .
- This is the actual
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I would only use 
-\begin_inset Quotes eld
-\end_inset
-
-true
-\begin_inset Quotes erd
-\end_inset
-
- or only use 
-\begin_inset Quotes eld
-\end_inset
-
-actual
-\begin_inset Quotes erd
-\end_inset
-
- - I think mixing the two could confuse the reader.
- -B:
- removed 
-\begin_inset Quotes eld
-\end_inset
-
-true
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- performance the farmer would realize if they planted the seed —
- it is real but unobservable to the farmer at the time of purchase.
+ This is the actual performance the farmer would realize if they planted the seed —
+ it is unobservable to the farmer at the time of purchase.
  We decompose 
 \begin_inset Formula $\theta_{j}$
 \end_inset
@@ -1756,7 +1726,7 @@ true
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is the intrinsic performance of the seed at dealer
+ is the intrinsic performance of the seed at agro-dealer
 \begin_inset Formula $j$
 \end_inset
 
@@ -1765,14 +1735,47 @@ true
 status collapsed
 
 \begin_layout Plain Layout
-as it is arrives at the agro-dealer,
+C:
+ as it is arrives at the agro-dealer,
  right?
  performance could be harmed after leaving the seed company and before arriving at the agro-dealer,
  right?
- B:
+\end_layout
+
+\begin_layout Plain Layout
+B:
  yes,
  it is the seed that the dealer gets in hand before messing up,
  that should be clear from the indexing.
+\end_layout
+
+\begin_layout Plain Layout
+C:
+ can we replace 
+\begin_inset Quotes eld
+\end_inset
+
+as produced by the seed company
+\begin_inset Quotes erd
+\end_inset
+
+ with 
+\begin_inset Quotes eld
+\end_inset
+
+seed performance upon arrival at the agro-dealer
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+seed performance at handover to the agro-dealer
+\begin_inset Quotes erd
+\end_inset
+
+?
 \end_layout
 
 \end_inset
@@ -1789,15 +1792,15 @@ as it is arrives at the agro-dealer,
 \end_inset
 
 .
- Higher dealer effort 
+ Higher agro-dealer effort 
 \begin_inset Formula $e_{j}$
 \end_inset
 
  (e.g.,
- proper containers,
- moisture control,
- ventilation) reduces degradation,
- preserving seed performance closer to its intrinsic quality 
+ proper storage containers,
+ ventilation,
+ temperature and moisture control) reduces degradation,
+ preserving seed performance closer to its intrinsic level 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
@@ -1812,34 +1815,26 @@ Seed purchasing under uncertainty
 Farmers are risk-averse and face a two-part decision:
  whether to purchase seed from any agro-dealer rather than relying on the outside option (extensive margin),
  and if so,
- from which dealer (dealer choice).
+ from which agro-dealer (agro-dealer choice).
  Farmer 
 \begin_inset Formula $i$
 \end_inset
 
- evaluates each dealer 
+ evaluates each agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
- by comparing the expected performance of that dealer's seed,
+ by comparing the expected performance of that agro-dealer's seed,
  discounted for uncertainty,
  against the cost of purchasing.
  Formally,
- the farmer adopts from the best available dealer if the certainty equivalent
+ the farmer purchases from the best available agro-dealer if the certainty equivalent exceeds the cost:
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-the 
-\begin_inset Quotes eld
-\end_inset
-
-the certainty equivalent
-\begin_inset Quotes erd
-\end_inset
-
-?
- 
+C:
+ the 
 \family roman
 \series medium
 \shape up
@@ -1853,124 +1848,32 @@ the certainty equivalent
 \uwave off
 \noun off
 \color none
-if E_{i}[
+
 \backslash
-theta]-
-\backslash
-frac{
-\backslash
-rho}{2}
-\backslash
-sigma^{2}_{i}>c,
+max_{j} entered equation (1) because it is now about the BEST
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ available agro-dealer,
  right?
- So if the expected performance minus that doubt parameter exceed the cost,
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- right?
- I think we need a better term for 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-expected performance minus that subjective uncertainty
-\begin_inset Quotes erd
-\end_inset
-
- than 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-certainty equivalent
-\begin_inset Quotes erd
-\end_inset
-
-.
- B:
+ Is this also standard notation?
+ To me it looks like we're trying to maximize expectation but of course I am likely to be wrong about this.
  
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Quotes eld
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-certainty equivalent
-\begin_inset Quotes erd
-\end_inset
-
- is the standard term from decision theory under risk:
- the certainty equivalent is the sure amount that makes the agent indifferent to the risky option.
- With CARA utility and normal beliefs,
- it equals E[θ] - ρ/2·σ².
- It's the right term for this journal.
 \end_layout
 
 \end_inset
 
- exceeds the cost:
+
 \end_layout
 
 \begin_layout Standard
@@ -1993,7 +1896,7 @@ where
 \begin_inset Formula $i$
 \end_inset
 
-'s subjective uncertainty about dealer 
+'s subjective uncertainty about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2007,44 +1910,37 @@ where
 \begin_inset Formula $c_{j}>0$
 \end_inset
 
- is the cost of purchasing from dealer 
+ is the cost of purchasing from agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
  relative to the outside option.
- Adoption depends on both the level of expected performance
+ Adoption
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
+C:
+ 
+\begin_inset Quotes eld
+\end_inset
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-E_{i}[
-\backslash
-theta] - right?
- B:yes
+Purchasing
+\begin_inset Quotes erd
+\end_inset
+
+ like in subsection title?
 \end_layout
 
 \end_inset
 
- and the precision of beliefs
+ depends on both the level of expected performance and the precision of beliefs
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-=
+C:
+ =
 \family roman
 \series medium
 \shape up
@@ -2075,7 +1971,45 @@ sigma^{2}_{i} =
 \noun default
 \color inherit
 subjective uncertainty?
- B:yes
+\end_layout
+
+\begin_layout Plain Layout
+B:
+ yes
+\end_layout
+
+\begin_layout Plain Layout
+C:
+ should we write 
+\begin_inset Quotes eld
+\end_inset
+
+subjective performance uncertainty
+\begin_inset Quotes erd
+\end_inset
+
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
+precision of beliefs
+\begin_inset Quotes erd
+\end_inset
+
+ here?
+ I feel 
+\begin_inset Quotes eld
+\end_inset
+
+precision of beliefs
+\begin_inset Quotes erd
+\end_inset
+
+ comes out of nowhere.
+ I think high subjective performance uncertainty means low precision of performance beliefs.
+ They're describing the same underlying concept (flipped),
+ but maybe that's not clear to all readers?
+ Or perhaps that's just me again?
 \end_layout
 
 \end_inset
@@ -2099,18 +2033,32 @@ The intervention can affect farmer outcomes by shifting farmers' beliefs about
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
- directly;
+ directly 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ At the time of purchase?
+ (experience good) or ever (credence good)?
+ I would be specific here.
+\end_layout
+
+\end_inset
+
+;
  instead,
  they hold a belief 
 \begin_inset Formula $\mu_{ij}$
 \end_inset
 
- about each dealer's seed performance
+ about each agro-dealer's seed performance
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Why does the notification change from expectation 
+C:
+ Why does the notification change from expectation 
 \family roman
 \series medium
 \shape up
@@ -2131,7 +2079,24 @@ theta] to belief
 mu_{i}?
  Isnt that the same?
  Or does mu somehow include the subjective uncertainty?
- B:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+B:
  E_i[θ] and μ_i are the same thing —
  both are farmer i's expected value of seed performance.
  μ_i does NOT include subjective uncertainty;
@@ -2140,10 +2105,15 @@ mu_{i}?
  which is cleaner than writing Ẽ_i[θ].
 \end_layout
 
+\begin_layout Plain Layout
+C:
+ I find it confusing to have two terms for the same concept but if you are certain that this is the way to go,
+ feel free to delete this note.
+\end_layout
+
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -2168,6 +2138,17 @@ literal "false"
 
 \end_inset
 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ this ref is missing
+\end_layout
+
+\end_inset
+
 .
  We hypothesize that this is compounded by the disproportionate salience of negative information 
 \begin_inset CommandInset citation
@@ -2178,19 +2159,7 @@ literal "false"
 \end_inset
 
 ,
- pushing beliefs
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-you refer to non-purchasers here without having introduced them (happens in the next section):
- B:
- solved
-\end_layout
-
-\end_inset
-
- below the true 
+ pushing beliefs below the true 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -2211,7 +2180,45 @@ literal "false"
 
 \end_inset
 
- is consistent with this hypothesis.When beliefs are imprecise or biased,
+ is consistent with this hypothesis.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I would either delete this entire paragraph (Seed has properties of a credence good...) or move it,
+ in a different form,
+ to 3.1 Setup.
+ I think it clutters this section.
+ I am in favor of deleting is altogether (I am worried that in its current form,
+ this opens the door to criticism like 
+\begin_inset Quotes eld
+\end_inset
+
+if seed has properties of a credence good,
+ why would you expect the intervention to provide info that it credible enough to induce switching or create incentives?
+ If you want to keep it,
+ I suggest I give it a go to reformulate it for your review?
+ I think subsection 3.3 should be about belief updating and not about why beliefs are imprecise or biased in the first place.
+\end_layout
+
+\begin_layout Plain Layout
+I would replace it with something like 
+\begin_inset Quotes eld
+\end_inset
+
+Because learning about seed performance from own experience is difficult and information from peers is limited,
+ individual beliefs are likely to be imprecise or biased,
+ and aggregated peer information can shape belief formation."
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When beliefs are imprecise or biased,
  aggregated peer information can shape belief formation.
  The way it does so depends on farmers’ prior purchasing experience.
 \end_layout
@@ -2221,7 +2228,11 @@ Farmer
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior belief about each dealer 
+ holds a prior belief 
+\begin_inset Formula $\mu_{ij}$
+\end_inset
+
+ about each agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2363,7 +2374,7 @@ The intervention provides farmer
 \begin_inset Formula $i$
 \end_inset
 
- with a signal about the performance of seed at dealer
+ with a signal about the performance of seed at agro-dealer
 \begin_inset Formula $j$
 \end_inset
 
@@ -2372,7 +2383,7 @@ The intervention provides farmer
 \begin_inset Formula $n_{j}$
 \end_inset
 
- farmers who purchased from dealer 
+ farmers who purchased from agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2422,7 +2433,7 @@ where
 
 .
  Averaging across raters reduces noise:
- more raters produce a more precise signal about dealer 
+ more raters produce a more precise signal about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2495,18 +2506,18 @@ subjective uncertainty?
 \end_layout
 
 \begin_layout Subsection
-Search cost reduction and dealer sorting
+Search cost reduction and agro-dealer sorting
 \end_layout
 
 \begin_layout Standard
-The intervention provides dealer-specific ratings 
+The intervention provides agro-dealer-specific ratings 
 \begin_inset Formula $s_{j}$
 \end_inset
 
 ,
  not just an aggregate signal about agro-dealer seed in general.
- This dealer-level information can reduce search costs by revealing which dealers offer better seed,
- enabling farmers to sort across dealers —
+ This agro-dealer-level information can reduce search costs by revealing which agro-dealers offer better seed,
+ enabling farmers to sort across agro-dealers —
  the canonical mechanism in crowd-sourced information platforms such as Yelp or TripAdvisor.
 \end_layout
 
@@ -2517,7 +2528,7 @@ The signal
 
  conveys two types of information.
  First,
- the average signal across dealers,
+ the average signal across agro-dealers,
  
 \begin_inset Formula $\bar{s}=\frac{1}{J}\sum_{j}s_{j}$
 \end_inset
@@ -2526,7 +2537,7 @@ The signal
  provides information about the general performance of agro-dealer seed —
  this is the belief-updating channel described above.
  Second,
- the variation in signals across dealers,
+ the variation in signals across agro-dealers,
  
 \begin_inset Formula $s_{j}-\bar{s}$
 \end_inset
@@ -2540,14 +2551,14 @@ Whether sorting occurs depends on the dispersion in
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
- across dealers.
- If performance varies substantially across dealers and ratings reveal this variation,
- farmers can switch to higher-rated dealers —
+ across agro-dealers.
+ If performance varies substantially across agro-dealers and ratings reveal this variation,
+ farmers can switch to higher-rated agro-dealers —
  predicting increased switching.
  If,
  however,
- ratings are uniformly positive across dealers,
- the signal contains little dealer-specific information,
+ ratings are uniformly positive across agro-dealers,
+ the signal contains little agro-dealer-specific information,
  and the sorting channel is weak.
  In this case,
  the ratings primarily convey that agro-dealer seed performs well in general,
@@ -2581,7 +2592,7 @@ Let
 \end_layout
 
 \begin_layout Standard
-The intervention can also affect farmer outcomes by inducing dealers to reduce degradation 
+The intervention can also affect farmer outcomes by inducing agro-dealers to reduce degradation 
 \begin_inset Formula $d(e_{j})$
 \end_inset
 
@@ -2604,7 +2615,7 @@ Let
 \begin_inset Formula $e_{j}\geq0$
 \end_inset
 
- denote dealer 
+ denote agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2632,12 +2643,12 @@ Let
 
 .
  Without the intervention,
- dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
+ agro-dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
  Let 
 \begin_inset Formula $R_{0}(\theta_{j})$
 \end_inset
 
- denote the baseline demand for dealer 
+ denote the baseline demand for agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2702,7 +2713,7 @@ theta) is supposed to show that returns are higher even if quality is constant,
 
  —
  the marginal return to quality is higher when performance is publicly visible.
- The dealer chooses effort to maximize:
+ The agro-dealer chooses effort to maximize:
 \end_layout
 
 \begin_layout Standard
@@ -2733,7 +2744,7 @@ The first-order condition is
 \end_inset
 
 .
- If dealers respond to the intervention by investing in seed preservation,
+ If agro-dealers respond to the intervention by investing in seed preservation,
  degradation falls and seed performance improves
 \begin_inset Note Note
 status collapsed
@@ -2838,7 +2849,7 @@ Prediction 3 (Productivity).
 \series default
  All three channels predict higher yields:
  belief updating through adoption of improved varieties,
- search cost reduction through better dealer matching,
+ search cost reduction through better agro-dealer matching,
  and supply-side through improved seed quality.
  This prediction does not discriminate between channels.
  It requires that,
@@ -2855,7 +2866,7 @@ Prediction 4 (Switching).
  The three channels differ in their predictions about switching between agro-dealers.
  Under belief updating,
  peer ratings provide information about the average performance of agro-dealer seed in the farmer's area,
- shifting beliefs about agro-dealer seed in general rather than about any specific dealer,
+ shifting beliefs about agro-dealer seed in general rather than about any specific agro-dealer,
  predicting no increase in switching.
  Under the search cost channel,
  dealer-specific ratings reveal performance differences,
@@ -2873,7 +2884,7 @@ Prediction 5 (Seed quality).
 \series default
  The three channels differ in their predictions about objective seed quality.
  Under belief updating and search cost reduction,
- the intervention shifts beliefs or dealer choice but not the product itself:
+ the intervention shifts beliefs or agro-dealer choice but not the product itself:
  seed quality 
 \begin_inset Formula $\theta_{0j}$
 \end_inset
@@ -13796,7 +13807,7 @@ name "7 Conclusion"
 
 \begin_layout Standard
 This study examines how aggregated peer ratings of seed performance affect farmer beliefs,
- dealer choice,
+ agro-dealer choice,
  and agro-dealer behavior.
  The intervention could operate through three channels:
  correcting pessimistic or imprecise beliefs among farmers (belief updating),
