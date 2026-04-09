@@ -877,7 +877,7 @@ We test this approach in a randomized controlled trial (RCT) involving approxima
 \begin_layout Standard
 On the demand side 
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 minor:
@@ -1645,6 +1645,22 @@ farmer and agro-dealer behavior/outcomes
 
 \begin_layout Subsection
 Setup
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I think would merge Setup and Seed purchasing under uncertainty.
+ Sorry if I suggested the opposite before.
+ This way we'd have the setup (1),
+ the three mechanisms (2)-(4),
+ and then the predictions (5) - very clean.
+ :)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2021,6 +2037,24 @@ precision of beliefs
 
 \begin_layout Subsection
 Belief updating through aggregated peer information
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I'd call this 
+\begin_inset Quotes eld
+\end_inset
+
+Belief updating
+\begin_inset Quotes erd
+\end_inset
+
+ without mentioning the intervention (through aggregated peer information)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2186,18 +2220,17 @@ status collapsed
 
 \begin_layout Plain Layout
 C:
- I would either delete this entire paragraph (Seed has properties of a credence good...) or move it,
+ I would move this entire paragraph (Seed has properties of a credence good...),
  in a different form,
- to 3.1 Setup.
+ to 3.1 (Setup).
  I think it clutters this section.
- I am in favor of deleting is altogether (I am worried that in its current form,
+ I am worried that in its current form,
  this opens the door to criticism like 
 \begin_inset Quotes eld
 \end_inset
 
 if seed has properties of a credence good,
  why would you expect the intervention to provide info that it credible enough to induce switching or create incentives?
- If you want to keep it,
  I suggest I give it a go to reformulate it for your review?
  I think subsection 3.3 should be about belief updating and not about why beliefs are imprecise or biased in the first place.
 \end_layout
@@ -2241,57 +2274,8 @@ Farmer
 \begin_inset Formula $\theta_{j}\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{ij},\sigma^{2}_{ij})$
 \end_inset
 
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Sorry if this is stupid because I don't understand notation,
- but is the farmer's prior now also 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\backslash
-theta?
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- B:
- this is standard Bayesian notation for a prior.
- The notation θ | I ~ N(μ,
- σ²) reads "θ conditional on information set I is distributed Normal with mean μ and variance σ²." It describes what the agent believes about the unknown parameter θ,
- not the parameter itself.
-\end_layout
-
-\end_inset
-
 .
  We distinguish two types:
-
-\series bold
- 
 \end_layout
 
 \begin_layout Itemize
@@ -2303,7 +2287,7 @@ Purchasers
 \begin_inset Formula $i\in P$
 \end_inset
 
-) have priors informed by own experience:
+) have prior beliefs informed by own purchasing experience:
  
 \begin_inset Formula $\mu_{Pj}$
 \end_inset
@@ -2317,6 +2301,41 @@ Purchasers
 \end_inset
 
  is moderate.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I would delete 
+\begin_inset Quotes eld
+\end_inset
+
+and 
+\begin_inset Formula $\sigma^{2}_{Pj}$
+\end_inset
+
+ is moderate
+\begin_inset Quotes erd
+\end_inset
+
+ and only keep 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
+\end_inset
+
+ (greater uncertainty)
+\begin_inset Quotes erd
+\end_inset
+
+ below 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2328,7 +2347,7 @@ Non-purchasers
 \begin_inset Formula $i\in NP$
 \end_inset
 
-) lack direct experience:
+) lack own purchasing experience:
  we allow 
 \begin_inset Formula $\mu_{NPj}<\theta_{j}$
 \end_inset
@@ -2343,7 +2362,19 @@ Non-purchasers
 \begin_layout Standard
 As such,
  even though learning by doing is noisy,
- we assume that farmers that have experience with seed from agro-dealers do have more informative priors —
+ we assume that farmers that have experience with seed from agro-dealers do have more informative 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ accurate?
+ 
+\end_layout
+
+\end_inset
+
+priors —
  seed also has an experience good component 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2357,11 +2388,28 @@ literal "false"
 status collapsed
 
 \begin_layout Plain Layout
-again,
+C:
+ again,
  I find the second half of the sentence not well placed here.
- B:
+\end_layout
+
+\begin_layout Plain Layout
+B:
  Better now?
- 
+\end_layout
+
+\begin_layout Plain Layout
+C:
+ I suggest to merge the parts after 
+\begin_inset Quotes eld
+\end_inset
+
+—
+
+\begin_inset Quotes erd
+\end_inset
+
+ with the (Seed has properties of a credence good...) paragraph that I suggest to re-write (I'd hope I could do that) and move to 3.1 (Setup).
 \end_layout
 
 \end_inset
@@ -2388,20 +2436,6 @@ The intervention provides farmer
 \end_inset
 
 :
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-shouldn't this be the sum of E_{i}[
-\backslash
-theta].
- B:
- I have made it more explicit what it is
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2416,6 +2450,81 @@ s_{j}=\frac{1}{n_{j}}\sum^{n_{j}}_{k=1}(\theta_{j}+\varepsilon_{k})=\bar{\theta}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ shouldn't 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+n_{j} also have subscript k?
+ because it are the number of 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+rater 
+\begin_inset Formula $k$
+\end_inset
+
+ that rate
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+agro-dealer
+\begin_inset Formula $j$
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
 where 
 \begin_inset Formula $\varepsilon_{k}$
 \end_inset
@@ -2424,7 +2533,22 @@ where
 \begin_inset Formula $k$
 \end_inset
 
-'s individual experience (reflecting weather,
+'s 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ is there a way to make the distinction between k and i more explicit?
+ To me,
+ it it clear that the group of farmers who rates is not the same as the group of farmers who receives the ratings,
+ but perhaps to other readers it it not?
+ 
+\end_layout
+
+\end_inset
+
+individual experience (reflecting weather,
  soil,
  management,
  and other factors beyond seed quality) and 
@@ -2449,28 +2573,11 @@ where
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The weight 
+ The weight 
 \begin_inset Formula $\alpha_{ij}$
 \end_inset
 
- on the signal is increasing in prior subjective uncertainty
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-subjective uncertainty?
- just to keep the terminology consistent...
- B:
- ok
-\end_layout
-
-\end_inset
-
-.
+ on the signal is increasing in prior subjective uncertainty.
  Since 
 \begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
@@ -2507,6 +2614,34 @@ subjective uncertainty?
 
 \begin_layout Subsection
 Search cost reduction and agro-dealer sorting
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+and agro-dealer sorting
+\begin_inset Quotes erd
+\end_inset
+
+ needed?
+ I'd call this 
+\begin_inset Quotes eld
+\end_inset
+
+Reduction in search costs
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2519,6 +2654,60 @@ The intervention provides agro-dealer-specific ratings
  This agro-dealer-level information can reduce search costs by revealing which agro-dealers offer better seed,
  enabling farmers to sort across agro-dealers —
  the canonical mechanism in crowd-sourced information platforms such as Yelp or TripAdvisor.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I asked AI whether sorting is the canonical mechanism in crowd-sourced information platforms - ChGPT and Claude say not at all/not exactly - sorting is just a component/ a consequence,
+ not the underlying mechanism.
+ Perhaps we could delete the part after 
+\begin_inset Quotes eld
+\end_inset
+
+—
+
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I'm not sure we need this first paragraph 
+\begin_inset Quotes eld
+\end_inset
+
+The intervention provides
+\begin_inset Quotes erd
+\end_inset
+
+ if the have the second 
+\begin_inset Quotes eld
+\end_inset
+
+The signal 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ conveys
+\begin_inset Quotes erd
+\end_inset
+
+ - don't they say similar things?
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2527,6 +2716,32 @@ The signal
 \end_inset
 
  conveys two types of information.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I would argue that the signal 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ does not convey two types of information,
+ it is always at the individual dealer level,
+ no?
+ However the *intervention* does:
+ The intervention conveys two types of information/signals:
+ 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
  First,
  the average signal across agro-dealers,
  
@@ -2535,7 +2750,89 @@ The signal
 
 ,
  provides information about the general performance of agro-dealer seed —
- this is the belief-updating channel described above.
+ this is the belief-updating channel described above
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ I don't think this is the belief-updating channel described above.
+ The belief shift described above is always at the farmer-dealer-level
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\tilde{\mu}_{ij}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+,
+ not at the general/average level.
+ I would replace with something like 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+this allows belief updating about all/average agro-dealers
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
  Second,
  the variation in signals across agro-dealers,
  
@@ -2557,33 +2854,69 @@ Whether sorting occurs depends on the dispersion in
  predicting increased switching.
  If,
  however,
- ratings are uniformly positive across agro-dealers,
+ ratings are uniformly positive 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ just uniform/ similar?
+\end_layout
+
+\end_inset
+
+ across agro-dealers,
  the signal contains little agro-dealer-specific information,
  and the sorting channel is weak.
  In this case,
  the ratings primarily convey that agro-dealer seed performs well in general,
  and the intervention operates through the belief-updating channel rather than through search cost reduction.
-\end_layout
-
-\begin_layout Subsection
-Supply-side responses 
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-I think it could even make sense to introduce the 
+I would delete this final sentence 
 \begin_inset Quotes eld
 \end_inset
 
-Let 
-\begin_inset Formula $\theta$
-\end_inset
-
- denote the true performance of seed sold by agro-dealers
+In this case,
+ the ratings primarily convey that...
 \begin_inset Quotes erd
 \end_inset
 
- paragraph only here...
+ - I think this subsection makes this clear and I find it a weak ending to say 
+\begin_inset Quotes eld
+\end_inset
+
+if switching isn't working,
+ it must be belief-updating
+\begin_inset Quotes erd
+\end_inset
+
+ - I think that's not needed and less disciplined than the rest of this well-written subsection.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Supply-side responses
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I find this vague,
+ I'd call this 
+\begin_inset Quotes eld
+\end_inset
+
+Reduction in adverse selection
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2602,7 +2935,7 @@ The intervention can also affect farmer outcomes by inducing agro-dealers to red
 \end_inset
 
  itself.
- This is because the rating system also creates reputational incentives for agro-dealers.
+ This is because the rating system can create reputational incentives for agro-dealers.
  When ratings are disseminated to farmers,
  agro-dealers’ performance becomes visible to potential buyers:
  their customers’ experiences are collected,
@@ -2619,9 +2952,10 @@ Let
 \begin_inset Formula $j$
 \end_inset
 
-'s effort in seed preservation (proper containers,
- moisture control,
- ventilation),
+'s effort in seed preservation (e.g.,
+ proper storage containers,
+ ventilation,
+ temperature and moisture control),
  with convex cost 
 \begin_inset Formula $c(e_{j})$
 \end_inset
@@ -2631,7 +2965,24 @@ Let
 \begin_inset Formula $\theta_{j}=\theta_{0}-d(e_{j})$
 \end_inset
 
- with 
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+C:
+ if 
+\begin_inset Formula $\theta_{o}$
+\end_inset
+
+ gets a j subscript later,
+ should it also have one here?
+ 
+\end_layout
+
+\end_inset
+
+with 
 \begin_inset Formula $d’(e_{j})<0$
 \end_inset
 
@@ -2648,23 +2999,31 @@ Let
 \begin_inset Formula $R_{0}(\theta_{j})$
 \end_inset
 
- denote the baseline demand for agro-dealer 
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think using subscript 0 both for the baseline demand and for the intrinsic performance is confusing - perhaps we could use 
+\begin_inset Formula $R_{base}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{treat}$
+\end_inset
+
+ instead?
+\end_layout
+
+\end_inset
+
+denote the baseline demand for agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
  that depends on quality through these informal channels,
  with 
 \begin_inset Formula $R_{0}’>0$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-what does this final term mean?
-\end_layout
-
 \end_inset
 
 .
@@ -2678,37 +3037,6 @@ what does this final term mean?
  denote demand under the rating system,
  with
 \begin_inset Formula $R_{1}’(\theta_{j})>R_{0}’(\theta_{j})$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I think this is supposed to mean that the return to quality is higher under the intervention but to me it looks like the return (independent of quality) is higher under the intervention.
- I think 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-(
-\backslash
-theta) is supposed to show that returns are higher even if quality is constant,
- but to me the text is not clear that way,
- sorry.
- B:
- it is the first derivative.
-\end_layout
-
 \end_inset
 
  —
@@ -2745,27 +3073,7 @@ The first-order condition is
 
 .
  If agro-dealers respond to the intervention by investing in seed preservation,
- degradation falls and seed performance improves
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I wouldn't put 
-\begin_inset Quotes eld
-\end_inset
-
-such as
-\begin_inset Quotes erd
-\end_inset
-
- examples into our model...
- B:
- ok deleted
-\end_layout
-
-\end_inset
-
-.
+ degradation falls and seed performance improves.
  If both channels operate,
  they may reinforce each other:
  belief updating increases farmers’ willingness to engage with agro-dealers,
@@ -2794,6 +3102,17 @@ nolink "false"
 \end_inset
 
 .
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think the table is helpful for us,
+ I'm not sure it should end up in the paper.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2810,7 +3129,23 @@ Prediction 1 (Perceptions).
 
 ).
  Under the search cost channel,
- there is no direct prediction on perceptions.
+ there is no direct prediction on perceptions
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think there would also be an effect under the search cost channel:
+ farmers switch to better dealers,
+ dealer performance (measures at dealer level) stays the same,
+ but perceptions (measured at farmer level) improve.
+ Due to sorting,
+ it's like a better draw from the same performance distribution,
+ no?
+\end_layout
+
+\end_inset
+
+.
  Under the supply-side channel,
  if dealers improve seed quality,
  perceptions may also improve,
@@ -2839,6 +3174,78 @@ Prediction 2 (Adoption).
  Under the search cost and supply-side channels,
  effects are more uniform across purchasers and non-purchasers.
  Concentration of adoption effects among non-purchasers is therefore evidence that belief updating is the dominant channel.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+I think this is too convenient for us:
+ as there is such a big overlap between adopters and purchasers,
+ there will always be a larger effect for non-purchasers/non-adopters,
+ as only they have option to start adopting due to the intervention (baseline adopters already adopt).
+ Note that almost all variables we look at are binary,
+ so you can only increase when you had a 0 at baseline.
+ How can effects be uniform across purchasers and non-purchasers if the share of non-adopters is so much higher among non-purchasers?
+ I would shorten this to 
+\begin_inset Quotes eld
+\end_inset
+
+All three channels predict increased adoption.
+\begin_inset Quotes erd
+\end_inset
+
+ and let the lack of switching + lack of quality upgrading be the evidence that belief updating is the dominant channel.
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+But now I'm not sure anymore whether all channels would lead to in increased adoption *within the timeframe of our study*.
+ If the intervention leads to switching in T1,
+ farmers buy better seed in T1,
+ that would improve their rating in T2,
+ which would only affect adoption in T3?
+ and productivity in T4?
+ If the intervention leads to better dealer practices and quality in T1,
+ that would improve their rating in T2,
+ etc.?
+ I mean the switching and quality upgrading do not *immediately* affect adoption,
+ no?
+ Or does bringing this up cast too much doubt on our 2-seasons design?
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+I'm not sure about this,
+ perhaps we should discuss?
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+Channel 1 (belief updating):
+ perceptions –> adoption
+\end_layout
+
+\begin_layout Plain Layout
+Channel 2 (search costs):
+ switching –> perceptions –> adoption
+\end_layout
+
+\begin_layout Plain Layout
+Channel 3 (adverse selection):
+ practices –> performance –> perceptions –> adoption
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2849,8 +3256,32 @@ Prediction 3 (Productivity).
 \series default
  All three channels predict higher yields:
  belief updating through adoption of improved varieties,
- search cost reduction through better agro-dealer matching,
+ search cost reduction through better agro-dealer matching
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+sorting?
+\end_layout
+
+\end_inset
+
+,
  and supply-side through improved seed quality.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+if we ignore my comment above,
+ all channels affect productivity through adoption,
+ no?
+ for search costs and supply side,
+ the sorting and improved quality are additionally to increased adoption,
+ no?
+\end_layout
+
+\end_inset
+
  This prediction does not discriminate between channels.
  It requires that,
  on average,
@@ -2879,10 +3310,40 @@ Prediction 4 (Switching).
 \begin_layout Itemize
 
 \series bold
-Prediction 5 (Seed quality).
+Prediction 5 (Seed quality)
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Performance?
+\end_layout
+
+\end_inset
+
+.
 
 \series default
- The three channels differ in their predictions about objective seed quality.
+ The three channels differ in their predictions about objective
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+you used 
+\begin_inset Quotes eld
+\end_inset
+
+actual
+\begin_inset Quotes erd
+\end_inset
+
+ earlier.
+ I think we should stick to one term:
+ objective/true/actual/real...
+\end_layout
+
+\end_inset
+
+ seed performance.
  Under belief updating and search cost reduction,
  the intervention shifts beliefs or agro-dealer choice but not the product itself:
  seed quality 
