@@ -648,6 +648,10 @@ several studies document substantial performance uncertainty
 
 .
  This uncertainty directly discourages adoption by increasing the perceived riskiness of purchasing from agro-dealers.
+ On the supply side,
+ the same uncertainty may also weaken agro-dealers' incentives:
+ when buyers cannot credibly assess seed quality at the point of purchase,
+ dealers face reduced reputational consequences for allowing seed to degrade through inadequate handling and storage.
 \end_layout
 
 \begin_layout Standard
@@ -739,14 +743,14 @@ literal "false"
 \end_inset
 
 ,
- we test whether aggregating peers’ experiences can reduce the uncertainty and pessimism that characterize farmers’ beliefs about seed performance.
-\begin_inset Note Comment
+ we test whether aggregating peers’ experiences into a public signal of seed performance can improve market outcomes — by correcting farmers’ beliefs,
+ reducing search frictions,
+ or strengthening agro-dealers’ incentives to maintain seed quality.
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-minor:
- again,
- this is still about beliefs
+RESOLVED: Broadened framing to mention all three channels, not just beliefs. Addresses Caroline’s comment that this was still only about beliefs.
 \end_layout
 
 \end_inset
@@ -778,65 +782,67 @@ A rating system that aggregates and disseminates farmers' purchasing experiences
  farmers may hold poorly informed beliefs about seed performance —
  either more pessimistic than warranted,
  or simply imprecise.
- Disseminating aggregated peer experiences could correct pessimistic beliefs among non-purchasers 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- I think readers perhaps do not understand what we mean by purchasers and non-purchasers.
- For the abstract (where you also use this term twice) and for the intro,
- I suggest using 
-\begin_inset Quotes eld
-\end_inset
-
-
-\series bold
-Farmers with/without prior purchasing experience
-\begin_inset Quotes erd
-\end_inset
-
- instead,
- then use 
-\series default
-
-\begin_inset Quotes eld
-\end_inset
-
-(non-)purchasers
-\begin_inset Quotes erd
-\end_inset
-
- in the framework/model,
- later,
- when everyone understood what we mean by that...
+ Disseminating aggregated peer experiences could correct pessimistic beliefs among farmers without prior purchasing experience and reduce uncertainty among all farmers,
+ increasing adoption.
 \end_layout
 
-\end_inset
-
- and reduce uncertainty among all farmers,
- increasing adoption —
- especially among risk-averse farmers for whom imprecise beliefs raise the perceived riskiness of purchasing
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- is the part after —
- needed?
-\end_layout
+\begin_layout Standard
+Second,
+ dealer-specific ratings could reduce search costs by revealing performance differences across sellers.
+ In agricultural input markets,
+ farmers typically choose among a small number of local dealers with limited information about relative quality.
+ When search costs are high relative to quality variation,
+ consumers settle for suboptimal matches
+\begin_inset CommandInset citation
+LatexCommand citep
+key "stigler1961economics"
+literal "false"
 
 \end_inset
 
 .
- Second,
- if seed performance varies across dealers but farmers lack the information to distinguish between them,
- dealer-specific ratings could reduce search costs and enable farmers to switch to higher-performing sellers.
- Third,
- by making dealers' performance visible,
- ratings could create reputational incentives to invest in seed preservation,
- improving the performance of seed on the shelf.
- These channels are not mutually exclusive,
+ By aggregating dispersed information about seller-specific performance,
+ ratings enable the kind of sorting that characterizes online review platforms
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1257/jel.48.4.935,luca2016reviews"
+literal "false"
+
+\end_inset
+
+.
+ If performance varies substantially across dealers,
+ ratings could induce farmers to switch to higher-performing sellers.
+\end_layout
+
+\begin_layout Standard
+Third,
+ the rating system could improve seed quality itself by creating reputational incentives for agro-dealers.
+ In the prevailing market equilibrium,
+ agro-dealers may have little incentive to invest in seed quality if they believe buyers cannot credibly assess quality at the time of purchase and struggle to attribute outcomes such as yield to seed quality given the complex and uncertain nature of agricultural production.
+ When quality is unobservable,
+ sellers may underinvest in handling and storage,
+ or engage in strategic adulteration — such as blending fresh seed with older stock or local varieties — to reduce costs and exploit buyers' limited capacity to detect quality differences
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bold2017lemon"
+literal "false"
+
+\end_inset
+
+.
+ By collecting and disseminating farmers' experiences,
+ the rating system makes dealers' performance visible to potential buyers,
+ strengthening the link between quality and demand
+\begin_inset CommandInset citation
+LatexCommand citep
+key "shapiro1982consumer"
+literal "false"
+
+\end_inset
+
+.
+ These three channels are not mutually exclusive,
  but they generate distinct empirical predictions that allow us to assess their relative importance.
 \end_layout
 
@@ -919,25 +925,11 @@ literal "false"
  and show that it improves adoption and productivity,
  with the pattern of results pointing to belief updating as the primary channel.
  Second,
- by tracking outcomes on both sides of the market,
- we examine how demand-side belief updating among farmers and supply-side behavioral responses among agro-dealers may operate as complementary channels
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- I don't think we actually investigate the complementarity of these channels,
- we treat them as quite distinct,
- no?
- Also,
- search costs are missing here,
- no?
- I would stick to my 
-\begin_inset Quotes eld
-\end_inset
-
-Second,
- together with 
+ by tracking outcomes on both sides of the market — farmers' beliefs and switching behavior,
+ and agro-dealers' practices and seed quality — we can assess the relative importance of belief updating,
+ search cost reduction,
+ and supply-side quality improvement.
+ Together with
 \begin_inset CommandInset citation
 LatexCommand citet
 key "dar2020private"
@@ -948,38 +940,18 @@ literal "false"
 ,
  our study is among the few to connect farmer and agro-dealer perspectives,
  providing a more complete picture than studies focusing on buyers or sellers alone.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-,
- providing a more complete picture than studies focusing on buyers or sellers alone 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "dar2020private"
-literal "false"
-
-\end_inset
-
-.
- Third,
- the concentration of effects among farmers without prior purchasing experience provides direct evidence that the gap between these farmers’ beliefs and purchasers’ reported experiences is a binding constraint on adoption in seed markets.
- 
-\begin_inset Note Comment
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-minor:
- may I add:
- 
-\begin_inset Quotes eld
-\end_inset
+RESOLVED: Adopted Caroline's suggested text. Now mentions all three channels and drops the "complementary channels" framing.
+\end_layout
 
-While overly pessimistic beliefs have been documented in fertilizer markets 
+\end_inset
+ Third,
+ the pattern of results — positive effects on perceptions and adoption,
+ null effects on switching and seed quality — provides evidence that uncertainty about seed performance is a binding constraint on adoption in seed markets.
+ While overly pessimistic or imprecise beliefs have been documented in fertilizer markets
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
@@ -988,14 +960,7 @@ literal "false"
 \end_inset
 
 ,
- we provide the first evidence of this mechanism in seed markets.
-\begin_inset Quotes erd
-\end_inset
-
-?
-\end_layout
-
-\end_inset
+ we provide evidence of this mechanism in seed markets.
 
 
 \end_layout
