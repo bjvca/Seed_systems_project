@@ -1609,53 +1609,12 @@ Setup
 status collapsed
 
 \begin_layout Plain Layout
-C:
- I think would merge Setup and Seed purchasing under uncertainty.
- Sorry if I suggested the opposite before.
- This way we'd have the setup (1),
- the three mechanisms (2)-(4),
- and then the predictions (5) - very clean.
- :)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options such as farmer-saved seed,
- informal exchanges,
- and seed distributed through public or non-governmental programs.
- The decision depends on beliefs about the performance of agro-dealer seed relative to these alternatives.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-C:
- This first paragraph is about farmers and their beliefs,
- the second one about agro-dealers and their seed performance - is this the best way to organize this?
- I think the first paragraph could logically follow the second,
- as 
-\begin_inset Quotes eld
-\end_inset
-
-unobservable to the farmer at the time of purchase
-\begin_inset Quotes erd
-\end_inset
-
- kind of explains why the decision depends on beliefs?
-\end_layout
-
-\begin_layout Plain Layout
-B:
- huh?
- where exactly are these paragraphs?
-\end_layout
-
-\begin_layout Plain Layout
-C:
- I am referring to the first and second paragraph in this subsection (3.1 Setup)
+RESOLVED:
+ Merged Setup and Seed purchasing under uncertainty into a single Setup subsection.
+ Structure is now:
+ Setup (1),
+ three channels (2)-(4),
+ Predictions (5).
 \end_layout
 
 \end_inset
@@ -1689,6 +1648,20 @@ Let
 .
  This is the actual performance the farmer would realize if they planted the seed —
  it is unobservable to the farmer at the time of purchase.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+RESOLVED:
+ Swapped paragraph order per Caroline's suggestion.
+ Now:
+ seed performance/unobservability first,
+ then farmer's choice depending on beliefs.
+ The unobservability motivates why the decision depends on beliefs.
+\end_layout
+
+\end_inset
+
  We decompose 
 \begin_inset Formula $\theta_{j}$
 \end_inset
@@ -1702,7 +1675,7 @@ Let
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is the intrinsic performance of the seed at agro-dealer
+ is the intrinsic performance of the seed at agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1783,8 +1756,12 @@ seed performance at handover to the agro-dealer
 .
 \end_layout
 
-\begin_layout Subsection
-Seed purchasing under uncertainty
+\begin_layout Standard
+Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options such as farmer-saved seed,
+ informal exchanges,
+ and seed distributed through public or non-governmental programs.
+ Because seed performance is unobservable at the time of purchase,
+ the decision depends on beliefs about the performance of agro-dealer seed relative to these alternatives.
 \end_layout
 
 \begin_layout Standard
