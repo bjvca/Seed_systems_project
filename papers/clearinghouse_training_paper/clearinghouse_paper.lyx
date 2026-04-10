@@ -264,37 +264,15 @@ adverse selection reduction
 
 .
  We test this approach in a randomized controlled trial involving 3,500 farmers and 350 agro-dealers in the market for high-yielding maize seed in Uganda.
- We find strong evidence for the first channel:
- exposure to peer ratings increases farmers’ perceptions of seed performance,
- with effects concentrated among farmers without prior purchasing experience —
- those whose beliefs are most likely to diverge from the experiences of actual purchasers.
- This leads to higher adoption of high-yielding maize seed and 13% higher yields,
- reflecting both a shift toward improved varieties and increased investment in complementary inputs 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- I do not think the part after the comma should make it to our abstract
-\end_layout
-
-\end_inset
-
-.
- We find no evidence that the intervention induces farmers to switch between dealers or improves underlying seed performance,
- ruling out the sorting and supply-side channels 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- stick to the original names here (reduction in search cost/ adverse selection) to not confuse the reader?
-\end_layout
-
-\end_inset
-
-.
- The concentration of effects among non-purchasers suggests that the gap between these farmers’ beliefs and purchasers’ reported experiences is a binding constraint on adoption.
+ We find that the intervention increases farmers’ perceptions of seed performance,
+ leads to higher adoption of high-yielding maize seed,
+ and raises yields by 13%.
+ We find no evidence that the intervention induces farmers to switch between dealers or improves underlying seed quality,
+ ruling out the search cost reduction and supply-side channels.
+ The results point to belief updating as the primary mechanism.
+ Consistent with this interpretation,
+ effects on perceptions are larger among farmers without prior purchasing experience —
+ those with the greatest uncertainty about seed performance.
 \end_layout
 
 \begin_layout Abstract
@@ -903,14 +881,15 @@ On the demand side,
 \end_inset
 
 ,
- exposure to peer ratings improves farmers’ perceptions of seed performance and increases adoption of high-yielding maize seed,
- with effects concentrated among farmers without prior purchasing experience.
- Treated farmers achieve 13% higher yields,
- reflecting both a shift toward improved varieties and increased investment in complementary inputs.
+ exposure to peer ratings improves farmers’ perceptions of seed performance and increases adoption of high-yielding maize seed.
+ Treated farmers achieve 13% higher yields.
  We find no evidence that the intervention induces farmers to switch between sellers,
  ruling out search cost reduction as a primary channel.
  Nor do we find improvements in the underlying performance of seed sold by agro-dealers,
  providing little support for the supply-side channel.
+ These null effects point to belief updating as the primary mechanism.
+ Consistent with this interpretation,
+ effects on perceptions are larger among farmers without prior purchasing experience.
 \end_layout
 
 \begin_layout Standard
@@ -939,7 +918,7 @@ literal "false"
  experience-based,
  and reaches farmers who do not engage with formal markets —
  and show that it improves adoption and productivity,
- with the strongest evidence for the belief updating channel.
+ with the pattern of results pointing to belief updating as the primary channel.
  Second,
  by tracking outcomes on both sides of the market,
  we examine how demand-side belief updating among farmers and supply-side behavioral responses among agro-dealers may operate as complementary channels
@@ -2491,8 +2470,7 @@ nolink "false"
 status collapsed
 
 \begin_layout Plain Layout
-I think the table is helpful for us,
- I'm not sure it should end up in the paper.
+RESOLVED: Keeping the predictions table in the main text. Standard practice for papers with multiple channels — helps readers map predictions to results.
 \end_layout
 
 \end_inset
@@ -2514,23 +2492,27 @@ Prediction 1 (Perceptions).
 
 ).
  Under the search cost channel,
- there is no direct prediction on perceptions
-\begin_inset Note Note
+ there is no direct prediction on perceptions.
+\begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-I think there would also be an effect under the search cost channel:
- farmers switch to better dealers,
- dealer performance (measures at dealer level) stays the same,
- but perceptions (measured at farmer level) improve.
- Due to sorting,
- it's like a better draw from the same performance distribution,
- no?
+If farmers sort to better dealers and subsequently experience higher seed performance,
+ perceptions could improve indirectly over time.
+ However,
+ this would be a downstream consequence of switching behavior rather than an immediate effect of receiving ratings.
 \end_layout
 
 \end_inset
 
-.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+RESOLVED: Added footnote acknowledging Caroline's point that sorting could indirectly improve perceptions, while maintaining that there is no direct/immediate prediction.
+\end_layout
+
+\end_inset
  Under the supply-side channel,
  if dealers improve seed quality,
  perceptions may also improve,
@@ -2543,89 +2525,12 @@ I think there would also be an effect under the search cost channel:
 Prediction 2 (Adoption).
 
 \series default
- All three channels predict increased adoption,
- but with different heterogeneity patterns.
- Under belief updating,
- adoption effects are concentrated among non-purchasers,
- who experience both a level shift in 
-\begin_inset Formula $\tilde{\mu}_{ij}$
-\end_inset
-
- and a precision gain in 
-\begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
-\end_inset
-
-.
- Under the search cost and supply-side channels,
- effects are more uniform across purchasers and non-purchasers.
- Concentration of adoption effects among non-purchasers is therefore evidence that belief updating is the dominant channel.
+ All three channels predict increased adoption.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-I think this is too convenient for us:
- as there is such a big overlap between adopters and purchasers,
- there will always be a larger effect for non-purchasers/non-adopters,
- as only they have option to start adopting due to the intervention (baseline adopters already adopt).
- Note that almost all variables we look at are binary,
- so you can only increase when you had a 0 at baseline.
- How can effects be uniform across purchasers and non-purchasers if the share of non-adopters is so much higher among non-purchasers?
- I would shorten this to 
-\begin_inset Quotes eld
-\end_inset
-
-All three channels predict increased adoption.
-\begin_inset Quotes erd
-\end_inset
-
- and let the lack of switching + lack of quality upgrading be the evidence that belief updating is the dominant channel.
-\end_layout
-
-\begin_layout Plain Layout
-...
-\end_layout
-
-\begin_layout Plain Layout
-But now I'm not sure anymore whether all channels would lead to in increased adoption *within the timeframe of our study*.
- If the intervention leads to switching in T1,
- farmers buy better seed in T1,
- that would improve their rating in T2,
- which would only affect adoption in T3?
- and productivity in T4?
- If the intervention leads to better dealer practices and quality in T1,
- that would improve their rating in T2,
- etc.?
- I mean the switching and quality upgrading do not *immediately* affect adoption,
- no?
- Or does bringing this up cast too much doubt on our 2-seasons design?
-\end_layout
-
-\begin_layout Plain Layout
-...
-\end_layout
-
-\begin_layout Plain Layout
-I'm not sure about this,
- perhaps we should discuss?
-\end_layout
-
-\begin_layout Plain Layout
-...
-\end_layout
-
-\begin_layout Plain Layout
-Channel 1 (belief updating):
- perceptions –> adoption
-\end_layout
-
-\begin_layout Plain Layout
-Channel 2 (search costs):
- switching –> perceptions –> adoption
-\end_layout
-
-\begin_layout Plain Layout
-Channel 3 (adverse selection):
- practices –> performance –> perceptions –> adoption
+RESOLVED: Simplified per Caroline's suggestion. Dropped the heterogeneity-in-adoption argument because adoption is binary and most purchasers already adopt at baseline, creating a mechanical ceiling effect that concentrates effects among non-purchasers regardless of channel. Channel identification rests on heterogeneity in perceptions (Prediction 1, continuous outcome, no ceiling effect) and null effects on switching and seed quality (Predictions 4 and 5). On the timing concern: the design accommodates all channels — ratings in T1, behavioral responses in T2, yield effects in T3.
 \end_layout
 
 \end_inset
@@ -3762,6 +3667,29 @@ literal "false"
  While these indices capture overall effects across outcome families,
  we also report treatment effects on individual outcomes to help interpretation,
  with individual significance treated cautiously.
+\end_layout
+
+\begin_layout Standard
+Our primary identification strategy relies on the pattern of effects across outcomes:
+ each channel generates a distinct empirical signature across perceptions,
+ adoption,
+ switching,
+ and seed quality (Table
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:predictions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ We additionally examine heterogeneity by prior purchasing experience.
+ While this heterogeneity analysis is not pre-specified,
+ it is motivated by the model's prediction that farmers with greater uncertainty about seed performance should weight the peer signal more heavily.
+ We present these results as exploratory.
 \end_layout
 
 \begin_layout Section
@@ -8122,13 +8050,11 @@ The treatment increases the perception index by 0.09 standard deviations in the 
 \end_layout
 
 \begin_layout Standard
-We next examine heterogeneity by prior purchasing experience at agro-dealers,
+As an exploratory analysis,
+ we examine heterogeneity by prior purchasing experience at agro-dealers,
  proxied by whether farmers used high-yielding maize seed purchased from an agro-dealer on any plot in the season preceding baseline.
- The treatment effect is larger among farmers without prior purchasing experience.
- Importantly,
- the farmers who provided ratings – primarily those with firsthand purchasing experience – differ from those who received them,
- which include both purchasers and non-purchasers.
- This asymmetry increases the likelihood that the information encountered diverged from prior beliefs.
+ Consistent with the model's prediction that farmers with greater uncertainty weight the signal more heavily,
+ the treatment effect is larger among farmers without prior purchasing experience.
 \end_layout
 
 \begin_layout Standard
@@ -13665,9 +13591,9 @@ This study examines how aggregated peer ratings of seed performance affect farme
 
 \begin_layout Standard
 We find that the intervention leads farmers to update their beliefs and improves their perceptions of seed performance.
- The results suggest that farmers who had not previously purchased seed from agro-dealers held more pessimistic beliefs than farmers with prior purchasing experience who provided the ratings.
- Exposure to peer ratings reveals to these non-purchasers that purchasing farmers report more favorable experiences,
- lowering the threshold for engaging with the formal seed market.
+ In an exploratory analysis,
+ we find that effects on perceptions are larger among farmers without prior purchasing experience,
+ consistent with the model's prediction that farmers facing greater uncertainty about seed performance weight the peer signal more heavily.
 \end_layout
 
 \begin_layout Standard
@@ -13725,7 +13651,8 @@ On the supply side,
  but the supply-side effects are less robust than the demand-side findings.
  We find no evidence that the intervention induces farmers to switch between agro-dealers or improves objective seed quality,
  ruling out search cost reduction and supply-side quality improvement as primary channels.
- The most powerful impact pathway runs through belief adjustment among farmers who had not previously purchased from agro-dealers.
+ The pattern of results — positive effects on perceptions and adoption,
+ null effects on switching and seed quality — points to belief updating as the primary impact pathway.
 \end_layout
 
 \begin_layout Standard
@@ -13742,8 +13669,8 @@ More broadly,
  as documented in the online reviews literature.
  In markets where the binding constraint is participation itself —
  as in our setting,
- where many farmers do not engage with agro-dealers due to uncertain or pessimistic beliefs —
- the main channel is belief correction at the extensive margin.
+ where many farmers do not engage with agro-dealers due to uncertainty about seed performance —
+ the main channel is belief updating at the extensive margin.
  This distinction has implications for how clearinghouse systems should be designed:
  when the goal is to increase market participation rather than improve matching,
  broad dissemination to non-participants matters more than fine-grained seller rankings.
