@@ -2537,7 +2537,7 @@ Prediction 2 (Adoption).
  All three channels predict increased adoption:
  belief updating by shifting perceived performance above the adoption threshold,
  search cost reduction by enabling farmers to identify better dealers,
- and supply-side responses by improving the actual quality of seed on offer.
+ and supply-side responses by improving the objective quality of seed on offer.
  This prediction does not discriminate between channels.
 \begin_inset Note Note
 status collapsed
@@ -2568,30 +2568,15 @@ RESOLVED:
 Prediction 3 (Productivity).
 
 \series default
- All three channels predict higher yields:
- belief updating through adoption of improved varieties,
- search cost reduction through better agro-dealer matching
+ All three channels predict higher yields,
+ in part through increased adoption (Prediction 2).
+ Search cost reduction and supply-side responses additionally raise yields conditional on adopting — through sorting to better agro-dealers and through improved seed quality,
+ respectively.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-sorting?
-\end_layout
-
-\end_inset
-
-,
- and supply-side through improved seed quality.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-if we ignore my comment above,
- all channels affect productivity through adoption,
- no?
- for search costs and supply side,
- the sorting and improved quality are additionally to increased adoption,
- no?
+RESOLVED: Acknowledged that all channels work partly through adoption, with search cost and supply-side having additional pathways. Changed "matching" to "sorting."
 \end_layout
 
 \end_inset
@@ -2624,12 +2609,12 @@ Prediction 4 (Switching).
 \begin_layout Itemize
 
 \series bold
-Prediction 5 (Seed quality)
+Prediction 5 (Seed performance)
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Performance?
+RESOLVED: Changed "quality" to "performance" for consistency with the model (θ_j = seed performance).
 \end_layout
 
 \end_inset
@@ -2637,27 +2622,15 @@ Performance?
 .
 
 \series default
- The three channels differ in their predictions about objective
+ The three channels differ in their predictions about objective seed performance.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-you used 
-\begin_inset Quotes eld
-\end_inset
-
-actual
-\begin_inset Quotes erd
-\end_inset
-
- earlier.
- I think we should stick to one term:
- objective/true/actual/real...
+RESOLVED: Standardized on "objective" throughout. Dropped "actual/true/real" variants.
 \end_layout
 
 \end_inset
-
- seed performance.
  Under belief updating and search cost reduction,
  the intervention shifts beliefs or agro-dealer choice but not the product itself:
  seed quality 
@@ -2673,6 +2646,17 @@ actual
 
  falls and objective seed quality improves.
  Finding no treatment effect on objective seed quality is evidence against the supply-side channel.
+\end_layout
+
+\begin_layout Standard
+The channels also differ in their predicted timing of effects.
+ Belief updating and search cost reduction operate immediately upon receiving ratings,
+ predicting effects on perceptions and adoption from midline onward.
+ Supply-side responses,
+ by contrast,
+ require quality improvements to pass through at least one rating cycle before becoming observable to farmers — a consequence of the credence good property of seed.
+ This predicts perceptions and adoption effects concentrated at endline rather than midline.
+ We return to this distinction when interpreting the results.
 \end_layout
 
 \begin_layout Standard
