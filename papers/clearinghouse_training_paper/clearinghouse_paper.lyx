@@ -2299,14 +2299,7 @@ Supply-side responses
 status collapsed
 
 \begin_layout Plain Layout
-I find this vague,
- I'd call this 
-\begin_inset Quotes eld
-\end_inset
-
-Reduction in adverse selection
-\begin_inset Quotes erd
-\end_inset
+RESOLVED: Keeping "Supply-side responses" for now. "Adverse selection" is not the right label — this channel is about dealers changing behavior (effort/preservation) in response to monitoring, which is a moral hazard/discipline story, not selection.
 
 
 \end_layout
@@ -2362,14 +2355,7 @@ Let
 status collapsed
 
 \begin_layout Plain Layout
-C:
- if 
-\begin_inset Formula $\theta_{o}$
-\end_inset
-
- gets a j subscript later,
- should it also have one here?
- 
+RESOLVED: θ₀ should NOT have a j subscript — we assume one seed company. Removed j subscripts from θ₀ elsewhere in the model.
 \end_layout
 
 \end_inset
@@ -2387,48 +2373,39 @@ with
 .
  Without the intervention,
  agro-dealers’ reputational incentives are limited to repeat purchases and informal word of mouth.
- Let 
-\begin_inset Formula $R_{0}(\theta_{j})$
+ Let
+\begin_inset Formula $R_{C}(\theta_{j})$
 \end_inset
 
- 
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-I think using subscript 0 both for the baseline demand and for the intrinsic performance is confusing - perhaps we could use 
-\begin_inset Formula $R_{base}$
-\end_inset
-
- and 
-\begin_inset Formula $R_{treat}$
-\end_inset
-
- instead?
+RESOLVED: Renamed R₀/R₁ to R_C/R_T to avoid confusion with θ₀ subscript.
 \end_layout
 
 \end_inset
 
-denote the baseline demand for agro-dealer 
+ denote the baseline demand for agro-dealer
 \begin_inset Formula $j$
 \end_inset
 
  that depends on quality through these informal channels,
- with 
-\begin_inset Formula $R_{0}’>0$
+ with
+\begin_inset Formula $R_{C}’>0$
 \end_inset
 
 .
  Under the intervention,
  ratings are collected and disseminated,
  amplifying the reputational return to quality.
- Let 
-\begin_inset Formula $R_{1}(\theta_{j})$
+ Let
+\begin_inset Formula $R_{T}(\theta_{j})$
 \end_inset
 
  denote demand under the rating system,
  with
-\begin_inset Formula $R_{1}’(\theta_{j})>R_{0}’(\theta_{j})$
+\begin_inset Formula $R_{T}’(\theta_{j})>R_{C}’(\theta_{j})$
 \end_inset
 
  —
@@ -2437,9 +2414,9 @@ denote the baseline demand for agro-dealer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{equation}
-\max_{e_{j}}\quad R_{T}(\theta_{0j}-d(e_{j}))-c(e_{j})\label{eq:dealer_main}
+\max_{e_{j}}\quad R_{\tau}(\theta_{0}-d(e_{j}))-c(e_{j}),\quad\tau\in\{C,T\}\label{eq:dealer_main}
 \end{equation}
 
 \end_inset
@@ -2448,19 +2425,19 @@ denote the baseline demand for agro-dealer
 \end_layout
 
 \begin_layout Standard
-The first-order condition is 
-\begin_inset Formula $R_{T}’(\cdot)\cdot(-d’(e^{*}_{j}))=c’(e^{*}_{j})$
+The first-order condition is
+\begin_inset Formula $R_{\tau}’(\cdot)\cdot(-d’(e^{*}_{j}))=c’(e^{*}_{j})$
 \end_inset
 
 .
- Since 
-\begin_inset Formula $R_{1}’>R_{0}’$
+ Since
+\begin_inset Formula $R_{T}’>R_{C}’$
 \end_inset
 
 ,
  optimal effort is higher under the intervention:
- 
-\begin_inset Formula $e^{*}_{j1}>e^{*}_{j0}$
+
+\begin_inset Formula $e^{*}_{jT}>e^{*}_{jC}$
 \end_inset
 
 .
@@ -2739,7 +2716,7 @@ actual
  Under belief updating and search cost reduction,
  the intervention shifts beliefs or agro-dealer choice but not the product itself:
  seed quality 
-\begin_inset Formula $\theta_{0j}$
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
  is unchanged.
