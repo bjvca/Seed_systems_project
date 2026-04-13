@@ -241,7 +241,7 @@ based on peers’ experiences
 .
  Such a system could affect outcomes through three channels:
  correcting farmers’ beliefs and reducing their uncertainty about seed performance (belief updating),
- helping farmers identify better dealers (search cost reduction),
+ helping farmers identify better dealers (dealer sorting),
  or inducing dealers to improve seed preservation (supply-side response)
 \begin_inset Note Comment
 status collapsed
@@ -267,7 +267,7 @@ adverse selection reduction
  leads to higher adoption of high-yielding maize seed,
  and raises yields by 13%.
  We find no evidence that the intervention induces farmers to switch between dealers or improves underlying seed quality,
- ruling out the search cost reduction and supply-side channels.
+ ruling out the dealer sorting and supply-side channels.
  The results point to belief updating as the primary mechanism.
  Consistent with this interpretation,
  effects on perceptions are larger among farmers without prior purchasing experience —
@@ -792,10 +792,10 @@ A rating system that aggregates and disseminates farmers' purchasing experiences
 
 \begin_layout Standard
 Second,
- dealer-specific ratings could reduce search costs by revealing performance differences across sellers.
+ dealer-specific ratings could enable dealer sorting by revealing performance differences across sellers.
  In agricultural input markets,
  farmers typically choose among a small number of local dealers with limited information about relative quality.
- When search costs are high relative to quality variation,
+ When dealer-choice frictions are high relative to quality variation,
  consumers settle for suboptimal matches 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -895,7 +895,7 @@ On the demand side,
  exposure to peer ratings improves farmers’ perceptions of seed performance and increases adoption of high-yielding maize seed.
  Treated farmers achieve 13% higher yields.
  We find no evidence that the intervention induces farmers to switch between sellers,
- ruling out search cost reduction as a primary channel.
+ ruling out dealer sorting as a primary channel.
  Nor do we find improvements in the underlying performance of seed sold by agro-dealers,
  providing little support for the supply-side channel.
  These null effects point to belief updating as the primary mechanism.
@@ -935,7 +935,7 @@ literal "false"
  farmers' beliefs and switching behavior,
  and agro-dealers' practices and seed quality —
  we can assess the relative importance of belief updating,
- search cost reduction,
+ dealer sorting,
  and supply-side quality improvement.
  Together with 
 \begin_inset CommandInset citation
@@ -2143,7 +2143,7 @@ RESOLVED:
 \end_layout
 
 \begin_layout Subsection
-Search cost reduction
+Dealer sorting
 \begin_inset Note Note
 status collapsed
 
@@ -2158,11 +2158,13 @@ RESOLVED:
 \end_layout
 
 \begin_layout Standard
-Because the intervention provides agro-dealer-specific ratings 
+While the belief-updating channel captures changes in farmers' beliefs about agro-dealer seed relative to outside options,
+ dealer sorting captures changes in the choice of seller conditional on purchasing from agro-dealers.
+ Because the intervention provides agro-dealer-specific ratings (
 \begin_inset Formula $s_{j}$
 \end_inset
 
-,
+),
  it conveys two types of information.
 \begin_inset Note Note
 status collapsed
@@ -2418,7 +2420,7 @@ Testable predictions
 \begin_layout Standard
 The model identifies three channels through which the intervention could affect outcomes:
  belief updating (Section 3.2),
- search cost reduction (Section 3.3),
+ dealer sorting (Section 3.3),
  and supply-side quality improvement (Section 3.4).
  Each channel generates distinct predictions across five outcomes,
  summarized in Table 
@@ -2461,7 +2463,7 @@ Prediction 1 (Perceptions).
 \end_inset
 
 ).
- Under the search cost channel,
+ Under the dealer sorting channel,
  there is no direct prediction on perceptions.
 \begin_inset Foot
 status collapsed
@@ -2501,7 +2503,7 @@ Prediction 2 (Adoption).
 \series default
  All three channels predict increased adoption:
  belief updating by shifting perceived performance above the adoption threshold,
- search cost reduction by enabling farmers to identify better dealers,
+ dealer sorting by enabling farmers to identify better dealers,
  and supply-side responses by improving the objective quality of seed on offer.
  This prediction does not discriminate between channels.
 \begin_inset Note Note
@@ -2535,7 +2537,7 @@ Prediction 3 (Productivity).
 \series default
  All three channels predict higher yields,
  in part through increased adoption (Prediction 2).
- Search cost reduction and supply-side responses additionally raise yields conditional on adopting —
+ Dealer sorting and supply-side responses additionally raise yields conditional on adopting —
  through sorting to better agro-dealers and through improved seed quality,
  respectively.
 \begin_inset Note Note
@@ -2567,12 +2569,12 @@ Prediction 4 (Switching).
  peer ratings provide information about the average performance of agro-dealer seed in the farmer's area,
  shifting beliefs about agro-dealer seed in general rather than about any specific agro-dealer,
  predicting no increase in switching.
- Under the search cost channel,
+ Under the dealer sorting channel,
  dealer-specific ratings reveal performance differences,
  enabling farmers to switch to higher-rated dealers,
  predicting increased switching.
  The supply-side channel has no direct prediction on switching.
- Finding no switching is evidence against the search cost channel.
+ Finding no switching is evidence against the dealer sorting channel.
 \end_layout
 
 \begin_layout Itemize
@@ -2604,7 +2606,7 @@ RESOLVED:
 
 \end_inset
 
- Under belief updating and search cost reduction,
+ Under belief updating and dealer sorting,
  the intervention shifts beliefs or agro-dealer choice but not the product itself:
  seed quality 
 \begin_inset Formula $\theta_{0}$
@@ -2623,7 +2625,7 @@ RESOLVED:
 
 \begin_layout Standard
 The channels also differ in their predicted timing of effects.
- Belief updating and search cost reduction operate immediately upon receiving ratings,
+ Belief updating and dealer sorting operate immediately upon receiving ratings,
  predicting effects on perceptions and adoption from midline onward.
  Supply-side responses,
  by contrast,
@@ -2691,7 +2693,7 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
- & Belief updating & Search cost reduction & Supply-side
+ & Belief updating & Dealer sorting & Supply-side
 \backslash
 
 \backslash
@@ -12263,11 +12265,11 @@ Alternative mechanisms
 \end_layout
 
 \begin_layout Subsubsection
-Search costs and agro-dealer switching
+Dealer sorting and agro-dealer switching
 \end_layout
 
 \begin_layout Standard
-One alternative explanation for the treatment effects is that the intervention reduces farmers’ search costs.
+One alternative explanation for the treatment effects is that the intervention enables dealer sorting.
  The treatment may enable farmers to identify agro-dealers selling higher-performing products and switch to them,
  potentially leading to the exit of agro-dealers selling lower-performing products and thereby reducing adverse selection in the market.
  Similar dynamics are documented in settings where increased transparency allows buyers to screen sellers 
@@ -13572,7 +13574,7 @@ This study examines how aggregated peer ratings of seed performance affect farme
  and agro-dealer behavior.
  The intervention could operate through three channels:
  correcting pessimistic or imprecise beliefs among farmers (belief updating),
- helping farmers identify and switch to better-performing dealers (search cost reduction),
+ helping farmers identify and switch to better-performing dealers (dealer sorting),
  or inducing agro-dealers to invest in seed preservation (supply-side quality improvement).
  Using a randomized experiment,
  we evaluate the effects of this intervention on a range of farmer and agro-dealer outcomes and distinguish between these channels.
@@ -13639,7 +13641,7 @@ On the supply side,
  low-cost dimensions,
  but the supply-side effects are less robust than the demand-side findings.
  We find no evidence that the intervention induces farmers to switch between agro-dealers or improves objective seed quality,
- ruling out search cost reduction and supply-side quality improvement as primary channels.
+ ruling out dealer sorting and supply-side quality improvement as primary channels.
  The pattern of results —
  positive effects on perceptions and adoption,
  null effects on switching and seed quality —
