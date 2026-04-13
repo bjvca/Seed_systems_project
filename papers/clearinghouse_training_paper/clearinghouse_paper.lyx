@@ -2655,21 +2655,27 @@ RESOLVED:
 
 \end_inset
 
- Under belief updating and dealer sorting,
- the intervention shifts beliefs or agro-dealer choice but not the product itself:
- seed quality 
-\begin_inset Formula $\theta_{0}$
+ Under belief updating,
+ the intervention shifts beliefs but not seed performance at a given agro-dealer:
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
  is unchanged.
+ Under dealer sorting,
+ the intervention may change the performance of seed actually purchased by farmers if they reallocate toward higher-performing agro-dealers,
+ but this operates through dealer choice rather than through product improvement at any given agro-dealer.
  Under the supply-side channel,
  if agro-dealers respond to reputational incentives by investing in handling and storage,
  degradation 
 \begin_inset Formula $d(e_{j})$
 \end_inset
 
- falls and objective seed quality improves.
- Finding no treatment effect on objective seed quality is evidence against the supply-side channel.
+ falls and dealer-level seed performance
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+ improves.
+ Finding no treatment effect on dealer-level seed performance is evidence against the supply-side channel.
 \end_layout
 
 \begin_layout Standard
@@ -2793,7 +2799,7 @@ Switching & No change & Increases & No prediction
 \end_layout
 
 \begin_layout Plain Layout
-Seed quality & No change & No change & Improves ($d(e_{j})$ falls)
+Dealer-level seed performance & No change & May improve through dealer choice & Improves ($d(e_{j})$ falls)
 \backslash
 
 \backslash
