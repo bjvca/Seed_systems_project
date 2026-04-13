@@ -2001,21 +2001,31 @@ Non-purchasers
 \end_inset
 
 ) lack own purchasing experience:
- we allow 
-\begin_inset Formula $\mu_{NPj}<\theta_{j}$
-\end_inset
-
- (pessimistic bias) and 
+ we assume
 \begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
 
- (greater uncertainty).
+ (greater uncertainty),
+ and allow
+\begin_inset Formula $\mu_{NPj}$
+\end_inset
+
+ to differ from
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+.
+ In the empirically relevant case where priors are pessimistic,
+\begin_inset Formula $\mu_{NPj}<\theta_{j}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-As such,
+This captures the idea that,
  even though learning by doing is noisy,
- we assume that farmers that have experience with seed from agro-dealers do have more accurate priors.
+ farmers with experience purchasing seed from agro-dealers have more precise priors.
 \begin_inset Note Note
 status collapsed
 
@@ -2162,21 +2172,12 @@ Under this condition,
 \end_inset
 
 ,
- non-purchasers place more weight on the signal.
+ non-purchasers place more weight on the signal and experience larger reductions in posterior uncertainty.
  The belief shift 
 \begin_inset Formula $\tilde{\mu}_{ij}-\mu_{ij}=\alpha_{ij}(s_{j}-\mu_{ij})$
 \end_inset
 
- is therefore larger for non-purchasers on both dimensions:
- they weight the signal more heavily (larger 
-\begin_inset Formula $\alpha_{ij}$
-\end_inset
-
-) and the gap between signal and prior is larger (
-\begin_inset Formula $s_{j}-\mu_{NPj}>s_{j}-\mu_{Pj}$
-\end_inset
-
- if beliefs are pessimistic).
+ is upward when the signal is more favorable than the prior.
  For purchasers,
  the main effect is a precision gain (lower 
 \begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
@@ -2184,11 +2185,9 @@ Under this condition,
 
 );
  for non-purchasers,
- it is a level shift (higher 
-\begin_inset Formula $\tilde{\mu}_{ij}$
-\end_inset
-
-) combined with a precision gain.
+ the model predicts a larger precision gain and,
+ when their priors are pessimistic relative to the signal,
+ a larger upward revision in expected performance.
 \end_layout
 
 \begin_layout Subsection
@@ -2506,12 +2505,10 @@ Prediction 1 (Perceptions).
 
 \series default
  Under the belief updating channel,
- the treatment shifts perceived seed performance upward,
- with the effect larger for non-purchasers than purchasers (
-\begin_inset Formula $\alpha_{NPj}(s_{j}-\mu_{NPj})>\alpha_{Pj}(s_{j}-\mu_{Pj})$
-\end_inset
-
-).
+ the treatment changes perceived seed performance in the direction of the signal,
+ with stronger effects among non-purchasers.
+ If prior beliefs are pessimistic relative to the signal,
+ perceived seed performance shifts upward.
  Under the dealer sorting channel,
  there is no direct prediction on perceptions.
 \begin_inset Foot
@@ -2551,7 +2548,9 @@ Prediction 2 (Adoption).
 
 \series default
  All three channels predict increased adoption:
- belief updating by shifting perceived performance above the adoption threshold,
+ belief updating by reducing uncertainty and,
+ when priors are pessimistic relative to the signal,
+ by raising expected performance above the adoption threshold,
  dealer sorting by enabling farmers to identify better dealers,
  and supply-side responses by improving the objective quality of seed on offer.
  This prediction does not discriminate between channels.
@@ -2763,7 +2762,7 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
-Perceptions & Improve,
+Perceptions & Move toward signal,
  larger for non-purchasers & No prediction & May improve,
  uniform across farmers
 \backslash
@@ -14022,16 +14021,27 @@ Non-purchasers
 ) lack direct experience.
  Their priors are formed from locally shared information,
  which may be incomplete or skewed by the disproportionate salience of negative narratives.
- We allow for the possibility that 
-\begin_inset Formula $\mu_{NP}<\theta$
-\end_inset
-
- (pessimistic bias) and 
+ We assume
 \begin_inset Formula $\sigma^{2}_{NP}>\sigma^{2}_{P}$
 \end_inset
 
- (greater imprecision) [Assumption 3:
- beliefs are sufficiently imprecise or biased for updating to matter].
+ (greater imprecision),
+ and allow
+\begin_inset Formula $\mu_{NP}$
+\end_inset
+
+ to differ from
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ In the empirically relevant case where priors are pessimistic,
+\begin_inset Formula $\mu_{NP}<\theta$
+\end_inset
+
+.
+ This is the biased-prior case covered by Assumption 3:
+ beliefs are sufficiently imprecise or biased for updating to matter.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -14234,19 +14244,15 @@ Non-purchasers:
 \begin_inset Formula $\alpha_{NP}$
 \end_inset
 
- is large (prior is imprecise) and,
- if beliefs are pessimistic (
-\begin_inset Formula $\mu_{NP}<\theta$
-\end_inset
-
-),
- 
+ is large because the prior is imprecise.
+ If beliefs are pessimistic relative to the signal,
 \begin_inset Formula $s-\mu_{NP}$
 \end_inset
 
- is large and positive.
- Both components work in the same direction,
- producing a large upward shift in the posterior mean (level shift).
+ is positive,
+ producing an upward shift in the posterior mean.
+ Even without such a level shift,
+ non-purchasers experience a larger precision gain because they begin with greater prior uncertainty.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -14371,14 +14377,11 @@ The model generates the following testable predictions.
 Prediction 1 (Perceptions).
 
 \series default
- The treatment shifts perceived seed performance upward.
- The effect is larger for non-purchasers than purchasers,
- because
-\begin_inset Formula $\alpha_{NP}(s-\mu_{NP})>\alpha_{P}(s-\mu_{P})$
-\end_inset
-
-.
- This follows from priors being imprecise or biased,
+ The treatment changes perceived seed performance in the direction of the signal,
+ with stronger effects among non-purchasers.
+ If prior beliefs are pessimistic relative to the signal,
+ perceived seed performance shifts upward.
+ This follows from priors being imprecise,
  the aggregated signal being informative,
  and farmers perceiving the ratings as credible.
 \end_layout
@@ -14410,22 +14413,25 @@ nolink "false"
 \end_inset
 
 .
- The treatment relaxes this constraint through a higher posterior mean
-\begin_inset Formula $\tilde{\mu}_{i}$
-\end_inset
-
- (level effect) and a lower posterior variance
+ The treatment relaxes this constraint through a lower posterior variance
 \begin_inset Formula $\tilde{\sigma}^{2}_{i}$
 \end_inset
 
- (precision effect).
- For non-purchasers,
- both channels operate:
- the large upward shift in
+ (precision effect) and,
+ when priors are pessimistic relative to the signal,
+ a higher posterior mean
 \begin_inset Formula $\tilde{\mu}_{i}$
 \end_inset
 
- combined with reduced uncertainty makes them most likely to cross the adoption threshold.
+ (level effect).
+ For non-purchasers,
+ the larger reduction in posterior variance
+\begin_inset Formula $\tilde{\sigma}^{2}_{i}$
+\end_inset
+
+ lowers the risk penalty and makes them more likely to cross the adoption threshold;
+ if priors are pessimistic,
+ the upward shift in expected performance further increases adoption.
  For purchasers,
  the level effect is small,
  but the precision effect still operates:
