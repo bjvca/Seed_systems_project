@@ -2104,12 +2104,37 @@ RESOLVED:
 \end_inset
 
 .
- Averaging across raters reduces noise:
- more raters produce a more precise signal about agro-dealer 
+\end_layout
+
+\begin_layout Standard
+Because raters are drawn from previous purchasers,
+ the signal need not be representative of the experience that every farmer would have with agro-dealer
 \begin_inset Formula $j$
 \end_inset
 
-'s true seed performance.
+.
+ Raters may differ from non-purchasers in land quality,
+ management practices,
+ complementary input use,
+ or prior beliefs.
+ We therefore interpret
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ as an informative peer-experience signal rather than an unbiased estimate of a universal agro-dealer-specific treatment effect.
+ The model requires that,
+ conditional on the local market and agro-dealer,
+ average rater experiences contain information about agro-dealer seed performance beyond selection-driven differences across farmers.
+\end_layout
+
+\begin_layout Standard
+Under this condition,
+ averaging across raters reduces idiosyncratic noise:
+ more raters produce a more precise signal about agro-dealer
+\begin_inset Formula $j$
+\end_inset
+
+'s seed performance.
  Standard Normal-Normal bayesian updating yields posterior mean and variance:
 \end_layout
 
