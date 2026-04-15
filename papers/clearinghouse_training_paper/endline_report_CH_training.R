@@ -7803,11 +7803,11 @@ df_means_end_F_nobase[2,1] <- sd(baseline_farmers$index_ratingsF_base,na.rm = T)
 df_means_end_F_nobase[1,2] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 df_means_end_F_nobase[2,2] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 
-df_means_end_F_nobase[1,3] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
-df_means_end_F_nobase[2,3] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
+df_means_end_F_nobase[1,3] <- mean(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
+df_means_end_F_nobase[2,3] <- sd(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
 
-df_means_end_F_nobase[1,9] <- mean(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
-df_means_end_F_nobase[2,9] <- sd(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
+df_means_end_F_nobase[1,9] <- mean(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
+df_means_end_F_nobase[2,9] <- sd(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
 
 df_means_end_F_nobase[1,10] <- mean(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
 df_means_end_F_nobase[2,10] <- sd(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
