@@ -7620,9 +7620,13 @@ baseline_farmers$index_ratingsshopF_base <- index_ratingsshopF_base$index
 # baseline_farmers$mid_farmerswitched[is.na(baseline_farmers$CHECK.MAIZE.Q25I)] <- 0
 # baseline_farmers$mid_farmerswitched[baseline_farmers$attrition_ind_F_end==1] <- NA
 
-baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="1"]<-1
-baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="2"]<-0
+baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="1"]<-0
+baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="2"]<-1
 baseline_farmers$mid_farmerswitched[baseline_farmers$CHECK.MAIZE.Q25I=="3"]<-NA
+
+baseline_farmers$MIDLINE_farmerswitched[baseline_farmers$check.maize.q25i=="1"]<-0
+baseline_farmers$MIDLINE_farmerswitched[baseline_farmers$check.maize.q25i=="2"]<-1
+baseline_farmers$MIDLINE_farmerswitched[baseline_farmers$check.maize.q25i=="3"]<-NA
 
 #4. Did you harvest as much maize from this plot as you expected? OK!
 baseline_farmers$mid_Check2.check.maize.q51a <- baseline_farmers$CHECK.MAIZE.Q51A
@@ -7799,8 +7803,11 @@ df_means_end_F_nobase[2,1] <- sd(baseline_farmers$index_ratingsF_base,na.rm = T)
 df_means_end_F_nobase[1,2] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 df_means_end_F_nobase[2,2] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
 
-df_means_end_F_nobase[1,9] <- mean(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
-df_means_end_F_nobase[2,9] <- sd(baseline_farmers$index_overallsec_plotF_base_save,na.rm = T)
+df_means_end_F_nobase[1,3] <- mean(baseline_farmers$index_ratingsshopF_base,na.rm = T)
+df_means_end_F_nobase[2,3] <- sd(baseline_farmers$index_ratingsshopF_base,na.rm = T)
+
+df_means_end_F_nobase[1,9] <- mean(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
+df_means_end_F_nobase[2,9] <- sd(baseline_farmers$MIDLINE_farmerswitched,na.rm = T)
 
 df_means_end_F_nobase[1,10] <- mean(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
 df_means_end_F_nobase[2,10] <- sd(baseline_farmers$index_overall_seedonplot_base_save,na.rm = T)
