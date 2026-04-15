@@ -11154,13 +11154,25 @@ As an alternative measure of switching,
  we use the endline dyadic data,
  which records for each farmer the full set of agro-dealers they have purchased from and when each customer relationship began.
  This measure is available for all treatment arms at endline and does not rely on self-reported recall of the previous season’s dealer.
- Among the 951 farmers who purchase seed at endline,
- we classify a farmer as having switched if their current dealer relationship began in 2021 or later ---
+ We restrict this analysis to the 403 farmers who purchased seed from an agro-dealer at both baseline and endline,
+ paralleling the sample restriction for the self-reported measure.
+ We classify a farmer as having switched if their current dealer relationship began in 2021 or later ---
  that is,
  after the first round of ratings was disseminated.
- Results show that 37% of seed-purchasing farmers buy from a dealer they started patronizing after the intervention began.
- Clearinghouse farmers are 6.5 percentage points more likely to have a new dealer,
- though this difference is not individually significant (p=0.13).
+ Results in Table
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "switchingfarmers"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ show that 32% of these farmers buy from a dealer they started patronizing after the intervention began.
+ Clearinghouse farmers are 7.1 percentage points more likely to have a new dealer,
+ though this difference is not individually significant (p=0.15).
  Nearly all farmers purchase from exactly one dealer,
  so new relationships represent replacement of the previous dealer rather than portfolio expansion.
 \end_layout
@@ -11421,7 +11433,7 @@ Farmer bought from new dealer (dyadic)$^2$
 \end_layout
 
 \begin_layout Plain Layout
-& 0.369 & & & 0.065 & 951
+& 0.318 & & & 0.071 & 403
 \backslash
 
 \backslash
@@ -11429,7 +11441,7 @@ Farmer bought from new dealer (dyadic)$^2$
 \end_layout
 
 \begin_layout Plain Layout
-& (0.483) & & & (0.043) &
+& (0.466) & & & (0.049) &
 \backslash
 
 \backslash
@@ -11530,7 +11542,7 @@ $^2$Based on endline dyadic data.
  A farmer is classified as having bought from a new dealer if their current dealer relationship began in 2021 or later (after the first round of ratings was disseminated).
  Column (1) reports the overall mean;
  column (4) reports the clearinghouse treatment effect.
- Restricted to farmers who purchased seed from at least one agro-dealer at endline.
+ Restricted to farmers who purchased seed from an agro-dealer at both baseline and endline.
 \end_layout
 
 \end_inset
