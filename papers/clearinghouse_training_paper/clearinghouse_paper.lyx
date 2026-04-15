@@ -266,7 +266,9 @@ adverse selection reduction
  We find that the intervention increases farmers’ perceptions of seed performance,
  leads to higher adoption of high-yielding maize seed,
  and raises yields by 13%.
- We find no evidence that the intervention induces farmers to switch between dealers or improves dealer-level seed performance,
+ While there is some evidence of increased switching between dealers,
+ this switching is not directed toward higher-rated dealers,
+ and we find no improvement in dealer-level seed performance,
  providing little support for dealer sorting or supply-side quality improvement.
  The results point to belief updating as the primary mechanism.
  Consistent with this interpretation,
@@ -856,8 +858,10 @@ Exposure to peer ratings improves farmers’ perceptions of seed performance and
  showing that the intervention has economically meaningful downstream effects.
  Because adoption and productivity effects are consistent with all three channels,
  channel identification rests on the outcomes that differ across the model's predictions.
- We find no evidence that the intervention induces farmers to switch between sellers,
- providing little support for dealer sorting as a primary channel.Nor do we find improvements in dealer-level seed performance,
+ While there is some evidence that the intervention induces farmers to switch between sellers,
+ this switching is not directed toward higher-rated dealers,
+ providing little support for dealer sorting as a primary channel.
+ Nor do we find improvements in dealer-level seed performance,
  providing little support for supply-side quality improvement.
  Consistent with belief updating,
  effects on perceptions are larger among farmers without prior purchasing experience.
@@ -910,7 +914,8 @@ literal "false"
  providing a more complete picture than studies focusing on buyers or sellers alone.
  Third,
  the pattern of results —
- positive effects on perceptions and adoption,null effects on switching and dealer-level seed performance —
+ positive effects on perceptions and adoption,
+ undirected switching and no improvement in dealer-level seed performance —
  provides evidence that uncertainty about seed performance is a binding constraint on adoption in seed markets.
  While overly pessimistic or imprecise beliefs have been documented in fertilizer markets 
 \begin_inset CommandInset citation
@@ -2123,7 +2128,9 @@ RESOLVED:
  creating a mechanical ceiling effect that concentrates effects among non-purchasers regardless of channel.
  Channel identification rests on heterogeneity in perceptions (Prediction 1,
  continuous outcome,
- no ceiling effect) and null effects on switching and seed quality (Predictions 4 and 5).
+ no ceiling effect),
+ undirected switching (Prediction 4),
+ and null effects on seed quality (Prediction 5).
  On the timing concern:
  the design accommodates all channels —
  ratings in T1,
@@ -2181,7 +2188,7 @@ Prediction 4 (Switching).
  enabling farmers to switch to higher-rated dealers,
  predicting increased switching.
  The supply-side channel has no direct prediction on switching.
- Finding no increase in switching weakens evidence for dealer sorting as the primary channel.
+ Finding that any increase in switching is not directed toward higher-rated dealers weakens evidence for dealer sorting as the primary channel.
 \end_layout
 
 \begin_layout Itemize
@@ -2405,7 +2412,7 @@ footnotesize
 Note:
  Adoption effects alone do not discriminate between channels.
  Heterogeneity in perceptions (P1),
- limited switching (P4),
+ undirected switching (P4),
  and lack of dealer-level seed performance improvements (P5) jointly point to belief updating as the dominant channel.
 \end_layout
 
@@ -11135,21 +11142,70 @@ nolink "false"
 
 \end_inset
 
- show that 59% of farmers who purchase maize seed at both baseline and midline switch agro-dealers between those two seasons.
- The treatment does not increase switching.
- If anything,
- treated farmers are slightly less likely to switch at midline,
- with the difference statistically significant at the 10% level.
+ show that 46% of farmers who purchase maize seed at both baseline and midline switch agro-dealers between those two seasons.
+ Treated farmers are somewhat more likely to switch at midline,
+ with the clearinghouse coefficient of 6.2 percentage points significant at the 10% level.
  By endline,
- switching rates are statistically indistinguishable between treatment and control groups.
+ the difference is smaller and no longer statistically significant.
 \end_layout
 
 \begin_layout Standard
-These results provide no evidence that the intervention reduces search frictions or induces reallocation across agro-dealers.
- Instead,
- the findings are more consistent with the belief-updating mechanism outlined in the model:
- the intervention appears to influence whether farmers engage with agro-dealers rather than which agro-dealer they choose.
- This finding is consistent with 
+As an alternative measure of switching,
+ we use the endline dyadic data,
+ which records for each farmer the full set of agro-dealers they have purchased from and when each customer relationship began.
+ This measure is available for all treatment arms at endline and does not rely on self-reported recall of the previous season’s dealer.
+ Among the 951 farmers who purchase seed at endline,
+ we classify a farmer as having switched if their current dealer relationship began in 2021 or later ---
+ that is,
+ after the first round of ratings was disseminated.
+ Results show that 37% of seed-purchasing farmers buy from a dealer they started patronizing after the intervention began.
+ Clearinghouse farmers are 6.5 percentage points more likely to have a new dealer,
+ though this difference is not individually significant (p=0.13).
+ Nearly all farmers purchase from exactly one dealer,
+ so new relationships represent replacement of the previous dealer rather than portfolio expansion.
+\end_layout
+
+\begin_layout Standard
+We also investigate whether this switching is quality-directed ---
+ the core prediction of the dealer sorting channel.
+ Because baseline ratings were collected only from clearinghouse-arm farmers,
+ the disseminated rating categories are available only for clearinghouse-arm dealers,
+ and we can therefore examine the relationship between dealer ratings and switching only within the clearinghouse arm.
+ Among clearinghouse farmers who purchase seed at endline,
+ the share buying from a new dealer rises modestly with the disseminated rating category ---
+ from 32% for dealers rated
+\begin_inset Quotes eld
+\end_inset
+
+OK
+\begin_inset Quotes erd
+\end_inset
+
+ to 40% for dealers rated
+\begin_inset Quotes eld
+\end_inset
+
+Excellent
+\begin_inset Quotes erd
+\end_inset
+
+ ---
+ but these differences are not statistically significant,
+ likely reflecting the compressed distribution of ratings across only four categories and 193 shops.
+ Using the continuous endline rating (available for all dealers) and including the full treatment-control comparison,
+ we find that the interaction between clearinghouse assignment and dealer rating is small and insignificant:
+ clearinghouse farmers who switch do not differentially move toward higher-rated dealers.
+\end_layout
+
+\begin_layout Standard
+Taken together,
+ these results suggest that some switching occurs in response to the intervention,
+ but it is not systematically directed toward higher-performing dealers.
+ This pattern is more consistent with a general increase in market engagement driven by belief updating ---
+ farmers who update their beliefs about the returns to agro-dealer seed become more willing to experiment with different dealers ---
+ than with informed dealer sorting,
+ which requires systematic reallocation toward better-performing sellers.
+ This interpretation is consistent with
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -13264,11 +13320,12 @@ On the supply side,
  or objective seed quality.
  There is suggestive evidence of some changes in service provision and signaling professionalism,
  but these effects are less robust than the demand-side findings and are not central to our interpretation.
- We also find no evidence that the intervention induces farmers to switch between agro-dealers,
- providing little support for dealer sorting or supply-side quality improvement as primary channels.
+ While we find some evidence that the intervention induces switching between agro-dealers,
+ this switching is not directed toward higher-rated dealers,
+ providing little support for dealer sorting as a primary channel.
  The pattern of results —
  positive effects on perceptions and adoption,
- null effects on switching and seed quality —
+ undirected switching and no improvement in seed quality —
  points to belief updating as the primary impact pathway.
 \end_layout
 
