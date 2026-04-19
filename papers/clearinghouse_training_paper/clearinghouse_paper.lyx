@@ -11150,59 +11150,11 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-As an alternative measure of switching,
- we use the endline dyadic data,
- which records for each farmer the full set of agro-dealers they have purchased from and when each customer relationship began.
- This measure is available for all treatment arms at endline and does not rely on self-reported recall of the previous season’s dealer.
- We restrict this analysis to the 403 farmers who purchased seed from an agro-dealer at both baseline and endline,
- paralleling the sample restriction for the self-reported measure.
- We classify a farmer as having switched if their current dealer relationship began in 2021 or later --- that is,
- after the first round of ratings was disseminated.
- Results in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "switchingfarmers"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- show that 32% of these farmers buy from a dealer they started patronizing after the intervention began.
- Clearinghouse farmers are 7.1 percentage points more likely to have a new dealer,
- though this difference is not individually significant (p=0.15).
- Nearly all farmers purchase from exactly one dealer,
- so new relationships represent replacement of the previous dealer rather than portfolio expansion.
-\end_layout
-
-\begin_layout Standard
-We also investigate whether this switching is quality-directed --- the core prediction of the dealer sorting channel.
- Because baseline ratings were collected only from clearinghouse-arm farmers,
- the disseminated rating categories are available only for clearinghouse-arm dealers,
- and we can therefore examine the relationship between dealer ratings and switching only within the clearinghouse arm.
- Among clearinghouse farmers who purchase seed at endline,
- the share buying from a new dealer rises modestly with the disseminated rating category --- from 32% for dealers rated
-\begin_inset Quotes eld
-\end_inset
-
-OK
-\begin_inset Quotes erd
-\end_inset
-
- to 40% for dealers rated
-\begin_inset Quotes eld
-\end_inset
-
-Excellent
-\begin_inset Quotes erd
-\end_inset
-
- --- but these differences are not statistically significant,
- likely reflecting the compressed distribution of ratings across only four categories and 193 shops.
- Using the continuous endline rating (available for all dealers) and including the full treatment-control comparison,
- we find that the interaction between clearinghouse assignment and dealer rating is small and insignificant:
- clearinghouse farmers who switch do not differentially move toward higher-rated dealers.
+Taken together,
+ these average treatment effects provide at most weak evidence that the intervention induces broad reallocation across agro-dealers.
+ Switching is somewhat higher at midline,
+ but the effect is not persistent by endline,
+ and the pattern is more consistent with a general increase in market engagement than with dealer sorting as a primary channel.
 \begin_inset Foot
 status collapsed
 
@@ -11211,21 +11163,13 @@ Exploratory heterogeneity analysis suggests that switching is concentrated,
  if at all,
  in catchment areas in the top quartile of rating dispersion;
  median-split and continuous specifications provide little evidence of a systematic relationship.
- We therefore interpret the average null effect on quality-directed switching as evidence against dealer sorting as a primary channel,
+ We therefore interpret the average switching results as providing limited evidence for dealer sorting as a primary channel,
  while acknowledging that sorting may be possible where ratings reveal unusually large seller differences.
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Taken together,
- these results suggest that some switching occurs in response to the intervention,
- but it is not systematically directed toward higher-performing dealers.
- This pattern is more consistent with a general increase in market engagement driven by belief updating --- farmers who update their beliefs about the returns to agro-dealer seed become more willing to experiment with different dealers --- than with informed dealer sorting,
- which requires systematic reallocation toward better-performing sellers.
  This interpretation is consistent with 
 
 \begin_inset CommandInset citation
@@ -11433,30 +11377,6 @@ Sexpr{format(round(df_ols_end_F_nobase[2,2,3],digits=3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
-Farmer bought from new dealer (dyadic)$^2$
-\end_layout
-
-\begin_layout Plain Layout
-& 0.318 & & & 0.071 & 403
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-& (0.466) & & & (0.049) &
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \backslash
 cmidrule(lr){2-2}
@@ -11541,13 +11461,6 @@ $^1$Comparisons are restricted to farmers who purchased maize seed from an agro-
 
 \end_layout
 
-\begin_layout Plain Layout
-$^2$Based on endline dyadic data.
- A farmer is classified as having bought from a new dealer if their current dealer relationship began in 2021 or later (after the first round of ratings was disseminated).
- Column (1) reports the overall mean;
- column (4) reports the clearinghouse treatment effect.
- Restricted to farmers who purchased seed from an agro-dealer at both baseline and endline.
-\end_layout
 
 \end_inset
 
