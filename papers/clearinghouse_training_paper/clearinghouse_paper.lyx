@@ -925,7 +925,9 @@ literal "false"
 
 \begin_layout Standard
 More broadly,
- this paper connects to a growing literature on crowd-sourced quality information and market outcomes.
+ this paper connects to a growing literature on crowd-sourced quality information,
+ transparency,
+ and search frictions in markets with hard-to-observe seller quality.
  Research on online review platforms documents that consumer feedback affects both sides of the market:
  buyers use reviews to make more informed choices,
  while sellers adjust their behavior in response to public quality signals 
@@ -937,9 +939,20 @@ literal "false"
 \end_inset
 
 .
+ Related work shows that reducing search and information frictions can improve matching,
+ trade,
+ and market integration in both online and low-income-country markets
+\begin_inset CommandInset citation
+LatexCommand citep
+key "NBERw28100,NBERw33221,Startz2024,NBERw33082,10.1093/ej/ueaf009"
+literal "false"
+
+\end_inset
+
+.
  In many of these settings,
  an important channel is sorting:
- reviews help consumers identify better sellers among many options.
+ information helps buyers identify better sellers among many options.
  Our study shows that in a very different setting —
  a low-information,
  offline agricultural input market —
@@ -10998,203 +11011,23 @@ Dealer sorting and agro-dealer switching
 \end_layout
 
 \begin_layout Standard
-One alternative explanation for the treatment effects is that the intervention enables dealer sorting.
- The treatment may enable farmers to identify agro-dealers selling higher-performing products and switch to them,
- potentially leading to the exit of agro-dealers selling lower-performing products and thereby reducing adverse selection in the market.
- Similar dynamics are documented in settings where increased transparency allows buyers to screen sellers 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1257/aer.20161965,laneetal,NBERw33082,Hsu2024"
-literal "false"
-
-\end_inset
-
-,
- as well as in a recent literature showing that reducing non-price search frictions can improve market functioning in low- and middle-income countries 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "NBERw28100,Rudder2024,NBERw33221,Startz2024,10.1093/ej/ueaf009"
-literal "false"
-
-\end_inset
-
-.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-This relates to a recent literature on non-price search frictions in low- and middle-income countries.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw28100"
-literal "false"
-
-\end_inset
-
- examine how search and information frictions affect global e-commerce using data from AliExpress,
- showing through a randomized experiment that accumulated sales help overcome these barriers.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Startz2024"
-literal "false"
-
-\end_inset
-
- estimates that eliminating search frictions faced by Nigerian importers would raise welfare from imported goods by approximately 5%.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw33221"
-literal "false"
-
-\end_inset
-
- study an SMS-based platform that connects buyers and sellers in Ugandan agricultural markets,
- finding that reduced search costs led to greater market integration,
- increased trade,
- and price convergence.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1093/ej/ueaf009"
-literal "false"
-
-\end_inset
-
- show that Tanzanian small and medium firms randomly listed in a “yellow pages” telephone directory expand their communication networks and increase sales.
- However,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Rudder2024"
-literal "false"
-
-\end_inset
-
- find that such exposure does not increase the number of new trading partners but instead enhances firms’ reputations,
- enabling them to secure better terms from existing partners.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-deleted:
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "laneetal"
-literal "false"
-
-\end_inset
-
- show that in Kenya,
- passengers chose safer buses after safety information was publicly disclosed.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "NBERw33082"
-literal "false"
-
-\end_inset
-
- find that randomized referrals between supplier and client firms in China’s writing brush industry lowered search costs,
- boosting transactions,
- firm performance,
- and product quality as firms reallocated to better partners.
- In our context,
- however,
- even with improved ability to screen for quality,
- farmers did not switch to higher-quality sellers,
- contributing further evidence on the limits of demand-side adjustment in response to enhanced transparency.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1257/aer.20161965"
-literal "false"
-
-\end_inset
-
- show that the spread of mobile phones in India enabled consumers to learn about non-local boat-builders,
- driving market integration,
- improving product quality,
- and lower quality-adjusted prices.
- High-quality firms expanded while low-quality firms exited.
- Closely related to our context,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Hsu2024"
-literal "false"
-
-\end_inset
-
- train farmers in rural Kenya to identify quality-verified hybrid maize seeds.
- While this intervention benefits farmers,
- local sellers do not respond by upgrading quality or adjusting prices.
- Instead,
- many exit the market – likely because better-informed buyers reduce profit margins,
- and upgrading quality may be too costly.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-I'D LEAVE THIS OUT:
-\end_layout
-
-\begin_layout Plain Layout
-Other studies show that the presence of a high-quality seller can strengthen reputational incentives for competitors,
- motivating them to improve quality to remain viable.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "10.1162/rest_a_00758"
-literal "false"
-
-\end_inset
-
- find that the entry of a chain store offering high-quality,
- low-cost drugs in India prompted incumbent retailers to raise drug quality and reduce prices.
- Similarly,
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "bjorkman2022can"
-literal "false"
-
-\end_inset
-
- examine Uganda’s antimalarial drug market and show that the random introduction of a retailer selling authentic,
- underpriced medication decreased the prevalence of counterfeit drugs among incumbents,
- while simultaneously improving overall drug quality and lowering prices.
-\end_layout
-
-\end_inset
-
-
+One alternative channel is dealer sorting.
+ Because the clearinghouse provides agro-dealer-specific ratings,
+ it may help farmers identify higher-performing sellers and reallocate purchases toward them.
+ The model predicts that this channel should generate switching across agro-dealers,
+ especially where ratings reveal meaningful cross-dealer differences.
+ Unlike belief updating about agro-dealer seed in general,
+ dealer sorting requires movement across sellers rather than only increased engagement with agro-dealer seed markets.
 \end_layout
 
 \begin_layout Standard
-To assess whether the intervention operates through this alternative channel,
- we examine whether treated farmers are more likely to switch agro-dealers between seasons.
- The analysis is restricted to farmers who purchase maize seed from an agro-input shop for at least one plot in both the reference season (baseline or midline) and the subsequent season (midline or endline),
- as switching is only meaningful for farmers who purchase seed in both periods.
+We test this prediction by examining whether treated farmers are more likely to switch agro-dealers between seasons.
+ The analysis is restricted to farmers who purchase maize seed from an agro-input shop in both adjacent seasons,
+ since switching is only defined for farmers observed purchasing in both periods.
 \end_layout
 
 \begin_layout Standard
-Results in Table 
+Table
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "switchingfarmers"
@@ -11205,47 +11038,31 @@ nolink "false"
 
 \end_inset
 
- show that 46% of farmers who purchase maize seed at both baseline and midline switch agro-dealers between those two seasons.
- Treated farmers are somewhat more likely to switch at midline,
- with the clearinghouse coefficient of 6.2 percentage points significant at the 10% level.
+ shows that switching is common:
+ 46% of farmers who purchase maize seed in both baseline and midline buy from a different agro-dealer across the two seasons.
+ The clearinghouse increases switching by 6.2 percentage points at midline,
+ significant at the 10% level.
  By endline,
- the difference is smaller and no longer statistically significant.
+ the estimate is smaller and no longer statistically significant.
 \end_layout
 
 \begin_layout Standard
-Taken together,
- these average treatment effects provide at most weak evidence that the intervention induces broad reallocation across agro-dealers.
- Switching is somewhat higher at midline,
- but the effect is not persistent by endline,
- and the pattern is more consistent with a general increase in market engagement than with dealer sorting as a primary channel.
+These results provide limited evidence for dealer sorting as a primary channel.
+ The intervention may have induced some short-run reallocation across sellers,
+ but the effect is not persistent.
+ Moreover,
+ because the adoption and business-activity results show broader engagement with agro-dealer markets,
+ average switching alone does not establish that farmers sorted toward higher-performing dealers.
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Motivated by the model's implication that dealer sorting requires ratings to reveal meaningful cross-dealer differences (see Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Dealer-sorting"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-tuple "list"
-
-\end_inset
-
-),
- exploratory heterogeneity analysis suggests that switching is concentrated,
+Consistent with the model,
+ exploratory analysis suggests that switching is concentrated,
  if at all,
  in catchment areas in the top quartile of rating dispersion;
  median-split and continuous specifications provide little evidence of a systematic relationship.
- We therefore interpret the average switching results as providing limited evidence for dealer sorting as a primary channel,
- while acknowledging that sorting may be possible where ratings reveal unusually large seller differences.
-\end_layout
-
-\end_inset
-
- This interpretation is consistent with 
+ This interpretation is also consistent with
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -11254,7 +11071,12 @@ literal "false"
 \end_inset
 
 ,
- who implement a similar crowd-sourced information platform in Pakistan’s artificial insemination for livestock market and find no evidence that farmers switch to higher-performance veterinarians.
+ who implement a similar crowd-sourced information platform in Pakistan's artificial insemination for livestock market and find no evidence that farmers switch to higher-performance veterinarians.
+\end_layout
+
+\end_inset
+
+ We therefore interpret the switching results as weak evidence for dealer sorting.
 \end_layout
 
 \begin_layout Standard
