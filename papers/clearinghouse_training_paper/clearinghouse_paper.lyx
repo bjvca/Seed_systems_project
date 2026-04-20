@@ -10,6 +10,7 @@
 \usepackage{xcolor,colortbl}
 \usepackage{hhline}
 \usepackage{booktabs}
+\usepackage{pdfpages}
 \emergencystretch 3em
 \usepackage{multirow}
 \hypersetup{pagebackref=true}
@@ -13781,6 +13782,26 @@ name "subsec:Agro-dealer-Rating-Report"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+includepdf[pages=-,pagecommand={},width=
+\backslash
+textwidth]{output_AD_211.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
