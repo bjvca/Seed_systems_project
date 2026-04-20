@@ -1129,7 +1129,8 @@ RESOLVED:
 \end_layout
 
 \begin_layout Standard
-Let 
+We assume that smallholder farmers choose between purchasing higher-yielding seed varieties from agro-dealers and relying on outside options such as farmer-saved seed or local seed obtained through informal exchanges.
+ Let 
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
@@ -1137,7 +1138,11 @@ Let
 \begin_inset Formula $j$
 \end_inset
 
- relative to the farmer's outside option.
+ relative to farmer 
+\begin_inset Formula $i$
+\end_inset
+
+'s outside option.
  There are 
 \begin_inset Formula $J$
 \end_inset
@@ -1243,11 +1248,12 @@ This assumption abstracts from upstream variation in the seed received by agro-d
 \end_layout
 
 \begin_layout Standard
-Smallholder farmers choose between purchasing seed from agro-dealers and relying on outside options such as farmer-saved seed,
- informal exchanges,
- and seed distributed through public or non-governmental programs.
- Because seed performance is unobservable at the time of purchase,
- the decision depends on beliefs about the performance of agro-dealer seed relative to these alternatives.
+Because seed performance is unobservable at the time of purchase,
+ the decision to buy seed depends on beliefs about the performance of agro-dealer seed relative to these alternatives 
+\begin_inset Formula $E_{i}[\theta_{j}]$
+\end_inset
+
+.
  Seed has properties of a credence good:
  because yields depend on many factors beyond the seed itself,
  farmers cannot fully assess seed performance even after use 
@@ -1476,13 +1482,10 @@ RESOLVED:
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Because individual learning about seed performance is difficult (as discussed above),
+ Because individual learning about seed performance is difficult,
  beliefs are likely to be imprecise or biased,
  and aggregated peer information can shape belief formation.
- The way it does so depends on farmers’ prior purchasing experience.
+ 
 \begin_inset Note Note
 status collapsed
 
@@ -1517,7 +1520,10 @@ Farmer
 \end_inset
 
 .
- To generate predictions about heterogeneous treatment effects,
+ In our model,
+ the way it does so depends on farmers’ prior purchasing experience,
+ which generates predictions about heterogeneous treatment effects.
+ In particular,
  we distinguish two types based on prior purchasing experience:
 \end_layout
 
@@ -1530,7 +1536,8 @@ Purchasers
 \begin_inset Formula $i\in P$
 \end_inset
 
-) have prior beliefs informed by own purchasing experience:
+) have prior beliefs informed by own purchasing experience;
+ as a result,
  
 \begin_inset Formula $\mu_{Pj}$
 \end_inset
@@ -1681,41 +1688,7 @@ RESOLVED:
 \end_layout
 
 \begin_layout Standard
-Because raters are drawn from previous purchasers,
- the signal need not be representative of the experience that every farmer would have with agro-dealer 
-\begin_inset Formula $j$
-\end_inset
-
-.
- Raters may differ from non-purchasers in land quality,
- management practices,
- complementary input use,
- or prior beliefs.
- We therefore interpret 
-\begin_inset Formula $s_{j}$
-\end_inset
-
- as an informative peer-experience signal rather than an unbiased estimate of a universal agro-dealer-specific treatment effect.
- The model requires that,
- conditional on the local market and agro-dealer,
- average rater experiences contain information about agro-dealer seed performance beyond selection-driven differences across farmers.
-\end_layout
-
-\begin_layout Standard
-Under this condition,
- averaging across raters reduces idiosyncratic noise:
- more raters produce a more precise signal about agro-dealer 
-\begin_inset Formula $j$
-\end_inset
-
-'s seed performance.
- The Bayesian updating expression is a benchmark case in which farmers perceive the rating signal as credible and relevant;
- lower credibility or attention would attenuate the weight placed on 
-\begin_inset Formula $s_{j}$
-\end_inset
-
- without changing the qualitative prediction that more uncertain priors update more strongly.
- Standard Normal-Normal bayesian updating yields posterior mean and variance:
+Standard Normal-Normal bayesian updating yields posterior mean and variance:
 \end_layout
 
 \begin_layout Standard
@@ -1752,6 +1725,41 @@ Under this condition,
  the model predicts a larger precision gain and,
  when their priors are pessimistic relative to the signal,
  a larger upward revision in expected performance.
+\end_layout
+
+\begin_layout Standard
+Because raters are drawn from previous purchasers,
+ the signal need not be representative of the experience that every farmer would have with agro-dealer 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Raters may differ from non-purchasers in land quality,
+ management practices,
+ complementary input use,
+ or prior beliefs.
+ We therefore interpret 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ as an informative peer-experience signal rather than an unbiased estimate of a universal agro-dealer-specific treatment effect.
+ The model requires that,
+ conditional on the local market and agro-dealer,
+ average rater experiences contain information about agro-dealer seed performance beyond selection-driven differences across farmers.
+ Under this condition,
+ averaging across raters reduces idiosyncratic noise:
+ more raters produce a more precise signal about agro-dealer 
+\begin_inset Formula $j$
+\end_inset
+
+'s seed performance.
+ The Bayesian updating expression is a benchmark case in which farmers perceive the rating signal as credible and relevant;
+ lower credibility or attention would attenuate the weight placed on 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ without changing the qualitative prediction that more uncertain priors update more strongly.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -11169,9 +11177,7 @@ Exploratory heterogeneity analysis suggests that switching is concentrated,
 
 \end_inset
 
-
  This interpretation is consistent with 
-
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -11460,7 +11466,6 @@ $^1$Comparisons are restricted to farmers who purchased maize seed from an agro-
 \backslash
 
 \end_layout
-
 
 \end_inset
 
