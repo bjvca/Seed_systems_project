@@ -3418,10 +3418,7 @@ name "subsec:Sample"
 \begin_layout Standard
 The agro-dealer sample was constructed by listing all agro-dealers across eleven districts in southeastern Uganda,
  drawing on official records of registered agro-dealers and extensive field visits to identify new and informal ones.
-\end_layout
-
-\begin_layout Standard
-Following this census,
+ Following this census,
  the 348 eligible agro-dealers were assigned to 130 catchment areas (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3442,10 +3439,7 @@ nolink "false"
  Across all catchment areas,
  the average number of agro-dealers per area was three,
  with the number ranging from one to 18.
-\end_layout
-
-\begin_layout Standard
-To link agro-dealers with farmers,
+ To link agro-dealers with farmers,
  agro-dealers identified the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from these villages,
  yielding a sample of approximately 3,500 smallholder farmers.
@@ -3455,10 +3449,7 @@ To link agro-dealers with farmers,
 Baseline data were collected from agro-dealers in September-October 2020 and from farmers in April 2021;
  midline data were collected in January-February 2022,
  and endline data in July-August 2022.
-\end_layout
-
-\begin_layout Standard
-At the agro-dealer level,
+ At the agro-dealer level,
  enumerators interviewed the individual most knowledgeable about day-to-day operations,
  purchased a maize seed bag,
  and recorded indicators related to seed storage conditions.
@@ -3471,7 +3462,7 @@ At the agro-dealer level,
 \end_layout
 
 \begin_layout Subsection
-Baseline descriptives
+Baseline descriptives and randomization balance
 \end_layout
 
 \begin_layout Standard
@@ -3497,7 +3488,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Half of farmers planted high-yielding maize seed
+Half of farmers planted high-yielding maize seed on at least one plot in that season.
 \begin_inset Foot
 status collapsed
 
@@ -3536,14 +3527,14 @@ nolink "false"
 
 \end_inset
 
- on at least one plot in that season,
- with one in three purchasing it from an agro-dealer.
- The remainder primarily obtained high-yielding seed from Operation Wealth Creation/National Agricultural Advisory Services or non-governmental organizations,
- while many relied on their own retained seed or farmer-to-farmer exchanges.
+ One in three farmers purchase seed from an agro-dealer.
+ Other famers obtained high-yielding seed from Operation Wealth Creation/National Agricultural Advisory Services or non-governmental organizations;
+ many relied on their own retained seed or farmer-to-farmer exchanges.
  These patterns support the assumption that farmers have meaningful outside options to purchasing seed from agro-dealers.
- Furthermore,
+ At the same time,
  68% of farmers report believing that maize seed sold by agro-dealers is adulterated.
- This widespread skepticism suggests that farmers hold prior beliefs about seed performance at agro-dealers that leave room for belief updating to influence adoption decisions.
+ This widespread concern underscores that farmers perceive agro-dealer seed as risky,
+ so credible information about seed performance could affect adoption decisions by changing either expected performance or uncertainty.
 \end_layout
 
 \begin_layout Standard
@@ -3564,10 +3555,7 @@ nolink "false"
  and over 90% have completed primary education.
  In 55% of cases,
  the respondent is also the owner of the agro-shop.
-\end_layout
-
-\begin_layout Standard
-On average,
+ On average,
  agro-shops were established five years before the baseline survey,
  are located seven kilometers from the nearest tarmac road,
  and serve 41 customers per day.
@@ -3581,10 +3569,7 @@ With the shop manager’s permission,
  enumerators inspected seed storage areas and recorded observable characteristics.
  They reported pest issues (e.g.,
  rats or insects) at 65% of agro-shops and maize seed stored in open containers at 16% of agro-shops.
-\end_layout
-
-\begin_layout Standard
-Enumerators also sampled maize seed bags at the agro-shops and measured their moisture content.
+ Enumerators also sampled maize seed bags at the agro-shops and measured their moisture content.
  Moisture is a commonly used objective indicator of seed performance because it directly affects germination and viability;
  additional details are provided in Appendix 
 \begin_inset CommandInset ref
@@ -3603,6 +3588,7 @@ nolink "false"
  68% of purchased seed bags displayed a packaging date,
  18% an expiry date,
  and only 8% a quality certification label issued by the National Seed Certification Services (NSCS),
+ consistent with weak baseline guarantees of seed performance provided through agro-shops.
 \begin_inset Foot
 status collapsed
 
@@ -3615,7 +3601,7 @@ In Uganda,
 
 \end_inset
 
- consistent with weak baseline guarantees of seed performance provided through agro-shops (Assumption 2).
+
 \end_layout
 
 \begin_layout Standard
@@ -4716,19 +4702,32 @@ clearinghouse_training_paper/output_CH_training/df_ols_ATT_mid.Rdata
 
 \end_layout
 
-\begin_layout Subsection
-Randomization balance
-\begin_inset CommandInset label
-LatexCommand label
-name "5.3 Orthogonality tests of randomization balance"
+\begin_layout Standard
+Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_farmer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "balance_dealer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-We present standard orthogonality tables with pre-registered variables to assess baseline comparability between treatment and control groups.
+ also double as balance tables.
+ In particular,
+ we present standard orthogonality tests with pre-registered variables to assess baseline comparability between treatment and control groups.
  For farmer-level outcomes (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6441,7 +6440,7 @@ Sexpr{ifelse(df_ols[3,2,27]<.01,"**",ifelse(df_ols[3,2,27]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,27],digits=),nsmall=2)}
+Sexpr{format(round(df_averages[3,27],digits=),nsmall=0)}
 \backslash
 
 \backslash
@@ -6505,7 +6504,7 @@ Sexpr{ifelse(df_ols[3,2,11]<.01,"**",ifelse(df_ols[3,2,11]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -6553,7 +6552,7 @@ Sexpr{ifelse(df_ols[3,2,24]<.01,"**",ifelse(df_ols[3,2,24]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -6601,7 +6600,7 @@ Sexpr{ifelse(df_ols[3,2,13]<.01,"**",ifelse(df_ols[3,2,13]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -6651,7 +6650,7 @@ Sexpr{ifelse(df_ols[3,2,16]<.01,"**",ifelse(df_ols[3,2,16]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=2)}
+Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
 \backslash
 
 \backslash
@@ -7491,7 +7490,7 @@ Rating data
 
 \begin_layout Standard
 At endline,
- the dyadic rating dataset comprises 16,823 farmer-dealer links.
+ the rating model generated a dyadic rating dataset comprising of 16,823 farmer-dealer links.
 \begin_inset Note Note
 status collapsed
 
@@ -7522,7 +7521,7 @@ Restricting to dealers who received at least one rating,
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -7563,10 +7562,7 @@ nolink "false"
  specialized agro-shops and dealers with better seed handling practices receive higher ratings,
  and seed ratings on randomly selected fields are positively correlated with maize yields.
  These patterns are consistent with ratings reflecting farmers’ assessments of seed performance rather than purely non-performance attributes.
-\end_layout
-
-\begin_layout Standard
-Appendix 
+ Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "A.4 Agro-dealer rating patterns"
