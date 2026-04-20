@@ -242,21 +242,14 @@ based on peers’ experiences
  Such a system could affect outcomes through three channels:
  correcting farmers’ beliefs and reducing their uncertainty about seed performance (belief updating),
  helping farmers identify better dealers (dealer sorting),
- or inducing dealers to improve seed preservation (supply-side response)
+ or inducing dealers to improve seed preservation (supply-side accountability)
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-major:
- I would call this channel 
-\begin_inset Quotes eld
-\end_inset
-
-adverse selection reduction
-\begin_inset Quotes erd
-\end_inset
-
- or similar - I think it is not consistent to be that specific with the two other channels (belief updating/ search cost reduction) and then name the third one vaguely after the actor/ seller that reacts (supply-side)
+RESOLVED:
+ Renamed the channel "supply-side accountability" to make the mechanism as specific as belief updating and dealer sorting,
+ while avoiding the adverse-selection label.
 \end_layout
 
 \end_inset
@@ -269,7 +262,7 @@ adverse selection reduction
  While there is some evidence of increased switching between dealers,
  this switching is not directed toward higher-rated dealers,
  and we find no improvement in dealer-level seed performance,
- providing little support for dealer sorting or supply-side quality improvement.
+ providing little support for dealer sorting or supply-side accountability.
  The results point to belief updating as the primary mechanism.
  Consistent with this interpretation,
  effects on perceptions are larger among farmers without prior purchasing experience —
@@ -652,7 +645,15 @@ several studies document substantial performance uncertainty
  On the supply side,
  the same uncertainty may also weaken agro-dealers' incentives:
  when buyers cannot credibly assess seed quality at the point of purchase,
- dealers face reduced reputational consequences for allowing seed to degrade through inadequate handling and storage.
+ dealers face weaker bottom-up accountability and reduced reputational consequences for allowing seed to degrade through inadequate handling and storage 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bjorkman2009power"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -822,7 +823,11 @@ literal "false"
 
 \begin_layout Standard
 Third,
- the rating system could improve dealer-level seed performance by creating reputational incentives for agro-dealers to invest in seed preservation.
+ the rating system could improve dealer-level seed performance through supply-side accountability.
+ By aggregating farmer experiences into visible ratings,
+ the system raises the reputational cost of poor seed sourcing,
+ handling,
+ or storage.
  In the prevailing market equilibrium,
  agro-dealers may have little incentive to invest in handling and storage if they believe buyers cannot credibly assess seed performance at the time of purchase and struggle to attribute outcomes such as yield to seed quality given the complex and uncertain nature of agricultural production.
  By collecting and disseminating farmers' experiences,
@@ -862,7 +867,7 @@ Exposure to peer ratings improves farmers’ perceptions of seed performance and
  this switching is not directed toward higher-rated dealers,
  providing little support for dealer sorting as a primary channel.
  Nor do we find improvements in dealer-level seed performance,
- providing little support for supply-side quality improvement.
+ providing little support for supply-side accountability as a primary channel.
  Consistent with belief updating,
  effects on perceptions are larger among farmers without prior purchasing experience.
 \end_layout
@@ -900,7 +905,7 @@ literal "false"
  and agro-dealers' seed handling practices and seed performance —
  we can assess the relative importance of belief updating,
  dealer sorting,
- and supply-side quality improvement.
+ and supply-side accountability.
  Together with 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1900,13 +1905,13 @@ RESOLVED:
 \end_layout
 
 \begin_layout Subsection
-Supply-side responses
+Supply-side accountability
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
 RESOLVED:
- Keeping "Supply-side responses" for now.
+ Renamed the channel "Supply-side accountability" to emphasize reputational discipline.
  "Adverse selection" is not the right label —
  this channel is about dealers changing behavior (effort/preservation) in response to monitoring,
  which is a moral hazard/discipline story,
@@ -1929,7 +1934,19 @@ The intervention can also affect farmer outcomes by inducing agro-dealers to red
 \end_inset
 
  itself.
- This is because the rating system can create reputational incentives for agro-dealers.
+ This is a supply-side accountability channel:
+ by aggregating farmers' experiences into a visible market signal,
+ the rating system raises the reputational cost of selling poorly preserved seed or exerting low effort in seed sourcing,
+ handling,
+ and storage 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hasanain2019no,doi:10.1086/734133"
+literal "false"
+
+\end_inset
+
+.
  When ratings are disseminated to farmers,
  agro-dealers’ performance becomes visible to potential buyers:
  their customers’ experiences are collected,
@@ -2071,7 +2088,7 @@ Testable predictions
 The model identifies three channels through which the intervention could affect outcomes:
  belief updating (Section 2.2),
  dealer sorting (Section 2.3),
- and supply-side quality improvement (Section 2.4).
+ and supply-side accountability (Section 2.4).
  Each channel generates distinct predictions across five outcomes,
  summarized in Table 
 \begin_inset CommandInset ref
@@ -2154,7 +2171,7 @@ Prediction 2 (Adoption).
  when priors are pessimistic relative to the signal,
  by raising expected performance above the adoption threshold,
  dealer sorting by enabling farmers to identify better dealers,
- and supply-side responses by improving the objective quality of seed on offer.
+ and supply-side accountability by improving the objective quality of seed on offer.
  This prediction does not discriminate between channels.
 \begin_inset Note Note
 status collapsed
@@ -2189,7 +2206,7 @@ Prediction 3 (Productivity).
 \series default
  All three channels predict higher yields,
  in part through increased adoption (Prediction 2).
- Dealer sorting and supply-side responses additionally raise yields conditional on adopting —
+ Dealer sorting and supply-side accountability additionally raise yields conditional on adopting —
  through sorting to better agro-dealers and through improved seed quality,
  respectively.
 \begin_inset Note Note
@@ -2286,12 +2303,12 @@ RESOLVED:
 The channels may also differ in their predicted timing of effects.
  Belief updating and dealer sorting operate immediately upon receiving ratings,
  predicting effects on perceptions and adoption from midline onward.
- Supply-side responses,
+ Supply-side accountability,
  by contrast,
  may take longer to translate into observable farmer outcomes,
  especially if quality improvements must pass through at least one rating cycle before becoming visible to farmers —
  a consequence of the credence good property of seed.
- This suggests that perceptions and adoption effects from supply-side responses would be more likely to appear at endline than at midline.
+ This suggests that perceptions and adoption effects from supply-side accountability would be more likely to appear at endline than at midline.
  We return to this distinction when interpreting the results.
 \end_layout
 
@@ -3118,7 +3135,7 @@ The study spans two agricultural seasons with three data collection rounds.
  At endline (after season 2),
  we collect final outcomes.
  This design allows the belief updating channel to affect adoption from season 1 onward,
- while supply-side responses and any resulting changes in seed quality need at least one season to become observable to farmers through updated ratings.
+ while supply-side accountability and any resulting changes in seed quality need at least one season to become observable to farmers through updated ratings.
 \end_layout
 
 \begin_layout Standard
@@ -10964,7 +10981,7 @@ Dealer sorting and seed performance
 
 \begin_layout Standard
 The model predicts that dealer sorting should increase switching across agro-dealers,
- while supply-side quality improvement should raise dealer-level seed performance.
+ while supply-side accountability should raise dealer-level seed performance.
  We therefore examine these two diagnostic outcomes before turning to other dealer responses.
 \end_layout
 
@@ -13278,7 +13295,7 @@ This study examines how aggregated peer ratings of seed performance affect farme
  The intervention could operate through three channels:
  correcting pessimistic or imprecise beliefs among farmers (belief updating),
  helping farmers identify and switch to better-performing dealers (dealer sorting),
- or inducing agro-dealers to invest in seed preservation (supply-side quality improvement).
+ or inducing agro-dealers to invest in seed preservation (supply-side accountability).
  Using a randomized experiment,
  we evaluate the effects of this intervention on a range of farmer and agro-dealer outcomes and distinguish between these channels.
 \end_layout
