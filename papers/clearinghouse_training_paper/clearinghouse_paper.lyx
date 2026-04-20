@@ -1699,7 +1699,7 @@ To characterize how such a signal changes beliefs,
 \end_inset
 
 's seed performance and the signal 
-\begin_inset Formula $s_j$
+\begin_inset Formula $s_{j}$
 \end_inset
 
 ,
@@ -1709,16 +1709,22 @@ To characterize how such a signal changes beliefs,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\tilde{\mu}_{ij}=(1-\alpha_{ij})\mu_{ij}+\alpha_{ij}s_{j},\quad\tilde{\sigma}^{2}_{ij}=\frac{\sigma^{2}_{ij}\cdot\sigma^{2}_{\varepsilon}/n_{j}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}},\quad\alpha_{ij}=\frac{\sigma^{2}_{ij}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}}\label{eq:updating_main}
+\tilde{\mu}_{ij}=(1-\alpha_{ij})\mu_{ij}+\alpha_{ij}s_{j},\quad\tilde{\sigma}^{2}_{ij}=\frac{\sigma^{2}_{ij}\cdot\sigma^{2}_{\varepsilon}/n_{j}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}}\label{eq:updating_main}
 \end{equation}
 
 \end_inset
 
- The weight 
-\begin_inset Formula $\alpha_{ij}$
+
+\end_layout
+
+\begin_layout Standard
+with the weight on the signal,
+ 
+\begin_inset Formula $\alpha_{ij}=\frac{\sigma^{2}_{ij}}{\sigma^{2}_{ij}+\sigma^{2}_{\varepsilon}/n_{j}}$
 \end_inset
 
- on the signal is increasing in prior subjective uncertainty.
+,
+ increasing in prior subjective uncertainty.
  Since 
 \begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
