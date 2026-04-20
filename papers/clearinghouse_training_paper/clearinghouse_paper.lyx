@@ -3131,6 +3131,10 @@ tuple "list"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Agro-dealers were able to display the certificate.
  At endline,
  it was visible in 56% of shops.
@@ -3139,9 +3143,20 @@ Agro-dealers were able to display the certificate.
  extending exposure beyond the study sample.
  Because randomization occurred at the agro-dealer catchment area level,
  any such additional exposure is contained within treated areas and does not threaten identification.
+ - I would remove this as it gives a pre-view of results and I also think it is not very relevant,
+ raising more questions than it resolves;
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
 The study spans two agricultural seasons with three data collection rounds.
  At baseline (before season 1),
  we survey farmers and agro-dealers and collect ratings from treated farmers.
@@ -3151,10 +3166,8 @@ The study spans two agricultural seasons with three data collection rounds.
  Updated ratings are disseminated before planting in season 2.
  At endline (after season 2),
  we collect final outcomes.
- This design allows the belief updating channel to affect adoption from season 1 onward,
- while supply-side accountability and any resulting changes in seed quality need at least one season to become observable to farmers through updated ratings.
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -3210,7 +3223,7 @@ name "SeedAdvisor certificate"
 
 \end_inset
 
-
+ - replace by appendix
 \end_layout
 
 \end_inset
@@ -3288,10 +3301,7 @@ literal "false"
 \end_inset
 
  captures the intention-to-treat effect.
-\end_layout
-
-\begin_layout Standard
-We estimate analogous specifications for agro-dealer-level outcomes,
+ We estimate analogous specifications for agro-dealer-level outcomes,
  where 
 \begin_inset Formula $Y_{ij}$
 \end_inset
@@ -3325,7 +3335,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We trim continuous outcomes to limit the influence of outliers and apply inverse hyperbolic sine transformations to skewed variables.
+Following our pre-analysis plan,
+ we trim continuous outcomes to limit the influence of outliers and apply inverse hyperbolic sine transformations to skewed variables.
  Outcomes with limited variation,
  defined as having 95% or more of observations at a single value within the relevant sample,
  are excluded from the analysis.
@@ -3362,8 +3373,9 @@ literal "false"
 Our primary identification strategy relies on the pattern of effects across outcomes:
  each channel generates a distinct empirical signature across perceptions,
  adoption,
+ productivity,
  switching,
- and seed quality (Table
+ and seed quality (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:predictions"
