@@ -705,18 +705,10 @@ literal "false"
 
 \begin_layout Standard
 In this paper,
- we test a decentralized alternative:
- a clearinghouse that aggregates farmers' experiences with seed purchased from agro-dealers and disseminates the resulting ratings to farmers and agro-dealers.
+ we test a decentralized alternative in the form of an information clearinghouse.
  The system collects farmers’ evaluations of maize seed purchased from agro-dealers and converts them into ratings that summarize the experiences of multiple farmers facing similar production conditions.
  These ratings are disseminated to both farmers and agro-dealers,
  providing a summary signal about seed performance at agro-dealers that individual farmers may find difficult to obtain through their own experimentation or social networks.
-\end_layout
-
-\begin_layout Standard
-We use a simple model to organize three channels through which such a signal may affect market outcomes:
- belief updating about agro-dealer seed relative to outside options,
- dealer sorting conditional on purchasing from agro-dealers,
- and supply-side accountability.
 \end_layout
 
 \begin_layout Standard
@@ -732,7 +724,8 @@ Aggregated peer ratings address key limitations of existing approaches.
  whether the seed they purchased yielded well,
  germinated reliably,
  and tolerated local conditions.
- These assessments may diverge from laboratory measures of seed purity or authenticity.
+ Although these assessments may diverge from laboratory measures of seed purity or authenticity,
+ they capture performance dimensions that are directly relevant to farmers’ production decisions.
 \end_layout
 
 \begin_layout Standard
@@ -751,7 +744,7 @@ Second,
  In agricultural input markets,
  farmers typically choose among a small number of local dealers with limited information about relative seed performance.
  When dealer-choice frictions are high relative to quality variation,
- consumers settle for suboptimal matches 
+ consumers may settle for suboptimal matches 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "stigler1961economics"
@@ -770,8 +763,9 @@ literal "false"
 \end_inset
 
 .
- If performance varies substantially across dealers,
- ratings could induce farmers to switch to higher-performing sellers.
+ When ratings credibly reveal meaningful cross-dealer performance differences,
+ and switching costs are not too high,
+ they could induce farmers to switch toward higher-performing sellers.
 \end_layout
 
 \begin_layout Standard
