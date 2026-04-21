@@ -210,64 +210,26 @@ Peer Information,
 \end_layout
 
 \begin_layout Abstract
-Many smallholder farmers in low- and middle-income countries do not adopt modern agricultural inputs sold by agro-dealers due to uncertainty about their performance.
- We introduce a system that aggregates farmers’ evaluations of seed into ratings and disseminates them to farmers and agro-dealers,
- providing a summary signal of seed performance based on peers’ experiences
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-minor:
- I feel 
-\begin_inset Quotes eld
-\end_inset
-
-farmers’ evaluations of seed
-\begin_inset Quotes erd
-\end_inset
-
- and 
-\begin_inset Quotes eld
-\end_inset
-
-based on peers’ experiences
-\begin_inset Quotes erd
-\end_inset
-
- in the same sentence in double
-\end_layout
-
-\end_inset
-
-.
- Such a system could affect outcomes through three channels:
+Many smallholder farmers in low- and middle-income countries may not adopt modern agricultural inputs sold by agro-dealers when they are uncertain about their performance.
+ We introduce a system that aggregates farmers’ evaluations of seed purchased from agro-dealers into ratings and disseminates them to farmers and agro-dealers.
+ Such a system may affect outcomes through three channels:
  correcting farmers’ beliefs and reducing their uncertainty about seed performance (belief updating),
  helping farmers identify better dealers (dealer sorting),
- or inducing dealers to improve seed preservation (supply-side accountability)
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Renamed the channel "supply-side accountability" to make the mechanism as specific as belief updating and dealer sorting,
- while avoiding the adverse-selection label.
-\end_layout
-
-\end_inset
-
-.
+ or inducing dealers to respond to reputational pressure (supply-side accountability).
  We test this approach in a randomized controlled trial involving 3,500 farmers and 350 agro-dealers in the market for high-yielding maize seed in Uganda.
  We find that the intervention increases farmers’ perceptions of seed performance,
  leads to higher adoption of high-yielding maize seed,
  and raises yields by 13%.
- While there is some evidence of increased switching between dealers,
- this switching is not directed toward higher-rated dealers,
- and we find no improvement in dealer-level seed performance,
- providing little support for dealer sorting or supply-side accountability.
- The results point to belief updating as the primary mechanism.
- Consistent with this interpretation,
- effects on perceptions are larger among farmers without prior purchasing experience —
- those with the greatest uncertainty about seed performance.
+ The pattern of results points most strongly to belief updating.
+ Switching across agro-dealers increases modestly at midline but is not persistent,
+ providing weak evidence for dealer sorting as a primary channel.
+ On the supply side,
+ dealers respond along service and signaling margins,
+ but we do not detect improvements in seed handling,
+ storage,
+ or measured seed performance.
+ Perception effects are positive overall,
+ while subgroup estimates by prior purchasing experience are similar.
 \end_layout
 
 \begin_layout Abstract
@@ -411,9 +373,7 @@ Research question(s):
 \end_layout
 
 \begin_layout Standard
-Smallholder farmers in low- and middle-income countries adopt productivity-enhancing agricultural inputs,
- such as improved seeds and inorganic fertilizers,
- at persistently low rates despite their potential to increase agricultural productivity,
+Adoption of productivity-enhancing inputs by smallholder farmers in low- and middle-income countries often remains low even when these inputs have the potential to raise yields,
  improve food security,
  and reduce poverty.
  As reviewed by 
@@ -425,13 +385,17 @@ literal "false"
 \end_inset
 
 ,
- proposed explanations include credit,
+ explanations include credit,
  liquidity,
  and savings constraints;
  limited access to insurance;
  information frictions;
  high transaction costs and poor infrastructure;
  and imperfections in labor and land markets.
+ This paper focuses on a specific information friction:
+ farmers often cannot observe how an input will perform until after they have paid for it,
+ used it,
+ and experienced a production outcome shaped by many other factors.
 \end_layout
 
 \begin_layout Standard
@@ -542,8 +506,8 @@ literal "false"
 
 \end_inset
 
-An important additional explanation is that farmers are uncertain about the performance of agricultural inputs supplied by agro-dealers,
- the primary distribution channel for improved seed varieties 
+This problem is especially salient for seed supplied by agro-dealers,
+ the primary distribution channel for improved varieties 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,MICHELSON2023102424,dar2020private"
@@ -552,8 +516,7 @@ literal "false"
 \end_inset
 
 .
- For instance,
- in the market for high-yielding maize seed in Uganda,
+ In the market for high-yielding maize seed in Uganda,
  several studies document substantial performance uncertainty:
 \begin_inset Foot
 status collapsed
@@ -612,8 +575,10 @@ literal "false"
 \end_inset
 
  show that seed quality declines along the supply chain relative to samples obtained directly from seed companies.
- These studies document substantial uncertainty about the performance of seed sold through agro-dealers,
- but this performance is largely invisible to farmers at the point of purchase
+ These studies show why farmers may be uncertain about agro-dealer seed,
+ but the central adoption problem is ex ante:
+ seed performance is largely invisible at the point of purchase,
+ and realized yields are difficult to attribute to seed quality alone
 \begin_inset Note Comment
 status collapsed
 
@@ -646,7 +611,7 @@ several studies document substantial performance uncertainty
 \end_layout
 
 \begin_layout Standard
-Performance uncertainty also distorts the use of complementary inputs:
+Performance uncertainty can also distort the use of complementary inputs.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -657,6 +622,15 @@ literal "false"
 
  show that farmers who are unsure about input quality allocate less labor,
  reducing yields and making it harder to learn about the true profitability of improved varieties.
+ Related evidence from seed markets shows that incorrect beliefs about maize varieties can distort fertilizer allocation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BOHR2024103349"
+literal "false"
+
+\end_inset
+
+.
  More broadly,
  learning from own experience is difficult because agricultural outcomes depend on many factors beyond seed quality.
  
@@ -669,7 +643,7 @@ literal "false"
 
  show that agricultural learning is inherently multidimensional and that even with intensive exposure,
  peer-to-peer transfer of knowledge about input performance faces severe frictions.
- These learning constraints allow poorly informed or biased beliefs to persist.
+ These learning constraints allow uncertainty and potentially biased beliefs about input performance to persist.
 \begin_inset Note Comment
 status collapsed
 
@@ -734,10 +708,10 @@ literal "false"
 \end_inset
 
 ,
- we test whether aggregating peers’ experiences into a public signal of seed performance can improve market outcomes through three channels:
+ we use a simple model to organize three channels through which aggregated peer ratings may affect market outcomes:
  belief updating about agro-dealer seed relative to outside options,
  dealer sorting conditional on purchasing from agro-dealers,
- or supply-side improvements in seed preservation.
+ and supply-side accountability.
 \begin_inset Note Note
 status collapsed
 
@@ -763,7 +737,7 @@ Aggregated peer ratings address key limitations of existing approaches.
  The system is decentralized,
  relying less on institutional capacity.
  Importantly,
- the system does not measure or certify objective seed quality.
+ the system does not directly measure seed purity or certify authenticity.
  It aggregates farmers' assessments of experienced performance —
  whether the seed they purchased yielded well,
  germinated reliably,
@@ -840,39 +814,34 @@ We test this approach in a randomized controlled trial (RCT) involving approxima
  from farmers’ perceptions and adoption decisions to agricultural productivity.
  Additional data on farmers’ choice of agro-dealers,
  agro-dealer seed handling practices,
- and objective indicators of seed performance allow us to trace the channels through which the intervention operates;
- measures of dealer services and signaling provide secondary evidence on other dealer responses.
+ dealer services and signaling,
+ and seed-performance indicators allow us to trace the channels through which the intervention operates.
 \end_layout
 
 \begin_layout Standard
-Exposure to peer ratings improves farmers’ perceptions of seed performance and increases adoption of high-yielding maize seed.
- Treated farmers achieve 13% higher yields,
- showing that the intervention has economically meaningful downstream effects.
+Exposure to peer ratings raises farmers’ perceptions of agro-dealer seed performance and increases adoption of high-yielding maize seed.
+ Treated farmers are more likely to purchase seed from agro-dealers and achieve yields on randomly selected maize plots that are 13% higher than the control group.
  Because adoption and productivity effects are consistent with all three channels,
- channel identification rests on the outcomes that differ across the model's predictions.
- While there is some evidence that the intervention induces farmers to switch between sellers,
- this switching is not directed toward higher-rated dealers,
- providing little support for dealer sorting as a primary channel.
- Nor do we find improvements in dealer-level seed performance,
- providing little support for supply-side accountability as a primary channel.
- Consistent with belief updating,
- effects on perceptions are larger among farmers without prior purchasing experience.
+ channel interpretation rests on outcomes that differ across the model's predictions.
+ The evidence points most strongly to belief updating:
+ switching across agro-dealers increases modestly at midline but is not persistent,
+ and switching alone does not establish sorting toward higher-performing dealers.
+ On the supply side,
+ dealers respond along service and signaling margins,
+ but we do not detect improvements in seed handling,
+ storage,
+ or measured seed performance.
+ Perception effects are positive overall,
+ while subgroup estimates by prior purchasing experience are similar.
 \end_layout
 
 \begin_layout Standard
-This paper contributes to the literature on agricultural technology adoption,
- particularly on the role of input quality uncertainty 
+This paper contributes to the literature on agricultural technology adoption under input-quality uncertainty,
+ misperceptions,
+ and imperfect learning 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "MICHELSON2023102424"
-literal "false"
-
-\end_inset
-
- and farmers’ beliefs 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
+key "MICHELSON2023102424,MICHELSON2021102579,wossen2022misperceiving,WOSSEN2024103242,BOHR2024103349,https://doi.org/10.1111/ajae.12466"
 literal "false"
 
 \end_inset
@@ -885,7 +854,7 @@ literal "false"
  experience-based,
  and reaches farmers who do not engage with formal markets —
  and show that it improves adoption and productivity,
- with the pattern of results pointing to belief updating as the primary channel.
+ with the pattern of results pointing most strongly to belief updating.
  Second,
  by tracking outcomes on both sides of the market —
  farmers' beliefs and switching behavior,
@@ -907,7 +876,8 @@ literal "false"
  Third,
  the pattern of results —
  positive effects on perceptions and adoption,
- undirected switching and no improvement in dealer-level seed performance —
+ weak,
+ non-persistent switching and no detectable improvement in measured seed performance —
  provides evidence that uncertainty about seed performance is a binding constraint on adoption in seed markets.
  While overly pessimistic or imprecise beliefs have been documented in fertilizer markets 
 \begin_inset CommandInset citation
@@ -2175,7 +2145,7 @@ RESOLVED:
  Channel identification rests on heterogeneity in perceptions (Prediction 1,
  continuous outcome,
  no ceiling effect),
- undirected switching (Prediction 4),
+ limited switching (Prediction 4),
  and null effects on seed quality (Prediction 5).
  On the timing concern:
  the design accommodates all channels —
@@ -2460,7 +2430,7 @@ footnotesize
 Note:
  Adoption effects alone do not discriminate between channels.
  Heterogeneity in perceptions (P1),
- undirected switching (P4),
+ limited switching (P4),
  and lack of dealer-level seed performance improvements (P5) jointly point to belief updating as the dominant channel.
 \end_layout
 
@@ -13086,10 +13056,10 @@ This paper studies whether aggregated peer ratings can improve market outcomes w
  We implemented a clearinghouse that collected farmers' experiences with maize seed purchased from agro-dealers,
  aggregated these experiences into dealer-level ratings,
  and disseminated the ratings to farmers and agro-dealers.
- The intervention could affect outcomes through three channels:
+ We use a simple model to organize three channels through which the intervention may affect outcomes:
  belief updating about agro-dealer seed,
  sorting across agro-dealers,
- or supply-side accountability.
+ and supply-side accountability.
  The experimental design,
  combined with outcomes on farmer perceptions,
  adoption,
@@ -13112,7 +13082,7 @@ The results show that the clearinghouse shifted farmers' perceptions and behavio
 \end_layout
 
 \begin_layout Standard
-The intervention also improves downstream agricultural outcomes.
+The intervention further improves later-stage agricultural outcomes.
  Treated farmers achieve higher yields and higher net production values on randomly selected maize plots,
  while maize sales do not increase detectably.
  These productivity effects are consistent with credible seed-performance information shifting farmers toward better-performing seed or changing how they use purchased seed.
