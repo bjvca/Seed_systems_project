@@ -3445,7 +3445,7 @@ nolink "false"
  the average number of agro-dealers per area was three,
  with the number ranging from one to 18.
  To link agro-dealers with farmers,
- agro-dealers identified the villages where most of their customers reside.
+ agro-dealers idƒrandentified the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from these villages,
  yielding a sample of approximately 3,500 smallholder farmers.
 \end_layout
@@ -3463,7 +3463,8 @@ Baseline data were collected from agro-dealers in September-October 2020 and fro
  In addition to general questions,
  farmers listed all maize plots,
  from which one was randomly selected for detailed data collection,
- yielding household-representative averages.
+ which avoids selective reporting across multiple plots and allows us to connect sourcing to plot-level inputs,
+ effort and harvest outcomes.
 \end_layout
 
 \begin_layout Subsection
@@ -7663,8 +7664,16 @@ literal "false"
  The full econometric analysis was run on simulated data prior to outcome data collection and documented in a 
 \begin_inset CommandInset href
 LatexCommand href
-name "mock report"
+name "registered report"
 target "https://github.com/bjvca/Seed_systems_project/tree/master/papers/mock_report"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "humphreys2013fishing"
 literal "false"
 
 \end_inset
@@ -7743,7 +7752,7 @@ tuple "list"
 
 \end_inset
 
-).
+ for the exact questions used for measuring perceptions).
  The clearinghouse increases this index by 0.09 standard deviations,
  significant at the 10% level.
  The positive sign is consistent with the belief-updating channel in the model if the peer signal was more favorable than farmers' prior beliefs about agro-dealer seed performance.
@@ -8193,7 +8202,7 @@ literal "false"
 \begin_layout Standard
 Across all plots,
  the clearinghouse increases the probability that a farmer purchases high-yielding maize seed from an agro-dealer by six percentage points at midline,
- an 18% increase relative to the baseline mean.
+ equivalent to 18% of the baseline mean.
  By endline,
  the agro-dealer sourcing effect falls to three percentage points and is no longer statistically significant,
  although adoption of improved maize varieties remains higher in both survey rounds:
@@ -8201,9 +8210,9 @@ Across all plots,
 \end_layout
 
 \begin_layout Standard
-Results for a randomly selected maize plot show the same pattern.
- The probability that seed on the plot was obtained from an agro-dealer rises by nearly five percentage points at midline and four percentage points at endline.
- Seed expenditure on the plot also increases significantly.
+We next examine the same sourcing margin on a randomly selected maize plot.
+ Treated farmers are nearly five percentage points more likely at midline and four percentage points more likely at endline to obtain seed for the randomly selected plot from an agro-dealer.
+ Seed expenditure on the plot also increases significantly in the treatment group.
  This shift is accompanied by reduced reliance on farmer-saved seed.
  Estimated effects on individual hybrid and OPV variety categories are positive but imprecise.
 \begin_inset Foot
@@ -9137,7 +9146,7 @@ S$Due to the skewness of this variable,
 \end_layout
 
 \begin_layout Standard
-We next examine whether increased farmer engagement is reflected in agro-dealer business outcomes (Table 
+We next examine whether increased farmer engagement is reflected at the agro-dealer level and consider various agro-business related outcomes (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Business volume"
@@ -9161,7 +9170,7 @@ tuple "list"
 \end_layout
 
 \begin_layout Standard
-The business-outcome results are consistent with increased market activity.
+The agro-dealer level results are consistent with increased market activity observed at the farmer level.
  At midline,
  treated agro-dealers score significantly higher on the 
 \begin_inset CommandInset citation
