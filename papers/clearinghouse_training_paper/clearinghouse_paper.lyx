@@ -7600,8 +7600,12 @@ name "6 Results"
 \end_layout
 
 \begin_layout Standard
-We present the treatment effects on outcomes at both the farmer and agro-dealer levels after one agricultural season (midline) and two seasons (endline).
- To address multiple hypothesis testing,
+We report treatment effects on outcomes for both farmers and agro-dealers at midline (after one agricultural season) and endline (after two seasons).
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+To address multiple hypothesis testing,
  outcomes are aggregated into indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -7645,10 +7649,14 @@ literal "false"
 \end_inset
 
 .
+ - B:
+ removed,
+ this was already in the empirical strategy.
 \end_layout
 
-\begin_layout Standard
-All outcome variables were pre-specified in a registered pre-analysis plan at the 
+\end_inset
+
+ All outcome variables were pre-specified in a registered pre-analysis plan at the 
 \begin_inset CommandInset href
 LatexCommand href
 name "AEA's registry for RCTs"
@@ -7712,7 +7720,7 @@ Perceived seed performance
 \begin_layout Standard
 We begin with the first link in the causal chain:
  whether the clearinghouse shifts farmers’ perceptions of agro-dealer seed quality.
- Table
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects of clearinghouse on farmer perceptions"
@@ -7723,26 +7731,51 @@ nolink "false"
 
 \end_inset
 
- reports treatment effects on a perception index that combines farmer ratings across six performance dimensions for agro-dealers in their catchment area.
- Because the index requires non-missing ratings on all dimensions for at least one dealer,
- the estimation sample is smaller than for other outcomes.
- Moreover,
- since rating were only collected from farmers in control catchment areas during the endline survey,
- treatment effects can only be estimated for the last round.
- With these constraints in mind,
- we estimate that the clearinghouse increases the perception index by 0.09 standard deviations,
+ reports treatment effects on a perception index that combines farmer ratings of agro-dealer seed performance across six dimensions:
+ general quality,
+ yield,
+ drought tolerance,
+ pest and disease tolerance,
+ maturity time,
+ and germination (see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "questions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+).
+ The clearinghouse increases this index by 0.09 standard deviations,
  significant at the 10% level.
+ The positive sign is consistent with the belief-updating channel in the model:
+ farmers update upward when the peer signal is more favorable than their prior beliefs about agro-dealer seed performance.
 \end_layout
 
 \begin_layout Standard
-The model predicts that the informational signal should carry more weight for farmers with greater prior uncertainty about seed quality.
- We examine heterogeneity by prior purchasing experience,
+The model further predicts that the signal should carry more weight for farmers with greater prior uncertainty.
+ We therefore examine heterogeneity by prior purchasing experience,
  proxied by whether the farmer used improved maize seed from an agro-dealer in the season preceding baseline.
  Consistent with this prediction,
- the treatment effect is about 10 percent higher among non-purchasers.
+ the treatment effect is about 11 percent higher among non-purchasers.
  While this test was not pre-specified,
  the direction aligns with the theoretical mechanism:
  farmers lacking direct experience update more in response to third-party quality information.
+\end_layout
+
+\begin_layout Standard
+Note,
+ however,
+ that this estimate is less precise than estimates for other outcomes,
+ because the perception index requires non-missing ratings on all six dimensions for at least one dealer.
+ Furthermore,
+ ratings were collected from farmers in control catchment areas only at endline.
+ Consequently,
+ treatment effects on perceptions can be estimated only for the final survey round.
 \end_layout
 
 \begin_layout Standard
@@ -9189,7 +9222,7 @@ placement document
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11402,8 +11435,7 @@ nolink "false"
 
 \begin_layout Standard
 Because not all sampled agro-dealers had maize seed in stock,
- the seed-performance sample is smaller than the main dealer sample.
-Appendix 
+ the seed-performance sample is smaller than the main dealer sample.Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "A.9 Treatment effects on agro-dealers’ seed PERFORMANCE"
@@ -12190,8 +12222,7 @@ nolink "false"
  labor-intensive practices,
  such as not storing seed in open containers,
  and capital-intensive practices,
- such as
- having a leak-proof roof.
+ such as having a leak-proof roof.
  Neither of the two indices responds to the intervention.
  This reinforces the seed-performance results above:
  we find little evidence that the clearinghouse induced dealers to make quality-improving changes in seed handling or storage.
