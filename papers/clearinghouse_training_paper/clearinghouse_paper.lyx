@@ -998,31 +998,16 @@ name "2 Conceptual model"
 \end_layout
 
 \begin_layout Standard
-This section develops a simple model of how aggregated peer information affects farmers and agro-dealer behavior and outcomes.
- The model generates a set of predictions that helps us organize the empirical analysis.
+This section develops a simple model of how aggregated peer information affects farmer and agro-dealer behavior and outcomes,
+ generating a set of predictions that guide the empirical analysis.
 \end_layout
 
 \begin_layout Subsection
 Setup
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Merged Setup and Seed purchasing under uncertainty into a single Setup subsection.
- Structure is now:
- Setup (1),
- three channels (2)-(4),
- Predictions (5).
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-We assume that smallholder farmers choose between purchasing higher-yielding seed varieties from agro-dealers and relying on outside options such as farmer-saved seed or local seed obtained through informal exchanges.
+We assume that smallholder farmers choose between purchasing high-yielding seed varieties from agro-dealers and relying on outside options such as seed they saved themselves or obtained through informal exchanges.
  Let 
 \begin_inset Formula $\theta_{j}$
 \end_inset
@@ -1035,7 +1020,7 @@ We assume that smallholder farmers choose between purchasing higher-yielding see
 \begin_inset Formula $i$
 \end_inset
 
-'s outside option.
+’s outside option.
  There are 
 \begin_inset Formula $J$
 \end_inset
@@ -1044,29 +1029,18 @@ We assume that smallholder farmers choose between purchasing higher-yielding see
 \begin_inset Formula $i$
 \end_inset
 
-'s area,
+’s area,
  each with performance 
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
 .
- This is the actual performance the farmer would realize if they planted the seed —
- it is unobservable to the farmer at the time of purchase.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Swapped paragraph order per Caroline's suggestion.
- Now:
- seed performance/unobservability first,
- then farmer's choice depending on beliefs.
- The unobservability motivates why the decision depends on beliefs.
+ This is the actual performance the farmer would realize if they planted the seed,
+ unobservable at the time of purchase.
 \end_layout
 
-\end_inset
-
- We decompose 
+\begin_layout Standard
+We decompose 
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
@@ -1083,38 +1057,26 @@ RESOLVED:
 \begin_inset Formula $j$
 \end_inset
 
-
-\begin_inset Note Note
+,
+ determined upstream in the supply chain,
+ outside the agro-dealer’s control,
+ and assumed to be the same across agro-dealers,
+\begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-RESOLVED:
- Replaced "as produced by the seed company" with "upon arrival at agro-dealer j" to clarify that θ₀ captures quality at the point the agro-dealer receives it,
- not at the factory gate.
-\end_layout
-
-\end_inset
-
- —
- determined upstream in the supply chain and outside the agro-dealer's control and assumed to be the same for all agro-dealers
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-This assumption abstracts from upstream variation in the seed received by agro-dealers.
- Allowing 
+This assumption abstracts from upstream variation in seed received by agro-dealers;
+ allowing 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- to vary by agro-dealer would introduce an additional source of agro-dealer heterogeneity,
- but would not change the model's distinction between belief updating,
+ to vary by agro-dealer would introduce an additional source of agro-dealer heterogeneity but would not affect the model’s distinction between belief updating,
  agro-dealer sorting,
- and supply-side preservation effort.
+ and supply-side accountability.
 \end_layout
 
 \end_inset
 
- —
  and 
 \begin_inset Formula $d(e_{j})\geq0$
 \end_inset
@@ -1132,7 +1094,8 @@ This assumption abstracts from upstream variation in the seed received by agro-d
  (e.g.,
  proper storage containers,
  ventilation,
- temperature and moisture control) reduces degradation,
+ temperature,
+ and moisture control) reduces degradation,
  preserving seed performance closer to its intrinsic level 
 \begin_inset Formula $\theta_{0}$
 \end_inset
@@ -1142,28 +1105,19 @@ This assumption abstracts from upstream variation in the seed received by agro-d
 
 \begin_layout Standard
 Because seed performance is unobservable at the time of purchase,
- the decision to buy seed depends on beliefs about the performance of agro-dealer seed relative to these alternatives 
+ the decision to buy seed depends on beliefs about the performance of agro-dealer seed relative to outside options 
 \begin_inset Formula $E_{i}[\theta_{j}]$
 \end_inset
 
 .
- Seed has properties of a credence good:
- because yields depend on many factors beyond the seed itself,
+ Seed has some properties of a credence good:
+ because agricultural outcomes depend on many factors beyond the seed itself and individual learning is noisy,
+ slow,
+ and difficult to self-correct,
  farmers cannot fully assess seed performance even after use 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "laajaj_macours_forthcoming"
-literal "false"
-
-\end_inset
-
-.
- Individual learning about seed is therefore noisy,
- slow,
- and difficult to self-correct 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "AHMAD2022176"
+key "AHMAD2022176,laajaj_macours_forthcoming"
 literal "false"
 
 \end_inset
@@ -1191,7 +1145,7 @@ literal "false"
 
 \end_inset
 
- and from maize seed in Uganda 
+ and maize seed in Uganda 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -1199,9 +1153,10 @@ literal "false"
 
 \end_inset
 
- is consistent with this hypothesis.
- That said,
- seed also has an experience good component 
+ is consistent with potentially downward-biased beliefs.
+ At the same time,
+ seed also has some properties of an experience good:
+ farmers who have purchased and planted agro-dealer seed can form more accurate beliefs than those who have not 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "foster1995learning"
@@ -1209,13 +1164,12 @@ literal "false"
 
 \end_inset
 
-:
- farmers who have purchased and planted agro-dealer seed can form more accurate beliefs than those who have not.
+.
 \end_layout
 
 \begin_layout Standard
 Farmers are risk-averse and face a two-part decision:
- whether to purchase seed from any agro-dealer rather than relying on the outside option (extensive margin),
+ whether to purchase seed from any agro-dealer rather than rely on an outside option (extensive margin),
  and if so,
  from which agro-dealer (agro-dealer choice).
  Farmer 
@@ -1226,9 +1180,9 @@ Farmers are risk-averse and face a two-part decision:
 \begin_inset Formula $j$
 \end_inset
 
- by comparing the expected performance of that agro-dealer's seed,
+ by comparing the expected performance of that agro-dealer’s seed,
  discounted for uncertainty,
- against the cost of purchasing.
+ against the purchase cost.
  Formally,
  the farmer purchases from the best available agro-dealer if the certainty equivalent exceeds the cost:
 \begin_inset Note Note
@@ -1270,11 +1224,11 @@ where
 \begin_inset Formula $i$
 \end_inset
 
-'s subjective uncertainty about agro-dealer 
+’s subjective uncertainty about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
-'s seed performance,
+’s seed performance,
  
 \begin_inset Formula $\rho>0$
 \end_inset
@@ -1289,7 +1243,9 @@ where
 \end_inset
 
  relative to the outside option.
- Adoption
+ Adoption depends on both expected performance and subjective performance uncertainty:
+ even at the same expected return,
+ greater uncertainty discourages adoption.
 \begin_inset Note Note
 status collapsed
 
@@ -1300,38 +1256,26 @@ RESOLVED:
  "Adoption" is the correct and consistent term throughout the paper.
 \end_layout
 
+\begin_layout Plain Layout
+Caro:
+ I think think this should be the 
+\begin_inset Quotes eld
 \end_inset
 
- depends on both the level of expected performance and subjective performance uncertainty
-\begin_inset Note Note
-status collapsed
+purchasing decision
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Plain Layout
-RESOLVED:
- Replaced "precision of beliefs" with "subjective performance uncertainty" per Caroline's suggestion.
- Stays consistent with σ²ᵢⱼ being defined as subjective uncertainty just above.
+ but it's a battle I don't want to fight :)
 \end_layout
 
 \end_inset
 
-:
- even at the same expected return,
- greater uncertainty discourages adoption.
+
 \end_layout
 
 \begin_layout Subsection
 Belief updating
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Shortened from "Belief updating through aggregated peer information" to just "Belief updating" for consistency with other subsection titles.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
