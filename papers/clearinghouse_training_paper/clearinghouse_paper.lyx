@@ -1279,89 +1279,41 @@ Belief updating
 \end_layout
 
 \begin_layout Standard
-The intervention can affect farmer outcomes through farmers' beliefs about 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
-.
- The farmer does not observe 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Dropped "directly" —
- the credence good paragraph immediately below clarifies that farmers cannot fully assess performance even after use.
-\end_layout
-
-\end_inset
-
-;
- instead,
- they hold a belief 
-\begin_inset Formula $\mu_{ij}\equiv E_{i}[\theta_{j}]$
-\end_inset
-
- about each agro-dealer's seed performance
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Added explicit equivalence μᵢⱼ ≡ Eᵢ[θⱼ] in the text so readers see immediately that μ is just notation for the expectation.
- Needed for cleaner Bayesian updating expressions later.
-\end_layout
-
-\end_inset
-
-.
- Because individual learning about seed performance is difficult,
- beliefs are likely to be imprecise or biased,
- and aggregated peer information can shape belief formation.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Moved credence good paragraph to Setup per Caroline’s suggestion.
- Replaced with bridge sentence here.
- This keeps the belief updating section focused on the mechanism.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Farmer 
 \begin_inset Formula $i$
 \end_inset
 
- holds a prior belief 
-\begin_inset Formula $\mu_{ij}$
+ does not observe 
+\begin_inset Formula $\theta_{j}$
 \end_inset
 
- about each agro-dealer 
+;
+ instead,
+ they hold a prior belief 
+\begin_inset Formula $\mu_{ij}\equiv E_{i}[\theta_{j}]$
+\end_inset
+
+ about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
-:
+’s seed performance:
  
 \begin_inset Formula $\theta_{j}\mid\mathcal{I}_{i}\sim\mathcal{N}(\mu_{ij},\sigma^{2}_{ij})$
 \end_inset
 
 .
+ Priors are likely to be imprecise or biased.
+ The intervention can affect outcomes by shaping belief formation about 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+.
  In our model,
- the way it does so depends on farmers’ prior purchasing experience,
- which generates predictions about heterogeneous treatment effects.
+ the way it does so depends on farmers’ prior seed purchasing experience from agro-dealers,
+ generating predictions about heterogeneous treatment effects.
  In particular,
- we distinguish two types based on prior purchasing experience:
+ we distinguish two types:
 \end_layout
 
 \begin_layout Itemize
@@ -1373,7 +1325,7 @@ Purchasers
 \begin_inset Formula $i\in P$
 \end_inset
 
-) have prior beliefs informed by own purchasing experience;
+) have prior beliefs informed by their own purchasing experience;
  as a result,
  
 \begin_inset Formula $\mu_{Pj}$
@@ -1384,18 +1336,6 @@ Purchasers
 \end_inset
 
 .
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Deleted "and σ²_Pj is moderate" per Caroline's suggestion.
- The relative comparison σ²_NPj > σ²_Pj in the non-purchasers bullet is sufficient.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1422,7 +1362,8 @@ Non-purchasers
 \end_inset
 
 .
- In the empirically relevant case where priors are pessimistic,
+ Farmers without experience hold more biased and less precise priors.
+ In the empirically relevant case of pessimistic priors,
  
 \begin_inset Formula $\mu_{NPj}<\theta_{j}$
 \end_inset
@@ -1431,29 +1372,11 @@ Non-purchasers
 \end_layout
 
 \begin_layout Standard
-This captures the idea that,
- even though learning by doing is noisy,
- farmers with experience purchasing seed from agro-dealers have more precise priors.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Changed "informative" to "accurate" per Caroline.
- Moved "seed also has an experience good component" to the Setup paragraph where the credence good discussion now lives.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The intervention provides farmer 
 \begin_inset Formula $i$
 \end_inset
 
- with a signal about the performance of seed at agro-dealer 
+ with a signal about the performance of seed from agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1481,19 +1404,6 @@ s_{j}=\frac{1}{n_{j}}\sum^{n_{j}}_{k=1}(\theta_{j}+\varepsilon_{k})=\bar{\theta}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- n_j is correct —
- it is the count of raters for agro-dealer j,
- a property of agro-dealer j.
- Adding a k subscript would be non-standard and confusing.
-\end_layout
-
-\end_inset
-
 where 
 \begin_inset Formula $\varepsilon_{k}$
 \end_inset
@@ -1502,22 +1412,10 @@ where
 \begin_inset Formula $k$
 \end_inset
 
-'s (drawn from the pool of previous purchasers)
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Added parenthetical clarifying that raters k are previous purchasers,
- distinct from recipient farmers i.
-\end_layout
-
-\end_inset
-
- individual experience (reflecting weather,
+’s (drawn from the pool of previous purchasers) individual experience (reflecting weather,
  soil,
  management,
- and other factors beyond seed quality) and 
+ and other factors beyond seed performance) and 
 \begin_inset Formula $\bar{\varepsilon}_{j}\sim\mathcal{N}(0,\sigma^{2}_{\varepsilon}/n_{j})$
 \end_inset
 
@@ -1526,16 +1424,20 @@ RESOLVED:
 
 \begin_layout Standard
 To characterize how such a signal changes beliefs,
- we use the standard conjugate Normal-Normal Bayesian updating benchmark.
+ we use the standard conjugate Normal-Normal Bayesian updating framework.
  Given farmer 
 \begin_inset Formula $i$
 \end_inset
 
-'s prior belief about agro-dealer 
+’s prior belief about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
-'s seed performance and the signal 
+’s seed performance 
+\begin_inset Formula $\mu_{ij}$
+\end_inset
+
+ and the signal 
 \begin_inset Formula $s_{j}$
 \end_inset
 
@@ -1561,7 +1463,26 @@ with the weight on the signal,
 \end_inset
 
 ,
- increasing in prior subjective uncertainty.
+ increasing in prior subjective uncertainty 
+\begin_inset Formula $\sigma^{2}_{ij}$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The Bayesian updating expression should be interpreted as a benchmark in which farmers perceive the rating signal as credible and relevant.
+ Lower credibility or attention would attenuate the weight placed on 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+,
+ without altering the model’s qualitative predictions.
+\end_layout
+
+\end_inset
+
  Since 
 \begin_inset Formula $\sigma^{2}_{NPj}>\sigma^{2}_{Pj}$
 \end_inset
@@ -1572,7 +1493,7 @@ with the weight on the signal,
 \begin_inset Formula $\tilde{\mu}_{ij}-\mu_{ij}=\alpha_{ij}(s_{j}-\mu_{ij})$
 \end_inset
 
- is upward when the signal is more favorable than the prior.
+ is positive when the signal is more favorable than the prior.
  For purchasers,
  the main effect is a precision gain (lower 
 \begin_inset Formula $\tilde{\sigma}^{2}_{ij}$
@@ -1581,45 +1502,59 @@ with the weight on the signal,
 );
  for non-purchasers,
  the model predicts a larger precision gain and,
- when their priors are pessimistic relative to the signal,
+ when priors are pessimistic relative to the signal,
  a larger upward revision in expected performance.
 \end_layout
 
 \begin_layout Standard
-Because raters are drawn from previous purchasers,
- the signal need not be representative of the experience that every farmer would have with agro-dealer 
+We interpret 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ as an informative peer-experience signal rather than an unbiased estimate of agro-dealer-specific performance,
+ since it need not represent the experience that any farmer would have with agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
 .
- Raters may differ from non-purchasers not only in prior beliefs,
- but also in other dimensions such as land quality,
- management practices,
- and complementary input use.
- We therefore interpret 
-\begin_inset Formula $s_{j}$
-\end_inset
-
- as an informative peer-experience signal rather than an unbiased estimate of a universal agro-dealer-specific treatment effect.
- The model requires that,
- conditional on the local market and agro-dealer,
- average rater experiences contain information about agro-dealer seed performance beyond selection-driven differences across farmers.
+ Raters are drawn from previous purchasers and may differ from non-purchasers along dimensions beyond prior beliefs,
+ but the model requires that average rater experiences contain information about agro-dealer seed performance beyond selection-driven differences across farmers.
  Under this condition,
  averaging across raters reduces idiosyncratic noise:
- more raters produce a more precise signal about agro-dealer 
+ more raters generate a more precise signal about agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
-'s seed performance.
- Separately,
- the Bayesian updating expression should be read as a benchmark in which farmers perceive the rating signal as credible and relevant.
- Lower credibility or attention would attenuate the weight placed on 
-\begin_inset Formula $s_{j}$
+’s seed performance.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Is this sufficiently covered here?
+ 
+\begin_inset Quotes eld
 \end_inset
 
-,
- without changing the qualitative prediction that more uncertain priors update more strongly.
- 
+Individual experiences provide noisy but approximately unbiased signals around the true mean,
+ so that aggregating experiences across many farmers produces an informative signal about seed performance.
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+On average,
+ aggregated peer ratings move the beliefs of farmers who rely on them closer to the true performance of seed sold through agro-dealers.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
