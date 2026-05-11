@@ -1276,6 +1276,13 @@ purchasing decision
 
 \begin_layout Subsection
 Belief updating
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Belief updating"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1526,11 +1533,14 @@ We interpret
 \end_inset
 
 ’s seed performance.
-\begin_inset Note Comment
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Is this sufficiently covered here?
+Caro:
+ I leave these bolder sentences here,
+ even though I realize they're cautiously kind of covered,
+ in case we need them in the future:
  
 \begin_inset Quotes eld
 \end_inset
@@ -1566,51 +1576,17 @@ name "subsec:Dealer-sorting"
 \end_inset
 
 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Dropped "and agro-dealer sorting" for consistency with other concise subsection titles.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-While the belief-updating channel captures changes in farmers' beliefs about agro-dealer seed relative to outside options,
- agro-dealer sorting captures changes in the choice of seller conditional on purchasing from agro-dealers.
+While the belief-updating channel captures changes in farmers’ beliefs about agro-dealer seed relative to outside options,
+ agro-dealer sorting captures changes in seller choice conditional on purchasing from an agro-dealer.
  Because the intervention provides agro-dealer-specific ratings (
 \begin_inset Formula $s_{j}$
 \end_inset
 
 ),
  it conveys two types of information.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Merged the two paragraphs per Caroline's suggestion.
- Folded the key point (ratings are agro-dealer-specific) into the opening of the formal decomposition paragraph.
- Also changed "The signal s_j" to "the intervention" per Caroline's next comment.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Changed "The signal s_j" to "the intervention" (comment 4) and replaced "this is the belief-updating channel described above" with more precise language (comment 5).
-\end_layout
-
-\end_inset
-
  First,
  the average signal across agro-dealers,
  
@@ -1618,16 +1594,16 @@ RESOLVED:
 \end_inset
 
 ,
- provides information about the general performance of agro-dealer seed,
- allowing belief updating about agro-dealers overall.
+ provides information about overall seed performance,
+ allowing farmers to update their beliefs about agro-dealers as a group.
  Second,
- the variation in signals across agro-dealers,
+ differences in signals across agro-dealers and deviations from the average,
  
 \begin_inset Formula $s_{j}-\bar{s}$
 \end_inset
 
 ,
- reveals performance differences and enables sorting.
+ reveal performance differences and enable sorting.
 \end_layout
 
 \begin_layout Standard
@@ -1637,53 +1613,20 @@ Whether sorting occurs depends on the dispersion in
 
  across agro-dealers.
  If performance varies substantially across agro-dealers and ratings reveal this variation,
- farmers can switch to higher-rated agro-dealers —
+ farmers can move to higher-rated agro-dealers,
  predicting increased switching.
  If,
  however,
- ratings are similar
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Changed "uniformly positive" to "similar" —
- the sorting argument depends on lack of variation,
- not on the level.
-\end_layout
-
-\end_inset
-
- across agro-dealers,
+ ratings are similar across agro-dealers,
  the signal contains little agro-dealer-specific information,
- and the sorting channel is weak.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Deleted final sentence per Caroline —
- redundant with the logic already established in this subsection.
-\end_layout
-
-\end_inset
-
-
+ weakening the sorting channel.
 \end_layout
 
 \begin_layout Subsection
 Supply-side accountability
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Renamed the channel "Supply-side accountability" to emphasize reputational discipline.
- "Adverse selection" is not the right label —
- this channel is about agro-dealers changing behavior (effort/preservation) in response to monitoring,
- which is a moral hazard/discipline story,
- not selection.
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Supply-side accountability"
 
 \end_inset
 
@@ -1691,24 +1634,21 @@ RESOLVED:
 \end_layout
 
 \begin_layout Standard
-The intervention can also affect farmer outcomes by inducing agro-dealers to reduce degradation 
+The intervention can also affect outcomes by inducing agro-dealers to reduce degradation 
 \begin_inset Formula $d(e_{j})$
 \end_inset
 
 ,
- raising 
+ thereby increasing performance 
 \begin_inset Formula $\theta_{j}$
 \end_inset
 
  itself.
- This is a supply-side accountability channel:
- by aggregating farmers' experiences into a visible market signal,
- the rating system raises the reputational cost of selling poorly preserved seed or exerting low effort in seed storage and handling.
- When ratings are disseminated to farmers,
- agro-dealers’ performance becomes visible to potential buyers:
- their customers’ experiences are collected,
- summarized,
- and shared.
+ This operates through a supply-side accountability channel:
+ by aggregating farmers’ experiences into an observable signal,
+ the intervention raises the reputational cost of exerting low effort and selling poorly preserved seed.
+ Once ratings are disseminated to farmers,
+ agro-dealers’ performance becomes visible to potential buyers.
 \end_layout
 
 \begin_layout Standard
@@ -1720,10 +1660,11 @@ Let
 \begin_inset Formula $j$
 \end_inset
 
-'s effort in seed preservation (e.g.,
+’s effort in seed preservation (e.g.,
  proper storage containers,
  ventilation,
- temperature and moisture control),
+ temperature,
+ and moisture control),
  with convex cost 
 \begin_inset Formula $c(e_{j})$
 \end_inset
@@ -1733,26 +1674,13 @@ Let
 \begin_inset Formula $\theta_{j}=\theta_{0}-d(e_{j})$
 \end_inset
 
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- θ₀ should NOT have a j subscript —
- we assume one seed company.
- Removed j subscripts from θ₀ elsewhere in the model.
-\end_layout
-
-\end_inset
-
-with 
+ with 
 \begin_inset Formula $d’(e_{j})<0$
 \end_inset
 
 :
- higher effort reduces degradation,
- preserving seed performance closer to 
+ higher effort in seed storage and handling reduces degradation,
+ preserving seed performance closer to its intrinsic level 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
@@ -1763,21 +1691,11 @@ with
 \begin_inset Formula $R_{C}(\theta_{j})$
 \end_inset
 
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Renamed R₀/R₁ to R_C/R_T to avoid confusion with θ₀ subscript.
-\end_layout
-
-\end_inset
-
- denote the baseline demand for agro-dealer 
+ denote demand for agro-dealer 
 \begin_inset Formula $j$
 \end_inset
 
+ in the absence of the intervention,
  that depends on quality through these informal channels,
  with 
 \begin_inset Formula $R_{C}’>0$
@@ -1786,7 +1704,7 @@ RESOLVED:
 .
  Under the intervention,
  ratings are collected and disseminated,
- amplifying the reputational return to quality.
+ strengthening the reputational return to quality.
  Let 
 \begin_inset Formula $R_{T}(\theta_{j})$
 \end_inset
@@ -1796,7 +1714,7 @@ RESOLVED:
 \begin_inset Formula $R_{T}’(\theta_{j})>R_{C}’(\theta_{j})$
 \end_inset
 
- —
+:
  the marginal return to quality is higher when performance is publicly visible.
  The agro-dealer chooses effort to maximize:
 \end_layout
@@ -1823,17 +1741,17 @@ The first-order condition is
 \end_inset
 
 ,
- optimal effort is higher under the intervention:
+ the optimal effort is higher under the intervention:
  
 \begin_inset Formula $e^{*}_{jT}>e^{*}_{jC}$
 \end_inset
 
 .
  If agro-dealers respond to the intervention by investing in seed preservation,
- degradation falls and seed performance improves.
- If both channels operate,
+ degradation falls and performance improves.
+ If the belief-updating and supply-side accountability channels operate simultaneously,
  they may reinforce each other:
- belief updating increases farmers’ willingness to engage with agro-dealers,
+ updated beliefs increase farmers’ willingness to engage with agro-dealers,
  while better seed preservation strengthens the actual purchasing experience.
 \end_layout
 
@@ -1842,10 +1760,46 @@ Testable predictions
 \end_layout
 
 \begin_layout Standard
-The model identifies three channels through which the intervention could affect outcomes:
- belief updating (Section 2.2),
- agro-dealer sorting (Section 2.3),
- and supply-side accountability (Section 2.4).
+The model identifies three channels through which the intervention may affect outcomes:
+ belief updating (Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Belief updating"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+),
+ agro-dealer sorting (Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Dealer-sorting"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+),
+ and supply-side accountability (Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Supply-side accountability"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+).
  Each channel generates distinct predictions across five outcomes,
  summarized in Table 
 \begin_inset CommandInset ref
@@ -1859,19 +1813,6 @@ nolink "false"
 \end_inset
 
 .
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Keeping the predictions table in the main text.
- Standard practice for papers with multiple channels —
- helps readers map predictions to results.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1880,40 +1821,17 @@ RESOLVED:
 Prediction 1 (Perceptions).
 
 \series default
- Under the belief updating channel,
- the treatment changes perceived seed performance in the direction of the signal,
+ Under the belief-updating channel,
+ the treatment shifts perceived seed performance in the direction of the signal,
  with stronger effects among non-purchasers.
- If prior beliefs are pessimistic relative to the signal,
- perceived seed performance shifts upward.
+ If priors are pessimistic relative to the signal,
+ perceptions shift upward.
  Under the agro-dealer sorting channel,
- there is no direct prediction on perceptions.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-If farmers sort to better agro-dealers and subsequently experience higher seed performance,
- perceptions could improve indirectly over time.
- However,
- this would be a downstream consequence of switching behavior rather than an immediate effect of receiving ratings.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Added footnote acknowledging Caroline's point that sorting could indirectly improve perceptions,
- while maintaining that there is no direct/immediate prediction.
-\end_layout
-
-\end_inset
-
+ there may be an indirect effect on perceptions if farmers sort to higher-rated agro-dealers and subsequently experience better seed performance.
  Under the supply-side accountability channel,
- perceptions may improve after agro-dealer behavior changes and improved performance becomes observable,
- but such effects need not be concentrated among non-purchasers.
+ perceptions may also improve indirectly if agro-dealers adjust their effort and improved objective seed performance becomes visible.
+ For both channels,
+ effects need not be concentrated among non-purchasers.
 \end_layout
 
 \begin_layout Itemize
@@ -1922,38 +1840,12 @@ RESOLVED:
 Prediction 2 (Adoption).
 
 \series default
- All three channels can increase adoption under the maintained assumption that ratings reduce decision-relevant uncertainty,
- reveal higher-performing agro-dealers,
- or induce improvements in seed performance.
- Belief updating can increase adoption by reducing uncertainty and,
- when priors are pessimistic relative to the signal,
+ Under the belief-updating channel,
+ the treatment increases adoption by reducing uncertainty and,
+ if priors are pessimistic relative to the signal,
  by raising expected performance above the adoption threshold.
- Agro-dealer sorting can increase adoption if identifying better agro-dealers makes agro-dealer seed more attractive relative to outside options,
- while supply-side accountability can increase adoption by improving the objective quality of seed on offer.
- Adoption therefore does not discriminate sharply between channels.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Simplified per Caroline's suggestion.
- Dropped the heterogeneity-in-adoption argument because adoption is binary and most purchasers already adopt at baseline,
- creating a mechanical ceiling effect that concentrates effects among non-purchasers regardless of channel.
- Channel identification rests on heterogeneity in perceptions (Prediction 1,
- continuous outcome,
- no ceiling effect),
- limited switching (Prediction 4),
- and null effects on seed quality (Prediction 5).
- On the timing concern:
- the design accommodates all channels —
- ratings in T1,
- behavioral responses in T2,
- yield effects in T3.
-\end_layout
-
-\end_inset
-
-
+ Under the agro-dealer sorting and supply-side accountability channels,
+ the treatment may increase adoption through indirect effects on farmers’ perceptions.
 \end_layout
 
 \begin_layout Itemize
@@ -1962,27 +1854,9 @@ RESOLVED:
 Prediction 3 (Productivity).
 
 \series default
- All three channels can raise yields if they increase adoption of genuinely higher-performing seed or improve the performance of seed actually purchased.
- Agro-dealer sorting and supply-side accountability may additionally raise yields conditional on adopting —
- through sorting to better agro-dealers and through improved seed quality,
- respectively.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Acknowledged that all channels work partly through adoption,
- with search cost and supply-side having additional pathways.
- Changed "matching" to "sorting."
-\end_layout
-
-\end_inset
-
- Productivity therefore does not discriminate sharply between channels.
- For belief updating,
- yield gains require that,
- on average,
- peer ratings move adoption decisions toward seed with higher true performance relative to outside options.
+ All three channels can increase yields if they increase adoption of genuinely higher-performing seed relative to outside options.
+ Agro-dealer sorting and supply-side accountability may additionally increase yields conditional on adoption – through sorting toward better agro-dealers and through improving objective seed performance,
+ respectively – thereby enhancing the performance of seed actually purchased and planted.
 \end_layout
 
 \begin_layout Itemize
@@ -1991,95 +1865,56 @@ RESOLVED:
 Prediction 4 (Switching).
 
 \series default
- The three channels differ in their predictions about switching between agro-dealers.
- Under the belief-updating channel as defined here,
- peer ratings primarily shift beliefs about agro-dealer seed relative to outside options rather than reallocating farmers across specific agro-dealers;
- by itself,
- this channel therefore does not predict directed switching toward higher-rated agro-dealers.
+ Under the belief-updating channel,
+ the treatment does not reallocate farmers across agro-dealers.
  Under the agro-dealer sorting channel,
- agro-dealer-specific ratings reveal performance differences,
- enabling farmers to switch to higher-rated agro-dealers,
- predicting increased switching.
- The supply-side accountability channel has no direct prediction on switching.
- Finding no persistent increase in switching,
- or switching that cannot be linked to movement toward higher-performing agro-dealers,
- weakens evidence for agro-dealer sorting as the primary channel.
+ the treatment increases switching toward higher-rated agro-dealers,
+ as agro-dealer-specific ratings reveal performance differences.
+ Absence of persistent increases in switching,
+ or switching not directed toward higher-rated agro-dealers,
+ weakens the evidence for agro-dealer sorting as the primary channel.
+ Under the supply-side accountability channel,
+ the treatment does not affect switching.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Prediction 5 (Seed performance)
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Changed "quality" to "performance" for consistency with the model (θ_j = seed performance).
-\end_layout
-
-\end_inset
-
-.
+Prediction 5 (Seed performance).
 
 \series default
- The three channels differ in their predictions about objective seed performance.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-RESOLVED:
- Standardized on "objective" throughout.
- Dropped "actual/true/real" variants.
-\end_layout
-
-\end_inset
-
- Under belief updating,
- the intervention shifts beliefs but not seed performance at a given agro-dealer:
- 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
- is unchanged.
- Under agro-dealer sorting,
- the intervention may change the performance of seed actually purchased by farmers if they reallocate toward higher-performing agro-dealers,
- but this operates through agro-dealer choice rather than through product improvement at any given agro-dealer.
+ Under the belief-updating channel,
+ the treatment shifts perceived but not objective seed performance at a given agro-dealer.
+ Under the agro-dealer sorting channel,
+ the treatment changes the performance of seed actually purchased at the farmer level when farmers switch toward better agro-dealers,
+ but this does not operate through product improvement at the agro-dealer level.
  Under the supply-side accountability channel,
- if agro-dealers respond to reputational incentives by investing in handling and storage,
- degradation 
-\begin_inset Formula $d(e_{j})$
-\end_inset
-
- falls and agro-dealer-level seed performance 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
- improves.
- Finding no treatment effect on agro-dealer-level seed performance weakens evidence for the supply-side accountability channel,
- subject to measurement precision and timing.
+ seed degradation falls and performance improves as agro-dealers respond to reputational incentives by increasing effort in seed preservation.
+ Finding no treatment effect on agro-dealer-level seed performance weakens the evidence for the supply-side accountability channel.
 \end_layout
 
 \begin_layout Standard
 The channels may also differ in their predicted timing of effects.
- Belief updating and agro-dealer sorting can affect behavior as soon as farmers receive ratings:
- beliefs may shift immediately,
- and agro-dealer choices can adjust at the next purchase occasion.
- These effects may persist or evolve through endline as farmers accumulate own and peer experience.
- Supply-side accountability may take longer to affect farmer perceptions and adoption,
- because any agro-dealer improvements in seed storage and handling must first translate into realized seed performance and then become observable to farmers through experience or updated ratings.
- This timing distinction is useful when interpreting whether effects appear first at midline,
- persist to endline,
+ Belief updating may shift perceptions as soon as farmers receive ratings,
+ with effects on adoption materializing at the next purchase occasion.
+ Agro-dealer sorting may induce switching at the next purchase occasion,
+ while effects on perceptions and adoption may materialize later,
+ when farmers experience better seed performance at higher-rated agro-dealers.
+ Supply-side accountability may first induce agro-dealer improvements in seed storage and handling,
+ which then translate into improved seed performance and subsequently become observable to farmers through experience or updated ratings;
+ effects on perceptions and adoption may therefore take longer to materialize.
+ This timing distinction is useful for interpreting whether effects appear at midline,
+ persist through endline,
  or emerge only after an additional rating cycle.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
-placement document
+placement h
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2119,7 +1954,7 @@ begin{center}
 \begin_layout Plain Layout
 
 \backslash
-begin{tabular}{p{2.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+begin{tabular}{rlll}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2131,7 +1966,15 @@ hline
 \end_layout
 
 \begin_layout Plain Layout
- & Belief updating & Dealer sorting & Supply-side
+& Belief updating & Agro-dealer & Supply-side 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & sorting & accountability 
 \backslash
 
 \backslash
@@ -2141,23 +1984,13 @@ hline
 \begin_layout Plain Layout
 
 \backslash
-hline
+cline{2-4}
 \end_layout
 
 \begin_layout Plain Layout
-Perceptions & Move toward signal,
- larger for non-purchasers & No prediction & May improve,
- uniform across farmers
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-Adoption & Increases through lower uncertainty or higher expected performance & Increases,
- uniform & Increases,
- uniform
+Perceptions & Shift directly toward & Shift indirectly,
+ & Shift indirectly,
+ 
 \backslash
 
 \backslash
@@ -2165,7 +1998,8 @@ Adoption & Increases through lower uncertainty or higher expected performance & 
 \end_layout
 
 \begin_layout Plain Layout
-Productivity & Higher yields (via adoption) & Higher yields (via better matching) & Higher yields (via better seed)
+& signal,
+ larger for & uniform across & uniform across 
 \backslash
 
 \backslash
@@ -2173,7 +2007,7 @@ Productivity & Higher yields (via adoption) & Higher yields (via better matching
 \end_layout
 
 \begin_layout Plain Layout
-Switching & No change & Increases & No prediction
+& non-purchasers & farmers & farmers 
 \backslash
 
 \backslash
@@ -2181,7 +2015,123 @@ Switching & No change & Increases & No prediction
 \end_layout
 
 \begin_layout Plain Layout
-Dealer-level seed performance & No change & No change & Improves ($d(e_{j})$ falls)
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+Adoption & Increases via lower & Increases via  & Increases via 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& uncertainty or higher & perceptions & perceptions 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& expected performance && 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+Productivity & Increases via & Increases via & Increases via 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& adoption  & adoption  
+\backslash
+& sorting & adoption  
+\backslash
+& improved 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& &  toward better dealers &  seed performance 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+Switching & No effect & Increases toward  & No effect
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & higher-rated & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & dealers & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+Seed performance & No effect & No effect & Improves via 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & & increased dealer 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & & effort
 \backslash
 
 \backslash
@@ -2225,10 +2175,9 @@ footnotesize
 
 \begin_layout Plain Layout
 Note:
- Adoption effects alone do not discriminate between channels.
  Heterogeneity in perceptions (P1),
  limited switching (P4),
- and lack of agro-dealer-level seed performance improvements (P5) jointly point to belief updating as the dominant channel.
+ and no agro-dealer-level improvements in seed performance (P5) would jointly point to belief updating as the dominant channel.
 \end_layout
 
 \end_inset
