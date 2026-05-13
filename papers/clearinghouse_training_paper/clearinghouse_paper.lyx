@@ -417,26 +417,8 @@ literal "false"
 \begin_layout Standard
 This paper focuses on a specific information friction:
  farmers lack credible information about input performance,
- as it is unobservable prior to purchase and difficult to attribute to the input even after use.
- Learning from own experience after a single season
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-please don't delete 
-\begin_inset Quotes eld
-\end_inset
-
-after a single season
-\begin_inset Quotes erd
-\end_inset
-
- again
-\end_layout
-
-\end_inset
-
- is challenging because agricultural outcomes depend on multiple factors beyond input performance.
+ as it is unobservable prior to purchase and difficult to attribute even after use.
+ Learning from own experience is challenging because agricultural outcomes depend on multiple factors beyond input performance.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -507,9 +489,9 @@ literal "false"
 \end_inset
 
  At the same time,
- information about input performance is dispersed across many farmers.
- Although farmers may exchange experiences within their social networks,
- such information typically reflects a small number of peers and may be incomplete,
+ information about input performance is dispersed across farmers.
+ Although they may exchange experiences within their social networks,
+ such information often reflects a small number of peers and may be incomplete,
  selectively transmitted,
  or idiosyncratic.
 \end_layout
@@ -612,10 +594,8 @@ literal "false"
 
 \begin_layout Standard
 Reducing this uncertainty requires credible information about seed performance prior to purchase,
- yet the signals currently available to farmers are weak or incomplete.
- Seed companies signal quality through labeling,
- branding,
- and packaging,
+ yet the signals currently available to farmers are incomplete.
+ Seed companies signal quality through labeling and packaging,
  but farmers struggle to identify low-quality seed without specific training 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -627,7 +607,7 @@ literal "false"
 .
  Regulatory certification systems are costly,
  often constrained by limited institutional capacity,
- and do not provide a reliable signal of seed performance in Uganda 
+ and do not reliably signal seed performance in Uganda 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "https://doi.org/10.1111/1477-9552.70002"
@@ -638,7 +618,7 @@ literal "false"
 .
  Moreover,
  these signals only reach farmers who already engage with agro-dealers,
- and even certified seed may perform poorly when handling and storage are inadequate 
+ and even certified seed may perform poorly when it is handled inadequately 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BARRIGA2020104928"
@@ -998,7 +978,7 @@ name "2 Conceptual model"
 \end_layout
 
 \begin_layout Standard
-This section develops a simple model of how aggregated peer information affects farmer and agro-dealer behavior and outcomes,
+This section develops a model of how aggregated peer information affects farmer and agro-dealer outcomes,
  generating a set of predictions that guide the empirical analysis.
 \end_layout
 
@@ -1595,7 +1575,7 @@ While the belief-updating channel captures changes in farmers’ beliefs about a
 
 ,
  provides information about overall seed performance,
- allowing farmers to update their beliefs about agro-dealers as a group.
+ allowing farmers to update beliefs about agro-dealers as a group.
  Second,
  differences in signals across agro-dealers and deviations from the average,
  
@@ -1612,12 +1592,9 @@ Whether sorting occurs depends on the dispersion in
 \end_inset
 
  across agro-dealers.
- If performance varies substantially across agro-dealers and ratings reveal this variation,
- farmers can move to higher-rated agro-dealers,
- predicting increased switching.
- If,
- however,
- ratings are similar across agro-dealers,
+ If performance varies substantially across agro-dealers and ratings reveal this,
+ farmers can switch to higher-rated agro-dealers.
+ If ratings are similar across agro-dealers,
  the signal contains little agro-dealer-specific information,
  weakening the sorting channel.
 \end_layout
@@ -1634,7 +1611,7 @@ name "subsec:Supply-side accountability"
 \end_layout
 
 \begin_layout Standard
-The intervention can also affect outcomes by inducing agro-dealers to reduce degradation 
+The intervention can also induce agro-dealers to reduce degradation 
 \begin_inset Formula $d(e_{j})$
 \end_inset
 
@@ -1815,7 +1792,7 @@ nolink "false"
 .
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Prediction 1 (Perceptions).
@@ -1834,7 +1811,7 @@ Prediction 1 (Perceptions).
  effects need not be concentrated among non-purchasers.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Prediction 2 (Adoption).
@@ -1848,7 +1825,7 @@ Prediction 2 (Adoption).
  the treatment may increase adoption through indirect effects on farmers’ perceptions.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Prediction 3 (Productivity).
@@ -1859,7 +1836,7 @@ Prediction 3 (Productivity).
  respectively – thereby enhancing the performance of seed actually purchased and planted.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Prediction 4 (Switching).
@@ -1877,7 +1854,7 @@ Prediction 4 (Switching).
  the treatment does not affect switching.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Prediction 5 (Seed performance).
@@ -2251,11 +2228,10 @@ name "fn:The-haversine-function"
 
 \end_inset
 
- Because the intervention changes the local information environment,
- treatment is assigned at the catchment-area level rather than within catchments.
- Farmer-level treatment effects are identified by comparing farmers in treated and control catchment areas.
- As described below,
- farmers were sampled from villages linked to agro-dealers in each catchment area.
+ Treatment is assigned at the catchment-area level rather than within areas (e.g.,
+ at the agro-dealer level),
+ ensuring that all farmers within a catchment area are exposed to agro-dealers under the same treatment condition,
+ which enables identification of farmer-level treatment effects.
 \end_layout
 
 \begin_layout Standard
@@ -2350,12 +2326,9 @@ Rating collection and computation
 \begin_layout Standard
 Treated farmers were asked to rate maize seed sold by agro-dealers in their catchment area.
  Farmers could rate an agro-dealer only if they had personally purchased seed from that agro-dealer or knew someone who had.
- In practice,
- ratings were based primarily on direct purchase experience,
- with indirect reports accounting for a smaller share.
  Enumerators guided farmers through the list of agro-dealers using a tablet-based application displaying names,
  location descriptions,
- and storefront pictures (see Subsection 
+ and storefront pictures collected at the start of the study (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Sample"
@@ -2376,7 +2349,7 @@ Ratings were collected post-harvest,
  drought resilience,
  pest and disease resistance,
  and crop maturation speed,
- and were elicited using the questions listed in Table 
+ using the questions listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "questions"
@@ -2387,7 +2360,7 @@ nolink "false"
 
 \end_inset
 
- on a five-point star scale.
+ and a five-point star scale.
  The rating dimensions capture attributes that farmers attend to when purchasing and using seed,
  as identified through prior qualitative work,
  including workshops with experts from MAAIF,
@@ -2654,7 +2627,7 @@ Because agro-dealers stock heterogeneous seed varieties with different agronomic
 A potential concern is that the rating task itself could increase farmers’ awareness of agro-dealers,
  potentially confounding treatment effects.
  To address this,
- control-group farmers were also guided through the list of agro-dealers in their catchment area in a comparable manner (displaying names,
+ control-group farmers were also guided through the list of agro-dealers in their catchment area in a similar manner (displaying names,
  location descriptions,
  and storefront pictures),
  ensuring comparable exposure.
@@ -2815,31 +2788,10 @@ Rating dissemination to agro-dealers
 
 \begin_layout Standard
 Agro-dealers received their ratings in the form of a report.
- The front page displayed a certificate with a logo and the agro-dealer’s overall rating
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "SeedAdvisor certificate"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-)
-\end_layout
-
-\end_inset
-
-.
+ The front page displayed a certificate with a logo and the agro-dealer’s overall rating.
  The back page provided more detailed information,
  presenting ratings for seed sold by the agro-dealer across the six key dimensions and a table displaying average ratings of other agro-dealers in the same catchment area.
- An example of the full report can be found in Appendix 
+ An example of the full report is provided in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Agro-dealer-Rating-Report"
@@ -2855,33 +2807,26 @@ tuple "list"
 \end_layout
 
 \begin_layout Standard
+The study spans two agricultural seasons (the second season of 2021 and the first season of 2022) with three rounds of data collection.
+ Before season 1,
+ we collect ratings from treated farmers,
+ aggregate them,
+ and disseminate them to farmers and agro-dealers prior to planting.
+ Between seasons 1 and 2,
+ we collect a second round of ratings and disseminate the updated ratings prior to planting in season 2.
+ After season 2,
+ we collect final ratings as an outcome measure,
+ but these are not disseminated.
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Agro-dealers were able to display the certificate.
- At endline,
- it was visible in 56% of shops.
- As a result,
- ratings may have been observed by non-sampled farmers,
- extending exposure beyond the study sample.
- Because randomization occurred at the agro-dealer catchment area level,
- any such additional exposure is contained within treated areas and does not threaten identification.
- - I would remove this as it gives a pre-view of results and I also think it is not very relevant,
- raising more questions than it resolves;
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace medskip
-\end_inset
-
-The study spans two agricultural seasons with three data collection rounds.
+Caro:
+ I think we survey info belongs to sample,
+ not to experimental design,
+ only the rating collection is relevant here.
+ Your origical:
+ The study spans two agricultural seasons with three data collection rounds.
  At baseline (before season 1),
  we survey farmers and agro-dealers and collect ratings from treated farmers.
  Ratings are aggregated and disseminated to farmers and agro-dealers before planting in season 1.
@@ -2890,64 +2835,6 @@ The study spans two agricultural seasons with three data collection rounds.
  Updated ratings are disseminated before planting in season 2.
  At endline (after season 2),
  we collect final outcomes.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../endline_report/certificate.pdf
-	scale 31
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-SeedAdvisor certificate
-\begin_inset CommandInset label
-LatexCommand label
-name "SeedAdvisor certificate"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- - replace by appendix
 \end_layout
 
 \end_inset
@@ -2968,6 +2855,10 @@ name "4 Empirical strategy"
 
 \begin_layout Standard
 We estimate intention-to-treat effects using Ordinary Least Squares:
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
@@ -3093,29 +2984,6 @@ literal "false"
  with individual significance treated cautiously.
 \end_layout
 
-\begin_layout Standard
-Our primary approach to interpreting mechanisms relies on the pattern of effects across outcomes:
- each channel generates a distinct empirical signature across perceptions,
- adoption,
- productivity,
- switching,
- and seed performance (Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:predictions"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
- We additionally examine heterogeneity by prior purchasing experience.
- This analysis was not pre-specified and is therefore exploratory,
- but it is motivated by the model's prediction that farmers with greater uncertainty about seed performance should place more weight on the peer signal.
-\end_layout
-
 \begin_layout Section
 Data
 \begin_inset CommandInset label
@@ -3141,8 +3009,7 @@ name "subsec:Sample"
 \begin_layout Standard
 The agro-dealer sample was constructed by listing all agro-dealers across eleven districts in southeastern Uganda,
  drawing on official records of registered agro-dealers and extensive field visits to identify new and informal ones.
- Following this census,
- the 348 eligible agro-dealers were assigned to 130 catchment areas (see Subsection 
+ 348 eligible agro-dealers were assigned to 130 catchment areas (see Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsection: Experimental design"
@@ -3162,8 +3029,11 @@ nolink "false"
  Across all catchment areas,
  the average number of agro-dealers per area was three,
  with the number ranging from one to 18.
- To link agro-dealers with farmers,
- agro-dealers idƒrandentified the villages where most of their customers reside.
+\end_layout
+
+\begin_layout Standard
+To link agro-dealers with farmers,
+ agro-dealers identified the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from these villages,
  yielding a sample of approximately 3,500 smallholder farmers.
 \end_layout
@@ -3172,7 +3042,10 @@ nolink "false"
 Baseline data were collected from agro-dealers in September-October 2020 and from farmers in April 2021;
  midline data were collected in January-February 2022,
  and endline data in July-August 2022.
- At the agro-dealer level,
+\end_layout
+
+\begin_layout Standard
+At the agro-dealer level,
  enumerators interviewed the individual most knowledgeable about day-to-day operations,
  purchased a maize seed bag,
  and recorded indicators related to seed storage conditions.
@@ -3181,12 +3054,18 @@ Baseline data were collected from agro-dealers in September-October 2020 and fro
  In addition to general questions,
  farmers listed all maize plots,
  from which one was randomly selected for detailed data collection,
- which avoids selective reporting across multiple plots and allows us to connect sourcing to plot-level inputs,
- effort and harvest outcomes.
+ thereby avoiding selective reporting across plots and allowing us to collect plot-level data on adoption and harvest outcomes.
 \end_layout
 
 \begin_layout Subsection
 Baseline descriptives and randomization balance
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Baseline descriptives and randomization balance"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3251,14 +3130,14 @@ nolink "false"
 
 \end_inset
 
- One in three farmers purchase seed from an agro-dealer.
- Other famers obtained high-yielding seed from Operation Wealth Creation/National Agricultural Advisory Services or non-governmental organizations;
+ One in three purchased it from an agro-dealer.
+ Other farmers obtained high-yielding seed from Operation Wealth Creation/National Agricultural Advisory Services or non-governmental organizations;
  many relied on their own retained seed or farmer-to-farmer exchanges.
- These patterns support the assumption that farmers have meaningful outside options to purchasing seed from agro-dealers.
+ These patterns document that farmers have meaningful outside options to purchasing seed from agro-dealers.
  At the same time,
  68% of farmers report believing that maize seed sold by agro-dealers is adulterated.
- This widespread concern underscores that farmers perceive agro-dealer seed as risky,
- so credible information about seed performance could affect adoption decisions by changing either expected performance or uncertainty.
+ This widespread skepticism underscores that farmers perceive agro-dealer seed as risky,
+ implying that credible information about seed performance could affect adoption decisions by altering either expected performance or uncertainty.
 \end_layout
 
 \begin_layout Standard
@@ -3273,7 +3152,7 @@ nolink "false"
 
 \end_inset
 
- reports baseline characteristics of agro-dealers and their shops.
+ reports baseline characteristics of agro-dealers and their shops at baseline.
  The average respondent is 32 years old,
  60% are male,
  and over 90% have completed primary education.
@@ -3319,8 +3198,7 @@ status collapsed
 \begin_layout Plain Layout
 In Uganda,
  maize seed certification is overseen by the NSCS within MAAIF.
- Certified seed is identified by a blue tag or sticker,
- while quality-declared seed carries a green tag or sticker.
+ Certified seed is identified by a blue tag or sticker.
 \end_layout
 
 \end_inset
@@ -5756,7 +5634,7 @@ Sexpr{ifelse(df_ols[3,2,7]<.01,"**",ifelse(df_ols[3,2,7]<.05,"*",ifelse(df_ols[3
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,7],digits=0),nsmall=)}
+Sexpr{format(round(df_averages[3,7],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -6164,7 +6042,7 @@ Sexpr{ifelse(df_ols[3,2,27]<.01,"**",ifelse(df_ols[3,2,27]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,27],digits=),nsmall=0)}
+Sexpr{format(round(df_averages[3,27],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -6228,7 +6106,7 @@ Sexpr{ifelse(df_ols[3,2,11]<.01,"**",ifelse(df_ols[3,2,11]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
+Sexpr{format(round(df_averages[3,11],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -6276,7 +6154,7 @@ Sexpr{ifelse(df_ols[3,2,24]<.01,"**",ifelse(df_ols[3,2,24]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
+Sexpr{format(round(df_averages[3,24],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -6324,7 +6202,7 @@ Sexpr{ifelse(df_ols[3,2,13]<.01,"**",ifelse(df_ols[3,2,13]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
+Sexpr{format(round(df_averages[3,13],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -6374,7 +6252,7 @@ Sexpr{ifelse(df_ols[3,2,16]<.01,"**",ifelse(df_ols[3,2,16]<.05,"*",ifelse(df_ols
 \begin_layout Plain Layout
 & 
 \backslash
-Sexpr{format(round(df_averages[3,1],digits=2),nsmall=0)}
+Sexpr{format(round(df_averages[3,16],digits=0),nsmall=0)}
 \backslash
 
 \backslash
@@ -7214,7 +7092,7 @@ Rating data
 
 \begin_layout Standard
 At endline,
- the rating model generated a dyadic rating dataset comprising of 16,823 farmer-dealer links.
+ the rating intervention generated a dyadic dataset comprising of 16,823 farmer-dealer links.
 \begin_inset Note Note
 status collapsed
 
@@ -7283,7 +7161,7 @@ nolink "false"
 \end_inset
 
  provides suggestive evidence that ratings are associated with observable characteristics plausibly related to seller and seed performance:
- specialized agro-shops and agro-dealers with better seed handling practices receive higher ratings,
+ specialized agro-shops and dealers with better seed handling practices receive higher ratings,
  and seed ratings on randomly selected fields are positively correlated with maize yields.
  These patterns are consistent with ratings reflecting farmers’ assessments of seed performance rather than purely non-performance attributes.
  Appendix 
@@ -7432,6 +7310,29 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Our primary approach to interpreting mechanisms relies on the pattern of effects across outcomes:
+ each channel generates a distinct empirical signature across perceptions,
+ adoption,
+ productivity,
+ switching,
+ and seed performance (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:predictions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ We also examine heterogeneity by prior seed purchasing experience.
+ This analysis was not pre-specified and is therefore exploratory,
+ but it is motivated by the model’s prediction that farmers with greater uncertainty about seed performance should place more weight on the peer signal.
 \end_layout
 
 \begin_layout Subsection
@@ -7795,7 +7696,7 @@ Max.
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 KLING:
@@ -8856,6 +8757,28 @@ S$Due to the skewness of this variable,
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Agro-dealers were able to display the certificate.
+ At endline,
+ it was visible in 56% of shops.
+ As a result,
+ ratings may have been observed by non-sampled farmers,
+ extending exposure beyond the study sample.
+ Because randomization occurred at the agro-dealer catchment area level,
+ any such additional exposure is contained within treated areas and does not threaten identification.
+ - I would remove this as it gives a pre-view of results and I also think it is not very relevant,
+ raising more questions than it resolves;
 \end_layout
 
 \end_inset
@@ -10837,7 +10760,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -13236,7 +13159,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Agro-dealer Rating Report
+Agro-dealer rating report
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Agro-dealer-Rating-Report"
@@ -13325,11 +13248,12 @@ nolink "false"
  consistent with Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "5.3 Orthogonality tests of randomization balance"
+reference "subsec:Baseline descriptives and randomization balance"
 plural "false"
 caps "false"
 noprefix "false"
 nolink "false"
+tuple "list"
 
 \end_inset
 
