@@ -2969,12 +2969,35 @@ literal "false"
 
 ,
  which assigns lower weights to highly correlated outcomes and thereby concentrates information.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In regressions using these overall indices,
+ we do not control for baseline values,
+ as doing so would restrict the sample to units with complete data for all constituent variables at baseline and the respective follow-up wave (midline or endline),
+ thereby substantially reducing statistical power.
+\end_layout
+
+\end_inset
+
  As a robustness check,
  we also compute summary indices following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "kling2007experimental"
 literal "false"
+
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "robustness"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -7191,63 +7214,8 @@ name "6 Results"
 \end_layout
 
 \begin_layout Standard
-We report treatment effects on outcomes for both farmers and agro-dealers at midline (after one agricultural season) and endline (after two seasons).
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-To address multiple hypothesis testing,
- outcomes are aggregated into indices following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
-,
- reported at the bottom of the tables.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-In regressions using these overall indices,
- we do not control for baseline values,
- as doing so would restrict the sample to units with complete data for all constituent variables at baseline and the respective follow-up wave (midline or endline),
- thereby substantially reducing statistical power.
-\end_layout
-
-\end_inset
-
- As a robustness check,
- Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "robustness"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- reports indices constructed following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
-.
- - B:
- removed,
- this was already in the empirical strategy.
-\end_layout
-
-\end_inset
-
- All outcome variables were pre-specified in a registered pre-analysis plan at the 
+We report treatment effects for both farmers and agro-dealers at midline (after one agricultural season) and at endline (after two seasons).
+ All outcome variables were pre-specified in a pre-analysis plan at the 
 \begin_inset CommandInset href
 LatexCommand href
 name "AEA's registry for RCTs"
@@ -7257,7 +7225,7 @@ literal "false"
 \end_inset
 
 .
- The full econometric analysis was run on simulated data prior to outcome data collection and documented in a 
+ The econometric analysis was run on simulated data prior to outcome data collection and documented in a 
 \begin_inset CommandInset href
 LatexCommand href
 name "registered report"
@@ -7331,8 +7299,8 @@ nolink "false"
 
 ).
  We also examine heterogeneity by prior seed purchasing experience.
- This analysis was not pre-specified and is therefore exploratory,
- but it is motivated by the model’s prediction that farmers with greater uncertainty about seed performance should place more weight on the peer signal.
+ Although this analysis was not pre-specified and is therefore exploratory,
+ it is motivated by the model’s prediction that farmers with greater uncertainty about seed performance should place more weight on the signal.
 \end_layout
 
 \begin_layout Subsection
@@ -7340,8 +7308,7 @@ Perceived seed performance
 \end_layout
 
 \begin_layout Standard
-We begin with the first link in the causal chain:
- whether the clearinghouse shifts farmers’ perceptions of agro-dealer seed quality.
+We begin by testing whether the treatment shifts farmers’ perceptions of maize seed performance at agro-dealers.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7353,13 +7320,13 @@ nolink "false"
 
 \end_inset
 
- reports treatment effects on a perception index that combines farmer ratings of agro-dealer seed performance across six dimensions:
+ reports treatment effects on a perception index combining farmer ratings across six dimensions:
  general quality,
  yield,
  drought tolerance,
  pest and disease tolerance,
  maturity time,
- and germination (see Table 
+ and germination (see 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "questions"
@@ -7371,28 +7338,42 @@ tuple "list"
 
 \end_inset
 
- for the exact questions used for measuring perceptions).
- The clearinghouse increases this index by 0.09 standard deviations,
+ for the exact questions).
+ The treatment increases this index by 0.09 standard deviations,
  significant at the 10% level.
- The positive sign is consistent with the belief-updating channel in the model if the peer signal was more favorable than farmers' prior beliefs about agro-dealer seed performance.
+ The positive effect is consistent with the belief-updating channel if the peer signal is more favorable than farmers’ prior beliefs about agro-dealer seed performance.
 \end_layout
 
 \begin_layout Standard
-These estimates should be interpreted with some caution.
+These estimates should be interpreted with caution.
  The perception index requires non-missing ratings on all six dimensions for at least one agro-dealer,
- and ratings were collected from farmers in control catchment areas only at endline.
- Treatment effects on perceptions can therefore be estimated only for the final survey round and are less precise than estimates for the main adoption and productivity outcomes.
+ and ratings were collected from control farmers only at endline.
+ As a result,
+ treatment effects on perceptions are estimated less precisely and only for the final survey round.
 \end_layout
 
 \begin_layout Standard
 The model also predicts stronger updating among farmers with greater prior uncertainty.
- We examine this prediction using prior agro-dealer seed-purchasing experience,
- proxied by whether the farmer used improved maize seed from an agro-dealer in the season preceding baseline.
+ We examine this using prior agro-dealer seed-purchasing experience,
+ proxied by whether the farmer used maize seed from an agro-dealer in the season preceding baseline.
  The subgroup estimates are similar:
- 0.102 standard deviations among farmers without prior experience and 0.092 among prior purchasers,
+ 0.10 standard deviations among farmers without prior experience and 0.09 among those with prior experience,
  and a formal interaction test does not reject equality.
  We therefore interpret the perception results as evidence of upward belief updating overall,
- rather than as strong evidence of differential updating by prior experience.
+ rather than differential updating by prior experience.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Importantly,
+ the farmers who provided ratings – primarily those with firsthand purchasing experience – differ from those who received them,
+ which include both purchasers and non-purchasers.
+ This asymmetry increases the likelihood that the information encountered diverged from prior beliefs.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7665,114 +7646,6 @@ $^1$The index of farmer's maize seed ratings contains 6 ratings:
 \end_inset
 
 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-4} 
-\backslash
-cmidrule(lr){5-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Max.
- number of obs.
- & & & 3441 & & 1741 
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-KLING:
-\end_layout
-
-\begin_layout Plain Layout
-Index of farmer's seed ratings of agro-dealers$^1$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[1,17],digits=3),nsmall=3)}
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,17],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,17]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,17]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,17]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[3,17],digits=0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[1,2,17],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_mech[3,2,17]<.01,"**",ifelse(df_ols_end_mech[3,2,17]<.05,"*",ifelse(df_ols_end_mech[3,2,17]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_mech[4,2,17],digits=0),nsmall=0)}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_means_end_F_nobase[2,17],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,17],digits=3),nsmall=3)}) &  & (
-\backslash
-Sexpr{format(round(df_ols_end_mech[2,2,17],digits=3),nsmall=3)}) & 
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -7798,8 +7671,8 @@ nolink "false"
 
 \end_inset
 
- reports treatment-control estimates of the clearinghouse effects on farmers' adoption and sourcing decisions.
- Consistent with the model's prediction that credible performance information can increase adoption by reducing decision-relevant uncertainty,
+ reports treatment effects on farmers’ adoption and sourcing decisions.
+ Consistent with the model’s prediction that credible information about seed performance increases adoption,
  the 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -7808,45 +7681,43 @@ literal "false"
 
 \end_inset
 
- index of adoption outcomes is significantly higher for treated farmers than for control farmers at both midline and endline (
-\begin_inset Formula $p<0.05$
-\end_inset
-
-).
- The response is concentrated on the extensive margin:
- treated farmers are more likely to source maize seed from agro-dealers,
- while quantities purchased conditional on buying do not differ significantly between treated and control farmers.
+ index is significantly higher among treated farmers than among control farmers at both midline and endline,
+ with effects significant at the 5% level.
 \end_layout
 
 \begin_layout Standard
 Across all plots,
- treated farmers are six percentage points more likely than control farmers to purchase high-yielding maize seed from an agro-dealer at midline,
+ treated farmers are 5.9 percentage points more likely to purchase high-yielding maize seed from an agro-dealer at midline,
  equivalent to 18% of the baseline mean.
- By endline,
- the estimated agro-dealer sourcing effect is three percentage points and is no longer statistically significant,
- although treated farmers remain more likely than control farmers to adopt improved maize varieties in both survey rounds:
+ At endline,
+ the estimated effect is three percentage points and no longer statistically significant,
+ although treated farmers remain more likely than control farmers to adopt high-yielding maize varieties in both survey rounds:
  3.5 percentage points at midline and 4.2 percentage points at endline.
+ The response is concentrated on the extensive margin:
+ treated farmers are more likely to source maize seed from agro-dealers,
+ while quantities conditional on purchasing do not increase significantly.
 \end_layout
 
 \begin_layout Standard
-We next examine the same sourcing margin on a randomly selected maize plot.
- Treated farmers are nearly five percentage points more likely at midline and 3.6 percentage points more likely at endline to obtain seed for the randomly selected plot from an agro-dealer.
- Seed expenditure on the plot is also significantly higher for treated farmers than for control farmers.
- These treatment-control differences are accompanied by reduced reliance on farmer-saved seed at midline.
- Estimated effects on individual hybrid and OPV variety categories are positive but imprecise.
+We next examine sourcing decisions on a randomly selected maize plot.
+ Treated farmers are 4.7 percentage points more likely at midline and 3.6 percentage points more likely at endline to obtain seed from an agro-dealer.
+ These differences are accompanied by increased seed expenditure and reduced reliance on farmer-saved seed at midline.
+ Effects on individual hybrid and OPV categories are positive but imprecisely estimated.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-We classify varieties as improved if they correspond to recognized hybrid or OPV types and the seed was newly purchased rather than recycled or farmer-saved.
+We classify seed as hybrid or OPV if it corresponds to a recognized variety (e.g.,
+ Longe series,
+ Bazooka,
+ Panner,
+ Wema,
+ KH series) and was newly purchased rather than recycled or farmer-saved.
 \end_layout
 
 \end_inset
 
- These results indicate that the intervention shifted farmers toward agro-dealer seed,
- but they do not by themselves distinguish whether this reflects belief updating,
- agro-dealer sorting,
- or supply-side responses.
+
 \end_layout
 
 \begin_layout Standard
@@ -8765,29 +8636,7 @@ S$Due to the skewness of this variable,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Agro-dealers were able to display the certificate.
- At endline,
- it was visible in 56% of shops.
- As a result,
- ratings may have been observed by non-sampled farmers,
- extending exposure beyond the study sample.
- Because randomization occurred at the agro-dealer catchment area level,
- any such additional exposure is contained within treated areas and does not threaten identification.
- - I would remove this as it gives a pre-view of results and I also think it is not very relevant,
- raising more questions than it resolves;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We next examine whether increased farmer engagement is reflected at the agro-dealer level and consider various agro-business related outcomes (Table 
+We then assess whether the shift toward agro-dealer seed at the farmer level is reflected in agro-dealer business activity (Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on dealer outcomes at end of causal chain: Business volume"
@@ -8800,18 +8649,18 @@ tuple "list"
 \end_inset
 
 ).
- The outcomes include self-reported sales volume for the four most common high-yielding maize varieties in the previous season (Longe 7H,
+ Outcomes include sales volume for the four most commonly purchased maize varieties (Longe 7H,
  Longe 10H,
  Longe 4,
  and Longe 5),
- average start-of-season prices,
+ average prices,
  implied revenue,
  the number of maize-seed customers served per day,
  and the number of maize varieties stocked.
 \end_layout
 
 \begin_layout Standard
-The agro-dealer level results are consistent with increased market activity observed at the farmer level.
+The agro-dealer results are consistent with increased engagement at the farmer level.
  At midline,
  treated agro-dealers score significantly higher on the 
 \begin_inset CommandInset citation
@@ -8822,24 +8671,28 @@ literal "false"
 \end_inset
 
  index,
- and their estimated revenue is nearly 20% higher than that of control agro-dealers,
+ and their revenue is nearly 20% higher than that of control agro-dealers,
  significant at the 10% level.
- This revenue effect appears more consistent with expanded sales than price increases,
- though the volume and price components are not individually statistically significant.
+ This revenue effect appears more consistent with higher sales volumes (28.4% relative to baseline) than with higher prices (2.3% relative to baseline),
+ although neither component is individually statistically significant.
  At endline,
  the treatment effect on the business-activity index is significant at the 1% level,
  driven primarily by treated agro-dealers reporting 31% more customers than control agro-dealers,
- or roughly six additional customers per day relative to the baseline mean.
+ equivalent to roughly six additional customers per day.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Agro-dealers could display the certificate in their shops,
+ and at endline it was visible in 56% of them.
+ Ratings may therefore have been observed by non-sampled farmers,
+ extending exposure beyond the study sample.
+ Because randomization occurred at the catchment-area level,
+ any such additional exposure remains within treated areas and does not threaten identification.
 \end_layout
 
-\begin_layout Standard
-Taken together,
- the farmer and agro-dealer results suggest that the clearinghouse increased engagement with agro-dealer seed markets.
- Treated farmers became more likely than control farmers to purchase high-yielding seed from agro-dealers,
- and treated agro-dealers report higher customer activity and revenue than control agro-dealers.
- These effects are consistent with the model's adoption prediction,
- but because adoption and market activity can arise under all three channels,
- they are interpreted as downstream market responses rather than as evidence for a specific mechanism.
+\end_inset
+
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8851,7 +8704,16 @@ nolink "false"
 
 \end_inset
 
- reports business outcomes for two recently released maize varieties (Longe 10H and Longe 5).
+ reports business outcomes for two recently released maize varieties (Longe 10H and Longe 5),
+ further supporting this pattern.
+\end_layout
+
+\begin_layout Standard
+Taken together,
+ the farmer and agro-dealer results show that the intervention shifts farmers toward purchasing seed from agro-dealers.
+ These effects are consistent with the model’s adoption prediction,
+ but because all three channels can affect sourcing decisions,
+ they do not identify a specific mechanism.
 \end_layout
 
 \begin_layout Standard
@@ -8860,7 +8722,7 @@ placement document
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8988,7 +8850,7 @@ cmidrule(lr){5-6}
 \end_layout
 
 \begin_layout Plain Layout
-Maize seed sales volume in kg$^
+Maize seed sales volume in kg$^1$$^
 \backslash
 S$$^
 \backslash
@@ -9072,7 +8934,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,1],digits=3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
-Sales price of maize seed in UGX/kg$^
+Sales price of maize seed in UGX/kg$^2$$^
 \backslash
 dag$
 \end_layout
@@ -9154,7 +9016,7 @@ Sexpr{format(round(df_ols_end_D_prim[2,2,2],digits=3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
-Revenue from maize seed in mln UGX$^
+Revenue from maize seed in mln UGX$^3$$^
 \backslash
 S$$^
 \backslash
@@ -9587,6 +9449,39 @@ S$Due to the skewness of this variable,
  the regression was run after an inverse hyperbolic sine transformation.
  Coefficient estimates can therefore be interpreted as percentage changes.
  The baseline mean column shows the untransformed variable.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$^1$Total quantity sold in the previous season of the four most widely used high-yielding maize varieties (Longe 7H,
+ Longe 10H,
+ Longe 4,
+ and Longe 5),
+ constructed from variety-level sales.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$^2$Average start-of-season sales price across varieties,
+ constructed from variety-level prices.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+$^3$Multiplying quantities sold by prices and summing across varieties.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -9601,6 +9496,10 @@ S$Due to the skewness of this variable,
 
 \begin_layout Subsection
 Harvest outcomes
+\end_layout
+
+\begin_layout Standard
+Here.
 \end_layout
 
 \begin_layout Standard
