@@ -833,10 +833,10 @@ literal "false"
 .
  A related literature shows that reducing search and information frictions can improve matching,
  trade,
- and market integration in both online and low-income-country markets 
+ and market functioning in both online and low-income-country markets 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "NBERw28100,NBERw33221,Startz2024,NBERw33082,10.1093/ej/ueaf009"
+key "10.1257/aer.20161965,NBERw28100,NBERw33221,Startz2024,NBERw33082,10.1093/ej/ueaf009"
 literal "false"
 
 \end_inset
@@ -9496,15 +9496,15 @@ $^3$Multiplying quantities sold by prices and summing across varieties.
 \end_layout
 
 \begin_layout Subsection
-Harvest outcomes
+
+\series bold
+Productivity
+\series default
+ and harvest outcomes
 \end_layout
 
 \begin_layout Standard
-Here.
-\end_layout
-
-\begin_layout Standard
-We examine harvest-related outcomes on a randomly selected maize plot in Table 
+We examine harvest-related outcomes on a randomly selected maize plot in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Effects on farmer outcomes at end of causal chain: Harvest"
@@ -9516,7 +9516,7 @@ nolink "false"
 \end_inset
 
 .
- Outcomes include production,
+ These include production,
  plot size,
  yield,
  the value of maize production at market prices net of seed costs,
@@ -9525,28 +9525,50 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Results show positive endline effects.
- The overall index is positive and statistically significant,
- and treated farmers achieve yields that are 56 kilograms per acre higher than the control group,
+The overall index shows a positive and statistically significant treatment effect at endline.
+ Treated farmers achieve yields that are 56 kilograms per acre higher than those of control farmers,
  a 13% increase relative to the baseline mean and significant at the 1% level.
  The value of maize production net of seed costs is 66,000 UGX higher for treated farmers,
  approximately 18 USD at the time of the survey.
  Treated farmers also retain less maize for seed at midline,
  consistent with reduced reliance on farmer-saved seed.
- We find no effects on quantity sold or total maize revenue.
- This suggests that the yield gains did not translate into detectable increases in marketed surplus,
- and that additional output was likely retained within the household.
+ We find no effects on the quantity of maize sold or on revenue,
+ suggesting that the yield gains do not translate into larger marketed surpluses and that additional output remains within the household.
 \end_layout
 
 \begin_layout Standard
-The harvest effects provide downstream evidence that the intervention improved realized agricultural outcomes,
- not only beliefs or sourcing decisions.
- They are consistent with the model's prediction that credible seed-performance information can raise yields when it shifts farmers toward higher-performing seed or improves the performance of seed actually purchased.
+These harvest effects provide evidence that the intervention improves realized agricultural outcomes beyond beliefs and sourcing decisions.
+ They are consistent with the model’s prediction that credible seed-performance information increases productivity by shifting farmers toward higher-performing seed or by improving the performance of the seed they actually purchase.
  However,
- productivity effects do not distinguish sharply between belief updating,
+ the observed yield gains are consistent with all three channels – belief updating,
  agro-dealer sorting,
- and supply-side accountability,
- since all three channels can generate yield gains.
+ and supply-side accountability – and therefore do not by themselves identify a specific mechanism.
+\end_layout
+
+\begin_layout Standard
+The treatment effect on adoption alone may not fully explain the observed yield effect.
+ It may also reflect changes in how farmers use purchased seed:
+ by reducing uncertainty about seed performance,
+ the intervention may increase investments in complementary inputs and practices whose returns depend on seed quality,
+ as in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1257/aer.20150474"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Bulte2025"
+literal "false"
+
+\end_inset
+
+.
+ Consistent with this,
+ treated farmers are approximately 5 percentage points more likely to use inorganic fertilizer at both midline and endline.
 \end_layout
 
 \begin_layout Standard
@@ -10545,73 +10567,23 @@ $^1$Production in UGX,
 
 \end_layout
 
-\begin_layout Standard
-A back-of-envelope calculation suggests that the adoption margin alone is unlikely to mechanically account for the full yield effect.
- Even assuming improved varieties yield 50 percent more than farmer-saved seed,
- the roughly 4 percentage point increase in agro-dealer sourcing would explain only a modest share of the observed 56 kg/acre yield gain.
- The remaining effect could reflect changes in how farmers use purchased seed.
- By reducing uncertainty about seed performance,
- the clearinghouse may increase incentives to invest in complementary inputs whose returns depend on seed quality,
- as in 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Bulte2025"
-literal "false"
-
-\end_inset
-
-.
- Consistent with this explanation,
- treated farmers are approximately 5 percentage points more likely to use inorganic fertilizer at both midline and endline and are less likely to intercrop at midline.
-\end_layout
-
 \begin_layout Subsection
-Alternative channels:
- agro-dealer sorting and supply-side accountability
+Agro-dealer switching
 \end_layout
 
 \begin_layout Standard
-The results so far are consistent with belief updating:
- the clearinghouse improves perceived seed performance and increases engagement with agro-dealer seed markets.
- However,
- as outlined in out model in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "2 Conceptual model"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-tuple "list"
-
-\end_inset
-
-,
- the downstream adoption and productivity effects could also arise through two other channels in the model.
- First,
- ratings may help farmers sort across agro-dealers.
- Second,
- public ratings may increase agro-dealers' incentives to improve the performance of the seed they sell.
- We therefore turn to these two alternative channels.
-\end_layout
-
-\begin_layout Subsubsection
-Agro-dealer sorting and agro-dealer switching
-\end_layout
-
-\begin_layout Standard
-Because the clearinghouse provides agro-dealer-specific ratings,
- it may help farmers identify higher-performing sellers and reallocate purchases toward them.
- The model predicts that this channel should generate switching across agro-dealers,
- especially where ratings reveal meaningful cross-dealer differences.
- Unlike belief updating about agro-dealer seed in general,
- agro-dealer sorting requires movement across sellers rather than only increased engagement with agro-dealer seed markets.
+We investigate whether the intervention induces farmers to reallocate purchases toward sellers of higher-performing seed.
+ The model predicts that the agro-dealer sorting channel should generate switching,
+ particularly where ratings reveal meaningful performance differences across agro-dealers.
+ Unlike belief updating,
+ which may induce farmers to shift away from farmer-saved seed toward agro-dealer seed markets,
+ agro-dealer sorting requires farmers who already purchase from agro-dealers to switch across sellers.
 \end_layout
 
 \begin_layout Standard
 We test this prediction by examining whether treated farmers are more likely to switch agro-dealers between adjacent seasons.
  The analysis is restricted to farmers who purchase maize seed from an agro-input shop in both seasons,
- since switching is only defined for repeated buyers.
+ since switching is only defined for them.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10624,25 +10596,24 @@ nolink "false"
 \end_inset
 
  shows that switching is common:
- 46% of farmers who purchase maize seed in both baseline and midline buy from a different agro-dealer across the two seasons.
- The clearinghouse increases switching by 6.2 percentage points at midline,
- significant at the 10% level.
- By endline,
- the estimate is smaller and no longer statistically significant.
- Exploratory heterogeneity analyses by rating dispersion provide similarly limited support for agro-dealer sorting:
- switching appears,
+ 46% of repeat buyers purchase from a different agro-dealer at midline than at baseline.
+ The intervention increases switching by 6.2 percentage points at midline,
+ significant at the 10% level,
+ but the estimate is smaller and no longer statistically significant at endline.
+ Exploratory heterogeneity analyses by rating dispersion provide similarly limited support:
+ switching effects appear,
  if at all,
  only in catchment areas with unusually dispersed agro-dealer ratings.
 \end_layout
 
 \begin_layout Standard
-These results provide only weak evidence for agro-dealer sorting as a primary channel.
- The intervention may have induced some short-run reallocation across sellers,
- but the effect is not persistent.
- Moreover,
- switching alone does not establish that farmers sorted toward higher-performing agro-dealers,
- especially because the adoption and business-activity results point to broader engagement with agro-dealer seed markets.
- This interpretation is consistent with 
+Overall,
+ these results provide weak evidence for agro-dealer sorting as a primary channel.
+ The intervention may induce some short-run reallocation across sellers,
+ but the effect does not persist.
+ This suggests that the intervention primarily affects whether farmers engage with agro-dealers at all,
+ rather than which agro-dealer they choose.
+ This is consistent with 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hasanain2019no"
@@ -10651,7 +10622,7 @@ literal "false"
 \end_inset
 
 ,
- who find no evidence that livestock farmers switch to higher-performance veterinarians.
+ who find no evidence that farmers switch to higher-performing providers in response to an information platform for artificial livestock insemination services in Pakistan.
 \end_layout
 
 \begin_layout Standard
@@ -10942,34 +10913,22 @@ $^1$Comparisons are restricted to farmers who purchased maize seed from an agro-
 
 \end_layout
 
-\begin_layout Subsubsection
-Supply-side accountability
+\begin_layout Subsection
+Agro-dealer responses and seed performance
 \end_layout
 
 \begin_layout Standard
-We next examine the supply-side accountability channel.
+We investigate whether the intervention induces agro-dealers to change their behavior.
  In the model,
- public ratings increase the reputational return to selling well-performing seed.
- This channel has two empirical implications.
+ public ratings increase agro-dealers’ reputational return to selling well-performing seed under the supply-side accountability channel.
+ This has two empirical implications.
  First,
- agro-dealers may respond when ratings make quality more visible,
- including through seed handling and storage practices,
+ agro-dealers may respond through improvements in seed handling,
  customer service,
  or quality signaling.
  Second,
- if these responses improve the seed itself,
- they should translate into measurable improvements in agro-dealer-level seed performance.
- By contrast,
- belief updating changes farmers' perceptions and adoption decisions without changing seed performance at a given agro-dealer.
- Evidence from other contexts shows that public quality disclosure can induce sellers to adjust behavior 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1162/003355303321675428,doi:10.1086/688875,doi:10.1086/734133"
-literal "false"
-
-\end_inset
-
-.
+ if these responses affect the seed itself,
+ they should translate into measurable improvements in objective seed performance.
 \end_layout
 
 \begin_layout Standard
@@ -10984,33 +10943,31 @@ nolink "false"
 
 \end_inset
 
- reports effects on agro-dealer practices.
+ reports treatment effects on agro-dealer responses.
  We construct two indices from enumerator observations of seed handling and storage:
  labor-intensive practices,
  such as not storing seed in open containers,
  and capital-intensive practices,
  such as having a leak-proof roof.
- Neither of the two indices responds to the intervention.
- Thus,
- we find little evidence that the clearinghouse induced agro-dealers to change the storage and handling practices most directly related to seed preservation.
+ Neither index is affected by the intervention,
+ providing no evidence that agro-dealers change the practices most directly related to seed preservation.
 \end_layout
 
 \begin_layout Standard
 The intervention does,
  however,
- generate suggestive evidence of customer-facing agro-dealer responses.
- We measure service provision from both agro-dealer and farmer reports.
- The agro-dealer-reported service index,
- including recommendations about complementary inputs,
- is higher among treated agro-dealers at endline;
- a parallel farmer-reported service index is higher for treated agro-dealers at midline.
+ generate suggestive evidence of customer-facing responses.
+ We measure service provision using both agro-dealer and farmer reports.
+ The agro-dealer-reported service index – including,
+ for example,
+ recommendations about complementary inputs – is higher among treated agro-dealers at endline,
+ while a parallel farmer-reported service index is higher at midline.
  Although the timing differs,
- both measures point to improved customer-facing service provision.
- We also find a positive effect on activities that signal credibility or professionalism to customers,
- such as membership in a professional association:
- a fifth index capturing signaling practices is higher among treated agro-dealers at endline.
- These patterns suggest that agro-dealers responded to increased transparency,
- especially along service and signaling margins.
+ both measures point to improved service provision.
+ We also find a positive effect on quality signaling – activities that convey credibility or professionalism to customers,
+ such as membership in a professional association – with the index higher among treated agro-dealers at endline.
+ Together,
+ these patterns suggest that agro-dealers respond to the intervention along service and signaling margins.
 \end_layout
 
 \begin_layout Standard
@@ -11821,6 +11778,10 @@ $^5$The index of quality signaling practices includes 5 variables:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Here.
 \end_layout
 
 \begin_layout Standard
