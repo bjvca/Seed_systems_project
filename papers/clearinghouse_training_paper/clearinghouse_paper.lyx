@@ -805,7 +805,23 @@ literal "false"
  adoption,
  and productivity,
  alongside weak and non-persistent switching and no detectable improvement in seed performance – provides evidence that uncertainty about seed performance is a binding constraint on adoption.
- While farmers’ imprecise or overly pessimistic beliefs have been documented in fertilizer markets 
+ While farmers’ imprecise or overly pessimistic beliefs
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Farmers who had not previously purchased seed from agro-dealers held more pessimistic beliefs than farmers with prior purchasing experience who provided the ratings.
+\end_layout
+
+\begin_layout Plain Layout
+The combination of positive treatment effects on perceptions,
+ adoption,
+ and productivity suggests that prior beliefs were overly pessimistic relative to seed performance and that the seeds accessed through agro-dealers performed favorably compared with outside options.
+\end_layout
+
+\end_inset
+
+ have been documented in fertilizer markets 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "MICHELSON2021102579,https://doi.org/10.1111/ajae.12466"
@@ -11781,11 +11797,7 @@ $^5$The index of quality signaling practices includes 5 variables:
 \end_layout
 
 \begin_layout Standard
-Here.
-\end_layout
-
-\begin_layout Standard
-We then examine whether these agro-dealer responses translated into measurable improvements in seed performance.
+We then examine whether these agro-dealer responses translate into measurable improvements in seed performance.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11797,23 +11809,19 @@ nolink "false"
 
 \end_inset
 
- reports treatment effects on seed-performance indicators.
+ reports treatment effects on several seed-performance indicators.
  Enumerators purchased an original,
- sealed maize seed bag from agro-dealers and evaluated moisture content,
+ sealed bag of maize seed from agro-dealers and assessed moisture content,
  packaging integrity,
- and packaging information,
- including the visibility of the packaging date and lot number and the number of days since packaging.
- We find no significant treatment effects on these indicators.
+ and packaging information.
+ Consistent with the absence of changes in seed handling and storage practices most directly related to seed preservation,
+ we find no significant treatment effects on any of these indicators.
 \end_layout
 
 \begin_layout Standard
 Because not all sampled agro-dealers had maize seed in stock at the time of the survey,
- the seed-performance sample is smaller than the main agro-dealer sample and may not fully capture the seed available to farmers at planting.
- In particular,
- if higher-performing agro-dealers sold out earlier,
- or if the relevant quality margin occurred for seed purchased earlier in the season,
- bag-level measures collected at survey time could understate supply-side improvements.
- To assess whether the null result is driven by limited precision,
+ the seed-performance sample is smaller than the main sample.
+ To assess whether the null result reflects limited statistical precision,
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11825,25 +11833,64 @@ nolink "false"
 
 \end_inset
 
- reports a power analysis for seed moisture content,
- the pre-registered objective measure.
- The analysis shows that the observed endline effect is small relative to baseline variation and would remain difficult to detect even with substantially larger samples.
+ reports a power analysis for moisture content,
+ a pre-registered objective indicator of seed performance.
+ The analysis shows that the estimated endline effect is small relative to the variation in the data and would remain difficult to detect even with a substantially larger sample.
  As a complementary check,
- we examine additional seed-performance proxies available for larger samples and again find no treatment effects.
- We therefore interpret the seed-performance results as evidence against detectable improvements in the measures available in our data,
- rather than as ruling out all supply-side quality responses.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Effects on dealer memberships. licenses. inspections"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ examines additional seed-performance proxies available for larger samples and again finds no treatment effects.
+ We therefore find no evidence of detectable improvements in the measured seed-performance indicators.
 \end_layout
 
 \begin_layout Standard
 Taken together,
- the supply-side results show some evidence that agro-dealers responded to increased transparency,
- primarily through customer-facing service and signaling margins.
+ the supply-side results provide some evidence that agro-dealers respond to the intervention,
+ primarily along service and signaling margins.
  However,
- we do not find detectable improvements in seed handling,
+ we find no detectable improvements in seed handling,
  storage,
  or measured seed performance.
- The evidence therefore supports a limited supply-side response,
- but not the stronger version of supply-side accountability in which reputational pressure improves the underlying performance of seed sold by agro-dealers.
+ The evidence therefore points to a limited supply-side response,
+ but provides no support for supply-side accountability as the primary channel,
+ which would require reputational pressure to translate into improvements in the objective performance of seed sold by agro-dealers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+and may not fully capture the seed available to farmers at planting.
+ In particular,
+ if higher-performing agro-dealers sold out earlier,
+ or if the relevant quality margin occurred for seed purchased earlier in the season,
+ bag-level measures collected at survey time could understate supply-side improvements.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+rather than as ruling out all supply-side quality responses
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -12582,105 +12629,92 @@ name "7 Conclusion"
 \end_layout
 
 \begin_layout Standard
-This paper studies whether aggregated peer ratings can improve market outcomes when farmers face uncertainty about the performance of agricultural inputs.
- We implemented a clearinghouse that collected farmers' experiences with maize seed purchased from agro-dealers,
- aggregated these experiences into agro-dealer-level ratings,
- and disseminated the ratings to farmers and agro-dealers.
- We use a simple model to organize three channels through which the intervention may affect outcomes:
+This paper studies how aggregating and disseminating peer experiences affects adoption and productivity when farmers face uncertainty about the performance of agricultural inputs.
+ We designed an intervention that collected farmers’ experiences with maize seed purchased from agro-dealers,
+ aggregated these into agro-dealer-level ratings,
+ and disseminated them to farmers and agro-dealers in a randomized experiment.
+\end_layout
+
+\begin_layout Standard
+A conceptual model organizes three channels through which the intervention may affect outcomes:
  belief updating about agro-dealer seed,
  sorting across agro-dealers,
  and supply-side accountability.
- The experimental design,
- combined with outcomes on farmer perceptions,
+ Measures of farmers’ perceptions,
  adoption,
  switching,
- harvests,
- agro-dealer behavior,
- and seed-performance indicators,
- allows us to assess which of these channels is most consistent with the data.
+ and harvests,
+ alongside agro-dealer responses and seed-performance indicators,
+ allow us to assess which mechanism is most consistent with the observed pattern of results.
 \end_layout
 
 \begin_layout Standard
-The results show that the clearinghouse shifted farmers' perceptions and behavior.
- Farmers in treated catchment areas report more favorable perceptions of agro-dealer seed performance.
- The effect on perceptions is imprecise and subgroup estimates by prior purchasing experience are similar,
- so we interpret this as evidence of upward belief updating overall rather than strong evidence of differential updating by experience.
- The clearinghouse also increases adoption and sourcing from agro-dealers.
- These effects are concentrated on the extensive margin:
- more farmers purchase high-yielding maize seed from agro-dealers,
- while quantities purchased conditional on buying do not increase.
+The intervention affects farmers’ perceptions,
+ behavior,
+ and harvests.
+ Treated farmers hold more favorable perceptions of agro-dealer seed performance.
+ The intervention also increases adoption and purchases from agro-dealers.
+ Treated farmers achieve higher yields and higher net production values.
+ These gains are consistent with credible seed-performance information shifting farmers toward better-performing seed,
+ changing how purchased seed is used,
+ or improving the performance of seed at agro-dealers.
+ However,
+ because adoption and productivity can increase under all three channels,
+ these outcomes alone do not identify the underlying mechanism.
 \end_layout
 
 \begin_layout Standard
-The intervention further improves later-stage agricultural outcomes.
- Treated farmers achieve higher yields and higher net production values on randomly selected maize plots,
- while maize sales do not increase detectably.
- These productivity effects are consistent with credible seed-performance information shifting farmers toward better-performing seed or changing how they use purchased seed.
- They are not,
- however,
- mechanism-specific:
- adoption,
- productivity,
- and market activity can increase under belief updating,
- agro-dealer sorting,
- or supply-side accountability.
-\end_layout
-
-\begin_layout Standard
-The mechanism evidence points most strongly to belief updating.
- We find only weak evidence that the clearinghouse induces agro-dealer sorting:
- switching across agro-dealers increases modestly at midline,
- but the effect is not persistent,
- and switching alone does not establish that farmers sorted toward higher-performing agro-dealers.
- On the supply side,
- agro-dealers appear to respond along customer-facing service and signaling margins,
- but we do not detect improvements in seed handling,
+The overall pattern of evidence points most strongly to belief updating.
+ Switching across agro-dealers increases modestly at midline but does not persist,
+ providing limited support for agro-dealer sorting as the primary channel.
+ Agro-dealers respond along service and signaling margins,
+ yet we detect no improvements in seed handling,
  storage,
- or measured seed performance.
- Because the seed-performance measures are limited to seed bags available at the time of survey,
- these results do not rule out all supply-side quality responses.
- They do,
- however,
- provide little evidence for the stronger supply-side accountability channel in which reputational pressure improves the underlying performance of seed sold by agro-dealers.
+ or measured seed-performance,
+ providing limited support for supply-side accountability as the primary channel.
 \end_layout
 
 \begin_layout Standard
-Taken together,
- the findings suggest that the primary constraint addressed by the clearinghouse was not farmers' inability to identify the best seller among many active sellers,
+The findings suggest that the binding constraint was not farmers’ inability to identify the best seller,
  but uncertainty about whether agro-dealer seed was worth purchasing at all.
- This distinction matters for the design of information interventions.
+ This distinction has important implications.
  In markets where buyers already participate but face difficulty choosing among sellers,
- ratings may operate mainly through sorting and matching.
+ ratings may operate primarily through sorting across suppliers.
  In markets where many potential buyers remain outside the formal market because input performance is uncertain,
- broad dissemination of credible performance information may be more important than fine-grained rankings.
+ broad dissemination of credible information may instead increase market participation itself.
 \end_layout
 
 \begin_layout Standard
-The policy implication is that experience-based information systems can complement formal quality assurance where regulatory capacity,
+The policy implication is that experience-based information systems can complement formal quality assurance where regulation,
  certification,
  or private branding provide incomplete signals to farmers.
- A relatively decentralized system that aggregates local user experiences can reduce informational barriers to adoption and increase market engagement.
+ By aggregating user experiences,
+ such decentralized systems may reduce informational barriers to adoption and increase engagement with formal input markets.
  At the same time,
- the results caution against assuming that transparency alone will generate large supply-side quality improvements.
- Ratings may induce agro-dealers to improve service and signaling,
- but stronger incentives,
- better measurement,
- or direct quality enforcement may be needed to improve the underlying performance of inputs sold through retail markets.
+ the results caution against assuming that transparency alone generates substantial supply-side quality improvements.
+ Strengthening seller accountability and improving input performance may require more direct intervention.
 \end_layout
 
 \begin_layout Standard
-The intervention studied here relied on an offline design because smartphone access was limited at the time of implementation.
- As digital access expands among smallholder farmers,
- similar systems could be delivered at lower cost and larger scale.
- Whether digital versions can preserve the credibility,
+As smartphone access expands among smallholder farmers,
+ digital systems could reach them at lower cost and larger scale.
+ An important question for future research is whether digital delivery can preserve the credibility,
  local relevance,
- and reach of the offline clearinghouse,
- while also strengthening seller accountability,
- remains an important question for future research.
+ and informational value of an offline intervention while also generating stronger incentives for agro-dealers to improve input quality.
 \end_layout
 
 \begin_layout Standard
-...
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Because the seed-performance measures are limited to seed bags available at the time of survey,
+ these results do not rule out all supply-side quality responses.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -13040,6 +13074,1196 @@ status open
 includepdf[pages=-,pagecommand={},width=
 \backslash
 textwidth]{output_AD_211.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Alternative index construction
+\begin_inset CommandInset label
+LatexCommand label
+name "robustness"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We recompute all summary indices following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+ as a robustness check to the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ indices used in the main analysis.
+ For farmers’ perceptions of seed performance,
+ the treatment effect becomes statistically insignificant when the index is constructed following 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+.
+ Results for farmers’ adoption and sourcing decisions remain robust.
+ Results for agro-dealers’ business activity (general,
+ Longe 10H,
+ and Longe 5) are largely robust.
+\end_layout
+
+\begin_layout Standard
+For farmers’ harvest outcomes,
+ the positive endline effect remains robust.
+ At midline,
+ however,
+ the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+ index yields a significant negative coefficient.
+ The harvest outcomes included in the index are mechanically related (e.g.,
+ yield,
+ production,
+ and revenue).
+ The 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ method down-weights highly correlated components,
+ whereas 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+ assigns equal weights and treats these outcomes as independent,
+ which can amplify the influence of redundant information and generate a negative treatment effect.
+ That is why we rely on the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ method,
+ as pre-registered in our 
+\begin_inset CommandInset href
+LatexCommand href
+name "pre-analysis plan"
+target "https://www.socialscienceregistry.org/trials/6361"
+literal "false"
+
+\end_inset
+
+,
+ and use 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+ only as a robustness check.
+\end_layout
+
+\begin_layout Standard
+Results for agro-dealers’ practices remain robust,
+ as do all null results regarding agro-dealers’ seed performance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+ vs.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "kling2007experimental"
+literal "false"
+
+\end_inset
+
+ indices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular}{rcc|cccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{2}{c}{Anderson} & 
+\backslash
+multicolumn{2}{c}{Kling et al.} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{endline}} & 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{midline}} & 
+\backslash
+multicolumn{1}{c}{
+\backslash
+textit{endline}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+cmidrule(lr){2-2} 
+\backslash
+cmidrule(lr){3-3} 
+\backslash
+cmidrule(lr){4-4} 
+\backslash
+cmidrule(lr){5-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Farmers’ perceived seed performance
+\end_layout
+
+\begin_layout Plain Layout
+& & 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& & 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,17],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,17]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,17]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,17]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+& & (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& & (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,17],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Farmers’ adoption and sourcing decisions
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_F_nobase[3,2,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,16]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_F_nobase[3,2,16]<.05,"*",ifelse(df_ols_F_nobase[3,2,16]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,16],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,16]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,16]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,16]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,16],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,16],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ business activity (general)
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,7]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,7],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,7]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,7]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,7]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,10]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,10]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,10],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,10]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,10]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,10]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,7],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,10],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,10],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ business activity (Longe 10H)
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL10H_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL10H_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,2]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL10H_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ business activity (Longe 5)
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL5_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_secL5_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL5_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL5_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_secL5_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_secL5_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL5_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_secL5_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,2,2]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_secL5_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_secL5_B[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Farmers’ harvest
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_F_nobase[3,2,11]<.05,"*",ifelse(df_ols_F_nobase[3,2,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,11],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,11]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,11]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,11]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_F_nobase[1,2,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_F_nobase[3,2,15]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_F_nobase[3,2,15]<.05,"*",ifelse(df_ols_F_nobase[3,2,15]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[1,2,15],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_F_nobase[3,2,15]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_F_nobase[3,2,15]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,15]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,11],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_F_nobase[2,2,15],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_F_nobase[2,2,15],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ practices
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,9]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,9]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,9],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,9]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,9]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,9]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,12]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,12]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,12],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,12]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,12]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,12]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,9],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,12],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,12],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ seed performance indicators
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,1],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_bag_B[2,2,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+Agro-dealers’ seed performance (alternative proxies)
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,13]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,13],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,13]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,13]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,13]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[1,2,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_D_sec_nobase[3,2,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_D_sec_nobase[3,2,14]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,14]<.1,"+","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+& 
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,14],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,14]<.01,"**"
+\end_layout
+
+\begin_layout Plain Layout
+	,ifelse(df_ols_end_D_sec_nobase[3,2,14]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,14]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,13],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_D_sec_nobase[2,2,14],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+& (
+\backslash
+Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,14],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+Note:
+ Columns (1) and (2) report differences between treatment and control groups,
+ with standard errors below (clustered at the level of randomization),
+ if the overall indices are constructed following Anderson (2008);
+ columns (3) and (4) report differences between treatment and control groups,
+ with standard errors below (clustered at the level of randomization),
+ if the overall indices are constructed following Kling,
+ Liebman,
+ and Katz (2007);
+ **,
+ *,
+ and + denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels;
+ larger indices indicate more desirable outcomes.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -18663,1196 +19887,6 @@ Note:
  $^
 \backslash
 dag$ indicates that the variable is included in the overall index;
- larger indices indicate more desirable outcomes.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Alternative index construction
-\begin_inset CommandInset label
-LatexCommand label
-name "robustness"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We recompute all summary indices following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- as a robustness check to the 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- indices used in the main analysis.
- For farmers’ perceptions of seed performance,
- the treatment effect becomes statistically insignificant when the index is constructed following 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
-.
- Results for farmers’ adoption and sourcing decisions remain robust.
- Results for agro-dealers’ business activity (general,
- Longe 10H,
- and Longe 5) are largely robust.
-\end_layout
-
-\begin_layout Standard
-For farmers’ harvest outcomes,
- the positive endline effect remains robust.
- At midline,
- however,
- the 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- index yields a significant negative coefficient.
- The harvest outcomes included in the index are mechanically related (e.g.,
- yield,
- production,
- and revenue).
- The 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- method down-weights highly correlated components,
- whereas 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- assigns equal weights and treats these outcomes as independent,
- which can amplify the influence of redundant information and generate a negative treatment effect.
- That is why we rely on the 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- method,
- as pre-registered in our 
-\begin_inset CommandInset href
-LatexCommand href
-name "pre-analysis plan"
-target "https://www.socialscienceregistry.org/trials/6361"
-literal "false"
-
-\end_inset
-
-,
- and use 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- only as a robustness check.
-\end_layout
-
-\begin_layout Standard
-Results for agro-dealers’ practices remain robust,
- as do all null results regarding agro-dealers’ seed performance.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement p
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand citet
-key "anderson2008multiple"
-literal "false"
-
-\end_inset
-
- vs.
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "kling2007experimental"
-literal "false"
-
-\end_inset
-
- indices
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-begin{tabular}{rcc|cccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-multicolumn{2}{c}{Anderson} & 
-\backslash
-multicolumn{2}{c}{Kling et al.} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
- 
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{endline}} & 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{midline}} & 
-\backslash
-multicolumn{1}{c}{
-\backslash
-textit{endline}}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-cmidrule(lr){2-2} 
-\backslash
-cmidrule(lr){3-3} 
-\backslash
-cmidrule(lr){4-4} 
-\backslash
-cmidrule(lr){5-5}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Farmers’ perceived seed performance
-\end_layout
-
-\begin_layout Plain Layout
-& & 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,1]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& & 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,17],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,17]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,17]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,17]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-& & (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& & (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,17],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Farmers’ adoption and sourcing decisions
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_F_nobase[3,2,13]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,13]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,13]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,16],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,16]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_F_nobase[3,2,16]<.05,"*",ifelse(df_ols_F_nobase[3,2,16]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,16],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,16]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,16]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,16]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,16],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,16],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ business activity (general)
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,7]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,7],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,7]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,7]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,7]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,10]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,10]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,10],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,10]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,10]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,10]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,7],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,10],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,10],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ business activity (Longe 10H)
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_secL10H_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL10H_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL10H_B[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL10H_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_secL10H_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL10H_B[3,2,2]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL10H_B[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL10H_B[2,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ business activity (Longe 5)
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_secL5_B[3,2,1]<.05,"*",ifelse(df_ols_D_secL5_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL5_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_secL5_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_secL5_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_D_secL5_B[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_secL5_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_secL5_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_secL5_B[3,2,2]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_secL5_B[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_secL5_B[2,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Farmers’ harvest
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_F_nobase[3,2,11]<.05,"*",ifelse(df_ols_F_nobase[3,2,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,11],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,11]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,11]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,11]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_F_nobase[1,2,15],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_F_nobase[3,2,15]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_F_nobase[3,2,15]<.05,"*",ifelse(df_ols_F_nobase[3,2,15]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[1,2,15],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_F_nobase[3,2,15]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_F_nobase[3,2,15]<.05,"*",ifelse(df_ols_end_F_nobase[3,2,15]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,11],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_F_nobase[2,2,15],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_F_nobase[2,2,15],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ practices
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,9]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,9]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,9],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,9]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,9]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,9]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,12]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,12]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,12],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,12]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,12]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,12]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,9],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,12],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,12],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ seed performance indicators
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,1]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_bag_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[1,2,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.05,"*",ifelse(df_ols_end_D_sec_bag_B[3,2,2]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,1],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_bag_B[2,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_bag_B[2,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-Agro-dealers’ seed performance (alternative proxies)
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,13]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,13]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,13],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,13]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,13]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,13]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[1,2,14],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_D_sec_nobase[3,2,14]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_D_sec_nobase[3,2,14]<.05,"*",ifelse(df_ols_D_sec_nobase[3,2,14]<.1,"+","")))}}$
-\end_layout
-
-\begin_layout Plain Layout
-& 
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[1,2,14],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(df_ols_end_D_sec_nobase[3,2,14]<.01,"**"
-\end_layout
-
-\begin_layout Plain Layout
-	,ifelse(df_ols_end_D_sec_nobase[3,2,14]<.05,"*",ifelse(df_ols_end_D_sec_nobase[3,2,14]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,13],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_D_sec_nobase[2,2,14],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-& (
-\backslash
-Sexpr{format(round(df_ols_end_D_sec_nobase[2,2,14],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-Note:
- Columns (1) and (2) report differences between treatment and control groups,
- with standard errors below (clustered at the level of randomization),
- if the overall indices are constructed following Anderson (2008);
- columns (3) and (4) report differences between treatment and control groups,
- with standard errors below (clustered at the level of randomization),
- if the overall indices are constructed following Kling,
- Liebman,
- and Katz (2007);
- **,
- *,
- and + denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels;
  larger indices indicate more desirable outcomes.
 \backslash
 
