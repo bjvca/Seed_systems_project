@@ -9560,11 +9560,45 @@ These harvest effects provide evidence that the intervention improves realized a
 \end_layout
 
 \begin_layout Standard
-The treatment effect on adoption alone may not fully explain the observed yield effect.
- It may also reflect changes in how farmers use purchased seed:
- by reducing uncertainty about seed performance,
- the intervention may increase investments in complementary inputs and practices whose returns depend on seed quality,
- as in 
+A back-of-the-envelope calculation suggests that increased adoption alone is unlikely to fully explain the observed yield effect.
+ Even if improved varieties yield 72% more than farmer-saved seed 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "JOVANOVIC2025103466"
+literal "false"
+
+\end_inset
+
+,
+ the approximately five percentage point increase in agro-dealer sourcing would account for only a modest share of the observed 56 kg/acre yield gain.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+At midline,
+ 778 treated farmers (44%) and 567 control farmers (40%) bought seed at agro-input shop for specific plot,
+ and 985 and 860 did not.
+ The average midline yield is 335.0229 kg/acre.
+\end_layout
+
+\begin_layout Plain Layout
+((778*X*335.0229)+(985*1*335.0229))/(778+985)-((567*X*335.0229)+(860*1*335.0229))/(567+860)=55.606
+\end_layout
+
+\begin_layout Plain Layout
+X=4.775964
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The remaining effect likely reflects changes in how farmers use purchased seed.
+ By reducing uncertainty about seed performance,
+ the intervention may encourage greater investment in complementary inputs whose returns depend on seed quality,
+ as documented by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.1257/aer.20150474"
@@ -9572,7 +9606,14 @@ literal "false"
 
 \end_inset
 
- and 
+.
+ Consistent with this,
+ treated farmers are about 5 percentage points more likely to use inorganic fertilizer at both midline and endline.
+\end_layout
+
+\begin_layout Standard
+A related explanation is the reallocation of labor.
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Bulte2025"
@@ -9580,9 +9621,10 @@ literal "false"
 
 \end_inset
 
-.
- Consistent with this,
- treated farmers are approximately 5 percentage points more likely to use inorganic fertilizer at both midline and endline.
+ show that greater certainty about seed quality raises yields and reduces crop failure by inducing farmers to invest more effort.
+ We find suggestive evidence consistent with this at midline:
+ treated farmers are less likely to intercrop and more likely to plant the recommended number of seeds per hill,
+ both indicative of increased production effort.
 \end_layout
 
 \begin_layout Standard
