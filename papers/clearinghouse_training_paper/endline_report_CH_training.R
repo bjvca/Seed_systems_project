@@ -874,8 +874,14 @@ baseline_farmers$area<-ifelse(baseline_farmers$Check2.check.maize.q30=="Yes",bas
 #IGNORING INTERCROPPING BECAUSE WILBER SAYS SO.
 #IF MAIZE IS INTERCROPPED, MAIZE IS OFTEN (ALMOST ALWAYS) THE MAIN CROP.
 #INTERCROPPED OR NOT, THERE'S AN EQUAL NUMBER OF MAIZE CROPS.
+baseline_farmers <- trim("Check2.check.maize.q50",baseline_farmers,trim_perc=.01)
+
 baseline_farmers$yield_inkg <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q51 #production in kg
-baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29 #yield in kg per acre
+
+baseline_farmers$Check2.check.maize.q29_original <- baseline_farmers$Check2.check.maize.q29
+baseline_farmers <- trim("Check2.check.maize.q29_original",baseline_farmers,trim_perc=.01)
+
+baseline_farmers$landproductivity <- baseline_farmers$yield_inkg/baseline_farmers$Check2.check.maize.q29_original #yield in kg per acre
 
 baseline_farmers$yield_inUGX <- baseline_farmers$Check2.check.maize.q50*baseline_farmers$Check2.check.maize.q52
 baseline_farmers$yield_indollar <- baseline_farmers$yield_inUGX/3561.51
@@ -7291,6 +7297,9 @@ baseline_farmers$yield_inkg_untrimmed <- baseline_farmers$yield_inkg
 baseline_farmers <- trim("yield_inkg",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_Check2.check.maize.q50 <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q50))
+
+baseline_farmers <- trim("mid_Check2.check.maize.q50",baseline_farmers,trim_perc=.01)
+
 baseline_farmers$mid_Check2.check.maize.q51 <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q51))
 baseline_farmers$mid_yield_inkg <- baseline_farmers$mid_Check2.check.maize.q50*baseline_farmers$mid_Check2.check.maize.q51
 baseline_farmers$mid_yield_inkg_untrimmed <- baseline_farmers$mid_yield_inkg
@@ -7314,10 +7323,14 @@ baseline_farmers <- trim("profit_inUGX",baseline_farmers,trim_perc=.05)
 baseline_farmers <- trim("Check2.check.maize.q29",baseline_farmers,trim_perc=.05)
 
 baseline_farmers$mid_Check2.check.maize.q29 <- as.numeric(as.character(baseline_farmers$CHECK.MAIZE.Q29))
+
+baseline_farmers$mid_Check2.check.maize.q29_original <- baseline_farmers$mid_Check2.check.maize.q29
+baseline_farmers <- trim("mid_Check2.check.maize.q29_original",baseline_farmers,trim_perc=.01)
+
 baseline_farmers$mid_Check2.check.maize.q29_untrimmed <- baseline_farmers$mid_Check2.check.maize.q29
 baseline_farmers <- trim("mid_Check2.check.maize.q29",baseline_farmers,trim_perc=.05)
 
-baseline_farmers$mid_landproductivity <- baseline_farmers$mid_yield_inkg_untrimmed/baseline_farmers$mid_Check2.check.maize.q29_untrimmed #yield in kg per acre
+baseline_farmers$mid_landproductivity <- baseline_farmers$mid_yield_inkg_untrimmed/baseline_farmers$mid_Check2.check.maize.q29_original #yield in kg per acre
 baseline_farmers <- trim("mid_landproductivity",baseline_farmers,trim_perc=.05)
 
 #4. amount sold
